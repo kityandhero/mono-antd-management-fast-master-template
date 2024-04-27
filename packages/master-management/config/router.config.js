@@ -781,10 +781,6 @@ export default [
             component: './Section/PageList',
           },
           {
-            path: '/news/section/add',
-            component: './Section/Add',
-          },
-          {
             path: '/news/section/edit/:op/:id/:pageKey',
             name: 'edit',
             hideInMenu: true,
@@ -1732,6 +1728,7 @@ export default [
     path: '/result',
     name: 'result',
     icon: 'bars',
+    hideInMenu: true,
     routes: [
       {
         path: '/result',

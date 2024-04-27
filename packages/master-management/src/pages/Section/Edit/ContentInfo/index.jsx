@@ -17,9 +17,9 @@ import { TabPageBase } from '../../TabPageBase';
 
 const { MobileHtmlPreviewBox } = MobileContainor;
 
-@connect(({ section, loading }) => ({
+@connect(({ section, schedulingControl }) => ({
   section,
-  loading: loading.models.section,
+  schedulingControl,
 }))
 class ContentInfo extends TabPageBase {
   componentAuthority = accessWayCollection.section.get.permission;
@@ -30,9 +30,9 @@ class ContentInfo extends TabPageBase {
 
   constructor(properties) {
     super(properties);
+
     this.state = {
       ...this.state,
-
       loadApiPath: 'section/get',
       submitApiPath: 'section/updateContentInfo',
       sectionId: null,
@@ -96,6 +96,10 @@ class ContentInfo extends TabPageBase {
   };
 
   refreshContentPreview = () => {
+    console.log({
+      contentPreview: this.htmlContent,
+    });
+
     this.setState({
       contentPreview: this.htmlContent,
       contentChanged: false,
@@ -128,7 +132,6 @@ class ContentInfo extends TabPageBase {
               },
             ],
           },
-
           items: [
             {
               lg: 24,

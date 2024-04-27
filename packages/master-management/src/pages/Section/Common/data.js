@@ -1,26 +1,22 @@
-import { formNameCollection } from 'antd-management-fast-common';
+import { formNameCollection } from '../../../customConfig';
 
 export const fieldData = {
   ...formNameCollection,
+
   sectionId: {
     label: '数据标识',
     name: 'sectionId',
     helper: '',
   },
-  platformId: {
-    label: '平台标识',
-    name: 'platformId',
+  parentId: {
+    label: '上级标识',
+    name: 'parenId',
     helper: '',
   },
   name: {
     label: '栏目名称',
     name: 'name',
     helper: '栏目的名称,便于展示和后台管理',
-  },
-  parentId: {
-    label: '上级栏目',
-    name: 'parentId',
-    helper: '',
   },
   image: {
     label: '正方形图片',
@@ -57,6 +53,11 @@ export const fieldData = {
     name: 'mediaData',
     helper: '文章的媒体内容',
   },
+  sort: {
+    label: '排序值',
+    name: 'sort',
+    helper: '文章的排序值',
+  },
   renderType: {
     label: '渲染模式',
     name: 'renderType',
@@ -67,13 +68,8 @@ export const fieldData = {
     name: 'renderTypeNote',
     helper: '文章的渲染模式',
   },
-  sort: {
-    label: '排序值',
-    name: 'sort',
-    helper: '栏目的排序值',
-  },
   description: {
-    label: '简介描述 ',
+    label: '简介描述',
     name: 'description',
     helper: '',
   },
@@ -151,69 +147,6 @@ export const fieldData = {
     label: '阅读文章每日积分数额获取上限',
     name: 'obtainFromReadArticleDailyLimit',
     helper: '设置阅读文章每日积分数额获取上限',
-  },
-};
-
-export const mediaItemData = {
-  id: {
-    label: '数据标识',
-    name: 'id',
-    helper: '',
-  },
-  mediaType: {
-    label: '媒体类型',
-    name: 'mediaType',
-    helper: '',
-  },
-  title: {
-    label: '标题',
-    name: 'title',
-    helper: '',
-  },
-  description: {
-    label: '文字段落',
-    name: 'description',
-    helper: '文章的文字段落',
-  },
-  image: {
-    label: '配图',
-    name: 'image',
-    helper: '',
-  },
-  link: {
-    label: '链接',
-    name: 'link',
-    helper: '',
-  },
-  video: {
-    label: '视频',
-    name: 'video',
-    helper: '',
-  },
-  audio: {
-    label: '音频',
-    name: 'audio',
-    helper: '',
-  },
-  attachment: {
-    label: '附件',
-    name: 'attachment',
-    helper: '',
-  },
-  sort: {
-    label: '排序值',
-    name: 'sort',
-    helper: '',
-  },
-  createTime: {
-    label: '发布时间',
-    name: 'createTime',
-    helper: '',
-  },
-  updateTime: {
-    label: '最后更新时间',
-    name: 'updateTime',
-    helper: '',
   },
 };
 

@@ -9,6 +9,7 @@ import {
 
 import {
   columnFacadeMode,
+  getDerivedStateFromPropertiesForUrlParameters,
   searchCardConfig,
 } from 'antd-management-fast-common';
 import {
@@ -23,6 +24,7 @@ import {
   getYonYouPushMessageStatusName,
 } from '../../../customSpecialComponents';
 import { refreshCacheAction } from '../Assist/action';
+import { parseUrlParametersForSetState } from '../Assist/config';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 import { PreviewDrawer } from '../PreviewDrawer';
@@ -48,6 +50,15 @@ class PageList extends MultiPage {
       dateRangeFieldName: '创建时间',
       currentRecord: null,
     };
+  }
+
+  static getDerivedStateFromProps(nextProperties, previousState) {
+    return getDerivedStateFromPropertiesForUrlParameters(
+      nextProperties,
+      previousState,
+      { id: '' },
+      parseUrlParametersForSetState,
+    );
   }
 
   handleItemSendComplete = ({ target, handleData, remoteData }) => {

@@ -31,7 +31,6 @@ class Index extends TabPageBase {
 
     this.state = {
       ...this.state,
-
       loadApiPath: 'section/get',
       submitApiPath: 'section/updateBasicInfo',
       sectionId: null,
@@ -235,7 +234,6 @@ class Index extends TabPageBase {
               },
             ],
           },
-
           items: [
             {
               lg: 12,
@@ -258,11 +256,9 @@ class Index extends TabPageBase {
                   value,
                 };
               },
-              onChange: (v) => {
-                console.log(v);
-
+              onChange: ({ value }) => {
                 this.setState({
-                  parentId: toString(v),
+                  parentId: toString(value),
                 });
               },
             },
@@ -280,7 +276,6 @@ class Index extends TabPageBase {
             text: '配图上传',
             subText: '[上传后需点击保存按钮保存!]',
           },
-
           items: [
             {
               lg: 6,
@@ -313,7 +308,6 @@ class Index extends TabPageBase {
             icon: iconBuilder.contacts(),
             text: '关键词与描述信息',
           },
-
           items: [
             {
               lg: 24,
@@ -331,7 +325,6 @@ class Index extends TabPageBase {
           title: {
             text: '媒体、附件信息',
           },
-
           items: [
             {
               lg: 24,
@@ -372,7 +365,6 @@ class Index extends TabPageBase {
             icon: iconBuilder.contacts(),
             text: '其他信息',
           },
-
           items: [
             {
               type: cardConfig.contentItemType.onlyShowInput,

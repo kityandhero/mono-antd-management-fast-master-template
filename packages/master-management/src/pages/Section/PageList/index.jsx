@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { connect } from 'easy-soft-dva';
 import {
   buildRandomHexColor,
@@ -17,18 +19,15 @@ import {
   searchCardConfig,
   unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
-import {
-  buildColorText,
-  iconBuilder,
-  iconModeCollection,
-} from 'antd-management-fast-component';
+import { buildColorText, iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
-import { accessWayCollection, colorCollection } from '../../../customConfig';
+import { accessWayCollection } from '../../../customConfig';
 import {
   getSectionStatusName,
   renderSearchSectionStatusSelect,
 } from '../../../customSpecialComponents';
+import { AddBasicInfoDrawer } from '../AddBasicInfoDrawer';
 import {
   refreshCacheAction,
   setOfflineAction,
@@ -38,6 +37,7 @@ import {
   toggleVisibleAction,
 } from '../Assist/action';
 import { parseUrlParametersForSetState } from '../Assist/config';
+import { getStatusBadge } from '../Assist/tools';
 import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData, statusCollection } from '../Common/data';
 
@@ -53,7 +53,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      pageTitle: '栏目列表',
+      pageName: '栏目列表',
       paramsKey: accessWayCollection.section.pageList.paramsKey,
       loadApiPath: 'section/pageList',
     };
@@ -121,7 +121,10 @@ class PageList extends MultiPage {
       target,
       value: sectionId,
       compareValueHandler: (o) => {
-        const { sectionId: v } = o;
+        const v = getValueByKey({
+          data: o,
+          key: fieldData.sectionId.name,
+        });
 
         return v;
       },
@@ -172,7 +175,10 @@ class PageList extends MultiPage {
           target,
           value: sectionId,
           compareValueHandler: (o) => {
-            const { sectionId: v } = o;
+            const v = getValueByKey({
+              data: o,
+              key: fieldData.sectionId.name,
+            });
 
             return v;
           },
@@ -205,7 +211,10 @@ class PageList extends MultiPage {
           target,
           value: sectionId,
           compareValueHandler: (o) => {
-            const { sectionId: v } = o;
+            const v = getValueByKey({
+              data: o,
+              key: fieldData.sectionId.name,
+            });
 
             return v;
           },
@@ -238,7 +247,10 @@ class PageList extends MultiPage {
           target,
           value: sectionId,
           compareValueHandler: (o) => {
-            const { sectionId: v } = o;
+            const v = getValueByKey({
+              data: o,
+              key: fieldData.sectionId.name,
+            });
 
             return v;
           },
@@ -264,44 +276,22 @@ class PageList extends MultiPage {
     });
   };
 
-  getStatusBadge = (v) => {
-    let result = 'default';
-
-    const status = toNumber(v);
-
-    switch (status) {
-      case statusCollection.online: {
-        result = 'processing';
-        break;
-      }
-
-      case statusCollection.offline: {
-        result = 'error';
-        break;
-      }
-
-      default: {
-        result = 'default';
-        break;
-      }
-    }
-
-    return result;
+  showAddBasicInfoDrawer = () => {
+    AddBasicInfoDrawer.open();
   };
 
-  showChangeSortModal = (r) => {
-    this.setState({ currentRecord: r }),
-      () => {
-        ChangeSortModal.open();
-      };
+  afterAddBasicInfoDrawerOk = () => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  showChangeSortModal = (currentRecord) => {
+    this.setState({ currentRecord }, () => {
+      ChangeSortModal.open();
+    });
   };
 
   afterChangeSortModalOk = () => {
     this.refreshDataWithReloadAnimalPrompt({});
-  };
-
-  goToAdd = () => {
-    this.goToPath(`/news/section/add`);
   };
 
   goToEdit = (record) => {
@@ -429,7 +419,7 @@ class PageList extends MultiPage {
       facadeConfigBuilder: (value) => {
         return {
           color: buildRandomHexColor({
-            seed: value * 3 + 13,
+            seed: toNumber(value) * 3 + 13,
           }),
         };
       },
@@ -447,7 +437,7 @@ class PageList extends MultiPage {
       facadeConfigBuilder: (value) => {
         return {
           color: buildRandomHexColor({
-            seed: value * 4 + 8,
+            seed: toNumber(value) * 4 + 8,
           }),
         };
       },
@@ -465,7 +455,7 @@ class PageList extends MultiPage {
       facadeConfigBuilder: (value) => {
         return {
           color: buildRandomHexColor({
-            seed: value * 4 + 8,
+            seed: toNumber(value) * 4 + 8,
           }),
         };
       },
@@ -483,7 +473,7 @@ class PageList extends MultiPage {
       facadeMode: columnFacadeMode.badge,
       facadeConfigBuilder: (value) => {
         return {
-          status: this.getStatusBadge(value),
+          status: getStatusBadge(value),
           text: getSectionStatusName({
             value: value,
           }),
@@ -516,24 +506,6 @@ class PageList extends MultiPage {
       showRichFacade: true,
       facadeMode: columnFacadeMode.dropdown,
       configBuilder: (value, record) => {
-        const itemWhetherRecommend = getValueByKey({
-          data: record,
-          key: fieldData.whetherRecommend.name,
-          convert: convertCollection.number,
-        });
-
-        const itemWhetherTop = getValueByKey({
-          data: record,
-          key: fieldData.whetherTop.name,
-          convert: convertCollection.number,
-        });
-
-        const itemWhetherVisible = getValueByKey({
-          data: record,
-          key: fieldData.whetherVisible.name,
-          convert: convertCollection.number,
-        });
-
         const itemStatus = getValueByKey({
           data: record,
           key: fieldData.status.name,
@@ -557,75 +529,33 @@ class PageList extends MultiPage {
           items: [
             {
               key: 'toggleRecommend',
-              icon: itemWhetherRecommend
-                ? iconBuilder.closeCircle(
-                    {
-                      twoToneColor: colorCollection.noColor,
-                    },
-                    iconModeCollection.twoTone,
-                  )
-                : iconBuilder.checkCircle(
-                    {
-                      twoToneColor: colorCollection.yesColor,
-                    },
-                    iconModeCollection.twoTone,
-                  ),
-              text: itemWhetherRecommend ? '取消推荐' : '设为推荐',
+              icon: iconBuilder.swap(),
+              text: '切换推荐',
               hidden: !checkHasAuthority(
                 accessWayCollection.section.toggleRecommend.permission,
               ),
               confirm: true,
-              title: `即将${
-                itemWhetherRecommend ? '取消推荐' : '设为推荐'
-              }，确定吗？`,
+              title: '将要切换推荐设置，确定吗？',
             },
             {
               key: 'toggleTop',
-              icon: itemWhetherTop
-                ? iconBuilder.closeCircle(
-                    {
-                      twoToneColor: colorCollection.noColor,
-                    },
-                    iconModeCollection.twoTone,
-                  )
-                : iconBuilder.checkCircle(
-                    {
-                      twoToneColor: colorCollection.yesColor,
-                    },
-                    iconModeCollection.twoTone,
-                  ),
-              text: itemWhetherTop ? '取消置顶' : '设为置顶',
+              icon: iconBuilder.swap(),
+              text: '切换置顶',
               hidden: !checkHasAuthority(
                 accessWayCollection.section.toggleTop.permission,
               ),
               confirm: true,
-              title: `即将${
-                itemWhetherTop ? '取消置顶' : '设为置顶'
-              }，确定吗？`,
+              title: '将要切换置顶设置，确定吗？',
             },
             {
               key: 'toggleVisible',
-              icon: itemWhetherVisible
-                ? iconBuilder.closeCircle(
-                    {
-                      twoToneColor: colorCollection.noColor,
-                    },
-                    iconModeCollection.twoTone,
-                  )
-                : iconBuilder.checkCircle(
-                    {
-                      twoToneColor: colorCollection.yesColor,
-                    },
-                    iconModeCollection.twoTone,
-                  ),
-              text: itemWhetherVisible ? '设为隐藏' : '设为显示',
+              icon: iconBuilder.swap(),
+              text: '切换可见性',
               hidden: !checkHasAuthority(
                 accessWayCollection.section.toggleVisible.permission,
               ),
               confirm: true,
-              title: `即将${
-                itemWhetherVisible ? '设为隐藏' : '设为显示'
-              }，确定吗？`,
+              title: '将要切换可见性设置，确定吗？',
             },
             {
               key: 'setOnline',
@@ -637,8 +567,9 @@ class PageList extends MultiPage {
                 accessWayCollection.section.setOnline.permission,
               ),
               disabled: itemStatus === statusCollection.online,
-              confirm: true,
-              title: '即将设为上线，确定吗？',
+              confirm: {
+                title: '即将设为上线，确定吗？',
+              },
             },
             {
               key: 'setOffline',
@@ -648,8 +579,9 @@ class PageList extends MultiPage {
                 accessWayCollection.section.setOffline.permission,
               ),
               disabled: itemStatus === statusCollection.offline,
-              confirm: true,
-              title: '即将设为下线，确定吗？',
+              confirm: {
+                title: '即将设为下线，确定吗？',
+              },
             },
             {
               key: 'setSort',
@@ -670,8 +602,9 @@ class PageList extends MultiPage {
               hidden: !checkHasAuthority(
                 accessWayCollection.section.refreshCache.permission,
               ),
-              confirm: true,
-              title: '即将刷新缓存，确定吗？',
+              confirm: {
+                title: '即将刷新缓存，确定吗？',
+              },
             },
           ],
         };
@@ -696,21 +629,22 @@ class PageList extends MultiPage {
     };
   };
 
-  renderPresetOther = () => {
+  renderOther = () => {
     const { currentRecord } = this.state;
-
-    const renderChangeSortModal = checkHasAuthority(
-      accessWayCollection.section.updateSort.permission,
-    );
 
     return (
       <>
-        {renderChangeSortModal ? (
-          <ChangeSortModal
-            externalData={currentRecord}
-            afterOK={this.afterChangeSortModalOk}
-          />
-        ) : null}
+        <AddBasicInfoDrawer
+          afterOK={() => {
+            this.afterAddBasicInfoDrawerOk();
+          }}
+        />
+
+        <ChangeSortModal
+          externalData={currentRecord}
+          afterOK={this.afterChangeSortModalOk}
+          afterCancel={this.afterChangeSortModalCancel}
+        />
       </>
     );
   };

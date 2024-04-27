@@ -22,7 +22,7 @@ import { renderFormJsonItemTypeSelect } from '../../../customSpecialComponents';
 
 const { BaseAddDrawer } = DataDrawer;
 
-const visibleFlag = '4c33cdd25f1b4b8da103d59ead1b02d8';
+const visibleFlag = '7cfebbd20b2842df92d3dd3b8a357ac2';
 
 @connect(({ section, schedulingControl }) => ({
   section,

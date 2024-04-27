@@ -20,7 +20,7 @@ class PageList extends BaseInnerPageList {
       ...this.state,
       loadApiPath: 'section/pageListOperateLog',
       dateRangeFieldName: '操作时间',
-      sectionId: null,
+      applicationId: null,
       currentRecord: null,
     };
   }
@@ -40,9 +40,9 @@ class PageList extends BaseInnerPageList {
 
   supplementLoadRequestParams = (o) => {
     const d = o;
-    const { sectionId } = this.state;
+    const { applicationId } = this.state;
 
-    d.sectionId = sectionId;
+    d.applicationId = applicationId;
 
     return d;
   };

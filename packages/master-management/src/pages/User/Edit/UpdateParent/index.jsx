@@ -25,7 +25,7 @@ import {
 } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
 import { UserSelectDrawerField } from '../../SelectDrawerField';
-import TabPageBase from '../../TabPageBase';
+import { TabPageBase } from '../../TabPageBase';
 
 @connect(({ user, schedulingControl }) => ({
   user,

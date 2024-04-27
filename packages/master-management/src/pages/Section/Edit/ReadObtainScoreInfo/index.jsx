@@ -21,7 +21,7 @@ import { TabPageBase } from '../../TabPageBase';
   section,
   schedulingControl,
 }))
-class Index extends TabPageBase {
+class ReadObtainScoreInfo extends TabPageBase {
   goToUpdateWhenProcessed = true;
 
   constructor(properties) {
@@ -178,4 +178,4 @@ class Index extends TabPageBase {
   };
 }
 
-export default Index;
+export default ReadObtainScoreInfo;

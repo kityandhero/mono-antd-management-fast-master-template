@@ -21,7 +21,7 @@ import {
 
 const { BaseUpdateDrawer } = DataDrawer;
 
-const visibleFlag = '0a06404285284e0d983ad806a1b26ad0';
+const visibleFlag = '64849bbfc3d944d3bd7a4fcb3f5f8616';
 
 @connect(({ section, schedulingControl }) => ({
   section,

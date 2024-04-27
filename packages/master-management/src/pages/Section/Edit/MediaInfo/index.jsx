@@ -46,7 +46,7 @@ import { UpdateMediaItemDrawer } from '../../UpdateMediaItemDrawer';
   section,
   schedulingControl,
 }))
-class BasicInfo extends TabPageBase {
+class MediaInfo extends TabPageBase {
   componentAuthority = accessWayCollection.section.get.permission;
 
   constructor(properties) {
@@ -59,6 +59,9 @@ class BasicInfo extends TabPageBase {
       sectionId: null,
       mediaItemList: [],
       mediaItemCount: 0,
+      addMediaItemDrawerVisible: false,
+      updateMediaItemDrawerVisible: false,
+      mediaItemPreviewDrawerVisible: false,
       currentMediaItem: null,
       selectForwardId: '',
     };
@@ -73,25 +76,18 @@ class BasicInfo extends TabPageBase {
     );
   }
 
-  buildInitialValues = (
-    // eslint-disable-next-line no-unused-vars
-    metaData,
-    // eslint-disable-next-line no-unused-vars
-    metaListData,
-    // eslint-disable-next-line no-unused-vars
-    metaExtra,
-    // eslint-disable-next-line no-unused-vars
-    metaOriginalData,
-  ) => null;
+  // eslint-disable-next-line no-unused-vars
+  buildInitialValues = (metaData, metaListData, metaExtra, metaOriginalData) =>
+    null;
 
   doOtherAfterLoadSuccess = ({
-    metaData,
+    metaData = null,
     // eslint-disable-next-line no-unused-vars
-    metaListData,
+    metaListData = [],
     // eslint-disable-next-line no-unused-vars
-    metaExtra,
+    metaExtra = null,
     // eslint-disable-next-line no-unused-vars
-    metaOriginalData,
+    metaOriginalData = null,
   }) => {
     this.setCustomData(metaData);
   };
@@ -120,11 +116,20 @@ class BasicInfo extends TabPageBase {
   };
 
   showMediaItemPreviewDrawer = () => {
-    MediaItemPreviewDrawer.open();
+    this.setState({
+      mediaItemPreviewDrawerVisible: true,
+    });
+  };
+
+  closeMediaItemPreviewDrawer = () => {
+    this.setState({
+      mediaItemPreviewDrawerVisible: false,
+    });
   };
 
   showInsertMediaItemDrawer = (record) => {
     this.setState({
+      addMediaItemDrawerVisible: true,
       selectForwardId: getValueByKey({
         data: record,
         key: keyValueItemData.id.name,
@@ -133,41 +138,64 @@ class BasicInfo extends TabPageBase {
   };
 
   showAddMediaItemDrawer = () => {
-    this.setState(
-      {
-        selectForwardId: '',
-      },
-      () => {
-        AddMediaItemDrawer.open();
-      },
-    );
+    this.setState({
+      addMediaItemDrawerVisible: true,
+      selectForwardId: '',
+    });
   };
 
   showUpdateMediaItemDrawer = (record) => {
-    this.setState(
-      {
-        selectForwardId: '',
-        currentMediaItem: record,
-      },
-      () => {
-        UpdateMediaItemDrawer.open();
-      },
-    );
+    this.setState({
+      updateMediaItemDrawerVisible: true,
+      selectForwardId: '',
+      currentMediaItem: record,
+    });
   };
 
   afterAddMediaItemDrawerOk = () => {
+    this.setState({
+      addMediaItemDrawerVisible: false,
+      selectForwardId: '',
+    });
+
+    this.refreshData();
+  };
+
+  afterUpdateMediaItemDrawerOk = () => {
     this.setState(
       {
-        selectForwardId: '',
+        updateMediaItemDrawerVisible: false,
       },
       () => {
-        this.reloadData({});
+        const that = this;
+
+        setTimeout(() => {
+          that.refreshData();
+        }, 300);
       },
     );
   };
 
-  afterUpdateMediaItemDrawerOk = () => {
-    this.reloadData({});
+  afterAddMediaItemDrawerCancel = () => {
+    this.setState({
+      addMediaItemDrawerVisible: false,
+      selectForwardId: '',
+    });
+  };
+
+  afterUpdateMediaItemDrawerCancel = () => {
+    this.setState({ updateMediaItemDrawerVisible: false });
+  };
+
+  afterAddMediaItemDrawerClose = () => {
+    this.setState({
+      addMediaItemDrawerVisible: false,
+      selectForwardId: '',
+    });
+  };
+
+  afterUpdateMediaItemDrawerClose = () => {
+    this.setState({ updateMediaItemDrawerVisible: false });
   };
 
   handleMenuClick = ({ key, handleData }) => {
@@ -213,8 +241,8 @@ class BasicInfo extends TabPageBase {
       operate: key,
       item: record,
       list: mediaItemList,
-      key: 'sort',
-      sortInitialValue: 1,
+      sortKey: 'sort',
+      sortMin: 1,
     });
 
     this.saveSortChangedMediaItem(list);
@@ -262,6 +290,7 @@ class BasicInfo extends TabPageBase {
     return <List.Item>{this.renderListViewItemInner(item, index)}</List.Item>;
   };
 
+  // eslint-disable-next-line no-unused-vars
   renderListViewItemInner = (item, index) => {
     const { mediaItemList } = this.state;
 
@@ -309,7 +338,7 @@ class BasicInfo extends TabPageBase {
     const grid = buildCustomGrid({
       list: [
         {
-          label: keyValueItemData.mediaType.label,
+          label: keyValueItemData.title.label,
           value: title,
         },
         {
@@ -318,7 +347,7 @@ class BasicInfo extends TabPageBase {
           hidden: checkStringIsNullOrWhiteSpace(image),
         },
         {
-          label: keyValueItemData.multiText.label,
+          label: keyValueItemData.description.label,
           value: description,
           hidden: checkStringIsNullOrWhiteSpace(description),
         },
@@ -567,7 +596,6 @@ class BasicInfo extends TabPageBase {
           title: {
             text: '图片媒体列表',
           },
-
           items: [
             {
               lg: 24,
@@ -598,13 +626,21 @@ class BasicInfo extends TabPageBase {
     );
   };
 
-  renderPresetOther = () => {
-    const { sectionId, mediaItemList, currentMediaItem, selectForwardId } =
-      this.state;
+  renderOther = () => {
+    const {
+      sectionId,
+      mediaItemList,
+      currentMediaItem,
+      addMediaItemDrawerVisible,
+      updateMediaItemDrawerVisible,
+      mediaItemPreviewDrawerVisible,
+      selectForwardId,
+    } = this.state;
 
     return (
       <>
         <AddMediaItemDrawer
+          visible={addMediaItemDrawerVisible}
           externalData={{
             sectionId,
             forwardId: selectForwardId,
@@ -612,16 +648,30 @@ class BasicInfo extends TabPageBase {
           afterOK={() => {
             this.afterAddMediaItemDrawerOk();
           }}
+          afterCancel={() => {
+            this.afterAddMediaItemDrawerCancel();
+          }}
+          afterClose={() => {
+            this.afterAddMediaItemDrawerClose();
+          }}
         />
 
         <UpdateMediaItemDrawer
+          visible={updateMediaItemDrawerVisible}
           externalData={{ ...currentMediaItem, sectionId }}
           afterOK={() => {
             this.afterUpdateMediaItemDrawerOk();
           }}
+          afterCancel={() => {
+            this.afterUpdateMediaItemDrawerCancel();
+          }}
+          afterClose={() => {
+            this.afterUpdateMediaItemDrawerClose();
+          }}
         />
 
         <MediaItemPreviewDrawer
+          visible={mediaItemPreviewDrawerVisible}
           data={mediaItemList || []}
           afterClose={() => {
             this.closeMediaItemPreviewDrawer();
@@ -632,4 +682,4 @@ class BasicInfo extends TabPageBase {
   };
 }
 
-export default BasicInfo;
+export default MediaInfo;

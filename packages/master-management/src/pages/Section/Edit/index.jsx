@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { connect } from 'easy-soft-dva';
 import {
   checkHasAuthority,
@@ -51,19 +49,19 @@ class Edit extends DataTabContainerSupplement {
     },
     {
       key: 'contentInfo',
-      hidden: !checkHasAuthority(accessWayCollection.section.get.permission),
+      show: checkHasAuthority(accessWayCollection.section.get.permission),
       tab: '图文H5信息',
     },
     {
       key: 'mediaInfo',
-      hidden: !checkHasAuthority(
+      show: checkHasAuthority(
         accessWayCollection.section.getMediaItem.permission,
       ),
       tab: '媒体信息',
     },
     {
       key: 'scoreInfo',
-      hidden: !checkHasAuthority(
+      show: checkHasAuthority(
         accessWayCollection.section.setReadObtainScore.permission,
       ),
       tab: '积分设置',
@@ -79,10 +77,11 @@ class Edit extends DataTabContainerSupplement {
 
     this.state = {
       ...this.state,
-      pageTitle: '',
+      pageName: '',
       loadApiPath: 'section/get',
       backPath: `/news/section/pageList/key`,
       sectionId: null,
+      changeRenderTypeModalVisible: false,
     };
   }
 
@@ -95,6 +94,7 @@ class Edit extends DataTabContainerSupplement {
     );
   }
 
+  // eslint-disable-next-line no-unused-vars
   checkNeedUpdate = (preProperties, preState, snapshot) => {
     return checkNeedUpdateAssist(this.state, preProperties, preState, snapshot);
   };
@@ -109,20 +109,20 @@ class Edit extends DataTabContainerSupplement {
   };
 
   doOtherAfterLoadSuccess = ({
-    metaData,
+    metaData = null,
     // eslint-disable-next-line no-unused-vars
-    metaListData,
+    metaListData = [],
     // eslint-disable-next-line no-unused-vars
-    metaExtra,
+    metaExtra = null,
     // eslint-disable-next-line no-unused-vars
-    metaOriginalData,
+    metaOriginalData = null,
   }) => {
-    const name = getValueByKey({
-      data: metaData,
-      key: fieldData.name.name,
+    this.setState({
+      pageTitle: getValueByKey({
+        data: metaData,
+        key: fieldData.name.name,
+      }),
     });
-
-    this.setState({ pageTitle: name });
   };
 
   toggleRecommend = (record) => {
@@ -217,15 +217,10 @@ class Edit extends DataTabContainerSupplement {
     });
   };
 
-  showChangeRenderTypeModal = (r) => {
-    this.setState(
-      {
-        currentRecord: r,
-      },
-      () => {
-        ChangeRenderTypeModal.open();
-      },
-    );
+  showChangeRenderTypeModal = (item) => {
+    this.setState({ currentRecord: item }, () => {
+      ChangeRenderTypeModal.open();
+    });
   };
 
   afterChangeRenderTypeModalOk = () => {
@@ -233,7 +228,7 @@ class Edit extends DataTabContainerSupplement {
   };
 
   establishExtraActionGroupConfig = () => {
-    const { metaData } = this.state;
+    const { metaData, dataLoading, processing } = this.state;
 
     if (metaData == null) {
       return null;
@@ -303,8 +298,9 @@ class Edit extends DataTabContainerSupplement {
             accessWayCollection.section.toggleRecommend.permission,
           ),
           disabled: this.checkInProgress(),
-          confirm: true,
-          title: `即将${whetherRecommend ? '取消推荐' : '设为推荐'}，确定吗？`,
+          confirm: {
+            title: `即将${whetherRecommend ? '取消推荐' : '设为推荐'}，确定吗？`,
+          },
           handleData: metaData,
         },
         {
@@ -330,8 +326,9 @@ class Edit extends DataTabContainerSupplement {
             accessWayCollection.section.toggleTop.permission,
           ),
           disabled: this.checkInProgress(),
-          confirm: true,
-          title: `即将${whetherTop ? '取消置顶' : '设为置顶'}，确定吗？`,
+          confirm: {
+            title: `即将${whetherTop ? '取消置顶' : '设为置顶'}，确定吗？`,
+          },
           handleData: metaData,
         },
         {
@@ -357,8 +354,9 @@ class Edit extends DataTabContainerSupplement {
             accessWayCollection.section.toggleVisible.permission,
           ),
           disabled: this.checkInProgress(),
-          confirm: true,
-          title: `即将${whetherVisible ? '设为隐藏' : '设为显示'}，确定吗？`,
+          confirm: {
+            title: `即将${whetherVisible ? '设为隐藏' : '设为显示'}，确定吗？`,
+          },
           handleData: metaData,
         },
         {
@@ -371,9 +369,11 @@ class Edit extends DataTabContainerSupplement {
           hidden: !checkHasAuthority(
             accessWayCollection.section.setOnline.permission,
           ),
-          disabled: status === statusCollection.online,
-          confirm: true,
-          title: '设置为上线，确定吗？',
+          disabled:
+            dataLoading || processing || status === statusCollection.online,
+          confirm: {
+            title: '设置为上线，确定吗？',
+          },
           handleData: metaData,
         },
         {
@@ -386,9 +386,11 @@ class Edit extends DataTabContainerSupplement {
           hidden: !checkHasAuthority(
             accessWayCollection.section.setOffline.permission,
           ),
-          disabled: status === statusCollection.offline,
-          confirm: true,
-          title: '设置为下线，确定吗？',
+          disabled:
+            dataLoading || processing || status === statusCollection.offline,
+          confirm: {
+            title: '设置为下线，确定吗？',
+          },
           handleData: metaData,
         },
       ],
@@ -427,8 +429,9 @@ class Edit extends DataTabContainerSupplement {
           hidden: !checkHasAuthority(
             accessWayCollection.section.refreshCache.permission,
           ),
-          confirm: true,
-          title: '即将刷新缓存，确定吗？',
+          confirm: {
+            title: '即将刷新缓存，确定吗？',
+          },
         },
       ],
     };
@@ -564,22 +567,16 @@ class Edit extends DataTabContainerSupplement {
     ];
   };
 
-  renderPresetOther = () => {
+  renderOther = () => {
     const { currentRecord } = this.state;
-
-    const renderChangeRenderTypeModal = checkHasAuthority(
-      accessWayCollection.section.updateRenderType.permission,
-    );
 
     return (
       <>
-        {renderChangeRenderTypeModal ? (
-          <ChangeRenderTypeModal
-            externalData={currentRecord}
-            afterOK={this.afterChangeRenderTypeModalOk}
-            afterCancel={this.afterChangeRenderTypeModalCancel}
-          />
-        ) : null}
+        <ChangeRenderTypeModal
+          externalData={currentRecord}
+          afterOK={this.afterChangeRenderTypeModalOk}
+          afterCancel={this.afterChangeRenderTypeModalCancel}
+        />
       </>
     );
   };

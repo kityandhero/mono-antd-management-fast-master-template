@@ -4,6 +4,7 @@ export function parseUrlParametersForSetState({ urlParams }) {
   return { sectionId: id };
 }
 
+// eslint-disable-next-line no-unused-vars
 export function checkNeedUpdateAssist(
   currentState,
   preProperties,
@@ -11,9 +12,9 @@ export function checkNeedUpdateAssist(
   // eslint-disable-next-line no-unused-vars
   snapshot,
 ) {
-  const { sectionId } = currentState;
+  const { applicationId } = currentState;
 
-  const { sectionId: sectionIdPre } = preState;
+  const { applicationId: applicationIdPre } = preState;
 
-  return sectionIdPre !== sectionId;
+  return applicationIdPre !== applicationId;
 }

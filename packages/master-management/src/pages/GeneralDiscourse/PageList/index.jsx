@@ -32,7 +32,7 @@ import {
   setDisableAction,
   setEnableAction,
 } from '../Assist/action';
-import { parseUrlParametersForSetState as parseUrlParametersForSetState } from '../Assist/config';
+import { parseUrlParametersForSetState } from '../Assist/config';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData, statusCollection } from '../Common/data';
 import UpdateBasicInfoDrawer from '../UpdateBasicInfoDrawer';

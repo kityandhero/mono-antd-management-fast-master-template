@@ -9,7 +9,8 @@ import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
 
-const visibleFlag = 'e9dc30ff60e541efbd42f14fddb03250';
+// 显隐控制标记, 必须设置, 标记需要全局唯一
+const visibleFlag = '87801b1cb8d8420ca3056d136fc09711';
 
 @connect(({ section, schedulingControl }) => ({
   section,
@@ -25,7 +26,7 @@ class ChangeRenderTypeModal extends BaseUpdateModal {
 
     this.state = {
       ...this.state,
-      pageTitle: '渲染模式设置',
+      pageName: '渲染模式设置',
       loadApiPath: 'section/get',
       submitApiPath: 'section/updateRenderType',
     };
@@ -35,7 +36,7 @@ class ChangeRenderTypeModal extends BaseUpdateModal {
     const d = o;
     const { externalData } = this.state;
 
-    d.sectionId = getValueByKey({
+    d[fieldData.sectionId.name] = getValueByKey({
       data: externalData,
       key: fieldData.sectionId.name,
     });
@@ -47,7 +48,7 @@ class ChangeRenderTypeModal extends BaseUpdateModal {
     const d = o;
     const { externalData } = this.state;
 
-    d.sectionId = getValueByKey({
+    d[fieldData.sectionId.name] = getValueByKey({
       data: externalData,
       key: fieldData.sectionId.name,
     });
@@ -76,6 +77,7 @@ class ChangeRenderTypeModal extends BaseUpdateModal {
   };
 
   fillInitialValuesAfterLoad = ({
+    // eslint-disable-next-line no-unused-vars
     metaData = null,
     // eslint-disable-next-line no-unused-vars
     metaListData = [],
@@ -118,7 +120,7 @@ class ChangeRenderTypeModal extends BaseUpdateModal {
                   text: '无渲染: 不进行任何渲染，如务必要，请勿选择.',
                 },
                 {
-                  text: '内容渲染: 将根据图文H5编辑内容渲染呈现，需要前端配合.',
+                  text: '内容渲染: 将根据图文H5编辑内容渲染呈现, 需要前端配合.',
                 },
                 {
                   text: '媒体渲染: 将根据媒体信息集合进行渲染呈现，需要前端配合.',

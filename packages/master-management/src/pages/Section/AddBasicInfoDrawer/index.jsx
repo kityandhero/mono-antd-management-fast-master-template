@@ -1,28 +1,35 @@
 import { connect } from 'easy-soft-dva';
-import { checkHasAuthority, getValueByKey, toString } from 'easy-soft-utility';
+import { getValueByKey } from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
-import { DataForm } from 'antd-management-fast-framework';
+import {
+  DataDrawer,
+  switchControlAssist,
+} from 'antd-management-fast-framework';
 
-import { accessWayCollection } from '../../../customConfig';
-import { renderFormBusinessModeSelect } from '../../../customSpecialComponents';
 import { singleTreeListAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
-const { BaseAddForm } = DataForm;
+const { BaseAddDrawer } = DataDrawer;
+
+const visibleFlag = '6ad4fe82bd0b4d6a9f1980358e68a786';
 
 @connect(({ section, schedulingControl }) => ({
   section,
   schedulingControl,
 }))
-class Add extends BaseAddForm {
+class AddBasicInfoDrawer extends BaseAddDrawer {
+  static open() {
+    switchControlAssist.open(visibleFlag);
+  }
+
   constructor(properties) {
-    super(properties);
+    super(properties, visibleFlag);
 
     this.state = {
       ...this.state,
-      pageTitle: '新增品类',
+      pageName: '新增栏目',
       submitApiPath: 'section/addBasicInfo',
       image: '',
       parentId: '0',
@@ -59,18 +66,18 @@ class Add extends BaseAddForm {
     return d;
   };
 
-  buildNotificationDescription = ({
+  buildNotificationDescription = (
     // eslint-disable-next-line no-unused-vars
-    singleData = null,
+    singleData,
     // eslint-disable-next-line no-unused-vars
-    listData = [],
+    listData,
     // eslint-disable-next-line no-unused-vars
-    extraData = null,
+    extraData,
     // eslint-disable-next-line no-unused-vars
-    responseOriginalData = null,
+    responseOriginalData,
     // eslint-disable-next-line no-unused-vars
-    submitData = null,
-  }) => {
+    submitData,
+  ) => {
     return `数据已经保存成功，请进行下一步操作。`;
   };
 
@@ -119,31 +126,11 @@ class Add extends BaseAddForm {
             icon: iconBuilder.contacts(),
             text: '基本信息',
           },
-          hasExtra: true,
-          extra: {
-            affix: true,
-            list: [
-              {
-                buildType: cardConfig.extraBuildType.save,
-                hidden: !checkHasAuthority(
-                  accessWayCollection.section.addBasicInfo.permission,
-                ),
-                text: '保存并进入下一步',
-              },
-            ],
-          },
-
           items: [
             {
-              lg: 6,
+              lg: 12,
               type: cardConfig.contentItemType.input,
               fieldData: fieldData.name,
-              require: true,
-            },
-            {
-              lg: 6,
-              type: cardConfig.contentItemType.customSelect,
-              component: renderFormBusinessModeSelect({}),
               require: true,
             },
             {
@@ -161,9 +148,9 @@ class Add extends BaseAddForm {
                   value,
                 };
               },
-              onChange: (v) => {
+              onChange: ({ value }) => {
                 this.setState({
-                  parentId: toString(v),
+                  parentId: toString(value),
                 });
               },
             },
@@ -181,7 +168,6 @@ class Add extends BaseAddForm {
             text: '配图上传',
             subText: '[上传后需点击保存按钮保存!]',
           },
-
           items: [
             {
               lg: 6,
@@ -214,7 +200,6 @@ class Add extends BaseAddForm {
             icon: iconBuilder.contacts(),
             text: '其他信息',
           },
-
           items: [
             {
               lg: 24,
@@ -233,7 +218,6 @@ class Add extends BaseAddForm {
             icon: iconBuilder.contacts(),
             text: '其他信息',
           },
-
           items: [
             {
               type: cardConfig.contentItemType.nowTime,
@@ -245,4 +229,4 @@ class Add extends BaseAddForm {
   };
 }
 
-export default Add;
+export { AddBasicInfoDrawer };

@@ -15,7 +15,7 @@ import {
 
 const { MobilePreviewDrawer } = MobileContainor;
 
-const visibleFlag = 'ebaf51f7165f41a3a8db4e20cdfd263d';
+const visibleFlag = '478f6a59fd964ddf9b0e137364bae64c';
 
 class MediaItemPreviewDrawer extends MobilePreviewDrawer {
   resetDataAfterLoad = false;

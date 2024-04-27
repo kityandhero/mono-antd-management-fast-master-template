@@ -146,13 +146,9 @@ class PageList extends MultiPage {
   };
 
   setOwn = (r) => {
-    const { match } = this.props;
-    const { params } = match;
-    const { id } = params;
-
     setOwnAction({
       target: this,
-      handleData: { ...r, platformId: id },
+      handleData: r,
       successCallback: ({ target }) => {
         target.refreshData({});
       },
