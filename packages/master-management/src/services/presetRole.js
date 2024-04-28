@@ -1,23 +1,5 @@
 import { request } from 'easy-soft-utility';
 
-export const listSelectDataApiAddress = '/presetRole/listSelect';
-
-export async function listSelectData(parameters) {
-  return request({
-    api: listSelectDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const addBasicInfoDataApiAddress = '/presetRole/addBasicInfo';
-
-export async function addBasicInfoData(parameters) {
-  return request({
-    api: addBasicInfoDataApiAddress,
-    params: parameters,
-  });
-}
-
 export const pageListDataApiAddress = '/presetRole/pageList';
 
 export async function pageListData(parameters) {
@@ -45,11 +27,29 @@ export async function listTreeModuleData(parameters) {
   });
 }
 
+export const listSelectDataApiAddress = '/presetRole/listSelect';
+
+export async function listSelectData(parameters) {
+  return request({
+    api: listSelectDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const getDataApiAddress = '/presetRole/get';
 
 export async function getData(parameters) {
   return request({
     api: getDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const addBasicInfoDataApiAddress = '/presetRole/addBasicInfo';
+
+export async function addBasicInfoData(parameters) {
+  return request({
+    api: addBasicInfoDataApiAddress,
     params: parameters,
   });
 }

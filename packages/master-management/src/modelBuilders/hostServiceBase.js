@@ -10,11 +10,11 @@ import {
   changeData,
   getData,
   refreshAllStatusData,
-} from '../services/hostService';
+} from '../services/hostServiceBase';
 
 export function buildModel() {
   return {
-    namespace: 'hostService',
+    namespace: 'hostServiceBase',
 
     state: {
       ...getTacitlyState(),

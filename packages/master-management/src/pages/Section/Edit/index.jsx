@@ -30,6 +30,7 @@ import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
 } from '../Assist/config';
+import { ChangeBusinessModeModal } from '../ChangeBusinessModeModal';
 import { ChangeRenderTypeModal } from '../ChangeRenderTypeModal';
 import { fieldData, statusCollection } from '../Common/data';
 
@@ -77,11 +78,10 @@ class Edit extends DataTabContainerSupplement {
 
     this.state = {
       ...this.state,
-      pageName: '',
+      pageTitle: '',
       loadApiPath: 'section/get',
       backPath: `/news/section/pageList/key`,
       sectionId: null,
-      changeRenderTypeModalVisible: false,
     };
   }
 
@@ -224,6 +224,16 @@ class Edit extends DataTabContainerSupplement {
   };
 
   afterChangeRenderTypeModalOk = () => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  showChangeBusinessModeModal = (item) => {
+    this.setState({ currentRecord: item }, () => {
+      ChangeBusinessModeModal.open();
+    });
+  };
+
+  afterChangeBusinessModeModalOk = () => {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
@@ -410,6 +420,11 @@ class Edit extends DataTabContainerSupplement {
       disabled: this.checkInProgress(),
       handleMenuClick: ({ key, handleData }) => {
         switch (key) {
+          case 'UpdateBusinessMode': {
+            that.showChangeBusinessModeModal(handleData);
+            break;
+          }
+
           case 'refreshCache': {
             that.refreshCache(handleData);
             break;
@@ -422,6 +437,14 @@ class Edit extends DataTabContainerSupplement {
       },
       handleData: metaData,
       items: [
+        {
+          key: 'UpdateBusinessMode',
+          icon: iconBuilder.edit(),
+          text: '设置适用业务',
+          hidden: !checkHasAuthority(
+            accessWayCollection.section.updateBusinessMode.permission,
+          ),
+        },
         {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
@@ -507,12 +530,12 @@ class Edit extends DataTabContainerSupplement {
       },
       {
         color: 'green',
-        text: '已上架',
+        text: '上线',
         hidden: status !== statusCollection.online,
       },
       {
         color: 'red',
-        text: '已下架',
+        text: '下线',
         hidden: status !== statusCollection.offline,
       },
     ];
@@ -555,6 +578,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.sort.name,
+          defaultValue: '0',
         }),
       },
       {
@@ -564,10 +588,26 @@ class Edit extends DataTabContainerSupplement {
           key: fieldData.renderTypeNote.name,
         }),
       },
+      {
+        label: fieldData.parentName.label,
+        value: getValueByKey({
+          data: metaData,
+          key: fieldData.parentName.name,
+          defaultValue: '无',
+        }),
+      },
+      {
+        label: fieldData.businessModeNote.label,
+        value: getValueByKey({
+          data: metaData,
+          key: fieldData.businessModeNote.name,
+          defaultValue: '无',
+        }),
+      },
     ];
   };
 
-  renderOther = () => {
+  renderPresetOther = () => {
     const { currentRecord } = this.state;
 
     return (
@@ -575,7 +615,11 @@ class Edit extends DataTabContainerSupplement {
         <ChangeRenderTypeModal
           externalData={currentRecord}
           afterOK={this.afterChangeRenderTypeModalOk}
-          afterCancel={this.afterChangeRenderTypeModalCancel}
+        />
+
+        <ChangeBusinessModeModal
+          externalData={currentRecord}
+          afterOK={this.afterChangeBusinessModeModalOk}
         />
       </>
     );

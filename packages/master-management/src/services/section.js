@@ -1,23 +1,5 @@
 import { request } from 'easy-soft-utility';
 
-export const addBasicInfoDataApiAddress = '/section/addBasicInfo';
-
-export async function addBasicInfoData(parameters) {
-  return request({
-    api: addBasicInfoDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const setReadObtainScoreDataApiAddress = '/section/setReadObtainScore';
-
-export async function setReadObtainScoreData(parameters) {
-  return request({
-    api: setReadObtainScoreDataApiAddress,
-    params: parameters,
-  });
-}
-
 export const pageListDataApiAddress = '/section/pageList';
 
 export async function pageListData(parameters) {
@@ -54,6 +36,15 @@ export async function getData(parameters) {
   });
 }
 
+export const addBasicInfoDataApiAddress = '/section/addBasicInfo';
+
+export async function addBasicInfoData(parameters) {
+  return request({
+    api: addBasicInfoDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const updateBasicInfoDataApiAddress = '/section/updateBasicInfo';
 
 export async function updateBasicInfoData(parameters) {
@@ -68,6 +59,15 @@ export const updateContentInfoDataApiAddress = '/section/updateContentInfo';
 export async function updateContentInfoData(parameters) {
   return request({
     api: updateContentInfoDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const updateBusinessModeDataApiAddress = '/section/updateBusinessMode';
+
+export async function updateBusinessModeData(parameters) {
+  return request({
+    api: updateBusinessModeDataApiAddress,
     params: parameters,
   });
 }
@@ -122,6 +122,15 @@ export const toggleVisibleDataApiAddress = '/section/toggleVisible';
 export async function toggleVisibleData(parameters) {
   return request({
     api: toggleVisibleDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const setReadObtainScoreDataApiAddress = '/section/setReadObtainScore';
+
+export async function setReadObtainScoreData(parameters) {
+  return request({
+    api: setReadObtainScoreDataApiAddress,
     params: parameters,
   });
 }

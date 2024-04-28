@@ -28,7 +28,7 @@ export const fieldData = {
     helper: '',
   },
   name: {
-    label: '名称',
+    label: '配置名称',
     name: 'name',
     helper: '栏目配置的名称',
   },

@@ -2,7 +2,6 @@ import { formNameCollection } from '../../../customConfig';
 
 export const fieldData = {
   ...formNameCollection,
-
   sectionId: {
     label: '数据标识',
     name: 'sectionId',
@@ -11,7 +10,7 @@ export const fieldData = {
   parentId: {
     label: '上级标识',
     name: 'parenId',
-    helper: '',
+    helper: '栏目的上级',
   },
   name: {
     label: '栏目名称',
@@ -19,9 +18,9 @@ export const fieldData = {
     helper: '栏目的名称,便于展示和后台管理',
   },
   image: {
-    label: '正方形图片',
+    label: '主图',
     name: 'image',
-    helper: '栏目的正方形图片',
+    helper: '栏目的正方形主图',
   },
   rectangleImage: {
     label: '长方形图片',
@@ -46,27 +45,37 @@ export const fieldData = {
   contentData: {
     label: '详细内容',
     name: 'contentData',
-    helper: '文章的详细内容',
+    helper: '栏目的详细内容',
   },
   mediaData: {
     label: '媒体内容',
     name: 'mediaData',
-    helper: '文章的媒体内容',
+    helper: '栏目的媒体内容',
   },
   sort: {
     label: '排序值',
     name: 'sort',
-    helper: '文章的排序值',
+    helper: '栏目的排序值',
   },
   renderType: {
     label: '渲染模式',
     name: 'renderType',
-    helper: '文章的渲染模式',
+    helper: '栏目的渲染模式',
   },
   renderTypeNote: {
     label: '渲染模式',
     name: 'renderTypeNote',
-    helper: '文章的渲染模式',
+    helper: '栏目的渲染模式',
+  },
+  businessMode: {
+    label: '适用业务',
+    name: 'businessMode',
+    helper: '栏目的适用业务',
+  },
+  businessModeNote: {
+    label: '适用业务',
+    name: 'businessModeNote',
+    helper: '栏目的适用业务',
   },
   description: {
     label: '简介描述',
@@ -144,9 +153,9 @@ export const fieldData = {
     helper: '设置阅读时发放的积分数额',
   },
   obtainFromReadArticleDailyLimit: {
-    label: '阅读文章每日积分数额获取上限',
+    label: '阅读栏目每日积分数额获取上限',
     name: 'obtainFromReadArticleDailyLimit',
-    helper: '设置阅读文章每日积分数额获取上限',
+    helper: '设置阅读栏目每日积分数额获取上限',
   },
 };
 

@@ -4,18 +4,19 @@ import { convertCollection, getValueByKey } from 'easy-soft-utility';
 import { cardConfig } from 'antd-management-fast-common';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
+import { renderFormBusinessModeSelect } from '../../../customSpecialComponents';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
-const visibleFlag = 'fc6181f352254316b6dffa8c64e157d8';
+const visibleFlag = 'a79658fbc26243b0a2fc78321dcbb943';
 
 @connect(({ section, schedulingControl }) => ({
   section,
   schedulingControl,
 }))
-class ChangeSortModal extends BaseUpdateModal {
+class ChangeBusinessModeModal extends BaseUpdateModal {
   static open() {
     switchControlAssist.open(visibleFlag);
   }
@@ -25,18 +26,20 @@ class ChangeSortModal extends BaseUpdateModal {
 
     this.state = {
       ...this.state,
-      pageTitle: '排序值设置',
+      pageTitle: '适用业务设置',
       loadApiPath: 'section/get',
-      submitApiPath: 'section/updateSort',
+      submitApiPath: 'section/updateBusinessMode',
     };
   }
 
   supplementLoadRequestParams = (o) => {
     const d = o;
     const { externalData } = this.state;
-    const { sectionId } = externalData;
 
-    d[fieldData.sectionId.name] = sectionId;
+    d[fieldData.sectionId.name] = getValueByKey({
+      data: externalData,
+      key: fieldData.sectionId.name,
+    });
 
     return d;
   };
@@ -53,25 +56,10 @@ class ChangeSortModal extends BaseUpdateModal {
     return d;
   };
 
-  buildNotificationDescription = (
-    // eslint-disable-next-line no-unused-vars
-    singleData,
-    // eslint-disable-next-line no-unused-vars
-    listData,
-    // eslint-disable-next-line no-unused-vars
-    extraData,
-    // eslint-disable-next-line no-unused-vars
-    responseOriginalData,
-    // eslint-disable-next-line no-unused-vars
-    submitData,
-  ) => {
-    return `排序值更新成功。`;
-  };
-
   establishFormAdditionalConfig = () => {
     return {
       labelCol: {
-        flex: '60px',
+        flex: '80px',
       },
       wrapperCol: {
         flex: 'auto',
@@ -89,6 +77,7 @@ class ChangeSortModal extends BaseUpdateModal {
   };
 
   fillInitialValuesAfterLoad = ({
+    // eslint-disable-next-line no-unused-vars
     metaData = null,
     // eslint-disable-next-line no-unused-vars
     metaListData = [],
@@ -100,10 +89,10 @@ class ChangeSortModal extends BaseUpdateModal {
     const values = {};
 
     if (metaData != null) {
-      values[fieldData.sort.name] = getValueByKey({
+      values[fieldData.businessMode.name] = getValueByKey({
         data: metaData,
-        key: fieldData.sort.name,
-        convert: convertCollection.number,
+        key: fieldData.businessMode.name,
+        convert: convertCollection.string,
       });
     }
 
@@ -117,8 +106,8 @@ class ChangeSortModal extends BaseUpdateModal {
           items: [
             {
               lg: 24,
-              type: cardConfig.contentItemType.inputNumber,
-              fieldData: fieldData.sort,
+              type: cardConfig.contentItemType.component,
+              component: renderFormBusinessModeSelect({}),
             },
           ],
         },
@@ -127,4 +116,4 @@ class ChangeSortModal extends BaseUpdateModal {
   };
 }
 
-export { ChangeSortModal };
+export { ChangeBusinessModeModal };

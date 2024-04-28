@@ -254,6 +254,8 @@ export default {
   'menu.news.section.pageList-mini': '列表',
   'menu.news.section.edit': '栏目详情',
   'menu.news.section.edit.basicInfo': '基本信息',
+  'menu.news.section.edit.sectionApplicationConfig': '页面配置',
+  'menu.news.section.edit.sectionApplicationConfig.pageList': '配置列表',
   'menu.news.section.edit.operateLog': '操作日志',
   'menu.news.section.edit.operateLog.pageList': '日志列表',
 

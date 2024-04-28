@@ -24,6 +24,9 @@ const visibleFlag = 'e240f0262fc947879dcd76f2e5944bd1';
   schedulingControl,
 }))
 class AddBasicInfoDrawer extends BaseAddDrawer {
+  // 在控制台显示组建内调用序列, 仅为进行开发辅助
+  // showCallProcess = true;
+
   componentAuthority =
     accessWayCollection.sectionApplicationConfig.addBasicInfo.permission;
 
@@ -36,19 +39,27 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
 
     this.state = {
       ...this.state,
+      pageTitle: '新增配置信息',
       submitApiPath: 'sectionApplicationConfig/addBasicInfo',
       applicationId: '',
       applicationName: '',
     };
   }
 
+  executeAfterDoOtherWhenChangeVisibleToHide = () => {
+    this.setState({
+      applicationId: '',
+      applicationName: '',
+    });
+  };
+
   supplementSubmitRequestParams = (o) => {
     const d = o;
     const { applicationId } = this.state;
     const { externalData } = this.props;
 
-    d.applicationId = applicationId;
-    d.sectionId = getValueByKey({
+    d[fieldData.applicationId.name] = applicationId;
+    d[fieldData.sectionId.name] = getValueByKey({
       data: externalData,
       key: fieldData.sectionId.name,
     });
@@ -76,10 +87,6 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
     });
   };
 
-  renderPresetTitle = () => {
-    return '新增配置信息';
-  };
-
   establishCardCollectionConfig = () => {
     const { applicationName } = this.state;
 
@@ -104,7 +111,7 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
                 <ApplicationSelectModalField
                   label={fieldDataApplication.name.label}
                   applicationName={applicationName || null}
-                  afterSelect={(d) => {
+                  afterSelectSuccess={(d) => {
                     this.afterApplicationSelect(d);
                   }}
                   afterClearSelect={() => {

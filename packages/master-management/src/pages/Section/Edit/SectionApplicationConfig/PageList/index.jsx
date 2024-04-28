@@ -24,6 +24,7 @@ import {
   refreshCacheAction,
   removeConfigItemAction,
 } from '../../../../SectionApplicationConfig/Assist/action';
+import { fieldData } from '../../../../SectionApplicationConfig/Common/data';
 import { buildTable } from '../../../../SectionApplicationConfig/Component/FunctionComponent';
 import { UpdateBasicInfoDrawer } from '../../../../SectionApplicationConfig/UpdateBasicInfoDrawer';
 import { UpdateConfigItemDrawer } from '../../../../SectionApplicationConfig/UpdateConfigItemDrawer';
@@ -31,7 +32,6 @@ import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
 } from '../../../Assist/config';
-import { fieldData } from '../../../Common/data';
 
 const { InnerMultiPage } = DataMultiPageView;
 
@@ -75,13 +75,11 @@ class Index extends InnerMultiPage {
   };
 
   supplementLoadRequestParams = (o) => {
-    const { match } = this.props;
-    const { params } = match;
-    const { id } = params;
+    const { sectionId } = this.state;
 
     const result = o;
 
-    result.sectionId = id;
+    result.sectionId = sectionId;
 
     return result;
   };
@@ -205,12 +203,12 @@ class Index extends InnerMultiPage {
         type: 'primary',
         icon: iconBuilder.addCircle(),
         text: '新增导航配置',
-        handleClick: () => {
-          this.showAddBasicInfoDrawer();
-        },
         hidden: !checkHasAuthority(
           accessWayCollection.sectionApplicationConfig.addBasicInfo.permission,
         ),
+        handleClick: () => {
+          this.showAddBasicInfoDrawer();
+        },
       },
     ];
   };
@@ -229,6 +227,9 @@ class Index extends InnerMultiPage {
             key: fieldData.targetPath.name,
             defaultValue: '无',
           }),
+          separatorStyle: {
+            paddingRight: '6px',
+          },
           color: '#8909ef',
           wrapperBuilder: (c) => {
             return <>【{c}】</>;
@@ -252,6 +253,9 @@ class Index extends InnerMultiPage {
               data: r,
               key: fieldData.applicationId.name,
             }),
+            separatorStyle: {
+              paddingRight: '6px',
+            },
             randomColor: true,
           },
           {
@@ -308,6 +312,7 @@ class Index extends InnerMultiPage {
             target: this,
             list: r.configItemList,
             props: {
+              size: 'small',
               buildOperate: ({ record }) => {
                 return buildDropdownButton({
                   size: 'small',
@@ -434,59 +439,59 @@ class Index extends InnerMultiPage {
   renderPresetOther = () => {
     const { sectionId, currentRecord, currentConfigItem } = this.state;
 
-    const renderAddBasicInfoDrawer = checkHasAuthority(
-      accessWayCollection.sectionApplicationConfig.addBasicInfo.permission,
-    );
-
-    const renderUpdateBasicInfoDrawer = checkHasAuthority(
-      accessWayCollection.sectionApplicationConfig.updateBasicInfo.permission,
-    );
-
-    const renderAddConfigItemDrawer = checkHasAuthority(
-      accessWayCollection.sectionApplicationConfig.addConfigItem.permission,
-    );
-
-    const renderUpdateConfigItemDrawer = checkHasAuthority(
-      accessWayCollection.sectionApplicationConfig.updateConfigItem.permission,
-    );
-
     return (
       <>
-        {renderAddBasicInfoDrawer ? (
-          <AddBasicInfoDrawer
-            externalData={{ sectionId }}
-            afterOK={() => {
-              this.afterAddBasicInfoDrawerOk();
-            }}
-          />
-        ) : null}
+        <AddBasicInfoDrawer
+          hidden={
+            !checkHasAuthority(
+              accessWayCollection.sectionApplicationConfig.addBasicInfo
+                .permission,
+            )
+          }
+          externalData={{ sectionId }}
+          afterOK={() => {
+            this.afterAddBasicInfoDrawerOk();
+          }}
+        />
 
-        {renderUpdateBasicInfoDrawer ? (
-          <UpdateBasicInfoDrawer
-            externalData={currentRecord}
-            afterOK={() => {
-              this.afterUpdateBasicInfoDrawerOk();
-            }}
-          />
-        ) : null}
+        <UpdateBasicInfoDrawer
+          hidden={
+            !checkHasAuthority(
+              accessWayCollection.sectionApplicationConfig.updateBasicInfo
+                .permission,
+            )
+          }
+          externalData={currentRecord}
+          afterOK={() => {
+            this.afterUpdateBasicInfoDrawerOk();
+          }}
+        />
 
-        {renderAddConfigItemDrawer ? (
-          <AddConfigItemDrawer
-            externalData={currentRecord}
-            afterOK={() => {
-              this.afterAddConfigItemDrawerOk();
-            }}
-          />
-        ) : null}
+        <AddConfigItemDrawer
+          hidden={
+            !checkHasAuthority(
+              accessWayCollection.sectionApplicationConfig.addConfigItem
+                .permission,
+            )
+          }
+          externalData={currentRecord}
+          afterOK={() => {
+            this.afterAddConfigItemDrawerOk();
+          }}
+        />
 
-        {renderUpdateConfigItemDrawer ? (
-          <UpdateConfigItemDrawer
-            externalData={currentConfigItem}
-            afterOK={() => {
-              this.afterUpdateConfigItemDrawerOk();
-            }}
-          />
-        ) : null}
+        <UpdateConfigItemDrawer
+          hidden={
+            !checkHasAuthority(
+              accessWayCollection.sectionApplicationConfig.updateConfigItem
+                .permission,
+            )
+          }
+          externalData={currentConfigItem}
+          afterOK={() => {
+            this.afterUpdateConfigItemDrawerOk();
+          }}
+        />
       </>
     );
   };

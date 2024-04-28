@@ -1,6 +1,6 @@
 import { request } from 'easy-soft-utility';
 
-export const getDataApiAddress = '/hostService/get';
+export const getDataApiAddress = '/hostServiceBase/get';
 
 export async function getData(parameters) {
   return request({
@@ -9,7 +9,7 @@ export async function getData(parameters) {
   });
 }
 
-export const changeDataApiAddress = '/hostService/change';
+export const changeDataApiAddress = '/hostServiceBase/change';
 
 export async function changeData(parameters) {
   return request({
@@ -18,7 +18,8 @@ export async function changeData(parameters) {
   });
 }
 
-export const refreshAllStatusDataApiAddress = '/hostService/refreshAllStatus';
+export const refreshAllStatusDataApiAddress =
+  '/hostServiceBase/refreshAllStatus';
 
 export async function refreshAllStatusData(parameters) {
   return request({

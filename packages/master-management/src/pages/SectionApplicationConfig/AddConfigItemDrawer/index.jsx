@@ -32,7 +32,7 @@ class AddConfigItemDrawer extends BaseAddDrawer {
 
     this.state = {
       ...this.state,
-
+      pageTitle: '新增自定义配置项',
       submitApiPath: 'sectionApplicationConfig/addConfigItem',
       icon: '',
     };
@@ -48,10 +48,6 @@ class AddConfigItemDrawer extends BaseAddDrawer {
     });
 
     return d;
-  };
-
-  renderPresetTitle = () => {
-    return '新增自定义配置项';
   };
 
   fillDefaultInitialValues = () => {

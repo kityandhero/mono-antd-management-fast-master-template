@@ -1,45 +1,5 @@
 import { request } from 'easy-soft-utility';
 
-export const getArticleNotificationConfigDataApiAddress =
-  '/application/getArticleNotificationConfig';
-
-export async function getArticleNotificationConfigData(parameters) {
-  return request({
-    api: getArticleNotificationConfigDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const testSendWechatTemplateMessageDataApiAddress =
-  '/application/testSendWechatTemplateMessage';
-
-export async function testSendWechatTemplateMessageData(parameters) {
-  return request({
-    api: testSendWechatTemplateMessageDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const testSendWechatUniformMessageDataApiAddress =
-  '/application/testSendWechatUniformMessage';
-
-export async function testSendWechatUniformMessageData(parameters) {
-  return request({
-    api: testSendWechatUniformMessageDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const testSendSmsCaptchaDataApiAddress =
-  '/application/testSendSmsCaptcha';
-
-export async function testSendSmsCaptchaData(parameters) {
-  return request({
-    api: testSendSmsCaptchaDataApiAddress,
-    params: parameters,
-  });
-}
-
 export const pageListDataApiAddress = '/application/pageList';
 
 export async function pageListData(parameters) {
@@ -101,6 +61,16 @@ export const getCheckInConfigDataApiAddress = '/application/getCheckInConfig';
 export async function getCheckInConfigData(parameters) {
   return request({
     api: getCheckInConfigDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const getArticleNotificationConfigDataApiAddress =
+  '/application/getArticleNotificationConfig';
+
+export async function getArticleNotificationConfigData(parameters) {
+  return request({
+    api: getArticleNotificationConfigDataApiAddress,
     params: parameters,
   });
 }
@@ -196,6 +166,36 @@ export const testJiGuangSendDeviceDataApiAddress =
 export async function testJiGuangSendDeviceData(parameters) {
   return request({
     api: testJiGuangSendDeviceDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const testSendWechatTemplateMessageDataApiAddress =
+  '/application/testSendWechatTemplateMessage';
+
+export async function testSendWechatTemplateMessageData(parameters) {
+  return request({
+    api: testSendWechatTemplateMessageDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const testSendWechatUniformMessageDataApiAddress =
+  '/application/testSendWechatUniformMessage';
+
+export async function testSendWechatUniformMessageData(parameters) {
+  return request({
+    api: testSendWechatUniformMessageDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const testSendSmsCaptchaDataApiAddress =
+  '/application/testSendSmsCaptcha';
+
+export async function testSendSmsCaptchaData(parameters) {
+  return request({
+    api: testSendSmsCaptchaDataApiAddress,
     params: parameters,
   });
 }

@@ -26,7 +26,7 @@ class ChangeRenderTypeModal extends BaseUpdateModal {
 
     this.state = {
       ...this.state,
-      pageName: '渲染模式设置',
+      pageTitle: '渲染模式设置',
       loadApiPath: 'section/get',
       submitApiPath: 'section/updateRenderType',
     };

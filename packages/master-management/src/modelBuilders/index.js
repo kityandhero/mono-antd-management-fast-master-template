@@ -7,6 +7,7 @@ import { buildModel as buildApplicationNavigationModel } from './applicationNavi
 import { buildModel as buildApplicationSourceModel } from './applicationSource';
 import { buildModel as buildApplicationVersionModel } from './applicationVersion';
 import { buildModel as buildArticleNotificationApplicationModel } from './articleNotificationApplication';
+import { buildModel as buildArticleNotificationApplicationBaseModel } from './articleNotificationApplicationBase';
 import { buildModel as buildChannelExecuteLogSwitchModel } from './channelExecuteLogSwitch';
 import { buildModel as buildChannelSqlLogSwitchModel } from './channelSqlLogSwitch';
 import { buildModel as buildCloudStorageModel } from './cloudStorage';
@@ -21,6 +22,7 @@ import { buildModel as buildGeneralLogModel } from './generalLog';
 import { buildModel as buildGovernmentAffairManagerModel } from './governmentAffairManager';
 import { buildModel as buildGovernmentAffairManagerRoleModel } from './governmentAffairManagerRole';
 import { buildModel as buildHostServiceModel } from './hostService';
+import { buildModel as buildHostServiceBaseModel } from './hostServiceBase';
 import { buildModel as buildHostServiceLogModel } from './hostServiceLog';
 import { buildModel as buildInternalTesterModel } from './internalTester';
 import { buildModel as buildMasterManagerModel } from './masterManager';
@@ -29,6 +31,7 @@ import { buildModel as buildMongoSlowQueryInfoModel } from './mongoSlowQueryInfo
 import { buildModel as buildOperationLogModel } from './operationLog';
 import { buildModel as buildOptionPoolModel } from './optionPool';
 import { buildModel as buildOrganizationModel } from './organization';
+import { buildModel as buildOrganizationBaseModel } from './organizationBase';
 import { buildModel as buildPresetRoleModel } from './presetRole';
 import { buildModel as buildQueueInfoModel } from './queueInfo';
 import { buildModel as buildSectionModel } from './section';
@@ -44,6 +47,7 @@ import { buildModel as buildUploadHistoryModel } from './uploadHistory';
 import { buildModel as buildUserModel } from './user';
 import { buildModel as buildUserDepartmentInfoModel } from './userDepartmentInfo';
 import { buildModel as buildUserDeviceModel } from './userDevice';
+import { buildModel as buildUserDeviceBaseModel } from './userDeviceBase';
 import { buildModel as buildUserSubsidiaryInfoModel } from './userSubsidiaryInfo';
 import { buildModel as buildUserYonYouCorrelationModel } from './userYonYouCorrelation';
 import { buildModel as buildWeChatMessageRecordModel } from './weChatMessageRecord';
@@ -82,6 +86,8 @@ function collectModelBuilder() {
 
   appendExtraBuilder(buildArticleNotificationApplicationModel);
 
+  appendExtraBuilder(buildArticleNotificationApplicationBaseModel);
+
   appendExtraBuilder(buildChannelExecuteLogSwitchModel);
 
   appendExtraBuilder(buildChannelSqlLogSwitchModel);
@@ -110,6 +116,8 @@ function collectModelBuilder() {
 
   appendExtraBuilder(buildHostServiceModel);
 
+  appendExtraBuilder(buildHostServiceBaseModel);
+
   appendExtraBuilder(buildHostServiceLogModel);
 
   appendExtraBuilder(buildInternalTesterModel);
@@ -125,6 +133,8 @@ function collectModelBuilder() {
   appendExtraBuilder(buildOptionPoolModel);
 
   appendExtraBuilder(buildOrganizationModel);
+
+  appendExtraBuilder(buildOrganizationBaseModel);
 
   appendExtraBuilder(buildPresetRoleModel);
 
@@ -155,6 +165,8 @@ function collectModelBuilder() {
   appendExtraBuilder(buildUserDepartmentInfoModel);
 
   appendExtraBuilder(buildUserDeviceModel);
+
+  appendExtraBuilder(buildUserDeviceBaseModel);
 
   appendExtraBuilder(buildUserSubsidiaryInfoModel);
 

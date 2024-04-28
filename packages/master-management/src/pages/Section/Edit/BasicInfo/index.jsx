@@ -5,13 +5,14 @@ import {
   formatCollection,
   getValueByKey,
   toString,
+  whetherNumber,
 } from 'easy-soft-utility';
 
 import {
   cardConfig,
   getDerivedStateFromPropertiesForUrlParameters,
 } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
+import { buildButton, iconBuilder } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
 import { singleTreeListAction } from '../../Assist/action';
@@ -54,20 +55,25 @@ class Index extends TabPageBase {
   }
 
   doOtherRemoteRequest = () => {
+    this.loadSectionTreeList();
+  };
+
+  loadSectionTreeList = () => {
     singleTreeListAction({
       target: this,
+      handleData: {
+        replenishEmptyOption: whetherNumber.yes,
+      },
       successCallback: ({ target, remoteListData }) => {
         target.setState({
-          sectionTreeData: [
-            {
-              title: '无上级',
-              code: '0',
-            },
-            ...remoteListData,
-          ],
+          sectionTreeData: remoteListData,
         });
       },
     });
+  };
+
+  reloadSectionTreeList = () => {
+    this.loadSectionTreeList();
   };
 
   doOtherAfterLoadSuccess = ({
@@ -248,8 +254,15 @@ class Index extends TabPageBase {
               value: parentId,
               require: true,
               listData: sectionTreeData,
+              addonAfter: buildButton({
+                text: '',
+                icon: iconBuilder.reload(),
+                handleClick: () => {
+                  this.reloadSectionTreeList();
+                },
+              }),
               dataConvert: (o) => {
-                const { title, code: value } = o;
+                const { name: title, code: value } = o;
 
                 return {
                   title,

@@ -1,13 +1,16 @@
-import { connect } from 'easy-soft-dva';
-import { getValueByKey } from 'easy-soft-utility';
+import { Checkbox } from 'antd';
 
-import { cardConfig } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
+import { connect } from 'easy-soft-dva';
+import { getValueByKey, toString, whetherNumber } from 'easy-soft-utility';
+
+import { cardConfig, drawerConfig } from 'antd-management-fast-common';
+import { buildButton, iconBuilder } from 'antd-management-fast-component';
 import {
   DataDrawer,
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { renderFormBusinessModeSelect } from '../../../customSpecialComponents';
 import { singleTreeListAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
@@ -29,29 +32,45 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
 
     this.state = {
       ...this.state,
-      pageName: '新增栏目',
+      pageTitle: '新增栏目',
       submitApiPath: 'section/addBasicInfo',
       image: '',
+      rectangleImage: '',
       parentId: '0',
       sectionTreeData: [],
+      goToEditAfterAdd: true,
     };
   }
 
-  doOtherRemoteRequest = () => {
+  executeAfterDoOtherWhenChangeVisibleToShow = () => {
+    this.loadSectionTreeList();
+  };
+
+  executeAfterDoOtherWhenChangeVisibleToHide = () => {
+    this.setState({
+      image: '',
+      rectangleImage: '',
+      parentId: '0',
+      goToEditAfterAdd: true,
+    });
+  };
+
+  loadSectionTreeList = () => {
     singleTreeListAction({
       target: this,
+      handleData: {
+        replenishEmptyOption: whetherNumber.yes,
+      },
       successCallback: ({ target, remoteListData }) => {
         target.setState({
-          sectionTreeData: [
-            {
-              title: '无上级',
-              code: '0',
-            },
-            ...remoteListData,
-          ],
+          sectionTreeData: remoteListData,
         });
       },
     });
+  };
+
+  reloadSectionTreeList = () => {
+    this.loadSectionTreeList();
   };
 
   supplementSubmitRequestParams = (o) => {
@@ -92,6 +111,12 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
     // eslint-disable-next-line no-unused-vars
     submitData = null,
   }) => {
+    const { goToEditAfterAdd } = this.state;
+
+    if (!goToEditAfterAdd) {
+      return;
+    }
+
     const sectionId = getValueByKey({
       data: singleData,
       key: fieldData.sectionId.name,
@@ -106,6 +131,33 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
 
   afterRectangleImageUploadSuccess = (image) => {
     this.setState({ rectangleImage: image });
+  };
+
+  buildBottomBarInnerLeftItemConfigList = () => {
+    const { goToEditAfterAdd } = this.state;
+
+    return [
+      {
+        buildType: drawerConfig.bottomBarBuildType.component,
+        component: (
+          <Checkbox
+            style={{ marginLeft: '4px' }}
+            checked={goToEditAfterAdd}
+            onChange={(event) => {
+              const {
+                target: { checked },
+              } = event;
+
+              this.setState({
+                goToEditAfterAdd: checked,
+              });
+            }}
+          >
+            保存后跳转详情页
+          </Checkbox>
+        ),
+      },
+    ];
   };
 
   fillDefaultInitialValues = () => {
@@ -134,14 +186,27 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
               require: true,
             },
             {
-              lg: 6,
+              lg: 12,
+              type: cardConfig.contentItemType.component,
+              component: renderFormBusinessModeSelect({}),
+              require: true,
+            },
+            {
+              lg: 12,
               type: cardConfig.contentItemType.treeSelect,
               fieldData: fieldData.parentId,
               value: parentId,
               require: true,
               listData: sectionTreeData,
+              addonAfter: buildButton({
+                text: '',
+                icon: iconBuilder.reload(),
+                handleClick: () => {
+                  this.reloadSectionTreeList();
+                },
+              }),
               dataConvert: (o) => {
-                const { title, code: value } = o;
+                const { name: title, code: value } = o;
 
                 return {
                   title,
@@ -155,7 +220,7 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
               },
             },
             {
-              lg: 6,
+              lg: 12,
               type: cardConfig.contentItemType.inputNumber,
               fieldData: fieldData.sort,
               require: false,

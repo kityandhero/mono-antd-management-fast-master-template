@@ -36,6 +36,7 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
 
     this.state = {
       ...this.state,
+      pageTitle: '编辑配置信息',
       loadApiPath: 'sectionApplicationConfig/get',
       submitApiPath: 'sectionApplicationConfig/updateBasicInfo',
       applicationId: '',
@@ -87,10 +88,6 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
     });
 
     this.setState({ applicationId, applicationName });
-  };
-
-  renderPresetTitle = () => {
-    return '编辑配置信息';
   };
 
   fillInitialValuesAfterLoad = ({
@@ -215,7 +212,7 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
               props: {
                 size: 'small',
                 bordered: true,
-                column: 4,
+                column: 2,
                 emptyStyle: {
                   color: '#cccccc',
                 },

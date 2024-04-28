@@ -1,5 +1,23 @@
 import { request } from 'easy-soft-utility';
 
+export const pageListDataApiAddress = '/tag/pageList';
+
+export async function pageListData(parameters) {
+  return request({
+    api: pageListDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const getDataApiAddress = '/tag/get';
+
+export async function getData(parameters) {
+  return request({
+    api: getDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const addBasicInfoDataApiAddress = '/tag/addBasicInfo';
 
 export async function addBasicInfoData(parameters) {
@@ -86,24 +104,6 @@ export const refreshCacheDataApiAddress = '/tag/refreshCache';
 export async function refreshCacheData(parameters) {
   return request({
     api: refreshCacheDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const pageListDataApiAddress = '/tag/pageList';
-
-export async function pageListData(parameters) {
-  return request({
-    api: pageListDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const getDataApiAddress = '/tag/get';
-
-export async function getData(parameters) {
-  return request({
-    api: getDataApiAddress,
     params: parameters,
   });
 }

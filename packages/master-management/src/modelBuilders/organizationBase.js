@@ -7,21 +7,21 @@ import {
 } from 'easy-soft-utility';
 
 import {
-  changeData,
-  getData,
-  refreshAllStatusData,
-} from '../services/hostService';
+  getGraphicalDirectDepartmentData,
+  getGraphicalSingleSubsidiaryDepartmentData,
+  getGraphicalTreeData,
+} from '../services/organizationBase';
 
 export function buildModel() {
   return {
-    namespace: 'hostService',
+    namespace: 'organizationBase',
 
     state: {
       ...getTacitlyState(),
     },
 
     effects: {
-      *get(
+      *getGraphicalTree(
         {
           payload,
           alias,
@@ -30,7 +30,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(getData, payload);
+        const response = yield call(getGraphicalTreeData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -47,7 +47,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *change(
+      *getGraphicalDirectDepartment(
         {
           payload,
           alias,
@@ -56,7 +56,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(changeData, payload);
+        const response = yield call(getGraphicalDirectDepartmentData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -73,7 +73,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *refreshAllStatus(
+      *getGraphicalSingleSubsidiaryDepartment(
         {
           payload,
           alias,
@@ -82,7 +82,10 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(refreshAllStatusData, payload);
+        const response = yield call(
+          getGraphicalSingleSubsidiaryDepartmentData,
+          payload,
+        );
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

@@ -28,12 +28,13 @@ class ApplicationSelectModalField extends BaseSelectFieldExtra {
     ApplicationSelectModal.open();
   };
 
-  renderSelectModal = () => {
+  renderPresetSelector = () => {
     const { label, externalData } = this.props;
 
     return (
       <ApplicationSelectModal
-        title={label}
+        label={label}
+        labelWidth={80}
         externalData={externalData}
         afterSelectSuccess={this.afterSelectSuccess}
       />

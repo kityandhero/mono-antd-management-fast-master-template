@@ -31,35 +31,12 @@ class ChangeSortModal extends BaseUpdateModal {
     };
   }
 
-  fillInitialValuesAfterLoad = ({
-    // eslint-disable-next-line no-unused-vars
-    metaData = null,
-    // eslint-disable-next-line no-unused-vars
-    metaListData = [],
-    // eslint-disable-next-line no-unused-vars
-    metaExtra = null,
-    // eslint-disable-next-line no-unused-vars
-    metaOriginalData = null,
-  }) => {
-    const values = {};
-
-    if (metaData != null) {
-      values[fieldData.sort.name] = getValueByKey({
-        data: metaData,
-        key: fieldData.sort.name,
-        convert: convertCollection.number,
-      });
-    }
-
-    return values;
-  };
-
   supplementLoadRequestParams = (o) => {
     const d = o;
     const { externalData } = this.state;
     const { tagId } = externalData;
 
-    d.tagId = tagId;
+    d[fieldData.tagId.name] = tagId;
 
     return d;
   };
@@ -94,10 +71,10 @@ class ChangeSortModal extends BaseUpdateModal {
   establishFormAdditionalConfig = () => {
     return {
       labelCol: {
-        span: 3,
+        flex: '60px',
       },
       wrapperCol: {
-        span: 21,
+        flex: 'auto',
       },
     };
   };
@@ -109,6 +86,29 @@ class ChangeSortModal extends BaseUpdateModal {
       data: metaData,
       key: fieldData.name.name,
     });
+  };
+
+  fillInitialValuesAfterLoad = ({
+    // eslint-disable-next-line no-unused-vars
+    metaData = null,
+    // eslint-disable-next-line no-unused-vars
+    metaListData = [],
+    // eslint-disable-next-line no-unused-vars
+    metaExtra = null,
+    // eslint-disable-next-line no-unused-vars
+    metaOriginalData = null,
+  }) => {
+    const values = {};
+
+    if (metaData != null) {
+      values[fieldData.sort.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.sort.name,
+        convert: convertCollection.number,
+      });
+    }
+
+    return values;
   };
 
   establishCardCollectionConfig = () => {

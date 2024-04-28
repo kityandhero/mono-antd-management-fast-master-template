@@ -38,6 +38,7 @@ import {
 } from '../Assist/action';
 import { parseUrlParametersForSetState } from '../Assist/config';
 import { getStatusBadge } from '../Assist/tools';
+import { ChangeBusinessModeModal } from '../ChangeBusinessModeModal';
 import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData, statusCollection } from '../Common/data';
 
@@ -48,12 +49,16 @@ const { MultiPage } = DataMultiPageView;
   schedulingControl,
 }))
 class PageList extends MultiPage {
+  // showCallProcess = true;
+
+  componentAuthority = accessWayCollection.section.pageList.permission;
+
   constructor(properties) {
     super(properties);
 
     this.state = {
       ...this.state,
-      pageName: '栏目列表',
+      pageTitle: '栏目列表',
       paramsKey: accessWayCollection.section.pageList.paramsKey,
       loadApiPath: 'section/pageList',
     };
@@ -70,6 +75,16 @@ class PageList extends MultiPage {
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
+      case 'setSort': {
+        this.showChangeSortModal(handleData);
+        break;
+      }
+
+      case 'updateBusinessMode': {
+        this.showChangeBusinessModeModal(handleData);
+        break;
+      }
+
       case 'toggleRecommend': {
         this.toggleRecommend(handleData);
         break;
@@ -92,11 +107,6 @@ class PageList extends MultiPage {
 
       case 'setOffline': {
         this.setOffline(handleData);
-        break;
-      }
-
-      case 'setSort': {
-        this.showChangeSortModal(handleData);
         break;
       }
 
@@ -284,13 +294,23 @@ class PageList extends MultiPage {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
-  showChangeSortModal = (currentRecord) => {
-    this.setState({ currentRecord }, () => {
+  showChangeSortModal = (item) => {
+    this.setState({ currentRecord: item }, () => {
       ChangeSortModal.open();
     });
   };
 
   afterChangeSortModalOk = () => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  showChangeBusinessModeModal = (item) => {
+    this.setState({ currentRecord: item }, () => {
+      ChangeBusinessModeModal.open();
+    });
+  };
+
+  afterChangeBusinessModeModalOk = () => {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
@@ -322,7 +342,7 @@ class PageList extends MultiPage {
         hidden: !checkHasAuthority(
           accessWayCollection.section.addBasicInfo.permission,
         ),
-        handleClick: this.goToAdd,
+        handleClick: this.showAddBasicInfoDrawer,
       },
     ];
   };
@@ -331,7 +351,7 @@ class PageList extends MultiPage {
     return {
       list: [
         {
-          lg: 6,
+          lg: 12,
           type: searchCardConfig.contentItemType.input,
           fieldData: fieldData.name,
         },
@@ -401,7 +421,7 @@ class PageList extends MultiPage {
     },
     {
       dataTarget: fieldData.image,
-      width: 100,
+      width: 80,
       showRichFacade: true,
       facadeMode: columnFacadeMode.image,
     },
@@ -487,6 +507,12 @@ class PageList extends MultiPage {
       emptyValue: '--',
     },
     {
+      dataTarget: fieldData.businessModeNote,
+      width: 120,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
       dataTarget: fieldData.createTime,
       width: 160,
       showRichFacade: true,
@@ -528,7 +554,25 @@ class PageList extends MultiPage {
           },
           items: [
             {
+              key: 'setSort',
+              icon: iconBuilder.edit(),
+              text: '设置排序值',
+              hidden: !checkHasAuthority(
+                accessWayCollection.section.updateSort.permission,
+              ),
+            },
+            {
+              key: 'updateBusinessMode',
+              icon: iconBuilder.edit(),
+              text: '设置适用业务',
+              hidden: !checkHasAuthority(
+                accessWayCollection.section.updateBusinessMode.permission,
+              ),
+            },
+            {
               key: 'toggleRecommend',
+              withDivider: true,
+              uponDivider: true,
               icon: iconBuilder.swap(),
               text: '切换推荐',
               hidden: !checkHasAuthority(
@@ -584,16 +628,6 @@ class PageList extends MultiPage {
               },
             },
             {
-              key: 'setSort',
-              withDivider: true,
-              uponDivider: true,
-              icon: iconBuilder.edit(),
-              text: '设置排序值',
-              hidden: !checkHasAuthority(
-                accessWayCollection.section.updateSort.permission,
-              ),
-            },
-            {
               key: 'refreshCache',
               withDivider: true,
               uponDivider: true,
@@ -629,7 +663,7 @@ class PageList extends MultiPage {
     };
   };
 
-  renderOther = () => {
+  renderPresetOther = () => {
     const { currentRecord } = this.state;
 
     return (
@@ -639,11 +673,14 @@ class PageList extends MultiPage {
             this.afterAddBasicInfoDrawerOk();
           }}
         />
-
         <ChangeSortModal
           externalData={currentRecord}
           afterOK={this.afterChangeSortModalOk}
-          afterCancel={this.afterChangeSortModalCancel}
+        />
+
+        <ChangeBusinessModeModal
+          externalData={currentRecord}
+          afterOK={this.afterChangeBusinessModeModalOk}
         />
       </>
     );

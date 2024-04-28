@@ -51,7 +51,7 @@ const { MultiPage } = DataMultiPageView;
   schedulingControl,
 }))
 class PageList extends MultiPage {
-  showCallProcess = true;
+  // showCallProcess = true;
 
   componentAuthority = accessWayCollection.tag.pageList.permission;
 

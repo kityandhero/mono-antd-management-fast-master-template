@@ -143,34 +143,6 @@
     {
       "apis": [
         {
-          "title": "文章推送配置",
-          "api": "/application/getArticleNotificationConfig",
-          "effect": "getArticleNotificationConfig",
-          "service": "getArticleNotificationConfigData",
-          "type": "singleData"
-        },
-        {
-          "title": "测试发送微信公众号模板消息",
-          "api": "/application/testSendWechatTemplateMessage",
-          "effect": "testSendWechatTemplateMessage",
-          "service": "testSendWechatTemplateMessageData",
-          "type": "singleData"
-        },
-        {
-          "title": "测试发送微信统一服务消息",
-          "api": "/application/testSendWechatUniformMessage",
-          "effect": "testSendWechatUniformMessage",
-          "service": "testSendWechatUniformMessageData",
-          "type": "singleData"
-        },
-        {
-          "title": "测试验证码短信",
-          "api": "/application/testSendSmsCaptcha",
-          "effect": "testSendSmsCaptcha",
-          "service": "testSendSmsCaptchaData",
-          "type": "singleData"
-        },
-        {
           "title": "应用列表",
           "api": "/application/pageList",
           "effect": "pageList",
@@ -217,6 +189,13 @@
           "api": "/application/getCheckInConfig",
           "effect": "getCheckInConfig",
           "service": "getCheckInConfigData",
+          "type": "singleData"
+        },
+        {
+          "title": "文章推送配置",
+          "api": "/application/getArticleNotificationConfig",
+          "effect": "getArticleNotificationConfig",
+          "service": "getArticleNotificationConfigData",
           "type": "singleData"
         },
         {
@@ -287,6 +266,27 @@
           "api": "/application/testJiGuangSendDevice",
           "effect": "testJiGuangSendDevice",
           "service": "testJiGuangSendDeviceData",
+          "type": "singleData"
+        },
+        {
+          "title": "测试发送微信公众号模板消息",
+          "api": "/application/testSendWechatTemplateMessage",
+          "effect": "testSendWechatTemplateMessage",
+          "service": "testSendWechatTemplateMessageData",
+          "type": "singleData"
+        },
+        {
+          "title": "测试发送微信统一服务消息",
+          "api": "/application/testSendWechatUniformMessage",
+          "effect": "testSendWechatUniformMessage",
+          "service": "testSendWechatUniformMessageData",
+          "type": "singleData"
+        },
+        {
+          "title": "测试验证码短信",
+          "api": "/application/testSendSmsCaptcha",
+          "effect": "testSendSmsCaptcha",
+          "service": "testSendSmsCaptchaData",
           "type": "singleData"
         },
         {
@@ -692,6 +692,48 @@
       "cover": true,
       "title": "文章推送应用设置",
       "name": "articleNotificationApplication"
+    },
+    {
+      "apis": [
+        {
+          "title": "设置列表",
+          "api": "/articleNotificationApplicationBase/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "设置详情",
+          "api": "/articleNotificationApplicationBase/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新增设置",
+          "api": "/articleNotificationApplicationBase/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新信息",
+          "api": "/articleNotificationApplicationBase/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/articleNotificationApplicationBase/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "文章推送应用设置",
+      "name": "articleNotificationApplicationBase"
     },
     {
       "apis": [
@@ -1417,13 +1459,6 @@
     {
       "apis": [
         {
-          "title": "分页列表",
-          "api": "/hostService/pageList",
-          "effect": "pageList",
-          "service": "pageListData",
-          "type": "pageList"
-        },
-        {
           "title": "获取详情",
           "api": "/hostService/get",
           "effect": "get",
@@ -1448,6 +1483,34 @@
       "cover": true,
       "title": "驻留服务",
       "name": "hostService"
+    },
+    {
+      "apis": [
+        {
+          "title": "获取详情",
+          "api": "/hostServiceBase/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "服务操作",
+          "api": "/hostServiceBase/change",
+          "effect": "change",
+          "service": "changeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新状态",
+          "api": "/hostServiceBase/refreshAllStatus",
+          "effect": "refreshAllStatus",
+          "service": "refreshAllStatusData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "驻留服务",
+      "name": "hostServiceBase"
     },
     {
       "apis": [
@@ -1669,20 +1732,6 @@
     {
       "apis": [
         {
-          "title": "新建",
-          "api": "/optionPool/addBasicInfo",
-          "effect": "addBasicInfo",
-          "service": "addBasicInfoData",
-          "type": "singleData"
-        },
-        {
-          "title": "编辑信息",
-          "api": "/optionPool/updateBasicInfo",
-          "effect": "updateBasicInfo",
-          "service": "updateBasicInfoData",
-          "type": "singleData"
-        },
-        {
           "title": "分页列表",
           "api": "/optionPool/pageList",
           "effect": "pageList",
@@ -1694,6 +1743,20 @@
           "api": "/optionPool/get",
           "effect": "get",
           "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新建",
+          "api": "/optionPool/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑信息",
+          "api": "/optionPool/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
           "type": "singleData"
         },
         {
@@ -1767,19 +1830,33 @@
     {
       "apis": [
         {
-          "title": "选项列表",
-          "api": "/presetRole/listSelect",
-          "effect": "listSelect",
-          "service": "listSelectData",
-          "type": "singleList"
-        },
-        {
-          "title": "新增角色",
-          "api": "/presetRole/addBasicInfo",
-          "effect": "addBasicInfo",
-          "service": "addBasicInfoData",
+          "title": "获取概览树图",
+          "api": "/organizationBase/getGraphicalTree",
+          "effect": "getGraphicalTree",
+          "service": "getGraphicalTreeData",
           "type": "singleData"
         },
+        {
+          "title": "获取直属部门树图",
+          "api": "/organizationBase/getGraphicalDirectDepartment",
+          "effect": "getGraphicalDirectDepartment",
+          "service": "getGraphicalDirectDepartmentData",
+          "type": "singleData"
+        },
+        {
+          "title": "获取单公司组织树图",
+          "api": "/organizationBase/getGraphicalSingleSubsidiaryDepartment",
+          "effect": "getGraphicalSingleSubsidiaryDepartment",
+          "service": "getGraphicalSingleSubsidiaryDepartmentData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "组织信息",
+      "name": "organizationBase"
+    },
+    {
+      "apis": [
         {
           "title": "分页列表",
           "api": "/presetRole/pageList",
@@ -1802,10 +1879,24 @@
           "type": "singleList"
         },
         {
+          "title": "选项列表",
+          "api": "/presetRole/listSelect",
+          "effect": "listSelect",
+          "service": "listSelectData",
+          "type": "singleList"
+        },
+        {
           "title": "角色详情",
           "api": "/presetRole/get",
           "effect": "get",
           "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新增角色",
+          "api": "/presetRole/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
           "type": "singleData"
         },
         {
@@ -1956,20 +2047,6 @@
     {
       "apis": [
         {
-          "title": "新建",
-          "api": "/section/addBasicInfo",
-          "effect": "addBasicInfo",
-          "service": "addBasicInfoData",
-          "type": "singleData"
-        },
-        {
-          "title": "设置阅读积分发放",
-          "api": "/section/setReadObtainScore",
-          "effect": "setReadObtainScore",
-          "service": "setReadObtainScoreData",
-          "type": "singleData"
-        },
-        {
           "title": "分页列表",
           "api": "/section/pageList",
           "effect": "pageList",
@@ -1998,6 +2075,13 @@
           "type": "singleData"
         },
         {
+          "title": "新建",
+          "api": "/section/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
           "title": "编辑信息",
           "api": "/section/updateBasicInfo",
           "effect": "updateBasicInfo",
@@ -2009,6 +2093,13 @@
           "api": "/section/updateContentInfo",
           "effect": "updateContentInfo",
           "service": "updateContentInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置适用业务",
+          "api": "/section/updateBusinessMode",
+          "effect": "updateBusinessMode",
+          "service": "updateBusinessModeData",
           "type": "singleData"
         },
         {
@@ -2051,6 +2142,13 @@
           "api": "/section/toggleVisible",
           "effect": "toggleVisible",
           "service": "toggleVisibleData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置阅读积分发放",
+          "api": "/section/setReadObtainScore",
+          "effect": "setReadObtainScore",
+          "service": "setReadObtainScoreData",
           "type": "singleData"
         },
         {
@@ -2502,6 +2600,20 @@
     {
       "apis": [
         {
+          "title": "标签列表",
+          "api": "/tag/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "标签详情",
+          "api": "/tag/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
           "title": "更新信息",
           "api": "/tag/addBasicInfo",
           "effect": "addBasicInfo",
@@ -2569,20 +2681,6 @@
           "api": "/tag/refreshCache",
           "effect": "refreshCache",
           "service": "refreshCacheData",
-          "type": "singleData"
-        },
-        {
-          "title": "标签列表",
-          "api": "/tag/pageList",
-          "effect": "pageList",
-          "service": "pageListData",
-          "type": "pageList"
-        },
-        {
-          "title": "标签详情",
-          "api": "/tag/get",
-          "effect": "get",
-          "service": "getData",
           "type": "singleData"
         },
         {
@@ -2904,6 +3002,55 @@
       "cover": true,
       "title": "用户设备",
       "name": "userDevice"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/userDeviceBase/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/userDeviceBase/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新增设备",
+          "api": "/userDeviceBase/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "删除设备",
+          "api": "/userDeviceBase/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/userDeviceBase/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/userDeviceBase/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "用户设备",
+      "name": "userDeviceBase"
     },
     {
       "apis": [

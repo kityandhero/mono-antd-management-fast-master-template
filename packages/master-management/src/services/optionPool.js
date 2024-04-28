@@ -1,23 +1,5 @@
 import { request } from 'easy-soft-utility';
 
-export const addBasicInfoDataApiAddress = '/optionPool/addBasicInfo';
-
-export async function addBasicInfoData(parameters) {
-  return request({
-    api: addBasicInfoDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const updateBasicInfoDataApiAddress = '/optionPool/updateBasicInfo';
-
-export async function updateBasicInfoData(parameters) {
-  return request({
-    api: updateBasicInfoDataApiAddress,
-    params: parameters,
-  });
-}
-
 export const pageListDataApiAddress = '/optionPool/pageList';
 
 export async function pageListData(parameters) {
@@ -32,6 +14,24 @@ export const getDataApiAddress = '/optionPool/get';
 export async function getData(parameters) {
   return request({
     api: getDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const addBasicInfoDataApiAddress = '/optionPool/addBasicInfo';
+
+export async function addBasicInfoData(parameters) {
+  return request({
+    api: addBasicInfoDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const updateBasicInfoDataApiAddress = '/optionPool/updateBasicInfo';
+
+export async function updateBasicInfoData(parameters) {
+  return request({
+    api: updateBasicInfoDataApiAddress,
     params: parameters,
   });
 }

@@ -626,7 +626,7 @@ class MediaInfo extends TabPageBase {
     );
   };
 
-  renderOther = () => {
+  renderPresetOther = () => {
     const {
       sectionId,
       mediaItemList,

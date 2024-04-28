@@ -410,7 +410,6 @@ class PageList extends MultiPage {
         <UpdateSortModal
           externalData={currentRecord}
           afterOK={this.afterUpdateSortModalOk}
-          afterCancel={this.afterUpdateSortModalCancel}
         />
       </>
     );

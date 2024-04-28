@@ -32,6 +32,7 @@ class UpdateConfigItemDrawer extends BaseUpdateDrawer {
 
     this.state = {
       ...this.state,
+      pageTitle: '编辑栏目特定页面自定义配置',
       loadApiPath: 'sectionApplicationConfig/getConfigItem',
       submitApiPath: 'sectionApplicationConfig/updateConfigItem',
       icon: '',
@@ -90,10 +91,6 @@ class UpdateConfigItemDrawer extends BaseUpdateDrawer {
     });
 
     return d;
-  };
-
-  renderPresetTitle = () => {
-    return '编辑栏目特定页面自定义配置';
   };
 
   fillInitialValuesAfterLoad = ({
