@@ -2012,6 +2012,13 @@
           "type": "singleData"
         },
         {
+          "title": "尝试重启消费端",
+          "api": "/queueInfo/tryStartAll",
+          "effect": "tryStartAll",
+          "service": "tryStartAllData",
+          "type": "singleData"
+        },
+        {
           "title": "测试发送",
           "api": "/queueInfo/trySend",
           "effect": "trySend",

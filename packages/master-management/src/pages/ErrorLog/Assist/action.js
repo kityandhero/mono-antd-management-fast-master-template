@@ -56,3 +56,19 @@ export function removeAllAction({
     successMessage,
   });
 }
+
+export function createTestExceptionAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage = null,
+}) {
+  actionCore({
+    api: 'errorLog/createTestException',
+    params: { ...handleData },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}

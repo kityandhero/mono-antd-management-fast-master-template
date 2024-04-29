@@ -45,3 +45,19 @@ export function tryPurgeAction({
     successMessage,
   });
 }
+
+export function tryStartAllAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage = null,
+}) {
+  actionCore({
+    api: 'queueInfo/tryStartAll',
+    params: {},
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}

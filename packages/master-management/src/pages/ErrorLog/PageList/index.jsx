@@ -22,6 +22,7 @@ import {
   renderSearchWebChannelSelect,
 } from '../../../customSpecialComponents';
 import {
+  createTestExceptionAction,
   removeAction,
   removeAllAction,
   removeMultiAction,
@@ -110,6 +111,16 @@ class Index extends MultiPage {
     });
   };
 
+  createTestException = () => {
+    createTestExceptionAction({
+      target: this,
+      handleData: {},
+      successCallback: ({ target }) => {
+        target.reloadData({});
+      },
+    });
+  };
+
   showPreviewDrawer = (record) => {
     this.setState({ currentRecord: record }, () => {
       PreviewDrawer.open();
@@ -165,6 +176,16 @@ class Index extends MultiPage {
 
   establishDataContainerExtraActionCollectionConfig = () => {
     return [
+      {
+        buildType:
+          listViewConfig.dataContainerExtraActionBuildType.generalButton,
+        type: 'dashed',
+        icon: iconBuilder.bug(),
+        text: '创建测试异常',
+        handleClick: this.createTestException,
+        confirm: true,
+        title: '即将创建测试异常，该功能仅用于测试队列，确定吗？',
+      },
       {
         buildType:
           listViewConfig.dataContainerExtraActionBuildType.generalButton,

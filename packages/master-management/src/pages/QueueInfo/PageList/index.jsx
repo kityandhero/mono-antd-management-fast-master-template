@@ -1,11 +1,20 @@
 import { connect } from 'easy-soft-dva';
+import {
+  convertCollection,
+  getValueByKey,
+  whetherNumber,
+} from 'easy-soft-utility';
 
-import { searchCardConfig } from 'antd-management-fast-common';
+import { listViewConfig, searchCardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
-import { tryPurgeAction, trySendAction } from '../Assist/action';
+import {
+  tryPurgeAction,
+  trySendAction,
+  tryStartAllAction,
+} from '../Assist/action';
 import { fieldData } from '../Common/data';
 import { DequeueDrawer } from '../DequeueDrawer';
 import { PeekDrawer } from '../PeekDrawer';
@@ -27,8 +36,35 @@ class Index extends MultiPage {
       paramsKey: accessWayCollection.queueInfo.pageList.paramsKey,
       loadApiPath: 'queueInfo/pageList',
       currentRecord: null,
+      canReStart: whetherNumber.no,
     };
   }
+
+  doOtherAfterLoadSuccess = ({
+    // eslint-disable-next-line no-unused-vars
+    metaData = null,
+    // eslint-disable-next-line no-unused-vars
+    metaListData = [],
+    // eslint-disable-next-line no-unused-vars
+    metaExtra = null,
+    // eslint-disable-next-line no-unused-vars
+    metaOriginalData = null,
+  }) => {
+    const { other } = {
+      other: {
+        canReStart: whetherNumber.no,
+      },
+      ...metaExtra,
+    };
+
+    this.setState({
+      canReStart: getValueByKey({
+        data: other,
+        key: 'canReStart',
+        convert: convertCollection.number,
+      }),
+    });
+  };
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
@@ -78,6 +114,16 @@ class Index extends MultiPage {
     });
   };
 
+  tryStartAll = () => {
+    tryStartAllAction({
+      target: this,
+      handleData: {},
+      successCallback: ({ target }) => {
+        target.reloadData({});
+      },
+    });
+  };
+
   showPreviewDrawer = (record) => {
     this.setState({ currentRecord: record }, () => {
       PreviewDrawer.open();
@@ -119,6 +165,24 @@ class Index extends MultiPage {
     };
   };
 
+  establishDataContainerExtraActionCollectionConfig = () => {
+    const { canReStart } = this.state;
+
+    return [
+      {
+        buildType:
+          listViewConfig.dataContainerExtraActionBuildType.generalExtraButton,
+        type: 'dashed',
+        icon: iconBuilder.playCircle(),
+        text: '尝试重新启动',
+        hidden: canReStart !== whetherNumber.yes,
+        handleClick: this.tryStartAll,
+        confirm: true,
+        title: '尝试重新启动队列消费端，确定吗？',
+      },
+    ];
+  };
+
   establishListItemDropdownConfig = (record) => {
     return {
       size: 'small',
@@ -156,6 +220,15 @@ class Index extends MultiPage {
             '即将尝试消费队列数据,该操作会导致队列被移出，请谨慎操作，确定继续吗？',
         },
         {
+          key: 'startQueue',
+          withDivider: true,
+          uponDivider: true,
+          icon: iconBuilder.playCircle(),
+          text: '尝试启动消费端',
+          confirm: true,
+          title: '即将尝试启动消费端，确定继续吗？',
+        },
+        {
           key: 'tryPurge',
           withDivider: true,
           uponDivider: true,
@@ -172,6 +245,12 @@ class Index extends MultiPage {
     {
       dataTarget: fieldData.name,
       align: 'left',
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.queueModeNote,
+      width: 140,
       showRichFacade: true,
       emptyValue: '--',
     },

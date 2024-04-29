@@ -45,6 +45,10 @@ class Setting extends DataTabContainer {
       tab: '用友密钥配置',
     },
     {
+      key: 'editorInfo',
+      tab: '编辑器配置',
+    },
+    {
       key: 'architectureInfo',
       tab: '架构配置',
     },

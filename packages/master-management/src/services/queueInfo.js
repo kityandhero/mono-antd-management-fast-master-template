@@ -27,6 +27,15 @@ export async function getData(parameters) {
   });
 }
 
+export const tryStartAllDataApiAddress = '/queueInfo/tryStartAll';
+
+export async function tryStartAllData(parameters) {
+  return request({
+    api: tryStartAllDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const trySendDataApiAddress = '/queueInfo/trySend';
 
 export async function trySendData(parameters) {

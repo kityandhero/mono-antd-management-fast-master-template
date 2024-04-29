@@ -1716,6 +1716,11 @@ export default [
             component: './CurrentManagement/Setting/ArchitectureInfo',
           },
           {
+            path: '/currentManagement/setting/:op/editorInfo',
+            name: 'editorInfo',
+            component: './CurrentManagement/Setting/EditorInfo',
+          },
+          {
             path: '/currentManagement/setting/:op/otherInfo',
             name: 'otherInfo',
             component: './CurrentManagement/Setting/OtherInfo',

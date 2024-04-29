@@ -190,6 +190,21 @@ export const fieldData = {
     name: 'cacheModeTag',
     helper: '',
   },
+  tinymceScriptSrc: {
+    label: 'tinymce脚本资源',
+    name: 'tinymceScriptSrc',
+    helper: '',
+  },
+  tinymceScriptSrcNote: {
+    label: 'tinymce脚本资源',
+    name: 'tinymceScriptSrcNote',
+    helper: '',
+  },
+  tinymceScriptSrcTag: {
+    label: 'tinymce脚本资源',
+    name: 'tinymceScriptSrcTag',
+    helper: '',
+  },
   qiniu: {
     label: '七牛云',
     qiniuImageSwitch: {

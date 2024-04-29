@@ -1240,6 +1240,11 @@ export const accessWayCollection = {
       paramsKey: '5f5d01104190ce589042c62ec0fcdbf8',
       permission: '60ea23507f574f9b8de02a9782e50897',
     },
+    tryStartAll: {
+      title: '尝试重启消费端',
+      paramsKey: 'dbb26585adfc40d77e1959980b473181',
+      permission: '130dfc7dc3f6422cb1eee00bd079801c',
+    },
     trySend: {
       title: '测试发送',
       paramsKey: 'be8bde77b1ae8ab50209f6cf3e027a82',

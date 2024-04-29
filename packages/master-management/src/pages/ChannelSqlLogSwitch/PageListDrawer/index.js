@@ -267,6 +267,7 @@ class PageListDrawer extends MultiPageDrawer {
                 {
                   textPrefix: fieldData.tag.label,
                   text: tag,
+                  separatorStyle: { padding: '0 4px 0 2px' },
                   canCopy: true,
                 },
               ],

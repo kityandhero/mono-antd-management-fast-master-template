@@ -9,6 +9,21 @@ export const fieldData = {
     name: 'name',
     helper: '',
   },
+  queueMode: {
+    label: '队列模式',
+    name: 'queueMode',
+    helper: '',
+  },
+  queueModeNote: {
+    label: '队列模式',
+    name: 'queueModeNote',
+    helper: '',
+  },
+  canOperateStart: {
+    label: '可操作启动',
+    name: 'canOperateStart',
+    helper: '',
+  },
   count: {
     label: '消息数量',
     name: 'count',
