@@ -257,6 +257,7 @@ export default {
   'menu.news.section.edit.sectionApplicationConfig': '页面配置',
   'menu.news.section.edit.sectionApplicationConfig.pageList': '配置列表',
   'menu.news.section.edit.contentInfo': 'H5信息',
+  'menu.news.section.edit.mediaInfo': '媒体信息',
   'menu.news.section.edit.operateLog': '操作日志',
   'menu.news.section.edit.operateLog.pageList': '日志列表',
 

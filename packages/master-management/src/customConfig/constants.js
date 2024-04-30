@@ -496,7 +496,7 @@ export const keyValueItemData = {
   title: {
     label: '名称',
     name: 'title',
-    helper: '自定义数据项的标题名',
+    helper: '自定义数据项的标题名, 一般用于管理识别',
   },
   type: {
     label: '类型',

@@ -54,14 +54,10 @@ class MediaInfo extends TabPageBase {
 
     this.state = {
       ...this.state,
-
       loadApiPath: 'section/get',
       sectionId: null,
       mediaItemList: [],
       mediaItemCount: 0,
-      addMediaItemDrawerVisible: false,
-      updateMediaItemDrawerVisible: false,
-      mediaItemPreviewDrawerVisible: false,
       currentMediaItem: null,
       selectForwardId: '',
     };
@@ -116,86 +112,52 @@ class MediaInfo extends TabPageBase {
   };
 
   showMediaItemPreviewDrawer = () => {
-    this.setState({
-      mediaItemPreviewDrawerVisible: true,
-    });
-  };
-
-  closeMediaItemPreviewDrawer = () => {
-    this.setState({
-      mediaItemPreviewDrawerVisible: false,
-    });
+    MediaItemPreviewDrawer.open();
   };
 
   showInsertMediaItemDrawer = (record) => {
-    this.setState({
-      addMediaItemDrawerVisible: true,
-      selectForwardId: getValueByKey({
-        data: record,
-        key: keyValueItemData.id.name,
-      }),
-    });
-  };
-
-  showAddMediaItemDrawer = () => {
-    this.setState({
-      addMediaItemDrawerVisible: true,
-      selectForwardId: '',
-    });
-  };
-
-  showUpdateMediaItemDrawer = (record) => {
-    this.setState({
-      updateMediaItemDrawerVisible: true,
-      selectForwardId: '',
-      currentMediaItem: record,
-    });
-  };
-
-  afterAddMediaItemDrawerOk = () => {
-    this.setState({
-      addMediaItemDrawerVisible: false,
-      selectForwardId: '',
-    });
-
-    this.refreshData();
-  };
-
-  afterUpdateMediaItemDrawerOk = () => {
     this.setState(
       {
-        updateMediaItemDrawerVisible: false,
+        selectForwardId: getValueByKey({
+          data: record,
+          key: keyValueItemData.id.name,
+        }),
       },
       () => {
-        const that = this;
-
-        setTimeout(() => {
-          that.refreshData();
-        }, 300);
+        AddMediaItemDrawer.open();
       },
     );
   };
 
-  afterAddMediaItemDrawerCancel = () => {
-    this.setState({
-      addMediaItemDrawerVisible: false,
-      selectForwardId: '',
-    });
+  showAddMediaItemDrawer = () => {
+    this.setState(
+      {
+        selectForwardId: '',
+      },
+      () => {
+        AddMediaItemDrawer.open();
+      },
+    );
   };
 
-  afterUpdateMediaItemDrawerCancel = () => {
-    this.setState({ updateMediaItemDrawerVisible: false });
+  afterAddMediaItemDrawerOk = () => {
+    this.refreshData();
   };
 
-  afterAddMediaItemDrawerClose = () => {
-    this.setState({
-      addMediaItemDrawerVisible: false,
-      selectForwardId: '',
-    });
+  showUpdateMediaItemDrawer = (item) => {
+    this.setState(
+      {
+        selectForwardId: '',
+        currentMediaItem: item,
+      },
+      () => {
+        UpdateMediaItemDrawer.open();
+      },
+    );
   };
 
-  afterUpdateMediaItemDrawerClose = () => {
-    this.setState({ updateMediaItemDrawerVisible: false });
+  afterUpdateMediaItemDrawerOk = () => {
+    this.refreshData();
   };
 
   handleMenuClick = ({ key, handleData }) => {
@@ -273,25 +235,27 @@ class MediaInfo extends TabPageBase {
     });
   };
 
-  renderListView = (list) => {
+  renderPresetListView = (list) => {
     return (
       <List
         itemLayout="vertical"
         size="small"
         dataSource={list}
         renderItem={(item, index) => {
-          return this.renderListViewItem(item, index);
+          return this.renderPresetListViewItem(item, index);
         }}
       />
     );
   };
 
-  renderListViewItem = (item, index) => {
-    return <List.Item>{this.renderListViewItemInner(item, index)}</List.Item>;
+  renderPresetListViewItem = (item, index) => {
+    return (
+      <List.Item>{this.renderPresetListViewItemInner(item, index)}</List.Item>
+    );
   };
 
   // eslint-disable-next-line no-unused-vars
-  renderListViewItemInner = (item, index) => {
+  renderPresetListViewItemInner = (item, index) => {
     const { mediaItemList } = this.state;
 
     const title = getValueByKey({
@@ -299,7 +263,12 @@ class MediaInfo extends TabPageBase {
       key: keyValueItemData.title.name,
     });
 
-    const description = getValueByKey({
+    const text = getValueByKey({
+      data: item,
+      key: keyValueItemData.text.name,
+    });
+
+    const multiText = getValueByKey({
       data: item,
       key: keyValueItemData.multiText.name,
     });
@@ -342,14 +311,19 @@ class MediaInfo extends TabPageBase {
           value: title,
         },
         {
+          label: keyValueItemData.text.label,
+          value: text,
+          hidden: checkStringIsNullOrWhiteSpace(text),
+        },
+        {
+          label: keyValueItemData.multiText.label,
+          value: multiText,
+          hidden: checkStringIsNullOrWhiteSpace(multiText),
+        },
+        {
           label: keyValueItemData.image.label,
           value: image,
           hidden: checkStringIsNullOrWhiteSpace(image),
-        },
-        {
-          label: keyValueItemData.description.label,
-          value: description,
-          hidden: checkStringIsNullOrWhiteSpace(description),
         },
         {
           label: keyValueItemData.link.label,
@@ -432,14 +406,6 @@ class MediaInfo extends TabPageBase {
                 color: '#999999',
               },
               {
-                label: keyValueItemData.title.label,
-                text: getValueByKey({
-                  data: item,
-                  key: keyValueItemData.title.name,
-                }),
-                color: '#999999',
-              },
-              {
                 label: keyValueItemData.sort.label,
                 text: sort,
                 color: '#999999',
@@ -459,7 +425,7 @@ class MediaInfo extends TabPageBase {
               placement: 'topRight',
               icon: iconBuilder.edit(),
               handleButtonClick: ({ handleData }) => {
-                this.showUpdateJsonItemDrawer(handleData);
+                this.showUpdateMediaItemDrawer(handleData);
               },
               handleData: item,
               handleMenuClick: ({ key, handleData }) => {
@@ -570,7 +536,7 @@ class MediaInfo extends TabPageBase {
         },
         {
           title: '刷新数据',
-          component: this.renderRefreshButton(),
+          component: this.renderPresetRefreshButton(),
         },
       ],
     };
@@ -593,14 +559,29 @@ class MediaInfo extends TabPageBase {
     return {
       list: [
         {
+          fullLine: false,
+          width: '400px',
+          cardBodyStyle: { padding: 0 },
+          otherComponent: (
+            <MobilePreviewBox
+              mobileList={[
+                mobileTypeCollection.noneSketch,
+                mobileTypeCollection.roughSketch,
+              ]}
+              data={mediaItemList || []}
+            />
+          ),
+        },
+        {
           title: {
             text: '图片媒体列表',
           },
+          fullLine: false,
           items: [
             {
               lg: 24,
               type: cardConfig.contentItemType.component,
-              component: this.renderListView(mediaItemList),
+              component: this.renderPresetListView(mediaItemList),
             },
           ],
         },
@@ -608,39 +589,13 @@ class MediaInfo extends TabPageBase {
     };
   };
 
-  establishPageContentLayoutSiderConfig = () => {
-    return { width: 400 };
-  };
-
-  renderSiderTopArea = () => {
-    const { mediaItemList } = this.state;
-
-    return (
-      <MobilePreviewBox
-        mobileList={[
-          mobileTypeCollection.roughSketch,
-          mobileTypeCollection.iPhone5S,
-        ]}
-        data={mediaItemList || []}
-      />
-    );
-  };
-
   renderPresetOther = () => {
-    const {
-      sectionId,
-      mediaItemList,
-      currentMediaItem,
-      addMediaItemDrawerVisible,
-      updateMediaItemDrawerVisible,
-      mediaItemPreviewDrawerVisible,
-      selectForwardId,
-    } = this.state;
+    const { sectionId, mediaItemList, currentMediaItem, selectForwardId } =
+      this.state;
 
     return (
       <>
         <AddMediaItemDrawer
-          visible={addMediaItemDrawerVisible}
           externalData={{
             sectionId,
             forwardId: selectForwardId,
@@ -648,35 +603,16 @@ class MediaInfo extends TabPageBase {
           afterOK={() => {
             this.afterAddMediaItemDrawerOk();
           }}
-          afterCancel={() => {
-            this.afterAddMediaItemDrawerCancel();
-          }}
-          afterClose={() => {
-            this.afterAddMediaItemDrawerClose();
-          }}
         />
 
         <UpdateMediaItemDrawer
-          visible={updateMediaItemDrawerVisible}
           externalData={{ ...currentMediaItem, sectionId }}
           afterOK={() => {
             this.afterUpdateMediaItemDrawerOk();
           }}
-          afterCancel={() => {
-            this.afterUpdateMediaItemDrawerCancel();
-          }}
-          afterClose={() => {
-            this.afterUpdateMediaItemDrawerClose();
-          }}
         />
 
-        <MediaItemPreviewDrawer
-          visible={mediaItemPreviewDrawerVisible}
-          data={mediaItemList || []}
-          afterClose={() => {
-            this.closeMediaItemPreviewDrawer();
-          }}
-        />
+        <MediaItemPreviewDrawer data={mediaItemList || []} />
       </>
     );
   };

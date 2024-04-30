@@ -65,7 +65,6 @@ class AddMediaItemDrawer extends BaseAddDrawer {
 
     return {
       ...this.supplementRequestParams(o),
-
       image,
       video,
       audio,
@@ -114,8 +113,6 @@ class AddMediaItemDrawer extends BaseAddDrawer {
     this.setState({ mediaType: toNumber(v) });
   };
 
-  renderPresetTitleIcon = () => iconBuilder.addCircle();
-
   renderPresetTitle = () => {
     return '添加媒体项';
   };
@@ -138,7 +135,19 @@ class AddMediaItemDrawer extends BaseAddDrawer {
             icon: iconBuilder.contacts(),
             text: keyValueItemData.title.label,
           },
-
+          items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.input,
+              fieldData: keyValueItemData.title,
+            },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
+            text: '媒体值信息',
+          },
           items: [
             {
               lg: 24,
@@ -154,15 +163,40 @@ class AddMediaItemDrawer extends BaseAddDrawer {
         },
         {
           title: {
+            text: keyValueItemData.text.label,
+          },
+          hidden: !checkInCollection([keyValueTypeCollection.text], mediaType),
+          items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.input,
+              fieldData: keyValueItemData.text,
+            },
+          ],
+        },
+        {
+          title: {
+            text: keyValueItemData.multiText.label,
+          },
+          hidden: !checkInCollection(
+            [keyValueTypeCollection.multiText],
+            mediaType,
+          ),
+          items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.textarea,
+              fieldData: keyValueItemData.multiText,
+            },
+          ],
+        },
+        {
+          title: {
             icon: iconBuilder.picture(),
             text: keyValueItemData.image.label,
             subText: '[上传后需点击保存按钮保存]',
           },
-
-          hidden: !checkInCollection(
-            [keyValueTypeCollection.image, keyValueTypeCollection.video],
-            mediaType,
-          ),
+          hidden: !checkInCollection([keyValueTypeCollection.image], mediaType),
           items: [
             {
               lg: 24,
@@ -183,29 +217,26 @@ class AddMediaItemDrawer extends BaseAddDrawer {
         },
         {
           title: {
-            text: keyValueItemData.multiText.label,
+            icon: iconBuilder.picture(),
+            text: '视频封面图',
+            subText: '[上传后需点击保存按钮保存]',
           },
-
-          hidden: !checkInCollection([keyValueTypeCollection.text], mediaType),
+          hidden: !checkInCollection([keyValueTypeCollection.video], mediaType),
           items: [
             {
               lg: 24,
-              type: cardConfig.contentItemType.textarea,
-              fieldData: keyValueItemData.multiText,
-            },
-          ],
-        },
-        {
-          title: {
-            text: keyValueItemData.link.label,
-          },
-
-          hidden: !checkInCollection([keyValueTypeCollection.link], mediaType),
-          items: [
-            {
-              lg: 24,
-              type: cardConfig.contentItemType.input,
-              fieldData: keyValueItemData.link,
+              type: cardConfig.contentItemType.imageUpload,
+              image,
+              uploadProps: {
+                singleMode: {
+                  width: '140px',
+                  emptyImage: '',
+                },
+              },
+              action: `/section/uploadImage`,
+              afterUploadSuccess: (imageData) => {
+                this.afterImageUploadSuccess(imageData);
+              },
             },
           ],
         },
@@ -214,7 +245,6 @@ class AddMediaItemDrawer extends BaseAddDrawer {
             icon: iconBuilder.video(),
             text: keyValueItemData.video.label,
           },
-
           hidden: !checkInCollection([keyValueTypeCollection.video], mediaType),
           items: [
             {
@@ -235,7 +265,6 @@ class AddMediaItemDrawer extends BaseAddDrawer {
             icon: iconBuilder.sound(),
             text: keyValueItemData.audio.label,
           },
-
           hidden: !checkInCollection([keyValueTypeCollection.audio], mediaType),
           items: [
             {
@@ -253,10 +282,9 @@ class AddMediaItemDrawer extends BaseAddDrawer {
         },
         {
           title: {
-            icon: iconBuilder.link(),
+            icon: iconBuilder.file(),
             text: keyValueItemData.attachment.label,
           },
-
           hidden: !checkInCollection(
             [keyValueTypeCollection.attachment],
             mediaType,
@@ -277,9 +305,21 @@ class AddMediaItemDrawer extends BaseAddDrawer {
         },
         {
           title: {
+            text: keyValueItemData.link.label,
+          },
+          hidden: !checkInCollection([keyValueTypeCollection.link], mediaType),
+          items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.input,
+              fieldData: keyValueItemData.link,
+            },
+          ],
+        },
+        {
+          title: {
             text: '其他信息',
           },
-
           items: [
             {
               type: cardConfig.contentItemType.nowTime,

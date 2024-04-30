@@ -15,6 +15,13 @@ const {
   schedulingControl,
 }))
 class ApplicationSelectModalField extends BaseSelectFieldExtra {
+  getProperties = () => {
+    return {
+      label: '选择应用',
+      ...this.props,
+    };
+  };
+
   selectValueText = (data) => {
     const { name } = {
       name: '',
@@ -29,7 +36,7 @@ class ApplicationSelectModalField extends BaseSelectFieldExtra {
   };
 
   renderPresetSelector = () => {
-    const { label, externalData } = this.props;
+    const { label, externalData } = this.getProperties();
 
     return (
       <ApplicationSelectModal
@@ -41,10 +48,5 @@ class ApplicationSelectModalField extends BaseSelectFieldExtra {
     );
   };
 }
-
-ApplicationSelectModalField.defaultProps = {
-  ...BaseSelectFieldExtra.defaultProps,
-  label: '选择应用',
-};
 
 export { ApplicationSelectModalField };

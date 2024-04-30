@@ -1,8 +1,7 @@
 import { connect } from 'easy-soft-dva';
-import { checkHasAuthority, getValueByKey } from 'easy-soft-utility';
+import { checkHasAuthority, getValueByKey, throttle } from 'easy-soft-utility';
 
 import {
-  animalType,
   cardConfig,
   getDerivedStateFromPropertiesForUrlParameters,
   mobileTypeCollection,
@@ -37,7 +36,6 @@ class ContentInfo extends TabPageBase {
       submitApiPath: 'section/updateContentInfo',
       sectionId: null,
       initContent: '',
-      contentChanged: false,
       contentPreview: '',
     };
   }
@@ -80,7 +78,6 @@ class ContentInfo extends TabPageBase {
     this.setState({
       initContent: contentData,
       contentPreview: contentData,
-      contentChanged: false,
     });
   };
 
@@ -88,34 +85,56 @@ class ContentInfo extends TabPageBase {
     this.htmlContent = html;
     this.textContent = text;
 
-    const { contentChanged } = this.state;
-
-    if (!contentChanged) {
-      this.setState({ contentChanged: true });
-    }
+    this.refreshContentPreview();
   };
 
-  refreshContentPreview = () => {
-    console.log({
-      contentPreview: this.htmlContent,
-    });
-
-    this.setState({
-      contentPreview: this.htmlContent,
-      contentChanged: false,
-    });
-  };
+  refreshContentPreview = throttle(
+    () => {
+      this.setState({
+        contentPreview: this.htmlContent,
+      });
+    },
+    600,
+    {
+      trailing: true,
+    },
+  );
 
   establishCardCollectionConfig = () => {
-    const { initContent } = this.state;
+    const { initContent, contentPreview } = this.state;
 
     return {
       list: [
+        {
+          fullLine: false,
+          width: '400px',
+          cardBodyStyle: { padding: 0 },
+          otherComponent: (
+            <div>
+              <MobileHtmlPreviewBox
+                // affix
+                affixOffsetTop={20}
+                alertType={'warning'}
+                alertIcon={false}
+                alertButtonText="刷新"
+                mobileList={[
+                  mobileTypeCollection.noneSketch,
+                  mobileTypeCollection.roughSketch,
+                ]}
+                html={contentPreview || ''}
+                afterAlertClick={() => {
+                  this.refreshContentPreview();
+                }}
+              />
+            </div>
+          ),
+        },
         {
           title: {
             text: '详情信息',
             subText: '[请在此编辑您所需要的内容]',
           },
+          fullLine: false,
           extra: {
             affix: true,
             list: [
@@ -137,40 +156,13 @@ class ContentInfo extends TabPageBase {
               lg: 24,
               type: cardConfig.contentItemType.tinymce,
               html: initContent,
+              initConfig: {},
               afterChange: this.afterHtmlChange,
             },
           ],
         },
       ],
     };
-  };
-
-  establishPageContentLayoutSiderConfig = () => {
-    return { width: 400 };
-  };
-
-  renderSiderTopArea = () => {
-    const { contentPreview, contentChanged } = this.state;
-
-    return (
-      <MobileHtmlPreviewBox
-        alertVisible={contentChanged}
-        alertAnimationType={animalType.queue}
-        alertMessage={'内容已经发生变化'}
-        alertDescription={'编辑器内容已经更改,请点击刷新按钮查看最新预览.'}
-        alertType={'warning'}
-        alertIcon={false}
-        alertButtonText="刷新"
-        mobileList={[
-          mobileTypeCollection.roughSketch,
-          mobileTypeCollection.iPhone5S,
-        ]}
-        html={contentPreview || ''}
-        afterAlertClick={() => {
-          this.refreshContentPreview();
-        }}
-      />
-    );
   };
 }
 
