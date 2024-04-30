@@ -40,7 +40,7 @@ class MediaItemPreviewDrawer extends MobilePreviewDrawer {
     return '媒体图文预览';
   };
 
-  buildArticle = () => {
+  buildContentArea = () => {
     const { data } = this.props;
 
     if (!isArray(data)) {
@@ -94,8 +94,8 @@ class MediaItemPreviewDrawer extends MobilePreviewDrawer {
     );
   };
 
-  renderInnerView = () => {
-    return this.buildArticle();
+  renderPresetInnerView = () => {
+    return this.buildContentArea();
   };
 }
 

@@ -13,7 +13,7 @@ import { MobileContainor } from 'antd-management-fast-framework';
 const { MobilePreviewArea } = MobileContainor;
 
 class MobilePreviewBox extends MobilePreviewArea {
-  loadDataAfterMount = false;
+  loadRemoteRequestAfterMount = false;
 
   resetDataAfterLoad = false;
 
@@ -25,7 +25,7 @@ class MobilePreviewBox extends MobilePreviewArea {
     };
   }
 
-  buildArticle = () => {
+  buildContentArea = () => {
     const { data } = this.props;
 
     if (!isArray(data)) {
@@ -53,36 +53,46 @@ class MobilePreviewBox extends MobilePreviewArea {
     );
   };
 
-  buildItem = (record) => {
-    if ((record || null) == null) {
+  buildItem = (item) => {
+    if ((item || null) == null) {
       return null;
     }
 
     return (
       <>
-        {checkStringIsNullOrWhiteSpace(record.image) ? null : (
-          <img width="100%" src={record.image} />
-        )}
-
-        {checkStringIsNullOrWhiteSpace(record.description) ? null : (
+        {checkStringIsNullOrWhiteSpace(item.text) ? null : (
           <p
             style={{
               textIndent: '28px',
             }}
           >
-            {record.description}
+            {item.text}
           </p>
         )}
 
-        {checkStringIsNullOrWhiteSpace(record.video)
+        {checkStringIsNullOrWhiteSpace(item.multiText) ? null : (
+          <p
+            style={{
+              textIndent: '28px',
+            }}
+          >
+            {item.multiText}
+          </p>
+        )}
+
+        {checkStringIsNullOrWhiteSpace(item.image) ? null : (
+          <img width="100%" src={item.image} />
+        )}
+
+        {checkStringIsNullOrWhiteSpace(item.video)
           ? null
-          : buildPlayer({ url: record.video })}
+          : buildPlayer({ url: item.video })}
       </>
     );
   };
 
-  renderInnerView = () => {
-    return this.buildArticle();
+  renderPresetInnerView = () => {
+    return this.buildContentArea();
   };
 }
 

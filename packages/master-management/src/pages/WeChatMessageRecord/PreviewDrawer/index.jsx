@@ -13,7 +13,7 @@ const { BaseNeedlessLoadDrawer } = DataDrawer;
 const visibleFlag = '120166ca736749ec9bf14e1d1c542f6a';
 
 class PreviewDrawer extends BaseNeedlessLoadDrawer {
-  loadDataAfterMount = false;
+  loadRemoteRequestAfterMount = false;
 
   static open() {
     switchControlAssist.open(visibleFlag);

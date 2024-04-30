@@ -4,6 +4,7 @@ import React from 'react';
 import { connect } from 'easy-soft-dva';
 import {
   checkHasAuthority,
+  checkInCollection,
   checkStringIsNullOrWhiteSpace,
   convertCollection,
   getValueByKey,
@@ -30,6 +31,7 @@ import {
 import {
   accessWayCollection,
   keyValueItemData,
+  keyValueTypeCollection,
 } from '../../../../customConfig';
 import { AddMediaItemDrawer } from '../../AddMediaItemDrawer';
 import {
@@ -141,7 +143,7 @@ class MediaInfo extends TabPageBase {
   };
 
   afterAddMediaItemDrawerOk = () => {
-    this.refreshData();
+    this.refreshData({});
   };
 
   showUpdateMediaItemDrawer = (item) => {
@@ -157,7 +159,7 @@ class MediaInfo extends TabPageBase {
   };
 
   afterUpdateMediaItemDrawerOk = () => {
-    this.refreshData();
+    this.refreshData({});
   };
 
   handleMenuClick = ({ key, handleData }) => {
@@ -263,6 +265,12 @@ class MediaInfo extends TabPageBase {
       key: keyValueItemData.title.name,
     });
 
+    const type = getValueByKey({
+      data: item,
+      key: keyValueItemData.type.name,
+      convert: convertCollection.number,
+    });
+
     const text = getValueByKey({
       data: item,
       key: keyValueItemData.text.name,
@@ -351,12 +359,16 @@ class MediaInfo extends TabPageBase {
         column: 1,
         size: 'small',
         labelStyle: {
-          width: '80px',
+          width: '60px',
         },
         emptyValue: '暂无',
         emptyStyle: {
           color: '#ccc',
         },
+        ellipsis: !checkInCollection(
+          [keyValueTypeCollection.multiText, keyValueTypeCollection.link],
+          type,
+        ),
       },
     });
 
@@ -379,7 +391,7 @@ class MediaInfo extends TabPageBase {
                         key: keyValueItemData.image.name,
                       }),
                       emptyImageUrl: defaultEmptyImage,
-                      width: '80px',
+                      width: '70px',
                     })
               }
               right={
@@ -564,6 +576,9 @@ class MediaInfo extends TabPageBase {
           cardBodyStyle: { padding: 0 },
           otherComponent: (
             <MobilePreviewBox
+              style={{
+                borderRadius: '8px 8px 0px 0px',
+              }}
               mobileList={[
                 mobileTypeCollection.noneSketch,
                 mobileTypeCollection.roughSketch,

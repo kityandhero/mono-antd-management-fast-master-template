@@ -42,7 +42,7 @@ class AddMediaItemDrawer extends BaseAddDrawer {
       ...this.state,
       pageTitle: '新增媒体',
       submitApiPath: 'section/addMediaItem',
-      mediaType: keyValueTypeCollection.text,
+      type: keyValueTypeCollection.text,
       image: '',
       video: '',
       audio: '',
@@ -52,7 +52,7 @@ class AddMediaItemDrawer extends BaseAddDrawer {
 
   executeOtherAfterDoOtherWhenChangeVisible = () => {
     this.setState({
-      mediaType: keyValueTypeCollection.text,
+      type: keyValueTypeCollection.text,
       image: '',
       video: '',
       audio: '',
@@ -110,7 +110,7 @@ class AddMediaItemDrawer extends BaseAddDrawer {
   };
 
   onTypeChange = (v) => {
-    this.setState({ mediaType: toNumber(v) });
+    this.setState({ type: toNumber(v) });
   };
 
   renderPresetTitle = () => {
@@ -126,7 +126,7 @@ class AddMediaItemDrawer extends BaseAddDrawer {
   };
 
   establishCardCollectionConfig = () => {
-    const { mediaType, image, video, audio, attachment } = this.state;
+    const { type, image, video, audio, attachment } = this.state;
 
     return {
       list: [
@@ -137,20 +137,7 @@ class AddMediaItemDrawer extends BaseAddDrawer {
           },
           items: [
             {
-              lg: 24,
-              type: cardConfig.contentItemType.input,
-              fieldData: keyValueItemData.title,
-            },
-          ],
-        },
-        {
-          title: {
-            icon: iconBuilder.contacts(),
-            text: '媒体值信息',
-          },
-          items: [
-            {
-              lg: 24,
+              lg: 12,
               type: cardConfig.contentItemType.component,
               component: renderFormJsonItemTypeSelect({
                 onChange: (event) => {
@@ -159,13 +146,18 @@ class AddMediaItemDrawer extends BaseAddDrawer {
               }),
               require: true,
             },
+            {
+              lg: 12,
+              type: cardConfig.contentItemType.input,
+              fieldData: keyValueItemData.title,
+            },
           ],
         },
         {
           title: {
             text: keyValueItemData.text.label,
           },
-          hidden: !checkInCollection([keyValueTypeCollection.text], mediaType),
+          hidden: !checkInCollection([keyValueTypeCollection.text], type),
           items: [
             {
               lg: 24,
@@ -178,10 +170,7 @@ class AddMediaItemDrawer extends BaseAddDrawer {
           title: {
             text: keyValueItemData.multiText.label,
           },
-          hidden: !checkInCollection(
-            [keyValueTypeCollection.multiText],
-            mediaType,
-          ),
+          hidden: !checkInCollection([keyValueTypeCollection.multiText], type),
           items: [
             {
               lg: 24,
@@ -196,7 +185,7 @@ class AddMediaItemDrawer extends BaseAddDrawer {
             text: keyValueItemData.image.label,
             subText: '[上传后需点击保存按钮保存]',
           },
-          hidden: !checkInCollection([keyValueTypeCollection.image], mediaType),
+          hidden: !checkInCollection([keyValueTypeCollection.image], type),
           items: [
             {
               lg: 24,
@@ -221,7 +210,7 @@ class AddMediaItemDrawer extends BaseAddDrawer {
             text: '视频封面图',
             subText: '[上传后需点击保存按钮保存]',
           },
-          hidden: !checkInCollection([keyValueTypeCollection.video], mediaType),
+          hidden: !checkInCollection([keyValueTypeCollection.video], type),
           items: [
             {
               lg: 24,
@@ -245,7 +234,7 @@ class AddMediaItemDrawer extends BaseAddDrawer {
             icon: iconBuilder.video(),
             text: keyValueItemData.video.label,
           },
-          hidden: !checkInCollection([keyValueTypeCollection.video], mediaType),
+          hidden: !checkInCollection([keyValueTypeCollection.video], type),
           items: [
             {
               lg: 24,
@@ -265,7 +254,7 @@ class AddMediaItemDrawer extends BaseAddDrawer {
             icon: iconBuilder.sound(),
             text: keyValueItemData.audio.label,
           },
-          hidden: !checkInCollection([keyValueTypeCollection.audio], mediaType),
+          hidden: !checkInCollection([keyValueTypeCollection.audio], type),
           items: [
             {
               lg: 24,
@@ -285,10 +274,7 @@ class AddMediaItemDrawer extends BaseAddDrawer {
             icon: iconBuilder.file(),
             text: keyValueItemData.attachment.label,
           },
-          hidden: !checkInCollection(
-            [keyValueTypeCollection.attachment],
-            mediaType,
-          ),
+          hidden: !checkInCollection([keyValueTypeCollection.attachment], type),
           items: [
             {
               lg: 24,
@@ -307,7 +293,7 @@ class AddMediaItemDrawer extends BaseAddDrawer {
           title: {
             text: keyValueItemData.link.label,
           },
-          hidden: !checkInCollection([keyValueTypeCollection.link], mediaType),
+          hidden: !checkInCollection([keyValueTypeCollection.link], type),
           items: [
             {
               lg: 24,

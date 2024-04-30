@@ -173,8 +173,6 @@ class PageList extends MultiPage {
                 that.pageValues.frontendPageNo - 1 <= 0
                   ? 1
                   : that.pageValues.frontendPageNo - 1;
-
-              console.log(that.pageValues);
             },
           });
         } else {

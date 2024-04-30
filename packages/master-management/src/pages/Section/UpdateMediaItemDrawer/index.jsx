@@ -39,11 +39,10 @@ class UpdateMediaItemDrawer extends BaseUpdateDrawer {
 
     this.state = {
       ...this.state,
-
       pageTitle: '修改媒体',
       loadApiPath: 'section/getMediaItem',
       submitApiPath: 'section/updateMediaItem',
-      mediaType: keyValueTypeCollection.text,
+      type: keyValueTypeCollection.text,
       image: '',
       video: '',
       audio: '',
@@ -56,12 +55,11 @@ class UpdateMediaItemDrawer extends BaseUpdateDrawer {
   };
 
   supplementSubmitRequestParams = (o) => {
-    const { mediaType, image, video, audio, attachment } = this.state;
+    const { type, image, video, audio, attachment } = this.state;
 
     return {
       ...this.supplementRequestParams(o),
-
-      mediaType,
+      type,
       image,
       video,
       audio,
@@ -99,7 +97,7 @@ class UpdateMediaItemDrawer extends BaseUpdateDrawer {
     // eslint-disable-next-line no-unused-vars
     metaOriginalData,
   }) => {
-    const mediaType = getValueByKey({
+    const type = getValueByKey({
       data: metaData,
       key: keyValueItemData.type.name,
     });
@@ -125,7 +123,7 @@ class UpdateMediaItemDrawer extends BaseUpdateDrawer {
     });
 
     this.setState({
-      mediaType,
+      type: type,
       image,
       video,
       audio,
@@ -165,6 +163,16 @@ class UpdateMediaItemDrawer extends BaseUpdateDrawer {
     const values = {};
 
     if (metaData != null) {
+      values[keyValueItemData.title.name] = getValueByKey({
+        data: metaData,
+        key: keyValueItemData.title.name,
+      });
+
+      values[keyValueItemData.text.name] = getValueByKey({
+        data: metaData,
+        key: keyValueItemData.text.name,
+      });
+
       values[keyValueItemData.multiText.name] = getValueByKey({
         data: metaData,
         key: keyValueItemData.multiText.name,
@@ -180,7 +188,7 @@ class UpdateMediaItemDrawer extends BaseUpdateDrawer {
   };
 
   establishCardCollectionConfig = () => {
-    const { mediaType, metaData, image, video, audio, attachment } = this.state;
+    const { type, metaData, image, video, audio, attachment } = this.state;
 
     return {
       list: [
@@ -191,13 +199,44 @@ class UpdateMediaItemDrawer extends BaseUpdateDrawer {
           },
           items: [
             {
-              lg: 24,
+              lg: 12,
               type: cardConfig.contentItemType.onlyShowInput,
-              fieldData: keyValueItemData.type,
+              fieldData: keyValueItemData.typeNote,
               value: getValueByKey({
                 data: metaData,
-                key: keyValueItemData.title.name,
+                key: keyValueItemData.typeNote.name,
               }),
+            },
+            {
+              lg: 12,
+              type: cardConfig.contentItemType.input,
+              fieldData: keyValueItemData.title,
+            },
+          ],
+        },
+        {
+          title: {
+            text: keyValueItemData.text.label,
+          },
+          hidden: !checkInCollection([keyValueTypeCollection.text], type),
+          items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.input,
+              fieldData: keyValueItemData.text,
+            },
+          ],
+        },
+        {
+          title: {
+            text: keyValueItemData.multiText.label,
+          },
+          hidden: !checkInCollection([keyValueTypeCollection.multiText], type),
+          items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.textarea,
+              fieldData: keyValueItemData.multiText,
             },
           ],
         },
@@ -207,10 +246,7 @@ class UpdateMediaItemDrawer extends BaseUpdateDrawer {
             text: keyValueItemData.image.label,
             subText: '[上传后需点击保存按钮保存]',
           },
-          hidden: !checkInCollection(
-            [keyValueTypeCollection.image, keyValueTypeCollection.video],
-            mediaType,
-          ),
+          hidden: !checkInCollection([keyValueTypeCollection.image], type),
           items: [
             {
               lg: 24,
@@ -231,27 +267,26 @@ class UpdateMediaItemDrawer extends BaseUpdateDrawer {
         },
         {
           title: {
-            text: keyValueItemData.multiText.label,
+            icon: iconBuilder.picture(),
+            text: '视频封面图',
+            subText: '[上传后需点击保存按钮保存]',
           },
-          hidden: !checkInCollection([keyValueTypeCollection.text], mediaType),
+          hidden: !checkInCollection([keyValueTypeCollection.video], type),
           items: [
             {
               lg: 24,
-              type: cardConfig.contentItemType.textarea,
-              fieldData: keyValueItemData.multiText,
-            },
-          ],
-        },
-        {
-          title: {
-            text: keyValueItemData.link.label,
-          },
-          hidden: !checkInCollection([keyValueTypeCollection.link], mediaType),
-          items: [
-            {
-              lg: 24,
-              type: cardConfig.contentItemType.input,
-              fieldData: keyValueItemData.link,
+              type: cardConfig.contentItemType.imageUpload,
+              image,
+              uploadProps: {
+                singleMode: {
+                  width: '140px',
+                  emptyImage: '',
+                },
+              },
+              action: `/section/uploadImage`,
+              afterUploadSuccess: (imageData) => {
+                this.afterImageUploadSuccess(imageData);
+              },
             },
           ],
         },
@@ -260,7 +295,7 @@ class UpdateMediaItemDrawer extends BaseUpdateDrawer {
             icon: iconBuilder.video(),
             text: keyValueItemData.video.label,
           },
-          hidden: !checkInCollection([keyValueTypeCollection.video], mediaType),
+          hidden: !checkInCollection([keyValueTypeCollection.video], type),
           items: [
             {
               lg: 24,
@@ -280,7 +315,7 @@ class UpdateMediaItemDrawer extends BaseUpdateDrawer {
             icon: iconBuilder.sound(),
             text: keyValueItemData.audio.label,
           },
-          hidden: !checkInCollection([keyValueTypeCollection.audio], mediaType),
+          hidden: !checkInCollection([keyValueTypeCollection.audio], type),
           items: [
             {
               lg: 24,
@@ -300,10 +335,7 @@ class UpdateMediaItemDrawer extends BaseUpdateDrawer {
             icon: iconBuilder.link(),
             text: keyValueItemData.attachment.label,
           },
-          hidden: !checkInCollection(
-            [keyValueTypeCollection.attachment],
-            mediaType,
-          ),
+          hidden: !checkInCollection([keyValueTypeCollection.attachment], type),
           items: [
             {
               lg: 24,
@@ -315,6 +347,19 @@ class UpdateMediaItemDrawer extends BaseUpdateDrawer {
               afterChangeSuccess: (attachmentData) => {
                 this.afterAttachmentChangeSuccess(attachmentData);
               },
+            },
+          ],
+        },
+        {
+          title: {
+            text: keyValueItemData.link.label,
+          },
+          hidden: !checkInCollection([keyValueTypeCollection.link], type),
+          items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.input,
+              fieldData: keyValueItemData.link,
             },
           ],
         },

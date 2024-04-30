@@ -87,8 +87,6 @@ export async function resetAllApproveAction({
   successCallback,
   successMessage,
 }) {
-  console.log(handleData);
-
   actionCore({
     api: 'workflowCaseProcessHistory/resetAllApprove',
     params: {

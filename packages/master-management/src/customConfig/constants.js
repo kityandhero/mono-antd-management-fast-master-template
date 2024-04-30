@@ -503,6 +503,11 @@ export const keyValueItemData = {
     name: 'type',
     helper: '数据项的类型',
   },
+  typeNote: {
+    label: '类型',
+    name: 'typeNote',
+    helper: '数据项的类型',
+  },
   text: {
     label: '文本',
     name: 'text',
