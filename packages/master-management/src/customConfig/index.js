@@ -1,3 +1,4 @@
 export * from './accessWayCollection';
 export * from './constants';
-export * from './fieldDataCollection';
+export * from './general/constants';
+export * from './general/fieldDataCollection';
