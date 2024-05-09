@@ -3,7 +3,7 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { switchControlAssist } from 'antd-management-fast-framework';
 
-import { listSelectAction } from '../../../commonAssist/action';
+import { listSelectAction } from '../../../commonAssist';
 import BaseUpdateRoleModal from '../../../customSpecialComponents/BaseUpdateRoleModal';
 import { fieldData } from '../Common/data';
 
