@@ -1,0 +1,19 @@
+{
+  "list": [
+    {
+      "functionSegment": "BusinessMode",
+      "label": "适用业务",
+      "name": "businessMode"
+    },
+    {
+      "functionSegment": "YonYouPushMessageStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "YonYouImportHistoryStatus",
+      "label": "状态",
+      "name": "status"
+    }
+  ]
+}

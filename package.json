@@ -12,6 +12,8 @@
     "prepare": "echo do other prepare work with here before install package",
     "start": "cd packages/master-management && npm run start",
     "test:master-management": "cd packages/master-management && npm run z:test",
+    "x:create-model": "npx easy-soft-develop-dva-assist create-model --dataPath ./generatorConfig/model.json --relativeFolder ./src",
+    "y:template:generate": "npx antd-management-fast-develop generate --dataPath ./generatorConfig/function.data.json --dataExtraPath ./generatorConfig/function.data.extra.json --relativeFolder ./src/customSpecialComponents",
     "z:auto:adjust:file:all": "npm run z:auto:adjust:file:master-management",
     "z:auto:adjust:file:master-management": "cd packages/master-management && npm run z:auto:adjust:file",
     "z:bootstrap": "npm run z:clean && git pull && npm run z:install",

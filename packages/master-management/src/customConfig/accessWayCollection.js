@@ -443,33 +443,6 @@ export const accessWayCollection = {
       permission: 'aa8d3178388d44f2a2bd2eac0c5e5155',
     },
   },
-  articleNotificationApplicationBase: {
-    pageList: {
-      title: '设置列表',
-      paramsKey: '54befb83b89f9ff095cc302b98234e3b',
-      permission: 'd64d6d20eb1d4c71a381806e7ea13a39',
-    },
-    get: {
-      title: '设置详情',
-      paramsKey: 'd6949781f33e6b27d06e21013aef25ae',
-      permission: '8088ee2227c14aceb7900ec0ee02eeb7',
-    },
-    addBasicInfo: {
-      title: '新增设置',
-      paramsKey: 'ba5ae44c1cffbaf29ae2840803cd60ed',
-      permission: '2bf1169e293c4fb0ac41961b2e1197d9',
-    },
-    updateBasicInfo: {
-      title: '更新信息',
-      paramsKey: '1c3a147f418c646d6da349a3715cb72d',
-      permission: '5116fbfe4e2443288047e1c86b38601f',
-    },
-    refreshCache: {
-      title: '刷新缓存',
-      paramsKey: '8aaff1fd9e2de337ebee7f8f87e775fc',
-      permission: 'aa8d3178388d44f2a2bd2eac0c5e5155',
-    },
-  },
   channelExecuteLogSwitch: {
     pageList: {
       title: '开关分页列表',
@@ -898,23 +871,11 @@ export const accessWayCollection = {
     },
   },
   hostService: {
-    get: {
-      title: '获取详情',
+    pageList: {
+      title: '服务列表',
       paramsKey: 'a4cc0d09176cacf7728f395abc146e4d',
-      permission: 'e5b6270f2c0943faae3cd5a4520c5bba',
+      permission: '6c92c2eb4705401ca31e8a0a3bd826a2',
     },
-    change: {
-      title: '服务操作',
-      paramsKey: '99aa282ee37f73897778c9b8099a039e',
-      permission: '14146f7ec5ce42bba13366f378667689',
-    },
-    refreshAllStatus: {
-      title: '刷新状态',
-      paramsKey: '061118d69b7c4590afa91c647e3bd2df',
-      permission: '0fe478d1f8c64db38518be741781c08f',
-    },
-  },
-  hostServiceBase: {
     get: {
       title: '获取详情',
       paramsKey: 'a4cc0d09176cacf7728f395abc146e4d',
@@ -1104,23 +1065,6 @@ export const accessWayCollection = {
     },
   },
   organization: {
-    getGraphicalTree: {
-      title: '获取概览树图',
-      paramsKey: '59f2440e99baa9fd17d89a97592b4fbf',
-      permission: '96292137d32c40fcba03669a885f420d',
-    },
-    getGraphicalDirectDepartment: {
-      title: '获取直属部门树图',
-      paramsKey: '84da380646ef8d37ae60b2fd0ee05396',
-      permission: 'eddd7cdf2b1c42b5a010b2da6724e993',
-    },
-    getGraphicalSingleSubsidiaryDepartment: {
-      title: '获取单公司组织树图',
-      paramsKey: '8ee65f04e5b7a9e1f8edac4450be4fa9',
-      permission: '9c5ee89824a745fb8305ce24cf160f09',
-    },
-  },
-  organizationBase: {
     getGraphicalTree: {
       title: '获取概览树图',
       paramsKey: '59f2440e99baa9fd17d89a97592b4fbf',
@@ -1831,38 +1775,6 @@ export const accessWayCollection = {
     },
   },
   userDevice: {
-    pageList: {
-      title: '分页列表',
-      paramsKey: 'a07a6469104c1961dd44a35e10a8f9e2',
-      permission: 'b51c699b56ca4a6a84a3d12f1caccd9e',
-    },
-    get: {
-      title: '获取详情',
-      paramsKey: 'f50d174a3ea1d2376eb83363d7b4d34c',
-      permission: '9d587be446fb495295c20e5a4fc569c6',
-    },
-    addBasicInfo: {
-      title: '新增设备',
-      paramsKey: '3f4303b0cc1946b9885cd73330fd1702',
-      permission: '2b2e8efd78d940d6a6fad1d5c73eddd6',
-    },
-    remove: {
-      title: '删除设备',
-      paramsKey: '700270a5564ff5be739a4bb94062b238',
-      permission: 'd178d125f23b4688a6f1b2c8519c1d9f',
-    },
-    refreshCache: {
-      title: '刷新缓存',
-      paramsKey: 'f3d6d426003026a38917dca15f989210',
-      permission: '42a1cb12d4974016befa83dfe8acdca7',
-    },
-    pageListOperateLog: {
-      title: '操作日志列表',
-      paramsKey: '280d6796f5fd1eff1a979ceabca5ba3a',
-      permission: '52e7551e1a4e4a6e963be6a186346bcc',
-    },
-  },
-  userDeviceBase: {
     pageList: {
       title: '分页列表',
       paramsKey: 'a07a6469104c1961dd44a35e10a8f9e2',
