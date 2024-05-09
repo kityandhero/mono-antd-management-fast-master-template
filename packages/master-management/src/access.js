@@ -1,6 +1,6 @@
 import { checkHasAuthority, isArray, isEmptyArray } from 'easy-soft-utility';
 
-export default () => {
+function buildAccessAssist() {
   return {
     checkAccess: (o) => {
       const { authority } = o;
@@ -16,4 +16,6 @@ export default () => {
       return checkHasAuthority(authority);
     },
   };
-};
+}
+
+export default buildAccessAssist;
