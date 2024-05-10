@@ -1,10 +1,12 @@
 import { IApi } from '@umijs/max';
 
-export default (api: IApi) => {
+function buildPlugin(api: IApi) {
   api.addEntryImports(() => ({
     source: '../utils',
     specifier: '{ initializeDvaApplication }',
   }));
 
   api.addEntryCodeAhead(() => `initializeDvaApplication()`);
-};
+}
+
+export default buildPlugin;
