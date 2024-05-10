@@ -1,4 +1,4 @@
-import { accessWayCollection } from '../src/customConfig/accessWayCollection';
+import { accessWayCollection } from '../src/customConfig';
 
 import {
   accessWay,
@@ -86,6 +86,7 @@ export default [
     name: 'news',
     icon: 'shop',
     path: '/news',
+    access: 'checkAccess',
     authority: [
       accessWayCollection.super.permission,
       accessWayCollection.section.pageList.permission,
@@ -99,12 +100,14 @@ export default [
       {
         name: 'section',
         icon: 'section',
+
+        hideChildrenInMenu: true,
+        path: '/news/section',
+        access: 'checkAccess',
         authority: [
           accessWayCollection.super.permission,
           accessWayCollection.section.pageList.permission,
         ],
-        hideChildrenInMenu: true,
-        path: '/news/section',
         routes: [
           {
             path: '/news/section',
