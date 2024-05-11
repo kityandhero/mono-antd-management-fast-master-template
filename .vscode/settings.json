@@ -43,7 +43,6 @@
     "source.fixAll.eslint": "explicit",
     "source.fixAll.stylelint": "explicit"
   },
-  "eslint.packageManager": "pnpm",
   "git.ignoreLimitWarning": true,
   "search.exclude": {
     "**/*.code-search": true,
