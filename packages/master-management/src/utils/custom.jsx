@@ -1,4 +1,5 @@
 import { Input, Space } from 'antd';
+import React from 'react';
 
 import { layoutCollection } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';

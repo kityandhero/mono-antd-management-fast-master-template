@@ -6,7 +6,7 @@ import {
   mergeLayoutSetting,
 } from 'antd-management-fast-framework';
 
-import { layoutConfig } from './app.core';
+import { layoutConfig } from './app.config';
 import { getLogo, getTitle, themeToken } from './utils';
 
 // 全局初始化数据配置，用于 Layout 用户信息和权限初始化
