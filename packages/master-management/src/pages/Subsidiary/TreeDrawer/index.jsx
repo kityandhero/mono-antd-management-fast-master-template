@@ -7,7 +7,7 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
-import { accessWayCollection } from '../../../customConfig/accessWayCollection';
+import { accessWayCollection } from '../../../customConfig';
 
 const { BaseLoadDrawer } = DataDrawer;
 
