@@ -7,8 +7,6 @@ import {
   buildSiderMenuFooter,
 } from './utils';
 
-export const aaa = '11';
-
 export const layoutConfig = {
   water: 'test',
   actionItems: buildActionItems(),
