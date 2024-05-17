@@ -2,9 +2,6 @@
   "name": "mono-master-management",
   "version": "1.0.0",
   "author": "",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "build": "cd packages/master-management && npm run build",
     "commitlint": "npx commitlint --edit",
