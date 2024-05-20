@@ -1336,6 +1336,35 @@ export const user = {
   ],
 };
 
+export const userSignet = {
+  name: 'userSignet',
+  icon: 'user',
+  hideChildrenInMenu: true,
+  path: '/person/userSignet',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.user.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/person/userSignet',
+      redirect: '/person/userSignet/pageList',
+    },
+    {
+      path: '/person/userSignet/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/person/userSignet/pageList/no',
+    },
+    {
+      path: '/person/userSignet/pageList/:pageKey',
+      hideInMenu: true,
+      component: './User/PageListSignet',
+    },
+  ],
+};
+
 export const userDevice = {
   name: 'userDevice',
   icon: 'user',

@@ -336,12 +336,6 @@ class PageList extends MultiPage {
       facadeMode: columnFacadeMode.image,
     },
     {
-      dataTarget: fieldData.loginName,
-      width: 140,
-      showRichFacade: true,
-      emptyValue: '--',
-    },
-    {
       dataTarget: fieldData.nickname,
       width: 200,
       showRichFacade: true,
@@ -355,6 +349,12 @@ class PageList extends MultiPage {
     },
     {
       dataTarget: fieldData.phone,
+      width: 140,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.loginName,
       width: 140,
       showRichFacade: true,
       emptyValue: '--',

@@ -263,13 +263,19 @@ class PageListSignet extends MultiPage {
 
   getColumnWrapper = () => [
     {
-      dataTarget: fieldData.loginName,
+      dataTarget: fieldData.realName,
       align: 'left',
       showRichFacade: true,
       emptyValue: '--',
     },
     {
-      dataTarget: fieldData.realName,
+      dataTarget: fieldData.nickname,
+      width: 140,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.loginName,
       width: 140,
       showRichFacade: true,
       emptyValue: '--',
