@@ -58,6 +58,7 @@ class UpdateCacheModeModal extends BaseUpdateModal {
     d.tag = getValueByKey({
       data: metaData,
       key: fieldData.cacheModeTag.name,
+      defaultValue: '',
     });
 
     d.value = cacheMode;

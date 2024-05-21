@@ -27,8 +27,8 @@ class UpdateKeyValueInfoModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '设置键值信息',
-      loadApiPath: 'currentManagement/get',
-      submitApiPath: 'currentManagement/updateKeyValueInfo',
+      loadApiPath: 'section/get',
+      submitApiPath: 'section/updateKeyValueInfo',
     };
   }
 
@@ -56,7 +56,15 @@ class UpdateKeyValueInfoModal extends BaseUpdateModal {
   };
 
   supplementRequestParams(o) {
+    const { externalData } = this.props;
+    const { currentData } = externalData;
+
     const d = { ...o };
+
+    d[fieldData.sectionId.name] = getValueByKey({
+      data: currentData,
+      key: fieldData.sectionId.name,
+    });
 
     return d;
   }
@@ -66,7 +74,7 @@ class UpdateKeyValueInfoModal extends BaseUpdateModal {
   };
 
   buildTitleSubTextPrefix = () => {
-    return '当前系统';
+    return '当前栏目';
   };
 
   buildTitleSubText = () => {
@@ -74,7 +82,7 @@ class UpdateKeyValueInfoModal extends BaseUpdateModal {
 
     return getValueByKey({
       data: metaData,
-      key: fieldData.systemName.name,
+      key: fieldData.name.name,
     });
   };
 

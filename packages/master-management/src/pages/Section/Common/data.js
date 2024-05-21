@@ -1,4 +1,17 @@
 import { formNameCollection } from '../../../customConfig';
+import { fieldData as fieldDataManagement } from '../../CurrentManagement/Common/data';
+
+export const fieldExtraData = {
+  scoreAlias: fieldDataManagement.scoreAlias,
+  obtainScoreByReadSwitch: fieldDataManagement.obtainScoreByReadSwitch,
+  obtainScoreWhenRead: fieldDataManagement.obtainScoreWhenRead,
+  obtainScoreWhenReadSection: {
+    label: '阅读栏目时发放的积分数额',
+    name: 'obtainScoreWhenReadSection',
+    helper: '',
+  },
+  obtainFromReadDailyLimit: fieldDataManagement.obtainFromReadDailyLimit,
+};
 
 export const fieldData = {
   ...formNameCollection,
@@ -142,21 +155,7 @@ export const fieldData = {
     name: 'whetherVisibleNote',
     helper: '',
   },
-  readArticleObtainScoreSwitch: {
-    label: '阅读时奖励积分开关',
-    name: 'readArticleObtainScoreSwitch',
-    helper: '设置阅读时奖励积分开/关',
-  },
-  obtainScoreWhenReadArticle: {
-    label: '阅读时发放的积分数额',
-    name: 'obtainScoreWhenReadArticle',
-    helper: '设置阅读时发放的积分数额',
-  },
-  obtainFromReadArticleDailyLimit: {
-    label: '阅读栏目每日积分数额获取上限',
-    name: 'obtainFromReadArticleDailyLimit',
-    helper: '设置阅读栏目每日积分数额获取上限',
-  },
+  ...fieldExtraData,
 };
 
 /**

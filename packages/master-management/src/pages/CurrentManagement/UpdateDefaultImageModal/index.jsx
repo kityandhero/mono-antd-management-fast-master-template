@@ -54,6 +54,7 @@ class UpdateDefaultImageModal extends BaseUpdateModal {
     d.tag = getValueByKey({
       data: externalData,
       key: fieldDataDefaultImage.tag.name,
+      defaultValue: '',
     });
 
     return d;

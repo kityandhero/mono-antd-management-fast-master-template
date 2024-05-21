@@ -18,11 +18,30 @@ export async function getData(parameters) {
   });
 }
 
+export const addBasicInfoWithLoginInfoDataApiAddress =
+  '/user/addBasicInfoWithLoginInfo';
+
+export async function addBasicInfoWithLoginInfoData(parameters) {
+  return request({
+    api: addBasicInfoWithLoginInfoDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const addBasicInfoDataApiAddress = '/user/addBasicInfo';
 
 export async function addBasicInfoData(parameters) {
   return request({
     api: addBasicInfoDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const addLoginInfoDataApiAddress = '/user/addLoginInfo';
+
+export async function addLoginInfoData(parameters) {
+  return request({
+    api: addLoginInfoDataApiAddress,
     params: parameters,
   });
 }

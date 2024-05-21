@@ -1,5 +1,6 @@
 import {
   getTacitlyState,
+  pretreatmentRemotePageListData,
   pretreatmentRemoteSingleData,
   reducerCollection,
   reducerDefaultParameters,
@@ -9,6 +10,7 @@ import {
 import {
   changeData,
   getData,
+  pageListData,
   refreshAllStatusData,
 } from '../services/hostService';
 
@@ -21,6 +23,32 @@ export function buildModel() {
     },
 
     effects: {
+      *pageList(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(pageListData, payload);
+
+        const dataAdjust = pretreatmentRemotePageListData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
       *get(
         {
           payload,

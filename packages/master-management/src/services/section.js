@@ -153,56 +153,20 @@ export async function setOfflineData(parameters) {
   });
 }
 
+export const updateKeyValueInfoDataApiAddress = '/section/updateKeyValueInfo';
+
+export async function updateKeyValueInfoData(parameters) {
+  return request({
+    api: updateKeyValueInfoDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const refreshCacheDataApiAddress = '/section/refreshCache';
 
 export async function refreshCacheData(parameters) {
   return request({
     api: refreshCacheDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const uploadImageDataApiAddress = '/section/uploadImage';
-
-export async function uploadImageData(parameters) {
-  return request({
-    api: uploadImageDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const uploadVideoDataApiAddress = '/section/uploadVideo';
-
-export async function uploadVideoData(parameters) {
-  return request({
-    api: uploadVideoDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const uploadAudioDataApiAddress = '/section/uploadAudio';
-
-export async function uploadAudioData(parameters) {
-  return request({
-    api: uploadAudioDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const uploadFileDataApiAddress = '/section/uploadFile';
-
-export async function uploadFileData(parameters) {
-  return request({
-    api: uploadFileDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const uploadFileBase64DataApiAddress = '/section/uploadFileBase64';
-
-export async function uploadFileBase64Data(parameters) {
-  return request({
-    api: uploadFileBase64DataApiAddress,
     params: parameters,
   });
 }
@@ -258,6 +222,51 @@ export const pageListOperateLogDataApiAddress = '/section/pageListOperateLog';
 export async function pageListOperateLogData(parameters) {
   return request({
     api: pageListOperateLogDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const uploadImageDataApiAddress = '/section/uploadImage';
+
+export async function uploadImageData(parameters) {
+  return request({
+    api: uploadImageDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const uploadVideoDataApiAddress = '/section/uploadVideo';
+
+export async function uploadVideoData(parameters) {
+  return request({
+    api: uploadVideoDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const uploadAudioDataApiAddress = '/section/uploadAudio';
+
+export async function uploadAudioData(parameters) {
+  return request({
+    api: uploadAudioDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const uploadFileDataApiAddress = '/section/uploadFile';
+
+export async function uploadFileData(parameters) {
+  return request({
+    api: uploadFileDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const uploadFileBase64DataApiAddress = '/section/uploadFileBase64';
+
+export async function uploadFileBase64Data(parameters) {
+  return request({
+    api: uploadFileBase64DataApiAddress,
     params: parameters,
   });
 }

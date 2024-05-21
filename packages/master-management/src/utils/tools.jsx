@@ -84,11 +84,109 @@ export function buildKeyTag(key) {
   return `${key}Tag`;
 }
 
+export function buildKeyValueNote({ label, name, helper = '' }) {
+  return {
+    label: label,
+    name: `${name}Note`,
+    helper: helper,
+  };
+}
+
+export function buildKeyValueTag({ label, name, helper = '' }) {
+  return {
+    label: label,
+    name: `${name}Tag`,
+    helper: helper,
+  };
+}
+
+export function buildKeyValueInstruction({ label, name, helper = '' }) {
+  return {
+    label: label,
+    name: `${name}Instruction`,
+    helper: helper,
+  };
+}
+
+function appendFiledHelper({ data, fieldData: f }) {
+  let { helper } = {
+    helper: '',
+    ...f,
+  };
+
+  if (checkStringIsNullOrWhiteSpace(helper)) {
+    const o = buildKeyValueInstruction(f);
+
+    const { name } = {
+      name: '',
+      ...o,
+    };
+
+    const v = getValueByKey({
+      data: data,
+      key: name,
+    });
+
+    if (!checkStringIsNullOrWhiteSpace(v)) {
+      helper = v;
+    }
+  }
+
+  return { ...f, helper };
+}
+
+export function buildInputDisplay({
+  handleData,
+  fieldData: f,
+  hidden = false,
+  inputIcon = iconBuilder.read(),
+  value = '',
+  editMode = keyValueEditModeCollection.string,
+}) {
+  return {
+    lg: 24,
+    type: cardConfig.contentItemType.onlyShowInput,
+    icon: inputIcon || iconBuilder.read(),
+    fieldData: appendFiledHelper({
+      data: handleData,
+      fieldData: f,
+    }),
+    value:
+      value ||
+      getValueByKey({
+        data: handleData,
+        key: f.name,
+        convertBuilder: (v) => {
+          let result = v;
+          switch (editMode) {
+            case keyValueEditModeCollection.time: {
+              result = formatDatetime({
+                data: v,
+                format: datetimeFormat.hourMinute,
+                defaultValue: '--',
+              });
+              break;
+            }
+
+            default: {
+              result = v;
+              break;
+            }
+          }
+
+          return result;
+        },
+      }),
+    hidden,
+  };
+}
+
 export function buildInputItem({
   firstLoadSuccess,
   handleData,
   fieldData: f,
   hidden = false,
+  inputIcon = iconBuilder.read(),
   icon = iconBuilder.form(),
   text = '更改配置',
   value = '',
@@ -122,7 +220,13 @@ export function buildInputItem({
       text: extraText,
       disabled: !firstLoadSuccess,
       handleClick: () => {
-        extraAction({ fieldData: f, editMode });
+        extraAction({
+          fieldData: appendFiledHelper({
+            data: handleData,
+            fieldData: f,
+          }),
+          editMode,
+        });
       },
     });
   }
@@ -130,8 +234,11 @@ export function buildInputItem({
   return {
     lg: 24,
     type: cardConfig.contentItemType.onlyShowInput,
-    icon: iconBuilder.read(),
-    fieldData: f,
+    icon: inputIcon || iconBuilder.read(),
+    fieldData: appendFiledHelper({
+      data: handleData,
+      fieldData: f,
+    }),
     value:
       value ||
       getValueByKey({
@@ -174,7 +281,13 @@ export function buildInputItem({
             text: text,
             disabled: !firstLoadSuccess,
             handleClick: () => {
-              handleClickSimple({ fieldData: f, editMode });
+              handleClickSimple({
+                fieldData: appendFiledHelper({
+                  data: handleData,
+                  fieldData: f,
+                }),
+                editMode,
+              });
             },
           })}
 

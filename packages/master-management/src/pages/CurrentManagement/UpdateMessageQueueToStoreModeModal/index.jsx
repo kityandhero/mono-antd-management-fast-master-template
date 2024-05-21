@@ -58,6 +58,7 @@ class UpdateMessageQueueToStoreModeModal extends BaseUpdateModal {
     d.tag = getValueByKey({
       data: metaData,
       key: fieldData.messageQueueToStoreModeTag.name,
+      defaultValue: '',
     });
 
     d.value = messageQueueToStoreMode;

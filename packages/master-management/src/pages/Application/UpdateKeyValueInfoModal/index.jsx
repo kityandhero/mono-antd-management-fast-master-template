@@ -48,6 +48,7 @@ class UpdateKeyValueInfoModal extends BaseUpdateModal {
       d.tag = getValueByKey({
         data: currentData,
         key: buildKeyTag(targetFieldData.name),
+        defaultValue: '',
       });
     }
 
@@ -159,6 +160,11 @@ class UpdateKeyValueInfoModal extends BaseUpdateModal {
 
       case keyValueEditModeCollection.number: {
         editType = cardConfig.contentItemType.inputNumber;
+        break;
+      }
+
+      case keyValueEditModeCollection.whether: {
+        editType = cardConfig.contentItemType.whetherRadio;
         break;
       }
 

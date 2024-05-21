@@ -58,6 +58,7 @@ class UpdateMessageQueueModeModal extends BaseUpdateModal {
     d.tag = getValueByKey({
       data: metaData,
       key: fieldData.messageQueueModeTag.name,
+      defaultValue: '',
     });
 
     d.value = messageQueueMode;

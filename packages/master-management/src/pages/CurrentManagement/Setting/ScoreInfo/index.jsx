@@ -6,18 +6,13 @@ import {
   whetherNumber,
 } from 'easy-soft-utility';
 
-import {
-  cardConfig,
-  getDerivedStateFromPropertiesForUrlParameters,
-} from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 
 import {
   accessWayCollection,
   keyValueEditModeCollection,
 } from '../../../../customConfig';
-import { buildInputDisplay, buildInputItem } from '../../../../utils';
-import { parseUrlParametersForSetState } from '../../Assist/config';
+import { buildInputItem } from '../../../../utils';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
 import { UpdateKeyValueInfoModal } from '../../UpdateKeyValueInfoModal';
@@ -34,19 +29,9 @@ class ReadObtainScoreInfo extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'section/get',
-      submitApiPath: 'section/setReadObtainScore',
+      loadApiPath: 'currentManagement/get',
       obtainScoreByReadSwitch: 0,
     };
-  }
-
-  static getDerivedStateFromProps(nextProperties, previousState) {
-    return getDerivedStateFromPropertiesForUrlParameters(
-      nextProperties,
-      previousState,
-      { id: '' },
-      parseUrlParametersForSetState,
-    );
   }
 
   doOtherAfterLoadSuccess = ({
@@ -112,23 +97,40 @@ class ReadObtainScoreInfo extends TabPageBase {
         {
           title: {
             icon: iconBuilder.contacts(),
-            text: '积分全局设置',
-          },
-          extra: {
-            affix: true,
-            list: [
-              {
-                buildType: cardConfig.extraBuildType.iconInfo,
-                icon: iconBuilder.infoCircle(),
-                text: '全局信息仅为显示!',
-              },
-            ],
+            text: '积分基础配置',
           },
           items: [
-            buildInputDisplay({
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.scoreAlias,
+              editMode: keyValueEditModeCollection.string,
+              hidden: !checkHasAuthority(
+                accessWayCollection.section.updateKeyValueInfo.permission,
+              ),
+              value: getValueByKey({
+                data: metaData,
+                key: fieldData.scoreAlias.name,
+                convert: convertCollection.string,
+              }),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
+            text: '阅读时奖励积分开关',
+          },
+          items: [
+            buildInputItem({
+              firstLoadSuccess,
               handleData: metaData,
               fieldData: fieldData.obtainScoreByReadSwitch,
-              editMode: keyValueEditModeCollection.number,
+              editMode: keyValueEditModeCollection.whether,
+              hidden: !checkHasAuthority(
+                accessWayCollection.section.updateKeyValueInfo.permission,
+              ),
               value: getValueByKey({
                 data: metaData,
                 key: fieldData.obtainScoreByReadSwitch.name,
@@ -137,42 +139,13 @@ class ReadObtainScoreInfo extends TabPageBase {
                   return v === whetherNumber.yes ? '开启' : '关闭';
                 },
               }),
+              inputIcon: iconBuilder.swap(),
+              handleClick: this.showUpdateKeyValueInfoModal,
             }),
-            buildInputDisplay({
-              handleData: metaData,
-              fieldData: fieldData.obtainScoreWhenRead,
-              editMode: keyValueEditModeCollection.number,
-              hidden: obtainScoreByReadSwitch === whetherNumber.no,
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.obtainScoreWhenRead.name,
-                convert: convertCollection.string,
-              }),
-            }),
-            buildInputDisplay({
-              handleData: metaData,
-              fieldData: fieldData.obtainFromReadDailyLimit,
-              editMode: keyValueEditModeCollection.number,
-              hidden: obtainScoreByReadSwitch === whetherNumber.no,
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.obtainFromReadDailyLimit.name,
-                convert: convertCollection.string,
-              }),
-            }),
-          ],
-        },
-        {
-          title: {
-            icon: iconBuilder.contacts(),
-            text: '阅读栏目获取积分特别设置',
-          },
-          hidden: obtainScoreByReadSwitch === whetherNumber.no,
-          items: [
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
-              fieldData: fieldData.obtainScoreWhenReadSection,
+              fieldData: fieldData.obtainScoreWhenRead,
               editMode: keyValueEditModeCollection.number,
               hidden:
                 obtainScoreByReadSwitch === whetherNumber.no ||
@@ -181,7 +154,24 @@ class ReadObtainScoreInfo extends TabPageBase {
                 ),
               value: getValueByKey({
                 data: metaData,
-                key: fieldData.obtainScoreWhenReadSection.name,
+                key: fieldData.obtainScoreWhenRead.name,
+                convert: convertCollection.string,
+              }),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.obtainFromReadDailyLimit,
+              editMode: keyValueEditModeCollection.number,
+              hidden:
+                obtainScoreByReadSwitch === whetherNumber.no ||
+                !checkHasAuthority(
+                  accessWayCollection.section.updateKeyValueInfo.permission,
+                ),
+              value: getValueByKey({
+                data: metaData,
+                key: fieldData.obtainFromReadDailyLimit.name,
                 convert: convertCollection.string,
               }),
               handleClick: this.showUpdateKeyValueInfoModal,

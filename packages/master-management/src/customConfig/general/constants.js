@@ -489,6 +489,7 @@ export const keyValueEditModeCollection = {
   string: 'string',
   number: 'number',
   time: 'time',
+  whether: 'whether',
 };
 
 export const keyValueItemData = {

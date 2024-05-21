@@ -329,6 +329,7 @@ export default {
   'menu.currentManagement.setting.fileStorageInfo': '文件上传配置',
   'menu.currentManagement.setting.smsInfo': '短信发送配置',
   'menu.currentManagement.setting.flowInfo': '调试配置',
+  'menu.currentManagement.setting.scoreInfo': '积分配置',
   'menu.currentManagement.setting.architectureInfo': '框架配置',
   'menu.currentManagement.setting.otherInfo': '其他配置',
 

@@ -1626,6 +1626,11 @@ export const currentManagement = {
           component: './CurrentManagement/Setting/FlowInfo',
         },
         {
+          path: '/currentManagement/setting/:op/scoreInfo',
+          name: 'scoreInfo',
+          component: './CurrentManagement/Setting/ScoreInfo',
+        },
+        {
           path: '/currentManagement/setting/:op/yonYouKeyInfo',
           name: 'smsInfo',
           component: './CurrentManagement/Setting/YonYouKeyInfo',

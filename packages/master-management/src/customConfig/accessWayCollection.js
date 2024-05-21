@@ -873,7 +873,7 @@ export const accessWayCollection = {
   hostService: {
     pageList: {
       title: '服务列表',
-      paramsKey: 'a4cc0d09176cacf7728f395abc146e4d',
+      paramsKey: 'f19bc09a8ea851994600897b398ae960',
       permission: '6c92c2eb4705401ca31e8a0a3bd826a2',
     },
     get: {
@@ -1286,35 +1286,15 @@ export const accessWayCollection = {
       paramsKey: 'c097631af2252ac7ca0bead7328348e3',
       permission: '7f7a30cafee643e694f48014483fabd4',
     },
+    updateKeyValueInfo: {
+      title: '设置键值配置',
+      paramsKey: '75d39cd31c45d107248ce93b23014483',
+      permission: '2ac621a53a81440194dbb3c18675e6fc',
+    },
     refreshCache: {
       title: '刷新缓存',
       paramsKey: '54052af8042eae2b9b4d759d28c33a87',
       permission: '1bd8cc25320643369427654e4bf814cb',
-    },
-    uploadImage: {
-      title: '上传图片文件',
-      paramsKey: 'bcd76dbe44e082fcfbe727f51011b692',
-      permission: 'd94a09395a3640f599d4460abd7650fd',
-    },
-    uploadVideo: {
-      title: '上传视频文件',
-      paramsKey: 'f531eff5c43f3636e169cb7d8a425761',
-      permission: 'e0520c2215634e4890f9f39ba5df940a',
-    },
-    uploadAudio: {
-      title: '上传音频文件',
-      paramsKey: '35d21ac792543ba0a10a8e0acf613f7f',
-      permission: '69ddc65c42934f1a81c8f70fd25176ef',
-    },
-    uploadFile: {
-      title: '上传附件文件',
-      paramsKey: '8306e34bf2e0ae2302423706567cbc42',
-      permission: '40b0b867859748eabc753f58ed58670a',
-    },
-    uploadFileBase64: {
-      title: '上传附件文件[转换为Base64]',
-      paramsKey: 'f5a5b86e0371c8989cf00a8ca0629e5b',
-      permission: 'ffc4e7cfbb0b4973a05b1e9bf9998f15',
     },
     getMediaItem: {
       title: '获取媒体条目',
@@ -1345,6 +1325,31 @@ export const accessWayCollection = {
       title: '操作日志列表',
       paramsKey: 'd984f57f4b2b20967088bc7c88bdeae4',
       permission: '0c4f444c055744aca3fbf508d57157f7',
+    },
+    uploadImage: {
+      title: '上传图片文件',
+      paramsKey: 'bcd76dbe44e082fcfbe727f51011b692',
+      permission: 'd94a09395a3640f599d4460abd7650fd',
+    },
+    uploadVideo: {
+      title: '上传视频文件',
+      paramsKey: 'f531eff5c43f3636e169cb7d8a425761',
+      permission: 'e0520c2215634e4890f9f39ba5df940a',
+    },
+    uploadAudio: {
+      title: '上传音频文件',
+      paramsKey: '35d21ac792543ba0a10a8e0acf613f7f',
+      permission: '69ddc65c42934f1a81c8f70fd25176ef',
+    },
+    uploadFile: {
+      title: '上传附件文件',
+      paramsKey: '8306e34bf2e0ae2302423706567cbc42',
+      permission: '40b0b867859748eabc753f58ed58670a',
+    },
+    uploadFileBase64: {
+      title: '上传附件文件[转换为Base64]',
+      paramsKey: 'f5a5b86e0371c8989cf00a8ca0629e5b',
+      permission: 'ffc4e7cfbb0b4973a05b1e9bf9998f15',
     },
   },
   sectionApplicationConfig: {
@@ -1661,10 +1666,20 @@ export const accessWayCollection = {
       paramsKey: '334d1af917a1c3d2940f9fbf4990508a',
       permission: '50c7b5cf7ef247e69c5ad674ed78591c',
     },
-    addBasicInfo: {
-      title: '新增用户',
+    addBasicInfoWithLoginInfo: {
+      title: '新增用户信息并创建登陆账户',
       paramsKey: '30e4714ec2d2aee65d3cc80a9a4b0cd1',
       permission: 'dff1919be0694bcda435f8f6c3c90a6b',
+    },
+    addBasicInfo: {
+      title: '新增用户信息不创建登录信息',
+      paramsKey: '7c1381923eab55d1cd5c51aa140f4747',
+      permission: '0b9fb87cc58a44b19d0dbe269fa5382f',
+    },
+    addLoginInfo: {
+      title: '创建登录信息',
+      paramsKey: 'cad75888d9a1bf0bfc79aa77dfd787fb',
+      permission: '8d331ebfec3e4449b4b07e0acec8366c',
     },
     updateBasicInfo: {
       title: '更新信息',

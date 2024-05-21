@@ -205,6 +205,26 @@ export const fieldData = {
     name: 'tinymceScriptSrcTag',
     helper: '',
   },
+  scoreAlias: {
+    label: '积分别名',
+    name: 'scoreAlias',
+    helper: '',
+  },
+  obtainScoreByReadSwitch: {
+    label: '【开关】通过阅读获取积分',
+    name: 'obtainScoreByReadSwitch',
+    helper: '',
+  },
+  obtainScoreWhenRead: {
+    label: '阅读时发放的积分数额',
+    name: 'obtainScoreWhenRead',
+    helper: '',
+  },
+  obtainFromReadDailyLimit: {
+    label: '阅读文章每日积分数额获取上限',
+    name: 'obtainFromReadDailyLimit',
+    helper: '',
+  },
   qiniu: {
     label: '七牛云',
     qiniuImageSwitch: {

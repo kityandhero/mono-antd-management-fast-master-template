@@ -9,6 +9,8 @@ import {
 
 import {
   addBasicInfoData,
+  addBasicInfoWithLoginInfoData,
+  addLoginInfoData,
   changePermissionData,
   clearParentData,
   closeSignetPasswordSwitchData,
@@ -90,6 +92,32 @@ export function buildModel() {
 
         return dataAdjust;
       },
+      *addBasicInfoWithLoginInfo(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(addBasicInfoWithLoginInfoData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
       *addBasicInfo(
         {
           payload,
@@ -100,6 +128,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(addBasicInfoData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *addLoginInfo(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(addLoginInfoData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
