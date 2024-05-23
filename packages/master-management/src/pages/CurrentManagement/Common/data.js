@@ -211,7 +211,7 @@ export const fieldData = {
     helper: '',
   },
   obtainScoreByReadSwitch: {
-    label: '【开关】通过阅读获取积分',
+    label: '通过阅读获取积分',
     name: 'obtainScoreByReadSwitch',
     helper: '',
   },

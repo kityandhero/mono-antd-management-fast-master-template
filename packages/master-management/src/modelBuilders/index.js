@@ -7,6 +7,8 @@ import { buildModel as buildApplicationNavigationModel } from './applicationNavi
 import { buildModel as buildApplicationSourceModel } from './applicationSource';
 import { buildModel as buildApplicationVersionModel } from './applicationVersion';
 import { buildModel as buildArticleNotificationApplicationModel } from './articleNotificationApplication';
+import { buildModel as buildCallCenterModel } from './callCenter';
+import { buildModel as buildCallCenterCategoryModel } from './callCenterCategory';
 import { buildModel as buildChannelExecuteLogSwitchModel } from './channelExecuteLogSwitch';
 import { buildModel as buildChannelSqlLogSwitchModel } from './channelSqlLogSwitch';
 import { buildModel as buildCloudStorageModel } from './cloudStorage';
@@ -16,6 +18,8 @@ import { buildModel as buildDepartmentModel } from './department';
 import { buildModel as buildEditorModel } from './editor';
 import { buildModel as buildErrorLogModel } from './errorLog';
 import { buildModel as buildExecuteLogModel } from './executeLog';
+import { buildModel as buildGalleryModel } from './gallery';
+import { buildModel as buildGalleryCategoryModel } from './galleryCategory';
 import { buildModel as buildGeneralDiscourseModel } from './generalDiscourse';
 import { buildModel as buildGeneralLogModel } from './generalLog';
 import { buildModel as buildGovernmentAffairManagerModel } from './governmentAffairManager';
@@ -30,6 +34,8 @@ import { buildModel as buildOperationLogModel } from './operationLog';
 import { buildModel as buildOptionPoolModel } from './optionPool';
 import { buildModel as buildOrganizationModel } from './organization';
 import { buildModel as buildPresetRoleModel } from './presetRole';
+import { buildModel as buildQrCodeModel } from './qrCode';
+import { buildModel as buildQrCodeCategoryModel } from './qrCodeCategory';
 import { buildModel as buildQueueInfoModel } from './queueInfo';
 import { buildModel as buildSectionModel } from './section';
 import { buildModel as buildSectionApplicationConfigModel } from './sectionApplicationConfig';
@@ -82,6 +88,10 @@ function collectModelBuilder() {
 
   appendExtraBuilder(buildArticleNotificationApplicationModel);
 
+  appendExtraBuilder(buildCallCenterModel);
+
+  appendExtraBuilder(buildCallCenterCategoryModel);
+
   appendExtraBuilder(buildChannelExecuteLogSwitchModel);
 
   appendExtraBuilder(buildChannelSqlLogSwitchModel);
@@ -99,6 +109,10 @@ function collectModelBuilder() {
   appendExtraBuilder(buildErrorLogModel);
 
   appendExtraBuilder(buildExecuteLogModel);
+
+  appendExtraBuilder(buildGalleryModel);
+
+  appendExtraBuilder(buildGalleryCategoryModel);
 
   appendExtraBuilder(buildGeneralDiscourseModel);
 
@@ -127,6 +141,10 @@ function collectModelBuilder() {
   appendExtraBuilder(buildOrganizationModel);
 
   appendExtraBuilder(buildPresetRoleModel);
+
+  appendExtraBuilder(buildQrCodeModel);
+
+  appendExtraBuilder(buildQrCodeCategoryModel);
 
   appendExtraBuilder(buildQueueInfoModel);
 

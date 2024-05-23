@@ -126,11 +126,12 @@ export async function toggleVisibleData(parameters) {
   });
 }
 
-export const setReadObtainScoreDataApiAddress = '/section/setReadObtainScore';
+export const setReadSectionObtainScoreDataApiAddress =
+  '/section/setReadSectionObtainScore';
 
-export async function setReadObtainScoreData(parameters) {
+export async function setReadSectionObtainScoreData(parameters) {
   return request({
-    api: setReadObtainScoreDataApiAddress,
+    api: setReadSectionObtainScoreDataApiAddress,
     params: parameters,
   });
 }

@@ -164,13 +164,13 @@ export const fieldData = {
 export const statusCollection = {
   /**
    * 下线
-   * value : 1
+   * value : 0
    */
   offline: 0,
 
   /**
    * 上线
-   * value : 1
+   * value : 10
    */
   online: 10,
 };

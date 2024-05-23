@@ -394,6 +394,41 @@
       "functionSegment": "SectionStatus",
       "label": "状态",
       "name": "status"
+    },
+    {
+      "functionSegment": "GalleryCategoryStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "GalleryType",
+      "label": "类型",
+      "name": "type"
+    },
+    {
+      "functionSegment": "GalleryStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "QrCodeCategoryStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "QrCodeStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "CallCenterCategoryStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "CallCenterStatus",
+      "label": "状态",
+      "name": "status"
     }
   ]
 }

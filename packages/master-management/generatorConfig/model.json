@@ -696,6 +696,167 @@
     {
       "apis": [
         {
+          "title": "分页列表",
+          "api": "/callCenter/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/callCenter/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新建分类",
+          "api": "/callCenter/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑信息",
+          "api": "/callCenter/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新排序值",
+          "api": "/callCenter/updateSort",
+          "effect": "updateSort",
+          "service": "updateSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为上线",
+          "api": "/callCenter/setOnline",
+          "effect": "setOnline",
+          "service": "setOnlineData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为下线",
+          "api": "/callCenter/setOffline",
+          "effect": "setOffline",
+          "service": "setOfflineData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/callCenter/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/callCenter/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "呼叫中心管理",
+      "name": "callCenter"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/callCenterCategory/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/callCenterCategory/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        },
+        {
+          "title": "单页树型列表",
+          "api": "/callCenterCategory/singleTreeList",
+          "effect": "singleTreeList",
+          "service": "singleTreeListData",
+          "type": "singleList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/callCenterCategory/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新建分类",
+          "api": "/callCenterCategory/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑信息",
+          "api": "/callCenterCategory/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新排序值",
+          "api": "/callCenterCategory/updateSort",
+          "effect": "updateSort",
+          "service": "updateSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为启用",
+          "api": "/callCenterCategory/setEnable",
+          "effect": "setEnable",
+          "service": "setEnableData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为停用",
+          "api": "/callCenterCategory/setDisable",
+          "effect": "setDisable",
+          "service": "setDisableData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/callCenterCategory/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/callCenterCategory/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/callCenterCategory/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "呼叫中心类别管理",
+      "name": "callCenterCategory"
+    },
+    {
+      "apis": [
+        {
           "title": "开关分页列表",
           "api": "/channelExecuteLogSwitch/pageList",
           "effect": "pageList",
@@ -1203,6 +1364,174 @@
       "cover": true,
       "title": "执行日志",
       "name": "executeLog"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/gallery/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/gallery/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新增",
+          "api": "/gallery/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新基本信息",
+          "api": "/gallery/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新排序值",
+          "api": "/gallery/updateSort",
+          "effect": "updateSort",
+          "service": "updateSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为上线",
+          "api": "/gallery/setOnline",
+          "effect": "setOnline",
+          "service": "setOnlineData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为下线",
+          "api": "/gallery/setOffline",
+          "effect": "setOffline",
+          "service": "setOfflineData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/gallery/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/gallery/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/gallery/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "展示图管理",
+      "name": "gallery"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/galleryCategory/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/galleryCategory/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        },
+        {
+          "title": "单页树型列表",
+          "api": "/galleryCategory/singleTreeList",
+          "effect": "singleTreeList",
+          "service": "singleTreeListData",
+          "type": "singleList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/galleryCategory/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新建分类",
+          "api": "/galleryCategory/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑信息",
+          "api": "/galleryCategory/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新排序值",
+          "api": "/galleryCategory/updateSort",
+          "effect": "updateSort",
+          "service": "updateSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为启用",
+          "api": "/galleryCategory/setEnable",
+          "effect": "setEnable",
+          "service": "setEnableData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为停用",
+          "api": "/galleryCategory/setDisable",
+          "effect": "setDisable",
+          "service": "setDisableData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/galleryCategory/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/galleryCategory/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/galleryCategory/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "展示图类别管理",
+      "name": "galleryCategory"
     },
     {
       "apis": [
@@ -1901,6 +2230,174 @@
       "apis": [
         {
           "title": "分页列表",
+          "api": "/qrCode/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/qrCode/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新增",
+          "api": "/qrCode/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新基本信息",
+          "api": "/qrCode/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新排序值",
+          "api": "/qrCode/updateSort",
+          "effect": "updateSort",
+          "service": "updateSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为上线",
+          "api": "/qrCode/setOnline",
+          "effect": "setOnline",
+          "service": "setOnlineData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为下线",
+          "api": "/qrCode/setOffline",
+          "effect": "setOffline",
+          "service": "setOfflineData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/qrCode/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/qrCode/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/qrCode/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "二维码管理",
+      "name": "qrCode"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/qrCodeCategory/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/qrCodeCategory/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        },
+        {
+          "title": "单页树型列表",
+          "api": "/qrCodeCategory/singleTreeList",
+          "effect": "singleTreeList",
+          "service": "singleTreeListData",
+          "type": "singleList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/qrCodeCategory/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新建分类",
+          "api": "/qrCodeCategory/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑信息",
+          "api": "/qrCodeCategory/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新排序值",
+          "api": "/qrCodeCategory/updateSort",
+          "effect": "updateSort",
+          "service": "updateSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为启用",
+          "api": "/qrCodeCategory/setEnable",
+          "effect": "setEnable",
+          "service": "setEnableData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为停用",
+          "api": "/qrCodeCategory/setDisable",
+          "effect": "setDisable",
+          "service": "setDisableData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/qrCodeCategory/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/qrCodeCategory/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/qrCodeCategory/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "展示图类别管理",
+      "name": "qrCodeCategory"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
           "api": "/queueInfo/pageList",
           "effect": "pageList",
           "service": "pageListData",
@@ -2061,10 +2558,10 @@
           "type": "singleData"
         },
         {
-          "title": "设置阅读积分发放",
-          "api": "/section/setReadObtainScore",
-          "effect": "setReadObtainScore",
-          "service": "setReadObtainScoreData",
+          "title": "设置栏目阅读积分发放",
+          "api": "/section/setReadSectionObtainScore",
+          "effect": "setReadSectionObtainScore",
+          "service": "setReadSectionObtainScoreData",
           "type": "singleData"
         },
         {

@@ -63,7 +63,7 @@ class Edit extends DataTabContainerSupplement {
     {
       key: 'scoreInfo',
       show: checkHasAuthority(
-        accessWayCollection.section.setReadObtainScore.permission,
+        accessWayCollection.section.setReadSectionObtainScore.permission,
       ),
       tab: '积分设置',
     },
@@ -103,7 +103,7 @@ class Edit extends DataTabContainerSupplement {
     const d = o;
     const { sectionId } = this.state;
 
-    d.sectionId = sectionId;
+    d[fieldData.sectionId.name] = sectionId;
 
     return d;
   };
@@ -602,6 +602,41 @@ class Edit extends DataTabContainerSupplement {
           data: metaData,
           key: fieldData.businessModeNote.name,
           defaultValue: '无',
+        }),
+      },
+      {
+        label: fieldData.obtainScoreByReadSwitch.label,
+        value: getValueByKey({
+          data: metaData,
+          key: fieldData.obtainScoreByReadSwitch.name,
+          convert: convertCollection.number,
+          formatBuilder: (v) => {
+            return v === whetherNumber.yes ? '开启' : '关闭';
+          },
+        }),
+      },
+      {
+        label: fieldData.obtainScoreWhenRead.label,
+        value: getValueByKey({
+          data: metaData,
+          key: fieldData.obtainScoreWhenRead.name,
+          defaultValue: '0',
+        }),
+      },
+      {
+        label: fieldData.obtainScoreWhenReadSection.label,
+        value: getValueByKey({
+          data: metaData,
+          key: fieldData.obtainScoreWhenReadSection.name,
+          defaultValue: '0',
+        }),
+      },
+      {
+        label: fieldData.obtainFromReadDailyLimit.label,
+        value: getValueByKey({
+          data: metaData,
+          key: fieldData.obtainFromReadDailyLimit.name,
+          defaultValue: '0',
         }),
       },
     ];

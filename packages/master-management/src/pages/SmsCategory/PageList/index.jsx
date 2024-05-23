@@ -31,7 +31,7 @@ import {
 import { parseUrlParametersForSetState } from '../Assist/config';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData, statusCollection } from '../Common/data';
-import UpdateBasicInfoDrawer from '../UpdateBasicInfoDrawer';
+import { UpdateBasicInfoDrawer } from '../UpdateBasicInfoDrawer';
 
 const { MultiPage } = DataMultiPageView;
 

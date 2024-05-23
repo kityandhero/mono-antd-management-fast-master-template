@@ -1,0 +1,25 @@
+{
+  "list": [
+    {
+      "folder": "GalleryCategory/OperateLogDrawer",
+      "model": "galleryCategory",
+      "key": "galleryCategoryId",
+      "visibleFlag": "e5bb5d5bc34146119eab66af448bc1e0",
+      "coverFile": true
+    },
+    {
+      "folder": "QrCodeCategory/OperateLogDrawer",
+      "model": "qrCodeCategory",
+      "key": "qrCodeCategoryId",
+      "visibleFlag": "2dd108a72fa94f348fb445f49b3ca419",
+      "coverFile": true
+    },
+    {
+      "folder": "CallCenterCategory/OperateLogDrawer",
+      "model": "callCenterCategory",
+      "key": "callCenterCategoryId",
+      "visibleFlag": "7f7e0ff509a74702aa517162da46ccdc",
+      "coverFile": true
+    }
+  ]
+}

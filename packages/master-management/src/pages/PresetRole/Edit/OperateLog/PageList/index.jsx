@@ -7,6 +7,7 @@ import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
 } from '../../../Assist/config';
+import { fieldData } from '../../../Common/data';
 
 @connect(({ presetRole, schedulingControl }) => ({
   presetRole,
@@ -20,7 +21,7 @@ class PageList extends BaseInnerPageList {
       ...this.state,
       loadApiPath: 'presetRole/pageListOperateLog',
       dateRangeFieldName: '操作时间',
-      userId: null,
+      presetRoleId: null,
       currentRecord: null,
     };
   }
@@ -40,9 +41,9 @@ class PageList extends BaseInnerPageList {
 
   supplementLoadRequestParams = (o) => {
     const d = o;
-    const { userId } = this.state;
+    const { presetRoleId } = this.state;
 
-    d.userId = userId;
+    d[fieldData.presetRoleId.name] = presetRoleId;
 
     return d;
   };

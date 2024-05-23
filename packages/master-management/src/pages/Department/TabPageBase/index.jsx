@@ -5,12 +5,11 @@ import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
 } from '../Assist/config';
+import { fieldData } from '../Common/data';
 
 const { BaseUpdateFormTab } = DataForm;
 
 class TabPageBase extends BaseUpdateFormTab {
-  reloadHeaderOnSubmitSuccess = true;
-
   static getDerivedStateFromProps(nextProperties, previousState) {
     return getDerivedStateFromPropertiesForUrlParameters(
       nextProperties,
@@ -28,7 +27,7 @@ class TabPageBase extends BaseUpdateFormTab {
     const d = o;
     const { departmentId } = this.state;
 
-    d.departmentId = departmentId;
+    d[fieldData.departmentId.name] = departmentId;
 
     return d;
   };

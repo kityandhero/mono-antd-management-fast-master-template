@@ -1462,6 +1462,306 @@ export const internalTester = {
   ],
 };
 
+const galleryCategory = {
+  name: 'galleryCategory',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/assistTools/galleryCategory',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.galleryCategory.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/assistTools/galleryCategory',
+      redirect: '/assistTools/galleryCategory/pageList',
+    },
+    {
+      path: '/assistTools/galleryCategory/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/assistTools/galleryCategory/pageList/no',
+    },
+    {
+      path: '/assistTools/galleryCategory/pageList/:pageKey',
+      hideInMenu: true,
+      component: './GalleryCategory/PageList',
+    },
+  ],
+};
+
+const gallery = {
+  name: 'gallery',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/assistTools/gallery',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.gallery.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/assistTools/gallery',
+      redirect: '/assistTools/gallery/pageList',
+    },
+    {
+      path: '/assistTools/gallery/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/assistTools/gallery/pageList/no',
+    },
+    {
+      path: '/assistTools/gallery/pageList/:pageKey',
+      hideInMenu: true,
+      component: './Gallery/PageList',
+    },
+    {
+      path: '/assistTools/gallery/add',
+      name: 'add',
+      hideInMenu: true,
+      component: './Gallery/AddBasicInfo',
+    },
+    {
+      path: '/assistTools/gallery/edit/:op/:id/:pageKey',
+      name: 'edit',
+      hideInMenu: true,
+      component: './Gallery/Edit',
+      routes: [
+        {
+          path: '/assistTools/gallery/edit/:op/:id/:pageKey/basicInfo',
+          name: 'basicInfo',
+          component: './Gallery/Edit/BasicInfo',
+        },
+        {
+          path: '/assistTools/gallery/edit/:op/:id/:pageKey/operateLog',
+          name: 'operateLog',
+          routes: [
+            {
+              path: '/assistTools/gallery/edit/:op/:id/:pageKey/operateLog',
+              redirect:
+                '/assistTools/gallery/edit/:op/:id/:pageKey/operateLog/pageList',
+            },
+            {
+              path: '/assistTools/gallery/edit/:op/:id/:pageKey/operateLog/pageList',
+              component: './Gallery/Edit/OperateLog/PageList',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+const qrCodeCategory = {
+  name: 'qrCodeCategory',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/assistTools/qrCodeCategory',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.qrCodeCategory.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/assistTools/qrCodeCategory',
+      redirect: '/assistTools/qrCodeCategory/pageList',
+    },
+    {
+      path: '/assistTools/qrCodeCategory/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/assistTools/qrCodeCategory/pageList/no',
+    },
+    {
+      path: '/assistTools/qrCodeCategory/pageList/:pageKey',
+      hideInMenu: true,
+      component: './QrCodeCategory/PageList',
+    },
+  ],
+};
+
+const qrCode = {
+  name: 'qrCode',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/assistTools/qrCode',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.qrCode.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/assistTools/qrCode',
+      redirect: '/assistTools/qrCode/pageList',
+    },
+    {
+      path: '/assistTools/qrCode/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/assistTools/qrCode/pageList/no',
+    },
+    {
+      path: '/assistTools/qrCode/pageList/:pageKey',
+      hideInMenu: true,
+      component: './QrCode/PageList',
+    },
+    {
+      path: '/assistTools/qrCode/add',
+      name: 'add',
+      hideInMenu: true,
+      component: './QrCode/AddBasicInfo',
+    },
+    {
+      path: '/assistTools/qrCode/edit/:op/:id/:pageKey',
+      name: 'edit',
+      hideInMenu: true,
+      component: './QrCode/Edit',
+      routes: [
+        {
+          path: '/assistTools/qrCode/edit/:op/:id/:pageKey/basicInfo',
+          name: 'basicInfo',
+          component: './QrCode/Edit/BasicInfo',
+        },
+        {
+          path: '/assistTools/qrCode/edit/:op/:id/:pageKey/operateLog',
+          name: 'operateLog',
+          routes: [
+            {
+              path: '/assistTools/qrCode/edit/:op/:id/:pageKey/operateLog',
+              redirect:
+                '/assistTools/qrCode/edit/:op/:id/:pageKey/operateLog/pageList',
+            },
+            {
+              path: '/assistTools/qrCode/edit/:op/:id/:pageKey/operateLog/pageList',
+              component: './QrCode/Edit/OperateLog/PageList',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+const callCenterCategory = {
+  name: 'callCenterCategory',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/assistTools/callCenterCategory',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.callCenterCategory.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/assistTools/callCenterCategory',
+      redirect: '/assistTools/callCenterCategory/pageList',
+    },
+    {
+      path: '/assistTools/callCenterCategory/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/assistTools/callCenterCategory/pageList/no',
+    },
+    {
+      path: '/assistTools/callCenterCategory/pageList/:pageKey',
+      hideInMenu: true,
+      component: './CallCenterCategory/PageList',
+    },
+  ],
+};
+
+const callCenter = {
+  name: 'callCenter',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/assistTools/callCenter',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.callCenter.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/assistTools/callCenter',
+      redirect: '/assistTools/callCenter/pageList',
+    },
+    {
+      path: '/assistTools/callCenter/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/assistTools/callCenter/pageList/no',
+    },
+    {
+      path: '/assistTools/callCenter/pageList/:pageKey',
+      hideInMenu: true,
+      component: './CallCenter/PageList',
+    },
+    {
+      path: '/assistTools/callCenter/add',
+      name: 'add',
+      hideInMenu: true,
+      component: './CallCenter/AddBasicInfo',
+    },
+    {
+      path: '/assistTools/callCenter/edit/:op/:id/:pageKey',
+      name: 'edit',
+      hideInMenu: true,
+      component: './CallCenter/Edit',
+      routes: [
+        {
+          path: '/assistTools/callCenter/edit/:op/:id/:pageKey/basicInfo',
+          name: 'basicInfo',
+          component: './CallCenter/Edit/BasicInfo',
+        },
+        {
+          path: '/assistTools/callCenter/edit/:op/:id/:pageKey/operateLog',
+          name: 'operateLog',
+          routes: [
+            {
+              path: '/assistTools/callCenter/edit/:op/:id/:pageKey/operateLog',
+              redirect:
+                '/assistTools/callCenter/edit/:op/:id/:pageKey/operateLog/pageList',
+            },
+            {
+              path: '/assistTools/callCenter/edit/:op/:id/:pageKey/operateLog/pageList',
+              component: './CallCenter/Edit/OperateLog/PageList',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+export const assistTools = {
+  name: 'assistTools',
+  icon: 'reconciliation',
+  path: '/assistTools',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.galleryCategory.pageList.permission,
+    accessWayCollection.gallery.pageList.permission,
+    accessWayCollection.callCenterCategory.pageList.permission,
+    accessWayCollection.callCenter.pageList.permission,
+    accessWayCollection.qrCodeCategory.pageList.permission,
+    accessWayCollection.qrCode.pageList.permission,
+  ],
+  routes: [
+    galleryCategory,
+    gallery,
+    qrCodeCategory,
+    qrCode,
+    callCenterCategory,
+    callCenter,
+  ],
+};
+
 export const account = {
   name: 'account',
   icon: 'team',

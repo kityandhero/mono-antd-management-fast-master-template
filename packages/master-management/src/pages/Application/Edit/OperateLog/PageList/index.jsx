@@ -7,6 +7,7 @@ import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
 } from '../../../Assist/config';
+import { fieldData } from '../../../Common/data';
 
 @connect(({ application, schedulingControl }) => ({
   application,
@@ -42,7 +43,7 @@ class PageList extends BaseInnerPageList {
     const d = o;
     const { applicationId } = this.state;
 
-    d.applicationId = applicationId;
+    d[fieldData.applicationId.name] = applicationId;
 
     return d;
   };

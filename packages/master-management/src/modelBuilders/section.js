@@ -20,7 +20,7 @@ import {
   setMediaCollectionSortData,
   setOfflineData,
   setOnlineData,
-  setReadObtainScoreData,
+  setReadSectionObtainScoreData,
   singleListData,
   singleTreeListData,
   toggleRecommendData,
@@ -414,7 +414,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *setReadObtainScore(
+      *setReadSectionObtainScore(
         {
           payload,
           alias,
@@ -423,7 +423,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(setReadObtainScoreData, payload);
+        const response = yield call(setReadSectionObtainScoreData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

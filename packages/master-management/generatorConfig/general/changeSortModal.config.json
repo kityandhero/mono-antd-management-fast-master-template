@@ -1,0 +1,52 @@
+{
+  "list": [
+    {
+      "folder": "Gallery/ChangeSortModal",
+      "model": "gallery",
+      "key": "galleryId",
+      "visibleFlag": "1de6598ed33f460c846115d1023519a6",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "GalleryCategory/ChangeSortModal",
+      "model": "galleryCategory",
+      "key": "galleryCategoryId",
+      "visibleFlag": "d531cd3035404a6b8c62c68ba593d7cc",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "QrCode/ChangeSortModal",
+      "model": "qrCode",
+      "key": "qrCodeId",
+      "visibleFlag": "703597963b8b4d36b343215c71a0b7e1",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "QrCodeCategory/ChangeSortModal",
+      "model": "qrCodeCategory",
+      "key": "qrCodeCategoryId",
+      "visibleFlag": "fd3703b6cda6481bababfd968cf35f18",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "CallCenter/ChangeSortModal",
+      "model": "callCenter",
+      "key": "callCenterId",
+      "visibleFlag": "68bad5bd1a6449b7bc146cc4f51add50",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "CallCenterCategory/ChangeSortModal",
+      "model": "callCenterCategory",
+      "key": "callCenterCategoryId",
+      "visibleFlag": "796ae68f63ab46d9accdecf6ac7ab27d",
+      "fileName": "index.jsx",
+      "coverFile": false
+    }
+  ]
+}

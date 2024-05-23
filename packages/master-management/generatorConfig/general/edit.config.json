@@ -1,0 +1,109 @@
+{
+  "list": [
+    {
+      "folder": "Application/Edit",
+      "model": "application",
+      "key": "applicationId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "ApplicationSource/Edit",
+      "model": "applicationSource",
+      "key": "applicationSourceId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "CallCenter/Edit",
+      "model": "callCenter",
+      "key": "callCenterId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "Department/Edit",
+      "model": "department",
+      "key": "departmentId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "Gallery/Edit",
+      "model": "gallery",
+      "key": "galleryId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "MasterManager/Edit",
+      "model": "masterManager",
+      "key": "masterManagerId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "PresetRole/Edit",
+      "model": "presetRole",
+      "key": "presetRoleId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "QrCode/Edit",
+      "model": "qrCode",
+      "key": "qrCodeId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "Section/Edit",
+      "model": "section",
+      "key": "sectionId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "Subsidiary/Edit",
+      "model": "subsidiary",
+      "key": "subsidiaryId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "Tag/Edit",
+      "model": "tag",
+      "key": "tagId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "User/Edit",
+      "model": "user",
+      "key": "userId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "UserDevice/Edit",
+      "model": "userDevice",
+      "key": "userDeviceId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "Workflow/Edit",
+      "model": "workflow",
+      "key": "workflowId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "WorkflowCase/Edit",
+      "model": "workflowCase",
+      "key": "workflowCaseId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    }
+  ]
+}

@@ -22,7 +22,7 @@ const visibleFlag = '1e8fcb120580443693b2cf7aa16c0f49';
   smsCategory,
   schedulingControl,
 }))
-class Index extends BaseUpdateDrawer {
+class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
   static open() {
     switchControlAssist.open(visibleFlag);
   }
@@ -232,4 +232,4 @@ class Index extends BaseUpdateDrawer {
   };
 }
 
-export default Index;
+export { UpdateBasicInfoDrawer };

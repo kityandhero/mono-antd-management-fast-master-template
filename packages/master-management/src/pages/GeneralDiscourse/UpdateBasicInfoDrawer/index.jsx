@@ -188,17 +188,6 @@ class Index extends BaseUpdateDrawer {
       ],
     };
   };
-
-  establishHelpConfig = () => {
-    return {
-      title: '操作提示',
-      list: [
-        {
-          text: '具有系统特征值的分类为系统内置, 部分数据不允许编辑',
-        },
-      ],
-    };
-  };
 }
 
 export default Index;

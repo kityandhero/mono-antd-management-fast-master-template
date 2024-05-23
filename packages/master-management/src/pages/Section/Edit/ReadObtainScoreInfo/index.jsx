@@ -35,7 +35,7 @@ class ReadObtainScoreInfo extends TabPageBase {
     this.state = {
       ...this.state,
       loadApiPath: 'section/get',
-      submitApiPath: 'section/setReadObtainScore',
+      submitApiPath: 'section/setReadSectionObtainScore',
       obtainScoreByReadSwitch: 0,
     };
   }

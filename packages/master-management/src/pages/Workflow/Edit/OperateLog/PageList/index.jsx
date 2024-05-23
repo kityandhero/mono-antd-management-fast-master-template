@@ -7,6 +7,7 @@ import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
 } from '../../../Assist/config';
+import { fieldData } from '../../../Common/data';
 
 @connect(({ workflow, schedulingControl }) => ({
   workflow,
@@ -42,7 +43,7 @@ class PageList extends BaseInnerPageList {
     const d = o;
     const { workflowId } = this.state;
 
-    d.workflowId = workflowId;
+    d[fieldData.workflowId.name] = workflowId;
 
     return d;
   };
