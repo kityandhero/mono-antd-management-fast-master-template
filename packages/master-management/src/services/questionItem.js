@@ -1,6 +1,6 @@
 import { request } from 'easy-soft-utility';
 
-export const pageListDataApiAddress = '/qrCode/pageList';
+export const pageListDataApiAddress = '/questionItem/pageList';
 
 export async function pageListData(parameters) {
   return request({
@@ -9,7 +9,7 @@ export async function pageListData(parameters) {
   });
 }
 
-export const getDataApiAddress = '/qrCode/get';
+export const getDataApiAddress = '/questionItem/get';
 
 export async function getData(parameters) {
   return request({
@@ -18,7 +18,7 @@ export async function getData(parameters) {
   });
 }
 
-export const addBasicInfoDataApiAddress = '/qrCode/addBasicInfo';
+export const addBasicInfoDataApiAddress = '/questionItem/addBasicInfo';
 
 export async function addBasicInfoData(parameters) {
   return request({
@@ -27,7 +27,7 @@ export async function addBasicInfoData(parameters) {
   });
 }
 
-export const updateBasicInfoDataApiAddress = '/qrCode/updateBasicInfo';
+export const updateBasicInfoDataApiAddress = '/questionItem/updateBasicInfo';
 
 export async function updateBasicInfoData(parameters) {
   return request({
@@ -36,7 +36,7 @@ export async function updateBasicInfoData(parameters) {
   });
 }
 
-export const updateSortDataApiAddress = '/qrCode/updateSort';
+export const updateSortDataApiAddress = '/questionItem/updateSort';
 
 export async function updateSortData(parameters) {
   return request({
@@ -45,7 +45,7 @@ export async function updateSortData(parameters) {
   });
 }
 
-export const setOnlineDataApiAddress = '/qrCode/setOnline';
+export const setOnlineDataApiAddress = '/questionItem/setOnline';
 
 export async function setOnlineData(parameters) {
   return request({
@@ -54,7 +54,7 @@ export async function setOnlineData(parameters) {
   });
 }
 
-export const setOfflineDataApiAddress = '/qrCode/setOffline';
+export const setOfflineDataApiAddress = '/questionItem/setOffline';
 
 export async function setOfflineData(parameters) {
   return request({
@@ -63,7 +63,7 @@ export async function setOfflineData(parameters) {
   });
 }
 
-export const removeDataApiAddress = '/qrCode/remove';
+export const removeDataApiAddress = '/questionItem/remove';
 
 export async function removeData(parameters) {
   return request({
@@ -72,29 +72,11 @@ export async function removeData(parameters) {
   });
 }
 
-export const refreshCacheDataApiAddress = '/qrCode/refreshCache';
+export const refreshCacheDataApiAddress = '/questionItem/refreshCache';
 
 export async function refreshCacheData(parameters) {
   return request({
     api: refreshCacheDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const pageListOperateLogDataApiAddress = '/qrCode/pageListOperateLog';
-
-export async function pageListOperateLogData(parameters) {
-  return request({
-    api: pageListOperateLogDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const uploadImageDataApiAddress = '/qrCode/uploadImage';
-
-export async function uploadImageData(parameters) {
-  return request({
-    api: uploadImageDataApiAddress,
     params: parameters,
   });
 }

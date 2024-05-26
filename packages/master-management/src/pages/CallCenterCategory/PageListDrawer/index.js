@@ -9,7 +9,7 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
-import { getcallCenterCategoryStatusName } from '../../../customSpecialComponents';
+import { getCallCenterCategoryStatusName } from '../../../customSpecialComponents';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
@@ -81,7 +81,7 @@ class PageListDrawer extends MultiPageSelectDrawer {
       facadeConfigBuilder: (value) => {
         return {
           status: getStatusBadge(value),
-          text: getcallCenterCategoryStatusName({
+          text: getCallCenterCategoryStatusName({
             value: value,
           }),
         };

@@ -12,7 +12,7 @@ import {
   listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
+import { buildButton, iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
@@ -20,6 +20,9 @@ import {
   getCallCenterCategoryStatusName,
   renderSearchCallCenterStatusSelect,
 } from '../../../customSpecialComponents';
+import { singleTreeListAction as categorySingleTreeListAction } from '../../CallCenterCategory/Assist/action';
+import { fieldData as fieldDataCategory } from '../../CallCenterCategory/Common/data';
+import { SelectField as CategorySelectField } from '../../CallCenterCategory/SelectField';
 import {
   refreshCacheAction,
   removeAction,
@@ -47,9 +50,41 @@ class PageList extends MultiPage {
       pageTitle: '列表',
       paramsKey: accessWayCollection.callCenter.pageList.paramsKey,
       loadApiPath: 'callCenter/pageList',
+      categoryTreeData: [],
+      categoryId: '',
+      categoryName: '',
       currentRecord: null,
     };
   }
+
+  doOtherRemoteRequest = () => {
+    this.loadCategoryTreeList();
+  };
+
+  loadCategoryTreeList = () => {
+    categorySingleTreeListAction({
+      target: this,
+      handleData: {},
+      successCallback: ({ target, remoteListData }) => {
+        target.setState({
+          categoryTreeData: remoteListData,
+        });
+      },
+    });
+  };
+
+  reloadCategoryTreeList = () => {
+    this.loadCategoryTreeList();
+  };
+
+  supplementLoadRequestParams = (o) => {
+    const d = o;
+    const { categoryId } = this.state;
+
+    d[fieldData.categoryId.name] = categoryId;
+
+    return d;
+  };
 
   handleItemStatus = ({ target, handleData, remoteData }) => {
     const callCenterId = getValueByKey({
@@ -148,6 +183,31 @@ class PageList extends MultiPage {
     });
   };
 
+  afterCategorySelect = (d) => {
+    const categoryId = getValueByKey({
+      data: d,
+      key: fieldDataCategory.callCenterCategoryId.name,
+      convert: convertCollection.string,
+    });
+
+    const categoryName = getValueByKey({
+      data: d,
+      key: fieldDataCategory.name.name,
+    });
+
+    this.setState({
+      categoryId: categoryId,
+      categoryName: categoryName,
+    });
+  };
+
+  afterCategoryClearSelect = () => {
+    this.setState({
+      categoryId: '',
+      categoryName: '',
+    });
+  };
+
   showChangeSortModal = (r) => {
     this.setState({ currentRecord: r }, () => {
       ChangeSortModal.open();
@@ -187,12 +247,60 @@ class PageList extends MultiPage {
   };
 
   establishSearchCardConfig = () => {
+    const { categoryId, categoryName, categoryTreeData } = this.state;
+
     return {
       list: [
         {
           lg: 6,
           type: searchCardConfig.contentItemType.input,
           fieldData: fieldData.title,
+        },
+        {
+          lg: 6,
+          type: searchCardConfig.contentItemType.component,
+          component: (
+            <CategorySelectField
+              label={fieldData.categoryName.label}
+              defaultValue={categoryName || null}
+              helper={fieldData.categoryName.helper}
+              afterSelectSuccess={(d) => {
+                this.afterCategorySelect(d);
+              }}
+              afterClearSelect={() => {
+                this.afterCategoryClearSelect();
+              }}
+            />
+          ),
+        },
+        {
+          lg: 6,
+          type: searchCardConfig.contentItemType.treeSelect,
+          fieldData: fieldData.categoryId,
+          value: categoryId,
+          require: true,
+          listData: categoryTreeData,
+          addonAfter: buildButton({
+            text: '',
+            icon: iconBuilder.reload(),
+            handleClick: () => {
+              this.reloadCategoryTreeList();
+            },
+          }),
+          dataConvert: (o) => {
+            const { name: title, code: value } = o;
+
+            return {
+              title,
+              value,
+            };
+          },
+          // eslint-disable-next-line no-unused-vars
+          onChange: ({ value, label, extra }) => {
+            this.setState({
+              categoryId: toString(value),
+            });
+          },
         },
         {
           lg: 6,

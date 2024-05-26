@@ -1436,6 +1436,13 @@
           "effect": "pageListOperateLog",
           "service": "pageListOperateLogData",
           "type": "pageList"
+        },
+        {
+          "title": "",
+          "api": "/gallery/uploadImage",
+          "effect": "uploadImage",
+          "service": "uploadImageData",
+          "type": "singleData"
         }
       ],
       "cover": true,
@@ -2297,6 +2304,13 @@
           "effect": "pageListOperateLog",
           "service": "pageListOperateLogData",
           "type": "pageList"
+        },
+        {
+          "title": "",
+          "api": "/qrCode/uploadImage",
+          "effect": "uploadImage",
+          "service": "uploadImageData",
+          "type": "singleData"
         }
       ],
       "cover": true,
@@ -2393,6 +2407,293 @@
       "cover": true,
       "title": "展示图类别管理",
       "name": "qrCodeCategory"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/question/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/question/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新建",
+          "api": "/question/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑基本信息",
+          "api": "/question/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为上线",
+          "api": "/question/setOnline",
+          "effect": "setOnline",
+          "service": "setOnlineData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为下线",
+          "api": "/question/setOffline",
+          "effect": "setOffline",
+          "service": "setOfflineData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/question/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/question/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "调查问卷问题",
+      "name": "question"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/questionItem/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/questionItem/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新建",
+          "api": "/questionItem/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑基本信息",
+          "api": "/questionItem/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新排序值",
+          "api": "/questionItem/updateSort",
+          "effect": "updateSort",
+          "service": "updateSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为上线",
+          "api": "/questionItem/setOnline",
+          "effect": "setOnline",
+          "service": "setOnlineData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为下线",
+          "api": "/questionItem/setOffline",
+          "effect": "setOffline",
+          "service": "setOfflineData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/questionItem/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/questionItem/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "调查问卷问题项",
+      "name": "questionItem"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/questionnaire/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/questionnaire/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新建",
+          "api": "/questionnaire/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑基本信息",
+          "api": "/questionnaire/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑详情",
+          "api": "/questionnaire/updateContentInfo",
+          "effect": "updateContentInfo",
+          "service": "updateContentInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑详情",
+          "api": "/questionnaire/updateSort",
+          "effect": "updateSort",
+          "service": "updateSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "切换推荐",
+          "api": "/questionnaire/toggleRecommend",
+          "effect": "toggleRecommend",
+          "service": "toggleRecommendData",
+          "type": "singleData"
+        },
+        {
+          "title": "切换置顶",
+          "api": "/questionnaire/toggleTop",
+          "effect": "toggleTop",
+          "service": "toggleTopData",
+          "type": "singleData"
+        },
+        {
+          "title": "切换可见性",
+          "api": "/questionnaire/toggleVisible",
+          "effect": "toggleVisible",
+          "service": "toggleVisibleData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为上线",
+          "api": "/questionnaire/setOnline",
+          "effect": "setOnline",
+          "service": "setOnlineData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为下线",
+          "api": "/questionnaire/setOffline",
+          "effect": "setOffline",
+          "service": "setOfflineData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/questionnaire/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/questionnaire/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "调查问卷",
+      "name": "questionnaire"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/questionnaireQuestion/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/questionnaireQuestion/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "绑定关系",
+          "api": "/questionnaireQuestion/bindRelation",
+          "effect": "bindRelation",
+          "service": "bindRelationData",
+          "type": "singleData"
+        },
+        {
+          "title": "解绑关系",
+          "api": "/questionnaireQuestion/unbindRelation",
+          "effect": "unbindRelation",
+          "service": "unbindRelationData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置顺序",
+          "api": "/questionnaireQuestion/setBindSort",
+          "effect": "setBindSort",
+          "service": "setBindSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置积分",
+          "api": "/questionnaireQuestion/setBindScore",
+          "effect": "setBindScore",
+          "service": "setBindScoreData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新数据",
+          "api": "/questionnaireQuestion/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "调查问卷与问题绑定",
+      "name": "questionnaireQuestion"
     },
     {
       "apis": [

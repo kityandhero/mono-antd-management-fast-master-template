@@ -36,6 +36,10 @@ import { buildModel as buildOrganizationModel } from './organization';
 import { buildModel as buildPresetRoleModel } from './presetRole';
 import { buildModel as buildQrCodeModel } from './qrCode';
 import { buildModel as buildQrCodeCategoryModel } from './qrCodeCategory';
+import { buildModel as buildQuestionModel } from './question';
+import { buildModel as buildQuestionItemModel } from './questionItem';
+import { buildModel as buildQuestionnaireModel } from './questionnaire';
+import { buildModel as buildQuestionnaireQuestionModel } from './questionnaireQuestion';
 import { buildModel as buildQueueInfoModel } from './queueInfo';
 import { buildModel as buildSectionModel } from './section';
 import { buildModel as buildSectionApplicationConfigModel } from './sectionApplicationConfig';
@@ -145,6 +149,14 @@ function collectModelBuilder() {
   appendExtraBuilder(buildQrCodeModel);
 
   appendExtraBuilder(buildQrCodeCategoryModel);
+
+  appendExtraBuilder(buildQuestionModel);
+
+  appendExtraBuilder(buildQuestionItemModel);
+
+  appendExtraBuilder(buildQuestionnaireModel);
+
+  appendExtraBuilder(buildQuestionnaireQuestionModel);
 
   appendExtraBuilder(buildQueueInfoModel);
 

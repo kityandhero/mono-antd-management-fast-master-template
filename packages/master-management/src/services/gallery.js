@@ -89,3 +89,12 @@ export async function pageListOperateLogData(parameters) {
     params: parameters,
   });
 }
+
+export const uploadImageDataApiAddress = '/gallery/uploadImage';
+
+export async function uploadImageData(parameters) {
+  return request({
+    api: uploadImageDataApiAddress,
+    params: parameters,
+  });
+}

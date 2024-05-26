@@ -8,22 +8,18 @@ import {
 } from 'easy-soft-utility';
 
 import {
-  addBasicInfoData,
+  bindRelationData,
   getData,
   pageListData,
-  pageListOperateLogData,
   refreshCacheData,
-  removeData,
-  setOfflineData,
-  setOnlineData,
-  updateBasicInfoData,
-  updateSortData,
-  uploadImageData,
-} from '../services/gallery';
+  setBindScoreData,
+  setBindSortData,
+  unbindRelationData,
+} from '../services/questionnaireQuestion';
 
 export function buildModel() {
   return {
-    namespace: 'gallery',
+    namespace: 'questionnaireQuestion',
 
     state: {
       ...getTacitlyState(),
@@ -82,7 +78,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *addBasicInfo(
+      *bindRelation(
         {
           payload,
           alias,
@@ -91,7 +87,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(addBasicInfoData, payload);
+        const response = yield call(bindRelationData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -108,7 +104,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateBasicInfo(
+      *unbindRelation(
         {
           payload,
           alias,
@@ -117,7 +113,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateBasicInfoData, payload);
+        const response = yield call(unbindRelationData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -134,7 +130,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateSort(
+      *setBindSort(
         {
           payload,
           alias,
@@ -143,7 +139,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateSortData, payload);
+        const response = yield call(setBindSortData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -160,7 +156,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *setOnline(
+      *setBindScore(
         {
           payload,
           alias,
@@ -169,59 +165,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(setOnlineData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *setOffline(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(setOfflineData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *remove(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(removeData, payload);
+        const response = yield call(setBindScoreData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -248,58 +192,6 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(refreshCacheData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *pageListOperateLog(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(pageListOperateLogData, payload);
-
-        const dataAdjust = pretreatmentRemotePageListData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *uploadImage(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(uploadImageData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

@@ -11,19 +11,17 @@ import {
   addBasicInfoData,
   getData,
   pageListData,
-  pageListOperateLogData,
   refreshCacheData,
   removeData,
   setOfflineData,
   setOnlineData,
   updateBasicInfoData,
   updateSortData,
-  uploadImageData,
-} from '../services/gallery';
+} from '../services/questionItem';
 
 export function buildModel() {
   return {
-    namespace: 'gallery',
+    namespace: 'questionItem',
 
     state: {
       ...getTacitlyState(),
@@ -248,58 +246,6 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(refreshCacheData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *pageListOperateLog(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(pageListOperateLogData, payload);
-
-        const dataAdjust = pretreatmentRemotePageListData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *uploadImage(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(uploadImageData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

@@ -9,6 +9,7 @@ import {
 
 import {
   columnFacadeMode,
+  extraBuildType,
   getDerivedStateFromPropertiesForUrlParameters,
   listViewConfig,
   searchCardConfig,
@@ -33,6 +34,7 @@ import { getStatusBadge } from '../Assist/tools';
 import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData, statusCollection } from '../Common/data';
 import { OperateLogDrawer } from '../OperateLogDrawer';
+import { TreeDrawer } from '../TreeDrawer';
 import { UpdateBasicInfoDrawer } from '../UpdateBasicInfoDrawer';
 
 const { MultiPage } = DataMultiPageView;
@@ -223,6 +225,27 @@ class PageList extends MultiPage {
     );
   };
 
+  showTreeDrawer = () => {
+    TreeDrawer.open();
+  };
+
+  establishExtraActionConfig = () => {
+    return {
+      list: [
+        {
+          buildType: extraBuildType.generalExtraButton,
+          icon: iconBuilder.read(),
+          text: '可用类树型图',
+          size: 'small',
+          disabled: this.checkInProgress(),
+          handleClick: () => {
+            this.showTreeDrawer();
+          },
+        },
+      ],
+    };
+  };
+
   fillSearchCardInitialValues = () => {
     const values = {};
 
@@ -407,6 +430,8 @@ class PageList extends MultiPage {
         />
 
         <OperateLogDrawer externalData={currentRecord} />
+
+        <TreeDrawer maskClosable />
       </>
     );
   };
