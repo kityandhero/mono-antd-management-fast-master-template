@@ -5,6 +5,7 @@ import {
   convertCollection,
   getValueByKey,
   handleItem,
+  toString,
 } from 'easy-soft-utility';
 
 import {
@@ -21,8 +22,6 @@ import {
   renderSearchCallCenterStatusSelect,
 } from '../../../customSpecialComponents';
 import { singleTreeListAction as categorySingleTreeListAction } from '../../CallCenterCategory/Assist/action';
-import { fieldData as fieldDataCategory } from '../../CallCenterCategory/Common/data';
-import { SelectField as CategorySelectField } from '../../CallCenterCategory/SelectField';
 import {
   refreshCacheAction,
   removeAction,
@@ -183,29 +182,10 @@ class PageList extends MultiPage {
     });
   };
 
-  afterCategorySelect = (d) => {
-    const categoryId = getValueByKey({
-      data: d,
-      key: fieldDataCategory.callCenterCategoryId.name,
-      convert: convertCollection.string,
-    });
-
-    const categoryName = getValueByKey({
-      data: d,
-      key: fieldDataCategory.name.name,
-    });
-
-    this.setState({
-      categoryId: categoryId,
-      categoryName: categoryName,
-    });
-  };
-
-  afterCategoryClearSelect = () => {
-    this.setState({
+  handleSearchResetState = () => {
+    return {
       categoryId: '',
-      categoryName: '',
-    });
+    };
   };
 
   showChangeSortModal = (r) => {
@@ -247,7 +227,7 @@ class PageList extends MultiPage {
   };
 
   establishSearchCardConfig = () => {
-    const { categoryId, categoryName, categoryTreeData } = this.state;
+    const { categoryId, categoryTreeData } = this.state;
 
     return {
       list: [
@@ -258,23 +238,6 @@ class PageList extends MultiPage {
         },
         {
           lg: 6,
-          type: searchCardConfig.contentItemType.component,
-          component: (
-            <CategorySelectField
-              label={fieldData.categoryName.label}
-              defaultValue={categoryName || null}
-              helper={fieldData.categoryName.helper}
-              afterSelectSuccess={(d) => {
-                this.afterCategorySelect(d);
-              }}
-              afterClearSelect={() => {
-                this.afterCategoryClearSelect();
-              }}
-            />
-          ),
-        },
-        {
-          lg: 6,
           type: searchCardConfig.contentItemType.treeSelect,
           fieldData: fieldData.categoryId,
           value: categoryId,
@@ -282,6 +245,7 @@ class PageList extends MultiPage {
           listData: categoryTreeData,
           addonAfter: buildButton({
             text: '',
+            title: '刷新选择列表',
             icon: iconBuilder.reload(),
             handleClick: () => {
               this.reloadCategoryTreeList();
