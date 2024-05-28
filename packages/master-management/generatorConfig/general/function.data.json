@@ -46,6 +46,11 @@
       "name": "webChannelId"
     },
     {
+      "functionSegment": "operationLogStatusList",
+      "label": "状态",
+      "name": "status"
+    },
+    {
       "functionSegment": "ErrorLogResolve",
       "label": "解决状态",
       "name": "resolve"
@@ -316,6 +321,11 @@
       "name": "status"
     },
     {
+      "functionSegment": "UserLoginLogStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
       "functionSegment": "UserSubsidiaryInfoStatus",
       "label": "状态",
       "name": "status"
@@ -337,6 +347,11 @@
     },
     {
       "functionSegment": "MasterManagerStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "MasterManagerLoginLogStatus",
       "label": "状态",
       "name": "status"
     },

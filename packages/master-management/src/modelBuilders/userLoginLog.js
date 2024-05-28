@@ -1,5 +1,6 @@
 import {
   getTacitlyState,
+  pretreatmentRemoteListData,
   pretreatmentRemotePageListData,
   pretreatmentRemoteSingleData,
   reducerCollection,
@@ -8,16 +9,17 @@ import {
 } from 'easy-soft-utility';
 
 import {
-  addBasicInfoData,
   getData,
   pageListData,
+  pageListOperateLogData,
   refreshCacheData,
-  updateBasicInfoData,
-} from '../services/articleNotificationApplicationBase';
+  removeData,
+  singleListData,
+} from '../services/userLoginLog';
 
 export function buildModel() {
   return {
-    namespace: 'articleNotificationApplicationBase',
+    namespace: 'userLoginLog',
 
     state: {
       ...getTacitlyState(),
@@ -36,6 +38,32 @@ export function buildModel() {
         const response = yield call(pageListData, payload);
 
         const dataAdjust = pretreatmentRemotePageListData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *singleList(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(singleListData, payload);
+
+        const dataAdjust = pretreatmentRemoteListData({
           source: response,
           successCallback: pretreatmentSuccessCallback || null,
           failCallback: pretreatmentFailCallback || null,
@@ -76,7 +104,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *addBasicInfo(
+      *remove(
         {
           payload,
           alias,
@@ -85,33 +113,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(addBasicInfoData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *updateBasicInfo(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(updateBasicInfoData, payload);
+        const response = yield call(removeData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -140,6 +142,32 @@ export function buildModel() {
         const response = yield call(refreshCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *pageListOperateLog(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(pageListOperateLogData, payload);
+
+        const dataAdjust = pretreatmentRemotePageListData({
           source: response,
           successCallback: pretreatmentSuccessCallback || null,
           failCallback: pretreatmentFailCallback || null,

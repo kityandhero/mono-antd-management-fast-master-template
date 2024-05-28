@@ -8,18 +8,18 @@ export const fieldData = {
     helper: '',
   },
   primaryKeyValue: {
-    label: '目标标识',
+    label: '数据目标标识',
     name: 'primaryKeyValue',
     helper: '',
   },
-  userId: {
+  operatorId: {
     label: '操作人标识',
-    name: 'userId',
+    name: 'operatorId',
     helper: '',
   },
-  userName: {
+  operatorName: {
     label: '操作人',
-    name: 'userName',
+    name: 'operatorName',
     helper: '',
   },
   title: {

@@ -1,7 +1,11 @@
-import { getValueByKey, toNumber } from 'easy-soft-utility';
-
+import { connect } from 'easy-soft-dva';
 import {
   buildRandomHexColor,
+  getValueByKey,
+  toNumber,
+} from 'easy-soft-utility';
+
+import {
   cardConfig,
   columnFacadeMode,
   dataTypeCollection,
@@ -13,21 +17,28 @@ import {
   DataPreviewDrawer,
 } from 'antd-management-fast-framework';
 
+import { accessWayCollection } from '../../../customConfig';
 import { getChannelName } from '../../../customSpecialComponents';
 import { fieldData } from '../Common/data';
 
-const { MultiPageSelectDrawer } = DataMultiPageView;
+const { MultiPage } = DataMultiPageView;
 
-class BasePageListDrawer extends MultiPageSelectDrawer {
-  constructor(properties, visibleFlag) {
-    super(properties, visibleFlag);
+@connect(({ operationLog, schedulingControl }) => ({
+  operationLog,
+  schedulingControl,
+}))
+class PageList extends MultiPage {
+  componentAuthority = accessWayCollection.operationLog.pageList.permission;
+
+  constructor(properties) {
+    super(properties);
 
     this.state = {
       ...this.state,
-      tableScrollX: 880,
-      dateRangeFieldName: '操作时间',
-      pageTitle: '日志列表',
-      currentRecord: null,
+      pageTitle: '操作日志列表',
+      paramsKey: accessWayCollection.operationLog.pageList.paramsKey,
+      loadApiPath: 'operationLog/pageList',
+      dateRangeFieldName: '创建时间',
     };
   }
 
@@ -38,17 +49,25 @@ class BasePageListDrawer extends MultiPageSelectDrawer {
   };
 
   establishSearchCardConfig = () => {
-    const { dateRangeFieldName } = this.state;
-
     return {
       list: [
         {
-          lg: 18,
-          type: searchCardConfig.contentItemType.component,
-          component: this.buildSearchCardRangePickerCore(dateRangeFieldName),
+          lg: 5,
+          type: searchCardConfig.contentItemType.input,
+          fieldData: fieldData.title,
         },
         {
-          lg: 6,
+          lg: 5,
+          type: searchCardConfig.contentItemType.input,
+          fieldData: fieldData.tableName,
+        },
+        {
+          lg: 5,
+          type: searchCardConfig.contentItemType.inputNumber,
+          fieldData: fieldData.primaryKeyValue,
+        },
+        {
+          lg: 5,
           type: searchCardConfig.contentItemType.component,
           component: this.buildSearchCardButtonCore(),
         },
@@ -91,6 +110,12 @@ class BasePageListDrawer extends MultiPageSelectDrawer {
       emptyValue: '--',
     },
     {
+      dataTarget: fieldData.operatorId,
+      width: 120,
+      showRichFacade: true,
+      canCopy: true,
+    },
+    {
       dataTarget: fieldData.primaryKeyValue,
       width: 120,
       showRichFacade: true,
@@ -113,12 +138,6 @@ class BasePageListDrawer extends MultiPageSelectDrawer {
           value: value,
         });
       },
-    },
-    {
-      dataTarget: fieldData.operationLogId,
-      width: 120,
-      showRichFacade: true,
-      canCopy: true,
     },
     {
       dataTarget: fieldData.createTime,
@@ -205,4 +224,4 @@ class BasePageListDrawer extends MultiPageSelectDrawer {
   };
 }
 
-export { BasePageListDrawer };
+export default PageList;

@@ -37,6 +37,11 @@ export default {
   'menu.logs.sqlLog.pageList': '日志列表',
   'menu.logs.sqlLog.pageList-mini': 'SQL',
 
+  'menu.logs.operationLog': '操作日志',
+  'menu.logs.operationLog-mini': '操作',
+  'menu.logs.operationLog.pageList': '日志列表',
+  'menu.logs.operationLog.pageList-mini': '列表',
+
   'menu.logs.mongoSlowQueryInfo': '慢查询日志',
   'menu.logs.mongoSlowQueryInfo-mini': '慢查询',
   'menu.logs.mongoSlowQueryInfo.pageList': '慢查询列表',
@@ -281,6 +286,11 @@ export default {
   'menu.person.user.edit.operateLog': '操作日志',
   'menu.person.user.edit.operateLog.pageList': '日志列表',
 
+  'menu.person.userLoginLog': '登录记录',
+  'menu.person.userLoginLog-mini': '登录',
+  'menu.person.userLoginLog.pageList': '登录列表',
+  'menu.person.userLoginLog.pageList-mini': '列表',
+
   'menu.person.userSignet': '印章管理',
   'menu.person.userSignet-mini': '印章',
   'menu.person.userSignet.pageList': '印章列表',
@@ -301,9 +311,6 @@ export default {
   'menu.person.internalTester.add': '新增内测用户',
   'menu.person.internalTester.pageList': '内测列表',
   'menu.person.internalTester.pageList-mini': '列表',
-
-  'menu.account': '账户相关',
-  'menu.account-mini': '账户',
 
   'menu.assistTools': '辅助功能',
   'menu.assistTools-mini': '辅助',
@@ -363,7 +370,10 @@ export default {
   'menu.assistTools.callCenter.edit.operateLog': '操作日志',
   'menu.assistTools.callCenter.edit.operateLog.pageList': '日志列表',
 
-  'menu.account.masterManager': '登录账户',
+  'menu.account': '账户相关',
+  'menu.account-mini': '账户',
+
+  'menu.account.masterManager': '管理账户',
   'menu.account.masterManager-mini': '登录',
   'menu.account.masterManager.pageList': '账户列表',
   'menu.account.masterManager.pageList-mini': '列表',
@@ -371,6 +381,11 @@ export default {
   'menu.account.masterManager.edit.basicInfo': '基本信息',
   'menu.account.masterManager.edit.operateLog': '操作日志',
   'menu.account.masterManager.edit.operateLog.pageList': '日志列表',
+
+  'menu.account.masterManagerLoginLog': '登录记录',
+  'menu.account.masterManagerLoginLog-mini': '登录',
+  'menu.account.masterManagerLoginLog.pageList': '登录列表',
+  'menu.account.masterManagerLoginLog.pageList-mini': '列表',
 
   'menu.currentAccount': '个人中心',
   'menu.currentAccount-mini': '个人',

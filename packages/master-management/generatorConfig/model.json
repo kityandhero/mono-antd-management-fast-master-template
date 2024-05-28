@@ -1018,6 +1018,13 @@
           "type": "singleData"
         },
         {
+          "title": "登录记录列表",
+          "api": "/currentAccount/pageListLoginLog",
+          "effect": "pageListLoginLog",
+          "service": "pageListLoginLogData",
+          "type": "pageList"
+        },
+        {
           "title": "上传图片",
           "api": "/currentAccount/uploadImage",
           "effect": "uploadImage",
@@ -1959,6 +1966,55 @@
       "cover": true,
       "title": "账户信息",
       "name": "masterManager"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/masterManagerLoginLog/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/masterManagerLoginLog/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/masterManagerLoginLog/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/masterManagerLoginLog/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/masterManagerLoginLog/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/masterManagerLoginLog/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "主控账户登录日志管理",
+      "name": "masterManagerLoginLog"
     },
     {
       "apis": [
@@ -3737,6 +3793,55 @@
       "cover": true,
       "title": "用户设备",
       "name": "userDevice"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/userLoginLog/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/userLoginLog/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/userLoginLog/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/userLoginLog/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/userLoginLog/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/userLoginLog/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "用户登录日志管理",
+      "name": "userLoginLog"
     },
     {
       "apis": [

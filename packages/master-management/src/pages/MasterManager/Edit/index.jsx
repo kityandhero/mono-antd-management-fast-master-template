@@ -42,6 +42,13 @@ class Detail extends DataTabContainerSupplement {
       tab: '基本信息',
     },
     {
+      key: 'loginLog/pageList',
+      hidden: !checkHasAuthority(
+        accessWayCollection.masterManagerLoginLog.pageList.permission,
+      ),
+      tab: '登录记录',
+    },
+    {
       key: 'operateLog/pageList',
       hidden: !checkHasAuthority(
         accessWayCollection.masterManager.pageListOperateLog.permission,

@@ -183,6 +183,34 @@ export const logs = {
       ],
     },
     {
+      name: 'operationLog',
+      icon: 'reconciliation',
+      hideChildrenInMenu: true,
+      path: '/logs/operationLog',
+      access: 'checkAccess',
+      authority: [
+        accessWayCollection.super.permission,
+        accessWayCollection.operationLog.pageList.permission,
+      ],
+      routes: [
+        {
+          path: '/logs/operationLog',
+          redirect: '/logs/operationLog/pageList',
+        },
+        {
+          path: '/logs/operationLog/pageList',
+          name: 'pageList',
+          icon: 'bars',
+          redirect: '/logs/operationLog/pageList/no',
+        },
+        {
+          path: '/logs/operationLog/pageList/:pageKey',
+          hideInMenu: true,
+          component: './OperationLog/PageList',
+        },
+      ],
+    },
+    {
       name: 'mongoSlowQueryInfo',
       icon: 'reconciliation',
       hideChildrenInMenu: true,
@@ -1336,6 +1364,35 @@ export const user = {
   ],
 };
 
+export const userLoginLog = {
+  name: 'userLoginLog',
+  icon: 'user',
+  hideChildrenInMenu: true,
+  path: '/person/userLoginLog',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.userLoginLog.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/person/userLoginLog',
+      redirect: '/person/userLoginLog/pageList',
+    },
+    {
+      path: '/person/userLoginLog/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/person/userLoginLog/pageList/no',
+    },
+    {
+      path: '/person/userLoginLog/pageList/:pageKey',
+      hideInMenu: true,
+      component: './UserLoginLog/PageList',
+    },
+  ],
+};
+
 export const userSignet = {
   name: 'userSignet',
   icon: 'user',
@@ -1810,6 +1867,21 @@ export const account = {
               component: './MasterManager/Edit/BasicInfo',
             },
             {
+              path: '/account/masterManager/edit/:op/:id/:pageKey/loginLog',
+              name: 'operateLog',
+              routes: [
+                {
+                  path: '/account/masterManager/edit/:op/:id/:pageKey/loginLog',
+                  redirect:
+                    '/account/masterManager/edit/:op/:id/:pageKey/loginLog/pageList',
+                },
+                {
+                  path: '/account/masterManager/edit/:op/:id/:pageKey/loginLog/pageList',
+                  component: './MasterManager/Edit/LoginLog/PageList',
+                },
+              ],
+            },
+            {
               path: '/account/masterManager/edit/:op/:id/:pageKey/operateLog',
               name: 'operateLog',
               routes: [
@@ -1825,6 +1897,34 @@ export const account = {
               ],
             },
           ],
+        },
+      ],
+    },
+    {
+      name: 'masterManagerLoginLog',
+      icon: 'masterManagerLoginLog',
+      hideChildrenInMenu: true,
+      path: '/account/masterManagerLoginLog',
+      access: 'checkAccess',
+      authority: [
+        accessWayCollection.super.permission,
+        accessWayCollection.masterManagerLoginLog.pageList.permission,
+      ],
+      routes: [
+        {
+          path: '/account/masterManagerLoginLog',
+          redirect: '/account/masterManagerLoginLog/pageList',
+        },
+        {
+          path: '/account/masterManagerLoginLog/pageList',
+          name: 'pageList',
+          icon: 'bars',
+          redirect: '/account/masterManagerLoginLog/pageList/no',
+        },
+        {
+          path: '/account/masterManagerLoginLog/pageList/:pageKey',
+          hideInMenu: true,
+          component: './MasterManagerLoginLog/PageList',
         },
       ],
     },
@@ -1858,6 +1958,22 @@ export const currentAccount = {
         {
           path: '/currentAccount/setting/:op/password',
           component: './CurrentAccount/Setting/Password',
+        },
+      ],
+    },
+    {
+      name: 'loginLog',
+      icon: 'bars',
+      hideChildrenInMenu: true,
+      path: '/currentAccount/loginLog',
+      routes: [
+        {
+          path: '/currentAccount/loginLog',
+          redirect: '/currentAccount/loginLog/pageList',
+        },
+        {
+          path: '/currentAccount/loginLog/pageList',
+          component: './CurrentAccount/LoginLog/PageList',
         },
       ],
     },

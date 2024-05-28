@@ -1,6 +1,6 @@
 import { request } from 'easy-soft-utility';
 
-export const pageListDataApiAddress = '/masterManagerLoginLogBase/pageList';
+export const pageListDataApiAddress = '/userLoginLog/pageList';
 
 export async function pageListData(parameters) {
   return request({
@@ -9,7 +9,7 @@ export async function pageListData(parameters) {
   });
 }
 
-export const singleListDataApiAddress = '/masterManagerLoginLogBase/singleList';
+export const singleListDataApiAddress = '/userLoginLog/singleList';
 
 export async function singleListData(parameters) {
   return request({
@@ -18,7 +18,7 @@ export async function singleListData(parameters) {
   });
 }
 
-export const getDataApiAddress = '/masterManagerLoginLogBase/get';
+export const getDataApiAddress = '/userLoginLog/get';
 
 export async function getData(parameters) {
   return request({
@@ -27,7 +27,7 @@ export async function getData(parameters) {
   });
 }
 
-export const removeDataApiAddress = '/masterManagerLoginLogBase/remove';
+export const removeDataApiAddress = '/userLoginLog/remove';
 
 export async function removeData(parameters) {
   return request({
@@ -36,8 +36,7 @@ export async function removeData(parameters) {
   });
 }
 
-export const refreshCacheDataApiAddress =
-  '/masterManagerLoginLogBase/refreshCache';
+export const refreshCacheDataApiAddress = '/userLoginLog/refreshCache';
 
 export async function refreshCacheData(parameters) {
   return request({
@@ -47,7 +46,7 @@ export async function refreshCacheData(parameters) {
 }
 
 export const pageListOperateLogDataApiAddress =
-  '/masterManagerLoginLogBase/pageListOperateLog';
+  '/userLoginLog/pageListOperateLog';
 
 export async function pageListOperateLogData(parameters) {
   return request({

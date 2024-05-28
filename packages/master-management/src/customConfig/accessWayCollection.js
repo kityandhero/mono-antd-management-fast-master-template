@@ -1206,6 +1206,38 @@ export const accessWayCollection = {
       permission: '7522755e49164399a9ccfd0273a1cb1b',
     },
   },
+  masterManagerLoginLog: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '6ba3fd87bfa534980efee2e18fd622e0',
+      permission: '6d6c0ac6c7c34594b0d6dec55ecaa4e8',
+    },
+    singleList: {
+      title: '单页列表',
+      paramsKey: '37489a66a617408023b41d59943c5a8a',
+      permission: '3d53ca7e8fba4df2a2eb9a3db52eea48',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: 'ad3d78fb6c6cbf2abc7018bc6ab816f4',
+      permission: 'fd439e5791074f45be4867f810d18636',
+    },
+    remove: {
+      title: '移除',
+      paramsKey: '649bc886433412366ed7a300c1fed305',
+      permission: '9dc001ac6898419f8bacb564c315455e',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '340c96b76b45bad5a99ba85a195b6860',
+      permission: '3dd479f032b042c1878aeb0f14c5fa0e',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: 'bc3585c580ce42831ba8985cd9cc2e45',
+      permission: '7b9bf84b282e45b0bfeb1c080c4cf9d0',
+    },
+  },
   mongoSlowQueryInfo: {
     singleList: {
       title: '单页列表',
@@ -1473,6 +1505,199 @@ export const accessWayCollection = {
       title: '操作日志列表',
       paramsKey: '16cd395459956b67693db259d52fe11e',
       permission: '667e0f37015f4d879f51a1241e31e3e5',
+    },
+  },
+  question: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: 'b1e024cf0a90cb8cf553828ff3ff09d7',
+      permission: 'b7bba801adba4eca86ed93244fa16d6a',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: 'e5b7e256ee6e62a07148bc615a35c22d',
+      permission: 'aa9759ffdaf445198bf0699d1b439f8b',
+    },
+    addBasicInfo: {
+      title: '新建',
+      paramsKey: '92e72c1d68e9114a6bda74d64fe4c60a',
+      permission: '153071d170874d2eba0d8f9ebb4775f1',
+    },
+    updateBasicInfo: {
+      title: '编辑基本信息',
+      paramsKey: 'eb0bfdf642d6fa96e26ea8915b37a5b2',
+      permission: 'd6c2dcaee0494e39bdb91e2643e7dd41',
+    },
+    setOnline: {
+      title: '设为上线',
+      paramsKey: 'c289061fed03c05a6f8d2b730e481f0f',
+      permission: '62f2aedb9f3d4d71be800b3c99fb144c',
+    },
+    setOffline: {
+      title: '设为下线',
+      paramsKey: 'f7bcf81734345b7e1d0a6e72a15c65b2',
+      permission: 'fc7e475f98ca4ad2bb355c4937fd3619',
+    },
+    remove: {
+      title: '移除',
+      paramsKey: 'e1bba28b025abd8b1b79425010360f2f',
+      permission: '6967323b84664109a00adaebbf0ba272',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: 'fbdd4d332a61a9e00ca53eb1de26e1bc',
+      permission: 'af9f06103510470da35d6ce1db16e162',
+    },
+  },
+  questionItem: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '75d8eea0d1b387e93f6598807478c12c',
+      permission: 'cc74a34d358d498a932a05852bb0a52c',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '1da4fe3b82a14d518d971e94815ae53d',
+      permission: 'ad592e64ad0b43c19421420fe9d7c44f',
+    },
+    addBasicInfo: {
+      title: '新建',
+      paramsKey: 'f20d3f7a99495c25eb4afdd409d27553',
+      permission: 'd61b2a3d7122450c908333646201c87a',
+    },
+    updateBasicInfo: {
+      title: '编辑基本信息',
+      paramsKey: '352167252979bb8a2d1cdece04f344d8',
+      permission: '67a70e11fb024d3a92c26d0b5034444f',
+    },
+    updateSort: {
+      title: '更新排序值',
+      paramsKey: 'def5ab4d842c911be531f92c9470e1d6',
+      permission: 'e010279fa5c2462b95f517a3d2e3c4cf',
+    },
+    setOnline: {
+      title: '设为上线',
+      paramsKey: 'c2bc8986baa2b9fe2efe08c7bb0d0a3b',
+      permission: 'bda088a0e76849f08a9c43680738a081',
+    },
+    setOffline: {
+      title: '设为下线',
+      paramsKey: '710f1b852e54f919c03583fbc0dd2366',
+      permission: 'b0bccabd18484b43b390e1e37abcf858',
+    },
+    remove: {
+      title: '移除',
+      paramsKey: '6fb962c58c6ad888abc2b6f2df14c24a',
+      permission: '9f1726324f1f4fe4a416cfca72efd770',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '0e19ec4a00d3a82c1d3ba1b3bad1877c',
+      permission: 'f9d4c869577e4698bcfbcc83a9800989',
+    },
+  },
+  questionnaire: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: 'b225067c02e6992974842bd0deec90ce',
+      permission: '2ca190fc46c64b4489c1b65e23ff4cd1',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '152ed34a90d4b4070b80ca178f5fd85a',
+      permission: '99183a2af4e14ffbbeae6bcda7fbe544',
+    },
+    addBasicInfo: {
+      title: '新建',
+      paramsKey: 'a39059b5ea5361ffd73ae7d610990c24',
+      permission: 'f6454d57be2844e19b1f35587b9d8216',
+    },
+    updateBasicInfo: {
+      title: '编辑基本信息',
+      paramsKey: 'a8f08bb1112cf0397e3689a00c164b06',
+      permission: 'c0d5c2f8bfb141018f9dcab7ea4c1df2',
+    },
+    updateContentInfo: {
+      title: '编辑详情',
+      paramsKey: '6c3f99a3540dd54b52d0aa0d0c29654f',
+      permission: '4792d9445fb94285bc69779b72a871c7',
+    },
+    updateSort: {
+      title: '编辑详情',
+      paramsKey: '2ab09db1d496ef6519a8260a20c986e3',
+      permission: '2d09c09c8cc34f94b2571b1ce2589550',
+    },
+    toggleRecommend: {
+      title: '切换推荐',
+      paramsKey: '6756415b3239252f998e5f44e7669405',
+      permission: '8c0d113905d04eb68c35df46d2b419b1',
+    },
+    toggleTop: {
+      title: '切换置顶',
+      paramsKey: '195b19c6fffdbda1051b3d528170ac40',
+      permission: 'd5685939673e49bba3aa4bb86597bfb8',
+    },
+    toggleVisible: {
+      title: '切换可见性',
+      paramsKey: 'e13c345715178b4dde59ea8fcfa99b95',
+      permission: '961720cfbfb54d76b63a2379d6313bcf',
+    },
+    setOnline: {
+      title: '设为上线',
+      paramsKey: '3e5d2efff36d050ceccf67fca857c128',
+      permission: '5e5c795b3fde41b39451211972008a20',
+    },
+    setOffline: {
+      title: '设为下线',
+      paramsKey: 'b1697ca5e3254ed994c472f3cf26c25b',
+      permission: '15af0648db2c467a9795b1827d7a29e2',
+    },
+    remove: {
+      title: '移除',
+      paramsKey: '53993421ce4d074ece2e0bae222d7167',
+      permission: 'a731bb82e5784add968e9a1354c192ef',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: 'cca85b8fb8adefa23f56493315312aa9',
+      permission: '719c3a3945c348e29188384895e85339',
+    },
+  },
+  questionnaireQuestion: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '5fa46afe73b783f9fea5f400c16fb0a7',
+      permission: 'b1000af4f0054cb0b9a3de470daafae6',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '04210c90060beeaba37a94310d1e93d8',
+      permission: '50e5b78f0f4a41419b209e6ab79b8533',
+    },
+    bindRelation: {
+      title: '绑定关系',
+      paramsKey: '0f9d7be726abde6cfcfd3966e0a818e7',
+      permission: '52e3b58b476b4a8684bf0073ce1d0bf8',
+    },
+    unbindRelation: {
+      title: '解绑关系',
+      paramsKey: '0774524475a5615b9319541e491c4177',
+      permission: 'd3f6e97481e045bb9582ee9e5dd4b098',
+    },
+    setBindSort: {
+      title: '设置顺序',
+      paramsKey: '32fd8f4ec9da54e0963f86477019d163',
+      permission: '948e430ccd134421bc1e5580864389af',
+    },
+    setBindScore: {
+      title: '设置积分',
+      paramsKey: '1bdac6deafe38d2533b2873c0f6521fb',
+      permission: '2674fe05a960481ea961013d88c2a9e5',
+    },
+    refreshCache: {
+      title: '刷新数据',
+      paramsKey: 'ce22beb9322f242633e2958f1eff9a3c',
+      permission: '8b35a20af4c34643a5d7855cac60e3eb',
     },
   },
   queueInfo: {
@@ -2126,6 +2351,38 @@ export const accessWayCollection = {
       title: '操作日志列表',
       paramsKey: '280d6796f5fd1eff1a979ceabca5ba3a',
       permission: '52e7551e1a4e4a6e963be6a186346bcc',
+    },
+  },
+  userLoginLog: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '851cd1c287938fa88c6534cf2c8a5d1e',
+      permission: '8230d125986348beafe8b7e6088a4529',
+    },
+    singleList: {
+      title: '单页列表',
+      paramsKey: '28f850665a59dba7e24df4b031e68fc0',
+      permission: 'ab63ae89d058441989b444c6d13988f3',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: 'eba45fc902401c754f5fdd61010bc88b',
+      permission: '294a6c8bd76c458c81d5b1bf29e848f4',
+    },
+    remove: {
+      title: '移除',
+      paramsKey: '10c512f5e48d24f53b8560e82ab88832',
+      permission: 'a9ee2bddd80d4a13a28489abe2c536a5',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: 'baf49c8c7873a074d410097162445583',
+      permission: '185176f568df44b889f3f32d83eac8c1',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: '1beb271328d8d5e3a48a5aa970b13fb3',
+      permission: 'a0738703e8b441c6b953ca51abd7845c',
     },
   },
   userSubsidiaryInfo: {

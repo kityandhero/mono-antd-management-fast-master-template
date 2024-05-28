@@ -15,11 +15,11 @@ import {
   refreshCacheData,
   removeData,
   singleListData,
-} from '../services/masterManagerLoginLogBase';
+} from '../services/masterManagerLoginLog';
 
 export function buildModel() {
   return {
-    namespace: 'masterManagerLoginLogBase',
+    namespace: 'masterManagerLoginLog',
 
     state: {
       ...getTacitlyState(),

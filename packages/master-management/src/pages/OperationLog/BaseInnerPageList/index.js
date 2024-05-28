@@ -65,7 +65,7 @@ class BaseInnerPageList extends InnerMultiPage {
       emptyValue: '--',
     },
     {
-      dataTarget: fieldData.userName,
+      dataTarget: fieldData.operatorName,
       width: 120,
       showRichFacade: true,
       emptyValue: '--',
@@ -138,10 +138,10 @@ class BaseInnerPageList extends InnerMultiPage {
                 type: cardConfig.contentItemType.customGrid,
                 list: [
                   {
-                    label: fieldData.userId.label,
+                    label: fieldData.operatorId.label,
                     value: getValueByKey({
                       data: currentRecord,
-                      key: fieldData.userId.name,
+                      key: fieldData.operatorId.name,
                     }),
                   },
                   {

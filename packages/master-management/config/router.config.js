@@ -24,6 +24,7 @@ import {
   tag,
   user,
   userDevice,
+  userLoginLog,
   userSignet,
   weChatMessageRecord,
 } from './router.master.template.config';
@@ -210,7 +211,7 @@ export default [
       accessWayCollection.userDevice.pageList.permission,
       accessWayCollection.internalTester.pageList.permission,
     ],
-    routes: [user, userSignet, userDevice, internalTester],
+    routes: [user, userSignet, userDevice, userLoginLog, internalTester],
   },
   account,
   assistTools,

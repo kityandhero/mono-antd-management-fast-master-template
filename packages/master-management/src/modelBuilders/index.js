@@ -28,6 +28,7 @@ import { buildModel as buildHostServiceModel } from './hostService';
 import { buildModel as buildHostServiceLogModel } from './hostServiceLog';
 import { buildModel as buildInternalTesterModel } from './internalTester';
 import { buildModel as buildMasterManagerModel } from './masterManager';
+import { buildModel as buildMasterManagerLoginLogModel } from './masterManagerLoginLog';
 import { buildModel as buildMetaDataModel } from './metaData';
 import { buildModel as buildMongoSlowQueryInfoModel } from './mongoSlowQueryInfo';
 import { buildModel as buildOperationLogModel } from './operationLog';
@@ -54,6 +55,7 @@ import { buildModel as buildUploadHistoryModel } from './uploadHistory';
 import { buildModel as buildUserModel } from './user';
 import { buildModel as buildUserDepartmentInfoModel } from './userDepartmentInfo';
 import { buildModel as buildUserDeviceModel } from './userDevice';
+import { buildModel as buildUserLoginLogModel } from './userLoginLog';
 import { buildModel as buildUserSubsidiaryInfoModel } from './userSubsidiaryInfo';
 import { buildModel as buildUserYonYouCorrelationModel } from './userYonYouCorrelation';
 import { buildModel as buildWeChatMessageRecordModel } from './weChatMessageRecord';
@@ -134,6 +136,8 @@ function collectModelBuilder() {
 
   appendExtraBuilder(buildMasterManagerModel);
 
+  appendExtraBuilder(buildMasterManagerLoginLogModel);
+
   appendExtraBuilder(buildMetaDataModel);
 
   appendExtraBuilder(buildMongoSlowQueryInfoModel);
@@ -185,6 +189,8 @@ function collectModelBuilder() {
   appendExtraBuilder(buildUserDepartmentInfoModel);
 
   appendExtraBuilder(buildUserDeviceModel);
+
+  appendExtraBuilder(buildUserLoginLogModel);
 
   appendExtraBuilder(buildUserSubsidiaryInfoModel);
 
