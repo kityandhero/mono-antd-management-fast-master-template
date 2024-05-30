@@ -1973,6 +1973,13 @@ export const currentAccount = {
         },
         {
           path: '/currentAccount/loginLog/pageList',
+          name: 'pageList',
+          icon: 'bars',
+          redirect: '/currentAccount/loginLog/pageList/no',
+        },
+        {
+          path: '/currentAccount/loginLog/pageList/:pageKey',
+          hideInMenu: true,
           component: './CurrentAccount/LoginLog/PageList',
         },
       ],

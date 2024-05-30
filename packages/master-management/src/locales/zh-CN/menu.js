@@ -391,6 +391,10 @@ export default {
   'menu.currentAccount-mini': '个人',
   'menu.currentAccount.setting': '个人设置',
   'menu.currentAccount.setting-mini': '设置',
+  'menu.currentAccount.loginLog': '登录记录',
+  'menu.currentAccount.loginLog-mini': '记录',
+  'menu.currentAccount.loginLog.pageList': '记录列表',
+  'menu.currentAccount.loginLog.pageList-mini': '列表',
 
   'menu.currentManagement': '系统设置',
   'menu.currentManagement-mini': '系统',

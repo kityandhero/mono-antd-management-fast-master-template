@@ -9,17 +9,19 @@ import { fieldData } from '../../../MasterManagerLoginLog/Common/data';
 
 const { MultiPage } = DataMultiPageView;
 
-@connect(({ currentOperator, schedulingControl }) => ({
-  currentOperator,
+@connect(({ currentAccount, schedulingControl }) => ({
+  currentAccount,
   schedulingControl,
 }))
 class PageList extends MultiPage {
+  columnOperateVisible = false;
+
   constructor(properties) {
     super(properties);
 
     this.state = {
       ...this.state,
-      loadApiPath: 'currentOperator/pageListLoginLog',
+      loadApiPath: 'currentAccount/pageListLoginLog',
       dateRangeFieldName: '操作时间',
     };
   }
