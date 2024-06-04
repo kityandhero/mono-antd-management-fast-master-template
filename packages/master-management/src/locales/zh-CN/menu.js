@@ -408,6 +408,8 @@ export default {
   'menu.currentManagement.setting.flowInfo': '调试配置',
   'menu.currentManagement.setting.scoreInfo': '积分配置',
   'menu.currentManagement.setting.architectureInfo': '框架配置',
+  'menu.currentManagement.setting.diskSpaceMonitoringInfo': '磁盘空间监控',
+  'menu.currentManagement.setting.editorInfo': '编辑器配置',
   'menu.currentManagement.setting.otherInfo': '其他配置',
 
   'menu.result': '结果页',

@@ -1137,6 +1137,20 @@
           "type": "singleData"
         },
         {
+          "title": "测试磁盘监控配置",
+          "api": "/currentManagement/testDiskSpaceMonitoringConfig",
+          "effect": "testDiskSpaceMonitoringConfig",
+          "service": "testDiskSpaceMonitoringConfigData",
+          "type": "singleData"
+        },
+        {
+          "title": "测试磁盘监控配置",
+          "api": "/currentManagement/testDiskSpaceMonitoringEmail",
+          "effect": "testDiskSpaceMonitoringEmail",
+          "service": "testDiskSpaceMonitoringEmailData",
+          "type": "singleData"
+        },
+        {
           "title": "测试系统密钥",
           "api": "/currentManagement/testSecretKey",
           "effect": "testSecretKey",

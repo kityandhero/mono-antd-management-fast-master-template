@@ -134,3 +134,39 @@ export async function testSecretKeyAction({
     failCallback,
   });
 }
+
+export async function testDiskSpaceMonitoringConfigAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+  failCallback = null,
+}) {
+  actionCore({
+    api: 'currentManagement/testDiskSpaceMonitoringConfig',
+    params: {},
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+    failCallback,
+  });
+}
+
+export async function testDiskSpaceMonitoringEmailAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+  failCallback = null,
+}) {
+  actionCore({
+    api: 'currentManagement/testDiskSpaceMonitoringEmail',
+    params: {},
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+    failCallback,
+  });
+}

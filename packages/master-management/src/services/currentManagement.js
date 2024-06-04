@@ -138,6 +138,26 @@ export async function toggleQiniuFileSwitchData(parameters) {
   });
 }
 
+export const testDiskSpaceMonitoringConfigDataApiAddress =
+  '/currentManagement/testDiskSpaceMonitoringConfig';
+
+export async function testDiskSpaceMonitoringConfigData(parameters) {
+  return request({
+    api: testDiskSpaceMonitoringConfigDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const testDiskSpaceMonitoringEmailDataApiAddress =
+  '/currentManagement/testDiskSpaceMonitoringEmail';
+
+export async function testDiskSpaceMonitoringEmailData(parameters) {
+  return request({
+    api: testDiskSpaceMonitoringEmailDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const testSecretKeyDataApiAddress = '/currentManagement/testSecretKey';
 
 export async function testSecretKeyData(parameters) {

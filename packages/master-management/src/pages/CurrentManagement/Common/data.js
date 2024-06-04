@@ -23,6 +23,42 @@ export const fieldDataDefaultImage = {
   },
 };
 
+export const fieldDataHardDiskPartition = {
+  freeSpace: {
+    label: '空余大小[GB]',
+    name: 'freeSpace',
+    helper: '',
+  },
+  useSpace: {
+    label: '使用空间[GB]',
+    name: 'useSpace',
+    helper: '',
+  },
+  totalSpace: {
+    label: '使用空间[GB]',
+    name: 'totalSpace',
+    helper: '',
+  },
+  partitionName: {
+    label: '分区名称',
+    name: 'partitionName',
+    helper: '',
+  },
+  whetherPrimary: {
+    label: '是否主分区',
+    name: 'whetherPrimary',
+    helper: '',
+  },
+};
+
+const fieldExtraData = {
+  listHardDiskPartition: {
+    label: '磁盘信息',
+    name: 'listHardDiskPartition',
+    helper: '',
+  },
+};
+
 export const fieldData = {
   ...formNameCollection,
   systemName: {
@@ -205,6 +241,81 @@ export const fieldData = {
     name: 'tinymceScriptSrcTag',
     helper: '',
   },
+  diskSpaceMonitoringSwitch: {
+    label: '磁盘空间监控开关',
+    name: 'diskSpaceMonitoringSwitch',
+    helper: '',
+  },
+  diskSpaceMonitoringDriveLetter: {
+    label: '磁盘空间监控盘符',
+    name: 'diskSpaceMonitoringDriveLetter',
+    helper: '',
+  },
+  diskSpaceMonitoringThreshold: {
+    label: '磁盘空间报警阈值[GB]',
+    name: 'diskSpaceMonitoringThreshold',
+    helper: '',
+  },
+  diskSpaceMonitoringSmsNotificationTemplate: {
+    label: '磁盘空间报警短信消息模板',
+    name: 'diskSpaceMonitoringSmsNotificationTemplate',
+    helper: '',
+  },
+  diskSpaceMonitoringPhone: {
+    label: '磁盘空间报接收短信手机号码',
+    name: 'diskSpaceMonitoringPhone',
+    helper: '',
+  },
+  diskSpaceMonitoringEmailNotificationTemplate: {
+    label: '磁盘空间报警邮件消息模板',
+    name: 'diskSpaceMonitoringEmailNotificationTemplate',
+    helper: '',
+  },
+  diskSpaceMonitoringFromEmailName: {
+    label: '磁盘空间报警发送源邮箱邮件名',
+    name: 'diskSpaceMonitoringFromEmailName',
+    helper: '',
+  },
+  diskSpaceMonitoringFromEmailAddress: {
+    label: '磁盘空间报警发送源邮箱地址',
+    name: 'diskSpaceMonitoringFromEmailAddress',
+    helper: '',
+  },
+  diskSpaceMonitoringToEmailName: {
+    label: '磁盘空间报警发送给的邮箱邮件名',
+    name: 'diskSpaceMonitoringToEmailName',
+    helper: '',
+  },
+  diskSpaceMonitoringToEmailAddress: {
+    label: '磁盘空间报警发送给的邮箱地址',
+    name: 'diskSpaceMonitoringToEmailAddress',
+    helper: '',
+  },
+  diskSpaceMonitoringEmailSmtpServerHost: {
+    label: '磁盘空间报警邮箱Smtp域名',
+    name: 'diskSpaceMonitoringEmailSmtpServerHost',
+    helper: '',
+  },
+  diskSpaceMonitoringEmailSmtpServerPort: {
+    label: '磁盘空间报警邮箱Smtp端口',
+    name: 'diskSpaceMonitoringEmailSmtpServerPort',
+    helper: '',
+  },
+  diskSpaceMonitoringEmailSmtpServerUseSsl: {
+    label: '磁盘空间报警邮箱Smtp是否使用SSL',
+    name: 'diskSpaceMonitoringEmailSmtpServerUseSsl',
+    helper: '',
+  },
+  diskSpaceMonitoringEmailSmtpServerAccount: {
+    label: '磁盘空间报警邮箱Smtp账户',
+    name: 'diskSpaceMonitoringEmailSmtpServerAccount',
+    helper: '',
+  },
+  diskSpaceMonitoringEmailSmtpServerPassword: {
+    label: '磁盘空间报警邮箱Smtp密码',
+    name: 'diskSpaceMonitoringEmailSmtpServerPassword',
+    helper: '',
+  },
   scoreAlias: {
     label: '积分别名',
     name: 'scoreAlias',
@@ -304,4 +415,5 @@ export const fieldData = {
       helper: '',
     },
   },
+  ...fieldExtraData,
 };

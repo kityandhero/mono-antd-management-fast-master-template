@@ -53,6 +53,10 @@ class Setting extends DataTabContainer {
       tab: '编辑器配置',
     },
     {
+      key: 'diskSpaceMonitoringInfo',
+      tab: '磁盘空间监控',
+    },
+    {
       key: 'architectureInfo',
       tab: '架构配置',
     },

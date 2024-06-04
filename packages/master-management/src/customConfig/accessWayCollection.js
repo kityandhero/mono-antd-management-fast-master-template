@@ -694,6 +694,16 @@ export const accessWayCollection = {
       paramsKey: '075b5c2e1669133728af5bcb205f031f',
       permission: '8c7299286a504ceaba9fa9d95626eeea',
     },
+    testDiskSpaceMonitoringConfig: {
+      title: '测试磁盘监控配置',
+      paramsKey: '734d73efba87723ed36542e161599f03',
+      permission: '9da8cba4ea3d47039ff8f1e9edfc5f80',
+    },
+    testDiskSpaceMonitoringEmail: {
+      title: '测试磁盘监控配置',
+      paramsKey: '4913a9ac8997f429bc7efa6af328408c',
+      permission: '61ef3526b378472192f59d734b300db3',
+    },
     testSecretKey: {
       title: '测试系统密钥',
       paramsKey: 'e9051e897fe7b54b7bbc8f6a65ea1599',

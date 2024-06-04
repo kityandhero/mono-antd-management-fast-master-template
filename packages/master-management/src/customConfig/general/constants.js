@@ -490,6 +490,7 @@ export const keyValueEditModeCollection = {
   number: 'number',
   time: 'time',
   whether: 'whether',
+  multiLineString: 'multiLineString',
 };
 
 export const keyValueItemData = {

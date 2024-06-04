@@ -161,6 +161,11 @@ class UpdateKeyValueInfoModal extends BaseUpdateModal {
         break;
       }
 
+      case keyValueEditModeCollection.multiLineString: {
+        editType = cardConfig.contentItemType.textarea;
+        break;
+      }
+
       default: {
         editType = cardConfig.contentItemType.input;
         break;

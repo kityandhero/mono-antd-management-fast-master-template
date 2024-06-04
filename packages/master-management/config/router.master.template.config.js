@@ -2069,6 +2069,11 @@ export const currentManagement = {
           component: './CurrentManagement/Setting/EditorInfo',
         },
         {
+          path: '/currentManagement/setting/:op/diskSpaceMonitoringInfo',
+          name: 'editorInfo',
+          component: './CurrentManagement/Setting/DiskSpaceMonitoringInfo',
+        },
+        {
           path: '/currentManagement/setting/:op/otherInfo',
           name: 'otherInfo',
           component: './CurrentManagement/Setting/OtherInfo',

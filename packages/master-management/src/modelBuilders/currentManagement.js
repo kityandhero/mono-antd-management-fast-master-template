@@ -12,6 +12,8 @@ import {
   pageListDefaultImageData,
   refreshFrontEndApplicationConfigData,
   refreshKeyValueCacheData,
+  testDiskSpaceMonitoringConfigData,
+  testDiskSpaceMonitoringEmailData,
   testSecretKeyData,
   toggleQiniuAudioSwitchData,
   toggleQiniuFileSwitchData,
@@ -384,6 +386,58 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(toggleQiniuFileSwitchData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *testDiskSpaceMonitoringConfig(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(testDiskSpaceMonitoringConfigData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *testDiskSpaceMonitoringEmail(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(testDiskSpaceMonitoringEmailData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
