@@ -1,6 +1,7 @@
 import { connect } from 'easy-soft-dva';
 import { getValueByKey } from 'easy-soft-utility';
 
+import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 
 import { keyValueEditModeCollection } from '../../../../customConfig';
@@ -136,6 +137,15 @@ class Index extends TabPageBase {
           title: {
             icon: iconBuilder.contacts(),
             text: '登录凭据有效期设置',
+          },
+          hasExtra: true,
+          extra: {
+            affix: true,
+            list: [
+              {
+                buildType: cardConfig.extraBuildType.refresh,
+              },
+            ],
           },
           items: [
             buildInputItem({

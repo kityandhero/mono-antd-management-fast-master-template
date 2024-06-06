@@ -1,5 +1,6 @@
 import { connect } from 'easy-soft-dva';
 
+import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 
 import { keyValueEditModeCollection } from '../../../../customConfig';
@@ -65,6 +66,15 @@ class Index extends TabPageBase {
           title: {
             icon: iconBuilder.contacts(),
             text: 'Tinymce',
+          },
+          hasExtra: true,
+          extra: {
+            affix: true,
+            list: [
+              {
+                buildType: cardConfig.extraBuildType.refresh,
+              },
+            ],
           },
           items: [
             buildInputItem({

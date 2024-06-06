@@ -170,6 +170,15 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
             icon: iconBuilder.contacts(),
             text: '磁盘信息',
           },
+          hasExtra: true,
+          extra: {
+            affix: true,
+            list: [
+              {
+                buildType: cardConfig.extraBuildType.refresh,
+              },
+            ],
+          },
           items: [
             {
               lg: 24,
@@ -200,7 +209,7 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
             affix: true,
             list: [
               {
-                buildType: cardConfig.extraBuildType.generalButton,
+                buildType: cardConfig.extraBuildType.generalExtraButton,
                 disabled: !firstLoadSuccess,
                 hidden:
                   diskSpaceMonitoringSwitch === whetherNumber.no ||
@@ -215,7 +224,7 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
                 },
               },
               {
-                buildType: cardConfig.extraBuildType.generalButton,
+                buildType: cardConfig.extraBuildType.generalExtraButton,
                 disabled: !firstLoadSuccess,
                 hidden:
                   diskSpaceMonitoringSwitch === whetherNumber.no ||

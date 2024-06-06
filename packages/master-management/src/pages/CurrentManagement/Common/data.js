@@ -249,7 +249,7 @@ export const fieldData = {
   diskSpaceMonitoringDriveLetter: {
     label: '磁盘空间监控盘符',
     name: 'diskSpaceMonitoringDriveLetter',
-    helper: '',
+    helper: '多盘符请用 ”,“ 符号分隔, 例如”E,F“.',
   },
   diskSpaceMonitoringThreshold: {
     label: '磁盘空间报警阈值[GB]',
