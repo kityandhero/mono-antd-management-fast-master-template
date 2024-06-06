@@ -1291,6 +1291,90 @@
     {
       "apis": [
         {
+          "title": "分页列表",
+          "api": "/emailSenderAgent/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/emailSenderAgent/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/emailSenderAgent/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新建分类",
+          "api": "/emailSenderAgent/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑信息",
+          "api": "/emailSenderAgent/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新排序值",
+          "api": "/emailSenderAgent/updateSort",
+          "effect": "updateSort",
+          "service": "updateSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为启用",
+          "api": "/emailSenderAgent/setEnable",
+          "effect": "setEnable",
+          "service": "setEnableData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为停用",
+          "api": "/emailSenderAgent/setDisable",
+          "effect": "setDisable",
+          "service": "setDisableData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/emailSenderAgent/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/emailSenderAgent/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/emailSenderAgent/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "邮件发送代理管理",
+      "name": "emailSenderAgent"
+    },
+    {
+      "apis": [
+        {
           "title": "日志列表",
           "api": "/errorLog/pageList",
           "effect": "pageList",

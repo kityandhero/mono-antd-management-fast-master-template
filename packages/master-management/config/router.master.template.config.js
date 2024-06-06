@@ -779,6 +779,35 @@ export const generalDiscourse = {
   ],
 };
 
+export const emailSenderAgent = {
+  name: 'emailSenderAgent',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/data/emailSenderAgent',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.emailSenderAgent.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/data/emailSenderAgent',
+      redirect: '/data/emailSenderAgent/pageList',
+    },
+    {
+      path: '/data/emailSenderAgent/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/data/emailSenderAgent/pageList/no',
+    },
+    {
+      path: '/data/emailSenderAgent/pageList/:pageKey',
+      hideInMenu: true,
+      component: './EmailSenderAgent/PageList',
+    },
+  ],
+};
+
 export const files = {
   name: 'files',
   icon: 'reconciliation',

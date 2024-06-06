@@ -16,6 +16,8 @@ export * from './Channel';
 export * from './DepartmentOwnershipMode';
 export * from './DepartmentStatus';
 export * from './DeviceType';
+export * from './EmailSenderAgentStatus';
+export * from './EmailSenderAgentType';
 export * from './ErrorLogResolve';
 export * from './FileType';
 export * from './FlowApproveAction';

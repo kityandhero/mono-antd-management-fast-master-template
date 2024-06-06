@@ -16,6 +16,7 @@ import { buildModel as buildCurrentAccountModel } from './currentAccount';
 import { buildModel as buildCurrentManagementModel } from './currentManagement';
 import { buildModel as buildDepartmentModel } from './department';
 import { buildModel as buildEditorModel } from './editor';
+import { buildModel as buildEmailSenderAgentModel } from './emailSenderAgent';
 import { buildModel as buildErrorLogModel } from './errorLog';
 import { buildModel as buildExecuteLogModel } from './executeLog';
 import { buildModel as buildGalleryModel } from './gallery';
@@ -111,6 +112,8 @@ function collectModelBuilder() {
   appendExtraBuilder(buildDepartmentModel);
 
   appendExtraBuilder(buildEditorModel);
+
+  appendExtraBuilder(buildEmailSenderAgentModel);
 
   appendExtraBuilder(buildErrorLogModel);
 

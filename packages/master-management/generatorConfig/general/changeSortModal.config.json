@@ -1,6 +1,14 @@
 {
   "list": [
     {
+      "folder": "EmailSenderAgent/ChangeSortModal",
+      "model": "emailSenderAgent",
+      "key": "emailSenderAgentId",
+      "visibleFlag": "b4327a30b0544baf8c3938028098c19b",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "Gallery/ChangeSortModal",
       "model": "gallery",
       "key": "galleryId",

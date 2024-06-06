@@ -7,6 +7,7 @@ import {
   assistTools,
   currentAccount,
   currentManagement,
+  emailSenderAgent,
   entrance,
   files,
   flow,
@@ -82,7 +83,7 @@ export default [
       accessWayCollection.optionPool.pageList.permission,
       accessWayCollection.generalDiscourse.pageList.permission,
     ],
-    routes: [tag, optionPool, generalDiscourse],
+    routes: [tag, optionPool, generalDiscourse, emailSenderAgent],
   },
   files,
   {

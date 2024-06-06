@@ -239,6 +239,13 @@
       "coverFile": false
     },
     {
+      "folder": "EmailSenderAgent/Common",
+      "model": "emailSenderAgent",
+      "key": "emailSenderAgentId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
       "folder": "User/Common",
       "model": "user",
       "key": "userId",

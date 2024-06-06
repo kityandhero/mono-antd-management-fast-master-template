@@ -71,6 +71,16 @@
       "name": "status"
     },
     {
+      "functionSegment": "EmailSenderAgentType",
+      "label": "类型",
+      "name": "type"
+    },
+    {
+      "functionSegment": "EmailSenderAgentStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
       "functionSegment": "FlowApproveAction",
       "label": "审批动作",
       "name": "approveAction"

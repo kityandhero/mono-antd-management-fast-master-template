@@ -239,6 +239,13 @@
       "coverFile": false
     },
     {
+      "folder": "EmailSenderAgent/Assist",
+      "model": "emailSenderAgent",
+      "key": "emailSenderAgentId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
       "folder": "User/Assist",
       "model": "user",
       "key": "userId",

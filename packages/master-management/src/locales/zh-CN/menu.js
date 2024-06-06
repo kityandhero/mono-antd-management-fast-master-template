@@ -133,6 +133,11 @@ export default {
   'menu.data.generalDiscourse.pageList': '分页列表',
   'menu.data.generalDiscourse.pageList-mini': '列表',
 
+  'menu.data.emailSenderAgent': '邮件发送代理',
+  'menu.data.emailSenderAgent-mini': '邮发代理',
+  'menu.data.emailSenderAgent.pageList': '分页列表',
+  'menu.data.emailSenderAgent.pageList-mini': '列表',
+
   'menu.organization': '组织管理',
   'menu.organization-mini': '组织',
 
