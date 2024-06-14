@@ -274,9 +274,16 @@
       "coverFile": false
     },
     {
+      "folder": "SqlEntity/Assist",
+      "model": "userSubsidiaryInfo",
+      "key": "userSubsidiaryInfoId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
       "folder": "WeChatMessageRecord/Assist",
-      "model": "weChatMessageRecord",
-      "key": "weChatMessageRecordId",
+      "model": "sqlEntity",
+      "key": "sqlEntityId",
       "fileName": "config.js",
       "coverFile": false
     },

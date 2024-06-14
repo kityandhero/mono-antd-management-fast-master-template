@@ -218,6 +218,13 @@
       "coverFile": false
     },
     {
+      "folder": "SqlEntity/PageList",
+      "model": "sqlEntity",
+      "key": "sqlEntityId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "WeChatMessageRecord/PageList",
       "model": "weChatMessageRecord",
       "key": "weChatMessageRecordId",

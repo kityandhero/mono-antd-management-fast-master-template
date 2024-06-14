@@ -1848,6 +1848,47 @@ export const assistTools = {
   ],
 };
 
+const sqlEntity = {
+  name: 'sqlEntity',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/developTools/sqlEntity',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.callCenter.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/developTools/sqlEntity',
+      redirect: '/developTools/sqlEntity/pageList',
+    },
+    {
+      path: '/developTools/sqlEntity/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/developTools/sqlEntity/pageList/no',
+    },
+    {
+      path: '/developTools/sqlEntity/pageList/:pageKey',
+      hideInMenu: true,
+      component: './SqlEntity/PageList',
+    },
+  ],
+};
+
+export const developTools = {
+  name: 'developTools',
+  icon: 'reconciliation',
+  path: '/developTools',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.sqlEntity.pageList.permission,
+  ],
+  routes: [sqlEntity],
+};
+
 export const account = {
   name: 'account',
   icon: 'team',

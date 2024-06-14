@@ -375,6 +375,14 @@ export default {
   'menu.assistTools.callCenter.edit.operateLog': '操作日志',
   'menu.assistTools.callCenter.edit.operateLog.pageList': '日志列表',
 
+  'menu.developTools': '开发相关',
+  'menu.developTools-mini': '开发',
+
+  'menu.developTools.sqlEntity': '数据模型',
+  'menu.developTools.sqlEntity-mini': '数模',
+  'menu.developTools.sqlEntity.pageList': '模型列表',
+  'menu.developTools.sqlEntity.pageList-mini': '列表',
+
   'menu.account': '账户相关',
   'menu.account-mini': '账户',
 

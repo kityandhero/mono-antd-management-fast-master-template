@@ -274,6 +274,13 @@
       "coverFile": false
     },
     {
+      "folder": "SqlEntity/Common",
+      "model": "sqlEntity",
+      "key": "sqlEntityId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
       "folder": "WeChatMessageRecord/Common",
       "model": "weChatMessageRecord",
       "key": "weChatMessageRecordId",
