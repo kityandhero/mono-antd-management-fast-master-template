@@ -2071,6 +2071,18 @@ export const accessWayCollection = {
       permission: '2fdd35dc66b74b40af319bd06fb9a2ac',
     },
   },
+  sqlEntity: {
+    pageList: {
+      title: '实体列表',
+      paramsKey: 'ff9d36075935aafb914b0fd49bb617a7',
+      permission: '71f8cb22cdde4a5c913d232ab313edc8',
+    },
+    get: {
+      title: '实体详情',
+      paramsKey: '1672f30dc9e2b25a5a6e29501c6a6292',
+      permission: '048511e7e79a40dbba625fa955ac57fd',
+    },
+  },
   sqlLog: {
     pageList: {
       title: '日志列表',

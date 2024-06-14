@@ -19,8 +19,6 @@ import {
 } from 'antd-management-fast-component';
 import { signInAction } from 'antd-management-fast-framework';
 
-const defaultProps = {};
-
 @connect(({ entrance, schedulingControl }) => ({
   entrance,
   schedulingControl,
@@ -139,9 +137,4 @@ class SignIn extends BaseComponent {
   }
 }
 
-SignIn.defaultProps = {
-  ...BaseComponent.defaultProps,
-  ...defaultProps,
-};
-
-export default SignIn;
+export { SignIn };

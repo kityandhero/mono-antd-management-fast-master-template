@@ -11,8 +11,6 @@ import {
   VerticalBox,
 } from 'antd-management-fast-component';
 
-const defaultProps = {};
-
 class Wrapper extends BaseComponent {
   renderFurther() {
     const { children } = this.props;
@@ -76,9 +74,4 @@ class Wrapper extends BaseComponent {
   }
 }
 
-Wrapper.defaultProps = {
-  ...BaseComponent.defaultProps,
-  ...defaultProps,
-};
-
-export default Wrapper;
+export { Wrapper };
