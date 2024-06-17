@@ -1,6 +1,6 @@
 import { appendExtraBuilder } from 'easy-soft-utility';
 
-// import { listModelBuilder as listCustomModelBuilder } from './custom';
+import { listModelBuilder as listCustomModelBuilder } from './custom';
 import { listModelBuilder as listGeneralModelBuilder } from './general';
 
 function collectModelBuilder() {
@@ -10,11 +10,11 @@ function collectModelBuilder() {
     appendExtraBuilder(builder);
   }
 
-  // let listCustom = listCustomModelBuilder();
+  let listCustom = listCustomModelBuilder();
 
-  // for (const builder of listCustom) {
-  //   appendExtraBuilder(builder);
-  // }
+  for (const builder of listCustom) {
+    appendExtraBuilder(builder);
+  }
 }
 
 collectModelBuilder();
