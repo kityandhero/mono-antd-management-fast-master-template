@@ -18,15 +18,10 @@ import {
   getChannelName,
   renderSearchManagementChannelSelect,
 } from '../../../customSpecialComponents';
-import { ActionMapDrawer } from '../ActionMapDrawer';
 import { refreshCacheAction, testPermissionAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
-import { ModelConfigFileContentDrawer } from '../ModelConfigFileContentDrawer';
-import { NonePermissionActionMapDrawer } from '../NonePermissionActionMapDrawer';
 import { PageListAssemblyVerifyDrawer } from '../PageListAssemblyVerifyDrawer';
-import { PermissionActionMapDrawer } from '../PermissionActionMapDrawer';
 import { PermissionActionUniqueDrawer } from '../PermissionActionUniqueDrawer';
-import { PermissionFileContentDrawer } from '../PermissionFileContentDrawer';
 
 const { MultiPage } = DataMultiPageView;
 
@@ -60,32 +55,12 @@ class PageList extends MultiPage {
     });
   };
 
-  showActionMapDrawer = () => {
-    ActionMapDrawer.open();
-  };
-
-  showPermissionActionMapDrawer = () => {
-    PermissionActionMapDrawer.open();
-  };
-
-  showNonePermissionActionMapDrawer = () => {
-    NonePermissionActionMapDrawer.open();
-  };
-
   showPermissionActionUniqueDrawer = () => {
     PermissionActionUniqueDrawer.open();
   };
 
   showPageListAssemblyVerifyDrawer = () => {
     PageListAssemblyVerifyDrawer.open();
-  };
-
-  showModelConfigFileContentDrawer = () => {
-    ModelConfigFileContentDrawer.open();
-  };
-
-  showPermissionFileContentDrawer = () => {
-    PermissionFileContentDrawer.open();
   };
 
   establishExtraActionConfig = () => {
@@ -137,102 +112,6 @@ class PageList extends MultiPage {
           handleClick: () => {
             this.showPageListAssemblyVerifyDrawer();
           },
-        },
-      ],
-    };
-  };
-
-  establishExtraActionGroupConfig = () => {
-    const that = this;
-
-    return {
-      buttons: [
-        {
-          key: 'showActionMap',
-          type: 'default',
-          size: 'small',
-          text: '显示 Action Map',
-          icon: iconBuilder.inbox(),
-          hidden: !checkHasAuthority(
-            accessWayCollection.accessWay.getActionMap.permission,
-          ),
-          handleButtonClick: () => {
-            that.showActionMapDrawer();
-          },
-          disabled: this.checkInProgress(),
-        },
-        {
-          key: 'showPermissionActionMap',
-          type: 'default',
-          size: 'small',
-          text: '显示鉴权 Action Map',
-          icon: iconBuilder.inbox(),
-          hidden: !checkHasAuthority(
-            accessWayCollection.accessWay.getPermissionActionMap.permission,
-          ),
-          handleButtonClick: () => {
-            that.showPermissionActionMapDrawer();
-          },
-          disabled: this.checkInProgress(),
-        },
-        {
-          key: 'showNonePermissionActionMap',
-          type: 'default',
-          size: 'small',
-          text: '显示无需鉴权 Action Map',
-          icon: iconBuilder.inbox(),
-          hidden: !checkHasAuthority(
-            accessWayCollection.accessWay.getNonePermissionActionMap.permission,
-          ),
-          handleButtonClick: () => {
-            that.showNonePermissionActionMapDrawer();
-          },
-          disabled: this.checkInProgress(),
-        },
-      ],
-    };
-  };
-
-  establishExtraActionEllipsisConfig = () => {
-    const that = this;
-
-    return {
-      disabled: this.checkInProgress(),
-      size: 'small',
-      // eslint-disable-next-line no-unused-vars
-      handleMenuClick: ({ key, handleData }) => {
-        switch (key) {
-          case 'showModelConfigFileContent': {
-            that.showModelConfigFileContentDrawer();
-            break;
-          }
-
-          case 'showPermissionFileContent': {
-            that.showPermissionFileContentDrawer();
-            break;
-          }
-
-          default: {
-            break;
-          }
-        }
-      },
-      items: [
-        {
-          key: 'showModelConfigFileContent',
-          icon: iconBuilder.read(),
-          text: '查看前端Model配置文件',
-          hidden: !checkHasAuthority(
-            accessWayCollection.accessWay.getModelConfigFileContent.permission,
-          ),
-        },
-        {
-          key: 'showPermissionFileContent',
-          icon: iconBuilder.read(),
-          text: '查看前端权限文件',
-          hidden: !checkHasAuthority(
-            accessWayCollection.accessWay.getPermissionFileContent.permission,
-          ),
         },
       ],
     };
@@ -331,17 +210,7 @@ class PageList extends MultiPage {
   renderPresetOther = () => {
     return (
       <>
-        <ActionMapDrawer maskClosable />
-
-        <PermissionActionMapDrawer maskClosable />
-
-        <NonePermissionActionMapDrawer maskClosable />
-
         <PermissionActionUniqueDrawer maskClosable />
-
-        <PermissionFileContentDrawer maskClosable />
-
-        <ModelConfigFileContentDrawer maskClosable />
 
         <PageListAssemblyVerifyDrawer maskClosable />
       </>

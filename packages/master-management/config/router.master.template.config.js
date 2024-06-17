@@ -1848,31 +1848,97 @@ export const assistTools = {
   ],
 };
 
-const sqlEntity = {
-  name: 'sqlEntity',
+const sqlEntityInfrastructure = {
+  name: 'sqlEntityInfrastructure',
   icon: 'reconciliation',
   hideChildrenInMenu: true,
-  path: '/developTools/sqlEntity',
+  path: '/developTools/sqlEntityInfrastructure',
   access: 'checkAccess',
   authority: [
     accessWayCollection.super.permission,
-    accessWayCollection.callCenter.pageList.permission,
+    accessWayCollection.sqlEntity.pageListInfrastructure.permission,
   ],
   routes: [
     {
-      path: '/developTools/sqlEntity',
-      redirect: '/developTools/sqlEntity/pageList',
+      path: '/developTools/sqlEntityInfrastructure',
+      redirect: '/developTools/sqlEntityInfrastructure/pageList',
     },
     {
-      path: '/developTools/sqlEntity/pageList',
+      path: '/developTools/sqlEntityInfrastructure/pageList',
       name: 'pageList',
       icon: 'bars',
-      redirect: '/developTools/sqlEntity/pageList/no',
+      redirect: '/developTools/sqlEntityInfrastructure/pageList/no',
     },
     {
-      path: '/developTools/sqlEntity/pageList/:pageKey',
+      path: '/developTools/sqlEntityInfrastructure/pageList/:pageKey',
       hideInMenu: true,
-      component: './SqlEntity/PageList',
+      component: './SqlEntity/PageListInfrastructure',
+    },
+  ],
+};
+
+const sqlEntityBusiness = {
+  name: 'sqlEntityBusiness',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/developTools/sqlEntityBusiness',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.sqlEntity.pageListBusiness.permission,
+  ],
+  routes: [
+    {
+      path: '/developTools/sqlEntityBusiness',
+      redirect: '/developTools/sqlEntityBusiness/pageList',
+    },
+    {
+      path: '/developTools/sqlEntityBusiness/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/developTools/sqlEntityBusiness/pageList/no',
+    },
+    {
+      path: '/developTools/sqlEntityBusiness/pageList/:pageKey',
+      hideInMenu: true,
+      component: './SqlEntity/PageListBusiness',
+    },
+  ],
+};
+
+const developInfo = {
+  name: 'developInfo',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/developTools/developInfo',
+  access: 'checkAccess',
+  authority: [accessWayCollection.super.permission],
+  routes: [
+    {
+      path: '/developTools/developInfo',
+      redirect: '/developTools/developInfo/overview',
+    },
+    {
+      path: '/developTools/developInfo/overview',
+      name: 'overview',
+      hideInMenu: true,
+      component: './DevelopInfo/Overview',
+      routes: [
+        {
+          path: '/developTools/developInfo/overview',
+          redirect: '/developTools/developInfo/overview/actionMap',
+        },
+        {
+          path: '/developTools/developInfo/overview/actionMap',
+          name: 'actionMap',
+          component: './DevelopInfo/Overview/ActionMap',
+        },
+        {
+          path: '/developTools/developInfo/overview/modelConfig',
+          name: 'modelConfig',
+          component: './DevelopInfo/Overview/ModelConfig',
+        },
+      ],
     },
   ],
 };
@@ -1884,9 +1950,10 @@ export const developTools = {
   access: 'checkAccess',
   authority: [
     accessWayCollection.super.permission,
-    accessWayCollection.sqlEntity.pageList.permission,
+    accessWayCollection.sqlEntity.pageListInfrastructure.permission,
+    accessWayCollection.sqlEntity.pageListBusiness.permission,
   ],
-  routes: [sqlEntity],
+  routes: [sqlEntityInfrastructure, sqlEntityBusiness, developInfo],
 };
 
 export const account = {

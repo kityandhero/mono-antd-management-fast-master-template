@@ -8,7 +8,7 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
-import { fieldData } from '../Common/data';
+import { fieldData } from '../../Department/Common/data';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
 

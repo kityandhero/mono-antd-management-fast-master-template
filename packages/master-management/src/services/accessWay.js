@@ -38,12 +38,32 @@ export async function getPermissionFileContentData(parameters) {
   });
 }
 
-export const getModelConfigFileContentDataApiAddress =
-  '/accessWay/getModelConfigFileContent';
+export const getInfrastructureModelConfigFileContentDataApiAddress =
+  '/accessWay/getInfrastructureModelConfigFileContent';
 
-export async function getModelConfigFileContentData(parameters) {
+export async function getInfrastructureModelConfigFileContentData(parameters) {
   return request({
-    api: getModelConfigFileContentDataApiAddress,
+    api: getInfrastructureModelConfigFileContentDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const getBusinessModelConfigFileContentDataApiAddress =
+  '/accessWay/getBusinessModelConfigFileContent';
+
+export async function getBusinessModelConfigFileContentData(parameters) {
+  return request({
+    api: getBusinessModelConfigFileContentDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const getAllModelConfigFileContentDataApiAddress =
+  '/accessWay/getAllModelConfigFileContent';
+
+export async function getAllModelConfigFileContentData(parameters) {
+  return request({
+    api: getAllModelConfigFileContentDataApiAddress,
     params: parameters,
   });
 }

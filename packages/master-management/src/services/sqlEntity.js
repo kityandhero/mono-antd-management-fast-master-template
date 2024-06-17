@@ -1,19 +1,39 @@
+
 import { request } from 'easy-soft-utility';
 
-export const pageListDataApiAddress = '/sqlEntity/pageList';
+export const pageListInfrastructureDataApiAddress = '/sqlEntity/pageListInfrastructure';
 
-export async function pageListData(parameters) {
+export async function pageListInfrastructureData(parameters) {
   return request({
-    api: pageListDataApiAddress,
+    api: pageListInfrastructureDataApiAddress,
     params: parameters,
   });
 }
 
-export const getDataApiAddress = '/sqlEntity/get';
+export const pageListBusinessDataApiAddress = '/sqlEntity/pageListBusiness';
 
-export async function getData(parameters) {
+export async function pageListBusinessData(parameters) {
   return request({
-    api: getDataApiAddress,
+    api: pageListBusinessDataApiAddress,
     params: parameters,
   });
 }
+
+export const getInfrastructureDataApiAddress = '/sqlEntity/getInfrastructure';
+
+export async function getInfrastructureData(parameters) {
+  return request({
+    api: getInfrastructureDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const getBusinessDataApiAddress = '/sqlEntity/getBusiness';
+
+export async function getBusinessData(parameters) {
+  return request({
+    api: getBusinessDataApiAddress,
+    params: parameters,
+  });
+}
+

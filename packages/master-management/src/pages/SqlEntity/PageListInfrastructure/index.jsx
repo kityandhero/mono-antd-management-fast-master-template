@@ -10,8 +10,10 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 import { accessWayCollection } from '../../../customConfig';
 import { refreshCacheAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
-import { FieldContentDrawer } from '../FieldContentDrawer';
-import { SqlContentDrawer } from '../SqlContentDrawer';
+import { FieldAllContentInfrastructureDrawer } from '../FieldAllContentInfrastructureDrawer';
+import { FieldCustomContentInfrastructureDrawer } from '../FieldCustomContentInfrastructureDrawer';
+import { FieldInheritedContentInfrastructureDrawer } from '../FieldInheritedContentInfrastructureDrawer';
+import { SqlContentInfrastructureDrawer } from '../SqlContentInfrastructureDrawer';
 
 const { MultiPage } = DataMultiPageView;
 
@@ -20,24 +22,35 @@ const { MultiPage } = DataMultiPageView;
   schedulingControl,
 }))
 class PageList extends MultiPage {
-  componentAuthority = accessWayCollection.sqlEntity.pageList.permission;
+  componentAuthority =
+    accessWayCollection.sqlEntity.pageListInfrastructure.permission;
 
   constructor(properties) {
     super(properties);
 
     this.state = {
       ...this.state,
-      pageTitle: '列表',
-      paramsKey: accessWayCollection.sqlEntity.pageList.paramsKey,
-      loadApiPath: 'sqlEntity/pageList',
+      pageTitle: '数据实体列表',
+      paramsKey: accessWayCollection.sqlEntity.pageListInfrastructure.paramsKey,
+      loadApiPath: 'sqlEntity/pageListInfrastructure',
       currentRecord: null,
     };
   }
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
-      case 'showFieldContent': {
-        this.showFieldContentDrawer(handleData);
+      case 'showFieldAllContentDrawer': {
+        this.showFieldAllContentDrawer(handleData);
+        break;
+      }
+
+      case 'showFieldCustomContentDrawer': {
+        this.showFieldCustomContentDrawer(handleData);
+        break;
+      }
+
+      case 'showFieldInheritedContentDrawer': {
+        this.showFieldInheritedContentDrawer(handleData);
         break;
       }
 
@@ -60,18 +73,40 @@ class PageList extends MultiPage {
         currentRecord: record,
       },
       () => {
-        SqlContentDrawer.open();
+        SqlContentInfrastructureDrawer.open();
       },
     );
   };
 
-  showFieldContentDrawer = (record) => {
+  showFieldAllContentDrawer = (record) => {
     this.setState(
       {
         currentRecord: record,
       },
       () => {
-        FieldContentDrawer.open();
+        FieldAllContentInfrastructureDrawer.open();
+      },
+    );
+  };
+
+  showFieldCustomContentDrawer = (record) => {
+    this.setState(
+      {
+        currentRecord: record,
+      },
+      () => {
+        FieldCustomContentInfrastructureDrawer.open();
+      },
+    );
+  };
+
+  showFieldInheritedContentDrawer = (record) => {
+    this.setState(
+      {
+        currentRecord: record,
+      },
+      () => {
+        FieldInheritedContentInfrastructureDrawer.open();
       },
     );
   };
@@ -99,7 +134,7 @@ class PageList extends MultiPage {
       text: '查阅',
       icon: iconBuilder.read(),
       disabled: !checkHasAuthority(
-        accessWayCollection.sqlEntity.get.permission,
+        accessWayCollection.sqlEntity.getInfrastructure.permission,
       ),
       handleButtonClick: ({ handleData }) => {
         this.showSqlContentDrawer(handleData);
@@ -110,13 +145,33 @@ class PageList extends MultiPage {
       },
       items: [
         {
-          key: 'showFieldContent',
+          key: 'showFieldCustomContentDrawer',
           withDivider: true,
           uponDivider: true,
-          icon: iconBuilder.reload(),
-          text: '字段信息',
+          icon: iconBuilder.read(),
+          text: '自定义字段信息',
           hidden: !checkHasAuthority(
-            accessWayCollection.sqlEntity.get.permission,
+            accessWayCollection.sqlEntity.getBusiness.permission,
+          ),
+        },
+        {
+          key: 'showFieldInheritedContentDrawer',
+          withDivider: true,
+          uponDivider: true,
+          icon: iconBuilder.read(),
+          text: '继承字段信息',
+          hidden: !checkHasAuthority(
+            accessWayCollection.sqlEntity.getBusiness.permission,
+          ),
+        },
+        {
+          key: 'showFieldAllContentDrawer',
+          withDivider: true,
+          uponDivider: true,
+          icon: iconBuilder.read(),
+          text: '所有字段信息',
+          hidden: !checkHasAuthority(
+            accessWayCollection.sqlEntity.getBusiness.permission,
           ),
         },
       ],
@@ -154,12 +209,6 @@ class PageList extends MultiPage {
     //   showRichFacade: true,
     //   emptyValue: '--',
     // },
-    // {
-    //   dataTarget: fieldData.sqlEntityId,
-    //   width: 120,
-    //   showRichFacade: true,
-    //   canCopy: true,
-    // },
   ];
 
   renderPresetOther = () => {
@@ -167,9 +216,25 @@ class PageList extends MultiPage {
 
     return (
       <>
-        <SqlContentDrawer maskClosable externalData={currentRecord} />
+        <SqlContentInfrastructureDrawer
+          maskClosable
+          externalData={currentRecord}
+        />
 
-        <FieldContentDrawer maskClosable externalData={currentRecord} />
+        <FieldAllContentInfrastructureDrawer
+          maskClosable
+          externalData={currentRecord}
+        />
+
+        <FieldCustomContentInfrastructureDrawer
+          maskClosable
+          externalData={currentRecord}
+        />
+
+        <FieldInheritedContentInfrastructureDrawer
+          maskClosable
+          externalData={currentRecord}
+        />
       </>
     );
   };

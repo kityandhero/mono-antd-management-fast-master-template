@@ -25,8 +25,18 @@ export const accessWayCollection = {
       paramsKey: '80f312e0ac8dfa3f34fc9f84368b1c8b',
       permission: 'be42e054314642ce9598a56e716ccfeb',
     },
-    getModelConfigFileContent: {
-      title: '获取前端Model配置文件内容',
+    getInfrastructureModelConfigFileContent: {
+      title: '获取前端基础Model配置文件内容',
+      paramsKey: '5dae7970278697e23912844a134166c6',
+      permission: 'c549ca88869f4550a327b6d95d9a49cb',
+    },
+    getBusinessModelConfigFileContent: {
+      title: '获取前端业务Model配置文件内容',
+      paramsKey: 'ecd97ca6a47cdd8908ac3a04c1ee8565',
+      permission: 'c158b3201e484d88a1dd8a41f1cae126',
+    },
+    getAllModelConfigFileContent: {
+      title: '获取前端所有Model配置文件内容',
       paramsKey: '27df5bccc5ddc30c514a07b1d3997ccb',
       permission: 'fb0248222ecd4fa4836389935cec3ed4',
     },
@@ -2072,15 +2082,25 @@ export const accessWayCollection = {
     },
   },
   sqlEntity: {
-    pageList: {
-      title: '实体列表',
+    pageListInfrastructure: {
+      title: '基础实体列表',
       paramsKey: 'ff9d36075935aafb914b0fd49bb617a7',
       permission: '71f8cb22cdde4a5c913d232ab313edc8',
     },
-    get: {
-      title: '实体详情',
+    pageListBusiness: {
+      title: '业务实体列表',
+      paramsKey: '422ff7e5a51440137bd382494ffa5d45',
+      permission: '0114fb600ab6444c85ad6248f5683091',
+    },
+    getInfrastructure: {
+      title: '基础实体详情',
       paramsKey: '1672f30dc9e2b25a5a6e29501c6a6292',
       permission: '048511e7e79a40dbba625fa955ac57fd',
+    },
+    getBusiness: {
+      title: '业务实体详情',
+      paramsKey: 'e0645fa75acbbfac47bdabf665cc530d',
+      permission: '8ee12d39ac1e417daa68dfe2a40c34f4',
     },
   },
   sqlLog: {

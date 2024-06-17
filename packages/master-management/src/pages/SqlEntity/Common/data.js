@@ -39,9 +39,19 @@ export const fieldData = {
     name: 'sqlContent',
     helper: '',
   },
-  fieldContent: {
-    label: '字段信息',
-    name: 'fieldContent',
+  fieldAllContent: {
+    label: '所有字段信息',
+    name: 'fieldAllContent',
+    helper: '',
+  },
+  fieldCustomContent: {
+    label: '自定的字段信息',
+    name: 'fieldCustomContent',
+    helper: '',
+  },
+  fieldInheritedContent: {
+    label: '继承的字段信息',
+    name: 'fieldInheritedContent',
     helper: '',
   },
   ...fieldExtraData,

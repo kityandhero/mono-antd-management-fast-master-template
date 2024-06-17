@@ -378,10 +378,20 @@ export default {
   'menu.developTools': '开发相关',
   'menu.developTools-mini': '开发',
 
-  'menu.developTools.sqlEntity': '数据模型',
-  'menu.developTools.sqlEntity-mini': '数模',
-  'menu.developTools.sqlEntity.pageList': '模型列表',
-  'menu.developTools.sqlEntity.pageList-mini': '列表',
+  'menu.developTools.sqlEntityInfrastructure': '基础数据模型',
+  'menu.developTools.sqlEntityInfrastructure-mini': '基础数模',
+  'menu.developTools.sqlEntityInfrastructure.pageList': '模型列表',
+  'menu.developTools.sqlEntityInfrastructure.pageList-mini': '列表',
+
+  'menu.developTools.sqlEntityBusiness': '业务数据模型',
+  'menu.developTools.sqlEntityBusiness-mini': '业务数模',
+  'menu.developTools.sqlEntityBusiness.pageList': '模型列表',
+  'menu.developTools.sqlEntityBusiness.pageList-mini': '列表',
+
+  'menu.developTools.developInfo': '前端配置信息',
+  'menu.developTools.developInfo.overview': '配置信息',
+  'menu.developTools.developInfo.overview.actionMap': 'ActionMap',
+  'menu.developTools.developInfo.overview.modelConfig': '模型配置',
 
   'menu.account': '账户相关',
   'menu.account-mini': '账户',

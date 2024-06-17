@@ -1,37 +1,24 @@
-import { connect } from 'easy-soft-dva';
-import { getValueByKey } from 'easy-soft-utility';
+import { convertCollection, getValueByKey } from 'easy-soft-utility';
 
+import { copyToClipboard, extraBuildType } from 'antd-management-fast-common';
 import {
   buildCustomGrid,
+  iconBuilder,
   SyntaxHighlighter,
 } from 'antd-management-fast-component';
-import {
-  DataDrawer,
-  switchControlAssist,
-} from 'antd-management-fast-framework';
+import { DataDrawer } from 'antd-management-fast-framework';
 
 import { fieldData } from '../Common/data';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
-const visibleFlag = '3e5b44cedc1340a9bcfb1bf2aebd77be';
-
-@connect(({ sqlEntity, schedulingControl }) => ({
-  sqlEntity,
-  schedulingControl,
-}))
-class SqlContentDrawer extends BaseVerticalFlexDrawer {
-  static open() {
-    switchControlAssist.open(visibleFlag);
-  }
-
-  constructor(properties) {
+class BaseFieldContentDrawer extends BaseVerticalFlexDrawer {
+  constructor(properties, visibleFlag) {
     super(properties, visibleFlag);
 
     this.state = {
       ...this.state,
-      pageTitle: '表SQL信息',
-      loadApiPath: 'sqlEntity/get',
+      pageTitle: '字段信息',
       overlayButtonOpenText: '查看基础信息',
       overlayButtonCloseText: '关闭基础信息',
     };
@@ -50,12 +37,39 @@ class SqlContentDrawer extends BaseVerticalFlexDrawer {
     return d;
   };
 
+  establishExtraActionConfig = () => {
+    const that = this;
+
+    return {
+      list: [
+        {
+          buildType: extraBuildType.generalExtraButton,
+          icon: iconBuilder.copy(),
+          text: '复制内容',
+          disabled: this.checkInProgress(),
+          handleClick: () => {
+            const { metaData } = that.state;
+
+            const fieldContent = getValueByKey({
+              data: metaData,
+              key: fieldData.fieldContent.name,
+              convert: convertCollection.string,
+              defaultValue: '',
+            });
+
+            copyToClipboard(fieldContent, false);
+          },
+        },
+      ],
+    };
+  };
+
   establishHelpConfig = () => {
     return {
       title: '操作提示',
       list: [
         {
-          text: '简要说明:这里是当前数据实体的SQL构建语句。',
+          text: '简要说明:这里是当前数据实体的字段信息。',
         },
       ],
     };
@@ -71,20 +85,16 @@ class SqlContentDrawer extends BaseVerticalFlexDrawer {
     });
   };
 
-  renderPresetContentContainorInnerTop = () => {
-    const { metaData } = this.state;
+  getFieldContent = () => '';
 
-    const sqlContent = getValueByKey({
-      data: metaData,
-      key: fieldData.sqlContent.name,
-      defaultValue: '',
-    });
+  renderPresetContentContainorInnerTop = () => {
+    const fieldContent = this.getFieldContent();
 
     return (
       <div style={{ height: '100%', overflow: 'hidden' }}>
         <SyntaxHighlighter
-          language="sql"
-          value={sqlContent}
+          language="js"
+          value={fieldContent}
           other={{ showLineNumbers: true, wrapLines: true }}
           style={{
             height: 'calc(100% - 14px)',
@@ -171,4 +181,4 @@ class SqlContentDrawer extends BaseVerticalFlexDrawer {
   };
 }
 
-export { SqlContentDrawer };
+export { BaseFieldContentDrawer };

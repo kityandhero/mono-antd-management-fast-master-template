@@ -8,17 +8,15 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
-import { fieldData } from '../Common/data';
-
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
-const visibleFlag = 'eebf4f6231ee486caa36cec695169e91';
+const visibleFlag = '884bbbe2117c4f9e93d61a973a26a637';
 
 @connect(({ accessWay, schedulingControl }) => ({
   accessWay,
   schedulingControl,
 }))
-class ModelConfigFileContentDrawer extends BaseVerticalFlexDrawer {
+class ModelConfigInfrastructureDrawer extends BaseVerticalFlexDrawer {
   static open() {
     switchControlAssist.open(visibleFlag);
   }
@@ -28,30 +26,14 @@ class ModelConfigFileContentDrawer extends BaseVerticalFlexDrawer {
 
     this.state = {
       ...this.state,
-      pageTitle: 'Model配置文件内容',
-      loadApiPath: 'accessWay/getModelConfigFileContent',
+      pageTitle: '前端基础 Model 配置文件',
+      loadApiPath: 'accessWay/getInfrastructureModelConfigFileContent',
     };
   }
 
-  supplementLoadRequestParams = (o) => {
-    return {
-      ...this.supplementRequestParams(o),
-    };
-  };
-
-  supplementRequestParams = (o) => {
-    const d = { ...o };
-    const { externalData } = this.state;
-
-    d[fieldData.channel.name] = getValueByKey({
-      data: externalData,
-      key: fieldData.channel.name,
-    });
-
-    return d;
-  };
-
   establishExtraActionConfig = () => {
+    const that = this;
+
     return {
       list: [
         {
@@ -60,7 +42,7 @@ class ModelConfigFileContentDrawer extends BaseVerticalFlexDrawer {
           text: '复制内容',
           disabled: this.checkInProgress(),
           handleClick: () => {
-            const { metaData } = this.state;
+            const { metaData } = that.state;
 
             copyToClipboard(
               getValueByKey({
@@ -81,7 +63,7 @@ class ModelConfigFileContentDrawer extends BaseVerticalFlexDrawer {
       title: '操作提示',
       list: [
         {
-          text: '简要说明:这里显示的是用于前端开发辅助的Model配置文件信息。',
+          text: '简要说明:这里显示的是用于前端开发辅助的基础 Model 配置文件信息。',
         },
       ],
     };
@@ -123,4 +105,4 @@ class ModelConfigFileContentDrawer extends BaseVerticalFlexDrawer {
   };
 }
 
-export { ModelConfigFileContentDrawer };
+export { ModelConfigInfrastructureDrawer };

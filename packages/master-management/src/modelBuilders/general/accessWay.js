@@ -9,8 +9,10 @@ import {
 
 import {
   getActionMapData,
+  getAllModelConfigFileContentData,
+  getBusinessModelConfigFileContentData,
   getData,
-  getModelConfigFileContentData,
+  getInfrastructureModelConfigFileContentData,
   getNonePermissionActionMapData,
   getPermissionActionMapData,
   getPermissionFileContentData,
@@ -135,7 +137,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *getModelConfigFileContent(
+      *getInfrastructureModelConfigFileContent(
         {
           payload,
           alias,
@@ -144,7 +146,65 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(getModelConfigFileContentData, payload);
+        const response = yield call(
+          getInfrastructureModelConfigFileContentData,
+          payload,
+        );
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *getBusinessModelConfigFileContent(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(
+          getBusinessModelConfigFileContentData,
+          payload,
+        );
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *getAllModelConfigFileContent(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(getAllModelConfigFileContentData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

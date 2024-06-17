@@ -7,7 +7,12 @@ import {
   reducerNameCollection,
 } from 'easy-soft-utility';
 
-import { getData, pageListData } from '../../services/sqlEntity';
+import {
+  getBusinessData,
+  getInfrastructureData,
+  pageListBusinessData,
+  pageListInfrastructureData,
+} from '../../services/sqlEntity';
 
 export function buildModel() {
   return {
@@ -18,7 +23,7 @@ export function buildModel() {
     },
 
     effects: {
-      *pageList(
+      *pageListInfrastructure(
         {
           payload,
           alias,
@@ -27,7 +32,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(pageListData, payload);
+        const response = yield call(pageListInfrastructureData, payload);
 
         const dataAdjust = pretreatmentRemotePageListData({
           source: response,
@@ -44,7 +49,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *get(
+      *pageListBusiness(
         {
           payload,
           alias,
@@ -53,7 +58,59 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(getData, payload);
+        const response = yield call(pageListBusinessData, payload);
+
+        const dataAdjust = pretreatmentRemotePageListData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *getInfrastructure(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(getInfrastructureData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *getBusiness(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(getBusinessData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
