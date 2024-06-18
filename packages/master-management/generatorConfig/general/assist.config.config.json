@@ -1,6 +1,34 @@
 {
   "list": [
     {
+      "folder": "KeyValueInfrastructure/Assist",
+      "model": "keyValueInfrastructure",
+      "key": "keyValueInfrastructureId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
+      "folder": "KeyValueApplication/Assist",
+      "model": "keyValueApplication",
+      "key": "keyValueApplicationId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
+      "folder": "KeyValueSection/Assist",
+      "model": "keyValueSection",
+      "key": "keyValueSectionId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
+      "folder": "KeyValueWorkflow/Assist",
+      "model": "keyValueWorkflow",
+      "key": "keyValueWorkflowId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
       "folder": "AccessWay/Assist",
       "model": "accessWay",
       "key": "accessWayId",

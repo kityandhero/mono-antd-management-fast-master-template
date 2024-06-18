@@ -1859,6 +1859,146 @@
       "apis": [
         {
           "title": "分页列表",
+          "api": "/keyValueApplication/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/keyValueApplication/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/keyValueApplication/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/keyValueApplication/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "应用键值管理",
+      "name": "keyValueApplication"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/keyValueInfrastructure/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/keyValueInfrastructure/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/keyValueInfrastructure/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/keyValueInfrastructure/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "基础键值管理",
+      "name": "keyValueInfrastructure"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/keyValueSection/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/keyValueSection/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/keyValueSection/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/keyValueSection/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "栏目键值管理",
+      "name": "keyValueSection"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/keyValueWorkflow/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/keyValueWorkflow/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/keyValueWorkflow/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/keyValueWorkflow/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "流程键值管理",
+      "name": "keyValueWorkflow"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
           "api": "/masterManager/pageList",
           "effect": "pageList",
           "service": "pageListData",

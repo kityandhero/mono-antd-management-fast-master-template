@@ -1848,6 +1848,141 @@ export const assistTools = {
   ],
 };
 
+const keyValueInfrastructure = {
+  name: 'keyValueInfrastructure',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/dataDictionaryInfrastructure/keyValueInfrastructure',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.keyValueInfrastructure.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/dataDictionaryInfrastructure/keyValueInfrastructure',
+      redirect: '/dataDictionaryInfrastructure/keyValueInfrastructure/pageList',
+    },
+    {
+      path: '/dataDictionaryInfrastructure/keyValueInfrastructure/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect:
+        '/dataDictionaryInfrastructure/keyValueInfrastructure/pageList/no',
+    },
+    {
+      path: '/dataDictionaryInfrastructure/keyValueInfrastructure/pageList/:pageKey',
+      hideInMenu: true,
+      component: './KeyValueInfrastructure/PageList',
+    },
+  ],
+};
+
+const keyValueApplication = {
+  name: 'keyValueApplication',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/dataDictionaryInfrastructure/keyValueApplication',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.keyValueApplication.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/dataDictionaryInfrastructure/keyValueApplication',
+      redirect: '/dataDictionaryInfrastructure/keyValueApplication/pageList',
+    },
+    {
+      path: '/dataDictionaryInfrastructure/keyValueApplication/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/dataDictionaryInfrastructure/keyValueApplication/pageList/no',
+    },
+    {
+      path: '/dataDictionaryInfrastructure/keyValueApplication/pageList/:pageKey',
+      hideInMenu: true,
+      component: './KeyValueApplication/PageList',
+    },
+  ],
+};
+
+const keyValueSection = {
+  name: 'keyValueSection',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/dataDictionaryInfrastructure/keyValueSection',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.keyValueSection.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/dataDictionaryInfrastructure/keyValueSection',
+      redirect: '/dataDictionaryInfrastructure/keyValueSection/pageList',
+    },
+    {
+      path: '/dataDictionaryInfrastructure/keyValueSection/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/dataDictionaryInfrastructure/keyValueSection/pageList/no',
+    },
+    {
+      path: '/dataDictionaryInfrastructure/keyValueSection/pageList/:pageKey',
+      hideInMenu: true,
+      component: './KeyValueSection/PageList',
+    },
+  ],
+};
+
+const keyValueWorkflow = {
+  name: 'keyValueWorkflow',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/dataDictionaryInfrastructure/keyValueWorkflow',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.keyValueWorkflow.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/dataDictionaryInfrastructure/keyValueWorkflow',
+      redirect: '/dataDictionaryInfrastructure/keyValueWorkflow/pageList',
+    },
+    {
+      path: '/dataDictionaryInfrastructure/keyValueWorkflow/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/dataDictionaryInfrastructure/keyValueWorkflow/pageList/no',
+    },
+    {
+      path: '/dataDictionaryInfrastructure/keyValueWorkflow/pageList/:pageKey',
+      hideInMenu: true,
+      component: './KeyValueWorkflow/PageList',
+    },
+  ],
+};
+
+export const dataDictionaryInfrastructure = {
+  name: 'dataDictionaryInfrastructure',
+  icon: 'reconciliation',
+  path: '/dataDictionaryInfrastructure',
+  access: 'checkAccess',
+  authority: [accessWayCollection.super.permission],
+  routes: [
+    {
+      path: '/dataDictionaryInfrastructure',
+      redirect: '/dataDictionaryInfrastructure/keyValueInfrastructure',
+    },
+    keyValueInfrastructure,
+    keyValueApplication,
+    keyValueSection,
+    keyValueWorkflow,
+  ],
+};
+
 const sqlEntityInfrastructure = {
   name: 'sqlEntityInfrastructure',
   icon: 'reconciliation',
@@ -1937,6 +2072,11 @@ const developInfo = {
           path: '/developTools/developInfo/overview/modelConfig',
           name: 'modelConfig',
           component: './DevelopInfo/Overview/ModelConfig',
+        },
+        {
+          path: '/developTools/developInfo/overview/permissionContent',
+          name: 'permissionContent',
+          component: './DevelopInfo/Overview/PermissionContent',
         },
       ],
     },

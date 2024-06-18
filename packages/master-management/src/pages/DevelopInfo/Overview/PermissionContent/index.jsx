@@ -1,36 +1,41 @@
 import { connect } from 'easy-soft-dva';
-import { getValueByKey } from 'easy-soft-utility';
+import { convertCollection, getValueByKey } from 'easy-soft-utility';
 
-import { cardConfig, extraBuildType } from 'antd-management-fast-common';
+import {
+  cardConfig,
+  copyToClipboard,
+  extraBuildType,
+} from 'antd-management-fast-common';
 import { iconBuilder, SyntaxHighlighter } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
-import { NonePermissionActionMapDrawer } from '../../NonePermissionActionMapDrawer';
-import { PermissionActionMapDrawer } from '../../PermissionActionMapDrawer';
+import { ModelConfigBusinessDrawer } from '../../ModelConfigBusinessDrawer';
+import { ModelConfigInfrastructureDrawer } from '../../ModelConfigInfrastructureDrawer';
 import { TabPageBase } from '../../TabPageBase';
 
 @connect(({ accessWay, schedulingControl }) => ({
   accessWay,
   schedulingControl,
 }))
-class ActionMap extends TabPageBase {
-  componentAuthority = accessWayCollection.accessWay.getActionMap.permission;
+class PermissionContent extends TabPageBase {
+  componentAuthority =
+    accessWayCollection.accessWay.getPermissionFileContent.permission;
 
   constructor(properties) {
     super(properties);
 
     this.state = {
       ...this.state,
-      loadApiPath: 'accessWay/getActionMap',
+      loadApiPath: 'accessWay/getPermissionFileContent',
     };
   }
 
-  showPermissionActionMapDrawer = () => {
-    PermissionActionMapDrawer.open();
+  showModelConfigInfrastructureDrawer = () => {
+    ModelConfigInfrastructureDrawer.open();
   };
 
-  showNonePermissionActionMapDrawer = () => {
-    NonePermissionActionMapDrawer.open();
+  showModelConfigBusinessDrawer = () => {
+    ModelConfigBusinessDrawer.open();
   };
 
   fillInitialValuesAfterLoad = ({
@@ -51,9 +56,10 @@ class ActionMap extends TabPageBase {
   establishCardCollectionConfig = () => {
     const { metaData } = this.state;
 
-    const mapContent = getValueByKey({
+    const content = getValueByKey({
       data: metaData,
-      key: 'mapContent',
+      key: 'content',
+      convert: convertCollection.string,
     });
 
     const that = this;
@@ -63,7 +69,7 @@ class ActionMap extends TabPageBase {
         {
           title: {
             icon: iconBuilder.contacts(),
-            text: '所有 Action Map',
+            text: '前端权限键值配置内容',
           },
           hasExtra: true,
           extra: {
@@ -72,19 +78,19 @@ class ActionMap extends TabPageBase {
               {
                 buildType: extraBuildType.generalExtraButton,
                 icon: iconBuilder.read(),
-                text: '显示需要鉴权 Action Map',
+                text: '复制当前内容',
                 disabled: this.checkInProgress(),
                 handleClick: () => {
-                  that.showPermissionActionMapDrawer();
-                },
-              },
-              {
-                buildType: extraBuildType.generalExtraButton,
-                icon: iconBuilder.read(),
-                text: '显示无需鉴权 Action Map',
-                disabled: this.checkInProgress(),
-                handleClick: () => {
-                  that.showNonePermissionActionMapDrawer();
+                  const { metaData } = that.state;
+
+                  copyToClipboard(
+                    getValueByKey({
+                      data: metaData,
+                      key: 'content',
+                      convert: convertCollection.string,
+                    }),
+                    false,
+                  );
                 },
               },
               {
@@ -102,7 +108,7 @@ class ActionMap extends TabPageBase {
               component: (
                 <SyntaxHighlighter
                   language="js"
-                  value={mapContent}
+                  value={content}
                   other={{ showLineNumbers: true, wrapLines: true }}
                 />
               ),
@@ -112,16 +118,6 @@ class ActionMap extends TabPageBase {
       ],
     };
   };
-
-  renderPresetOther = () => {
-    return (
-      <>
-        <PermissionActionMapDrawer maskClosable />
-
-        <NonePermissionActionMapDrawer maskClosable />
-      </>
-    );
-  };
 }
 
-export default ActionMap;
+export default PermissionContent;

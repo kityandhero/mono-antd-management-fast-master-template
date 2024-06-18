@@ -1221,6 +1221,94 @@ export const accessWayCollection = {
       permission: '593926be80be47f9a0422d8d9351a0f2',
     },
   },
+  keyValueApplication: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '63bd26946309e459a9aa69827019ac98',
+      permission: '5051a43e7cc74629826d0c9d73b45fb1',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '46e700cd749de984457c50bef6a15599',
+      permission: 'd6d7b811ba3b4b24b4fc359331ffbce5',
+    },
+    remove: {
+      title: '移除',
+      paramsKey: 'ccb28dc86183c1727021584a2e17952c',
+      permission: 'b957a1e927fd474794b3e06d0f7c9a03',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '613492f96a2094822e607992b753f9e7',
+      permission: '055e8fe587b54f0f9cb20f1b30dff871',
+    },
+  },
+  keyValueInfrastructure: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '2a51e6330f60118448b4be7218b3a404',
+      permission: 'f78c8848e0a648e6a16349c2f409e219',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '7aa4a6e0c28044a3d98d9710e9de6436',
+      permission: '0226d9212c7e4e2b824d893f21443005',
+    },
+    remove: {
+      title: '移除',
+      paramsKey: 'e41f4f4258752908023bdb85eb2a10ef',
+      permission: 'a176fd2b7aec4c4385d27e1c3a0c1b03',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '409e8e117f814dba80e5bf21575d4da1',
+      permission: 'd878c142eeaf412b9bd9d818a8541d73',
+    },
+  },
+  keyValueSection: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: 'b44bae648237f9f59cf9dd0d6d887b57',
+      permission: 'a148b487b4f14815aee5807c718bb242',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '2b7f26d2c12ae95f9b4a7db72cd563b3',
+      permission: '26993cb702ef44a4b5a5726349b3e9c6',
+    },
+    remove: {
+      title: '移除',
+      paramsKey: '949d6302c9aab4eb1171364ef08a7beb',
+      permission: 'da9f48a2a3b04465b09a1c65c19b4ebb',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: 'bb54372c87c0b9e644bdef86243bdc0b',
+      permission: 'a03de88c58aa45ac9f9d2464aadc6c84',
+    },
+  },
+  keyValueWorkflow: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '2f378101fb4d6da56424ddf91be6059a',
+      permission: 'afbea5f225ca43169d25c725d45bc46c',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '96f4efb2bcc2d8b9642d076dce487463',
+      permission: '9f2687cf77e64d8898aacb82eaa0a1ca',
+    },
+    remove: {
+      title: '移除',
+      paramsKey: 'db1d35be1624e3ae40eea0e67dd8a69d',
+      permission: 'c1a7f0fec60d4e93a2c51aed66dc2138',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: 'c26a0bd289d39a11cabb4c39dc27ed9a',
+      permission: 'b8edbb88505b45739a8478daeafe7dd7',
+    },
+  },
   masterManager: {
     pageList: {
       title: '分页列表',

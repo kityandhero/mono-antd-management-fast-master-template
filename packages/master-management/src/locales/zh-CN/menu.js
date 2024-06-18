@@ -375,6 +375,31 @@ export default {
   'menu.assistTools.callCenter.edit.operateLog': '操作日志',
   'menu.assistTools.callCenter.edit.operateLog.pageList': '日志列表',
 
+  'menu.dataDictionaryInfrastructure': '基础数据字典',
+  'menu.dataDictionaryInfrastructure-mini': '基典',
+
+  'menu.dataDictionaryInfrastructure.keyValueInfrastructure': '基础键值',
+  'menu.dataDictionaryInfrastructure.keyValueInfrastructure-mini': '基础键值',
+  'menu.dataDictionaryInfrastructure.keyValueInfrastructure.pageList':
+    '键值列表',
+  'menu.dataDictionaryInfrastructure.keyValueInfrastructure.pageList-mini':
+    '列表',
+
+  'menu.dataDictionaryInfrastructure.keyValueApplication': '应用键值',
+  'menu.dataDictionaryInfrastructure.keyValueApplication-mini': '应用键值',
+  'menu.dataDictionaryInfrastructure.keyValueApplication.pageList': '键值列表',
+  'menu.dataDictionaryInfrastructure.keyValueApplication.pageList-mini': '列表',
+
+  'menu.dataDictionaryInfrastructure.keyValueSection': '栏目键值',
+  'menu.dataDictionaryInfrastructure.keyValueSection-mini': '栏目键值',
+  'menu.dataDictionaryInfrastructure.keyValueSection.pageList': '键值列表',
+  'menu.dataDictionaryInfrastructure.keyValueSection.pageList-mini': '列表',
+
+  'menu.dataDictionaryInfrastructure.keyValueWorkflow': '流程键值',
+  'menu.dataDictionaryInfrastructure.keyValueWorkflow-mini': '流程键值',
+  'menu.dataDictionaryInfrastructure.keyValueWorkflow.pageList': '键值列表',
+  'menu.dataDictionaryInfrastructure.keyValueWorkflow.pageList-mini': '列表',
+
   'menu.developTools': '开发相关',
   'menu.developTools-mini': '开发',
 
@@ -392,6 +417,7 @@ export default {
   'menu.developTools.developInfo.overview': '配置信息',
   'menu.developTools.developInfo.overview.actionMap': 'ActionMap',
   'menu.developTools.developInfo.overview.modelConfig': '模型配置',
+  'menu.developTools.developInfo.overview.permissionContent': '权限键值集合',
 
   'menu.account': '账户相关',
   'menu.account-mini': '账户',

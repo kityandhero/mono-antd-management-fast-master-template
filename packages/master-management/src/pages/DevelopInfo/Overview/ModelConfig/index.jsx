@@ -17,7 +17,7 @@ import { TabPageBase } from '../../TabPageBase';
   accessWay,
   schedulingControl,
 }))
-class BasicInfo extends TabPageBase {
+class ModelConfig extends TabPageBase {
   componentAuthority =
     accessWayCollection.accessWay.getAllModelConfigFileContent.permission;
 
@@ -151,4 +151,4 @@ class BasicInfo extends TabPageBase {
   };
 }
 
-export default BasicInfo;
+export default ModelConfig;

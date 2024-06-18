@@ -1,6 +1,34 @@
 {
   "list": [
     {
+      "folder": "KeyValueInfrastructure/Common",
+      "model": "keyValueInfrastructure",
+      "key": "keyValueInfrastructureId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "KeyValueApplication/Common",
+      "model": "keyValueApplication",
+      "key": "keyValueApplicationId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "KeyValueSection/Common",
+      "model": "keyValueSection",
+      "key": "keyValueSectionId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "KeyValueWorkflow/Common",
+      "model": "keyValueWorkflow",
+      "key": "keyValueWorkflowId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
       "folder": "AccessWay/Common",
       "model": "accessWay",
       "key": "accessWayId",

@@ -23,6 +23,10 @@ import { buildModel as buildGeneralLogModel } from './generalLog';
 import { buildModel as buildHostServiceModel } from './hostService';
 import { buildModel as buildHostServiceLogModel } from './hostServiceLog';
 import { buildModel as buildInternalTesterModel } from './internalTester';
+import { buildModel as buildKeyValueApplicationModel } from './keyValueApplication';
+import { buildModel as buildKeyValueInfrastructureModel } from './keyValueInfrastructure';
+import { buildModel as buildKeyValueSectionModel } from './keyValueSection';
+import { buildModel as buildKeyValueWorkflowModel } from './keyValueWorkflow';
 import { buildModel as buildMasterManagerModel } from './masterManager';
 import { buildModel as buildMasterManagerLoginLogModel } from './masterManagerLoginLog';
 import { buildModel as buildMetaDataModel } from './metaData';
@@ -101,6 +105,10 @@ export function listModelBuilder() {
     buildHostServiceModel,
     buildHostServiceLogModel,
     buildInternalTesterModel,
+    buildKeyValueApplicationModel,
+    buildKeyValueInfrastructureModel,
+    buildKeyValueSectionModel,
+    buildKeyValueWorkflowModel,
     buildMasterManagerModel,
     buildMasterManagerLoginLogModel,
     buildMetaDataModel,

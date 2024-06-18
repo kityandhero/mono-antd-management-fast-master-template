@@ -1,6 +1,34 @@
 {
   "list": [
     {
+      "folder": "KeyValueInfrastructure/PageList",
+      "model": "keyValueInfrastructure",
+      "key": "keyValueInfrastructureId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "KeyValueApplication/PageList",
+      "model": "keyValueApplication",
+      "key": "keyValueApplicationId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "KeyValueSection/PageList",
+      "model": "keyValueSection",
+      "key": "keyValueSectionId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "KeyValueWorkflow/PageList",
+      "model": "keyValueWorkflow",
+      "key": "keyValueWorkflowId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "AccessWay/PageList",
       "model": "accessWay",
       "key": "accessWayId",

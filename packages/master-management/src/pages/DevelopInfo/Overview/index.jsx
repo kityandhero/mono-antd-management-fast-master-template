@@ -9,6 +9,8 @@ import { DataTabContainerSupplement } from '../../../customSpecialComponents';
   schedulingControl,
 }))
 class Detail extends DataTabContainerSupplement {
+  showReloadButton = false;
+
   loadRemoteRequestAfterMount = false;
 
   componentAuthority = accessWayCollection.accessWay.get.permission;
@@ -16,13 +18,24 @@ class Detail extends DataTabContainerSupplement {
   tabList = [
     {
       key: 'actionMap',
-      hidden: !checkHasAuthority(accessWayCollection.accessWay.get.permission),
+      hidden: !checkHasAuthority(
+        accessWayCollection.accessWay.getActionMap.permission,
+      ),
       tab: 'Action Map',
     },
     {
       key: 'modelConfig',
-      hidden: !checkHasAuthority(accessWayCollection.accessWay.get.permission),
+      hidden: !checkHasAuthority(
+        accessWayCollection.accessWay.getAllModelConfigFileContent.permission,
+      ),
       tab: 'Model配置文件',
+    },
+    {
+      key: 'permissionContent',
+      hidden: !checkHasAuthority(
+        accessWayCollection.accessWay.getPermissionFileContent.permission,
+      ),
+      tab: '权限键值集合',
     },
   ];
 
