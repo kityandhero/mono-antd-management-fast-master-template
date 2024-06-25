@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'easy-soft-dva';
-import { checkHasAuthority } from 'easy-soft-utility';
+import { checkHasAuthority, showSimpleErrorMessage } from 'easy-soft-utility';
 
 import { searchCardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
@@ -55,6 +55,7 @@ class PageList extends MultiPage {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }

@@ -3,6 +3,7 @@ import {
   checkHasAuthority,
   convertCollection,
   getValueByKey,
+  showSimpleErrorMessage,
 } from 'easy-soft-utility';
 
 import { getDerivedStateFromPropertiesForUrlParameters } from 'antd-management-fast-common';
@@ -211,6 +212,7 @@ class Edit extends DataTabContainerSupplement {
           }
 
           default: {
+            showSimpleErrorMessage('can not find matched key');
             break;
           }
         }
@@ -289,7 +291,7 @@ class Edit extends DataTabContainerSupplement {
           value: getValueByKey({
             data: metaData,
             key: fieldData.channel.name,
-            convert: convertCollection.number,
+            convert: convertCollection.string,
           }),
         }),
       },

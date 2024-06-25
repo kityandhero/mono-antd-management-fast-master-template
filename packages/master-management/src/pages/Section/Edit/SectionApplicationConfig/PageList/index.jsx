@@ -1,7 +1,11 @@
 import React from 'react';
 
 import { connect } from 'easy-soft-dva';
-import { checkHasAuthority, getValueByKey } from 'easy-soft-utility';
+import {
+  checkHasAuthority,
+  getValueByKey,
+  showSimpleErrorMessage,
+} from 'easy-soft-utility';
 
 import {
   cardConfig,
@@ -97,6 +101,7 @@ class Index extends InnerMultiPage {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }

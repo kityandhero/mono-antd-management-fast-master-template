@@ -1,5 +1,9 @@
 import { connect } from 'easy-soft-dva';
-import { checkHasAuthority, getValueByKey } from 'easy-soft-utility';
+import {
+  checkHasAuthority,
+  getValueByKey,
+  showSimpleErrorMessage,
+} from 'easy-soft-utility';
 
 import {
   columnFacadeMode,
@@ -56,6 +60,7 @@ class PageList extends InnerMultiPage {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }

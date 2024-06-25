@@ -1,6 +1,48 @@
 {
   "list": [
     {
+      "folder": "PresetQuestion/Common",
+      "model": "presetQuestion",
+      "key": "presetQuestionId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "PresetQuestionItem/Common",
+      "model": "presetQuestionItem",
+      "key": "presetQuestionItemId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "Question/Common",
+      "model": "question",
+      "key": "questionId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "QuestionItem/Common",
+      "model": "questionItem",
+      "key": "questionItemId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "Questionnaire/Common",
+      "model": "questionnaire",
+      "key": "questionnaireId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "QuestionnaireResult/Common",
+      "model": "questionnaireResult",
+      "key": "questionnaireResultId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
       "folder": "KeyValueInfrastructure/Common",
       "model": "keyValueInfrastructure",
       "key": "keyValueInfrastructureId",

@@ -46,6 +46,7 @@ class PermissionFileContentDrawer extends BaseVerticalFlexDrawer {
     d[fieldData.channel.name] = getValueByKey({
       data: externalData,
       key: fieldData.channel.name,
+      convert: convertCollection.string,
     });
 
     return d;

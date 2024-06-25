@@ -6,6 +6,7 @@ import {
   convertCollection,
   getValueByKey,
   handleItem,
+  showSimpleErrorMessage,
 } from 'easy-soft-utility';
 
 import {
@@ -111,6 +112,7 @@ class Index extends InnerMultiPage {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }

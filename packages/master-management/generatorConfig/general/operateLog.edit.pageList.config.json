@@ -1,6 +1,42 @@
 {
   "list": [
     {
+      "folder": "PresetQuestion/Edit/OperateLog/PageList",
+      "model": "presetQuestion",
+      "key": "presetQuestionId",
+      "coverFile": true
+    },
+    {
+      "folder": "PresetQuestionItem/Edit/OperateLog/PageList",
+      "model": "presetQuestionItem",
+      "key": "presetQuestionItemId",
+      "coverFile": true
+    },
+    {
+      "folder": "Question/Edit/OperateLog/PageList",
+      "model": "question",
+      "key": "questionId",
+      "coverFile": true
+    },
+    {
+      "folder": "QuestionItem/Edit/OperateLog/PageList",
+      "model": "questionItem",
+      "key": "questionItemId",
+      "coverFile": true
+    },
+    {
+      "folder": "Questionnaire/Edit/OperateLog/PageList",
+      "model": "questionnaire",
+      "key": "questionnaireId",
+      "coverFile": true
+    },
+    {
+      "folder": "QuestionnaireResult/Edit/OperateLog/PageList",
+      "model": "questionnaireResult",
+      "key": "questionnaireResultId",
+      "coverFile": true
+    },
+    {
       "folder": "Application/Edit/OperateLog/PageList",
       "model": "application",
       "key": "applicationId",

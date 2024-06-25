@@ -1,6 +1,48 @@
 {
   "list": [
     {
+      "folder": "PresetQuestion/Assist",
+      "model": "presetQuestion",
+      "key": "presetQuestionId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
+      "folder": "PresetQuestionItem/Assist",
+      "model": "presetQuestionItem",
+      "key": "presetQuestionItemId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
+      "folder": "Question/Assist",
+      "model": "question",
+      "key": "questionId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
+      "folder": "QuestionItem/Assist",
+      "model": "questionItem",
+      "key": "questionItemId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
+      "folder": "Questionnaire/Assist",
+      "model": "questionnaire",
+      "key": "questionnaireId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
+      "folder": "QuestionnaireResult/Assist",
+      "model": "questionnaireResult",
+      "key": "questionnaireResultId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
       "folder": "KeyValueInfrastructure/Assist",
       "model": "keyValueInfrastructure",
       "key": "keyValueInfrastructureId",

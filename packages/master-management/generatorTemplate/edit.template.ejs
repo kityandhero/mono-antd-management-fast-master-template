@@ -210,6 +210,7 @@ class Edit extends DataTabContainerSupplement {
           }
 
           default: {
+            showSimpleErrorMessage('can not find matched key');
             break;
           }
         }
@@ -232,7 +233,7 @@ class Edit extends DataTabContainerSupplement {
 
     return {
       textLabel: fieldData.status.label,
-      text: getPresetRoleStatusName({
+      text: get<%= o.name %>StatusName({
         value: getValueByKey({
           data: metaData,
           key: fieldData.status.name,
@@ -265,7 +266,7 @@ class Edit extends DataTabContainerSupplement {
           value: getValueByKey({
             data: metaData,
             key: fieldData.channel.name,
-            convert: convertCollection.number,
+            convert: convertCollection.string,
           }),
         }),
       },

@@ -2279,6 +2279,174 @@
       "apis": [
         {
           "title": "分页列表",
+          "api": "/presetQuestion/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/presetQuestion/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新建",
+          "api": "/presetQuestion/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑基本信息",
+          "api": "/presetQuestion/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置适用业务",
+          "api": "/presetQuestion/updateBusinessMode",
+          "effect": "updateBusinessMode",
+          "service": "updateBusinessModeData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为上线",
+          "api": "/presetQuestion/setOnline",
+          "effect": "setOnline",
+          "service": "setOnlineData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为下线",
+          "api": "/presetQuestion/setOffline",
+          "effect": "setOffline",
+          "service": "setOfflineData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/presetQuestion/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/presetQuestion/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/presetQuestion/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        },
+        {
+          "title": "",
+          "api": "/presetQuestion/uploadImage",
+          "effect": "uploadImage",
+          "service": "uploadImageData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "预设问题",
+      "name": "presetQuestion"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/presetQuestionItem/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/presetQuestionItem/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新建",
+          "api": "/presetQuestionItem/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑基本信息",
+          "api": "/presetQuestionItem/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新排序值",
+          "api": "/presetQuestionItem/updateSort",
+          "effect": "updateSort",
+          "service": "updateSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为启用",
+          "api": "/presetQuestionItem/setEnable",
+          "effect": "setEnable",
+          "service": "setEnableData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为禁用",
+          "api": "/presetQuestionItem/setDisable",
+          "effect": "setDisable",
+          "service": "setDisableData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/presetQuestionItem/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/presetQuestionItem/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/presetQuestionItem/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        },
+        {
+          "title": "",
+          "api": "/presetQuestionItem/uploadImage",
+          "effect": "uploadImage",
+          "service": "uploadImageData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "问题选项",
+      "name": "presetQuestionItem"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
           "api": "/presetRole/pageList",
           "effect": "pageList",
           "service": "pageListData",
@@ -2640,6 +2808,13 @@
           "effect": "refreshCache",
           "service": "refreshCacheData",
           "type": "singleData"
+        },
+        {
+          "title": "",
+          "api": "/question/uploadImage",
+          "effect": "uploadImage",
+          "service": "uploadImageData",
+          "type": "singleData"
         }
       ],
       "cover": true,
@@ -2709,6 +2884,13 @@
           "api": "/questionItem/refreshCache",
           "effect": "refreshCache",
           "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "",
+          "api": "/questionItem/uploadImage",
+          "effect": "uploadImage",
+          "service": "uploadImageData",
           "type": "singleData"
         }
       ],

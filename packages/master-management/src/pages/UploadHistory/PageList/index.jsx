@@ -2,6 +2,7 @@ import { connect } from 'easy-soft-dva';
 import {
   buildRandomHexColor,
   checkHasAuthority,
+  showSimpleErrorMessage,
   toNumber,
 } from 'easy-soft-utility';
 
@@ -66,6 +67,7 @@ class PageList extends MultiPage {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }

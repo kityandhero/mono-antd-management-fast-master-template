@@ -4,6 +4,7 @@ import {
   checkStringIsNullOrWhiteSpace,
   convertCollection,
   getValueByKey,
+  showSimpleErrorMessage,
   whetherNumber,
 } from 'easy-soft-utility';
 
@@ -431,6 +432,7 @@ class Edit extends DataTabContainerSupplement {
           }
 
           default: {
+            showSimpleErrorMessage('can not find matched key');
             break;
           }
         }

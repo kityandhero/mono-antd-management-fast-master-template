@@ -89,6 +89,7 @@ class Index extends MultiPage {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }

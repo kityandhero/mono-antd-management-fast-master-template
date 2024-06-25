@@ -101,6 +101,7 @@ class PageList extends InnerMultiPage {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }

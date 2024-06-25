@@ -81,6 +81,41 @@
       "name": "status"
     },
     {
+      "functionSegment": "PresetQuestionType",
+      "label": "类型",
+      "name": "type"
+    },
+    {
+      "functionSegment": "PresetQuestionStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "PresetQuestionItemStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "QuestionType",
+      "label": "类型",
+      "name": "type"
+    },
+    {
+      "functionSegment": "QuestionStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "QuestionItemStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "QuestionnaireStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
       "functionSegment": "FlowApproveAction",
       "label": "审批动作",
       "name": "approveAction"

@@ -1,6 +1,48 @@
 {
   "list": [
     {
+      "folder": "PresetQuestion/PageList",
+      "model": "presetQuestion",
+      "key": "presetQuestionId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "PresetQuestionItem/PageList",
+      "model": "presetQuestionItem",
+      "key": "presetQuestionItemId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "Question/PageList",
+      "model": "question",
+      "key": "questionId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "QuestionItem/PageList",
+      "model": "questionItem",
+      "key": "questionItemId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "Questionnaire/PageList",
+      "model": "questionnaire",
+      "key": "questionnaireId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "QuestionnaireResult/PageList",
+      "model": "questionnaireResult",
+      "key": "questionnaireResultId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "KeyValueInfrastructure/PageList",
       "model": "keyValueInfrastructure",
       "key": "keyValueInfrastructureId",
@@ -204,7 +246,14 @@
       "coverFile": false
     },
     {
-      "folder": "SqlLog/PageList",
+      "folder": "SqlLog/PageListBusiness",
+      "model": "SqlLog",
+      "key": "sqlLogId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "SqlLog/PageListInfrastructure",
       "model": "SqlLog",
       "key": "sqlLogId",
       "fileName": "index.jsx",

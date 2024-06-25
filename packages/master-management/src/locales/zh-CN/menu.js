@@ -271,6 +271,43 @@ export default {
   'menu.news.section.edit.operateLog': '操作日志',
   'menu.news.section.edit.operateLog.pageList': '日志列表',
 
+  'menu.survey': '问卷相关',
+  'menu.survey-mini': '问卷',
+
+  'menu.survey.presetQuestion': '预设问题管理',
+  'menu.survey.presetQuestion-mini': '预设问题',
+  'menu.survey.presetQuestion.pageList': '分页列表',
+  'menu.survey.presetQuestion.pageList-mini': '列表',
+  'menu.survey.presetQuestion.edit': '预设问题详情',
+  'menu.survey.presetQuestion.edit.basicInfo': '基本信息',
+  'menu.survey.presetQuestion.edit.items': '选项列表',
+  'menu.survey.presetQuestion.edit.items.pageList': '选项列表',
+  'menu.survey.presetQuestion.edit.operateLog': '操作日志',
+  'menu.survey.presetQuestion.edit.operateLog.pageList': '日志列表',
+
+  'menu.survey.presetQuestionItem': '预设问题项管理',
+  'menu.survey.presetQuestionItem-mini': '预设问题项',
+  'menu.survey.presetQuestionItem.pageList': '分页列表',
+  'menu.survey.presetQuestionItem.pageList-mini': '列表',
+
+  'menu.survey.question': '问题管理',
+  'menu.survey.question-mni': '问题',
+  'menu.survey.question.pageList': '分页列表',
+  'menu.survey.question.pageList-mini': '列表',
+  'menu.survey.question.edit': '问题详情',
+  'menu.survey.question.edit.basicInfo': '基本信息',
+  'menu.survey.question.edit.operateLog': '操作日志',
+  'menu.survey.question.edit.operateLog.pageList': '日志列表',
+
+  'menu.survey.questionItem': '问题项管理',
+  'menu.survey.questionItem-mini': '问题项',
+  'menu.survey.questionItem.pageList': '分页列表',
+  'menu.survey.questionItem.pageList-mini': '列表',
+  'menu.survey.questionItem.edit': '问题项详情',
+  'menu.survey.questionItem.edit.basicInfo': '基本信息',
+  'menu.survey.questionItem.edit.operateLog': '操作日志',
+  'menu.survey.questionItem.edit.operateLog.pageList': '日志列表',
+
   'menu.person': '用户相关',
   'menu.person-mini': '用户',
 

@@ -1,6 +1,48 @@
 {
   "list": [
     {
+      "folder": "PresetQuestion/Edit/BasicInfo",
+      "model": "presetQuestion",
+      "key": "presetQuestionId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "PresetQuestionItem/Edit/BasicInfo",
+      "model": "presetQuestionItem",
+      "key": "presetQuestionItemId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "Question/Edit/BasicInfo",
+      "model": "question",
+      "key": "questionId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "QuestionItem/Edit/BasicInfo",
+      "model": "questionItem",
+      "key": "questionItemId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "Questionnaire/Edit/BasicInfo",
+      "model": "questionnaire",
+      "key": "questionnaireId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "QuestionnaireResult/Edit/BasicInfo",
+      "model": "questionnaireResult",
+      "key": "questionnaireResultId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "Application/Edit/BasicInfo",
       "model": "application",
       "key": "applicationId",

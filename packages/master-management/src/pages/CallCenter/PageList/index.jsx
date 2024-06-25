@@ -5,6 +5,7 @@ import {
   convertCollection,
   getValueByKey,
   handleItem,
+  showSimpleErrorMessage,
   toString,
 } from 'easy-soft-utility';
 
@@ -140,6 +141,7 @@ class PageList extends MultiPage {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }

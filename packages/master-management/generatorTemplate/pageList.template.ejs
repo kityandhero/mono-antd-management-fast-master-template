@@ -47,6 +47,7 @@ class PageList extends MultiPage {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }
@@ -63,6 +64,7 @@ class PageList extends MultiPage {
     const <%= o.key%> = getValueByKey({
       data: record,
       key: fieldData.<%= o.key%>.name,
+      defaultValue: '',
     });
 
     this.goToPath(`/<%= o.model%>/edit/load/${<%= o.key%>}/key/basicInfo`);

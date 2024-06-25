@@ -4,6 +4,7 @@ import {
   checkStringIsNullOrWhiteSpace,
   convertCollection,
   getValueByKey,
+  showSimpleErrorMessage,
 } from 'easy-soft-utility';
 
 import {
@@ -110,6 +111,7 @@ class Detail extends DataTabContainerSupplement {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }
@@ -245,6 +247,7 @@ class Detail extends DataTabContainerSupplement {
           }
 
           default: {
+            showSimpleErrorMessage('can not find matched key');
             break;
           }
         }

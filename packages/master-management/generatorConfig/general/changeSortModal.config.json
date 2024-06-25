@@ -1,6 +1,22 @@
 {
   "list": [
     {
+      "folder": "Questionnaire/ChangeSortModal",
+      "model": "questionnaire",
+      "key": "questionnaireId",
+      "visibleFlag": "50ab68a174d54706b012005b3aeccf36",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "QuestionnaireResult/ChangeSortModal",
+      "model": "questionnaireResult",
+      "key": "questionnaireResultId",
+      "visibleFlag": "935c0b8a9ba24f1f897ced3e72851562",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "EmailSenderAgent/ChangeSortModal",
       "model": "emailSenderAgent",
       "key": "emailSenderAgentId",

@@ -956,6 +956,7 @@ class DebugCaseInfo extends TabPageBase {
                     value: getValueByKey({
                       data: metaData,
                       key: fieldData.channel.name,
+                      convert: convertCollection.string,
                     }),
                     defaultValue: '暂无',
                   }),

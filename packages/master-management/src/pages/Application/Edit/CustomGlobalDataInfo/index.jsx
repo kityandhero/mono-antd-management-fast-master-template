@@ -5,6 +5,7 @@ import {
   checkHasAuthority,
   checkStringIsNullOrWhiteSpace,
   getValueByKey,
+  showSimpleErrorMessage,
 } from 'easy-soft-utility';
 
 import {
@@ -174,6 +175,7 @@ class BasicInfo extends TabPageBase {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }

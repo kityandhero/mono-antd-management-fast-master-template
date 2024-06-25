@@ -3,6 +3,7 @@ import {
   checkHasAuthority,
   convertCollection,
   getValueByKey,
+  showSimpleErrorMessage,
 } from 'easy-soft-utility';
 
 import { getDerivedStateFromPropertiesForUrlParameters } from 'antd-management-fast-common';
@@ -106,6 +107,7 @@ class Detail extends DataTabContainerSupplement {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }
@@ -222,6 +224,7 @@ class Detail extends DataTabContainerSupplement {
           }
 
           default: {
+            showSimpleErrorMessage('can not find matched key');
             break;
           }
         }

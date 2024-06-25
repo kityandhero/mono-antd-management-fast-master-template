@@ -9,6 +9,7 @@ import {
   convertCollection,
   getValueByKey,
   isArray,
+  showSimpleErrorMessage,
   sortCollectionByKey,
 } from 'easy-soft-utility';
 
@@ -193,6 +194,7 @@ class MediaInfo extends TabPageBase {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }

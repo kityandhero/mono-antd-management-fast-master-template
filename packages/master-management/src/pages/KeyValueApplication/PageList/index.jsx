@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'easy-soft-dva';
-import { checkHasAuthority } from 'easy-soft-utility';
+import { checkHasAuthority, showSimpleErrorMessage } from 'easy-soft-utility';
 
 import {
   columnFacadeMode,
@@ -47,6 +47,7 @@ class PageList extends MultiPage {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }

@@ -52,6 +52,7 @@ class ModuleInfoBase extends InnerSinglePage {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }

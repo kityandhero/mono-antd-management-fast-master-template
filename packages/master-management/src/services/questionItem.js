@@ -80,3 +80,12 @@ export async function refreshCacheData(parameters) {
     params: parameters,
   });
 }
+
+export const uploadImageDataApiAddress = '/questionItem/uploadImage';
+
+export async function uploadImageData(parameters) {
+  return request({
+    api: uploadImageDataApiAddress,
+    params: parameters,
+  });
+}

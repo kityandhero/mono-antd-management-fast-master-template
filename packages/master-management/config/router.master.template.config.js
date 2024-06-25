@@ -808,6 +808,261 @@ export const emailSenderAgent = {
   ],
 };
 
+export const presetQuestion = {
+  name: 'presetQuestion',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/survey/presetQuestion',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.presetQuestion.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/survey/presetQuestion',
+      redirect: '/survey/presetQuestion/pageList',
+    },
+    {
+      path: '/survey/presetQuestion/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/survey/presetQuestion/pageList/no',
+    },
+    {
+      path: '/survey/presetQuestion/pageList/:pageKey',
+      hideInMenu: true,
+      component: './PresetQuestion/PageList',
+    },
+    {
+      path: '/survey/presetQuestion/edit/:op/:id/:pageKey',
+      name: 'edit',
+      hideInMenu: true,
+      component: './PresetQuestion/Edit',
+      routes: [
+        {
+          path: '/survey/presetQuestion/edit/:op/:id/:pageKey/basicInfo',
+          name: 'basicInfo',
+          component: './PresetQuestion/Edit/BasicInfo',
+        },
+        {
+          path: '/survey/presetQuestion/edit/:op/:id/:pageKey/items',
+          name: 'items',
+          routes: [
+            {
+              path: '/survey/presetQuestion/edit/:op/:id/:pageKey/items',
+              redirect:
+                '/survey/presetQuestion/edit/:op/:id/:pageKey/items/pageList',
+            },
+            {
+              path: '/survey/presetQuestion/edit/:op/:id/:pageKey/items/pageList',
+              component: './PresetQuestion/Edit/Items/PageList',
+            },
+          ],
+        },
+        {
+          path: '/survey/presetQuestion/edit/:op/:id/:pageKey/operateLog',
+          name: 'operateLog',
+          routes: [
+            {
+              path: '/survey/presetQuestion/edit/:op/:id/:pageKey/operateLog',
+              redirect:
+                '/survey/presetQuestion/edit/:op/:id/:pageKey/operateLog/pageList',
+            },
+            {
+              path: '/survey/presetQuestion/edit/:op/:id/:pageKey/operateLog/pageList',
+              component: './PresetQuestion/Edit/OperateLog/PageList',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+export const presetQuestionItem = {
+  name: 'presetQuestionItem',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/survey/presetQuestionItem',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.presetQuestion.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/survey/presetQuestionItem',
+      redirect: '/survey/presetQuestionItem/pageList',
+    },
+    {
+      path: '/survey/presetQuestionItem/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/survey/presetQuestionItem/pageList/no',
+    },
+    {
+      path: '/survey/presetQuestionItem/pageList/:pageKey',
+      hideInMenu: true,
+      component: './PresetQuestionItem/PageList',
+    },
+    {
+      path: '/survey/presetQuestionItem/edit/:op/:id/:pageKey',
+      name: 'edit',
+      hideInMenu: true,
+      component: './PresetQuestionItem/Edit',
+      routes: [
+        {
+          path: '/survey/presetQuestionItem/edit/:op/:id/:pageKey/basicInfo',
+          name: 'basicInfo',
+          component: './PresetQuestionItem/Edit/BasicInfo',
+        },
+        {
+          path: '/survey/presetQuestionItem/edit/:op/:id/:pageKey/operateLog',
+          name: 'operateLog',
+          routes: [
+            {
+              path: '/survey/presetQuestionItem/edit/:op/:id/:pageKey/operateLog',
+              redirect:
+                '/survey/presetQuestionItem/edit/:op/:id/:pageKey/operateLog/pageList',
+            },
+            {
+              path: '/survey/presetQuestionItem/edit/:op/:id/:pageKey/operateLog/pageList',
+              component: './PresetQuestionItem/Edit/OperateLog/PageList',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+export const question = {
+  name: 'question',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/survey/question',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.question.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/survey/question',
+      redirect: '/survey/question/pageList',
+    },
+    {
+      path: '/survey/question/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/survey/question/pageList/no',
+    },
+    {
+      path: '/survey/question/pageList/:pageKey',
+      hideInMenu: true,
+      component: './Question/PageList',
+    },
+    {
+      path: '/survey/question/edit/:op/:id/:pageKey',
+      name: 'edit',
+      hideInMenu: true,
+      component: './Question/Edit',
+      routes: [
+        {
+          path: '/survey/question/edit/:op/:id/:pageKey/basicInfo',
+          name: 'basicInfo',
+          component: './Question/Edit/BasicInfo',
+        },
+        {
+          path: '/survey/question/edit/:op/:id/:pageKey/operateLog',
+          name: 'operateLog',
+          routes: [
+            {
+              path: '/survey/question/edit/:op/:id/:pageKey/operateLog',
+              redirect:
+                '/survey/question/edit/:op/:id/:pageKey/operateLog/pageList',
+            },
+            {
+              path: '/survey/question/edit/:op/:id/:pageKey/operateLog/pageList',
+              component: './Question/Edit/OperateLog/PageList',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+export const questionItem = {
+  name: 'questionItem',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/survey/questionItem',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.question.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/survey/questionItem',
+      redirect: '/survey/questionItem/pageList',
+    },
+    {
+      path: '/survey/questionItem/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/survey/questionItem/pageList/no',
+    },
+    {
+      path: '/survey/questionItem/pageList/:pageKey',
+      hideInMenu: true,
+      component: './QuestionItem/PageList',
+    },
+    {
+      path: '/survey/questionItem/edit/:op/:id/:pageKey',
+      name: 'edit',
+      hideInMenu: true,
+      component: './QuestionItem/Edit',
+      routes: [
+        {
+          path: '/survey/questionItem/edit/:op/:id/:pageKey/basicInfo',
+          name: 'basicInfo',
+          component: './QuestionItem/Edit/BasicInfo',
+        },
+        {
+          path: '/survey/questionItem/edit/:op/:id/:pageKey/operateLog',
+          name: 'operateLog',
+          routes: [
+            {
+              path: '/survey/questionItem/edit/:op/:id/:pageKey/operateLog',
+              redirect:
+                '/survey/questionItem/edit/:op/:id/:pageKey/operateLog/pageList',
+            },
+            {
+              path: '/survey/questionItem/edit/:op/:id/:pageKey/operateLog/pageList',
+              component: './QuestionItem/Edit/OperateLog/PageList',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+export const survey = {
+  name: 'survey',
+  icon: 'reconciliation',
+  path: '/survey',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.question.pageList.permission,
+  ],
+  routes: [presetQuestion, presetQuestionItem, question, questionItem],
+};
+
 export const files = {
   name: 'files',
   icon: 'reconciliation',

@@ -1,7 +1,56 @@
 {
   "list": [
     {
+      "folder": "PresetQuestion/Edit",
+      "name": "PresetQuestion",
+      "model": "presetQuestion",
+      "key": "presetQuestionId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "PresetQuestionItem/Edit",
+      "name": "PresetQuestionItem",
+      "model": "presetQuestionItem",
+      "key": "presetQuestionItemId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "Question/Edit",
+      "name": "Question",
+      "model": "question",
+      "key": "questionId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "QuestionItem/Edit",
+      "name": "QuestionItem",
+      "model": "questionItem",
+      "key": "questionItemId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "Questionnaire/Edit",
+      "name": "Questionnaire",
+      "model": "questionnaire",
+      "key": "questionnaireId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "QuestionnaireResult/Edit",
+      "name": "QuestionnaireResult",
+      "model": "questionnaireResult",
+      "key": "questionnaireResultId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "Application/Edit",
+      "name": "Application",
       "model": "application",
       "key": "applicationId",
       "fileName": "index.jsx",
@@ -9,6 +58,7 @@
     },
     {
       "folder": "ApplicationSource/Edit",
+      "name": "ApplicationSource",
       "model": "applicationSource",
       "key": "applicationSourceId",
       "fileName": "index.jsx",
@@ -16,6 +66,7 @@
     },
     {
       "folder": "CallCenter/Edit",
+      "name": "CallCenter",
       "model": "callCenter",
       "key": "callCenterId",
       "fileName": "index.jsx",
@@ -23,6 +74,7 @@
     },
     {
       "folder": "Department/Edit",
+      "name": "Department",
       "model": "department",
       "key": "departmentId",
       "fileName": "index.jsx",
@@ -30,6 +82,7 @@
     },
     {
       "folder": "Gallery/Edit",
+      "name": "Gallery",
       "model": "gallery",
       "key": "galleryId",
       "fileName": "index.jsx",
@@ -37,6 +90,7 @@
     },
     {
       "folder": "MasterManager/Edit",
+      "name": "MasterManager",
       "model": "masterManager",
       "key": "masterManagerId",
       "fileName": "index.jsx",
@@ -44,6 +98,7 @@
     },
     {
       "folder": "PresetRole/Edit",
+      "name": "PresetRole",
       "model": "presetRole",
       "key": "presetRoleId",
       "fileName": "index.jsx",
@@ -51,6 +106,7 @@
     },
     {
       "folder": "QrCode/Edit",
+      "name": "QrCode",
       "model": "qrCode",
       "key": "qrCodeId",
       "fileName": "index.jsx",
@@ -58,6 +114,7 @@
     },
     {
       "folder": "Section/Edit",
+      "name": "Section",
       "model": "section",
       "key": "sectionId",
       "fileName": "index.jsx",
@@ -65,6 +122,7 @@
     },
     {
       "folder": "Subsidiary/Edit",
+      "name": "Subsidiary",
       "model": "subsidiary",
       "key": "subsidiaryId",
       "fileName": "index.jsx",
@@ -72,6 +130,7 @@
     },
     {
       "folder": "Tag/Edit",
+      "name": "Tag",
       "model": "tag",
       "key": "tagId",
       "fileName": "index.jsx",
@@ -79,6 +138,7 @@
     },
     {
       "folder": "User/Edit",
+      "name": "User",
       "model": "user",
       "key": "userId",
       "fileName": "index.jsx",
@@ -86,6 +146,7 @@
     },
     {
       "folder": "UserDevice/Edit",
+      "name": "UserDevice",
       "model": "userDevice",
       "key": "userDeviceId",
       "fileName": "index.jsx",
@@ -93,6 +154,7 @@
     },
     {
       "folder": "Workflow/Edit",
+      "name": "Workflow",
       "model": "workflow",
       "key": "workflowId",
       "fileName": "index.jsx",
@@ -100,6 +162,7 @@
     },
     {
       "folder": "WorkflowCase/Edit",
+      "name": "WorkflowCase",
       "model": "workflowCase",
       "key": "workflowCaseId",
       "fileName": "index.jsx",

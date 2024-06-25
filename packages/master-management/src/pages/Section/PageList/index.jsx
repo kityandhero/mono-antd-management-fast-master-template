@@ -8,6 +8,7 @@ import {
   convertCollection,
   getValueByKey,
   handleItem,
+  showSimpleErrorMessage,
   toNumber,
   whetherNumber,
 } from 'easy-soft-utility';
@@ -116,6 +117,7 @@ class PageList extends MultiPage {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }
@@ -673,6 +675,7 @@ class PageList extends MultiPage {
             this.afterAddBasicInfoDrawerOk();
           }}
         />
+
         <ChangeSortModal
           externalData={currentRecord}
           afterOK={this.afterChangeSortModalOk}

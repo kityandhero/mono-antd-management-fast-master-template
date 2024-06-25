@@ -2,6 +2,7 @@ import { connect } from 'easy-soft-dva';
 import {
   getCurrentOperatorCache,
   getValueByKey,
+  showSimpleErrorMessage,
   toNumber,
 } from 'easy-soft-utility';
 
@@ -78,6 +79,7 @@ class Index extends MultiPage {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }

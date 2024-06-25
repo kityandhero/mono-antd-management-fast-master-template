@@ -5,6 +5,7 @@ import {
   convertCollection,
   getValueByKey,
   handleItem,
+  showSimpleErrorMessage,
   whetherNumber,
   whetherString,
 } from 'easy-soft-utility';
@@ -99,6 +100,7 @@ class PageListDrawer extends MultiPageDrawer {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }

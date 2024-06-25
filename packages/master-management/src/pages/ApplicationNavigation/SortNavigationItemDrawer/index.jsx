@@ -4,6 +4,7 @@ import {
   convertCollection,
   getValueByKey,
   isArray,
+  showSimpleErrorMessage,
   sortCollectionByKey,
   sortOperate,
 } from 'easy-soft-utility';
@@ -108,6 +109,7 @@ class SortNavigationItemDrawer extends BaseUpdateDrawer {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }

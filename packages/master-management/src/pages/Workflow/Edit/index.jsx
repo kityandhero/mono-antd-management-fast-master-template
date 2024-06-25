@@ -4,6 +4,7 @@ import {
   checkInCollection,
   convertCollection,
   getValueByKey,
+  showSimpleErrorMessage,
   whetherNumber,
 } from 'easy-soft-utility';
 
@@ -202,6 +203,7 @@ class Detail extends DataTabContainerSupplement {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }
@@ -484,6 +486,7 @@ class Detail extends DataTabContainerSupplement {
           }
 
           default: {
+            showSimpleErrorMessage('can not find matched key');
             break;
           }
         }

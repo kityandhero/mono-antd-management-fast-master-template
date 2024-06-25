@@ -1,5 +1,9 @@
 import { connect } from 'easy-soft-dva';
-import { convertCollection, getValueByKey } from 'easy-soft-utility';
+import {
+  convertCollection,
+  getValueByKey,
+  showSimpleErrorMessage,
+} from 'easy-soft-utility';
 
 import { getDerivedStateFromPropertiesForUrlParameters } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
@@ -236,6 +240,7 @@ class Edit extends DataTabContainerSupplement {
           }
 
           default: {
+            showSimpleErrorMessage('can not find matched key');
             break;
           }
         }

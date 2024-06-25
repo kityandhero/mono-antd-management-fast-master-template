@@ -24,6 +24,7 @@ import {
   result,
   services,
   sms,
+  survey,
   tag,
   user,
   userDevice,
@@ -189,6 +190,7 @@ export default [
       },
     ],
   },
+  survey,
   organization,
   flow,
   {

@@ -3,6 +3,7 @@ import {
   buildRandomHexColor,
   checkHasAuthority,
   getValueByKey,
+  showSimpleErrorMessage,
   toNumber,
 } from 'easy-soft-utility';
 
@@ -56,6 +57,7 @@ class PageList extends MultiPage {
       }
 
       default: {
+        showSimpleErrorMessage('can not find matched key');
         break;
       }
     }
