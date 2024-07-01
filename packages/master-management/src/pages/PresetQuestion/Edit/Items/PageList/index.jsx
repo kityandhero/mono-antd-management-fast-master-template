@@ -4,9 +4,6 @@ import { connect } from 'easy-soft-dva';
 import {
   buildRandomHexColor,
   checkHasAuthority,
-  convertCollection,
-  getValueByKey,
-  handleItem,
   showSimpleErrorMessage,
   toNumber,
 } from 'easy-soft-utility';
@@ -29,14 +26,10 @@ import { AddBasicInfoDrawer } from '../../../../PresetQuestionItem/AddBasicInfoD
 import {
   refreshCacheAction,
   removeAction,
-  setDisableAction,
-  setEnableAction,
 } from '../../../../PresetQuestionItem/Assist/action';
 import { getStatusBadge } from '../../../../PresetQuestionItem/Assist/tools';
-import {
-  fieldData,
-  statusCollection,
-} from '../../../../PresetQuestionItem/Common/data';
+import { fieldData } from '../../../../PresetQuestionItem/Common/data';
+import { OperateLogDrawer } from '../../../../PresetQuestionItem/OperateLogDrawer';
 import { UpdateBasicInfoDrawer } from '../../../../PresetQuestionItem/UpdateBasicInfoDrawer';
 import {
   checkNeedUpdateAssist,
@@ -58,7 +51,7 @@ class PageList extends InnerMultiPage {
   pageValues = {
     pageNo: 1,
     frontendPageNo: 1,
-    pageSize: 2,
+    pageSize: 10,
   };
 
   constructor(properties) {
@@ -97,18 +90,8 @@ class PageList extends InnerMultiPage {
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
-      case 'setEnable': {
-        this.setEnable(handleData);
-        break;
-      }
-
-      case 'setDisable': {
-        this.setDisable(handleData);
-        break;
-      }
-
-      case 'remove': {
-        this.remove(handleData);
+      case 'showOperateLog': {
+        this.showOperateLogDrawer(handleData);
         break;
       }
 
@@ -117,63 +100,16 @@ class PageList extends InnerMultiPage {
         break;
       }
 
+      case 'remove': {
+        this.remove(handleData);
+        break;
+      }
+
       default: {
         showSimpleErrorMessage('can not find matched key');
         break;
       }
     }
-  };
-
-  handleItemStatus = ({ target, handleData, remoteData }) => {
-    const id = getValueByKey({
-      data: handleData,
-      key: fieldData.presetQuestionItemId.name,
-      defaultValue: '',
-    });
-
-    handleItem({
-      target,
-      value: id,
-      compareValueHandler: (o) => {
-        const v = getValueByKey({
-          data: o,
-          key: fieldData.presetQuestionItemId.name,
-          defaultValue: '',
-        });
-
-        return v;
-      },
-      handler: (d) => {
-        const o = d;
-
-        o[fieldData.status.name] = getValueByKey({
-          data: remoteData,
-          key: fieldData.status.name,
-        });
-
-        return d;
-      },
-    });
-  };
-
-  setEnable = (record) => {
-    setEnableAction({
-      target: this,
-      handleData: record,
-      successCallback: ({ target, handleData, remoteData }) => {
-        target.handleItemStatus({ target, handleData, remoteData });
-      },
-    });
-  };
-
-  setDisable = (record) => {
-    setDisableAction({
-      target: this,
-      handleData: record,
-      successCallback: ({ target, handleData, remoteData }) => {
-        target.handleItemStatus({ target, handleData, remoteData });
-      },
-    });
   };
 
   remove = (record) => {
@@ -216,6 +152,17 @@ class PageList extends InnerMultiPage {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
+  showOperateLogDrawer = (record) => {
+    this.setState(
+      {
+        currentRecord: record,
+      },
+      () => {
+        OperateLogDrawer.open();
+      },
+    );
+  };
+
   fillSearchCardInitialValues = () => {
     const values = {};
 
@@ -228,7 +175,7 @@ class PageList extends InnerMultiPage {
         {
           lg: 6,
           type: searchCardConfig.contentItemType.input,
-          fieldData: fieldData.name,
+          fieldData: fieldData.title,
         },
         {
           lg: 6,
@@ -258,12 +205,6 @@ class PageList extends InnerMultiPage {
   };
 
   establishListItemDropdownConfig = (item) => {
-    const itemStatus = getValueByKey({
-      data: item,
-      key: fieldData.status.name,
-      convert: convertCollection.number,
-    });
-
     return {
       size: 'small',
       text: '修改',
@@ -280,35 +221,25 @@ class PageList extends InnerMultiPage {
       },
       items: [
         {
-          key: 'setEnable',
-          icon: iconBuilder.upload(),
-          text: '设为启用',
-          hidden: !checkHasAuthority(
-            accessWayCollection.presetQuestionItem.setEnable.permission,
-          ),
-          disabled: itemStatus === statusCollection.enable,
-          confirm: {
-            title: '即将设为上线，确定吗？',
-          },
-        },
-        {
-          key: 'setDisable',
-          icon: iconBuilder.download(),
-          text: '设为禁用',
-          hidden: !checkHasAuthority(
-            accessWayCollection.presetQuestionItem.setDisable.permission,
-          ),
-          disabled: itemStatus === statusCollection.disable,
-          confirm: {
-            title: '即将设为下线，确定吗？',
-          },
-        },
-        {
+          key: 'showOperateLog',
           withDivider: true,
           uponDivider: true,
+          icon: iconBuilder.read(),
+          text: '操作日志',
+          hidden: !checkHasAuthority(
+            accessWayCollection.presetQuestionItem.pageListOperateLog
+              .permission,
+          ),
+        },
+        {
           key: 'remove',
+          withDivider: true,
+          uponDivider: true,
           icon: iconBuilder.delete(),
           text: '移除数据',
+          hidden: !checkHasAuthority(
+            accessWayCollection.presetQuestionItem.remove.permission,
+          ),
           confirm: true,
           title: '将要移除数据，确定吗？',
         },
@@ -319,7 +250,7 @@ class PageList extends InnerMultiPage {
           icon: iconBuilder.reload(),
           text: '刷新缓存',
           hidden: !checkHasAuthority(
-            accessWayCollection.presetQuestion.refreshCache.permission,
+            accessWayCollection.presetQuestionItem.refreshCache.permission,
           ),
           confirm: true,
           title: '即将刷新缓存，确定吗？',
@@ -422,6 +353,8 @@ class PageList extends InnerMultiPage {
             this.afterUpdateBasicInfoDrawerOk();
           }}
         />
+
+        <OperateLogDrawer externalData={currentRecord} />
       </>
     );
   };

@@ -182,7 +182,7 @@ class Detail extends DataTabContainerSupplement {
           )
         ) {
           if (scope === flowEffectiveRangeCollection.rangeEffective) {
-            o.show = true;
+            o.hidden = false;
 
             result.push(o);
           }

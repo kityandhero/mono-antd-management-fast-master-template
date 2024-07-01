@@ -1,6 +1,13 @@
 {
   "list": [
     {
+      "folder": "PresetQuestionItem/OperateLogDrawer",
+      "model": "presetQuestionItem",
+      "key": "presetQuestionItemId",
+      "visibleFlag": "ac29eca188234fab81615a669e3c3266",
+      "coverFile": true
+    },
+    {
       "folder": "GalleryCategory/OperateLogDrawer",
       "model": "galleryCategory",
       "key": "galleryCategoryId",

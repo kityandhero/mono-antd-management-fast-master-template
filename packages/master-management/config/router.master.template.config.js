@@ -861,6 +861,11 @@ export const presetQuestion = {
           ],
         },
         {
+          path: '/survey/presetQuestion/edit/:op/:id/:pageKey/answerInfo',
+          name: 'answerInfo',
+          component: './PresetQuestion/Edit/AnswerInfo',
+        },
+        {
           path: '/survey/presetQuestion/edit/:op/:id/:pageKey/operateLog',
           name: 'operateLog',
           routes: [
@@ -905,34 +910,6 @@ export const presetQuestionItem = {
       path: '/survey/presetQuestionItem/pageList/:pageKey',
       hideInMenu: true,
       component: './PresetQuestionItem/PageList',
-    },
-    {
-      path: '/survey/presetQuestionItem/edit/:op/:id/:pageKey',
-      name: 'edit',
-      hideInMenu: true,
-      component: './PresetQuestionItem/Edit',
-      routes: [
-        {
-          path: '/survey/presetQuestionItem/edit/:op/:id/:pageKey/basicInfo',
-          name: 'basicInfo',
-          component: './PresetQuestionItem/Edit/BasicInfo',
-        },
-        {
-          path: '/survey/presetQuestionItem/edit/:op/:id/:pageKey/operateLog',
-          name: 'operateLog',
-          routes: [
-            {
-              path: '/survey/presetQuestionItem/edit/:op/:id/:pageKey/operateLog',
-              redirect:
-                '/survey/presetQuestionItem/edit/:op/:id/:pageKey/operateLog/pageList',
-            },
-            {
-              path: '/survey/presetQuestionItem/edit/:op/:id/:pageKey/operateLog/pageList',
-              component: './PresetQuestionItem/Edit/OperateLog/PageList',
-            },
-          ],
-        },
-      ],
     },
   ],
 };

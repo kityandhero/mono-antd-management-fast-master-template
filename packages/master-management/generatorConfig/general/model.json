@@ -2306,6 +2306,20 @@
           "type": "singleData"
         },
         {
+          "title": "设置判断结果",
+          "api": "/presetQuestion/updateWhetherCorrect",
+          "effect": "updateWhetherCorrect",
+          "service": "updateWhetherCorrectData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑答案解析",
+          "api": "/presetQuestion/updateAnswer",
+          "effect": "updateAnswer",
+          "service": "updateAnswerData",
+          "type": "singleData"
+        },
+        {
           "title": "设置适用业务",
           "api": "/presetQuestion/updateBusinessMode",
           "effect": "updateBusinessMode",
@@ -2338,6 +2352,13 @@
           "api": "/presetQuestion/refreshCache",
           "effect": "refreshCache",
           "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "题目练习",
+          "api": "/presetQuestion/practice",
+          "effect": "practice",
+          "service": "practiceData",
           "type": "singleData"
         },
         {
@@ -2394,20 +2415,6 @@
           "api": "/presetQuestionItem/updateSort",
           "effect": "updateSort",
           "service": "updateSortData",
-          "type": "singleData"
-        },
-        {
-          "title": "设为启用",
-          "api": "/presetQuestionItem/setEnable",
-          "effect": "setEnable",
-          "service": "setEnableData",
-          "type": "singleData"
-        },
-        {
-          "title": "设为禁用",
-          "api": "/presetQuestionItem/setDisable",
-          "effect": "setDisable",
-          "service": "setDisableData",
           "type": "singleData"
         },
         {

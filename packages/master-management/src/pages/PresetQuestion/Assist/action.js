@@ -16,6 +16,7 @@ export function setOnlineAction({
       presetQuestionId: getValueByKey({
         data: handleData,
         key: fieldData.presetQuestionId.name,
+        defaultValue: '',
       }),
     },
     target,
@@ -37,6 +38,7 @@ export function setOfflineAction({
       presetQuestionId: getValueByKey({
         data: handleData,
         key: fieldData.presetQuestionId.name,
+        defaultValue: '',
       }),
     },
     target,
@@ -58,6 +60,7 @@ export async function removeAction({
       presetQuestionId: getValueByKey({
         data: handleData,
         key: fieldData.presetQuestionId.name,
+        defaultValue: '',
       }),
     },
     target,
@@ -79,7 +82,26 @@ export async function refreshCacheAction({
       presetQuestionId: getValueByKey({
         data: handleData,
         key: fieldData.presetQuestionId.name,
+        defaultValue: '',
       }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export function practiceAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage = null,
+}) {
+  actionCore({
+    api: 'presetQuestion/practice',
+    params: {
+      ...handleData,
     },
     target,
     handleData,

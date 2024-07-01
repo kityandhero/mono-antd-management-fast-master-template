@@ -119,7 +119,7 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
           items: [
             {
               lg: 24,
-              type: cardConfig.contentItemType.input,
+              type: cardConfig.contentItemType.textarea,
               fieldData: fieldData.title,
               require: true,
             },

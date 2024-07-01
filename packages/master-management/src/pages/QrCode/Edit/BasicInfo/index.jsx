@@ -36,6 +36,7 @@ class Index extends TabPageBase {
       loadApiPath: 'qrCode/get',
       submitApiPath: 'qrCode/updateBasicInfo',
       qrCodeId: null,
+      image: '',
     };
   }
 

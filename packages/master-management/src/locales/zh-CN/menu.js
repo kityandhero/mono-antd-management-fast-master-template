@@ -282,6 +282,7 @@ export default {
   'menu.survey.presetQuestion.edit.basicInfo': '基本信息',
   'menu.survey.presetQuestion.edit.items': '选项列表',
   'menu.survey.presetQuestion.edit.items.pageList': '选项列表',
+  'menu.survey.presetQuestion.edit.answerInfo': '答案解析',
   'menu.survey.presetQuestion.edit.operateLog': '操作日志',
   'menu.survey.presetQuestion.edit.operateLog.pageList': '日志列表',
 

@@ -9,14 +9,6 @@
       "coverFile": false
     },
     {
-      "folder": "PresetQuestionItem/Edit",
-      "name": "PresetQuestionItem",
-      "model": "presetQuestionItem",
-      "key": "presetQuestionItemId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
       "folder": "Question/Edit",
       "name": "Question",
       "model": "question",

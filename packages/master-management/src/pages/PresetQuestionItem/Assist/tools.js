@@ -4,13 +4,8 @@ export function getStatusBadge(status) {
   let result = 'default';
 
   switch (status) {
-    case statusCollection.enable: {
+    case statusCollection.normal: {
       result = 'processing';
-      break;
-    }
-
-    case statusCollection.disable: {
-      result = 'warning';
       break;
     }
 

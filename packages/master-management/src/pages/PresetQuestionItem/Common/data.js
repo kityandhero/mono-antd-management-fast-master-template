@@ -53,14 +53,8 @@ export const fieldData = {
  */
 export const statusCollection = {
   /**
-   * 已禁用
-   * value : 0
-   */
-  disable: 0,
-
-  /**
-   * 已启用
+   * 正常
    * value : 100
    */
-  enable: 100,
+  normal: 100,
 };

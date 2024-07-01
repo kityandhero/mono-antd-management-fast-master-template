@@ -1497,6 +1497,16 @@ export const accessWayCollection = {
       paramsKey: 'd2c9dc764543ac021ce674ef0c1c7a4f',
       permission: 'f6df3f7093b340adb8b86b447ad94733',
     },
+    updateWhetherCorrect: {
+      title: '设置判断结果',
+      paramsKey: '35b6efea627ab59e29418f77ef22ba64',
+      permission: '0aee36f0c57b45819e48eaed7154cf71',
+    },
+    updateAnswer: {
+      title: '编辑答案解析',
+      paramsKey: 'b3b85b2141a064d924d87db19e2892df',
+      permission: '6124bbeb612449fd9cbfcc3599681b0f',
+    },
     updateBusinessMode: {
       title: '设置适用业务',
       paramsKey: '42de0a55289c226325cf789213ab72a1',
@@ -1521,6 +1531,11 @@ export const accessWayCollection = {
       title: '刷新缓存',
       paramsKey: 'a5e358d2d5791b41344db5c7578d7a10',
       permission: '58dcab0da12d4de195a1d41a736dd352',
+    },
+    practice: {
+      title: '题目练习',
+      paramsKey: 'e3bf54870ef287866059b2f768429b82',
+      permission: 'b335661075c845a78932da1961febeee',
     },
     pageListOperateLog: {
       title: '操作日志列表',
@@ -1553,16 +1568,6 @@ export const accessWayCollection = {
       title: '更新排序值',
       paramsKey: 'fdc672c143017571890dad51fc34be3c',
       permission: 'a830200f39754b5baf303e8cc4378c23',
-    },
-    setEnable: {
-      title: '设为启用',
-      paramsKey: '424e5220ac318b335acd40d2090b4c99',
-      permission: 'e24c6a6b5fed4e44972ea4b2eebc3b75',
-    },
-    setDisable: {
-      title: '设为禁用',
-      paramsKey: '44d7d5c87c9c84b9dcbc52f399a0919c',
-      permission: 'ffb7ef2c7aff465da0dfec0e4146c0c8',
     },
     remove: {
       title: '移除',

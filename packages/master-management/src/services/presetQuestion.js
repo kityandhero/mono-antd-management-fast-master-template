@@ -36,6 +36,25 @@ export async function updateBasicInfoData(parameters) {
   });
 }
 
+export const updateWhetherCorrectDataApiAddress =
+  '/presetQuestion/updateWhetherCorrect';
+
+export async function updateWhetherCorrectData(parameters) {
+  return request({
+    api: updateWhetherCorrectDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const updateAnswerDataApiAddress = '/presetQuestion/updateAnswer';
+
+export async function updateAnswerData(parameters) {
+  return request({
+    api: updateAnswerDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const updateBusinessModeDataApiAddress =
   '/presetQuestion/updateBusinessMode';
 
@@ -78,6 +97,15 @@ export const refreshCacheDataApiAddress = '/presetQuestion/refreshCache';
 export async function refreshCacheData(parameters) {
   return request({
     api: refreshCacheDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const practiceDataApiAddress = '/presetQuestion/practice';
+
+export async function practiceData(parameters) {
+  return request({
+    api: practiceDataApiAddress,
     params: parameters,
   });
 }

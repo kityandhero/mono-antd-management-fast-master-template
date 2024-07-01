@@ -1,5 +1,9 @@
 import { connect } from 'easy-soft-dva';
-import { formatCollection, getValueByKey } from 'easy-soft-utility';
+import {
+  convertCollection,
+  formatCollection,
+  getValueByKey,
+} from 'easy-soft-utility';
 
 import {
   cardConfig,
@@ -19,7 +23,7 @@ import { TabPageBase } from '../../TabPageBase';
 class Index extends TabPageBase {
   goToUpdateWhenProcessed = true;
 
-  componentAuthority = accessWayCollection.presetQuestion.pageList.permission;
+  componentAuthority = accessWayCollection.presetQuestion.get.permission;
 
   constructor(properties) {
     super(properties);
@@ -29,6 +33,7 @@ class Index extends TabPageBase {
       loadApiPath: 'presetQuestion/get',
       submitApiPath: 'presetQuestion/updateBasicInfo',
       presetQuestionId: null,
+      image: '',
     };
   }
 
@@ -50,15 +55,30 @@ class Index extends TabPageBase {
     metaExtra = null,
     // eslint-disable-next-line no-unused-vars
     metaOriginalData = null,
-  }) => {};
+  }) => {
+    const image = getValueByKey({
+      data: metaData,
+      key: fieldData.image.name,
+      convert: convertCollection.string,
+    });
+
+    this.setState({
+      image,
+    });
+  };
 
   supplementSubmitRequestParams = (o) => {
     const d = o;
-    const { presetQuestionId } = this.state;
+    const { presetQuestionId, image } = this.state;
 
     d[fieldData.presetQuestionId.name] = presetQuestionId;
+    d[fieldData.image.name] = image;
 
     return d;
+  };
+
+  afterImageUploadSuccess = (image) => {
+    this.setState({ image: image });
   };
 
   fillInitialValuesAfterLoad = ({
@@ -89,7 +109,7 @@ class Index extends TabPageBase {
   };
 
   establishCardCollectionConfig = () => {
-    const { metaData } = this.state;
+    const { metaData, image } = this.state;
 
     return {
       list: [
@@ -113,9 +133,27 @@ class Index extends TabPageBase {
           items: [
             {
               lg: 24,
-              type: cardConfig.contentItemType.input,
+              type: cardConfig.contentItemType.textarea,
               fieldData: fieldData.title,
               require: true,
+            },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.picture(),
+            text: '图例上传',
+            subText: '[上传后需点击保存按钮保存!]',
+          },
+          items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.imageUpload,
+              image: image,
+              action: `/presetQuestion/uploadImage`,
+              afterUploadSuccess: (imageData) => {
+                this.afterImageUploadSuccess(imageData);
+              },
             },
           ],
         },

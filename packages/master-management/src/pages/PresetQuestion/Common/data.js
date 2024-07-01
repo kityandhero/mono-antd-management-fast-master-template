@@ -1,9 +1,19 @@
 import { formNameCollection } from '../../../customConfig';
 
 const fieldExtraData = {
+  whetherCorrectNote: {
+    label: '是否正确',
+    name: 'whetherCorrectNote',
+    helper: '',
+  },
   businessModeNote: {
     label: '适用业务',
     name: 'businessModeNote',
+    helper: '',
+  },
+  listItem: {
+    label: '选项列表',
+    name: 'listItem',
     helper: '',
   },
 };
@@ -30,22 +40,50 @@ export const fieldData = {
     name: 'description',
     helper: '',
   },
+  answer: {
+    label: '答案解析',
+    name: 'answer',
+    helper: '',
+  },
   type: {
-    label: '问题类型',
+    label: '类型',
     name: 'type',
     helper: '存储后不可更改',
-  },
-  businessMode: {
-    label: '适用业务',
-    name: 'businessMode',
-    helper: '',
   },
   whetherCorrect: {
     label: '是否正确',
     name: 'whetherCorrect',
     helper: '',
   },
+  businessMode: {
+    label: '适用业务',
+    name: 'businessMode',
+    helper: '',
+  },
   ...fieldExtraData,
+};
+
+/**
+ * 类型集合
+ */
+export const typeCollection = {
+  /**
+   * 单选
+   * value : 100
+   */
+  singleSelect: 100,
+
+  /**
+   * 多选
+   * value : 200
+   */
+  multiSelect: 200,
+
+  /**
+   * 判断
+   * value : 300
+   */
+  judgment: 300,
 };
 
 /**
@@ -53,14 +91,14 @@ export const fieldData = {
  */
 export const statusCollection = {
   /**
-   * 已上线
+   * 已下线
    * value : 0
    */
-  online: 0,
+  offline: 0,
 
   /**
-   * 已下线
+   * 已上线
    * value : 100
    */
-  offline: 100,
+  online: 100,
 };

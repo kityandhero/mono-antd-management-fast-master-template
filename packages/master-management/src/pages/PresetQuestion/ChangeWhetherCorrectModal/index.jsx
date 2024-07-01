@@ -2,21 +2,24 @@ import { connect } from 'easy-soft-dva';
 import { convertCollection, getValueByKey } from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
+import { FunctionSupplement } from 'antd-management-fast-component';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
-import { renderFormBusinessModeSelect } from '../../../customSpecialComponents';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
+const {
+  Whether: { renderFormWhetherSelect },
+} = FunctionSupplement;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
-const visibleFlag = '14d9314df26a4d3b884b112be38e27e6';
+const visibleFlag = '8c9d6ca76efd4b85b512543a479eaca2';
 
 @connect(({ presetQuestion, schedulingControl }) => ({
   presetQuestion,
   schedulingControl,
 }))
-class ChangeBusinessModeModal extends BaseUpdateModal {
+class ChangeWhetherCorrectModal extends BaseUpdateModal {
   static open() {
     switchControlAssist.open(visibleFlag);
   }
@@ -26,9 +29,9 @@ class ChangeBusinessModeModal extends BaseUpdateModal {
 
     this.state = {
       ...this.state,
-      pageTitle: '适用业务设置',
+      pageTitle: '设置判断结果',
       loadApiPath: 'presetQuestion/get',
-      submitApiPath: 'presetQuestion/updateBusinessMode',
+      submitApiPath: 'presetQuestion/updateWhetherCorrect',
     };
   }
 
@@ -91,9 +94,9 @@ class ChangeBusinessModeModal extends BaseUpdateModal {
     const values = {};
 
     if (metaData != null) {
-      values[fieldData.businessMode.name] = getValueByKey({
+      values[fieldData.whetherCorrect.name] = getValueByKey({
         data: metaData,
-        key: fieldData.businessMode.name,
+        key: fieldData.whetherCorrect.name,
         convert: convertCollection.string,
       });
     }
@@ -109,7 +112,11 @@ class ChangeBusinessModeModal extends BaseUpdateModal {
             {
               lg: 24,
               type: cardConfig.contentItemType.component,
-              component: renderFormBusinessModeSelect({}),
+              component: renderFormWhetherSelect({
+                name: fieldData.whetherCorrect.name,
+                label: fieldData.whetherCorrect.label,
+                helper: fieldData.whetherCorrect.helper,
+              }),
             },
           ],
         },
@@ -118,4 +125,4 @@ class ChangeBusinessModeModal extends BaseUpdateModal {
   };
 }
 
-export { ChangeBusinessModeModal };
+export { ChangeWhetherCorrectModal };

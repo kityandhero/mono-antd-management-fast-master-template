@@ -7,6 +7,7 @@ import {
   handleItem,
   showSimpleErrorMessage,
   toNumber,
+  whetherNumber,
 } from 'easy-soft-utility';
 
 import {
@@ -35,7 +36,10 @@ import {
 } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { ChangeBusinessModeModal } from '../ChangeBusinessModeModal';
-import { fieldData, statusCollection } from '../Common/data';
+import { ChangeWhetherCorrectModal } from '../ChangeWhetherCorrectModal';
+import { fieldData, statusCollection, typeCollection } from '../Common/data';
+import { PracticeDrawer } from '../PracticeDrawer';
+import { UpdateAnswerDrawer } from '../UpdateAnswerDrawer';
 
 const { MultiPage } = DataMultiPageView;
 
@@ -60,8 +64,23 @@ class PageList extends MultiPage {
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
+      case 'showUpdateAnswerDrawer': {
+        this.showUpdateAnswerDrawer(handleData);
+        break;
+      }
+
+      case 'showPracticeDrawer': {
+        this.showPracticeDrawer(handleData);
+        break;
+      }
+
       case 'updateBusinessMode': {
         this.showChangeBusinessModeModal(handleData);
+        break;
+      }
+
+      case 'updateWhetherCorrect': {
+        this.showChangeWhetherCorrectModal(handleData);
         break;
       }
 
@@ -96,6 +115,7 @@ class PageList extends MultiPage {
     const id = getValueByKey({
       data: handleData,
       key: fieldData.presetQuestionId.name,
+      defaultValue: '',
     });
 
     handleItem({
@@ -105,6 +125,7 @@ class PageList extends MultiPage {
         const v = getValueByKey({
           data: o,
           key: fieldData.presetQuestionId.name,
+          defaultValue: '',
         });
 
         return v;
@@ -190,6 +211,32 @@ class PageList extends MultiPage {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
+  showChangeWhetherCorrectModal = (item) => {
+    this.setState({ currentRecord: item }, () => {
+      ChangeWhetherCorrectModal.open();
+    });
+  };
+
+  afterChangeWhetherCorrectModalOk = () => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  showUpdateAnswerDrawer = (item) => {
+    this.setState({ currentRecord: item }, () => {
+      UpdateAnswerDrawer.open();
+    });
+  };
+
+  afterUpdateAnswerDrawerOk = () => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  showPracticeDrawer = (item) => {
+    this.setState({ currentRecord: item }, () => {
+      PracticeDrawer.open();
+    });
+  };
+
   goToEdit = (record) => {
     const presetQuestionId = getValueByKey({
       data: record,
@@ -254,6 +301,12 @@ class PageList extends MultiPage {
       convert: convertCollection.number,
     });
 
+    const itemType = getValueByKey({
+      data: item,
+      key: fieldData.type.name,
+      convert: convertCollection.number,
+    });
+
     return {
       size: 'small',
       text: '修改',
@@ -270,13 +323,46 @@ class PageList extends MultiPage {
       },
       items: [
         {
+          key: 'showPracticeDrawer',
+          icon: iconBuilder.bug(),
+          text: '测试题目',
+          hidden: !checkHasAuthority(
+            accessWayCollection.presetQuestion.practice.permission,
+          ),
+        },
+        {
+          key: 'updateWhetherCorrect',
+          withDivider: true,
+          uponDivider: true,
+          icon: iconBuilder.edit(),
+          text: '设置判断结果',
+          hidden:
+            itemType !== typeCollection.judgment ||
+            !checkHasAuthority(
+              accessWayCollection.presetQuestion.updateWhetherCorrect
+                .permission,
+            ),
+        },
+        {
+          key: 'showUpdateAnswerDrawer',
+          icon: iconBuilder.edit(),
+          text: '更新答案解析',
+          hidden: !checkHasAuthority(
+            accessWayCollection.presetQuestion.updateAnswer.permission,
+          ),
+        },
+
+        {
           key: 'updateBusinessMode',
+          withDivider: true,
+          uponDivider: true,
           icon: iconBuilder.edit(),
           text: '设置适用业务',
           hidden: !checkHasAuthority(
-            accessWayCollection.section.updateBusinessMode.permission,
+            accessWayCollection.presetQuestion.updateBusinessMode.permission,
           ),
         },
+
         {
           key: 'setOnline',
           withDivider: true,
@@ -284,7 +370,7 @@ class PageList extends MultiPage {
           icon: iconBuilder.upload(),
           text: '设为上线',
           hidden: !checkHasAuthority(
-            accessWayCollection.section.setOnline.permission,
+            accessWayCollection.presetQuestion.setOnline.permission,
           ),
           disabled: itemStatus === statusCollection.online,
           confirm: {
@@ -296,7 +382,7 @@ class PageList extends MultiPage {
           icon: iconBuilder.download(),
           text: '设为下线',
           hidden: !checkHasAuthority(
-            accessWayCollection.section.setOffline.permission,
+            accessWayCollection.presetQuestion.setOffline.permission,
           ),
           disabled: itemStatus === statusCollection.offline,
           confirm: {
@@ -340,6 +426,25 @@ class PageList extends MultiPage {
       align: 'left',
       showRichFacade: true,
       emptyValue: '--',
+      formatValue: (value, record) => {
+        const type = getValueByKey({
+          data: record,
+          key: fieldData.type.name,
+          convert: convertCollection.number,
+        });
+
+        if (type !== typeCollection.judgment) {
+          return value;
+        }
+
+        const whetherCorrect = getValueByKey({
+          data: record,
+          key: fieldData.whetherCorrect.name,
+          convert: convertCollection.number,
+        });
+
+        return `（${whetherCorrect === whetherNumber.yes ? '✔' : '✖'}）${value}`;
+      },
     },
     {
       dataTarget: fieldData.type,
@@ -349,7 +454,7 @@ class PageList extends MultiPage {
       facadeConfigBuilder: (value) => {
         return {
           color: buildRandomHexColor({
-            seed: toNumber(value) * 10 + 12,
+            seed: toNumber(value) * 14 + 12,
           }),
         };
       },
@@ -417,6 +522,18 @@ class PageList extends MultiPage {
           externalData={currentRecord}
           afterOK={this.afterChangeBusinessModeModalOk}
         />
+
+        <ChangeWhetherCorrectModal
+          externalData={currentRecord}
+          afterOK={this.afterChangeWhetherCorrectModalOk}
+        />
+
+        <UpdateAnswerDrawer
+          externalData={currentRecord}
+          afterOK={this.afterUpdateAnswerDrawerOk}
+        />
+
+        <PracticeDrawer externalData={currentRecord} />
       </>
     );
   };

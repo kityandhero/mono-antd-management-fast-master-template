@@ -46,24 +46,6 @@ export async function updateSortData(parameters) {
   });
 }
 
-export const setEnableDataApiAddress = '/presetQuestionItem/setEnable';
-
-export async function setEnableData(parameters) {
-  return request({
-    api: setEnableDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const setDisableDataApiAddress = '/presetQuestionItem/setDisable';
-
-export async function setDisableData(parameters) {
-  return request({
-    api: setDisableDataApiAddress,
-    params: parameters,
-  });
-}
-
 export const removeDataApiAddress = '/presetQuestionItem/remove';
 
 export async function removeData(parameters) {

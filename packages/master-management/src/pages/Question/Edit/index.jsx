@@ -155,11 +155,6 @@ class Edit extends DataTabContainerSupplement {
       convert: convertCollection.number,
     });
 
-    console.log({
-      status,
-      v: status === statusCollection.offline,
-    });
-
     const that = this;
 
     return {
