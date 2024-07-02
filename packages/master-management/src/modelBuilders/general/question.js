@@ -11,11 +11,16 @@ import {
   addBasicInfoData,
   getData,
   pageListData,
+  pageListOperateLogData,
+  practiceData,
   refreshCacheData,
   removeData,
   setOfflineData,
   setOnlineData,
+  updateAnswerData,
   updateBasicInfoData,
+  updateBusinessModeData,
+  updateWhetherCorrectData,
   uploadImageData,
 } from '../../services/question';
 
@@ -132,6 +137,84 @@ export function buildModel() {
 
         return dataAdjust;
       },
+      *updateWhetherCorrect(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(updateWhetherCorrectData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *updateAnswer(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(updateAnswerData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *updateBusinessMode(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(updateBusinessModeData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
       *setOnline(
         {
           payload,
@@ -222,6 +305,58 @@ export function buildModel() {
         const response = yield call(refreshCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *practice(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(practiceData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *pageListOperateLog(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(pageListOperateLogData, payload);
+
+        const dataAdjust = pretreatmentRemotePageListData({
           source: response,
           successCallback: pretreatmentSuccessCallback || null,
           failCallback: pretreatmentFailCallback || null,

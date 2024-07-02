@@ -1,20 +1,6 @@
 {
   "list": [
     {
-      "folder": "PresetQuestion/Assist",
-      "model": "presetQuestion",
-      "key": "presetQuestionId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "PresetQuestionItem/Assist",
-      "model": "presetQuestionItem",
-      "key": "presetQuestionItemId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
       "folder": "Question/Assist",
       "model": "question",
       "key": "questionId",

@@ -1,18 +1,6 @@
 {
   "list": [
     {
-      "folder": "PresetQuestion/Edit/OperateLog/PageList",
-      "model": "presetQuestion",
-      "key": "presetQuestionId",
-      "coverFile": true
-    },
-    {
-      "folder": "PresetQuestionItem/Edit/OperateLog/PageList",
-      "model": "presetQuestionItem",
-      "key": "presetQuestionItemId",
-      "coverFile": true
-    },
-    {
       "folder": "Question/Edit/OperateLog/PageList",
       "model": "question",
       "key": "questionId",

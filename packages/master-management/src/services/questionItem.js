@@ -45,24 +45,6 @@ export async function updateSortData(parameters) {
   });
 }
 
-export const setOnlineDataApiAddress = '/questionItem/setOnline';
-
-export async function setOnlineData(parameters) {
-  return request({
-    api: setOnlineDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const setOfflineDataApiAddress = '/questionItem/setOffline';
-
-export async function setOfflineData(parameters) {
-  return request({
-    api: setOfflineDataApiAddress,
-    params: parameters,
-  });
-}
-
 export const removeDataApiAddress = '/questionItem/remove';
 
 export async function removeData(parameters) {
@@ -77,6 +59,16 @@ export const refreshCacheDataApiAddress = '/questionItem/refreshCache';
 export async function refreshCacheData(parameters) {
   return request({
     api: refreshCacheDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const pageListOperateLogDataApiAddress =
+  '/questionItem/pageListOperateLog';
+
+export async function pageListOperateLogData(parameters) {
+  return request({
+    api: pageListOperateLogDataApiAddress,
     params: parameters,
   });
 }

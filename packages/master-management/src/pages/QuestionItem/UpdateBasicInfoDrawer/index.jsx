@@ -5,80 +5,67 @@ import {
   getValueByKey,
 } from 'easy-soft-utility';
 
+import { cardConfig } from 'antd-management-fast-common';
 import {
-  cardConfig,
-  getDerivedStateFromPropertiesForUrlParameters,
-} from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
+  FunctionSupplement,
+  iconBuilder,
+} from 'antd-management-fast-component';
+import {
+  DataDrawer,
+  switchControlAssist,
+} from 'antd-management-fast-framework';
 
-import { accessWayCollection } from '../../../../customConfig';
-import { parseUrlParametersForSetState } from '../../Assist/config';
-import { fieldData } from '../../Common/data';
-import { TabPageBase } from '../../TabPageBase';
+import { fieldData } from '../Common/data';
 
-@connect(({ question, schedulingControl }) => ({
-  question,
+const { BaseUpdateDrawer } = DataDrawer;
+
+const visibleFlag = '99f3c3f512ab4e8ab9418eb3bc114a78';
+const {
+  Whether: { renderFormWhetherSelect },
+} = FunctionSupplement;
+
+@connect(({ questionItem, schedulingControl }) => ({
+  questionItem,
   schedulingControl,
 }))
-class Index extends TabPageBase {
-  goToUpdateWhenProcessed = true;
-
-  componentAuthority = accessWayCollection.question.get.permission;
+class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
+  static open() {
+    switchControlAssist.open(visibleFlag);
+  }
 
   constructor(properties) {
-    super(properties);
+    super(properties, visibleFlag);
 
     this.state = {
       ...this.state,
-      loadApiPath: 'question/get',
-      submitApiPath: 'question/updateBasicInfo',
-      questionId: null,
-      image: '',
+      pageTitle: '编辑选项信息',
+      loadApiPath: 'questionItem/get',
+      submitApiPath: 'questionItem/updateBasicInfo',
     };
   }
 
-  static getDerivedStateFromProps(nextProperties, previousState) {
-    return getDerivedStateFromPropertiesForUrlParameters(
-      nextProperties,
-      previousState,
-      { id: '' },
-      parseUrlParametersForSetState,
-    );
-  }
-
-  doOtherAfterLoadSuccess = ({
-    // eslint-disable-next-line no-unused-vars
-    metaData = null,
-    // eslint-disable-next-line no-unused-vars
-    metaListData = [],
-    // eslint-disable-next-line no-unused-vars
-    metaExtra = null,
-    // eslint-disable-next-line no-unused-vars
-    metaOriginalData = null,
-  }) => {
-    const image = getValueByKey({
-      data: metaData,
-      key: fieldData.image.name,
-      convert: convertCollection.string,
-    });
-
-    this.setState({
-      image,
-    });
-  };
-
-  supplementSubmitRequestParams = (o) => {
+  supplementLoadRequestParams = (o) => {
     const d = o;
-    const { questionId, image } = this.state;
+    const { externalData } = this.state;
 
-    d[fieldData.questionId.name] = questionId;
-    d[fieldData.image.name] = image;
+    d.questionItemId = getValueByKey({
+      data: externalData,
+      key: fieldData.questionItemId.name,
+    });
 
     return d;
   };
 
-  afterImageUploadSuccess = (image) => {
-    this.setState({ image: image });
+  supplementSubmitRequestParams = (o) => {
+    const d = o;
+    const { externalData } = this.state;
+
+    d.questionItemId = getValueByKey({
+      data: externalData,
+      key: fieldData.questionItemId.name,
+    });
+
+    return d;
   };
 
   fillInitialValuesAfterLoad = ({
@@ -99,6 +86,17 @@ class Index extends TabPageBase {
         key: fieldData.title.name,
       });
 
+      values[fieldData.whetherCorrect.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.whetherCorrect.name,
+        convert: convertCollection.string,
+      });
+
+      values[fieldData.sort.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.sort.name,
+      });
+
       values[fieldData.description.name] = getValueByKey({
         data: metaData,
         key: fieldData.description.name,
@@ -109,7 +107,7 @@ class Index extends TabPageBase {
   };
 
   establishCardCollectionConfig = () => {
-    const { metaData, image } = this.state;
+    const { metaData } = this.state;
 
     return {
       list: [
@@ -118,18 +116,6 @@ class Index extends TabPageBase {
             icon: iconBuilder.contacts(),
             text: '基本信息',
           },
-          hasExtra: true,
-          extra: {
-            affix: true,
-            list: [
-              {
-                buildType: cardConfig.extraBuildType.refresh,
-              },
-              {
-                buildType: cardConfig.extraBuildType.save,
-              },
-            ],
-          },
           items: [
             {
               lg: 24,
@@ -137,30 +123,28 @@ class Index extends TabPageBase {
               fieldData: fieldData.title,
               require: true,
             },
-          ],
-        },
-        {
-          title: {
-            icon: iconBuilder.picture(),
-            text: '图例上传',
-            subText: '[上传后需点击保存按钮保存!]',
-          },
-          items: [
             {
-              lg: 24,
-              type: cardConfig.contentItemType.imageUpload,
-              image: image,
-              action: `/question/uploadImage`,
-              afterUploadSuccess: (imageData) => {
-                this.afterImageUploadSuccess(imageData);
-              },
+              lg: 12,
+              type: cardConfig.contentItemType.component,
+              component: renderFormWhetherSelect({
+                name: fieldData.whetherCorrect.name,
+                label: fieldData.whetherCorrect.label,
+                helper: fieldData.whetherCorrect.helper,
+              }),
+              require: true,
+            },
+            {
+              lg: 12,
+              type: cardConfig.contentItemType.inputNumber,
+              fieldData: fieldData.sort,
+              require: true,
             },
           ],
         },
         {
           title: {
             icon: iconBuilder.contacts(),
-            text: '简介 - 描述 - 备注',
+            text: '简介信息',
           },
           items: [
             {
@@ -218,13 +202,13 @@ class Index extends TabPageBase {
               props: {
                 size: 'small',
                 bordered: true,
-                column: 4,
+                column: 2,
                 emptyStyle: {
                   color: '#cccccc',
                 },
                 emptyValue: '待完善',
                 labelStyle: {
-                  width: '80px',
+                  width: '100px',
                 },
               },
             },
@@ -235,4 +219,4 @@ class Index extends TabPageBase {
   };
 }
 
-export default Index;
+export { UpdateBasicInfoDrawer };

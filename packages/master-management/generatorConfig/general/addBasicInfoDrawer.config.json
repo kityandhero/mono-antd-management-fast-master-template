@@ -4,14 +4,6 @@
       "folder": "Question/AddBasicInfoDrawer",
       "model": "question",
       "key": "questionId",
-      "visibleFlag": "dad047a761534f5ba7cb6248cb98693a",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "PresetQuestion/AddBasicInfoDrawer",
-      "model": "presetQuestion",
-      "key": "presetQuestionId",
       "visibleFlag": "094daf5864ef418c9e23455cef111145",
       "fileName": "index.jsx",
       "coverFile": false

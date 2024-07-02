@@ -34,8 +34,6 @@ import { buildModel as buildMongoSlowQueryInfoModel } from './mongoSlowQueryInfo
 import { buildModel as buildOperationLogModel } from './operationLog';
 import { buildModel as buildOptionPoolModel } from './optionPool';
 import { buildModel as buildOrganizationModel } from './organization';
-import { buildModel as buildPresetQuestionModel } from './presetQuestion';
-import { buildModel as buildPresetQuestionItemModel } from './presetQuestionItem';
 import { buildModel as buildPresetRoleModel } from './presetRole';
 import { buildModel as buildQrCodeModel } from './qrCode';
 import { buildModel as buildQrCodeCategoryModel } from './qrCodeCategory';
@@ -118,8 +116,6 @@ export function listModelBuilder() {
     buildOperationLogModel,
     buildOptionPoolModel,
     buildOrganizationModel,
-    buildPresetQuestionModel,
-    buildPresetQuestionItemModel,
     buildPresetRoleModel,
     buildQrCodeModel,
     buildQrCodeCategoryModel,

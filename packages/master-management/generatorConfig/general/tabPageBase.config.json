@@ -1,20 +1,6 @@
 {
   "list": [
     {
-      "folder": "PresetQuestion/TabPageBase",
-      "model": "presetQuestion",
-      "key": "presetQuestionId",
-      "fileName": "index.jsx",
-      "coverFile": true
-    },
-    {
-      "folder": "PresetQuestionItem/TabPageBase",
-      "model": "presetQuestionItem",
-      "key": "presetQuestionItemId",
-      "fileName": "index.jsx",
-      "coverFile": true
-    },
-    {
       "folder": "Question/TabPageBase",
       "model": "question",
       "key": "questionId",

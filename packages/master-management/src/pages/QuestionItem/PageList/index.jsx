@@ -3,7 +3,6 @@ import React from 'react';
 import { connect } from 'easy-soft-dva';
 import {
   checkHasAuthority,
-  convertCollection,
   getValueByKey,
   showSimpleErrorMessage,
 } from 'easy-soft-utility';
@@ -16,7 +15,10 @@ import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { getQuestionItemStatusName } from '../../../customSpecialComponents';
 import { refreshCacheAction } from '../Assist/action';
+import { getStatusBadge } from '../Assist/tools';
+import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData } from '../Common/data';
 
 const { MultiPage } = DataMultiPageView;
@@ -42,6 +44,11 @@ class PageList extends MultiPage {
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
+      case 'updateSort': {
+        this.showChangeSortModal(handleData);
+        break;
+      }
+
       case 'refreshCache': {
         this.refreshCache(handleData);
         break;
@@ -61,13 +68,39 @@ class PageList extends MultiPage {
     });
   };
 
+  showChangeSortModal = (r) => {
+    this.setState({ currentRecord: r }, () => {
+      ChangeSortModal.open();
+    });
+  };
+
+  afterChangeSortModalOk = ({
+    // eslint-disable-next-line no-unused-vars
+    singleData,
+    // eslint-disable-next-line no-unused-vars
+    listData,
+    // eslint-disable-next-line no-unused-vars
+    extraData,
+    // eslint-disable-next-line no-unused-vars
+    responseOriginalData,
+    // eslint-disable-next-line no-unused-vars
+    submitData,
+    // eslint-disable-next-line no-unused-vars
+    subjoinData,
+  }) => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
   goToEdit = (record) => {
-    const questionItemId = getValueByKey({
+    const questionId = getValueByKey({
       data: record,
-      key: fieldData.questionItemId.name,
+      key: fieldData.questionId.name,
+      defaultValue: '',
     });
 
-    this.goToPath(`/questionItem/edit/load/${questionItemId}/key/basicInfo`);
+    this.goToPath(
+      `/survey/question/edit/load/${questionId}/key/items/pageList`,
+    );
   };
 
   establishSearchCardConfig = () => {
@@ -122,10 +155,31 @@ class PageList extends MultiPage {
   getColumnWrapper = () => [
     {
       dataTarget: fieldData.title,
-      width: 320,
       align: 'left',
       showRichFacade: true,
       emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.questionTitle,
+      width: 720,
+      align: 'left',
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.status,
+      width: 120,
+      showRichFacade: true,
+      emptyValue: '--',
+      facadeMode: columnFacadeMode.badge,
+      facadeConfigBuilder: (value) => {
+        return {
+          status: getStatusBadge(value),
+          text: getQuestionItemStatusName({
+            value: value,
+          }),
+        };
+      },
     },
     {
       dataTarget: fieldData.questionItemId,
@@ -140,6 +194,19 @@ class PageList extends MultiPage {
       facadeMode: columnFacadeMode.datetime,
     },
   ];
+
+  renderPresetOther = () => {
+    const { currentRecord } = this.state;
+
+    return (
+      <>
+        <ChangeSortModal
+          externalData={currentRecord}
+          afterOK={this.afterChangeSortModalOk}
+        />
+      </>
+    );
+  };
 }
 
 export default PageList;

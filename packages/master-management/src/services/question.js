@@ -36,6 +36,34 @@ export async function updateBasicInfoData(parameters) {
   });
 }
 
+export const updateWhetherCorrectDataApiAddress =
+  '/question/updateWhetherCorrect';
+
+export async function updateWhetherCorrectData(parameters) {
+  return request({
+    api: updateWhetherCorrectDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const updateAnswerDataApiAddress = '/question/updateAnswer';
+
+export async function updateAnswerData(parameters) {
+  return request({
+    api: updateAnswerDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const updateBusinessModeDataApiAddress = '/question/updateBusinessMode';
+
+export async function updateBusinessModeData(parameters) {
+  return request({
+    api: updateBusinessModeDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setOnlineDataApiAddress = '/question/setOnline';
 
 export async function setOnlineData(parameters) {
@@ -68,6 +96,24 @@ export const refreshCacheDataApiAddress = '/question/refreshCache';
 export async function refreshCacheData(parameters) {
   return request({
     api: refreshCacheDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const practiceDataApiAddress = '/question/practice';
+
+export async function practiceData(parameters) {
+  return request({
+    api: practiceDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const pageListOperateLogDataApiAddress = '/question/pageListOperateLog';
+
+export async function pageListOperateLogData(parameters) {
+  return request({
+    api: pageListOperateLogDataApiAddress,
     params: parameters,
   });
 }

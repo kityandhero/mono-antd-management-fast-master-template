@@ -1,20 +1,6 @@
 {
   "list": [
     {
-      "folder": "PresetQuestion/Edit/BasicInfo",
-      "model": "presetQuestion",
-      "key": "presetQuestionId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "PresetQuestionItem/Edit/BasicInfo",
-      "model": "presetQuestionItem",
-      "key": "presetQuestionItemId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
       "folder": "Question/Edit/BasicInfo",
       "model": "question",
       "key": "questionId",

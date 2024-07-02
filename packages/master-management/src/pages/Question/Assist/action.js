@@ -16,6 +16,7 @@ export function setOnlineAction({
       questionId: getValueByKey({
         data: handleData,
         key: fieldData.questionId.name,
+        defaultValue: '',
       }),
     },
     target,
@@ -37,6 +38,29 @@ export function setOfflineAction({
       questionId: getValueByKey({
         data: handleData,
         key: fieldData.questionId.name,
+        defaultValue: '',
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export async function removeAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage = null,
+}) {
+  actionCore({
+    api: 'question/remove',
+    params: {
+      questionId: getValueByKey({
+        data: handleData,
+        key: fieldData.questionId.name,
+        defaultValue: '',
       }),
     },
     target,
@@ -58,7 +82,26 @@ export async function refreshCacheAction({
       questionId: getValueByKey({
         data: handleData,
         key: fieldData.questionId.name,
+        defaultValue: '',
       }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export function practiceAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage = null,
+}) {
+  actionCore({
+    api: 'question/practice',
+    params: {
+      ...handleData,
     },
     target,
     handleData,

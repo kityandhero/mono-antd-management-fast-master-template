@@ -4,35 +4,14 @@ import { actionCore } from 'antd-management-fast-common';
 
 import { fieldData } from '../Common/data';
 
-export function setOnlineAction({
+export async function removeAction({
   target,
   handleData,
   successCallback,
   successMessage = null,
 }) {
   actionCore({
-    api: 'questionItem/setOnline',
-    params: {
-      questionItemId: getValueByKey({
-        data: handleData,
-        key: fieldData.questionItemId.name,
-      }),
-    },
-    target,
-    handleData,
-    successCallback,
-    successMessage,
-  });
-}
-
-export function setOfflineAction({
-  target,
-  handleData,
-  successCallback,
-  successMessage = null,
-}) {
-  actionCore({
-    api: 'questionItem/setOffline',
+    api: 'questionItem/remove',
     params: {
       questionItemId: getValueByKey({
         data: handleData,

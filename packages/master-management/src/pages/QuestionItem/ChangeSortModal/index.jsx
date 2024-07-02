@@ -9,7 +9,7 @@ import { fieldData } from '../Common/data';
 const { BaseUpdateModal } = DataModal;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
-const visibleFlag = '90d19bf1ead34bec82cdd189593c937e';
+const visibleFlag = 'f213579de6ec4dd09187e394e8e0ba88';
 
 @connect(({ questionItem, schedulingControl }) => ({
   questionItem,
@@ -107,7 +107,7 @@ class ChangeSortModal extends BaseUpdateModal {
 
     return getValueByKey({
       data: metaData,
-      key: fieldData.name.name,
+      key: fieldData.title.name,
     });
   };
 

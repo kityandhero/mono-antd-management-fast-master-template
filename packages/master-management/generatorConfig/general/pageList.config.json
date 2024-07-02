@@ -1,20 +1,6 @@
 {
   "list": [
     {
-      "folder": "PresetQuestion/PageList",
-      "model": "presetQuestion",
-      "key": "presetQuestionId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "PresetQuestionItem/PageList",
-      "model": "presetQuestionItem",
-      "key": "presetQuestionItemId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
       "folder": "Question/PageList",
       "model": "question",
       "key": "questionId",

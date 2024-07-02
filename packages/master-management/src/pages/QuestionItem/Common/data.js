@@ -1,6 +1,17 @@
 import { formNameCollection } from '../../../customConfig';
 
-const fieldExtraData = {};
+const fieldExtraData = {
+  whetherCorrectNote: {
+    label: '是否正确',
+    name: 'whetherCorrectNote',
+    helper: '',
+  },
+  questionTitle: {
+    label: '问题',
+    name: 'questionTitle',
+    helper: '',
+  },
+};
 
 export const fieldData = {
   ...formNameCollection,
@@ -15,7 +26,7 @@ export const fieldData = {
     helper: '',
   },
   title: {
-    label: '标题',
+    label: '项标题',
     name: 'title',
     helper: '',
   },
@@ -29,20 +40,15 @@ export const fieldData = {
     name: 'description',
     helper: '',
   },
-  shouldChoose: {
-    label: '正确选项',
-    name: 'shouldChoose',
-    helper: '',
+  whetherCorrect: {
+    label: '是否正确',
+    name: 'whetherCorrect',
+    helper: '该选项是否为应当选择',
   },
   sort: {
     label: '排序值',
     name: 'sort',
-    helper: '',
-  },
-  businessMode: {
-    label: '适用业务',
-    name: 'businessMode',
-    helper: '',
+    helper: '选项的排序顺序按降序排列，排序值相同时随机排序',
   },
   ...fieldExtraData,
 };
@@ -52,14 +58,8 @@ export const fieldData = {
  */
 export const statusCollection = {
   /**
-   * 已上线
-   * value : 0
-   */
-  online: 0,
-
-  /**
-   * 已下线
+   * 正常
    * value : 100
    */
-  offline: 100,
+  normal: 100,
 };
