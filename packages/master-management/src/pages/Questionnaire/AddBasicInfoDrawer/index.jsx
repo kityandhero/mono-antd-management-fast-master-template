@@ -99,8 +99,9 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
   fillDefaultInitialValues = () => {
     const values = {};
 
-    values[fieldData.questionCreateMode.name] =
-      questionCreateModeCollection.global;
+    values[fieldData.questionCreateMode.name] = toString(
+      questionCreateModeCollection.global,
+    );
     values[fieldData.whetherRandomOrder.name] = whetherString.no;
     values[fieldData.sort.name] = 0;
 
