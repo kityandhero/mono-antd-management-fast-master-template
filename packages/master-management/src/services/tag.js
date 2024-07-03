@@ -9,6 +9,15 @@ export async function pageListData(parameters) {
   });
 }
 
+export const pageListWithQuestionDataApiAddress = '/tag/pageListWithQuestion';
+
+export async function pageListWithQuestionData(parameters) {
+  return request({
+    api: pageListWithQuestionDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const getDataApiAddress = '/tag/get';
 
 export async function getData(parameters) {

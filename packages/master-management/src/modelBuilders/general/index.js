@@ -41,6 +41,7 @@ import { buildModel as buildQuestionModel } from './question';
 import { buildModel as buildQuestionItemModel } from './questionItem';
 import { buildModel as buildQuestionnaireModel } from './questionnaire';
 import { buildModel as buildQuestionnaireQuestionModel } from './questionnaireQuestion';
+import { buildModel as buildQuestionTagRelationModel } from './questionTagRelation';
 import { buildModel as buildQueueInfoModel } from './queueInfo';
 import { buildModel as buildSectionModel } from './section';
 import { buildModel as buildSectionApplicationConfigModel } from './sectionApplicationConfig';
@@ -48,6 +49,7 @@ import { buildModel as buildSmsCategoryModel } from './smsCategory';
 import { buildModel as buildSmsCategoryStatisticModel } from './smsCategoryStatistic';
 import { buildModel as buildSmsLogModel } from './smsLog';
 import { buildModel as buildSmsStatisticModel } from './smsStatistic';
+import { buildModel as buildSqlEntityModel } from './sqlEntity';
 import { buildModel as buildSqlLogModel } from './sqlLog';
 import { buildModel as buildSubsidiaryModel } from './subsidiary';
 import { buildModel as buildTagModel } from './tag';
@@ -123,6 +125,7 @@ export function listModelBuilder() {
     buildQuestionItemModel,
     buildQuestionnaireModel,
     buildQuestionnaireQuestionModel,
+    buildQuestionTagRelationModel,
     buildQueueInfoModel,
     buildSectionModel,
     buildSectionApplicationConfigModel,
@@ -130,6 +133,7 @@ export function listModelBuilder() {
     buildSmsCategoryStatisticModel,
     buildSmsLogModel,
     buildSmsStatisticModel,
+    buildSqlEntityModel,
     buildSqlLogModel,
     buildSubsidiaryModel,
     buildTagModel,

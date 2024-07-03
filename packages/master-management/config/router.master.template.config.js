@@ -865,6 +865,24 @@ export const question = {
           component: './Question/Edit/AnswerInfo',
         },
         {
+          path: '/survey/question/edit/:op/:id/:pageKey/tagInfo',
+          name: 'tagInfo',
+          authority: [
+            accessWayCollection.questionTagRelation.pageList.permission,
+          ],
+          routes: [
+            {
+              path: '/survey/question/edit/:op/:id/:pageKey/tagInfo',
+              redirect:
+                '/survey/question/edit/:op/:id/:pageKey/tagInfo/pageList',
+            },
+            {
+              path: '/survey/question/edit/:op/:id/:pageKey/tagInfo/pageList',
+              component: './Question/Edit/TagInfo/PageList',
+            },
+          ],
+        },
+        {
           path: '/survey/question/edit/:op/:id/:pageKey/operateLog',
           name: 'operateLog',
           routes: [
@@ -913,6 +931,63 @@ export const questionItem = {
   ],
 };
 
+export const questionnaire = {
+  name: 'questionnaire',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/survey/questionnaire',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.questionnaire.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/survey/questionnaire',
+      redirect: '/survey/questionnaire/pageList',
+    },
+    {
+      path: '/survey/questionnaire/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/survey/questionnaire/pageList/no',
+    },
+    {
+      path: '/survey/questionnaire/pageList/:pageKey',
+      hideInMenu: true,
+      component: './Questionnaire/PageList',
+    },
+    {
+      path: '/survey/questionnaire/edit/:op/:id/:pageKey',
+      name: 'edit',
+      hideInMenu: true,
+      component: './Questionnaire/Edit',
+      routes: [
+        {
+          path: '/survey/questionnaire/edit/:op/:id/:pageKey/basicInfo',
+          name: 'basicInfo',
+          component: './Questionnaire/Edit/BasicInfo',
+        },
+        {
+          path: '/survey/questionnaire/edit/:op/:id/:pageKey/operateLog',
+          name: 'operateLog',
+          routes: [
+            {
+              path: '/survey/questionnaire/edit/:op/:id/:pageKey/operateLog',
+              redirect:
+                '/survey/questionnaire/edit/:op/:id/:pageKey/operateLog/pageList',
+            },
+            {
+              path: '/survey/questionnaire/edit/:op/:id/:pageKey/operateLog/pageList',
+              component: './Questionnaire/Edit/OperateLog/PageList',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
 export const survey = {
   name: 'survey',
   icon: 'reconciliation',
@@ -922,7 +997,7 @@ export const survey = {
     accessWayCollection.super.permission,
     accessWayCollection.question.pageList.permission,
   ],
-  routes: [question, questionItem],
+  routes: [question, questionItem, questionnaire],
 };
 
 export const files = {

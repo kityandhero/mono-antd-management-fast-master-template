@@ -11,9 +11,19 @@ const fieldExtraData = {
     name: 'businessModeNote',
     helper: '',
   },
+  tagName: {
+    label: '已设标签',
+    name: 'tagName',
+    helper: '',
+  },
   listItem: {
     label: '选项列表',
     name: 'listItem',
+    helper: '',
+  },
+  listTag: {
+    label: '标签列表',
+    name: 'listTag',
     helper: '',
   },
 };

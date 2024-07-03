@@ -1,6 +1,12 @@
 import { formNameCollection } from '../../../customConfig';
 
-const fieldExtraData = {};
+const fieldExtraData = {
+  questionCreateModeNote: {
+    label: '问题生成模式[创建后不可根更改]',
+    name: 'questionCreateModeNote',
+    helper: '',
+  },
+};
 
 export const fieldData = {
   ...formNameCollection,
@@ -44,6 +50,16 @@ export const fieldData = {
     name: 'sort',
     helper: '',
   },
+  whetherRandomOrder: {
+    label: '是否随机打乱排序[仅在统一试卷模式生效]',
+    name: 'whetherRandomOrder',
+    helper: '',
+  },
+  questionCreateMode: {
+    label: '问题生成模式[创建后不可根更改]',
+    name: 'questionCreateMode',
+    helper: '',
+  },
   whetherRecommend: {
     label: '是否推荐',
     name: 'whetherRecommend',
@@ -65,6 +81,29 @@ export const fieldData = {
     helper: '',
   },
   ...fieldExtraData,
+};
+
+/**
+ * 状态值集合
+ */
+export const questionCreateModeCollection = {
+  /**
+   * 未知模式
+   * value : 0
+   */
+  unknown: 0,
+
+  /**
+   * 统一题目
+   * value : 100
+   */
+  global: 100,
+
+  /**
+   * 随机题目
+   * value : 200
+   */
+  random: 200,
 };
 
 /**

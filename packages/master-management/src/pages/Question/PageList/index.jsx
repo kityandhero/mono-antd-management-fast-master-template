@@ -55,7 +55,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      pageTitle: '预设问题列表',
+      pageTitle: '问题列表',
       paramsKey: accessWayCollection.question.pageList.paramsKey,
       loadApiPath: 'question/pageList',
       currentRecord: null,
@@ -440,8 +440,14 @@ class PageList extends MultiPage {
       },
     },
     {
+      dataTarget: fieldData.tagName,
+      width: 100,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
       dataTarget: fieldData.type,
-      width: 120,
+      width: 80,
       showRichFacade: true,
       emptyValue: '--',
       facadeConfigBuilder: (value) => {
@@ -459,7 +465,7 @@ class PageList extends MultiPage {
     },
     {
       dataTarget: fieldData.businessMode,
-      width: 180,
+      width: 140,
       showRichFacade: true,
       emptyValue: '--',
       facadeConfigBuilder: (value) => {
@@ -477,7 +483,7 @@ class PageList extends MultiPage {
     },
     {
       dataTarget: fieldData.status,
-      width: 120,
+      width: 100,
       showRichFacade: true,
       emptyValue: '--',
       facadeMode: columnFacadeMode.badge,

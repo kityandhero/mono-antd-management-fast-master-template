@@ -1880,6 +1880,43 @@ export const accessWayCollection = {
       permission: '8b35a20af4c34643a5d7855cac60e3eb',
     },
   },
+  questionTagRelation: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '9890e078c77dceeac9ce3dcb6ad4d3bc',
+      permission: '08ca13633f3644aa98ad4ef8df6acc79',
+    },
+    singleList: {
+      title: '单页列表',
+      paramsKey: '667f2d212a00fad5b18726768421d49c',
+      permission: '0ce2bf870f644e8cbe2d8fffaadebc30',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '177b4243e82e73fc70c772f2bc1d4a36',
+      permission: '7861a8184ffd46f1b498c650c8cc594b',
+    },
+    add: {
+      title: '新增标签关系',
+      paramsKey: '2db962d3b2bb91506cba304354dfd160',
+      permission: 'eb7b94a595ea4f19930cb315be20b21e',
+    },
+    addBatch: {
+      title: '批量新增标签关系',
+      paramsKey: 'e7576c0e20b404e6f731d2e65f69cfd0',
+      permission: 'c26cdb3076ac407f88bc69fb3384f68d',
+    },
+    remove: {
+      title: '移除标签关系',
+      paramsKey: '0d61768647ccab8d62a42cd9d2cbc35f',
+      permission: 'ad821691e6f34e66a56c4fc798e683ce',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '032990b3c5bf264967468ab446f443ab',
+      permission: '302e1a06948748b19e8cfe1af708ac81',
+    },
+  },
   queueInfo: {
     pageList: {
       title: '分页列表',

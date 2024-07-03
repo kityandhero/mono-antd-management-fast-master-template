@@ -96,7 +96,27 @@
       "name": "status"
     },
     {
+      "functionSegment": "QuestionTagRelationStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "QuestionnaireQuestionCreateMode",
+      "label": "创建模式",
+      "name": "questionCreateMode"
+    },
+    {
       "functionSegment": "QuestionnaireStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "UserQuestionnaireStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "UserQuestionnaireQuestionStatus",
       "label": "状态",
       "name": "status"
     },

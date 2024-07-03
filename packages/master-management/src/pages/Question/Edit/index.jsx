@@ -62,6 +62,13 @@ class Edit extends DataTabContainerSupplement {
       tab: '答案解析',
     },
     {
+      key: 'tagInfo/pageList',
+      hidden: !checkHasAuthority(
+        accessWayCollection.questionTagRelation.pageList.permission,
+      ),
+      tab: '标签设置',
+    },
+    {
       key: 'operateLog/pageList',
       hidden: !checkHasAuthority(
         accessWayCollection.question.pageListOperateLog.permission,

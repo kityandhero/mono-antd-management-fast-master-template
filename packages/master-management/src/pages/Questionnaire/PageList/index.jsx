@@ -3,19 +3,20 @@ import React from 'react';
 import { connect } from 'easy-soft-dva';
 import {
   checkHasAuthority,
-  convertCollection,
   getValueByKey,
   showSimpleErrorMessage,
 } from 'easy-soft-utility';
 
 import {
   columnFacadeMode,
+  listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { AddBasicInfoDrawer } from '../AddBasicInfoDrawer';
 import { refreshCacheAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
@@ -61,13 +62,49 @@ class PageList extends MultiPage {
     });
   };
 
+  showAddBasicInfoDrawer = () => {
+    AddBasicInfoDrawer.open();
+  };
+
+  afterAddBasicInfoDrawerOk = ({
+    // eslint-disable-next-line no-unused-vars
+    singleData,
+    // eslint-disable-next-line no-unused-vars
+    listData,
+    // eslint-disable-next-line no-unused-vars
+    extraData,
+    // eslint-disable-next-line no-unused-vars
+    responseOriginalData,
+    // eslint-disable-next-line no-unused-vars
+    submitData,
+    // eslint-disable-next-line no-unused-vars
+    subjoinData,
+  }) => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
   goToEdit = (record) => {
     const questionnaireId = getValueByKey({
       data: record,
       key: fieldData.questionnaireId.name,
     });
 
-    this.goToPath(`/questionnaire/edit/load/${questionnaireId}/key/basicInfo`);
+    this.goToPath(
+      `/survey/questionnaire/edit/load/${questionnaireId}/key/basicInfo`,
+    );
+  };
+
+  establishDataContainerExtraActionCollectionConfig = () => {
+    return [
+      {
+        buildType:
+          listViewConfig.dataContainerExtraActionBuildType.generalButton,
+        type: 'primary',
+        icon: iconBuilder.plus(),
+        text: '新增问卷',
+        handleClick: this.showAddBasicInfoDrawer,
+      },
+    ];
   };
 
   establishSearchCardConfig = () => {
@@ -140,6 +177,14 @@ class PageList extends MultiPage {
       facadeMode: columnFacadeMode.datetime,
     },
   ];
+
+  renderPresetOther = () => {
+    return (
+      <>
+        <AddBasicInfoDrawer afterOK={this.afterAddBasicInfoDrawerOk} />
+      </>
+    );
+  };
 }
 
 export default PageList;

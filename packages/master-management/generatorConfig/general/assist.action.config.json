@@ -15,6 +15,13 @@
       "coverFile": false
     },
     {
+      "folder": "QuestionTagRelation/Assist",
+      "model": "questionTagRelation",
+      "key": "questionTagRelationId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
       "folder": "Questionnaire/Assist",
       "model": "questionnaire",
       "key": "questionnaireId",

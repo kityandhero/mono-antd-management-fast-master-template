@@ -136,41 +136,6 @@
     {
       "apis": [
         {
-          "title": "基础实体列表",
-          "api": "/sqlEntity/pageListInfrastructure",
-          "effect": "pageListInfrastructure",
-          "service": "pageListInfrastructureData",
-          "type": "pageList"
-        },
-        {
-          "title": "业务实体列表",
-          "api": "/sqlEntity/pageListBusiness",
-          "effect": "pageListBusiness",
-          "service": "pageListBusinessData",
-          "type": "pageList"
-        },
-        {
-          "title": "基础实体详情",
-          "api": "/sqlEntity/getInfrastructure",
-          "effect": "getInfrastructure",
-          "service": "getInfrastructureData",
-          "type": "singleData"
-        },
-        {
-          "title": "业务实体详情",
-          "api": "/sqlEntity/getBusiness",
-          "effect": "getBusiness",
-          "service": "getBusinessData",
-          "type": "singleData"
-        }
-      ],
-      "cover": true,
-      "title": "实体数据表管理",
-      "name": "sqlEntity"
-    },
-    {
-      "apis": [
-        {
           "title": "分页列表",
           "api": "/userYonYouCorrelation/pageList",
           "effect": "pageList",

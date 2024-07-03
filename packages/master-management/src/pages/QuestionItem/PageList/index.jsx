@@ -35,7 +35,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      pageTitle: '列表',
+      pageTitle: '问题选项列表',
       paramsKey: accessWayCollection.questionItem.pageList.paramsKey,
       loadApiPath: 'questionItem/pageList',
       currentRecord: null,
