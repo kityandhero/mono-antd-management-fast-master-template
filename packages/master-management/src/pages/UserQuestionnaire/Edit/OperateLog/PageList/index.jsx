@@ -9,8 +9,8 @@ import {
 } from '../../../Assist/config';
 import { fieldData } from '../../../Common/data';
 
-@connect(({ questionnaireResult, schedulingControl }) => ({
-  questionnaireResult,
+@connect(({ userQuestionnaire, schedulingControl }) => ({
+  userQuestionnaire,
   schedulingControl,
 }))
 class PageList extends BaseInnerPageList {
@@ -19,9 +19,9 @@ class PageList extends BaseInnerPageList {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'questionnaireResult/pageListOperateLog',
+      loadApiPath: 'userQuestionnaire/pageListOperateLog',
       dateRangeFieldName: '操作时间',
-      questionnaireResultId: null,
+      userQuestionnaireId: null,
       currentRecord: null,
     };
   }
@@ -41,9 +41,9 @@ class PageList extends BaseInnerPageList {
 
   supplementLoadRequestParams = (o) => {
     const d = o;
-    const { questionnaireResultId } = this.state;
+    const { userQuestionnaireId } = this.state;
 
-    d[fieldData.questionnaireResultId.name] = questionnaireResultId;
+    d[fieldData.userQuestionnaireId.name] = userQuestionnaireId;
 
     return d;
   };

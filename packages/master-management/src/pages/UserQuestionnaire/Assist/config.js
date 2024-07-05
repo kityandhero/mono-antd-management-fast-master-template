@@ -1,7 +1,7 @@
 export function parseUrlParametersForSetState({ urlParams }) {
   const { id } = urlParams;
 
-  return { questionnaireResultId: id };
+  return { userQuestionnaireId: id };
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -12,9 +12,9 @@ export function checkNeedUpdateAssist(
   // eslint-disable-next-line no-unused-vars
   snapshot,
 ) {
-  const { questionnaireResultId } = currentState;
+  const { userQuestionnaireId } = currentState;
 
-  const { questionnaireResultId: questionnaireResultIdPre } = preState;
+  const { userQuestionnaireId: userQuestionnaireIdPre } = preState;
 
-  return questionnaireResultIdPre !== questionnaireResultId;
+  return userQuestionnaireIdPre !== userQuestionnaireId;
 }

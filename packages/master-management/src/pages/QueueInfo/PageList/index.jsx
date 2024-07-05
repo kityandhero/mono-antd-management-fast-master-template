@@ -2,6 +2,7 @@ import { connect } from 'easy-soft-dva';
 import {
   convertCollection,
   getValueByKey,
+  showSimpleErrorMessage,
   whetherNumber,
 } from 'easy-soft-utility';
 

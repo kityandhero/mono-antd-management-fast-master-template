@@ -11,11 +11,11 @@ export async function refreshCacheAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'questionnaireResult/refreshCache',
+    api: 'userQuestionnaire/refreshCache',
     params: {
-      questionnaireResultId: getValueByKey({
+      userQuestionnaireId: getValueByKey({
         data: handleData,
-        key: fieldData.questionnaireResultId.name,
+        key: fieldData.userQuestionnaireId.name,
       }),
     },
     target,

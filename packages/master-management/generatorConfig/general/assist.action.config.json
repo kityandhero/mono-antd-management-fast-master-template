@@ -29,9 +29,9 @@
       "coverFile": false
     },
     {
-      "folder": "QuestionnaireResult/Assist",
-      "model": "questionnaireResult",
-      "key": "questionnaireResultId",
+      "folder": "UserQuestionnaire/Assist",
+      "model": "userQuestionnaire",
+      "key": "userQuestionnaireId",
       "fileName": "action.js",
       "coverFile": false
     },

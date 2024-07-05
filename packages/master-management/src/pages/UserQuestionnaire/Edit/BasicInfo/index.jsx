@@ -1,9 +1,5 @@
 import { connect } from 'easy-soft-dva';
-import {
-  convertCollection,
-  formatCollection,
-  getValueByKey,
-} from 'easy-soft-utility';
+import { formatCollection, getValueByKey } from 'easy-soft-utility';
 
 import {
   cardConfig,
@@ -16,24 +12,24 @@ import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
 
-@connect(({ questionnaireResult, schedulingControl }) => ({
-  questionnaireResult,
+@connect(({ userQuestionnaire, schedulingControl }) => ({
+  userQuestionnaire,
   schedulingControl,
 }))
 class Index extends TabPageBase {
   goToUpdateWhenProcessed = true;
 
   componentAuthority =
-    accessWayCollection.questionnaireResult.pageList.permission;
+    accessWayCollection.userQuestionnaire.pageList.permission;
 
   constructor(properties) {
     super(properties);
 
     this.state = {
       ...this.state,
-      loadApiPath: 'questionnaireResult/get',
-      submitApiPath: 'questionnaireResult/updateBasicInfo',
-      questionnaireResultId: null,
+      loadApiPath: 'userQuestionnaire/get',
+      submitApiPath: 'userQuestionnaire/updateBasicInfo',
+      userQuestionnaireId: null,
     };
   }
 
@@ -59,9 +55,9 @@ class Index extends TabPageBase {
 
   supplementSubmitRequestParams = (o) => {
     const d = o;
-    const { questionnaireResultId } = this.state;
+    const { userQuestionnaireId } = this.state;
 
-    d[fieldData.questionnaireResultId.name] = questionnaireResultId;
+    d[fieldData.userQuestionnaireId.name] = userQuestionnaireId;
 
     return d;
   };

@@ -55,15 +55,6 @@ export async function updateAnswerData(parameters) {
   });
 }
 
-export const updateBusinessModeDataApiAddress = '/question/updateBusinessMode';
-
-export async function updateBusinessModeData(parameters) {
-  return request({
-    api: updateBusinessModeDataApiAddress,
-    params: parameters,
-  });
-}
-
 export const setOnlineDataApiAddress = '/question/setOnline';
 
 export async function setOnlineData(parameters) {

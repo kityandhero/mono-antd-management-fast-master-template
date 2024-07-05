@@ -2,8 +2,13 @@ import { formNameCollection } from '../../../customConfig';
 
 const fieldExtraData = {
   questionCreateModeNote: {
-    label: '问题生成模式[创建后不可根更改]',
+    label: '问题生成模式',
     name: 'questionCreateModeNote',
+    helper: '问题生成模式, 创建后不可根更改',
+  },
+  businessModeNote: {
+    label: '适用业务',
+    name: 'businessModeNote',
     helper: '',
   },
 };
@@ -50,30 +55,35 @@ export const fieldData = {
     name: 'sort',
     helper: '',
   },
-  whetherRandomOrder: {
-    label: '是否随机打乱排序[仅在统一试卷模式生效]',
-    name: 'whetherRandomOrder',
-    helper: '',
-  },
   questionCreateMode: {
-    label: '问题生成模式[创建后不可根更改]',
+    label: '问题生成模式',
     name: 'questionCreateMode',
-    helper: '',
+    helper: '问题生成模式, 创建后不可根更改',
+  },
+  whetherGroupDisplay: {
+    label: '分组显示',
+    name: 'whetherGroupDisplay',
+    helper: '是否按问题类型分组显示[仅在统一试卷模式生效]',
+  },
+  whetherRandomOrder: {
+    label: '随机排序',
+    name: 'whetherRandomOrder',
+    helper: '问卷问题答题时随机打乱排序[仅在统一试卷模式生效]',
   },
   whetherRecommend: {
-    label: '是否推荐',
+    label: '推荐',
     name: 'whetherRecommend',
-    helper: '',
+    helper: '是否推荐状态',
   },
   whetherTop: {
-    label: '是否置顶',
+    label: '置顶',
     name: 'whetherTop',
-    helper: '',
+    helper: '是否置顶状态',
   },
   whetherVisible: {
-    label: '是否可见',
+    label: '可见',
     name: 'whetherVisible',
-    helper: '',
+    helper: '是否可见状态',
   },
   businessMode: {
     label: '适用业务',

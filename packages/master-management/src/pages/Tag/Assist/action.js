@@ -5,6 +5,78 @@ import { actionCore } from 'antd-management-fast-common';
 import { updateColorDataApiAddress } from '../../../services/tag';
 import { fieldData } from '../Common/data';
 
+export function singleTreeListAction({
+  target,
+  handleData = {},
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: 'tag/singleTreeList',
+    params: {
+      ...handleData,
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export function singleTreeListWithWorkflowAction({
+  target,
+  handleData = {},
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: 'tag/singleTreeListWithWorkflow',
+    params: {
+      ...handleData,
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export function singleTreeListWithQuestionAction({
+  target,
+  handleData = {},
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: 'tag/singleTreeListWithQuestion',
+    params: {
+      ...handleData,
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export function singleTreeListWithNoticeAction({
+  target,
+  handleData = {},
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: 'tag/singleTreeListWithNotice',
+    params: {
+      ...handleData,
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export function updateColorAction({ handleData }) {
   request({
     api: updateColorDataApiAddress,

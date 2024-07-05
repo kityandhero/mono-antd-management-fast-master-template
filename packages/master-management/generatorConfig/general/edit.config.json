@@ -17,10 +17,10 @@
       "coverFile": false
     },
     {
-      "folder": "QuestionnaireResult/Edit",
-      "name": "QuestionnaireResult",
-      "model": "questionnaireResult",
-      "key": "questionnaireResultId",
+      "folder": "UserQuestionnaire/Edit",
+      "name": "UserQuestionnaire",
+      "model": "userQuestionnaire",
+      "key": "userQuestionnaireId",
       "fileName": "index.jsx",
       "coverFile": false
     },

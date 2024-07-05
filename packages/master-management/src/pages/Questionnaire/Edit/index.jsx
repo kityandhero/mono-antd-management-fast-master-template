@@ -13,6 +13,7 @@ import { accessWayCollection } from '../../../customConfig';
 import {
   DataTabContainerSupplement,
   getChannelName,
+  getQuestionnaireStatusName,
 } from '../../../customSpecialComponents';
 import {
   refreshCacheAction,
@@ -176,7 +177,7 @@ class Edit extends DataTabContainerSupplement {
         {
           key: 'setOffline',
           text: '设为下线',
-          icon: iconBuilder.shop(),
+          icon: iconBuilder.download(),
           handleButtonClick: ({ handleData }) => {
             that.setOffline(handleData);
           },
@@ -234,7 +235,7 @@ class Edit extends DataTabContainerSupplement {
 
     return {
       textLabel: fieldData.status.label,
-      text: getPresetRoleStatusName({
+      text: getQuestionnaireStatusName({
         value: getValueByKey({
           data: metaData,
           key: fieldData.status.name,

@@ -10,10 +10,10 @@ import { fieldData } from '../Common/data';
 const { BaseUpdateModal } = DataModal;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
-const visibleFlag = '14d9314df26a4d3b884b112be38e27e6';
+const visibleFlag = '0439592d438743f98114a1034ccf1650';
 
-@connect(({ question, schedulingControl }) => ({
-  question,
+@connect(({ questionnaire, schedulingControl }) => ({
+  questionnaire,
   schedulingControl,
 }))
 class ChangeBusinessModeModal extends BaseUpdateModal {
@@ -27,8 +27,8 @@ class ChangeBusinessModeModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '适用业务设置',
-      loadApiPath: 'question/get',
-      submitApiPath: 'question/updateBusinessMode',
+      loadApiPath: 'questionnaire/get',
+      submitApiPath: 'questionnaire/updateBusinessMode',
     };
   }
 
@@ -36,9 +36,9 @@ class ChangeBusinessModeModal extends BaseUpdateModal {
     const d = o;
     const { externalData } = this.state;
 
-    d[fieldData.questionId.name] = getValueByKey({
+    d[fieldData.questionnaireId.name] = getValueByKey({
       data: externalData,
-      key: fieldData.questionId.name,
+      key: fieldData.questionnaireId.name,
       defaultValue: '',
     });
 
@@ -49,9 +49,9 @@ class ChangeBusinessModeModal extends BaseUpdateModal {
     const d = o;
     const { externalData } = this.state;
 
-    d[fieldData.questionId.name] = getValueByKey({
+    d[fieldData.questionnaireId.name] = getValueByKey({
       data: externalData,
-      key: fieldData.questionId.name,
+      key: fieldData.questionnaireId.name,
       defaultValue: '',
     });
 

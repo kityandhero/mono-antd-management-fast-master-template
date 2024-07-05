@@ -2628,13 +2628,6 @@
           "type": "singleData"
         },
         {
-          "title": "设置适用业务",
-          "api": "/question/updateBusinessMode",
-          "effect": "updateBusinessMode",
-          "service": "updateBusinessModeData",
-          "type": "singleData"
-        },
-        {
           "title": "设为上线",
           "api": "/question/setOnline",
           "effect": "setOnline",
@@ -2803,6 +2796,27 @@
           "type": "singleData"
         },
         {
+          "title": "设置适用业务",
+          "api": "/questionnaire/updateBusinessMode",
+          "effect": "updateBusinessMode",
+          "service": "updateBusinessModeData",
+          "type": "singleData"
+        },
+        {
+          "title": "切换分组显示",
+          "api": "/questionnaire/toggleGroupDisplay",
+          "effect": "toggleGroupDisplay",
+          "service": "toggleGroupDisplayData",
+          "type": "singleData"
+        },
+        {
+          "title": "切换随机排序",
+          "api": "/questionnaire/toggleRandomOrder",
+          "effect": "toggleRandomOrder",
+          "service": "toggleRandomOrderData",
+          "type": "singleData"
+        },
+        {
           "title": "切换推荐",
           "api": "/questionnaire/toggleRecommend",
           "effect": "toggleRecommend",
@@ -2849,6 +2863,20 @@
           "api": "/questionnaire/refreshCache",
           "effect": "refreshCache",
           "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/questionnaire/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        },
+        {
+          "title": "",
+          "api": "/questionnaire/uploadImage",
+          "effect": "uploadImage",
+          "service": "uploadImageData",
           "type": "singleData"
         }
       ],
@@ -3641,6 +3669,76 @@
           "effect": "pageListWithQuestion",
           "service": "pageListWithQuestionData",
           "type": "pageList"
+        },
+        {
+          "title": "用于通知的标签列表",
+          "api": "/tag/pageListWithNotice",
+          "effect": "pageListWithNotice",
+          "service": "pageListWithNoticeData",
+          "type": "pageList"
+        },
+        {
+          "title": "用于流程的标签列表",
+          "api": "/tag/pageListWithWorkflow",
+          "effect": "pageListWithWorkflow",
+          "service": "pageListWithWorkflowData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/tag/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/tag/singleListWithQuestion",
+          "effect": "singleListWithQuestion",
+          "service": "singleListWithQuestionData",
+          "type": "singleList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/tag/singleListWithNotice",
+          "effect": "singleListWithNotice",
+          "service": "singleListWithNoticeData",
+          "type": "singleList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/tag/singleListWithWorkflow",
+          "effect": "singleListWithWorkflow",
+          "service": "singleListWithWorkflowData",
+          "type": "singleList"
+        },
+        {
+          "title": "单页树型列表",
+          "api": "/tag/singleTreeList",
+          "effect": "singleTreeList",
+          "service": "singleTreeListData",
+          "type": "singleList"
+        },
+        {
+          "title": "问题相关标签单页树型列表",
+          "api": "/tag/singleTreeListWithQuestion",
+          "effect": "singleTreeListWithQuestion",
+          "service": "singleTreeListWithQuestionData",
+          "type": "singleList"
+        },
+        {
+          "title": "通知相关标签单页树型列表",
+          "api": "/tag/singleTreeListWithNotice",
+          "effect": "singleTreeListWithNotice",
+          "service": "singleTreeListWithNoticeData",
+          "type": "singleList"
+        },
+        {
+          "title": "流程相关标签单页树型列表",
+          "api": "/tag/singleTreeListWithWorkflow",
+          "effect": "singleTreeListWithWorkflow",
+          "service": "singleTreeListWithWorkflowData",
+          "type": "singleList"
         },
         {
           "title": "标签详情",

@@ -9,9 +9,9 @@
       "coverFile": false
     },
     {
-      "folder": "QuestionnaireResult/ChangeSortModal",
-      "model": "questionnaireResult",
-      "key": "questionnaireResultId",
+      "folder": "UserQuestionnaire/ChangeSortModal",
+      "model": "userQuestionnaire",
+      "key": "userQuestionnaireId",
       "visibleFlag": "935c0b8a9ba24f1f897ced3e72851562",
       "fileName": "index.jsx",
       "coverFile": false

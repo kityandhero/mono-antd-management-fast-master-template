@@ -1,6 +1,7 @@
 import { connect } from 'easy-soft-dva';
 import {
   checkHasAuthority,
+  checkStringIsNullOrWhiteSpace,
   convertCollection,
   getValueByKey,
   showSimpleErrorMessage,
@@ -16,11 +17,11 @@ import { iconBuilder } from 'antd-management-fast-component';
 import { accessWayCollection } from '../../../customConfig';
 import {
   DataTabContainerSupplement,
-  getBusinessModeName,
   getChannelName,
   getQuestionStatusName,
   getQuestionTypeName,
 } from '../../../customSpecialComponents';
+import { fieldData as fieldDataQuestionTagRelation } from '../../QuestionTagRelation/Common/data';
 import {
   refreshCacheAction,
   setOfflineAction,
@@ -30,9 +31,9 @@ import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
 } from '../Assist/config';
-import { ChangeBusinessModeModal } from '../ChangeBusinessModeModal';
 import { ChangeWhetherCorrectModal } from '../ChangeWhetherCorrectModal';
 import { fieldData, statusCollection, typeCollection } from '../Common/data';
+import { PracticeDrawer } from '../PracticeDrawer';
 
 @connect(({ question, schedulingControl }) => ({
   question,
@@ -204,14 +205,6 @@ class Edit extends DataTabContainerSupplement {
     });
   };
 
-  showChangeBusinessModeModal = () => {
-    ChangeBusinessModeModal.open();
-  };
-
-  afterChangeBusinessModeModalOk = () => {
-    this.refreshDataWithReloadAnimalPrompt({});
-  };
-
   showChangeWhetherCorrectModal = () => {
     ChangeWhetherCorrectModal.open();
   };
@@ -220,17 +213,130 @@ class Edit extends DataTabContainerSupplement {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
+  showPracticeDrawer = () => {
+    PracticeDrawer.open();
+  };
+
   establishPageHeaderAvatarConfig = () => {
-    return { icon: iconBuilder.snippets() };
+    const { metaData } = this.state;
+
+    if (metaData != null) {
+      const image = getValueByKey({
+        data: metaData,
+        key: fieldData.image.name,
+      });
+
+      if (!checkStringIsNullOrWhiteSpace(image)) {
+        return { src: image };
+      }
+    }
+
+    return null;
   };
 
   establishPageHeaderTitlePrefix = () => {
     return '标题';
   };
 
+  establishPageHeaderTagCollectionConfig = () => {
+    const { metaData } = this.state;
+
+    if ((metaData || null) == null) {
+      return null;
+    }
+
+    const listTag = getValueByKey({
+      data: metaData,
+      key: fieldData.listTag.name,
+      convert: convertCollection.array,
+    });
+
+    const status = getValueByKey({
+      data: metaData,
+      key: fieldData.status.name,
+      convert: convertCollection.number,
+    });
+
+    const tags = listTag.map((o) => {
+      const color = getValueByKey({
+        data: o,
+        key: fieldDataQuestionTagRelation.color.name,
+      });
+
+      const tagDisplayName = getValueByKey({
+        data: o,
+        key: fieldDataQuestionTagRelation.tagDisplayName.name,
+      });
+
+      return {
+        color: color,
+        text: tagDisplayName,
+      };
+    });
+
+    return [
+      ...tags,
+      // {
+      //   color: 'blue',
+      //   text: '推荐',
+      //   hidden: whetherRecommend !== whetherNumber.yes,
+      // },
+      // {
+      //   color: 'yellow',
+      //   text: '置顶',
+      //   hidden: whetherTop !== whetherNumber.yes,
+      // },
+      // {
+      //   color: 'pink',
+      //   text: '显示',
+      //   hidden: whetherVisible !== whetherNumber.yes,
+      // },
+      {
+        color: 'green',
+        text: '上线',
+        hidden: status !== statusCollection.online,
+      },
+      {
+        color: 'red',
+        text: '下线',
+        hidden: status !== statusCollection.offline,
+      },
+    ];
+  };
+
   establishExtraActionConfig = () => {
+    const { metaData } = this.state;
+
+    const list = [];
+
+    if (metaData == null) {
+      return { list };
+    }
+
+    const type = getValueByKey({
+      data: metaData,
+      key: fieldData.type.name,
+      convert: convertCollection.number,
+    });
+
+    if (type !== typeCollection.judgment) {
+      return { list };
+    }
+
     return {
       list: [
+        {
+          buildType: extraBuildType.generalExtraButton,
+          icon: iconBuilder.bug(),
+          text: '测试题目',
+          hidden: !checkHasAuthority(
+            accessWayCollection.question.practice.permission,
+          ),
+          handleClick: () => {
+            this.showPracticeDrawer();
+          },
+        },
+
         {
           buildType: extraBuildType.generalExtraButton,
           icon: iconBuilder.edit(),
@@ -281,7 +387,7 @@ class Edit extends DataTabContainerSupplement {
         {
           key: 'setOffline',
           text: '设为下线',
-          icon: iconBuilder.shop(),
+          icon: iconBuilder.download(),
           handleButtonClick: ({ handleData }) => {
             that.setOffline(handleData);
           },
@@ -310,11 +416,6 @@ class Edit extends DataTabContainerSupplement {
       disabled: this.checkInProgress(),
       handleMenuClick: ({ key, handleData }) => {
         switch (key) {
-          case 'UpdateBusinessMode': {
-            that.showChangeBusinessModeModal(handleData);
-            break;
-          }
-
           case 'refreshCache': {
             that.refreshCache(handleData);
             break;
@@ -328,14 +429,6 @@ class Edit extends DataTabContainerSupplement {
       },
       handleData: metaData,
       items: [
-        {
-          key: 'UpdateBusinessMode',
-          icon: iconBuilder.edit(),
-          text: '设置适用业务',
-          hidden: !checkHasAuthority(
-            accessWayCollection.section.updateBusinessMode.permission,
-          ),
-        },
         {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
@@ -408,16 +501,6 @@ class Edit extends DataTabContainerSupplement {
         }),
       },
       {
-        label: fieldData.businessMode.label,
-        value: getBusinessModeName({
-          value: getValueByKey({
-            data: metaData,
-            key: fieldData.businessMode.name,
-            convert: convertCollection.string,
-          }),
-        }),
-      },
-      {
         label: fieldData.channel.label,
         value: getChannelName({
           value: getValueByKey({
@@ -435,15 +518,12 @@ class Edit extends DataTabContainerSupplement {
 
     return (
       <>
-        <ChangeBusinessModeModal
-          externalData={metaData}
-          afterOK={this.afterChangeBusinessModeModalOk}
-        />
-
         <ChangeWhetherCorrectModal
           externalData={metaData}
           afterOK={this.afterChangeWhetherCorrectModalOk}
         />
+
+        <PracticeDrawer externalData={metaData} />
       </>
     );
   };

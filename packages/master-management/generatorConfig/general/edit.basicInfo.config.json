@@ -8,13 +8,6 @@
       "coverFile": false
     },
     {
-      "folder": "QuestionItem/Edit/BasicInfo",
-      "model": "questionItem",
-      "key": "questionItemId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
       "folder": "Questionnaire/Edit/BasicInfo",
       "model": "questionnaire",
       "key": "questionnaireId",
@@ -22,9 +15,9 @@
       "coverFile": false
     },
     {
-      "folder": "QuestionnaireResult/Edit/BasicInfo",
-      "model": "questionnaireResult",
-      "key": "questionnaireResultId",
+      "folder": "UserQuestionnaire/Edit/BasicInfo",
+      "model": "userQuestionnaire",
+      "key": "userQuestionnaireId",
       "fileName": "index.jsx",
       "coverFile": false
     },

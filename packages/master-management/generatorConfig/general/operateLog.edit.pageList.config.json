@@ -7,21 +7,15 @@
       "coverFile": true
     },
     {
-      "folder": "QuestionItem/Edit/OperateLog/PageList",
-      "model": "questionItem",
-      "key": "questionItemId",
-      "coverFile": true
-    },
-    {
       "folder": "Questionnaire/Edit/OperateLog/PageList",
       "model": "questionnaire",
       "key": "questionnaireId",
       "coverFile": true
     },
     {
-      "folder": "QuestionnaireResult/Edit/OperateLog/PageList",
-      "model": "questionnaireResult",
-      "key": "questionnaireResultId",
+      "folder": "UserQuestionnaire/Edit/OperateLog/PageList",
+      "model": "userQuestionnaire",
+      "key": "userQuestionnaireId",
       "coverFile": true
     },
     {

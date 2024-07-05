@@ -107,7 +107,7 @@ class ChangeSortModal extends BaseUpdateModal {
 
     return getValueByKey({
       data: metaData,
-      key: fieldData.name.name,
+      key: fieldData.title.name,
     });
   };
 

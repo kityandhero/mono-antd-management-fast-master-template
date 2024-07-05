@@ -20,6 +20,7 @@ import { refreshCacheAction } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData } from '../Common/data';
+import { OperateLogDrawer } from '../OperateLogDrawer';
 
 const { MultiPage } = DataMultiPageView;
 
@@ -44,8 +45,8 @@ class PageList extends MultiPage {
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
-      case 'updateSort': {
-        this.showChangeSortModal(handleData);
+      case 'showOperateLog': {
+        this.showOperateLogDrawer(handleData);
         break;
       }
 
@@ -89,6 +90,17 @@ class PageList extends MultiPage {
     subjoinData,
   }) => {
     this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  showOperateLogDrawer = (record) => {
+    this.setState(
+      {
+        currentRecord: record,
+      },
+      () => {
+        OperateLogDrawer.open();
+      },
+    );
   };
 
   goToEdit = (record) => {
@@ -137,6 +149,14 @@ class PageList extends MultiPage {
       },
       items: [
         {
+          key: 'showOperateLog',
+          icon: iconBuilder.read(),
+          text: '操作日志',
+          hidden: !checkHasAuthority(
+            accessWayCollection.questionItem.pageListOperateLog.permission,
+          ),
+        },
+        {
           key: 'refreshCache',
           withDivider: true,
           uponDivider: true,
@@ -153,6 +173,12 @@ class PageList extends MultiPage {
   };
 
   getColumnWrapper = () => [
+    {
+      dataTarget: fieldData.image,
+      width: 60,
+      showRichFacade: true,
+      facadeMode: columnFacadeMode.image,
+    },
     {
       dataTarget: fieldData.title,
       align: 'left',
@@ -204,6 +230,8 @@ class PageList extends MultiPage {
           externalData={currentRecord}
           afterOK={this.afterChangeSortModalOk}
         />
+
+        <OperateLogDrawer externalData={currentRecord} />
       </>
     );
   };

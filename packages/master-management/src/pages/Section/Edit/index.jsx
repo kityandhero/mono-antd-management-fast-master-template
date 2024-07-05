@@ -421,7 +421,7 @@ class Edit extends DataTabContainerSupplement {
       disabled: this.checkInProgress(),
       handleMenuClick: ({ key, handleData }) => {
         switch (key) {
-          case 'UpdateBusinessMode': {
+          case 'updateBusinessMode': {
             that.showChangeBusinessModeModal(handleData);
             break;
           }
@@ -440,7 +440,7 @@ class Edit extends DataTabContainerSupplement {
       handleData: metaData,
       items: [
         {
-          key: 'UpdateBusinessMode',
+          key: 'updateBusinessMode',
           icon: iconBuilder.edit(),
           text: '设置适用业务',
           hidden: !checkHasAuthority(
@@ -462,10 +462,6 @@ class Edit extends DataTabContainerSupplement {
     };
   };
 
-  establishPageHeaderTitlePrefix = () => {
-    return '品类名称';
-  };
-
   establishPageHeaderAvatarConfig = () => {
     const { metaData } = this.state;
 
@@ -481,6 +477,10 @@ class Edit extends DataTabContainerSupplement {
     }
 
     return null;
+  };
+
+  establishPageHeaderTitlePrefix = () => {
+    return '品类名称';
   };
 
   establishPageHeaderTagCollectionConfig = () => {

@@ -2,6 +2,7 @@ import { connect } from 'easy-soft-dva';
 import {
   buildRandomHexColor,
   checkHasAuthority,
+  showSimpleErrorMessage,
   toNumber,
 } from 'easy-soft-utility';
 

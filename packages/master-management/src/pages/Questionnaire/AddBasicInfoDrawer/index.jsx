@@ -90,6 +90,7 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
     if (valueAdjust === questionCreateModeCollection.random) {
       const value = {};
 
+      value[fieldData.whetherGroupDisplay.name] = whetherString.no;
       value[fieldData.whetherRandomOrder.name] = whetherString.no;
 
       this.setFormFieldsValue(value);
@@ -102,6 +103,7 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
     values[fieldData.questionCreateMode.name] = toString(
       questionCreateModeCollection.global,
     );
+    values[fieldData.whetherGroupDisplay.name] = whetherString.no;
     values[fieldData.whetherRandomOrder.name] = whetherString.no;
     values[fieldData.sort.name] = 0;
 
@@ -123,6 +125,18 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
               lg: 24,
               type: cardConfig.contentItemType.input,
               fieldData: fieldData.title,
+              require: true,
+            },
+            {
+              lg: 12,
+              type: cardConfig.contentItemType.component,
+              component: renderFormBusinessModeSelect({}),
+              require: true,
+            },
+            {
+              lg: 12,
+              type: cardConfig.contentItemType.inputNumber,
+              fieldData: fieldData.sort,
               require: true,
             },
             {
@@ -152,9 +166,9 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
               lg: 12,
               type: cardConfig.contentItemType.component,
               component: renderFormWhetherSelect({
-                name: fieldData.whetherRandomOrder.name,
-                label: fieldData.whetherRandomOrder.label,
-                helper: fieldData.whetherRandomOrder.helper,
+                name: fieldData.whetherGroupDisplay.name,
+                label: fieldData.whetherGroupDisplay.label,
+                helper: fieldData.whetherGroupDisplay.helper,
                 innerProps: {
                   disabled:
                     toNumber(currentQuestionCreateMode) ===
@@ -166,13 +180,16 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
             {
               lg: 12,
               type: cardConfig.contentItemType.component,
-              component: renderFormBusinessModeSelect({}),
-              require: true,
-            },
-            {
-              lg: 12,
-              type: cardConfig.contentItemType.inputNumber,
-              fieldData: fieldData.sort,
+              component: renderFormWhetherSelect({
+                name: fieldData.whetherRandomOrder.name,
+                label: fieldData.whetherRandomOrder.label,
+                helper: fieldData.whetherRandomOrder.helper,
+                innerProps: {
+                  disabled:
+                    toNumber(currentQuestionCreateMode) ===
+                    questionCreateModeCollection.random,
+                },
+              }),
               require: true,
             },
           ],

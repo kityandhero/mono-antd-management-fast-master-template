@@ -11,11 +11,12 @@ import {
 } from 'easy-soft-utility';
 
 import {
+  cardConfig,
   columnFacadeMode,
   listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
+import { buildButton, iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
@@ -27,6 +28,7 @@ import {
   renderSearchQuestionStatusSelect,
   renderSearchQuestionTypeSelect,
 } from '../../../customSpecialComponents';
+import { singleTreeListWithQuestionAction } from '../../Tag/Assist/action';
 import { AddBasicInfoDrawer } from '../AddBasicInfoDrawer';
 import {
   refreshCacheAction,
@@ -35,7 +37,6 @@ import {
   setOnlineAction,
 } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
-import { ChangeBusinessModeModal } from '../ChangeBusinessModeModal';
 import { ChangeWhetherCorrectModal } from '../ChangeWhetherCorrectModal';
 import { fieldData, statusCollection, typeCollection } from '../Common/data';
 import { PracticeDrawer } from '../PracticeDrawer';
@@ -48,6 +49,9 @@ const { MultiPage } = DataMultiPageView;
   schedulingControl,
 }))
 class PageList extends MultiPage {
+  // 在控制台显示组建内调用序列, 仅为进行开发辅助
+  // showCallProcess = true;
+
   componentAuthority = accessWayCollection.question.pageList.permission;
 
   constructor(properties) {
@@ -59,8 +63,49 @@ class PageList extends MultiPage {
       paramsKey: accessWayCollection.question.pageList.paramsKey,
       loadApiPath: 'question/pageList',
       currentRecord: null,
+      tagIdCollection: [],
+      tagName: '',
+      tagTreeData: [],
     };
   }
+
+  doOtherRemoteRequest = () => {
+    this.loadTagTreeList();
+  };
+
+  handleSearchResetState = () => {
+    return {
+      tagIdCollection: [],
+      tagName: '',
+    };
+  };
+
+  loadTagTreeList = () => {
+    singleTreeListWithQuestionAction({
+      target: this,
+      handleData: {},
+      successCallback: ({ target, remoteListData }) => {
+        target.setState({
+          tagTreeData: remoteListData,
+        });
+      },
+    });
+  };
+
+  reloadTagTreeList = () => {
+    this.loadTagTreeList();
+  };
+
+  supplementLoadRequestParams = (o) => {
+    const d = o;
+    const { tagIdCollection } = this.state;
+
+    console.log({ o });
+
+    d[fieldData.tagIdCollection.name] = tagIdCollection.join(',');
+
+    return d;
+  };
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
@@ -71,11 +116,6 @@ class PageList extends MultiPage {
 
       case 'showPracticeDrawer': {
         this.showPracticeDrawer(handleData);
-        break;
-      }
-
-      case 'updateBusinessMode': {
-        this.showChangeBusinessModeModal(handleData);
         break;
       }
 
@@ -201,16 +241,6 @@ class PageList extends MultiPage {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
-  showChangeBusinessModeModal = (item) => {
-    this.setState({ currentRecord: item }, () => {
-      ChangeBusinessModeModal.open();
-    });
-  };
-
-  afterChangeBusinessModeModalOk = () => {
-    this.refreshDataWithReloadAnimalPrompt({});
-  };
-
   showChangeWhetherCorrectModal = (item) => {
     this.setState({ currentRecord: item }, () => {
       ChangeWhetherCorrectModal.open();
@@ -261,30 +291,63 @@ class PageList extends MultiPage {
   };
 
   establishSearchCardConfig = () => {
+    const { tagTreeData, tagIdCollection } = this.state;
+
     return {
       list: [
         {
-          lg: 5,
+          lg: 12,
           type: searchCardConfig.contentItemType.input,
           fieldData: fieldData.title,
         },
         {
-          lg: 5,
+          lg: 6,
           type: searchCardConfig.contentItemType.customSelect,
           component: renderSearchQuestionTypeSelect({}),
         },
         {
-          lg: 5,
+          lg: 6,
           type: searchCardConfig.contentItemType.customSelect,
           component: renderSearchBusinessModeSelect({}),
         },
         {
-          lg: 5,
+          lg: 12,
+          type: cardConfig.contentItemType.treeSelect,
+          fieldData: fieldData.tagIdCollection,
+          value: tagIdCollection,
+          require: true,
+          innerProps: {
+            treeCheckable: true,
+          },
+          listData: tagTreeData,
+          addonAfter: buildButton({
+            text: '',
+            icon: iconBuilder.reload(),
+            handleClick: () => {
+              this.reloadTagTreeList();
+            },
+          }),
+          dataConvert: (o) => {
+            const { name: title, code: value } = o;
+
+            return {
+              title,
+              value,
+            };
+          },
+          onChange: ({ value }) => {
+            this.setState({
+              tagIdCollection: value,
+            });
+          },
+        },
+        {
+          lg: 6,
           type: searchCardConfig.contentItemType.customSelect,
           component: renderSearchQuestionStatusSelect({}),
         },
         {
-          lg: 4,
+          lg: 6,
           type: searchCardConfig.contentItemType.component,
           component: this.buildSearchCardButtonCore(),
         },
@@ -347,16 +410,6 @@ class PageList extends MultiPage {
           ),
         },
         {
-          key: 'updateBusinessMode',
-          withDivider: true,
-          uponDivider: true,
-          icon: iconBuilder.edit(),
-          text: '设置适用业务',
-          hidden: !checkHasAuthority(
-            accessWayCollection.question.updateBusinessMode.permission,
-          ),
-        },
-        {
           key: 'setOnline',
           withDivider: true,
           uponDivider: true,
@@ -388,6 +441,9 @@ class PageList extends MultiPage {
           key: 'remove',
           icon: iconBuilder.delete(),
           text: '移除数据',
+          hidden: !checkHasAuthority(
+            accessWayCollection.question.remove.permission,
+          ),
           confirm: true,
           title: '将要移除数据，确定吗？',
         },
@@ -516,11 +572,6 @@ class PageList extends MultiPage {
     return (
       <>
         <AddBasicInfoDrawer afterOK={this.afterAddBasicInfoDrawerOk} />
-
-        <ChangeBusinessModeModal
-          externalData={currentRecord}
-          afterOK={this.afterChangeBusinessModeModalOk}
-        />
 
         <ChangeWhetherCorrectModal
           externalData={currentRecord}

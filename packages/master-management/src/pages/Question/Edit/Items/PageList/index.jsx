@@ -222,8 +222,6 @@ class PageList extends InnerMultiPage {
       items: [
         {
           key: 'showOperateLog',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.read(),
           text: '操作日志',
           hidden: !checkHasAuthority(

@@ -22,9 +22,9 @@
       "coverFile": true
     },
     {
-      "folder": "QuestionnaireResult/TabPageBase",
-      "model": "questionnaireResult",
-      "key": "questionnaireResultId",
+      "folder": "UserQuestionnaire/TabPageBase",
+      "model": "userQuestionnaire",
+      "key": "userQuestionnaireId",
       "fileName": "index.jsx",
       "coverFile": true
     },

@@ -1,9 +1,5 @@
 import { connect } from 'easy-soft-dva';
-import {
-  convertCollection,
-  formatCollection,
-  getValueByKey,
-} from 'easy-soft-utility';
+import { formatCollection, getValueByKey } from 'easy-soft-utility';
 
 import {
   cardConfig,

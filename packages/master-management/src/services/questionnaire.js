@@ -55,6 +55,36 @@ export async function updateSortData(parameters) {
   });
 }
 
+export const updateBusinessModeDataApiAddress =
+  '/questionnaire/updateBusinessMode';
+
+export async function updateBusinessModeData(parameters) {
+  return request({
+    api: updateBusinessModeDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const toggleGroupDisplayDataApiAddress =
+  '/questionnaire/toggleGroupDisplay';
+
+export async function toggleGroupDisplayData(parameters) {
+  return request({
+    api: toggleGroupDisplayDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const toggleRandomOrderDataApiAddress =
+  '/questionnaire/toggleRandomOrder';
+
+export async function toggleRandomOrderData(parameters) {
+  return request({
+    api: toggleRandomOrderDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const toggleRecommendDataApiAddress = '/questionnaire/toggleRecommend';
 
 export async function toggleRecommendData(parameters) {
@@ -114,6 +144,25 @@ export const refreshCacheDataApiAddress = '/questionnaire/refreshCache';
 export async function refreshCacheData(parameters) {
   return request({
     api: refreshCacheDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const pageListOperateLogDataApiAddress =
+  '/questionnaire/pageListOperateLog';
+
+export async function pageListOperateLogData(parameters) {
+  return request({
+    api: pageListOperateLogDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const uploadImageDataApiAddress = '/questionnaire/uploadImage';
+
+export async function uploadImageData(parameters) {
+  return request({
+    api: uploadImageDataApiAddress,
     params: parameters,
   });
 }

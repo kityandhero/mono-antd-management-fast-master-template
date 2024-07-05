@@ -1,9 +1,6 @@
-import React from 'react';
-
 import { connect } from 'easy-soft-dva';
 import {
   checkHasAuthority,
-  convertCollection,
   getValueByKey,
   showSimpleErrorMessage,
 } from 'easy-soft-utility';

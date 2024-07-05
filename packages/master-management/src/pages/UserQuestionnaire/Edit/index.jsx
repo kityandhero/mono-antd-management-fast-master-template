@@ -13,21 +13,17 @@ import { accessWayCollection } from '../../../customConfig';
 import {
   DataTabContainerSupplement,
   getChannelName,
-  getQuestionnaireStatusName,
+  getUserQuestionnaireStatusName,
 } from '../../../customSpecialComponents';
-import {
-  refreshCacheAction,
-  setOfflineAction,
-  setOnlineAction,
-} from '../Assist/action';
+import { refreshCacheAction } from '../Assist/action';
 import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
 } from '../Assist/config';
 import { fieldData, statusCollection } from '../Common/data';
 
-@connect(({ questionnaireResult, schedulingControl }) => ({
-  questionnaireResult,
+@connect(({ userQuestionnaire, schedulingControl }) => ({
+  userQuestionnaire,
   schedulingControl,
 }))
 class Edit extends DataTabContainerSupplement {
@@ -48,9 +44,9 @@ class Edit extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'questionnaireResult/get',
-      backPath: `/questionnaireResult/pageList/key`,
-      questionnaireResultId: null,
+      loadApiPath: 'userQuestionnaire/get',
+      backPath: `/userQuestionnaire/pageList/key`,
+      userQuestionnaireId: null,
     };
   }
 
@@ -69,9 +65,9 @@ class Edit extends DataTabContainerSupplement {
 
   supplementLoadRequestParams = (o) => {
     const d = o;
-    const { questionnaireResultId } = this.state;
+    const { userQuestionnaireId } = this.state;
 
-    d[fieldData.questionnaireResultId.name] = questionnaireResultId;
+    d[fieldData.userQuestionnaireId.name] = userQuestionnaireId;
 
     return d;
   };
@@ -90,40 +86,6 @@ class Edit extends DataTabContainerSupplement {
         data: metaData,
         key: fieldData.title.name,
       }),
-    });
-  };
-
-  setOnline = (r) => {
-    setOnlineAction({
-      target: this,
-      handleData: r,
-      successCallback: ({ target, remoteData }) => {
-        const { metaData } = target.state;
-
-        metaData[fieldData.status.name] = getValueByKey({
-          data: remoteData,
-          key: fieldData.status.name,
-        });
-
-        target.setState({ metaData });
-      },
-    });
-  };
-
-  setOffline = (r) => {
-    setOfflineAction({
-      target: this,
-      handleData: r,
-      successCallback: ({ target, remoteData }) => {
-        const { metaData } = target.state;
-
-        metaData[fieldData.status.name] = getValueByKey({
-          data: remoteData,
-          key: fieldData.status.name,
-        });
-
-        target.setState({ metaData });
-      },
     });
   };
 
@@ -167,7 +129,7 @@ class Edit extends DataTabContainerSupplement {
             that.setOnline(handleData);
           },
           hidden: !checkHasAuthority(
-            accessWayCollection.questionnaireResult.setOnline.permission,
+            accessWayCollection.userQuestionnaire.setOnline.permission,
           ),
           disabled: status === statusCollection.online,
           confirm: true,
@@ -177,12 +139,12 @@ class Edit extends DataTabContainerSupplement {
         {
           key: 'setOffline',
           text: '设为下线',
-          icon: iconBuilder.shop(),
+          icon: iconBuilder.download(),
           handleButtonClick: ({ handleData }) => {
             that.setOffline(handleData);
           },
           hidden: !checkHasAuthority(
-            accessWayCollection.questionnaireResult.setOffline.permission,
+            accessWayCollection.userQuestionnaire.setOffline.permission,
           ),
           disabled: status === statusCollection.offline,
           confirm: true,
@@ -235,7 +197,7 @@ class Edit extends DataTabContainerSupplement {
 
     return {
       textLabel: fieldData.status.label,
-      text: getQuestionnaireStatusName({
+      text: getUserQuestionnaireStatusName({
         value: getValueByKey({
           data: metaData,
           key: fieldData.status.name,
@@ -255,10 +217,10 @@ class Edit extends DataTabContainerSupplement {
 
     return [
       {
-        label: fieldData.questionnaireResultId.label,
+        label: fieldData.userQuestionnaireId.label,
         value: getValueByKey({
           data: metaData,
-          key: fieldData.questionnaireResultId.name,
+          key: fieldData.userQuestionnaireId.name,
         }),
         canCopy: true,
       },

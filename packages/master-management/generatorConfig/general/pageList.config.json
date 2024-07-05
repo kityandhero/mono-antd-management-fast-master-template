@@ -22,9 +22,9 @@
       "coverFile": false
     },
     {
-      "folder": "QuestionnaireResult/PageList",
-      "model": "questionnaireResult",
-      "key": "questionnaireResultId",
+      "folder": "UserQuestionnaire/PageList",
+      "model": "userQuestionnaire",
+      "key": "userQuestionnaireId",
       "fileName": "index.jsx",
       "coverFile": false
     },
@@ -232,20 +232,6 @@
       "coverFile": false
     },
     {
-      "folder": "SqlLog/PageListBusiness",
-      "model": "SqlLog",
-      "key": "sqlLogId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "SqlLog/PageListInfrastructure",
-      "model": "SqlLog",
-      "key": "sqlLogId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
       "folder": "Subsidiary/PageList",
       "model": "subsidiary",
       "key": "subsidiaryId",
@@ -282,6 +268,20 @@
     },
     {
       "folder": "SqlEntity/PageList",
+      "model": "sqlEntity",
+      "key": "sqlEntityId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "SqlEntity/PageListBusiness",
+      "model": "sqlEntity",
+      "key": "sqlEntityId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "SqlEntity/PageListInfrastructure",
       "model": "sqlEntity",
       "key": "sqlEntityId",
       "fileName": "index.jsx",

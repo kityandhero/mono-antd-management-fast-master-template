@@ -1698,11 +1698,6 @@ export const accessWayCollection = {
       paramsKey: 'b3b85b2141a064d924d87db19e2892df',
       permission: '6124bbeb612449fd9cbfcc3599681b0f',
     },
-    updateBusinessMode: {
-      title: '设置适用业务',
-      paramsKey: '42de0a55289c226325cf789213ab72a1',
-      permission: '6358ef56549d4548b6d65f7a157c154f',
-    },
     setOnline: {
       title: '设为上线',
       paramsKey: '0b2024ad579db254e11d8cbc06c88d42',
@@ -1807,6 +1802,21 @@ export const accessWayCollection = {
       paramsKey: '2ab09db1d496ef6519a8260a20c986e3',
       permission: '2d09c09c8cc34f94b2571b1ce2589550',
     },
+    updateBusinessMode: {
+      title: '设置适用业务',
+      paramsKey: '437d2e5897ffa3974910cdb64927fdda',
+      permission: 'fc5fa7d28200457ab761dcf4a5faba6b',
+    },
+    toggleGroupDisplay: {
+      title: '切换分组显示',
+      paramsKey: '89c1e7aa8b8cad601520fb65e6a00d7d',
+      permission: '838c3da56451485e9b6e51fe0eda5194',
+    },
+    toggleRandomOrder: {
+      title: '切换随机排序',
+      paramsKey: '52a5948cceda35345c17ec2789a70684',
+      permission: '4ba4fec6dc274bb7a8528c0248e702ef',
+    },
     toggleRecommend: {
       title: '切换推荐',
       paramsKey: '6756415b3239252f998e5f44e7669405',
@@ -1841,6 +1851,11 @@ export const accessWayCollection = {
       title: '刷新缓存',
       paramsKey: 'cca85b8fb8adefa23f56493315312aa9',
       permission: '719c3a3945c348e29188384895e85339',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: '0bb699e466f043acd4a5ede4a78f1767',
+      permission: '32ba22e77b65473a9ab9a49cc71d1299',
     },
   },
   questionnaireQuestion: {
@@ -2342,6 +2357,41 @@ export const accessWayCollection = {
       title: '标签列表',
       paramsKey: '1c9247614e2c577a940ea9dcbec32b4e',
       permission: 'd8025a63b4f546d5845d0b7828edaaaa',
+    },
+    pageListWithQuestion: {
+      title: '用于问题的标签列表',
+      paramsKey: '4eeae8b3f638b569eeb58000aec3c84b',
+      permission: '8074212c5422472c83a96f061d6b4a01',
+    },
+    pageListWithNotice: {
+      title: '用于通知的标签列表',
+      paramsKey: '1eb962affb151d65e4fa4a671e0ff375',
+      permission: 'd10e73c8651146dab655d19721d05b51',
+    },
+    pageListWithWorkflow: {
+      title: '用于流程的标签列表',
+      paramsKey: 'bdf6aed301dae7d2ae6fae6d6ffbe27e',
+      permission: 'd902450dc3ef44fa97a6802bf07167c7',
+    },
+    singleList: {
+      title: '单页列表',
+      paramsKey: '191e89c38eb561849553e6e36b78e880',
+      permission: '28e952194bd746949c82cd9a3cf27e92',
+    },
+    singleListWithQuestion: {
+      title: '单页列表',
+      paramsKey: '300077be69cba7b870285a2d549474d6',
+      permission: '1dd958def8f24b4a975662d5bc2e6307',
+    },
+    singleListWithNotice: {
+      title: '单页列表',
+      paramsKey: 'e1709a03c66df970653c23f4d78f952a',
+      permission: '78061014dc924f058470e68a1040ffa3',
+    },
+    singleListWithWorkflow: {
+      title: '单页列表',
+      paramsKey: '2d894088d40e1ba97c13f783709e6f4a',
+      permission: 'b2e8b117c2574448832bc093d7c33aff',
     },
     get: {
       title: '标签详情',

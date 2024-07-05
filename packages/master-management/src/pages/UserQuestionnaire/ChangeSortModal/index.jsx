@@ -11,8 +11,8 @@ const { BaseUpdateModal } = DataModal;
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = '935c0b8a9ba24f1f897ced3e72851562';
 
-@connect(({ questionnaireResult, schedulingControl }) => ({
-  questionnaireResult,
+@connect(({ userQuestionnaire, schedulingControl }) => ({
+  userQuestionnaire,
   schedulingControl,
 }))
 class ChangeSortModal extends BaseUpdateModal {
@@ -26,8 +26,8 @@ class ChangeSortModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '排序值设置',
-      loadApiPath: 'questionnaireResult/get',
-      submitApiPath: 'questionnaireResult/updateSort',
+      loadApiPath: 'userQuestionnaire/get',
+      submitApiPath: 'userQuestionnaire/updateSort',
     };
   }
 
@@ -57,9 +57,9 @@ class ChangeSortModal extends BaseUpdateModal {
   supplementLoadRequestParams = (o) => {
     const d = o;
     const { externalData } = this.state;
-    const { questionnaireResultId } = externalData;
+    const { userQuestionnaireId } = externalData;
 
-    d[fieldData.questionnaireResultId.name] = questionnaireResultId;
+    d[fieldData.userQuestionnaireId.name] = userQuestionnaireId;
 
     return d;
   };
@@ -68,9 +68,9 @@ class ChangeSortModal extends BaseUpdateModal {
     const d = o;
     const { externalData } = this.state;
 
-    d[fieldData.questionnaireResultId.name] = getValueByKey({
+    d[fieldData.userQuestionnaireId.name] = getValueByKey({
       data: externalData,
-      key: fieldData.questionnaireResultId.name,
+      key: fieldData.userQuestionnaireId.name,
     });
 
     return d;

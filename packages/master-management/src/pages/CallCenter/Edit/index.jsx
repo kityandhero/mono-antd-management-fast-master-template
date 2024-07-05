@@ -176,7 +176,7 @@ class Edit extends DataTabContainerSupplement {
         {
           key: 'setOffline',
           text: '设为下线',
-          icon: iconBuilder.shop(),
+          icon: iconBuilder.download(),
           handleButtonClick: ({ handleData }) => {
             that.setOffline(handleData);
           },

@@ -29,9 +29,9 @@
       "coverFile": false
     },
     {
-      "folder": "QuestionnaireResult/Common",
-      "model": "questionnaireResult",
-      "key": "questionnaireResultId",
+      "folder": "UserQuestionnaire/Common",
+      "model": "userQuestionnaire",
+      "key": "userQuestionnaireId",
       "fileName": "data.js",
       "coverFile": false
     },

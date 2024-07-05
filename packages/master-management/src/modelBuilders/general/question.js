@@ -19,7 +19,6 @@ import {
   setOnlineData,
   updateAnswerData,
   updateBasicInfoData,
-  updateBusinessModeData,
   updateWhetherCorrectData,
   uploadImageData,
 } from '../../services/question';
@@ -173,32 +172,6 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(updateAnswerData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *updateBusinessMode(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(updateBusinessModeData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

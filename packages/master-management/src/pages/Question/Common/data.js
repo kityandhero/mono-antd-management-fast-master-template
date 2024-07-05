@@ -12,7 +12,7 @@ const fieldExtraData = {
     helper: '',
   },
   tagName: {
-    label: '已设标签',
+    label: '标签',
     name: 'tagName',
     helper: '',
   },
@@ -24,6 +24,11 @@ const fieldExtraData = {
   listTag: {
     label: '标签列表',
     name: 'listTag',
+    helper: '',
+  },
+  tagIdCollection: {
+    label: '标签',
+    name: 'tagIdCollection',
     helper: '',
   },
 };

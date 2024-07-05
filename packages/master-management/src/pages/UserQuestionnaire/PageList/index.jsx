@@ -1,10 +1,8 @@
-import React from 'react';
-
 import { connect } from 'easy-soft-dva';
 import {
   checkHasAuthority,
-  convertCollection,
   getValueByKey,
+  showSimpleErrorMessage,
 } from 'easy-soft-utility';
 
 import {
@@ -20,12 +18,13 @@ import { fieldData } from '../Common/data';
 
 const { MultiPage } = DataMultiPageView;
 
-@connect(({ SqlLog, schedulingControl }) => ({
-  SqlLog,
+@connect(({ userQuestionnaire, schedulingControl }) => ({
+  userQuestionnaire,
   schedulingControl,
 }))
 class PageList extends MultiPage {
-  componentAuthority = accessWayCollection.SqlLog.pageList.permission;
+  componentAuthority =
+    accessWayCollection.userQuestionnaire.pageList.permission;
 
   constructor(properties) {
     super(properties);
@@ -33,8 +32,8 @@ class PageList extends MultiPage {
     this.state = {
       ...this.state,
       pageTitle: '列表',
-      paramsKey: accessWayCollection.SqlLog.pageList.paramsKey,
-      loadApiPath: 'SqlLog/pageList',
+      paramsKey: accessWayCollection.userQuestionnaire.pageList.paramsKey,
+      loadApiPath: 'userQuestionnaire/pageList',
       currentRecord: null,
     };
   }
@@ -61,13 +60,15 @@ class PageList extends MultiPage {
   };
 
   goToEdit = (record) => {
-    const sqlLogId = getValueByKey({
+    const userQuestionnaireId = getValueByKey({
       data: record,
-      key: fieldData.sqlLogId.name,
+      key: fieldData.userQuestionnaireId.name,
       defaultValue: '',
     });
 
-    this.goToPath(`/SqlLog/edit/load/${sqlLogId}/key/basicInfo`);
+    this.goToPath(
+      `/userQuestionnaire/edit/load/${userQuestionnaireId}/key/basicInfo`,
+    );
   };
 
   establishSearchCardConfig = () => {
@@ -92,7 +93,9 @@ class PageList extends MultiPage {
       size: 'small',
       text: '修改',
       icon: iconBuilder.edit(),
-      disabled: !checkHasAuthority(accessWayCollection.SqlLog.get.permission),
+      disabled: !checkHasAuthority(
+        accessWayCollection.userQuestionnaire.get.permission,
+      ),
       handleButtonClick: ({ handleData }) => {
         this.goToEdit(handleData);
       },
@@ -108,7 +111,7 @@ class PageList extends MultiPage {
           icon: iconBuilder.reload(),
           text: '刷新缓存',
           hidden: !checkHasAuthority(
-            accessWayCollection.SqlLog.refreshCache.permission,
+            accessWayCollection.userQuestionnaire.refreshCache.permission,
           ),
           confirm: true,
           title: '即将刷新缓存，确定吗？',
@@ -126,7 +129,7 @@ class PageList extends MultiPage {
       emptyValue: '--',
     },
     {
-      dataTarget: fieldData.sqlLogId,
+      dataTarget: fieldData.userQuestionnaireId,
       width: 120,
       showRichFacade: true,
       canCopy: true,
