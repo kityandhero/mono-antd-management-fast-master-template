@@ -726,6 +726,35 @@ export const tag = {
   ],
 };
 
+export const businessSet = {
+  name: 'businessSet',
+  icon: 'optionPools',
+  hideChildrenInMenu: true,
+  path: '/data/businessSet',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.businessSet.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/data/businessSet',
+      redirect: '/data/businessSet/pageList',
+    },
+    {
+      path: '/data/businessSet/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/data/businessSet/pageList/no',
+    },
+    {
+      path: '/data/businessSet/pageList/:pageKey',
+      hideInMenu: true,
+      component: './BusinessSet/PageList',
+    },
+  ],
+};
+
 export const optionPool = {
   name: 'optionPool',
   icon: 'optionPools',

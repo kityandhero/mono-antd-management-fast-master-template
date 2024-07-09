@@ -27,6 +27,13 @@
       "key": "callCenterCategoryId",
       "visibleFlag": "7f7e0ff509a74702aa517162da46ccdc",
       "coverFile": true
+    },
+    {
+      "folder": "BusinessSet/OperateLogDrawer",
+      "model": "businessSet",
+      "key": "businessSetId",
+      "visibleFlag": "29ec6fb069c74bb5afe6aba8d05ae751",
+      "coverFile": true
     }
   ]
 }

@@ -106,6 +106,13 @@
       "coverFile": false
     },
     {
+      "folder": "BusinessSet/Assist",
+      "model": "businessSet",
+      "key": "businessSetId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
       "folder": "ChannelExecuteLogSwitch/Assist",
       "model": "channelExecuteLogSwitch",
       "key": "channelExecuteLogSwitchId",

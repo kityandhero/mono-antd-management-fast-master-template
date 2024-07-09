@@ -92,6 +92,14 @@
       "coverFile": false
     },
     {
+      "folder": "BusinessSet/PageList",
+      "model": "businessSet",
+      "key": "businessSetId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+
+    {
       "folder": "Department/PageList",
       "model": "department",
       "key": "departmentId",

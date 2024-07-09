@@ -70,7 +70,7 @@ class PageList extends MultiPage {
     this.state = {
       ...this.state,
       pageTitle: '列表',
-      tableScrollX: 1720,
+      tableScrollX: 1820,
       paramsKey: accessWayCollection.questionnaire.pageList.paramsKey,
       loadApiPath: 'questionnaire/pageList',
       currentRecord: null,
@@ -842,6 +842,12 @@ class PageList extends MultiPage {
               )}
         </>
       ),
+    },
+    {
+      dataTarget: fieldData.sort,
+      width: 80,
+      showRichFacade: true,
+      emptyValue: '--',
     },
     {
       dataTarget: fieldData.status,

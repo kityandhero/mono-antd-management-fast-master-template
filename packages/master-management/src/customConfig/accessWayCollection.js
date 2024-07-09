@@ -453,6 +453,63 @@ export const accessWayCollection = {
       permission: 'aa8d3178388d44f2a2bd2eac0c5e5155',
     },
   },
+  businessSet: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: 'be027899e1b75a792d61e709cfa40d11',
+      permission: '31d3e7a233b84ddc84bbcd8bbc02aab7',
+    },
+    singleList: {
+      title: '单页列表',
+      paramsKey: 'e23790a5abff7eaaf5cf458132276c9b',
+      permission: '4809ea8a23c542dfbe7be47288bdfa9c',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '476b997159234c538430429bd33510f8',
+      permission: '895d4fa1efd849179976f801d9e8e3fa',
+    },
+    addBasicInfo: {
+      title: '新建分类',
+      paramsKey: '1f362defce84aac52e0197ec6b7282dc',
+      permission: '45d7ee1bcc73411d877684eb79c5638a',
+    },
+    updateBasicInfo: {
+      title: '编辑信息',
+      paramsKey: 'ab342f880bb6a2e39199165dba3c0520',
+      permission: '7e467cba1d234204a5f8ebe281000556',
+    },
+    updateSort: {
+      title: '更新排序值',
+      paramsKey: 'd3b1cf45ff0003aeab40dbc8f49935dd',
+      permission: 'c8c636de41594d1a808e83236e1f804d',
+    },
+    setEnable: {
+      title: '设为启用',
+      paramsKey: 'a9fb6b90afb3de008a73a513467b9562',
+      permission: '8f72ba6990bb44bd87c05b685a126fa7',
+    },
+    setDisable: {
+      title: '设为停用',
+      paramsKey: '7950a5ada826f19d9eeaacb206da0876',
+      permission: '37868f2e8cbf426dbf4c64e939afd848',
+    },
+    remove: {
+      title: '移除',
+      paramsKey: '20bd9b9d4628ba07958947d766311846',
+      permission: '3c6ea81fbd4f484d9314ebb33d88d011',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '05dc5aca6ea4638e5af88152b86c3b73',
+      permission: '9a8db9cc10de48278209ac0f7b705485',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: 'fab41e9bc7bec3a733aff86f9b88a7f5',
+      permission: '3f1f966da0054035879d8d7af3142e74',
+    },
+  },
   callCenter: {
     pageList: {
       title: '分页列表',

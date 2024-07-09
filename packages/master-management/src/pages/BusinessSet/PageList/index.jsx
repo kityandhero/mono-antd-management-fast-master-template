@@ -2,36 +2,34 @@ import React from 'react';
 
 import { connect } from 'easy-soft-dva';
 import {
+  buildRandomHexColor,
   checkHasAuthority,
   convertCollection,
   getValueByKey,
   handleItem,
   showSimpleErrorMessage,
+  toNumber,
+  toString,
+  whetherNumber,
 } from 'easy-soft-utility';
 
 import {
   columnFacadeMode,
   extraBuildType,
-  getDerivedStateFromPropertiesForUrlParameters,
   listViewConfig,
   searchCardConfig,
-  unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
-import {
-  getCallCenterCategoryStatusName,
-  renderSearchCallCenterCategoryStatusSelect,
-} from '../../../customSpecialComponents';
+import { getBusinessSetStatusName } from '../../../customSpecialComponents';
 import AddBasicInfoDrawer from '../AddBasicInfoDrawer';
 import {
   refreshCacheAction,
   setDisableAction,
   setEnableAction,
 } from '../Assist/action';
-import { parseUrlParametersForSetState } from '../Assist/config';
 import { getStatusBadge } from '../Assist/tools';
 import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData, statusCollection } from '../Common/data';
@@ -41,30 +39,23 @@ import { UpdateBasicInfoDrawer } from '../UpdateBasicInfoDrawer';
 
 const { MultiPage } = DataMultiPageView;
 
-@connect(({ callCenterCategory, schedulingControl }) => ({
-  callCenterCategory,
+@connect(({ businessSet, schedulingControl }) => ({
+  businessSet,
   schedulingControl,
 }))
 class PageList extends MultiPage {
+  componentAuthority = accessWayCollection.businessSet.pageList.permission;
+
   constructor(properties) {
     super(properties);
 
     this.state = {
       ...this.state,
-      paramsKey: accessWayCollection.callCenterCategory.pageList.paramsKey,
-      pageTitle: '呼叫中心分类列表',
-      loadApiPath: 'callCenterCategory/pageList',
+      pageTitle: '业务列表',
+      paramsKey: accessWayCollection.businessSet.pageList.paramsKey,
+      loadApiPath: 'businessSet/pageList',
       currentRecord: null,
     };
-  }
-
-  static getDerivedStateFromProps(nextProperties, previousState) {
-    return getDerivedStateFromPropertiesForUrlParameters(
-      nextProperties,
-      previousState,
-      { id: '' },
-      parseUrlParametersForSetState,
-    );
   }
 
   handleMenuClick = ({ key, handleData }) => {
@@ -104,7 +95,7 @@ class PageList extends MultiPage {
   handleItemStatus = ({ target, handleData, remoteData }) => {
     const id = getValueByKey({
       data: handleData,
-      key: fieldData.callCenterCategoryId.name,
+      key: fieldData.businessSetId.name,
     });
 
     handleItem({
@@ -113,7 +104,7 @@ class PageList extends MultiPage {
       compareValueHandler: (o) => {
         const v = getValueByKey({
           data: o,
-          key: fieldData.callCenterCategoryId.name,
+          key: fieldData.businessSetId.name,
         });
 
         return v;
@@ -238,7 +229,7 @@ class PageList extends MultiPage {
         {
           buildType: extraBuildType.generalExtraButton,
           icon: iconBuilder.read(),
-          text: '可用类树型图',
+          text: '可用树型图',
           size: 'small',
           disabled: this.checkInProgress(),
           handleClick: () => {
@@ -249,26 +240,18 @@ class PageList extends MultiPage {
     };
   };
 
-  fillSearchCardInitialValues = () => {
-    const values = {};
-
-    values[fieldData.status.name] = unlimitedWithStringFlag.key;
-
-    return values;
-  };
-
   establishSearchCardConfig = () => {
     return {
       list: [
         {
           lg: 6,
           type: searchCardConfig.contentItemType.input,
-          fieldData: fieldData.name,
+          fieldData: fieldData.title,
         },
         {
           lg: 6,
-          type: searchCardConfig.contentItemType.component,
-          component: renderSearchCallCenterCategoryStatusSelect({}),
+          type: searchCardConfig.contentItemType.input,
+          fieldData: fieldData.name,
         },
         {
           lg: 6,
@@ -286,7 +269,7 @@ class PageList extends MultiPage {
           listViewConfig.dataContainerExtraActionBuildType.generalButton,
         type: 'primary',
         icon: iconBuilder.plus(),
-        text: '新增类别',
+        text: '新增业务',
         handleClick: this.showAddBasicInfoDrawer,
       },
     ];
@@ -299,12 +282,18 @@ class PageList extends MultiPage {
       convert: convertCollection.number,
     });
 
+    const itemSourceMode = getValueByKey({
+      data: item,
+      key: fieldData.sourceMode.name,
+      convert: convertCollection.number,
+    });
+
     return {
       size: 'small',
       text: '修改',
       icon: iconBuilder.edit(),
       disabled: !checkHasAuthority(
-        accessWayCollection.callCenterCategory.get.permission,
+        accessWayCollection.businessSet.get.permission,
       ),
       handleButtonClick: ({ handleData }) => {
         this.showUpdateBasicInfoDrawer(handleData);
@@ -325,6 +314,7 @@ class PageList extends MultiPage {
           key: 'setEnable',
           icon: iconBuilder.playCircle(),
           text: '设为启用',
+          hidden: itemSourceMode === whetherNumber.no,
           disabled: itemStatus === statusCollection.enable,
           confirm: true,
           title: '即将设为启用，确定吗？',
@@ -333,6 +323,7 @@ class PageList extends MultiPage {
           key: 'setDisable',
           icon: iconBuilder.pauseCircle(),
           text: '设为禁用',
+          hidden: itemSourceMode === whetherNumber.no,
           disabled: itemStatus === statusCollection.disable,
           confirm: true,
           title: '即将设为禁用，确定吗？',
@@ -350,6 +341,9 @@ class PageList extends MultiPage {
           uponDivider: true,
           icon: iconBuilder.reload(),
           text: '刷新缓存',
+          hidden: !checkHasAuthority(
+            accessWayCollection.businessSet.refreshCache.permission,
+          ),
           confirm: true,
           title: '即将刷新缓存，确定吗？',
         },
@@ -359,17 +353,44 @@ class PageList extends MultiPage {
 
   getColumnWrapper = () => [
     {
-      dataTarget: fieldData.name,
+      dataTarget: fieldData.title,
       align: 'left',
-      width: 160,
       showRichFacade: true,
       emptyValue: '--',
     },
     {
-      dataTarget: fieldData.description,
-      align: 'left',
+      dataTarget: fieldData.name,
+      width: 220,
       showRichFacade: true,
       emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.value,
+      width: 80,
+      showRichFacade: true,
+      emptyValue: '--',
+      formatValue: (value) => {
+        return toString(value);
+      },
+    },
+    {
+      dataTarget: fieldData.sourceMode,
+      width: 100,
+      showRichFacade: true,
+      emptyValue: '--',
+      facadeConfigBuilder: (value) => {
+        return {
+          color: buildRandomHexColor({
+            seed: toNumber(value) * 4 + 32,
+          }),
+        };
+      },
+      formatValue: (value, record) => {
+        return getValueByKey({
+          data: record,
+          key: fieldData.sourceModeNote.name,
+        });
+      },
     },
     {
       dataTarget: fieldData.sort,
@@ -386,14 +407,14 @@ class PageList extends MultiPage {
       facadeConfigBuilder: (value) => {
         return {
           status: getStatusBadge(value),
-          text: getCallCenterCategoryStatusName({
+          text: getBusinessSetStatusName({
             value: value,
           }),
         };
       },
     },
     {
-      dataTarget: fieldData.callCenterCategoryId,
+      dataTarget: fieldData.businessSetId,
       width: 120,
       showRichFacade: true,
       canCopy: true,
@@ -403,20 +424,8 @@ class PageList extends MultiPage {
       width: 160,
       showRichFacade: true,
       facadeMode: columnFacadeMode.datetime,
-      emptyValue: '--',
     },
   ];
-
-  establishHelpConfig = () => {
-    return {
-      title: '简要说明',
-      list: [
-        {
-          text: '数据排序顺序为，优先按照排序值降序排列, 然后按照创建时间降序排序.',
-        },
-      ],
-    };
-  };
 
   renderPresetOther = () => {
     const { currentRecord } = this.state;

@@ -113,6 +113,13 @@
       "coverFile": false
     },
     {
+      "folder": "BusinessSet/Common",
+      "model": "businessSet",
+      "key": "businessSetId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
       "folder": "ChannelExecuteLogSwitch/Common",
       "model": "channelExecuteLogSwitch",
       "key": "channelExecuteLogSwitchId",

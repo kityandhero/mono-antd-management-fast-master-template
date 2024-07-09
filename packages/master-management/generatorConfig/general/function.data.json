@@ -491,6 +491,11 @@
       "name": "status"
     },
     {
+      "functionSegment": "BusinessSetStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
       "functionSegment": "CallCenterStatus",
       "label": "状态",
       "name": "status"

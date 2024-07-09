@@ -113,6 +113,11 @@ export default {
   'menu.data': '数据管理',
   'menu.data-mini': '数据',
 
+  'menu.data.businessSet': '业务集合',
+  'menu.data.businessSet-mini': '业务',
+  'menu.data.businessSet.pageList': '业务列表',
+  'menu.data.businessSet.pageList-mini': '列表',
+
   'menu.data.tag': '数据标签',
   'menu.data.tag-mini': '标签',
   'menu.data.tag.pageList': '标签列表',
@@ -126,7 +131,7 @@ export default {
   'menu.data.optionPool': '选项集合',
   'menu.data.optionPool-mini': '选项',
   'menu.data.optionPool.pageList': '选项列表',
-  'menu.data.optionPool.pageList-mini': '标签',
+  'menu.data.optionPool.pageList-mini': '列表',
 
   'menu.data.generalDiscourse': '常用语集合',
   'menu.data.generalDiscourse-mini': '常用语',

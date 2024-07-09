@@ -71,6 +71,14 @@
       "visibleFlag": "796ae68f63ab46d9accdecf6ac7ab27d",
       "fileName": "index.jsx",
       "coverFile": false
+    },
+    {
+      "folder": "BusinessSet/ChangeSortModal",
+      "model": "businessSet",
+      "key": "businessSetId",
+      "visibleFlag": "c76f223f6c8b4c23a7630e86f837d799",
+      "fileName": "index.jsx",
+      "coverFile": false
     }
   ]
 }

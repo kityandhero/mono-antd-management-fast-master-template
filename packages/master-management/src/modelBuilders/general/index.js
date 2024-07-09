@@ -5,6 +5,7 @@ import { buildModel as buildApplicationNavigationModel } from './applicationNavi
 import { buildModel as buildApplicationSourceModel } from './applicationSource';
 import { buildModel as buildApplicationVersionModel } from './applicationVersion';
 import { buildModel as buildArticleNotificationApplicationModel } from './articleNotificationApplication';
+import { buildModel as buildBusinessSetModel } from './businessSet';
 import { buildModel as buildCallCenterModel } from './callCenter';
 import { buildModel as buildCallCenterCategoryModel } from './callCenterCategory';
 import { buildModel as buildChannelExecuteLogSwitchModel } from './channelExecuteLogSwitch';
@@ -89,6 +90,7 @@ export function listModelBuilder() {
     buildApplicationSourceModel,
     buildApplicationVersionModel,
     buildArticleNotificationApplicationModel,
+    buildBusinessSetModel,
     buildCallCenterModel,
     buildCallCenterCategoryModel,
     buildChannelExecuteLogSwitchModel,

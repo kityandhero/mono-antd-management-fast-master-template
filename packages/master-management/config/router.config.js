@@ -5,6 +5,7 @@ import {
   account,
   apps,
   assistTools,
+  businessSet,
   currentAccount,
   currentManagement,
   dataDictionaryInfrastructure,
@@ -82,11 +83,12 @@ export default [
     access: 'checkAccess',
     authority: [
       accessWayCollection.super.permission,
+      accessWayCollection.businessSet.pageList.permission,
       accessWayCollection.tag.pageList.permission,
       accessWayCollection.optionPool.pageList.permission,
       accessWayCollection.generalDiscourse.pageList.permission,
     ],
-    routes: [tag, optionPool, generalDiscourse, emailSenderAgent],
+    routes: [businessSet, tag, optionPool, generalDiscourse, emailSenderAgent],
   },
   files,
   {
