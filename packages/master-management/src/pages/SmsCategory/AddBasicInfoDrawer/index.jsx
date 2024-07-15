@@ -9,10 +9,10 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { buildNowTimeFieldItem } from '../../../customSpecialComponents';
 import { fieldData } from '../Common/data';
 
 const { BaseAddDrawer } = DataDrawer;
-
 const visibleFlag = '0d26b8fcba6a48d2b944717c75704180';
 
 @connect(({ smsCategory, schedulingControl }) => ({
@@ -89,17 +89,7 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
             },
           ],
         },
-        {
-          title: {
-            icon: iconBuilder.contacts(),
-            text: '其他信息',
-          },
-          items: [
-            {
-              type: cardConfig.contentItemType.nowTime,
-            },
-          ],
-        },
+        buildNowTimeFieldItem({}),
       ],
     };
   };

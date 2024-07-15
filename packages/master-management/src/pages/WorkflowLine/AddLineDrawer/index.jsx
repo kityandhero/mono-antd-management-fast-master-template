@@ -9,6 +9,7 @@ import {
 } from 'antd-management-fast-framework';
 
 import {
+  buildNowTimeFieldItem,
   renderFormFlowLineFromPositionSelect,
   renderFormFlowLineToPositionSelect,
   renderFormFlowLineTypeSelect,
@@ -197,7 +198,7 @@ class AddLineDrawer extends BaseAddDrawer {
         {
           title: {
             icon: iconBuilder.contacts(),
-            text: '其他信息',
+            text: '简介 - 描述 - 备注',
           },
           items: [
             {
@@ -206,11 +207,9 @@ class AddLineDrawer extends BaseAddDrawer {
               fieldData: fieldData.description,
               require: false,
             },
-            {
-              type: cardConfig.contentItemType.nowTime,
-            },
           ],
         },
+        buildNowTimeFieldItem({}),
       ],
     };
   };

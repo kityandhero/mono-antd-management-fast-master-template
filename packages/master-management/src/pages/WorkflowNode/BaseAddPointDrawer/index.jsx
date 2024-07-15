@@ -2,6 +2,7 @@ import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataDrawer } from 'antd-management-fast-framework';
 
+import { buildNowTimeFieldItem } from '../../../customSpecialComponents';
 import { fieldData } from '../Common/data';
 
 const { BaseAddDrawer } = DataDrawer;
@@ -55,17 +56,7 @@ class BaseAddPointDrawer extends BaseAddDrawer {
             },
           ],
         },
-        {
-          title: {
-            icon: iconBuilder.contacts(),
-            text: '其他信息',
-          },
-          items: [
-            {
-              type: cardConfig.contentItemType.nowTime,
-            },
-          ],
-        },
+        buildNowTimeFieldItem({}),
       ],
     };
   };

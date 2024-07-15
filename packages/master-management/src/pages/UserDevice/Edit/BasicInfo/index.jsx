@@ -2,7 +2,6 @@ import { connect } from 'easy-soft-dva';
 import {
   convertCollection,
   createDayJsDatetime,
-  formatCollection,
   getValueByKey,
 } from 'easy-soft-utility';
 
@@ -13,7 +12,10 @@ import {
 import { iconBuilder } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
-import { getDeviceTypeName } from '../../../../customSpecialComponents';
+import {
+  buildUpdateTimeAndOperatorFieldItem,
+  getDeviceTypeName,
+} from '../../../../customSpecialComponents';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
@@ -221,66 +223,7 @@ class BasicInfo extends TabPageBase {
             },
           ],
         },
-        {
-          title: {
-            icon: iconBuilder.contacts(),
-            text: '操作信息',
-          },
-          items: [
-            {
-              lg: 24,
-              type: cardConfig.contentItemType.customGrid,
-              list: [
-                {
-                  span: 3,
-                  label: fieldData.createOperatorId.label,
-                  value: getValueByKey({
-                    data: metaData,
-                    key: fieldData.createOperatorId.name,
-                  }),
-                },
-                {
-                  span: 1,
-                  label: fieldData.createTime.label,
-                  value: getValueByKey({
-                    data: metaData,
-                    key: fieldData.createTime.name,
-                    format: formatCollection.datetime,
-                  }),
-                },
-                {
-                  span: 3,
-                  label: fieldData.updateOperatorId.label,
-                  value: getValueByKey({
-                    data: metaData,
-                    key: fieldData.updateOperatorId.name,
-                  }),
-                },
-                {
-                  span: 1,
-                  label: fieldData.updateTime.label,
-                  value: getValueByKey({
-                    data: metaData,
-                    key: fieldData.updateTime.name,
-                    format: formatCollection.datetime,
-                  }),
-                },
-              ],
-              props: {
-                size: 'small',
-                bordered: true,
-                column: 4,
-                emptyStyle: {
-                  color: '#cccccc',
-                },
-                emptyValue: '待完善',
-                labelStyle: {
-                  width: '80px',
-                },
-              },
-            },
-          ],
-        },
+        buildUpdateTimeAndOperatorFieldItem({ data: metaData, line: 1 }),
       ],
     };
   };

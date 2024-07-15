@@ -1,9 +1,5 @@
 import { connect } from 'easy-soft-dva';
-import {
-  convertCollection,
-  formatCollection,
-  getValueByKey,
-} from 'easy-soft-utility';
+import { convertCollection, getValueByKey } from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
@@ -12,6 +8,7 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { buildUpdateTimeAndOperatorFieldItem } from '../../../customSpecialComponents';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
@@ -148,74 +145,7 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
             },
           ],
         },
-        {
-          title: {
-            icon: iconBuilder.contacts(),
-            text: '操作信息',
-          },
-          items: [
-            {
-              lg: 24,
-              type: cardConfig.contentItemType.customGrid,
-              list: [
-                {
-                  span: 2,
-                  label: fieldData.flag.label,
-                  value: getValueByKey({
-                    data: metaData,
-                    key: fieldData.flag.name,
-                  }),
-                },
-                {
-                  span: 1,
-                  label: fieldData.createOperatorId.label,
-                  value: getValueByKey({
-                    data: metaData,
-                    key: fieldData.createOperatorId.name,
-                  }),
-                },
-                {
-                  span: 1,
-                  label: fieldData.createTime.label,
-                  value: getValueByKey({
-                    data: metaData,
-                    key: fieldData.createTime.name,
-                    format: formatCollection.datetime,
-                  }),
-                },
-                {
-                  span: 1,
-                  label: fieldData.updateOperatorId.label,
-                  value: getValueByKey({
-                    data: metaData,
-                    key: fieldData.updateOperatorId.name,
-                  }),
-                },
-                {
-                  span: 1,
-                  label: fieldData.updateTime.label,
-                  value: getValueByKey({
-                    data: metaData,
-                    key: fieldData.updateTime.name,
-                    format: formatCollection.datetime,
-                  }),
-                },
-              ],
-              props: {
-                size: 'small',
-                bordered: true,
-                column: 2,
-                emptyStyle: {
-                  color: '#cccccc',
-                },
-                emptyValue: '待完善',
-                labelStyle: {
-                  width: '100px',
-                },
-              },
-            },
-          ],
-        },
+        buildUpdateTimeAndOperatorFieldItem({ data: metaData, line: 1 }),
       ],
     };
   };

@@ -9,7 +9,10 @@ import {
 } from 'antd-management-fast-framework';
 
 import { flowEffectiveRangeCollection } from '../../../customConfig';
-import { renderFormFlowEffectiveRangeSelect } from '../../../customSpecialComponents';
+import {
+  buildNowTimeFieldItem,
+  renderFormFlowEffectiveRangeSelect,
+} from '../../../customSpecialComponents';
 import { fieldData } from '../Common/data';
 
 const { BaseAddDrawer } = DataDrawer;
@@ -115,17 +118,7 @@ class AddOfficeAutomationProcessApprovalDrawer extends BaseAddDrawer {
             },
           ],
         },
-        {
-          title: {
-            icon: iconBuilder.contacts(),
-            text: '其他信息',
-          },
-          items: [
-            {
-              type: cardConfig.contentItemType.nowTime,
-            },
-          ],
-        },
+        buildNowTimeFieldItem({}),
       ],
     };
   };

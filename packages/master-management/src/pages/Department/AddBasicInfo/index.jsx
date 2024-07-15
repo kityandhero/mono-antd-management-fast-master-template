@@ -5,7 +5,10 @@ import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataForm } from 'antd-management-fast-framework';
 
-import { renderFormDepartmentOwnershipModeSelect } from '../../../customSpecialComponents';
+import {
+  buildNowTimeFieldItem,
+  renderFormDepartmentOwnershipModeSelect,
+} from '../../../customSpecialComponents';
 import { fieldData as fieldDataSubsidiary } from '../../Subsidiary/Common/data';
 import { SubsidiarySelectDrawerField } from '../../Subsidiary/SelectDrawerField';
 import { fieldData } from '../Common/data';
@@ -200,17 +203,7 @@ class AddBasicInfo extends BaseAddForm {
             },
           ],
         },
-        {
-          title: {
-            icon: iconBuilder.contacts(),
-            text: '其他信息',
-          },
-          items: [
-            {
-              type: cardConfig.contentItemType.nowTime,
-            },
-          ],
-        },
+        buildNowTimeFieldItem({}),
       ],
     };
   };

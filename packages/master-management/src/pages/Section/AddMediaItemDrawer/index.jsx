@@ -18,7 +18,10 @@ import {
   keyValueItemData,
   keyValueTypeCollection,
 } from '../../../customConfig';
-import { renderFormJsonItemTypeSelect } from '../../../customSpecialComponents';
+import {
+  buildNowTimeFieldItem,
+  renderFormJsonItemTypeSelect,
+} from '../../../customSpecialComponents';
 
 const { BaseAddDrawer } = DataDrawer;
 
@@ -302,16 +305,7 @@ class AddMediaItemDrawer extends BaseAddDrawer {
             },
           ],
         },
-        {
-          title: {
-            text: '其他信息',
-          },
-          items: [
-            {
-              type: cardConfig.contentItemType.nowTime,
-            },
-          ],
-        },
+        buildNowTimeFieldItem({}),
       ],
     };
   };

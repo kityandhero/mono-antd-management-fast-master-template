@@ -10,7 +10,10 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
-import { renderFormBusinessModeSelect } from '../../../customSpecialComponents';
+import {
+  buildNowTimeFieldItem,
+  renderFormBusinessModeSelect,
+} from '../../../customSpecialComponents';
 import { singleTreeListAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
@@ -278,17 +281,7 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
             },
           ],
         },
-        {
-          title: {
-            icon: iconBuilder.contacts(),
-            text: '其他信息',
-          },
-          items: [
-            {
-              type: cardConfig.contentItemType.nowTime,
-            },
-          ],
-        },
+        buildNowTimeFieldItem({}),
       ],
     };
   };

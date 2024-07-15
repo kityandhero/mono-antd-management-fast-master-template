@@ -11,6 +11,7 @@ import {
 } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { buildNowTimeFieldItem } from '../../../customSpecialComponents';
 import { fieldData as fieldDataApplication } from '../../Application/Common/data';
 import { ApplicationSelectModalField } from '../../Application/SelectModalField';
 import { fieldData } from '../Common/data';
@@ -140,17 +141,7 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
             },
           ],
         },
-        {
-          title: {
-            icon: iconBuilder.contacts(),
-            text: '其他信息',
-          },
-          items: [
-            {
-              type: cardConfig.contentItemType.nowTime,
-            },
-          ],
-        },
+        buildNowTimeFieldItem({}),
       ],
     };
   };

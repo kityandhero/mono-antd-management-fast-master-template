@@ -8,6 +8,7 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { buildNowTimeFieldItem } from '../../../customSpecialComponents';
 import { fieldData as fieldDataUser } from '../../User/Common/data';
 import { UserSelectModalField } from '../../User/SelectModalField';
 import { fieldData as fieldDataWorkflowNode } from '../../WorkflowNode/Common/data';
@@ -140,17 +141,7 @@ class AddWorkflowNodeApproverDrawer extends BaseAddDrawer {
             },
           ],
         },
-        {
-          title: {
-            icon: iconBuilder.contacts(),
-            text: '其他信息',
-          },
-          items: [
-            {
-              type: cardConfig.contentItemType.nowTime,
-            },
-          ],
-        },
+        buildNowTimeFieldItem({}),
       ],
     };
   };

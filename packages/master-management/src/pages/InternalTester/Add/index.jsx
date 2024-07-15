@@ -13,6 +13,7 @@ import {
 import { DataForm } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { buildNowTimeFieldItem } from '../../../customSpecialComponents';
 import { UserSelectDrawerField } from '../../User/SelectDrawerField';
 import { parseUrlParametersForSetState } from '../Assist/config';
 import { fieldData } from '../Common/data';
@@ -146,16 +147,7 @@ class Add extends BaseAddForm {
             },
           ],
         },
-        {
-          title: {
-            text: '附属信息',
-          },
-          items: [
-            {
-              type: cardConfig.contentItemType.nowTime,
-            },
-          ],
-        },
+        buildNowTimeFieldItem({}),
       ],
     };
   };

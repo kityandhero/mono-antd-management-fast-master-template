@@ -8,7 +8,10 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
-import { renderFormEmailSenderAgentTypeSelect } from '../../../customSpecialComponents';
+import {
+  buildNowTimeFieldItem,
+  renderFormEmailSenderAgentTypeSelect,
+} from '../../../customSpecialComponents';
 import { fieldData } from '../Common/data';
 
 const { BaseAddDrawer } = DataDrawer;
@@ -115,17 +118,7 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
             },
           ],
         },
-        {
-          title: {
-            icon: iconBuilder.contacts(),
-            text: '其他信息',
-          },
-          items: [
-            {
-              type: cardConfig.contentItemType.nowTime,
-            },
-          ],
-        },
+        buildNowTimeFieldItem({}),
       ],
     };
   };

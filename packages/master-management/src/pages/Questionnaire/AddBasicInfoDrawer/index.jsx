@@ -19,6 +19,7 @@ import {
 
 import { accessWayCollection } from '../../../customConfig';
 import {
+  buildNowTimeFieldItem,
   renderFormBusinessModeSelect,
   renderFormQuestionnaireQuestionCreateModeSelect,
 } from '../../../customSpecialComponents';
@@ -225,17 +226,7 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
             },
           ],
         },
-        {
-          title: {
-            icon: iconBuilder.contacts(),
-            text: '其他信息',
-          },
-          items: [
-            {
-              type: cardConfig.contentItemType.nowTime,
-            },
-          ],
-        },
+        buildNowTimeFieldItem({}),
       ],
     };
   };

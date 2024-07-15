@@ -4,7 +4,10 @@ import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataForm } from 'antd-management-fast-framework';
 
-import { renderFormWebChannelSelect } from '../../../customSpecialComponents';
+import {
+  buildNowTimeFieldItem,
+  renderFormWebChannelSelect,
+} from '../../../customSpecialComponents';
 import { fieldData } from '../Common/data';
 
 const { BaseAddForm } = DataForm;
@@ -65,16 +68,7 @@ class Edit extends BaseAddForm {
             },
           ],
         },
-        {
-          title: {
-            text: '其他信息',
-          },
-          items: [
-            {
-              type: cardConfig.contentItemType.nowTime,
-            },
-          ],
-        },
+        buildNowTimeFieldItem({}),
       ],
     };
   };
