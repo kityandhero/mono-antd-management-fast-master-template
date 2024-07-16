@@ -121,14 +121,14 @@ export const questionCreateModeCollection = {
  */
 export const statusCollection = {
   /**
-   * 已上线
+   * 已下线
    * value : 0
    */
-  online: 0,
+  offline: 0,
 
   /**
-   * 已下线
+   * 已上线
    * value : 100
    */
-  offline: 100,
+  online: 100,
 };

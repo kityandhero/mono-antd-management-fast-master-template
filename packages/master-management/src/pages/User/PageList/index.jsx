@@ -20,6 +20,7 @@ import {
   getGenderName,
   getUserStatusName,
 } from '../../../customSpecialComponents';
+import AddAccountDrawer from '../AddAccountDrawer';
 import AddBasicInfoDrawer from '../AddBasicInfoDrawer';
 import {
   refreshCacheAction,
@@ -173,6 +174,27 @@ class PageList extends MultiPage {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
+  showAddAccountDrawer = () => {
+    AddAccountDrawer.open();
+  };
+
+  afterAddAccountDrawerOk = ({
+    // eslint-disable-next-line no-unused-vars
+    singleData,
+    // eslint-disable-next-line no-unused-vars
+    listData,
+    // eslint-disable-next-line no-unused-vars
+    extraData,
+    // eslint-disable-next-line no-unused-vars
+    responseOriginalData,
+    // eslint-disable-next-line no-unused-vars
+    submitData,
+    // eslint-disable-next-line no-unused-vars
+    subjoinData,
+  }) => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
   showUpdateRoleModal = (r) => {
     this.setState(
       {
@@ -256,7 +278,15 @@ class PageList extends MultiPage {
     return [
       {
         buildType:
-          listViewConfig.dataContainerExtraActionBuildType.generalButton,
+          listViewConfig.dataContainerExtraActionBuildType.generalExtraButton,
+        type: 'primary',
+        icon: iconBuilder.plus(),
+        text: '新增用户端登录账户',
+        handleClick: this.showAddAccountDrawer,
+      },
+      {
+        buildType:
+          listViewConfig.dataContainerExtraActionBuildType.generalExtraButton,
         type: 'primary',
         icon: iconBuilder.plus(),
         text: '新增用户',
@@ -428,6 +458,8 @@ class PageList extends MultiPage {
     return (
       <>
         <AddBasicInfoDrawer afterOK={this.afterAddBasicInfoDrawerOk} />
+
+        <AddAccountDrawer afterOK={this.afterAddAccountDrawerOk} />
 
         <UpdateRoleModal
           externalData={currentRecord}
