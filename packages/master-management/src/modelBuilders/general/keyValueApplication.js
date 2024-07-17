@@ -10,6 +10,7 @@ import {
 import {
   getData,
   pageListData,
+  refreshAllCacheData,
   refreshCacheData,
   removeData,
 } from '../../services/keyValueApplication';
@@ -111,6 +112,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(refreshCacheData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *refreshAllCache(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(refreshAllCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

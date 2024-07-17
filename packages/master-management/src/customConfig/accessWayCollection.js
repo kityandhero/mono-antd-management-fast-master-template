@@ -1299,6 +1299,11 @@ export const accessWayCollection = {
       paramsKey: '613492f96a2094822e607992b753f9e7',
       permission: '055e8fe587b54f0f9cb20f1b30dff871',
     },
+    refreshAllCache: {
+      title: '刷新全部缓存',
+      paramsKey: '376b86b6f01db63ea7a4f73403f5f4cd',
+      permission: '9c33a73a85594ba7bfb474028aeb319b',
+    },
   },
   keyValueInfrastructure: {
     pageList: {
@@ -1320,6 +1325,11 @@ export const accessWayCollection = {
       title: '刷新缓存',
       paramsKey: '409e8e117f814dba80e5bf21575d4da1',
       permission: 'd878c142eeaf412b9bd9d818a8541d73',
+    },
+    refreshAllCache: {
+      title: '刷新全部缓存',
+      paramsKey: '49f43af4305e9593f2790dc950dbd135',
+      permission: '5a18d0f214a54906bc3dd9aa56c160a7',
     },
   },
   keyValueSection: {
@@ -1343,6 +1353,11 @@ export const accessWayCollection = {
       paramsKey: 'bb54372c87c0b9e644bdef86243bdc0b',
       permission: 'a03de88c58aa45ac9f9d2464aadc6c84',
     },
+    refreshAllCache: {
+      title: '刷新全部缓存',
+      paramsKey: 'c83e6616d28992634b29675a866ed699',
+      permission: '058dd0c22ea741ecbb9bffff6e594477',
+    },
   },
   keyValueWorkflow: {
     pageList: {
@@ -1364,6 +1379,11 @@ export const accessWayCollection = {
       title: '刷新缓存',
       paramsKey: 'c26a0bd289d39a11cabb4c39dc27ed9a',
       permission: 'b8edbb88505b45739a8478daeafe7dd7',
+    },
+    refreshAllCache: {
+      title: '刷新全部缓存',
+      paramsKey: 'e0a7185272ea6b38fa2774f1691ba38a',
+      permission: '7599ca0accc140fcba62a69c754fca84',
     },
   },
   masterManager: {

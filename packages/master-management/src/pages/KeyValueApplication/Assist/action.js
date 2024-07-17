@@ -24,3 +24,21 @@ export async function refreshCacheAction({
     successMessage,
   });
 }
+
+export async function refreshAllCacheAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage = null,
+}) {
+  actionCore({
+    api: 'keyValueApplication/refreshAllCache',
+    params: {
+      ...handleData,
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}

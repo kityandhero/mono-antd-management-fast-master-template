@@ -35,3 +35,12 @@ export async function refreshCacheData(parameters) {
     params: parameters,
   });
 }
+
+export const refreshAllCacheDataApiAddress = '/keyValueSection/refreshAllCache';
+
+export async function refreshAllCacheData(parameters) {
+  return request({
+    api: refreshAllCacheDataApiAddress,
+    params: parameters,
+  });
+}

@@ -5,13 +5,14 @@ import { checkHasAuthority, showSimpleErrorMessage } from 'easy-soft-utility';
 
 import {
   columnFacadeMode,
+  listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
-import { refreshCacheAction } from '../Assist/action';
+import { refreshAllCacheAction, refreshCacheAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 import { PreviewDrawer } from '../PreviewDrawer';
 
@@ -59,6 +60,13 @@ class PageList extends MultiPage {
     });
   };
 
+  refreshAllCache = () => {
+    refreshAllCacheAction({
+      target: this,
+      handleData: {},
+    });
+  };
+
   showPreviewDrawer = (record) => {
     this.setState({ currentRecord: record }, () => {
       PreviewDrawer.open();
@@ -92,6 +100,21 @@ class PageList extends MultiPage {
         },
       ],
     };
+  };
+
+  establishDataContainerExtraActionCollectionConfig = () => {
+    return [
+      {
+        buildType:
+          listViewConfig.dataContainerExtraActionBuildType.generalExtraButton,
+        type: 'default',
+        icon: iconBuilder.redo(),
+        text: '刷新全部键值缓存',
+        confirm: true,
+        title: '即将刷新全部键值缓存，确定吗？',
+        handleClick: this.refreshAllCache,
+      },
+    ];
   };
 
   establishListItemDropdownConfig = (item) => {

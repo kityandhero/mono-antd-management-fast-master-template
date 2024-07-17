@@ -1975,6 +1975,13 @@
           "effect": "refreshCache",
           "service": "refreshCacheData",
           "type": "singleData"
+        },
+        {
+          "title": "刷新全部缓存",
+          "api": "/keyValueApplication/refreshAllCache",
+          "effect": "refreshAllCache",
+          "service": "refreshAllCacheData",
+          "type": "singleData"
         }
       ],
       "cover": true,
@@ -2009,6 +2016,13 @@
           "api": "/keyValueInfrastructure/refreshCache",
           "effect": "refreshCache",
           "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新全部缓存",
+          "api": "/keyValueInfrastructure/refreshAllCache",
+          "effect": "refreshAllCache",
+          "service": "refreshAllCacheData",
           "type": "singleData"
         }
       ],
@@ -2045,6 +2059,13 @@
           "effect": "refreshCache",
           "service": "refreshCacheData",
           "type": "singleData"
+        },
+        {
+          "title": "刷新全部缓存",
+          "api": "/keyValueSection/refreshAllCache",
+          "effect": "refreshAllCache",
+          "service": "refreshAllCacheData",
+          "type": "singleData"
         }
       ],
       "cover": true,
@@ -2079,6 +2100,13 @@
           "api": "/keyValueWorkflow/refreshCache",
           "effect": "refreshCache",
           "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新全部缓存",
+          "api": "/keyValueWorkflow/refreshAllCache",
+          "effect": "refreshAllCache",
+          "service": "refreshAllCacheData",
           "type": "singleData"
         }
       ],
