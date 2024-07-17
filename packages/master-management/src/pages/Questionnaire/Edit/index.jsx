@@ -8,6 +8,7 @@ import {
 } from 'easy-soft-utility';
 
 import {
+  dropdownExpandItemType,
   extraBuildType,
   getDerivedStateFromPropertiesForUrlParameters,
 } from 'antd-management-fast-common';
@@ -27,6 +28,7 @@ import {
   refreshCacheAction,
   setOfflineAction,
   setOnlineAction,
+  toggleGroupDisplayAction,
   toggleRandomOrderAction,
   toggleRecommendAction,
   toggleTopAction,
@@ -36,6 +38,7 @@ import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
 } from '../Assist/config';
+import { ChangeBusinessModeModal } from '../ChangeBusinessModeModal';
 import {
   fieldData,
   questionCreateModeCollection,
@@ -181,6 +184,23 @@ class Edit extends DataTabContainerSupplement {
     });
   };
 
+  toggleGroupDisplay = (record) => {
+    toggleGroupDisplayAction({
+      target: this,
+      handleData: record,
+      successCallback: ({ target, remoteData }) => {
+        const { metaData } = target.state;
+
+        metaData[fieldData.whetherGroupDisplay.name] = getValueByKey({
+          data: remoteData,
+          key: fieldData.whetherGroupDisplay.name,
+        });
+
+        target.setState({ metaData });
+      },
+    });
+  };
+
   setOnline = (r) => {
     setOnlineAction({
       target: this,
@@ -220,6 +240,14 @@ class Edit extends DataTabContainerSupplement {
       target: this,
       handleData: r,
     });
+  };
+
+  showChangeBusinessModeModal = () => {
+    ChangeBusinessModeModal.open();
+  };
+
+  afterChangeBusinessModeModalOk = () => {
+    this.refreshDataWithReloadAnimalPrompt({});
   };
 
   establishPageHeaderAvatarConfig = () => {
@@ -303,6 +331,12 @@ class Edit extends DataTabContainerSupplement {
       convert: convertCollection.number,
     });
 
+    const whetherGroupDisplay = getValueByKey({
+      data: metaData,
+      key: fieldData.whetherGroupDisplay.name,
+      convert: convertCollection.number,
+    });
+
     const that = this;
 
     return {
@@ -310,8 +344,10 @@ class Edit extends DataTabContainerSupplement {
         {
           buildType: extraBuildType.generalExtraButton,
           type: 'default',
-          icon: iconBuilder.sortAscending(),
-          text: '设置随机排序',
+          icon: whetherRandomOrder
+            ? iconBuilder.retweet()
+            : iconBuilder.sortAscending(),
+          text: whetherRandomOrder ? '取消随机排序' : '设为随机排序',
           handleData: metaData,
           hidden: !checkHasAuthority(
             accessWayCollection.questionnaire.toggleRandomOrder.permission,
@@ -320,7 +356,24 @@ class Edit extends DataTabContainerSupplement {
             that.toggleRandomOrder(handleData);
           },
           confirm: true,
-          title: `即将${whetherRandomOrder ? '取消区级排序设置' : '设为随机排序'}，确定吗？`,
+          title: `即将${whetherRandomOrder ? '取消随机排序设置' : '设为随机排序'}，确定吗？`,
+        },
+        {
+          buildType: extraBuildType.generalExtraButton,
+          type: 'default',
+          icon: whetherGroupDisplay
+            ? iconBuilder.swap()
+            : iconBuilder.borderOuter(),
+          text: whetherGroupDisplay ? '取消分组显示' : '设为分组显示',
+          handleData: metaData,
+          hidden: !checkHasAuthority(
+            accessWayCollection.questionnaire.toggleGroupDisplay.permission,
+          ),
+          handleClick: ({ handleData }) => {
+            that.toggleGroupDisplay(handleData);
+          },
+          confirm: true,
+          title: `即将${whetherGroupDisplay ? '取消分组显示设置' : '设为分组显示'}，确定吗？`,
         },
         {
           buildType: extraBuildType.divider,
@@ -426,6 +479,11 @@ class Edit extends DataTabContainerSupplement {
             break;
           }
 
+          case 'updateBusinessMode': {
+            that.showChangeBusinessModeModal();
+            break;
+          }
+
           case 'refreshCache': {
             that.refreshCache(handleData);
             break;
@@ -496,11 +554,22 @@ class Edit extends DataTabContainerSupplement {
           confirm: true,
           title: `即将${whetherVisible ? '设为隐藏' : '设为显示'}，确定吗？`,
         },
-
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'updateBusinessMode',
+          text: '设置适用业务',
+          icon: iconBuilder.edit(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.questionnaire.updateBusinessMode.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
         {
           key: 'refreshCache',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.reload(),
           text: '刷新缓存',
           confirm: true,
@@ -532,6 +601,10 @@ class Edit extends DataTabContainerSupplement {
 
   establishPageHeaderContentGridConfig = () => {
     const { metaData } = this.state;
+
+    if ((metaData || null) == null) {
+      return null;
+    }
 
     const questionCreateMode = getValueByKey({
       data: metaData,
@@ -642,6 +715,19 @@ class Edit extends DataTabContainerSupplement {
         }),
       },
     ];
+  };
+
+  renderPresetOther = () => {
+    const { metaData } = this.state;
+
+    return (
+      <>
+        <ChangeBusinessModeModal
+          externalData={metaData}
+          afterOK={this.afterChangeBusinessModeModalOk}
+        />
+      </>
+    );
   };
 }
 

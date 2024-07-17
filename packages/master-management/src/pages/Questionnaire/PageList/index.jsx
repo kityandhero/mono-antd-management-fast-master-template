@@ -69,7 +69,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      pageTitle: '列表',
+      pageTitle: '问卷列表',
       tableScrollX: 1820,
       paramsKey: accessWayCollection.questionnaire.pageList.paramsKey,
       loadApiPath: 'questionnaire/pageList',

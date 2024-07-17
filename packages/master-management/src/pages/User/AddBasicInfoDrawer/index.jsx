@@ -32,7 +32,7 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
   }
 
   getPresetPageTitle = () => {
-    return '新增用户';
+    return '新增用户信息';
   };
 
   establishCardCollectionConfig = () => {
@@ -41,36 +41,35 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
         {
           title: {
             icon: iconBuilder.contacts(),
-            text: '账户名',
+            text: '基本信息',
           },
           items: [
             {
               lg: 24,
               type: cardConfig.contentItemType.input,
-              fieldData: fieldData.loginName,
+              fieldData: fieldData.realName,
               require: true,
             },
-          ],
-        },
-        {
-          title: {
-            icon: iconBuilder.contacts(),
-            text: '登录密码',
-          },
-          items: [
             {
               lg: 24,
-              type: cardConfig.contentItemType.password,
-              fieldData: fieldData.password,
-            },
-            {
-              lg: 24,
-              type: cardConfig.contentItemType.password,
-              fieldData: fieldData.passwordVerify,
+              type: cardConfig.contentItemType.input,
+              fieldData: fieldData.phone,
+              require: false,
             },
           ],
         },
         buildNowTimeFieldItem({}),
+      ],
+    };
+  };
+
+  establishHelpConfig = () => {
+    return {
+      title: '操作提示',
+      list: [
+        {
+          text: '此功能仅用于添加用户基本信息, 如需配置登录账户，请使用”添加用户登录账户“功能, 或者在添加完基本资料后再配置登陆账户。',
+        },
       ],
     };
   };

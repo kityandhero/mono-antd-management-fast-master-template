@@ -282,6 +282,9 @@ class PageList extends MultiPage {
         type: 'primary',
         icon: iconBuilder.plus(),
         text: '新增用户端登录账户',
+        hidden: !checkHasAuthority(
+          accessWayCollection.user.addBasicInfoWithLoginInfo.permission,
+        ),
         handleClick: this.showAddAccountDrawer,
       },
       {
@@ -289,7 +292,10 @@ class PageList extends MultiPage {
           listViewConfig.dataContainerExtraActionBuildType.generalExtraButton,
         type: 'primary',
         icon: iconBuilder.plus(),
-        text: '新增用户',
+        text: '新增用户信息',
+        hidden: !checkHasAuthority(
+          accessWayCollection.user.addBasicInfo.permission,
+        ),
         handleClick: this.showAddBasicInfoDrawer,
       },
     ];

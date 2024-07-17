@@ -41,13 +41,19 @@ class AccessWayCollectionPreviewDrawer extends SinglePageDrawer {
   }
 
   renderPresetTitleIcon = () => {
-    const { icon } = this.props;
+    const { icon } = {
+      icon: iconBuilder.form(),
+      ...this.props,
+    };
 
     return icon;
   };
 
   getPresetPageTitle = () => {
-    const { title } = this.props;
+    const { title } = {
+      title: '',
+      ...this.props,
+    };
 
     return title || '简要信息';
   };
@@ -94,8 +100,6 @@ class AccessWayCollectionPreviewDrawer extends SinglePageDrawer {
 }
 
 AccessWayCollectionPreviewDrawer.defaultProps = {
-  title: '',
-  icon: iconBuilder.form(),
   placement: 'left',
   width: 880,
 };
