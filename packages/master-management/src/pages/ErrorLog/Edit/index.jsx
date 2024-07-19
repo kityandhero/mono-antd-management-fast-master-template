@@ -36,7 +36,7 @@ class Index extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       loadApiPath: 'errorLog/get',
-      backPath: `/errorLog/pageList/key`,
+      backPath: `/logs/errorLog/pageList/key`,
       errorLogId: null,
     };
   }
@@ -104,6 +104,17 @@ class Index extends DataTabContainerSupplement {
       return null;
     }
 
+    const { adjacentData } = {
+      adjacentData: {},
+      ...metaData,
+    };
+
+    const { prevExist, nextExist } = {
+      prevExist: false,
+      nextExist: false,
+      ...adjacentData,
+    };
+
     const that = this;
 
     buttons.push(
@@ -115,7 +126,7 @@ class Index extends DataTabContainerSupplement {
         placement: 'bottomRight',
         icon: iconBuilder.leftCircle(),
         handleData: metaData,
-        disabled: !metaData.adjacentData.prevExist,
+        disabled: !prevExist,
         handleButtonClick: ({ handleData }) => {
           that.goToPrev(handleData);
         },
@@ -126,9 +137,9 @@ class Index extends DataTabContainerSupplement {
         size: 'default',
         text: '下一个',
         placement: 'bottomRight',
-        icon: iconBuilder.leftCircle(),
+        icon: iconBuilder.rightCircle(),
         handleData: metaData,
-        disabled: !metaData.adjacentData.prevExist,
+        disabled: !nextExist,
         handleButtonClick: ({ handleData }) => {
           that.goToNext(handleData);
         },

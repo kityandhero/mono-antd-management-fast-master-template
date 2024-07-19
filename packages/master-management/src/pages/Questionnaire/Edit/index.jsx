@@ -362,8 +362,8 @@ class Edit extends DataTabContainerSupplement {
           buildType: extraBuildType.generalExtraButton,
           type: 'default',
           icon: whetherGroupDisplay
-            ? iconBuilder.swap()
-            : iconBuilder.borderOuter(),
+            ? iconBuilder.ungroup()
+            : iconBuilder.group(),
           text: whetherGroupDisplay ? '取消分组显示' : '设为分组显示',
           handleData: metaData,
           hidden: !checkHasAuthority(

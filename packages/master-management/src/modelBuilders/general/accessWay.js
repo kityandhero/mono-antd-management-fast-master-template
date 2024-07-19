@@ -10,12 +10,14 @@ import {
 import {
   getActionMapData,
   getAllModelConfigFileContentData,
+  getAllPermissionFileContentData,
   getBusinessModelConfigFileContentData,
+  getBusinessPermissionFileContentData,
   getData,
   getInfrastructureModelConfigFileContentData,
+  getInfrastructurePermissionFileContentData,
   getNonePermissionActionMapData,
   getPermissionActionMapData,
-  getPermissionFileContentData,
   pageListAssemblyVerifyData,
   pageListData,
   refreshCacheData,
@@ -111,7 +113,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *getPermissionFileContent(
+      *getInfrastructurePermissionFileContent(
         {
           payload,
           alias,
@@ -120,7 +122,65 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(getPermissionFileContentData, payload);
+        const response = yield call(
+          getInfrastructurePermissionFileContentData,
+          payload,
+        );
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *getBusinessPermissionFileContent(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(
+          getBusinessPermissionFileContentData,
+          payload,
+        );
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *getAllPermissionFileContent(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(getAllPermissionFileContentData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

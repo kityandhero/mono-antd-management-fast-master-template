@@ -1,5 +1,5 @@
 import { formNameCollection } from '../../../customConfig';
-import { fieldData as fieldDataManagement } from '../../CurrentManagement/Common/data';
+import { fieldData as fieldDataManagement } from '../../CurrentManagementInfrastructure/Common/data';
 
 export const fieldExtraData = {
   scoreAlias: fieldDataManagement.scoreAlias,

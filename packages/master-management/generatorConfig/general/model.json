@@ -24,10 +24,24 @@
           "type": "singleData"
         },
         {
-          "title": "获取前端权限配置文件内容",
-          "api": "/accessWay/getPermissionFileContent",
-          "effect": "getPermissionFileContent",
-          "service": "getPermissionFileContentData",
+          "title": "获取前端基础权限配置文件内容",
+          "api": "/accessWay/getInfrastructurePermissionFileContent",
+          "effect": "getInfrastructurePermissionFileContent",
+          "service": "getInfrastructurePermissionFileContentData",
+          "type": "singleData"
+        },
+        {
+          "title": "获取前端业务权限配置文件内容",
+          "api": "/accessWay/getBusinessPermissionFileContent",
+          "effect": "getBusinessPermissionFileContent",
+          "service": "getBusinessPermissionFileContentData",
+          "type": "singleData"
+        },
+        {
+          "title": "获取前端全部权限配置文件内容",
+          "api": "/accessWay/getAllPermissionFileContent",
+          "effect": "getAllPermissionFileContent",
+          "service": "getAllPermissionFileContentData",
           "type": "singleData"
         },
         {
@@ -1095,142 +1109,128 @@
     {
       "apis": [
         {
-          "title": "设置用友密钥",
-          "api": "/currentManagement/updateYonYouKeyInfo",
-          "effect": "updateYonYouKeyInfo",
-          "service": "updateYonYouKeyInfoData",
-          "type": "singleData"
-        },
-        {
-          "title": "设置键值配置",
-          "api": "/currentManagement/updateKeyValueInfo",
-          "effect": "updateKeyValueInfo",
-          "service": "updateKeyValueInfoData",
-          "type": "singleData"
-        },
-        {
-          "title": "刷新键值配置缓存",
-          "api": "/currentManagement/refreshKeyValueCache",
-          "effect": "refreshKeyValueCache",
-          "service": "refreshKeyValueCacheData",
-          "type": "singleData"
-        },
-        {
           "title": "默认图片配置单页列表",
-          "api": "/currentManagement/pageListDefaultImage",
+          "api": "/currentManagementInfrastructure/pageListDefaultImage",
           "effect": "pageListDefaultImage",
           "service": "pageListDefaultImageData",
           "type": "pageList"
         },
         {
           "title": "获取详情",
-          "api": "/currentManagement/get",
+          "api": "/currentManagementInfrastructure/get",
           "effect": "get",
           "service": "getData",
           "type": "singleData"
         },
         {
           "title": "设置基本信息",
-          "api": "/currentManagement/updateBasicInfo",
+          "api": "/currentManagementInfrastructure/updateBasicInfo",
           "effect": "updateBasicInfo",
           "service": "updateBasicInfoData",
           "type": "singleData"
         },
         {
           "title": "设置主控七牛云信息",
-          "api": "/currentManagement/updateFileStorageInfo",
+          "api": "/currentManagementInfrastructure/updateFileStorageInfo",
           "effect": "updateFileStorageInfo",
           "service": "updateFileStorageInfoData",
           "type": "singleData"
         },
         {
           "title": "设置短信发动信息",
-          "api": "/currentManagement/updateSmsInfo",
+          "api": "/currentManagementInfrastructure/updateSmsInfo",
           "effect": "updateSmsInfo",
           "service": "updateSmsInfoData",
           "type": "singleData"
         },
         {
           "title": "设置流程调试用户标识",
-          "api": "/currentManagement/updateFlowDebugUserId",
+          "api": "/currentManagementInfrastructure/updateFlowDebugUserId",
           "effect": "updateFlowDebugUserId",
           "service": "updateFlowDebugUserIdData",
           "type": "singleData"
         },
         {
           "title": "设置系统密钥",
-          "api": "/currentManagement/updateSecretKeyInfo",
+          "api": "/currentManagementInfrastructure/updateSecretKeyInfo",
           "effect": "updateSecretKeyInfo",
           "service": "updateSecretKeyInfoData",
           "type": "singleData"
         },
         {
+          "title": "设置键值配置",
+          "api": "/currentManagementInfrastructure/updateKeyValueInfo",
+          "effect": "updateKeyValueInfo",
+          "service": "updateKeyValueInfoData",
+          "type": "singleData"
+        },
+        {
           "title": "切换七牛云图片转存开关",
-          "api": "/currentManagement/toggleQiniuImageSwitch",
+          "api": "/currentManagementInfrastructure/toggleQiniuImageSwitch",
           "effect": "toggleQiniuImageSwitch",
           "service": "toggleQiniuImageSwitchData",
           "type": "singleData"
         },
         {
           "title": "切换七牛云音频转存开关",
-          "api": "/currentManagement/toggleQiniuAudioSwitch",
+          "api": "/currentManagementInfrastructure/toggleQiniuAudioSwitch",
           "effect": "toggleQiniuAudioSwitch",
           "service": "toggleQiniuAudioSwitchData",
           "type": "singleData"
         },
         {
           "title": "切换七牛云视频转存开关",
-          "api": "/currentManagement/toggleQiniuVideoSwitch",
+          "api": "/currentManagementInfrastructure/toggleQiniuVideoSwitch",
           "effect": "toggleQiniuVideoSwitch",
           "service": "toggleQiniuVideoSwitchData",
           "type": "singleData"
         },
         {
           "title": "切换七牛云文件转存开关",
-          "api": "/currentManagement/toggleQiniuFileSwitch",
+          "api": "/currentManagementInfrastructure/toggleQiniuFileSwitch",
           "effect": "toggleQiniuFileSwitch",
           "service": "toggleQiniuFileSwitchData",
           "type": "singleData"
         },
         {
           "title": "测试磁盘监控配置",
-          "api": "/currentManagement/testDiskSpaceMonitoringConfig",
+          "api": "/currentManagementInfrastructure/testDiskSpaceMonitoringConfig",
           "effect": "testDiskSpaceMonitoringConfig",
           "service": "testDiskSpaceMonitoringConfigData",
           "type": "singleData"
         },
         {
           "title": "测试磁盘监控配置",
-          "api": "/currentManagement/testDiskSpaceMonitoringEmail",
+          "api": "/currentManagementInfrastructure/testDiskSpaceMonitoringEmail",
           "effect": "testDiskSpaceMonitoringEmail",
           "service": "testDiskSpaceMonitoringEmailData",
           "type": "singleData"
         },
         {
           "title": "测试系统密钥",
-          "api": "/currentManagement/testSecretKey",
+          "api": "/currentManagementInfrastructure/testSecretKey",
           "effect": "testSecretKey",
           "service": "testSecretKeyData",
           "type": "singleData"
         },
         {
           "title": "更新前端配置文件",
-          "api": "/currentManagement/refreshFrontEndApplicationConfig",
+          "api": "/currentManagementInfrastructure/refreshFrontEndApplicationConfig",
           "effect": "refreshFrontEndApplicationConfig",
           "service": "refreshFrontEndApplicationConfigData",
           "type": "singleData"
         },
         {
           "title": "上传图片",
-          "api": "/currentManagement/uploadImage",
+          "api": "/currentManagementInfrastructure/uploadImage",
           "effect": "uploadImage",
           "service": "uploadImageData",
           "type": "singleData"
         }
       ],
       "cover": true,
-      "title": "当前系统",
-      "name": "currentManagement"
+      "title": "当前系统基础配置",
+      "name": "currentManagementInfrastructure"
     },
     {
       "apis": [
@@ -2922,6 +2922,13 @@
           "type": "singleData"
         },
         {
+          "title": "设置渲染模式",
+          "api": "/questionnaire/updateRenderType",
+          "effect": "updateRenderType",
+          "service": "updateRenderTypeData",
+          "type": "singleData"
+        },
+        {
           "title": "切换分组显示",
           "api": "/questionnaire/toggleGroupDisplay",
           "effect": "toggleGroupDisplay",
@@ -2985,6 +2992,41 @@
           "type": "singleData"
         },
         {
+          "title": "获取媒体条目",
+          "api": "/questionnaire/getMediaItem",
+          "effect": "getMediaItem",
+          "service": "getMediaItemData",
+          "type": "singleData"
+        },
+        {
+          "title": "增加媒体条目",
+          "api": "/questionnaire/addMediaItem",
+          "effect": "addMediaItem",
+          "service": "addMediaItemData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新媒体条目",
+          "api": "/questionnaire/updateMediaItem",
+          "effect": "updateMediaItem",
+          "service": "updateMediaItemData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置媒体条目顺序",
+          "api": "/questionnaire/setMediaCollectionSort",
+          "effect": "setMediaCollectionSort",
+          "service": "setMediaCollectionSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除媒体条目",
+          "api": "/questionnaire/removeMediaItem",
+          "effect": "removeMediaItem",
+          "service": "removeMediaItemData",
+          "type": "singleData"
+        },
+        {
           "title": "操作日志列表",
           "api": "/questionnaire/pageListOperateLog",
           "effect": "pageListOperateLog",
@@ -2992,10 +3034,38 @@
           "type": "pageList"
         },
         {
-          "title": "",
+          "title": "上传图片文件",
           "api": "/questionnaire/uploadImage",
           "effect": "uploadImage",
           "service": "uploadImageData",
+          "type": "singleData"
+        },
+        {
+          "title": "上传视频文件",
+          "api": "/questionnaire/uploadVideo",
+          "effect": "uploadVideo",
+          "service": "uploadVideoData",
+          "type": "singleData"
+        },
+        {
+          "title": "上传音频文件",
+          "api": "/questionnaire/uploadAudio",
+          "effect": "uploadAudio",
+          "service": "uploadAudioData",
+          "type": "singleData"
+        },
+        {
+          "title": "上传附件文件",
+          "api": "/questionnaire/uploadFile",
+          "effect": "uploadFile",
+          "service": "uploadFileData",
+          "type": "singleData"
+        },
+        {
+          "title": "上传附件文件[转换为Base64]",
+          "api": "/questionnaire/uploadFileBase64",
+          "effect": "uploadFileBase64",
+          "service": "uploadFileBase64Data",
           "type": "singleData"
         }
       ],

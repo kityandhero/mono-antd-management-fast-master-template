@@ -9,8 +9,8 @@ import {
 import { iconBuilder, SyntaxHighlighter } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
-import { ModelConfigBusinessDrawer } from '../../ModelConfigBusinessDrawer';
-import { ModelConfigInfrastructureDrawer } from '../../ModelConfigInfrastructureDrawer';
+import { PermissionContentBusinessDrawer } from '../../PermissionContentBusinessDrawer';
+import { PermissionContentInfrastructureDrawer } from '../../PermissionContentInfrastructureDrawer';
 import { TabPageBase } from '../../TabPageBase';
 
 @connect(({ accessWay, schedulingControl }) => ({
@@ -19,23 +19,23 @@ import { TabPageBase } from '../../TabPageBase';
 }))
 class PermissionContent extends TabPageBase {
   componentAuthority =
-    accessWayCollection.accessWay.getPermissionFileContent.permission;
+    accessWayCollection.accessWay.getAllPermissionFileContent.permission;
 
   constructor(properties) {
     super(properties);
 
     this.state = {
       ...this.state,
-      loadApiPath: 'accessWay/getPermissionFileContent',
+      loadApiPath: 'accessWay/getAllPermissionFileContent',
     };
   }
 
-  showModelConfigInfrastructureDrawer = () => {
-    ModelConfigInfrastructureDrawer.open();
+  showPermissionContentInfrastructureDrawer = () => {
+    PermissionContentInfrastructureDrawer.open();
   };
 
-  showModelConfigBusinessDrawer = () => {
-    ModelConfigBusinessDrawer.open();
+  showPermissionContentBusinessDrawer = () => {
+    PermissionContentBusinessDrawer.open();
   };
 
   fillInitialValuesAfterLoad = ({
@@ -69,12 +69,33 @@ class PermissionContent extends TabPageBase {
         {
           title: {
             icon: iconBuilder.contacts(),
-            text: '前端权限键值配置内容',
+            text: '前端全部权限键值配置内容',
           },
           hasExtra: true,
           extra: {
             affix: true,
             list: [
+              {
+                buildType: extraBuildType.generalExtraButton,
+                icon: iconBuilder.read(),
+                text: '查看前端基础权限键值配置',
+                disabled: this.checkInProgress(),
+                handleClick: () => {
+                  that.showPermissionContentInfrastructureDrawer();
+                },
+              },
+              {
+                buildType: extraBuildType.generalExtraButton,
+                icon: iconBuilder.read(),
+                text: '查看前端业务权限键值配置',
+                disabled: this.checkInProgress(),
+                handleClick: () => {
+                  that.showPermissionContentBusinessDrawer();
+                },
+              },
+              {
+                buildType: cardConfig.extraBuildType.divider,
+              },
               {
                 buildType: extraBuildType.generalExtraButton,
                 icon: iconBuilder.read(),
@@ -117,6 +138,16 @@ class PermissionContent extends TabPageBase {
         },
       ],
     };
+  };
+
+  renderPresetOther = () => {
+    return (
+      <>
+        <PermissionContentInfrastructureDrawer maskClosable />
+
+        <PermissionContentBusinessDrawer maskClosable />
+      </>
+    );
   };
 }
 

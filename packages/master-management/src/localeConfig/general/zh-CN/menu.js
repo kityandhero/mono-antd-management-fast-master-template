@@ -474,6 +474,7 @@ export const menuGeneral = {
 
   'menu.currentAccount': '个人中心',
   'menu.currentAccount-mini': '个人',
+
   'menu.currentAccount.setting': '个人设置',
   'menu.currentAccount.setting-mini': '设置',
   'menu.currentAccount.loginLog': '登录记录',
@@ -483,19 +484,25 @@ export const menuGeneral = {
 
   'menu.currentManagement': '系统设置',
   'menu.currentManagement-mini': '系统',
-  'menu.currentManagement.setting': '系统设定',
-  'menu.currentManagement.setting-mini': '设定',
-  'menu.currentManagement.setting.basicInfo': '基本信息',
-  'menu.currentManagement.setting.defaultImage': '默认图片配置',
-  'menu.currentManagement.setting.defaultImage.pageList': '图片列表',
-  'menu.currentManagement.setting.fileStorageInfo': '文件上传配置',
-  'menu.currentManagement.setting.smsInfo': '短信发送配置',
-  'menu.currentManagement.setting.flowInfo': '调试配置',
-  'menu.currentManagement.setting.scoreInfo': '积分配置',
-  'menu.currentManagement.setting.architectureInfo': '框架配置',
-  'menu.currentManagement.setting.diskSpaceMonitoringInfo': '磁盘空间监控',
-  'menu.currentManagement.setting.editorInfo': '编辑器配置',
-  'menu.currentManagement.setting.otherInfo': '其他配置',
+
+  'menu.currentManagement.infrastructure': '基础设置',
+  'menu.currentManagement.infrastructure-mini': '基础',
+  'menu.currentManagement.infrastructure.setting': '基础设定',
+  'menu.currentManagement.infrastructure.setting-mini': '设定',
+  'menu.currentManagement.infrastructure.setting.basicInfo': '基本信息',
+  'menu.currentManagement.infrastructure.setting.defaultImage': '默认图片配置',
+  'menu.currentManagement.infrastructure.setting.defaultImage.pageList':
+    '图片列表',
+  'menu.currentManagement.infrastructure.setting.fileStorageInfo':
+    '文件上传配置',
+  'menu.currentManagement.infrastructure.setting.smsInfo': '短信发送配置',
+  'menu.currentManagement.infrastructure.setting.flowInfo': '调试配置',
+  'menu.currentManagement.infrastructure.setting.scoreInfo': '积分配置',
+  'menu.currentManagement.infrastructure.setting.architectureInfo': '框架配置',
+  'menu.currentManagement.infrastructure.setting.diskSpaceMonitoringInfo':
+    '磁盘空间监控',
+  'menu.currentManagement.infrastructure.setting.editorInfo': '编辑器配置',
+  'menu.currentManagement.infrastructure.setting.otherInfo': '其他配置',
 
   'menu.result': '结果页',
   'menu.result-mini': '结果页',

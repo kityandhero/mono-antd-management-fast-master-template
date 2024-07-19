@@ -8,17 +8,15 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
-import { fieldData } from '../../Department/Common/data';
-
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
-const visibleFlag = 'afd3bcf0d62f4defb749c91c8a0a017f';
+const visibleFlag = '9c30c36ca7ce4f1d8370467cff7e21e9';
 
 @connect(({ accessWay, schedulingControl }) => ({
   accessWay,
   schedulingControl,
 }))
-class PermissionFileContentDrawer extends BaseVerticalFlexDrawer {
+class PermissionContentBusinessDrawer extends BaseVerticalFlexDrawer {
   static open() {
     switchControlAssist.open(visibleFlag);
   }
@@ -28,31 +26,14 @@ class PermissionFileContentDrawer extends BaseVerticalFlexDrawer {
 
     this.state = {
       ...this.state,
-      pageTitle: '权限文件内容',
-      loadApiPath: 'accessWay/getAllPermissionFileContent',
+      pageTitle: '前端业务权限键值配置文件',
+      loadApiPath: 'accessWay/getBusinessPermissionFileContent',
     };
   }
 
-  supplementLoadRequestParams = (o) => {
-    return {
-      ...this.supplementRequestParams(o),
-    };
-  };
-
-  supplementRequestParams = (o) => {
-    const d = { ...o };
-    const { externalData } = this.state;
-
-    d[fieldData.channel.name] = getValueByKey({
-      data: externalData,
-      key: fieldData.channel.name,
-      convert: convertCollection.string,
-    });
-
-    return d;
-  };
-
   establishExtraActionConfig = () => {
+    const that = this;
+
     return {
       list: [
         {
@@ -61,7 +42,7 @@ class PermissionFileContentDrawer extends BaseVerticalFlexDrawer {
           text: '复制内容',
           disabled: this.checkInProgress(),
           handleClick: () => {
-            const { metaData } = this.state;
+            const { metaData } = that.state;
 
             copyToClipboard(
               getValueByKey({
@@ -82,7 +63,7 @@ class PermissionFileContentDrawer extends BaseVerticalFlexDrawer {
       title: '操作提示',
       list: [
         {
-          text: '简要说明:这里显示的是用于前端开发辅助的权限文件信息。',
+          text: '简要说明:这里显示的是用于前端开发辅助的业务权限键值配置文件信息。',
         },
       ],
     };
@@ -124,4 +105,4 @@ class PermissionFileContentDrawer extends BaseVerticalFlexDrawer {
   };
 }
 
-export { PermissionFileContentDrawer };
+export { PermissionContentBusinessDrawer };

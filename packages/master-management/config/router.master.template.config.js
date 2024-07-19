@@ -2485,96 +2485,97 @@ export const currentAccount = {
   ],
 };
 
-export const currentManagement = {
-  name: 'currentManagement',
+export const currentInfrastructureManagement = {
+  name: 'infrastructure',
   icon: 'user',
-  path: '/currentManagement',
+  path: '/currentManagement/infrastructure',
   access: 'checkAccess',
+  hideChildrenInMenu: true,
   authority: [accessWayCollection.super.permission],
   routes: [
     {
-      path: '/currentManagement',
-      redirect: '/currentManagement/setting',
+      path: '/currentManagement/infrastructure',
+      redirect: '/currentManagement/infrastructure/setting',
     },
     {
       name: 'setting',
       icon: 'bars',
       hideChildrenInMenu: true,
-      path: '/currentManagement/setting',
-      component: './CurrentManagement/Setting',
+      path: '/currentManagement/infrastructure/setting',
+      component: './CurrentManagementInfrastructure/Setting',
       routes: [
         {
-          path: '/currentManagement/setting',
-          redirect: '/currentManagement/setting/load/basicInfo',
+          path: '/currentManagement/infrastructure/setting',
+          redirect: '/currentManagement/infrastructure/setting/load/basicInfo',
         },
         {
-          path: '/currentManagement/setting/:op/basicInfo',
+          path: '/currentManagement/infrastructure/setting/:op/basicInfo',
           name: 'basicInfo',
-          component: './CurrentManagement/Setting/BasicInfo',
+          component: './CurrentManagementInfrastructure/Setting/BasicInfo',
         },
         {
-          path: '/currentManagement/setting/:op/defaultImage',
+          path: '/currentManagement/infrastructure/setting/:op/defaultImage',
           name: 'defaultImage',
           routes: [
             {
-              path: '/currentManagement/setting/:op/defaultImage',
-              redirect: '/currentManagement/setting/:op/defaultImage/pageList',
+              path: '/currentManagement/infrastructure/setting/:op/defaultImage',
+              redirect:
+                '/currentManagement/infrastructure/setting/:op/defaultImage/pageList',
             },
             {
-              path: '/currentManagement/setting/:op/defaultImage/pageList',
-              component: './CurrentManagement/Setting/DefaultImage/PageList',
+              path: '/currentManagement/infrastructure/setting/:op/defaultImage/pageList',
+              component:
+                './CurrentManagementInfrastructure/Setting/DefaultImage/PageList',
             },
           ],
         },
         {
-          path: '/currentManagement/setting/:op/fileStorageInfo',
+          path: '/currentManagement/infrastructure/setting/:op/fileStorageInfo',
           name: 'fileStorageInfo',
-          component: './CurrentManagement/Setting/FileStorageInfo',
+          component:
+            './CurrentManagementInfrastructure/Setting/FileStorageInfo',
         },
         {
-          path: '/currentManagement/setting/:op/smsInfo',
+          path: '/currentManagement/infrastructure/setting/:op/smsInfo',
           name: 'smsInfo',
-          component: './CurrentManagement/Setting/SmsInfo',
+          component: './CurrentManagementInfrastructure/Setting/SmsInfo',
         },
         {
-          path: '/currentManagement/setting/:op/secretKeyInfo',
+          path: '/currentManagement/infrastructure/setting/:op/secretKeyInfo',
           name: 'smsInfo',
-          component: './CurrentManagement/Setting/SecretKeyInfo',
+          component: './CurrentManagementInfrastructure/Setting/SecretKeyInfo',
         },
         {
-          path: '/currentManagement/setting/:op/flowInfo',
+          path: '/currentManagement/infrastructure/setting/:op/flowInfo',
           name: 'flowInfo',
-          component: './CurrentManagement/Setting/FlowInfo',
+          component: './CurrentManagementInfrastructure/Setting/FlowInfo',
         },
         {
-          path: '/currentManagement/setting/:op/scoreInfo',
+          path: '/currentManagement/infrastructure/setting/:op/scoreInfo',
           name: 'scoreInfo',
-          component: './CurrentManagement/Setting/ScoreInfo',
+          component: './CurrentManagementInfrastructure/Setting/ScoreInfo',
         },
         {
-          path: '/currentManagement/setting/:op/yonYouKeyInfo',
-          name: 'smsInfo',
-          component: './CurrentManagement/Setting/YonYouKeyInfo',
-        },
-        {
-          path: '/currentManagement/setting/:op/architectureInfo',
+          path: '/currentManagement/infrastructure/setting/:op/architectureInfo',
           name: 'otherInfo',
-          component: './CurrentManagement/Setting/ArchitectureInfo',
+          component:
+            './CurrentManagementInfrastructure/Setting/ArchitectureInfo',
         },
         {
-          path: '/currentManagement/setting/:op/editorInfo',
+          path: '/currentManagement/infrastructure/setting/:op/editorInfo',
           name: 'editorInfo',
-          component: './CurrentManagement/Setting/EditorInfo',
+          component: './CurrentManagementInfrastructure/Setting/EditorInfo',
         },
         {
-          path: '/currentManagement/setting/:op/diskSpaceMonitoringInfo',
+          path: '/currentManagement/infrastructure/setting/:op/diskSpaceMonitoringInfo',
           name: 'editorInfo',
-          component: './CurrentManagement/Setting/DiskSpaceMonitoringInfo',
+          component:
+            './CurrentManagementInfrastructure/Setting/DiskSpaceMonitoringInfo',
         },
         {
-          path: '/currentManagement/setting/:op/otherInfo',
+          path: '/currentManagement/infrastructure/setting/:op/otherInfo',
           name: 'otherInfo',
-          component: './CurrentManagement/Setting/OtherInfo',
+          component: './CurrentManagementInfrastructure/Setting/OtherInfo',
         },
       ],
     },

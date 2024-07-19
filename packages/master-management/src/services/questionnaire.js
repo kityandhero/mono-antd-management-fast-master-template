@@ -65,6 +65,15 @@ export async function updateBusinessModeData(parameters) {
   });
 }
 
+export const updateRenderTypeDataApiAddress = '/questionnaire/updateRenderType';
+
+export async function updateRenderTypeData(parameters) {
+  return request({
+    api: updateRenderTypeDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const toggleGroupDisplayDataApiAddress =
   '/questionnaire/toggleGroupDisplay';
 
@@ -148,6 +157,52 @@ export async function refreshCacheData(parameters) {
   });
 }
 
+export const getMediaItemDataApiAddress = '/questionnaire/getMediaItem';
+
+export async function getMediaItemData(parameters) {
+  return request({
+    api: getMediaItemDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const addMediaItemDataApiAddress = '/questionnaire/addMediaItem';
+
+export async function addMediaItemData(parameters) {
+  return request({
+    api: addMediaItemDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const updateMediaItemDataApiAddress = '/questionnaire/updateMediaItem';
+
+export async function updateMediaItemData(parameters) {
+  return request({
+    api: updateMediaItemDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const setMediaCollectionSortDataApiAddress =
+  '/questionnaire/setMediaCollectionSort';
+
+export async function setMediaCollectionSortData(parameters) {
+  return request({
+    api: setMediaCollectionSortDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const removeMediaItemDataApiAddress = '/questionnaire/removeMediaItem';
+
+export async function removeMediaItemData(parameters) {
+  return request({
+    api: removeMediaItemDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const pageListOperateLogDataApiAddress =
   '/questionnaire/pageListOperateLog';
 
@@ -163,6 +218,42 @@ export const uploadImageDataApiAddress = '/questionnaire/uploadImage';
 export async function uploadImageData(parameters) {
   return request({
     api: uploadImageDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const uploadVideoDataApiAddress = '/questionnaire/uploadVideo';
+
+export async function uploadVideoData(parameters) {
+  return request({
+    api: uploadVideoDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const uploadAudioDataApiAddress = '/questionnaire/uploadAudio';
+
+export async function uploadAudioData(parameters) {
+  return request({
+    api: uploadAudioDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const uploadFileDataApiAddress = '/questionnaire/uploadFile';
+
+export async function uploadFileData(parameters) {
+  return request({
+    api: uploadFileDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const uploadFileBase64DataApiAddress = '/questionnaire/uploadFileBase64';
+
+export async function uploadFileBase64Data(parameters) {
+  return request({
+    api: uploadFileBase64DataApiAddress,
     params: parameters,
   });
 }

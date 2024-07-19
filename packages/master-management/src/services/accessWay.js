@@ -28,12 +28,32 @@ export async function getData(parameters) {
   });
 }
 
-export const getPermissionFileContentDataApiAddress =
-  '/accessWay/getPermissionFileContent';
+export const getInfrastructurePermissionFileContentDataApiAddress =
+  '/accessWay/getInfrastructurePermissionFileContent';
 
-export async function getPermissionFileContentData(parameters) {
+export async function getInfrastructurePermissionFileContentData(parameters) {
   return request({
-    api: getPermissionFileContentDataApiAddress,
+    api: getInfrastructurePermissionFileContentDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const getBusinessPermissionFileContentDataApiAddress =
+  '/accessWay/getBusinessPermissionFileContent';
+
+export async function getBusinessPermissionFileContentData(parameters) {
+  return request({
+    api: getBusinessPermissionFileContentDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const getAllPermissionFileContentDataApiAddress =
+  '/accessWay/getAllPermissionFileContent';
+
+export async function getAllPermissionFileContentData(parameters) {
+  return request({
+    api: getAllPermissionFileContentDataApiAddress,
     params: parameters,
   });
 }

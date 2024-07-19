@@ -33,7 +33,7 @@ class Detail extends DataTabContainerSupplement {
     {
       key: 'permissionContent',
       hidden: !checkHasAuthority(
-        accessWayCollection.accessWay.getPermissionFileContent.permission,
+        accessWayCollection.accessWay.getAllPermissionFileContent.permission,
       ),
       tab: '权限键值集合',
     },

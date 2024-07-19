@@ -11,7 +11,7 @@ import { buildModel as buildCallCenterCategoryModel } from './callCenterCategory
 import { buildModel as buildChannelExecuteLogSwitchModel } from './channelExecuteLogSwitch';
 import { buildModel as buildChannelSqlLogSwitchModel } from './channelSqlLogSwitch';
 import { buildModel as buildCurrentAccountModel } from './currentAccount';
-import { buildModel as buildCurrentManagementModel } from './currentManagement';
+import { buildModel as buildCurrentManagementInfrastructureModel } from './currentManagementInfrastructure';
 import { buildModel as buildDepartmentModel } from './department';
 import { buildModel as buildEditorModel } from './editor';
 import { buildModel as buildEmailSenderAgentModel } from './emailSenderAgent';
@@ -96,7 +96,7 @@ export function listModelBuilder() {
     buildChannelExecuteLogSwitchModel,
     buildChannelSqlLogSwitchModel,
     buildCurrentAccountModel,
-    buildCurrentManagementModel,
+    buildCurrentManagementInfrastructureModel,
     buildDepartmentModel,
     buildEditorModel,
     buildEmailSenderAgentModel,

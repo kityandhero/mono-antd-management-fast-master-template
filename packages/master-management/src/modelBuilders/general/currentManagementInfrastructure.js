@@ -8,46 +8,35 @@ import {
 } from 'easy-soft-utility';
 
 import {
-  addBasicInfoData,
-  addMediaItemData,
   getData,
-  getMediaItemData,
-  pageListData,
-  pageListOperateLogData,
-  refreshCacheData,
-  removeData,
-  removeMediaItemData,
-  setMediaCollectionSortData,
-  setOfflineData,
-  setOnlineData,
-  toggleGroupDisplayData,
-  toggleRandomOrderData,
-  toggleRecommendData,
-  toggleTopData,
-  toggleVisibleData,
+  pageListDefaultImageData,
+  refreshFrontEndApplicationConfigData,
+  testDiskSpaceMonitoringConfigData,
+  testDiskSpaceMonitoringEmailData,
+  testSecretKeyData,
+  toggleQiniuAudioSwitchData,
+  toggleQiniuFileSwitchData,
+  toggleQiniuImageSwitchData,
+  toggleQiniuVideoSwitchData,
   updateBasicInfoData,
-  updateBusinessModeData,
-  updateContentInfoData,
-  updateMediaItemData,
-  updateRenderTypeData,
-  updateSortData,
-  uploadAudioData,
-  uploadFileBase64Data,
-  uploadFileData,
+  updateFileStorageInfoData,
+  updateFlowDebugUserIdData,
+  updateKeyValueInfoData,
+  updateSecretKeyInfoData,
+  updateSmsInfoData,
   uploadImageData,
-  uploadVideoData,
-} from '../../services/questionnaire';
+} from '../../services/currentManagementInfrastructure';
 
 export function buildModel() {
   return {
-    namespace: 'questionnaire',
+    namespace: 'currentManagementInfrastructure',
 
     state: {
       ...getTacitlyState(),
     },
 
     effects: {
-      *pageList(
+      *pageListDefaultImage(
         {
           payload,
           alias,
@@ -56,7 +45,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(pageListData, payload);
+        const response = yield call(pageListDefaultImageData, payload);
 
         const dataAdjust = pretreatmentRemotePageListData({
           source: response,
@@ -99,32 +88,6 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *addBasicInfo(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(addBasicInfoData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
       *updateBasicInfo(
         {
           payload,
@@ -151,7 +114,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateContentInfo(
+      *updateFileStorageInfo(
         {
           payload,
           alias,
@@ -160,7 +123,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateContentInfoData, payload);
+        const response = yield call(updateFileStorageInfoData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -177,7 +140,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateSort(
+      *updateSmsInfo(
         {
           payload,
           alias,
@@ -186,7 +149,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateSortData, payload);
+        const response = yield call(updateSmsInfoData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -203,7 +166,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateBusinessMode(
+      *updateFlowDebugUserId(
         {
           payload,
           alias,
@@ -212,7 +175,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateBusinessModeData, payload);
+        const response = yield call(updateFlowDebugUserIdData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -229,7 +192,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateRenderType(
+      *updateSecretKeyInfo(
         {
           payload,
           alias,
@@ -238,7 +201,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateRenderTypeData, payload);
+        const response = yield call(updateSecretKeyInfoData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -255,7 +218,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *toggleGroupDisplay(
+      *updateKeyValueInfo(
         {
           payload,
           alias,
@@ -264,7 +227,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(toggleGroupDisplayData, payload);
+        const response = yield call(updateKeyValueInfoData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -281,7 +244,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *toggleRandomOrder(
+      *toggleQiniuImageSwitch(
         {
           payload,
           alias,
@@ -290,7 +253,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(toggleRandomOrderData, payload);
+        const response = yield call(toggleQiniuImageSwitchData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -307,7 +270,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *toggleRecommend(
+      *toggleQiniuAudioSwitch(
         {
           payload,
           alias,
@@ -316,7 +279,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(toggleRecommendData, payload);
+        const response = yield call(toggleQiniuAudioSwitchData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -333,7 +296,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *toggleTop(
+      *toggleQiniuVideoSwitch(
         {
           payload,
           alias,
@@ -342,7 +305,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(toggleTopData, payload);
+        const response = yield call(toggleQiniuVideoSwitchData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -359,7 +322,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *toggleVisible(
+      *toggleQiniuFileSwitch(
         {
           payload,
           alias,
@@ -368,7 +331,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(toggleVisibleData, payload);
+        const response = yield call(toggleQiniuFileSwitchData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -385,7 +348,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *setOnline(
+      *testDiskSpaceMonitoringConfig(
         {
           payload,
           alias,
@@ -394,7 +357,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(setOnlineData, payload);
+        const response = yield call(testDiskSpaceMonitoringConfigData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -411,7 +374,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *setOffline(
+      *testDiskSpaceMonitoringEmail(
         {
           payload,
           alias,
@@ -420,7 +383,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(setOfflineData, payload);
+        const response = yield call(testDiskSpaceMonitoringEmailData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -437,7 +400,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *remove(
+      *testSecretKey(
         {
           payload,
           alias,
@@ -446,7 +409,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(removeData, payload);
+        const response = yield call(testSecretKeyData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -463,7 +426,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *refreshCache(
+      *refreshFrontEndApplicationConfig(
         {
           payload,
           alias,
@@ -472,165 +435,12 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(refreshCacheData, payload);
+        const response = yield call(
+          refreshFrontEndApplicationConfigData,
+          payload,
+        );
 
         const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *getMediaItem(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(getMediaItemData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *addMediaItem(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(addMediaItemData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *updateMediaItem(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(updateMediaItemData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *setMediaCollectionSort(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(setMediaCollectionSortData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *removeMediaItem(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(removeMediaItemData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *pageListOperateLog(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(pageListOperateLogData, payload);
-
-        const dataAdjust = pretreatmentRemotePageListData({
           source: response,
           successCallback: pretreatmentSuccessCallback || null,
           failCallback: pretreatmentFailCallback || null,
@@ -655,110 +465,6 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(uploadImageData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *uploadVideo(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(uploadVideoData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *uploadAudio(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(uploadAudioData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *uploadFile(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(uploadFileData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *uploadFileBase64(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(uploadFileBase64Data, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

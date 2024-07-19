@@ -1,47 +1,39 @@
 import { connect } from 'easy-soft-dva';
-import { convertCollection, getValueByKey } from 'easy-soft-utility';
+import { formatCollection, getValueByKey } from 'easy-soft-utility';
 
-import {
-  cardConfig,
-  getDerivedStateFromPropertiesForUrlParameters,
-} from 'antd-management-fast-common';
+import { cardConfig, getCorsDomain } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 
-import { accessWayCollection } from '../../../../customConfig';
-import { buildUpdateTimeAndOperatorFieldItem } from '../../../../customSpecialComponents';
-import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
 
-@connect(({ questionnaire, schedulingControl }) => ({
-  questionnaire,
+@connect(({ currentManagementInfrastructure, schedulingControl }) => ({
+  currentManagementInfrastructure,
   schedulingControl,
 }))
 class Index extends TabPageBase {
   goToUpdateWhenProcessed = true;
-
-  componentAuthority = accessWayCollection.questionnaire.pageList.permission;
 
   constructor(properties) {
     super(properties);
 
     this.state = {
       ...this.state,
-      loadApiPath: 'questionnaire/get',
-      submitApiPath: 'questionnaire/updateBasicInfo',
-      questionnaireId: null,
-      image: '',
+      loadApiPath: 'currentManagementInfrastructure/get',
+      submitApiPath: 'currentManagementInfrastructure/updateBasicInfo',
+      logo: '',
     };
   }
 
-  static getDerivedStateFromProps(nextProperties, previousState) {
-    return getDerivedStateFromPropertiesForUrlParameters(
-      nextProperties,
-      previousState,
-      { id: '' },
-      parseUrlParametersForSetState,
-    );
-  }
+  supplementSubmitRequestParams = (o) => {
+    const d = { ...o };
+
+    const { logo } = this.state;
+
+    d[fieldData.logo.name] = logo;
+
+    return d;
+  };
 
   doOtherAfterLoadSuccess = ({
     // eslint-disable-next-line no-unused-vars
@@ -53,29 +45,18 @@ class Index extends TabPageBase {
     // eslint-disable-next-line no-unused-vars
     metaOriginalData = null,
   }) => {
-    const image = getValueByKey({
+    const logo = getValueByKey({
       data: metaData,
-      key: fieldData.image.name,
-      convert: convertCollection.string,
+      key: fieldData.logo.name,
     });
 
     this.setState({
-      image,
+      logo: logo,
     });
   };
 
-  supplementSubmitRequestParams = (o) => {
-    const d = o;
-    const { questionnaireId, image } = this.state;
-
-    d[fieldData.questionnaireId.name] = questionnaireId;
-    d[fieldData.image.name] = image;
-
-    return d;
-  };
-
-  afterImageUploadSuccess = (image) => {
-    this.setState({ image: image });
+  afterUploadSuccess = (image) => {
+    this.setState({ logo: image });
   };
 
   fillInitialValuesAfterLoad = ({
@@ -91,14 +72,14 @@ class Index extends TabPageBase {
     const values = {};
 
     if (metaData != null) {
-      values[fieldData.title.name] = getValueByKey({
+      values[fieldData.systemName.name] = getValueByKey({
         data: metaData,
-        key: fieldData.title.name,
+        key: fieldData.systemName.name,
       });
 
-      values[fieldData.sort.name] = getValueByKey({
+      values[fieldData.name.name] = getValueByKey({
         data: metaData,
-        key: fieldData.sort.name,
+        key: fieldData.name.name,
       });
 
       values[fieldData.description.name] = getValueByKey({
@@ -111,7 +92,7 @@ class Index extends TabPageBase {
   };
 
   establishCardCollectionConfig = () => {
-    const { metaData, image } = this.state;
+    const { metaData, logo } = this.state;
 
     return {
       list: [
@@ -136,39 +117,19 @@ class Index extends TabPageBase {
             {
               lg: 18,
               type: cardConfig.contentItemType.input,
-              fieldData: fieldData.title,
-              require: true,
+              fieldData: fieldData.systemName,
             },
             {
-              lg: 6,
-              type: cardConfig.contentItemType.inputNumber,
-              fieldData: fieldData.sort,
-              require: false,
-            },
-          ],
-        },
-        {
-          title: {
-            icon: iconBuilder.picture(),
-            text: '图例上传',
-            subText: '[上传后需点击保存按钮保存!]',
-          },
-          items: [
-            {
-              lg: 24,
-              type: cardConfig.contentItemType.imageUpload,
-              image: image,
-              action: `/questionnaire/uploadImage`,
-              afterUploadSuccess: (imageData) => {
-                this.afterImageUploadSuccess(imageData);
-              },
+              lg: 18,
+              type: cardConfig.contentItemType.input,
+              fieldData: fieldData.name,
             },
           ],
         },
         {
           title: {
             icon: iconBuilder.contacts(),
-            text: '简介 - 描述 - 备注',
+            text: '简介描述 ',
           },
           items: [
             {
@@ -178,7 +139,41 @@ class Index extends TabPageBase {
             },
           ],
         },
-        buildUpdateTimeAndOperatorFieldItem({ data: metaData, line: 1 }),
+        {
+          title: {
+            icon: iconBuilder.picture(),
+            text: '设置Logo',
+            subText: '[上传后需点击保存按钮保存!]',
+          },
+          items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.imageUpload,
+              image: logo,
+              action: `${getCorsDomain()}/currentManagementInfrastructure/uploadImage`,
+              afterUploadSuccess: (image) => {
+                this.afterUploadSuccess(image);
+              },
+            },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
+            text: '其他信息',
+          },
+          items: [
+            {
+              type: cardConfig.contentItemType.onlyShowInput,
+              fieldData: fieldData.createTime,
+              value: getValueByKey({
+                data: metaData,
+                key: fieldData.createTime.name,
+                format: formatCollection.datetime,
+              }),
+            },
+          ],
+        },
       ],
     };
   };
