@@ -75,7 +75,7 @@ class UpdateMessageQueueToStoreModeModal extends BaseUpdateModal {
 
     return getValueByKey({
       data: metaData,
-      key: fieldData.systemName.name,
+      key: fieldData.name.name,
       defaultValue: '未设置系统名称',
     });
   };

@@ -61,15 +61,20 @@ const fieldExtraData = {
 
 export const fieldData = {
   ...formNameCollection,
-  systemName: {
+  name: {
     label: '系统名称',
-    name: 'systemName',
+    name: 'name',
     helper: '系统的名称',
   },
-  name: {
-    label: '组织名称',
-    name: 'name',
-    helper: '组织的名称',
+  alias: {
+    label: '系统别名',
+    name: 'alias',
+    helper: '系统的别名',
+  },
+  organization: {
+    label: '所属组织',
+    name: 'organization',
+    helper: '系统的所属组织',
   },
   description: {
     label: '简介描述 ',

@@ -72,14 +72,19 @@ class Index extends TabPageBase {
     const values = {};
 
     if (metaData != null) {
-      values[fieldData.systemName.name] = getValueByKey({
-        data: metaData,
-        key: fieldData.systemName.name,
-      });
-
       values[fieldData.name.name] = getValueByKey({
         data: metaData,
         key: fieldData.name.name,
+      });
+
+      values[fieldData.alias.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.alias.name,
+      });
+
+      values[fieldData.organization.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.organization.name,
       });
 
       values[fieldData.description.name] = getValueByKey({
@@ -115,14 +120,19 @@ class Index extends TabPageBase {
           },
           items: [
             {
-              lg: 18,
-              type: cardConfig.contentItemType.input,
-              fieldData: fieldData.systemName,
-            },
-            {
-              lg: 18,
+              lg: 24,
               type: cardConfig.contentItemType.input,
               fieldData: fieldData.name,
+            },
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.input,
+              fieldData: fieldData.alias,
+            },
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.input,
+              fieldData: fieldData.organization,
             },
           ],
         },
