@@ -11,8 +11,8 @@ const { BaseUpdateModal } = DataModal;
 
 const visibleFlag = '1b50ec8376fa439b8f611f58954e47e3';
 
-@connect(({ currentManagement, schedulingControl }) => ({
-  currentManagement,
+@connect(({ currentManagementInfrastructure, schedulingControl }) => ({
+  currentManagementInfrastructure,
   schedulingControl,
 }))
 class UpdateMessageQueueToStoreModeModal extends BaseUpdateModal {
@@ -26,8 +26,8 @@ class UpdateMessageQueueToStoreModeModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '配置消息存储模式',
-      loadApiPath: 'currentManagement/get',
-      submitApiPath: 'currentManagement/updateKeyValueInfo',
+      loadApiPath: 'currentManagementInfrastructure/get',
+      submitApiPath: 'currentManagementInfrastructure/updateKeyValueInfo',
       messageQueueToStoreMode: '',
     };
   }

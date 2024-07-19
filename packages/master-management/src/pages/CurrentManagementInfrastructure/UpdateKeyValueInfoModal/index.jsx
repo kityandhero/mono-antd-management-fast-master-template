@@ -12,8 +12,8 @@ const { BaseUpdateModal } = DataModal;
 
 const visibleFlag = '22ad7303a59e4eeaa30fe238f61af1c9';
 
-@connect(({ currentManagement, schedulingControl }) => ({
-  currentManagement,
+@connect(({ currentManagementInfrastructure, schedulingControl }) => ({
+  currentManagementInfrastructure,
   schedulingControl,
 }))
 class UpdateKeyValueInfoModal extends BaseUpdateModal {
@@ -27,8 +27,8 @@ class UpdateKeyValueInfoModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '设置键值信息',
-      loadApiPath: 'currentManagement/get',
-      submitApiPath: 'currentManagement/updateKeyValueInfo',
+      loadApiPath: 'currentManagementInfrastructure/get',
+      submitApiPath: 'currentManagementInfrastructure/updateKeyValueInfo',
     };
   }
 

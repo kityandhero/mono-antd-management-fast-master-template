@@ -12,8 +12,8 @@ const { BaseUpdateModal } = DataModal;
 
 const visibleFlag = '22ad7303a59e4eeaa30fe238f61af1c9';
 
-@connect(({ currentManagement, schedulingControl }) => ({
-  currentManagement,
+@connect(({ section, schedulingControl }) => ({
+  section,
   schedulingControl,
 }))
 class UpdateKeyValueInfoModal extends BaseUpdateModal {

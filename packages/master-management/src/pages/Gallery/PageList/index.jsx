@@ -327,7 +327,7 @@ class PageList extends MultiPage {
         placement: 'topRight',
         icon: iconBuilder.edit(),
         disabled: !checkHasAuthority(
-          accessWayCollection.currentManagement.updateKeyValueInfo.permission,
+          accessWayCollection.gallery.updateBasicInfo.permission,
         ),
         handleButtonClick: ({ handleData }) => {
           this.goToEdit(handleData);

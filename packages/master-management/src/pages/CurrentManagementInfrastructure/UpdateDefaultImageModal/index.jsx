@@ -11,8 +11,8 @@ const { BaseUpdateModal } = DataModal;
 
 const visibleFlag = 'b3d27e3e2d0e4ae1a7f642ca8d878a55';
 
-@connect(({ currentManagement, schedulingControl }) => ({
-  currentManagement,
+@connect(({ currentManagementInfrastructure, schedulingControl }) => ({
+  currentManagementInfrastructure,
   schedulingControl,
 }))
 class UpdateDefaultImageModal extends BaseUpdateModal {
@@ -26,8 +26,8 @@ class UpdateDefaultImageModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '设置键值信息',
-      loadApiPath: 'currentManagement/get',
-      submitApiPath: 'currentManagement/updateKeyValueInfo',
+      loadApiPath: 'currentManagementInfrastructure/get',
+      submitApiPath: 'currentManagementInfrastructure/updateKeyValueInfo',
       image: '',
     };
   }
@@ -158,7 +158,7 @@ class UpdateDefaultImageModal extends BaseUpdateModal {
                   emptyImage: '',
                 },
               },
-              action: `/currentManagement/uploadImage`,
+              action: `/currentManagementInfrastructure/uploadImage`,
               afterUploadSuccess: (imageData) => {
                 this.afterImageUploadSuccess(imageData);
               },
