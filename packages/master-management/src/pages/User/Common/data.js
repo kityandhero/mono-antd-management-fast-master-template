@@ -1,4 +1,4 @@
-import { formNameCollection } from 'antd-management-fast-common';
+import { formNameCollection } from '../../../customConfig';
 
 const fieldExtraData = {
   passwordVerify: {
