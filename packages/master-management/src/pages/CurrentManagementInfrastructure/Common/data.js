@@ -402,18 +402,5 @@ export const fieldData = {
       helper: '',
     },
   },
-  yonYou: {
-    label: '用友',
-    yonYouPrivateKey: {
-      label: '用友系统私钥',
-      name: 'yonYouPrivateKey',
-      helper: '',
-    },
-    yonYouPublicKey: {
-      label: '用友系统公钥',
-      name: 'yonYouPublicKey',
-      helper: '',
-    },
-  },
   ...fieldExtraData,
 };

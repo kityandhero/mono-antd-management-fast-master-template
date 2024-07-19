@@ -10,7 +10,7 @@ import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
 
-const visibleFlag = '22ad7303a59e4eeaa30fe238f61af1c9';
+const visibleFlag = 'e7318e9d34b34560a4394d51e84cf09c';
 
 @connect(({ currentManagementInfrastructure, schedulingControl }) => ({
   currentManagementInfrastructure,

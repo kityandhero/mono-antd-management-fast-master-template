@@ -45,10 +45,6 @@ class Setting extends DataTabContainer {
       tab: '积分配置',
     },
     {
-      key: 'yonYouKeyInfo',
-      tab: '用友密钥配置',
-    },
-    {
       key: 'editorInfo',
       tab: '编辑器配置',
     },

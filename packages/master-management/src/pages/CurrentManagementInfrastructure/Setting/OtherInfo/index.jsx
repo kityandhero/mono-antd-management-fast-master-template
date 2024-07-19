@@ -1,13 +1,10 @@
 import { connect } from 'easy-soft-dva';
-import { getValueByKey } from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 
 import { keyValueEditModeCollection } from '../../../../customConfig';
 import { buildInputItem } from '../../../../utils';
-import { fieldData as fieldDataUser } from '../../../User/Common/data';
-import { updateFlowDebugUserIdAction } from '../../Assist/action';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
 import { UpdateKeyValueInfoModal } from '../../UpdateKeyValueInfoModal';
@@ -24,68 +21,8 @@ class Index extends TabPageBase {
       ...this.state,
       loadApiPath: 'currentManagementInfrastructure/get',
       submitApiPath: 'currentManagementInfrastructure/updateDebugUserId',
-      userId: '',
     };
   }
-
-  supplementSubmitRequestParams = (o) => {
-    const d = o;
-    const { userId } = this.state;
-
-    d[fieldData.flowDebugUserId.name] = userId;
-
-    return d;
-  };
-
-  doOtherAfterLoadSuccess = ({
-    metaData = null,
-    // eslint-disable-next-line no-unused-vars
-    metaListData = [],
-    // eslint-disable-next-line no-unused-vars
-    metaExtra = null,
-    // eslint-disable-next-line no-unused-vars
-    metaOriginalData = null,
-  }) => {
-    const flowDebugUserId = getValueByKey({
-      data: metaData,
-      key: fieldData.flowDebugUserId.name,
-    });
-
-    this.setState({ userId: flowDebugUserId });
-  };
-
-  updateFlowDebugUserId = (data) => {
-    updateFlowDebugUserIdAction({
-      target: this,
-      handleData: {
-        flowDebugUserId: getValueByKey({
-          data: data,
-          key: fieldDataUser.userId.name,
-        }),
-      },
-      successCallback: ({ target }) => {
-        target.reloadData({});
-      },
-    });
-  };
-
-  afterUserSelect = (d) => {
-    const userId = getValueByKey({
-      data: d,
-      key: fieldDataUser.userId.name,
-      defaultValue: '0',
-    });
-
-    this.setState({
-      userId: userId,
-    });
-  };
-
-  afterUserClearSelect = () => {
-    this.setState({
-      userId: '',
-    });
-  };
 
   showUpdateKeyValueInfoModal = ({
     fieldData: targetFieldData,
@@ -117,13 +54,6 @@ class Index extends TabPageBase {
     metaOriginalData = null,
   }) => {
     const values = {};
-
-    if (metaData != null) {
-      values[fieldData.flowDebugUserId.name] = getValueByKey({
-        data: metaData,
-        key: fieldData.flowDebugUserId.name,
-      });
-    }
 
     return values;
   };
