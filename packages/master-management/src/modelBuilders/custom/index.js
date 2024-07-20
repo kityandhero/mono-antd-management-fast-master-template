@@ -1,4 +1,3 @@
-import { buildModel as buildCloudStorageModel } from './cloudStorage';
 import { buildModel as buildGovernmentAffairManagerModel } from './governmentAffairManager';
 import { buildModel as buildGovernmentAffairManagerRoleModel } from './governmentAffairManagerRole';
 import { buildModel as buildUserYonYouCorrelationModel } from './userYonYouCorrelation';
@@ -9,7 +8,6 @@ export function listModelBuilder() {
   const list = [];
 
   list.push(
-    buildCloudStorageModel,
     buildGovernmentAffairManagerModel,
     buildGovernmentAffairManagerRoleModel,
     buildUserYonYouCorrelationModel,

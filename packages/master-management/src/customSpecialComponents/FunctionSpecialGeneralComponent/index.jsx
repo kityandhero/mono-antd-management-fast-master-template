@@ -14,6 +14,8 @@ export * from './CacheMode';
 export * from './CallCenterCategoryStatus';
 export * from './CallCenterStatus';
 export * from './Channel';
+export * from './CloudStorageSourceType';
+export * from './CloudStorageStatus';
 export * from './DepartmentOwnershipMode';
 export * from './DepartmentStatus';
 export * from './DeviceType';

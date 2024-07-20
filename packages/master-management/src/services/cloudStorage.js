@@ -18,15 +18,6 @@ export async function getData(parameters) {
   });
 }
 
-export const addBasicInfoDataApiAddress = '/cloudStorage/addBasicInfo';
-
-export async function addBasicInfoData(parameters) {
-  return request({
-    api: addBasicInfoDataApiAddress,
-    params: parameters,
-  });
-}
-
 export const removeDataApiAddress = '/cloudStorage/remove';
 
 export async function removeData(parameters) {

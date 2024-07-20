@@ -10,6 +10,7 @@ import { buildModel as buildCallCenterModel } from './callCenter';
 import { buildModel as buildCallCenterCategoryModel } from './callCenterCategory';
 import { buildModel as buildChannelExecuteLogSwitchModel } from './channelExecuteLogSwitch';
 import { buildModel as buildChannelSqlLogSwitchModel } from './channelSqlLogSwitch';
+import { buildModel as buildCloudStorageModel } from './cloudStorage';
 import { buildModel as buildCurrentAccountModel } from './currentAccount';
 import { buildModel as buildCurrentManagementInfrastructureModel } from './currentManagementInfrastructure';
 import { buildModel as buildDepartmentModel } from './department';
@@ -95,6 +96,7 @@ export function listModelBuilder() {
     buildCallCenterCategoryModel,
     buildChannelExecuteLogSwitchModel,
     buildChannelSqlLogSwitchModel,
+    buildCloudStorageModel,
     buildCurrentAccountModel,
     buildCurrentManagementInfrastructureModel,
     buildDepartmentModel,

@@ -1029,10 +1029,11 @@ export const survey = {
   routes: [question, questionItem, questionnaire],
 };
 
-export const files = {
-  name: 'files',
+export const uploadHistory = {
+  name: 'uploadHistory',
   icon: 'reconciliation',
-  path: '/files',
+  hideChildrenInMenu: true,
+  path: '/files/uploadHistory',
   access: 'checkAccess',
   authority: [
     accessWayCollection.super.permission,
@@ -1040,32 +1041,48 @@ export const files = {
   ],
   routes: [
     {
-      name: 'uploadHistory',
-      icon: 'reconciliation',
-      hideChildrenInMenu: true,
       path: '/files/uploadHistory',
-      access: 'checkAccess',
-      authority: [
-        accessWayCollection.super.permission,
-        accessWayCollection.uploadHistory.pageList.permission,
-      ],
-      routes: [
-        {
-          path: '/files/uploadHistory',
-          redirect: '/files/uploadHistory/pageList',
-        },
-        {
-          path: '/files/uploadHistory/pageList',
-          name: 'pageList',
-          icon: 'bars',
-          redirect: '/files/uploadHistory/pageList/no',
-        },
-        {
-          path: '/files/uploadHistory/pageList/:pageKey',
-          hideInMenu: true,
-          component: './UploadHistory/PageList',
-        },
-      ],
+      redirect: '/files/uploadHistory/pageList',
+    },
+    {
+      path: '/files/uploadHistory/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/files/uploadHistory/pageList/no',
+    },
+    {
+      path: '/files/uploadHistory/pageList/:pageKey',
+      hideInMenu: true,
+      component: './UploadHistory/PageList',
+    },
+  ],
+};
+
+export const cloudStorage = {
+  name: 'cloudStorage',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/files/cloudStorage',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.cloudStorage.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/files/cloudStorage',
+      redirect: '/files/cloudStorage/pageList',
+    },
+    {
+      path: '/files/cloudStorage/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/files/cloudStorage/pageList/no',
+    },
+    {
+      path: '/files/cloudStorage/pageList/:pageKey',
+      hideInMenu: true,
+      component: './CloudStorage/PageList',
     },
   ],
 };

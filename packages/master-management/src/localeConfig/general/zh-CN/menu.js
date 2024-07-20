@@ -57,6 +57,11 @@ export const menuGeneral = {
   'menu.files': '文件管理',
   'menu.files-mini': '文件',
 
+  'menu.files.cloudStorage': '云盘文件',
+  'menu.files.cloudStorage-mini': '云盘',
+  'menu.files.cloudStorage.pageList': '文件列表',
+  'menu.files.cloudStorage.pageList-mini': '文件',
+
   'menu.files.uploadHistory': '上传历史',
   'menu.files.uploadHistory-mini': '上传',
   'menu.files.uploadHistory.pageList': '历史列表',

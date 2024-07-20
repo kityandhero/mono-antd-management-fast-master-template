@@ -499,6 +499,16 @@
       "functionSegment": "CallCenterStatus",
       "label": "状态",
       "name": "status"
+    },
+    {
+      "functionSegment": "CloudStorageSourceType",
+      "label": "上传来源",
+      "name": "sourceType"
+    },
+    {
+      "functionSegment": "CloudStorageStatus",
+      "label": "状态",
+      "name": "status"
     }
   ]
 }

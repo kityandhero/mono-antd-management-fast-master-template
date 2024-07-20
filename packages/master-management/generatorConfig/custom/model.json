@@ -3,55 +3,6 @@
     {
       "apis": [
         {
-          "title": "文件列表",
-          "api": "/cloudStorage/pageList",
-          "effect": "pageList",
-          "service": "pageListData",
-          "type": "pageList"
-        },
-        {
-          "title": "文件详情",
-          "api": "/cloudStorage/get",
-          "effect": "get",
-          "service": "getData",
-          "type": "singleData"
-        },
-        {
-          "title": "新增信息",
-          "api": "/cloudStorage/addBasicInfo",
-          "effect": "addBasicInfo",
-          "service": "addBasicInfoData",
-          "type": "singleData"
-        },
-        {
-          "title": "移除",
-          "api": "/cloudStorage/remove",
-          "effect": "remove",
-          "service": "removeData",
-          "type": "singleData"
-        },
-        {
-          "title": "刷新缓存",
-          "api": "/cloudStorage/refreshCache",
-          "effect": "refreshCache",
-          "service": "refreshCacheData",
-          "type": "singleData"
-        },
-        {
-          "title": "操作日志列表",
-          "api": "/cloudStorage/pageListOperateLog",
-          "effect": "pageListOperateLog",
-          "service": "pageListOperateLogData",
-          "type": "pageList"
-        }
-      ],
-      "cover": true,
-      "title": "企业云盘",
-      "name": "cloudStorage"
-    },
-    {
-      "apis": [
-        {
           "title": "分页列表",
           "api": "/governmentAffairManager/pageList",
           "effect": "pageList",

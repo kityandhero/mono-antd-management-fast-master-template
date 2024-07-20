@@ -673,11 +673,43 @@ export const accessWayInfrastructureCollection = {
       permission: '3df6467669924aab8fe60bc874e0e901',
     },
   },
+  cloudStorage: {
+    pageList: {
+      title: '文件列表',
+      paramsKey: '41f5b9ab5e5df24bfe22e5df202e8214',
+      permission: '53bd06f5e15b465f98d905514dca82b5',
+    },
+    get: {
+      title: '文件详情',
+      paramsKey: 'd5fcba460423931cbdf780af542717f7',
+      permission: 'dfb78791619644fa96d20f8409b8a452',
+    },
+    remove: {
+      title: '移除',
+      paramsKey: '7b36acb30a92a17f90c186acf3c58012',
+      permission: 'e638cc6df7654eb091d5083d685aa246',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: 'cd689f6fae88304efdd36a972d72e1df',
+      permission: '9d81032b784c4a47bd450e8f23904d2b',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: '3feac8a83b5dd955179cf1c3a962075b',
+      permission: '27b315037dbc46ad807ee103e463bfc9',
+    },
+  },
   currentManagementInfrastructure: {
     pageListDefaultImage: {
       title: '默认图片配置单页列表',
       paramsKey: '71ac638cfc1986acccc8266814abe619',
       permission: '182c35a418f34e56848c21bc1ab955ba',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '3083285bedb45fae8c20822e75211e31',
+      permission: '8b9b4478cd464061ad844f615fec5c64',
     },
     updateBasicInfo: {
       title: '设置基本信息',
