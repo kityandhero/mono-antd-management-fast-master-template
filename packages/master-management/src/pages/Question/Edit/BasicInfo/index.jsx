@@ -18,7 +18,7 @@ import { TabPageBase } from '../../TabPageBase';
   schedulingControl,
 }))
 class Index extends TabPageBase {
-  goToUpdateWhenProcessed = true;
+  reloadHeaderOnSubmitSuccess = true;
 
   componentAuthority = accessWayCollection.question.get.permission;
 

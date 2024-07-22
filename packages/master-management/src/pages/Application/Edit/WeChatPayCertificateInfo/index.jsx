@@ -18,7 +18,7 @@ import { TabPageBase } from '../../TabPageBase';
   schedulingControl,
 }))
 class WeChatPayCertificateInfo extends TabPageBase {
-  goToUpdateWhenProcessed = true;
+  reloadHeaderOnSubmitSuccess = true;
 
   componentAuthority = accessWayCollection.application.pageList.permission;
 

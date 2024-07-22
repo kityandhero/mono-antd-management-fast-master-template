@@ -36,7 +36,7 @@ class ParentInfo extends TabPageBase {
 
   componentAuthority = accessWayCollection.user.updateBasicInfo.permission;
 
-  goToUpdateWhenProcessed = true;
+  reloadHeaderOnSubmitSuccess = true;
 
   constructor(properties) {
     super(properties);

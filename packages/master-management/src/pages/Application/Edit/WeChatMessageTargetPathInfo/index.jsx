@@ -19,7 +19,7 @@ import { UpdateKeyValueInfoModal } from '../../UpdateKeyValueInfoModal';
   schedulingControl,
 }))
 class WeChatMessageTargetPathInfo extends TabPageBase {
-  goToUpdateWhenProcessed = true;
+  reloadHeaderOnSubmitSuccess = true;
 
   componentAuthority = accessWayCollection.application.pageList.permission;
 

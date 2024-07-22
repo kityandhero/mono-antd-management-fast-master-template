@@ -27,7 +27,7 @@ import { UpdateKeyValueInfoModal } from '../../UpdateKeyValueInfoModal';
   schedulingControl,
 }))
 class ReadObtainScoreInfo extends TabPageBase {
-  goToUpdateWhenProcessed = true;
+  reloadHeaderOnSubmitSuccess = true;
 
   constructor(properties) {
     super(properties);

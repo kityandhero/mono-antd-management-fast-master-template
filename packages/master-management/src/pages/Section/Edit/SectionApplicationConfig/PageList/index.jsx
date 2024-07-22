@@ -44,7 +44,7 @@ const { InnerMultiPage } = DataMultiPageView;
   schedulingControl,
 }))
 class Index extends InnerMultiPage {
-  goToUpdateWhenProcessed = true;
+  reloadHeaderOnSubmitSuccess = true;
 
   pageValues = {
     pageNo: 1,

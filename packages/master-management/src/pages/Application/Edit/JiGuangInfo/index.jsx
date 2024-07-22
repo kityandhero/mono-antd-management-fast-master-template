@@ -27,7 +27,7 @@ import { UpdateKeyValueInfoModal } from '../../UpdateKeyValueInfoModal';
   schedulingControl,
 }))
 class PagePathInfo extends TabPageBase {
-  goToUpdateWhenProcessed = true;
+  reloadHeaderOnSubmitSuccess = true;
 
   componentAuthority =
     accessWayCollection.application.getJiGuangConfig.permission;
