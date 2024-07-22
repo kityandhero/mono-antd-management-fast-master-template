@@ -14,7 +14,7 @@
   ],
   "files": [
     "config/router.master.template.config.js",
-    "develop/config/develop.update.project.from.repository.json",
+    "../../develop/config/develop.update.project.from.repository.json",
     "plugin.ts",
     "src/access.js",
     "src/app.jsx",
