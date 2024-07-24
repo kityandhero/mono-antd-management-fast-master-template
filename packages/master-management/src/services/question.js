@@ -9,6 +9,16 @@ export async function pageListData(parameters) {
   });
 }
 
+export const pageListWithoutQuestionnaireDataApiAddress =
+  '/question/pageListWithoutQuestionnaire';
+
+export async function pageListWithoutQuestionnaireData(parameters) {
+  return request({
+    api: pageListWithoutQuestionnaireDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const getDataApiAddress = '/question/get';
 
 export async function getData(parameters) {

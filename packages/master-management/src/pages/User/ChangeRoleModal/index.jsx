@@ -35,7 +35,7 @@ class UpdateRoleModal extends BaseUpdateRoleModal {
     listSelectAction({
       target: this,
       handleData: {
-        channel: 200,
+        channel: '504f6296bf1a4b3f9831d9c38d8f6a7b',
       },
       successCallback: ({ target, remoteListData }) => {
         const customData = remoteListData;

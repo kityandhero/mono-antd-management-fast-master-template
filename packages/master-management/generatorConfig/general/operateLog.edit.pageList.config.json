@@ -1,6 +1,12 @@
 {
   "list": [
     {
+      "folder": "AdministrativeDivision/Edit/OperateLog/PageList",
+      "model": "administrativeDivision",
+      "key": "administrativeDivisionId",
+      "coverFile": true
+    },
+    {
       "folder": "Question/Edit/OperateLog/PageList",
       "model": "question",
       "key": "questionId",

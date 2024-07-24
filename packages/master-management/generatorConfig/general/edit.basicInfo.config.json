@@ -1,6 +1,13 @@
 {
   "list": [
     {
+      "folder": "AdministrativeDivision/Edit/BasicInfo",
+      "model": "administrativeDivision",
+      "key": "administrativeDivisionId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "Question/Edit/BasicInfo",
       "model": "question",
       "key": "questionId",

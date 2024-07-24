@@ -457,6 +457,17 @@ class PageList extends MultiPage {
     },
   ];
 
+  establishHelpConfig = () => {
+    return {
+      title: '操作提示',
+      list: [
+        {
+          text: '超级管理员账户 superadmin 为固定账户，不可配置。',
+        },
+      ],
+    };
+  };
+
   renderPresetOther = () => {
     const { currentRecord } = this.state;
 

@@ -73,6 +73,7 @@ export * from './QrCodeCategoryStatus';
 export * from './QrCodeStatus';
 export * from './QuestionItemStatus';
 export * from './QuestionnaireQuestionCreateMode';
+export * from './questionnaireQuestionStatus';
 export * from './QuestionnaireStatus';
 export * from './QuestionStatus';
 export * from './QuestionTagRelationStatus';

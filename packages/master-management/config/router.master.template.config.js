@@ -998,6 +998,21 @@ export const questionnaire = {
           component: './Questionnaire/Edit/BasicInfo',
         },
         {
+          path: '/survey/questionnaire/edit/:op/:id/:pageKey/question',
+          name: 'question',
+          routes: [
+            {
+              path: '/survey/questionnaire/edit/:op/:id/:pageKey/question',
+              redirect:
+                '/survey/questionnaire/edit/:op/:id/:pageKey/question/pageList',
+            },
+            {
+              path: '/survey/questionnaire/edit/:op/:id/:pageKey/question/pageList',
+              component: './Questionnaire/Edit/Question/PageList',
+            },
+          ],
+        },
+        {
           path: '/survey/questionnaire/edit/:op/:id/:pageKey/operateLog',
           name: 'operateLog',
           routes: [

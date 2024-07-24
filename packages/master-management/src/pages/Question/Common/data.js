@@ -11,6 +11,11 @@ const fieldExtraData = {
     name: 'businessModeNote',
     helper: '',
   },
+  typeNote: {
+    label: '类型',
+    name: 'typeNote',
+    helper: '存储后不可更改',
+  },
   tagName: {
     label: '标签',
     name: 'tagName',

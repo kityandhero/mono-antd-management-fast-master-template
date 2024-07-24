@@ -12,6 +12,7 @@ import {
   getData,
   pageListData,
   pageListOperateLogData,
+  pageListWithoutQuestionnaireData,
   practiceData,
   refreshCacheData,
   removeData,
@@ -42,6 +43,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(pageListData, payload);
+
+        const dataAdjust = pretreatmentRemotePageListData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *pageListWithoutQuestionnaire(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(pageListWithoutQuestionnaireData, payload);
 
         const dataAdjust = pretreatmentRemotePageListData({
           source: response,

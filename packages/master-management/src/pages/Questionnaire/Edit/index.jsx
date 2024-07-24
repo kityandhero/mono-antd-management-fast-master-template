@@ -60,6 +60,10 @@ class Edit extends DataTabContainerSupplement {
       tab: '基本信息',
     },
     {
+      key: 'question/pageList',
+      tab: '问题配置',
+    },
+    {
       key: 'operateLog/pageList',
       tab: '操作日志',
     },

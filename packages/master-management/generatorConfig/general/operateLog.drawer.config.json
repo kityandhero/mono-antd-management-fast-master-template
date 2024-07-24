@@ -8,6 +8,13 @@
       "coverFile": true
     },
     {
+      "folder": "QuestionnaireQuestion/OperateLogDrawer",
+      "model": "questionnaireQuestion",
+      "key": "questionnaireQuestionId",
+      "visibleFlag": "0d4d853d21b44dd092fb58fe6d3d24d1",
+      "coverFile": true
+    },
+    {
       "folder": "GalleryCategory/OperateLogDrawer",
       "model": "galleryCategory",
       "key": "galleryCategoryId",

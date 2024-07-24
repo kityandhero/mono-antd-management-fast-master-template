@@ -309,6 +309,8 @@ export const menuGeneral = {
   'menu.survey.questionnaire.pageList-mini': '列表',
   'menu.survey.questionnaire.edit': '问卷详情',
   'menu.survey.questionnaire.edit.basicInfo': '基本信息',
+  'menu.survey.questionnaire.edit.question': '问题配置',
+  'menu.survey.questionnaire.edit.question.pageList': '问题列表',
   'menu.survey.questionnaire.edit.operateLog': '操作日志',
   'menu.survey.questionnaire.edit.operateLog.pageList': '日志列表',
 

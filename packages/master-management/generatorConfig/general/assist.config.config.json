@@ -1,6 +1,13 @@
 {
   "list": [
     {
+      "folder": "AdministrativeDivision/Assist",
+      "model": "administrativeDivision",
+      "key": "administrativeDivisionId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
       "folder": "Question/Assist",
       "model": "question",
       "key": "questionId",
@@ -18,6 +25,13 @@
       "folder": "Questionnaire/Assist",
       "model": "questionnaire",
       "key": "questionnaireId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
+      "folder": "QuestionnaireQuestion/Assist",
+      "model": "questionnaireQuestion",
+      "key": "questionnaireQuestionId",
       "fileName": "config.js",
       "coverFile": false
     },

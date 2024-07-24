@@ -220,18 +220,21 @@ class Edit extends DataTabContainerSupplement {
   establishPageHeaderAvatarConfig = () => {
     const { metaData } = this.state;
 
-    if (metaData != null) {
-      const image = getValueByKey({
-        data: metaData,
-        key: fieldData.image.name,
-      });
-
-      if (!checkStringIsNullOrWhiteSpace(image)) {
-        return { src: image };
-      }
+    if (metaData == null) {
+      return null;
     }
 
-    return null;
+    const image = getValueByKey({
+      data: metaData,
+      key: fieldData.image.name,
+      convert: convertCollection.string,
+    });
+
+    if (checkStringIsNullOrWhiteSpace(image)) {
+      return null;
+    }
+
+    return { src: image };
   };
 
   establishPageHeaderTitlePrefix = () => {
@@ -511,6 +514,22 @@ class Edit extends DataTabContainerSupplement {
         }),
       },
     ];
+  };
+
+  renderPresetTitleIcon = () => {
+    const { metaData } = this.state;
+
+    if (metaData == null) {
+      return null;
+    }
+
+    const image = getValueByKey({
+      data: metaData,
+      key: fieldData.image.name,
+      convert: convertCollection.string,
+    });
+
+    return image;
   };
 
   renderPresetOther = () => {

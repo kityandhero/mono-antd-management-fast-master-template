@@ -1,6 +1,13 @@
 {
   "list": [
     {
+      "folder": "AdministrativeDivision/PageList",
+      "model": "administrativeDivision",
+      "key": "administrativeDivisionId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "Question/PageList",
       "model": "question",
       "key": "questionId",
@@ -18,6 +25,13 @@
       "folder": "Questionnaire/PageList",
       "model": "questionnaire",
       "key": "questionnaireId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "QuestionnaireQuestion/PageList",
+      "model": "questionnaireQuestion",
+      "key": "questionnaireQuestionId",
       "fileName": "index.jsx",
       "coverFile": false
     },

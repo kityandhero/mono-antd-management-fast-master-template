@@ -1,6 +1,13 @@
 {
   "list": [
     {
+      "folder": "AdministrativeDivision/Common",
+      "model": "administrativeDivision",
+      "key": "administrativeDivisionId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
       "folder": "Question/Common",
       "model": "question",
       "key": "questionId",
@@ -25,6 +32,13 @@
       "folder": "Questionnaire/Common",
       "model": "questionnaire",
       "key": "questionnaireId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "QuestionnaireQuestion/Common",
+      "model": "questionnaireQuestion",
+      "key": "questionnaireQuestionId",
       "fileName": "data.js",
       "coverFile": false
     },

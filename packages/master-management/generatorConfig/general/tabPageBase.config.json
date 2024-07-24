@@ -1,6 +1,13 @@
 {
   "list": [
     {
+      "folder": "AdministrativeDivision/TabPageBase",
+      "model": "administrativeDivision",
+      "key": "administrativeDivisionId",
+      "fileName": "index.jsx",
+      "coverFile": true
+    },
+    {
       "folder": "Question/TabPageBase",
       "model": "question",
       "key": "questionId",

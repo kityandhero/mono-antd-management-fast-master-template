@@ -1696,6 +1696,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'bf164cd11f0feff0b077c688620d6e6b',
       permission: '5a63894b692841d3a6f9d030ea6a69f0',
     },
+    pageListWithoutQuestionnaire: {
+      title: '不包含在指定问卷中的问题的分页列表',
+      paramsKey: 'a72db9742891979562b3ff5e369835cd',
+      permission: 'df31685f15d54788806488ccd9bacc28',
+    },
     get: {
       title: '获取详情',
       paramsKey: '00e2b17fbb3c11d19c5dc3e288b3a475',

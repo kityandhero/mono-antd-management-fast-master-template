@@ -2754,6 +2754,13 @@
           "type": "pageList"
         },
         {
+          "title": "不包含在指定问卷中的问题的分页列表",
+          "api": "/question/pageListWithoutQuestionnaire",
+          "effect": "pageListWithoutQuestionnaire",
+          "service": "pageListWithoutQuestionnaireData",
+          "type": "pageList"
+        },
+        {
           "title": "获取详情",
           "api": "/question/get",
           "effect": "get",
