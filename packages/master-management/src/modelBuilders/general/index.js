@@ -8,6 +8,7 @@ import { buildModel as buildArticleNotificationApplicationModel } from './articl
 import { buildModel as buildBusinessSetModel } from './businessSet';
 import { buildModel as buildCallCenterModel } from './callCenter';
 import { buildModel as buildCallCenterCategoryModel } from './callCenterCategory';
+import { buildModel as buildChannelModel } from './channel';
 import { buildModel as buildChannelExecuteLogSwitchModel } from './channelExecuteLogSwitch';
 import { buildModel as buildChannelSqlLogSwitchModel } from './channelSqlLogSwitch';
 import { buildModel as buildCloudStorageModel } from './cloudStorage';
@@ -94,6 +95,7 @@ export function listModelBuilder() {
     buildBusinessSetModel,
     buildCallCenterModel,
     buildCallCenterCategoryModel,
+    buildChannelModel,
     buildChannelExecuteLogSwitchModel,
     buildChannelSqlLogSwitchModel,
     buildCloudStorageModel,

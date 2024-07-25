@@ -726,6 +726,63 @@ export const tag = {
   ],
 };
 
+export const administrativeDivision = {
+  name: 'administrativeDivision',
+  icon: 'tags',
+  hideChildrenInMenu: true,
+  path: '/data/administrativeDivision',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.administrativeDivision.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/data/administrativeDivision',
+      redirect: '/data/administrativeDivision/pageList',
+    },
+    {
+      path: '/data/administrativeDivision/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/data/administrativeDivision/pageList/no',
+    },
+    {
+      path: '/data/administrativeDivision/pageList/:pageKey',
+      hideInMenu: true,
+      component: './AdministrativeDivision/PageList',
+    },
+    {
+      path: '/data/administrativeDivision/edit/:op/:id/:pageKey',
+      name: 'edit',
+      hideInMenu: true,
+      component: './AdministrativeDivision/Edit',
+      routes: [
+        {
+          path: '/data/administrativeDivision/edit/:op/:id/:pageKey/basicInfo',
+          name: 'basicInfo',
+          component: './AdministrativeDivision/Edit/BasicInfo',
+        },
+        {
+          path: '/data/administrativeDivision/edit/:op/:id/:pageKey/operateLog',
+          name: 'operateLog',
+          routes: [
+            {
+              path: '/data/administrativeDivision/edit/:op/:id/:pageKey/operateLog',
+              redirect:
+                '/data/administrativeDivision/edit/:op/:id/:pageKey/operateLog/pageList',
+            },
+            {
+              path: '/data/administrativeDivision/edit/:op/:id/:pageKey/operateLog/pageList',
+              component: './AdministrativeDivision/Edit/OperateLog/PageList',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
 export const businessSet = {
   name: 'businessSet',
   icon: 'optionPools',
@@ -2336,6 +2393,35 @@ const developInfo = {
   ],
 };
 
+const channel = {
+  name: 'channel',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/developTools/channel',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.channel.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/developTools/channel',
+      redirect: '/developTools/channel/pageList',
+    },
+    {
+      path: '/developTools/channel/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/developTools/channel/pageList/no',
+    },
+    {
+      path: '/developTools/channel/pageList/:pageKey',
+      hideInMenu: true,
+      component: './Channel/PageList',
+    },
+  ],
+};
+
 export const developTools = {
   name: 'developTools',
   icon: 'reconciliation',
@@ -2346,7 +2432,7 @@ export const developTools = {
     accessWayCollection.sqlEntity.pageListInfrastructure.permission,
     accessWayCollection.sqlEntity.pageListBusiness.permission,
   ],
-  routes: [sqlEntityInfrastructure, sqlEntityBusiness, developInfo],
+  routes: [sqlEntityInfrastructure, sqlEntityBusiness, channel, developInfo],
 };
 
 export const account = {
@@ -2544,6 +2630,12 @@ export const currentInfrastructureManagement = {
           path: '/currentManagement/infrastructure/setting/:op/basicInfo',
           name: 'basicInfo',
           component: './CurrentManagementInfrastructure/Setting/BasicInfo',
+        },
+        {
+          path: '/currentManagement/infrastructure/setting/:op/defaultValueInfo',
+          name: 'basicInfo',
+          component:
+            './CurrentManagementInfrastructure/Setting/DefaultValueInfo',
         },
         {
           path: '/currentManagement/infrastructure/setting/:op/defaultImage',

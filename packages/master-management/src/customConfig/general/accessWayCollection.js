@@ -619,6 +619,23 @@ export const accessWayInfrastructureCollection = {
       permission: 'bda35d2782be4cc7b40feb0ad7705baf',
     },
   },
+  channel: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '3a643531aa3f558706593bd295770f06',
+      permission: '56ee53f988924627beb20a94c08406fd',
+    },
+    singleList: {
+      title: '单页列表',
+      paramsKey: '6dc7ace7afacd16a8e162fa6fafb0021',
+      permission: 'f2580cdf96a14e9dac3ee941318d7410',
+    },
+    get: {
+      title: '开关详情',
+      paramsKey: '1e8496a1b67d552e27d2c8f48823b810',
+      permission: 'a6a8e78cf95e4aa38a634034d0c93966',
+    },
+  },
   channelExecuteLogSwitch: {
     pageList: {
       title: '开关分页列表',

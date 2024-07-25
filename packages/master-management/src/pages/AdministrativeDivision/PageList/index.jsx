@@ -1,8 +1,10 @@
 import { connect } from 'easy-soft-dva';
 import {
+  buildRandomHexColor,
   checkHasAuthority,
   getValueByKey,
   showSimpleErrorMessage,
+  toNumber,
 } from 'easy-soft-utility';
 
 import {
@@ -13,7 +15,13 @@ import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import {
+  getAdministrativeDivisionLevelName,
+  getAdministrativeDivisionStatusName,
+  renderSearchAdministrativeDivisionLevelSelect,
+} from '../../../customSpecialComponents';
 import { refreshCacheAction } from '../Assist/action';
+import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
 const { MultiPage } = DataMultiPageView;
@@ -75,12 +83,27 @@ class PageList extends MultiPage {
     return {
       list: [
         {
-          lg: 6,
+          lg: 5,
           type: searchCardConfig.contentItemType.input,
-          fieldData: fieldData.title,
+          fieldData: fieldData.name,
         },
         {
-          lg: 6,
+          lg: 5,
+          type: searchCardConfig.contentItemType.inputNumber,
+          fieldData: fieldData.code,
+        },
+        {
+          lg: 5,
+          type: searchCardConfig.contentItemType.inputNumber,
+          fieldData: fieldData.parentCode,
+        },
+        {
+          lg: 5,
+          type: searchCardConfig.contentItemType.component,
+          component: renderSearchAdministrativeDivisionLevelSelect({}),
+        },
+        {
+          lg: 4,
           type: searchCardConfig.contentItemType.component,
           component: this.buildSearchCardButtonCore(),
         },
@@ -122,11 +145,80 @@ class PageList extends MultiPage {
 
   getColumnWrapper = () => [
     {
-      dataTarget: fieldData.title,
+      dataTarget: fieldData.name,
       width: 320,
       align: 'left',
       showRichFacade: true,
       emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.shortName,
+      width: 180,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.code,
+      width: 120,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.level,
+      width: 120,
+      showRichFacade: true,
+      emptyValue: '--',
+      facadeConfigBuilder: (value) => {
+        return {
+          color: buildRandomHexColor({
+            seed: toNumber(value) * 2 + 18,
+          }),
+        };
+      },
+      formatValue: (value) => {
+        return getAdministrativeDivisionLevelName({
+          value: value,
+        });
+      },
+    },
+    {
+      dataTarget: fieldData.longitude,
+      width: 120,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.latitude,
+      width: 120,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.parentName,
+      width: 180,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.parentCode,
+      width: 120,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.status,
+      width: 140,
+      emptyValue: '--',
+      showRichFacade: true,
+      facadeMode: columnFacadeMode.badge,
+      facadeConfigBuilder: (value) => {
+        return {
+          status: getStatusBadge(value),
+          text: getAdministrativeDivisionStatusName({
+            value: value,
+          }),
+        };
+      },
     },
     {
       dataTarget: fieldData.administrativeDivisionId,

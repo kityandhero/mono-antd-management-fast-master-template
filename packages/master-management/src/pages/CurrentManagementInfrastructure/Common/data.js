@@ -156,6 +156,16 @@ export const fieldData = {
     name: 'publicKey',
     helper: '',
   },
+  defaultProvinceAdministrativeDivision: {
+    label: '默认省级地区展开节点',
+    name: 'defaultProvinceAdministrativeDivision',
+    helper: '',
+  },
+  defaultCityAdministrativeDivision: {
+    label: '默认市级地区展开节点',
+    name: 'defaultCityAdministrativeDivision',
+    helper: '',
+  },
   flowDebugUserId: {
     label: '用于流程调试的用户标识',
     name: 'flowDebugUserId',

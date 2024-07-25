@@ -514,6 +514,16 @@
       "functionSegment": "CloudStorageStatus",
       "label": "状态",
       "name": "status"
+    },
+    {
+      "functionSegment": "AdministrativeDivisionLevel",
+      "label": "等级",
+      "name": "level"
+    },
+    {
+      "functionSegment": "AdministrativeDivisionStatus",
+      "label": "状态",
+      "name": "status"
     }
   ]
 }

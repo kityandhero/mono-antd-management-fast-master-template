@@ -123,6 +123,15 @@ export const menuGeneral = {
   'menu.data.businessSet.pageList': '业务列表',
   'menu.data.businessSet.pageList-mini': '列表',
 
+  'menu.data.administrativeDivision': '行政区划',
+  'menu.data.administrativeDivision-mini': '行政区',
+  'menu.data.administrativeDivision.pageList': '区划列表',
+  'menu.data.administrativeDivision.pageList-mini': '区划',
+  'menu.data.administrativeDivision.edit': '行政区划详情',
+  'menu.data.administrativeDivision.edit.basicInfo': '基本信息',
+  'menu.data.administrativeDivision.edit.operateLog': '操作日志',
+  'menu.data.administrativeDivision.edit.operateLog.pageList': '日志列表',
+
   'menu.data.tag': '数据标签',
   'menu.data.tag-mini': '标签',
   'menu.data.tag.pageList': '标签列表',
@@ -456,6 +465,11 @@ export const menuGeneral = {
   'menu.developTools.sqlEntityBusiness.pageList': '模型列表',
   'menu.developTools.sqlEntityBusiness.pageList-mini': '列表',
 
+  'menu.developTools.channel': '渠道码信息',
+  'menu.developTools.channel-mini': '渠道码',
+  'menu.developTools.channel.pageList': '渠道码列表',
+  'menu.developTools.channel.pageList-mini': '列表',
+
   'menu.developTools.developInfo': '前端配置信息',
   'menu.developTools.developInfo.overview': '配置信息',
   'menu.developTools.developInfo.overview.actionMap': 'ActionMap',
@@ -497,6 +511,8 @@ export const menuGeneral = {
   'menu.currentManagement.infrastructure.setting': '基础设定',
   'menu.currentManagement.infrastructure.setting-mini': '设定',
   'menu.currentManagement.infrastructure.setting.basicInfo': '基本信息',
+  'menu.currentManagement.infrastructure.setting.defaultValueInfo':
+    '默认值设置',
   'menu.currentManagement.infrastructure.setting.defaultImage': '默认图片配置',
   'menu.currentManagement.infrastructure.setting.defaultImage.pageList':
     '图片列表',

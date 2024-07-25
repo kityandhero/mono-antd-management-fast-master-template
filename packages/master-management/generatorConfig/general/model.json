@@ -976,6 +976,34 @@
     {
       "apis": [
         {
+          "title": "分页列表",
+          "api": "/channel/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/channel/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        },
+        {
+          "title": "开关详情",
+          "api": "/channel/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "渠道码管理",
+      "name": "channel"
+    },
+    {
+      "apis": [
+        {
           "title": "开关分页列表",
           "api": "/channelExecuteLogSwitch/pageList",
           "effect": "pageList",

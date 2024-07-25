@@ -1,7 +1,7 @@
 {
   "list": [
     {
-      "folder": "Application/Edit",
+      "folder": "AdministrativeDivision/Edit",
       "name": "AdministrativeDivision",
       "model": "administrativeDivision",
       "key": "administrativeDivisionId",

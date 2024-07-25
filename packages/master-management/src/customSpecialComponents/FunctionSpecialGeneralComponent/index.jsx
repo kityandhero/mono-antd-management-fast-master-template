@@ -1,3 +1,5 @@
+export * from './AdministrativeDivisionLevel';
+export * from './AdministrativeDivisionStatus';
 export * from './ApplicationCertificateType';
 export * from './ApplicationMerchantType';
 export * from './ApplicationNavigationAccessibility';

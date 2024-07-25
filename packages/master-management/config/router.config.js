@@ -3,6 +3,7 @@ import { accessWayCollection } from '../src/customConfig/accessWayCollection';
 import {
   accessWay,
   account,
+  administrativeDivision,
   apps,
   assistTools,
   businessSet,
@@ -89,7 +90,14 @@ export default [
       accessWayCollection.optionPool.pageList.permission,
       accessWayCollection.generalDiscourse.pageList.permission,
     ],
-    routes: [businessSet, tag, optionPool, generalDiscourse, emailSenderAgent],
+    routes: [
+      administrativeDivision,
+      businessSet,
+      tag,
+      optionPool,
+      generalDiscourse,
+      emailSenderAgent,
+    ],
   },
   {
     name: 'files',

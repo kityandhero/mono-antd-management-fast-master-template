@@ -25,6 +25,10 @@ class Setting extends DataTabContainer {
       tab: '默认图片设置',
     },
     {
+      key: 'defaultValueInfo',
+      tab: '默认值设置',
+    },
+    {
       key: 'fileStorageInfo',
       tab: '文件存储设置',
     },
