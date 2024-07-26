@@ -156,14 +156,14 @@ export const fieldData = {
     name: 'publicKey',
     helper: '',
   },
-  defaultProvinceAdministrativeDivision: {
+  defaultProvinceCode: {
     label: '默认省级地区展开节点',
-    name: 'defaultProvinceAdministrativeDivision',
+    name: 'defaultProvinceCode',
     helper: '',
   },
-  defaultCityAdministrativeDivision: {
+  defaultCityCode: {
     label: '默认市级地区展开节点',
-    name: 'defaultCityAdministrativeDivision',
+    name: 'defaultCityCode',
     helper: '',
   },
   flowDebugUserId: {

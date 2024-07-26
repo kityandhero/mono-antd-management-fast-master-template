@@ -9,6 +9,8 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
+  extraBuildType,
   searchCardConfig,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
@@ -23,6 +25,8 @@ import {
 import { refreshCacheAction } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
+import { TreeDefaultProvinceDrawer } from '../TreeDefaultProvinceDrawer';
+import { UpdateLocationInfoModal } from '../UpdateLocationInfoModal';
 
 const { MultiPage } = DataMultiPageView;
 
@@ -43,11 +47,17 @@ class PageList extends MultiPage {
       paramsKey: accessWayCollection.administrativeDivision.pageList.paramsKey,
       loadApiPath: 'administrativeDivision/pageList',
       currentRecord: null,
+      crossingLevel: 2,
     };
   }
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
+      case 'updateLocationInfo': {
+        this.showUpdateLocationInfoModal(handleData);
+        break;
+      }
+
       case 'refreshCache': {
         this.refreshCache(handleData);
         break;
@@ -65,6 +75,41 @@ class PageList extends MultiPage {
       target: this,
       handleData: record,
     });
+  };
+
+  showUpdateLocationInfoModal = (item) => {
+    this.setState(
+      {
+        currentRecord: item,
+      },
+      () => {
+        UpdateLocationInfoModal.open();
+      },
+    );
+  };
+
+  afterUpdateLocationInfoModalOk = () => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  showTreeDefaultProvinceDrawer = () => {
+    TreeDefaultProvinceDrawer.open();
+  };
+
+  establishExtraActionConfig = () => {
+    return {
+      list: [
+        {
+          buildType: extraBuildType.generalExtraButton,
+          icon: iconBuilder.read(),
+          text: '默认省节点树型图',
+          size: 'small',
+          handleClick: () => {
+            this.showTreeDefaultProvinceDrawer();
+          },
+        },
+      ],
+    };
   };
 
   goToEdit = (record) => {
@@ -128,9 +173,19 @@ class PageList extends MultiPage {
       },
       items: [
         {
+          key: 'updateLocationInfo',
+          icon: iconBuilder.edit(),
+          text: '设置位置',
+          hidden: !checkHasAuthority(
+            accessWayCollection.administrativeDivision.updateLocationInfo
+              .permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.reload(),
           text: '刷新缓存',
           hidden: !checkHasAuthority(
@@ -233,6 +288,26 @@ class PageList extends MultiPage {
       facadeMode: columnFacadeMode.datetime,
     },
   ];
+
+  renderPresetOther = () => {
+    const { currentRecord, crossingLevel } = this.state;
+
+    return (
+      <>
+        <UpdateLocationInfoModal
+          externalData={currentRecord}
+          afterOK={() => {
+            this.afterUpdateLocationInfoModalOk();
+          }}
+        />
+
+        <TreeDefaultProvinceDrawer
+          maskClosable
+          externalData={{ crossingLevel }}
+        />
+      </>
+    );
+  };
 }
 
 export default PageList;

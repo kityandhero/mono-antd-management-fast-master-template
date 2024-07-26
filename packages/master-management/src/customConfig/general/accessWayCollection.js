@@ -92,6 +92,21 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'ab1c8083d52d3f07f6d3b81e47803658',
       permission: 'a8ffaed3293e486eb0c64ebba61c6242',
     },
+    refreshSingleTreeListWithDefaultProvinceCache: {
+      title: '刷新默认省节点单页树型列表缓存',
+      paramsKey: 'a6ea6aeb43a4bec47a7235c53707ff20',
+      permission: '715dc8fd1bc744babf5594e0e0931442',
+    },
+    refreshSingleTreeListWithDefaultCityCache: {
+      title: '刷新默认市节点单页树型列表缓存',
+      paramsKey: 'e03741a28c0d1801db3deccfaeb13c78',
+      permission: 'ed5bc0373ebb47e2a9aa5b4b142428f7',
+    },
+    refreshSingleTreeListWithCrossingLevelCache: {
+      title: '刷新指定地区节点单页树型列表缓存',
+      paramsKey: '6d030e7c580afa987f0d17e8d6575883',
+      permission: '885a776e3d6849c0a50f9785dd5199ec',
+    },
     get: {
       title: '地区详情',
       paramsKey: '5f569d0a4514f603d6804c96e89dff2f',

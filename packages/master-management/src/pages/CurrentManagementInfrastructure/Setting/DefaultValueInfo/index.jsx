@@ -80,14 +80,14 @@ class Index extends TabPageBase {
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
-              fieldData: fieldData.defaultProvinceAdministrativeDivision,
+              fieldData: fieldData.defaultProvinceCode,
               editMode: keyValueEditModeCollection.string,
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
-              fieldData: fieldData.defaultCityAdministrativeDivision,
+              fieldData: fieldData.defaultCityCode,
               editMode: keyValueEditModeCollection.string,
               handleClick: this.showUpdateKeyValueInfoModal,
             }),

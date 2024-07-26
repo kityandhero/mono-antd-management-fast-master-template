@@ -1,5 +1,14 @@
 import { request } from 'easy-soft-utility';
 
+export const pageListDataApiAddress = '/administrativeDivision/pageList';
+
+export async function pageListData(parameters) {
+  return request({
+    api: pageListDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const singleListDataApiAddress = '/administrativeDivision/singleList';
 
 export async function singleListData(parameters) {
@@ -9,11 +18,68 @@ export async function singleListData(parameters) {
   });
 }
 
-export const pageListDataApiAddress = '/administrativeDivision/pageList';
+export const singleTreeListWithDefaultProvinceDataApiAddress =
+  '/administrativeDivision/singleTreeListWithDefaultProvince';
 
-export async function pageListData(parameters) {
+export async function singleTreeListWithDefaultProvinceData(parameters) {
   return request({
-    api: pageListDataApiAddress,
+    api: singleTreeListWithDefaultProvinceDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const refreshSingleTreeListWithDefaultProvinceCacheDataApiAddress =
+  '/administrativeDivision/refreshSingleTreeListWithDefaultProvinceCache';
+
+export async function refreshSingleTreeListWithDefaultProvinceCacheData(
+  parameters,
+) {
+  return request({
+    api: refreshSingleTreeListWithDefaultProvinceCacheDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const singleTreeListWithDefaultCityDataApiAddress =
+  '/administrativeDivision/singleTreeListWithDefaultCity';
+
+export async function singleTreeListWithDefaultCityData(parameters) {
+  return request({
+    api: singleTreeListWithDefaultCityDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const refreshSingleTreeListWithDefaultCityCacheDataApiAddress =
+  '/administrativeDivision/refreshSingleTreeListWithDefaultCityCache';
+
+export async function refreshSingleTreeListWithDefaultCityCacheData(
+  parameters,
+) {
+  return request({
+    api: refreshSingleTreeListWithDefaultCityCacheDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const singleTreeListWithCrossingLevelDataApiAddress =
+  '/administrativeDivision/singleTreeListWithCrossingLevel';
+
+export async function singleTreeListWithCrossingLevelData(parameters) {
+  return request({
+    api: singleTreeListWithCrossingLevelDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const refreshSingleTreeListWithCrossingLevelCacheDataApiAddress =
+  '/administrativeDivision/refreshSingleTreeListWithCrossingLevelCache';
+
+export async function refreshSingleTreeListWithCrossingLevelCacheData(
+  parameters,
+) {
+  return request({
+    api: refreshSingleTreeListWithCrossingLevelCacheDataApiAddress,
     params: parameters,
   });
 }

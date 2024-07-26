@@ -6,11 +6,25 @@ const fieldExtraData = {
     name: 'parentName',
     helper: '',
   },
+  wrapperName: {
+    label: '包裹名',
+    name: 'wrapperName',
+    helper: '',
+  },
+  crossingLevel: {
+    label: '横跨级别',
+    name: 'crossingLevel',
+    helper: '',
+  },
+  refresh: {
+    label: '强制刷新',
+    name: 'refresh',
+    helper: '',
+  },
 };
 
 export const fieldData = {
   ...formNameCollection,
-
   administrativeDivisionId: {
     label: '主键标识',
     name: 'administrativeDivisionId',

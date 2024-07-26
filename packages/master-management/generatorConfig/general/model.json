@@ -122,6 +122,13 @@
     {
       "apis": [
         {
+          "title": "地区列表",
+          "api": "/administrativeDivision/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
           "title": "单页列表",
           "api": "/administrativeDivision/singleList",
           "effect": "singleList",
@@ -129,11 +136,46 @@
           "type": "singleList"
         },
         {
-          "title": "地区列表",
-          "api": "/administrativeDivision/pageList",
-          "effect": "pageList",
-          "service": "pageListData",
-          "type": "pageList"
+          "title": "默认省节点单页树型列表",
+          "api": "/administrativeDivision/singleTreeListWithDefaultProvince",
+          "effect": "singleTreeListWithDefaultProvince",
+          "service": "singleTreeListWithDefaultProvinceData",
+          "type": "singleList"
+        },
+        {
+          "title": "刷新默认省节点单页树型列表缓存",
+          "api": "/administrativeDivision/refreshSingleTreeListWithDefaultProvinceCache",
+          "effect": "refreshSingleTreeListWithDefaultProvinceCache",
+          "service": "refreshSingleTreeListWithDefaultProvinceCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "默认市节点单页树型列表",
+          "api": "/administrativeDivision/singleTreeListWithDefaultCity",
+          "effect": "singleTreeListWithDefaultCity",
+          "service": "singleTreeListWithDefaultCityData",
+          "type": "singleList"
+        },
+        {
+          "title": "刷新默认市节点单页树型列表缓存",
+          "api": "/administrativeDivision/refreshSingleTreeListWithDefaultCityCache",
+          "effect": "refreshSingleTreeListWithDefaultCityCache",
+          "service": "refreshSingleTreeListWithDefaultCityCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "指定地区节点单页树型列表",
+          "api": "/administrativeDivision/singleTreeListWithCrossingLevel",
+          "effect": "singleTreeListWithCrossingLevel",
+          "service": "singleTreeListWithCrossingLevelData",
+          "type": "singleList"
+        },
+        {
+          "title": "刷新指定地区节点单页树型列表缓存",
+          "api": "/administrativeDivision/refreshSingleTreeListWithCrossingLevelCache",
+          "effect": "refreshSingleTreeListWithCrossingLevelCache",
+          "service": "refreshSingleTreeListWithCrossingLevelCacheData",
+          "type": "singleData"
         },
         {
           "title": "地区详情",

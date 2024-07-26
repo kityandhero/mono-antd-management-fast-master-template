@@ -4,6 +4,54 @@ import { actionCore } from 'antd-management-fast-common';
 
 import { fieldData } from '../Common/data';
 
+export async function refreshSingleTreeListWithDefaultProvinceCacheAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage = null,
+}) {
+  actionCore({
+    api: 'administrativeDivision/refreshSingleTreeListWithDefaultProvinceCache',
+    params: { ...handleData },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export async function refreshSingleTreeListWithDefaultCityCacheAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage = null,
+}) {
+  actionCore({
+    api: 'administrativeDivision/refreshSingleTreeListWithDefaultCityCache',
+    params: { ...handleData },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export async function refreshSingleTreeListWithCrossingLevelCacheAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage = null,
+}) {
+  actionCore({
+    api: 'administrativeDivision/refreshSingleTreeListWithCrossingLevelCache',
+    params: { ...handleData },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function refreshCacheAction({
   target,
   handleData,
