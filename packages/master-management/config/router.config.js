@@ -100,7 +100,6 @@ export default [
       accessWayCollection.super.permission,
       accessWayCollection.section.pageList.permission,
     ],
-    // hideChildrenInMenu: true,
     routes: [
       {
         path: '/news',
