@@ -26,7 +26,7 @@
     "src/locales/zh-CN/menu.js",
     "src/modelBuilders/index.js",
     "src/overrides.less",
-    "src/utils/index.js",
+    "src/utils/index.jsx",
     "src/utils/init.js",
     "src/utils/tools.general.jsx",
     "tsconfig.json"
