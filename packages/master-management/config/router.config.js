@@ -1,5 +1,6 @@
 import { accessWayCollection } from '../src/customConfig/accessWayCollection';
 
+import { dashboard, root } from './router.master.custom.config';
 import {
   accessWay,
   account,
@@ -35,34 +36,12 @@ import {
   userLoginLog,
   userSignet,
   weChatMessageRecord,
-} from './router.master.template.config';
+} from './router.master.general.config';
 
 export default [
   entrance,
-  {
-    path: '/',
-    redirect: '/dashboard',
-    routes: [],
-  },
-  {
-    path: '/dashboard',
-    name: 'dashboard',
-    icon: 'team',
-    authority: [accessWayCollection.super.permission],
-    hideChildrenInMenu: true,
-    routes: [
-      {
-        path: '/dashboard',
-        redirect: '/dashboard/workbench',
-      },
-      {
-        path: '/dashboard/workbench',
-        name: 'workbench',
-        icon: 'bars',
-        component: './Workbench',
-      },
-    ],
-  },
+  root,
+  dashboard,
   logs,
   queues,
   {
