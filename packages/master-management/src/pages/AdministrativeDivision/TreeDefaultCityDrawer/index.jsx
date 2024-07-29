@@ -1,5 +1,5 @@
 import { connect } from 'easy-soft-dva';
-import { checkHasAuthority } from 'easy-soft-utility';
+import { checkHasAuthority, toNumber } from 'easy-soft-utility';
 
 import { extraBuildType } from 'antd-management-fast-common';
 import { ElasticityTree, iconBuilder } from 'antd-management-fast-component';
@@ -10,6 +10,7 @@ import {
 
 import { accessWayCollection } from '../../../customConfig';
 import { refreshSingleTreeListWithDefaultCityCacheAction } from '../Assist/action';
+import { fieldData } from '../Common/data';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
@@ -31,14 +32,19 @@ class TreeDefaultCityDrawer extends BaseVerticalFlexDrawer {
 
     this.state = {
       ...this.state,
-      width: 420,
+      width: 550,
       pageTitle: '默认市节点树预览',
       loadApiPath: 'administrativeDivision/singleTreeListWithDefaultCity',
+      crossingLevel: 1,
     };
   }
 
   supplementLoadRequestParams = (o) => {
     const d = o;
+
+    const { crossingLevel } = this.state;
+
+    d[fieldData.crossingLevel.name] = toNumber(crossingLevel);
 
     return d;
   };
@@ -50,9 +56,77 @@ class TreeDefaultCityDrawer extends BaseVerticalFlexDrawer {
     });
   };
 
+  setCrossingLevelOne = () => {
+    const that = this;
+
+    that.setState(
+      {
+        crossingLevel: 1,
+      },
+      () => {
+        that.reloadData({});
+      },
+    );
+  };
+
+  setCrossingLevelTwo = () => {
+    const that = this;
+
+    that.setState(
+      {
+        crossingLevel: 2,
+      },
+      () => {
+        that.reloadData({});
+      },
+    );
+  };
+
   establishExtraActionConfig = () => {
+    const { crossingLevel } = this.state;
+
     return {
       list: [
+        {
+          buildType: extraBuildType.dropdown,
+          icon: iconBuilder.fork(),
+          size: 'default',
+          text: `${crossingLevel}级级联`,
+          handleData: {},
+          hidden: false,
+          // eslint-disable-next-line no-unused-vars
+          handleButtonClick: ({ handleData }) => {
+            this.reloadData({});
+          },
+          // eslint-disable-next-line no-unused-vars
+          handleMenuClick: ({ key, handleData }) => {
+            switch (key) {
+              case 'setCrossingLevelOne': {
+                this.setCrossingLevelOne();
+
+                break;
+              }
+
+              case 'setCrossingLevelTwo': {
+                this.setCrossingLevelTwo();
+
+                break;
+              }
+            }
+          },
+          items: [
+            {
+              key: 'setCrossingLevelOne',
+              icon: iconBuilder.form(),
+              text: '设为 1 级级联',
+            },
+            {
+              key: 'setCrossingLevelTwo',
+              icon: iconBuilder.form(),
+              text: '设为 2 级级联',
+            },
+          ],
+        },
         {
           buildType: extraBuildType.generalExtraButton,
           icon: iconBuilder.clear(),
@@ -77,7 +151,7 @@ class TreeDefaultCityDrawer extends BaseVerticalFlexDrawer {
       title: '操作提示',
       list: [
         {
-          text: '此图例显示的是地区树型预览.',
+          text: '此图例显示的是默认省级地区树型预览.',
         },
         {
           text: '此处仅显示可用状态的数据.',

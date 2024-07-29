@@ -204,6 +204,13 @@
           "effect": "refreshCache",
           "service": "refreshCacheData",
           "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/administrativeDivision/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
         }
       ],
       "cover": true,

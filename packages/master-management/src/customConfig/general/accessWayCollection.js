@@ -127,6 +127,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'f074d9a98bb7cab2c5f3a46aaefa31b1',
       permission: 'ff1522fc437a4b66822bfe66316c9236',
     },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: '1f2b1823e52dd9f1b3eef2d5b82ef760',
+      permission: '85542f87afb340b3b9d6b2ac7aaaf66c',
+    },
   },
   application: {
     pageList: {

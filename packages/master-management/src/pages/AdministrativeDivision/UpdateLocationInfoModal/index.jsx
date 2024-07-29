@@ -31,33 +31,6 @@ class UpdateLocationInfoModal extends BaseUpdateModal {
     };
   }
 
-  fillInitialValuesAfterLoad = ({
-    // eslint-disable-next-line no-unused-vars
-    metaData = null,
-    // eslint-disable-next-line no-unused-vars
-    metaListData = [],
-    // eslint-disable-next-line no-unused-vars
-    metaExtra = null,
-    // eslint-disable-next-line no-unused-vars
-    metaOriginalData = null,
-  }) => {
-    const values = {};
-
-    if (metaData != null) {
-      values[fieldData.latitude.name] = getValueByKey({
-        data: metaData,
-        key: fieldData.latitude.name,
-      });
-
-      values[fieldData.longitude.name] = getValueByKey({
-        data: metaData,
-        key: fieldData.longitude.name,
-      });
-    }
-
-    return values;
-  };
-
   supplementLoadRequestParams = (o) => {
     const d = o;
     const { externalData } = this.state;
@@ -113,6 +86,33 @@ class UpdateLocationInfoModal extends BaseUpdateModal {
       data: metaData,
       key: fieldData.name.name,
     });
+  };
+
+  fillInitialValuesAfterLoad = ({
+    // eslint-disable-next-line no-unused-vars
+    metaData = null,
+    // eslint-disable-next-line no-unused-vars
+    metaListData = [],
+    // eslint-disable-next-line no-unused-vars
+    metaExtra = null,
+    // eslint-disable-next-line no-unused-vars
+    metaOriginalData = null,
+  }) => {
+    const values = {};
+
+    if (metaData != null) {
+      values[fieldData.latitude.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.latitude.name,
+      });
+
+      values[fieldData.longitude.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.longitude.name,
+      });
+    }
+
+    return values;
   };
 
   establishCardCollectionConfig = () => {

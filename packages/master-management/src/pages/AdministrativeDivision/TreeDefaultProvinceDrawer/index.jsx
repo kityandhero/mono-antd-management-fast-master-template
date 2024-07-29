@@ -151,7 +151,7 @@ class TreeDefaultProvinceDrawer extends BaseVerticalFlexDrawer {
       title: '操作提示',
       list: [
         {
-          text: '此图例显示的是地区树型预览.',
+          text: '此图例显示的是默认省级地区树型预览.',
         },
         {
           text: '此处仅显示可用状态的数据.',

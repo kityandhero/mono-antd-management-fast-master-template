@@ -2,7 +2,6 @@ import { connect } from 'easy-soft-dva';
 import {
   buildRandomHexColor,
   checkHasAuthority,
-  getValueByKey,
   showSimpleErrorMessage,
   toNumber,
 } from 'easy-soft-utility';
@@ -25,7 +24,11 @@ import {
 import { refreshCacheAction } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
+import { OperateLogDrawer } from '../OperateLogDrawer';
+import { TreeCrossingLevelDrawer } from '../TreeCrossingLevelDrawer';
+import { TreeDefaultCityDrawer } from '../TreeDefaultCityDrawer';
 import { TreeDefaultProvinceDrawer } from '../TreeDefaultProvinceDrawer';
+import { UpdateBasicInfoDrawer } from '../UpdateBasicInfoDrawer';
 import { UpdateLocationInfoModal } from '../UpdateLocationInfoModal';
 
 const { MultiPage } = DataMultiPageView;
@@ -43,11 +46,10 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      pageTitle: '列表',
+      pageTitle: '行政区划列表',
       paramsKey: accessWayCollection.administrativeDivision.pageList.paramsKey,
       loadApiPath: 'administrativeDivision/pageList',
       currentRecord: null,
-      crossingLevel: 2,
     };
   }
 
@@ -55,6 +57,16 @@ class PageList extends MultiPage {
     switch (key) {
       case 'updateLocationInfo': {
         this.showUpdateLocationInfoModal(handleData);
+        break;
+      }
+
+      case 'showTreeCrossingLevelDrawer': {
+        this.showTreeCrossingLevelDrawer(handleData);
+        break;
+      }
+
+      case 'showOperateLog': {
+        this.showOperateLogDrawer(handleData);
         break;
       }
 
@@ -92,8 +104,49 @@ class PageList extends MultiPage {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
+  showUpdateBasicInfoDrawer = (item) => {
+    this.setState(
+      {
+        currentRecord: item,
+      },
+      () => {
+        UpdateBasicInfoDrawer.open();
+      },
+    );
+  };
+
+  afterUpdateBasicInfoDrawerOk = () => {
+    this.refreshDataWithReloadAnimalPrompt({ delay: 500 });
+  };
+
+  showOperateLogDrawer = (item) => {
+    this.setState(
+      {
+        currentRecord: item,
+      },
+      () => {
+        OperateLogDrawer.open();
+      },
+    );
+  };
+
   showTreeDefaultProvinceDrawer = () => {
     TreeDefaultProvinceDrawer.open();
+  };
+
+  showTreeDefaultCityDrawer = () => {
+    TreeDefaultCityDrawer.open();
+  };
+
+  showTreeCrossingLevelDrawer = (item) => {
+    this.setState(
+      {
+        currentRecord: item,
+      },
+      () => {
+        TreeCrossingLevelDrawer.open();
+      },
+    );
   };
 
   establishExtraActionConfig = () => {
@@ -108,20 +161,17 @@ class PageList extends MultiPage {
             this.showTreeDefaultProvinceDrawer();
           },
         },
+        {
+          buildType: extraBuildType.generalExtraButton,
+          icon: iconBuilder.read(),
+          text: '默认市节点树型图',
+          size: 'small',
+          handleClick: () => {
+            this.showTreeDefaultCityDrawer();
+          },
+        },
       ],
     };
-  };
-
-  goToEdit = (record) => {
-    const administrativeDivisionId = getValueByKey({
-      data: record,
-      key: fieldData.administrativeDivisionId.name,
-      defaultValue: '',
-    });
-
-    this.goToPath(
-      `/administrativeDivision/edit/load/${administrativeDivisionId}/key/basicInfo`,
-    );
   };
 
   establishSearchCardConfig = () => {
@@ -165,7 +215,7 @@ class PageList extends MultiPage {
         accessWayCollection.administrativeDivision.get.permission,
       ),
       handleButtonClick: ({ handleData }) => {
-        this.goToEdit(handleData);
+        this.showUpdateBasicInfoDrawer(handleData);
       },
       handleData: item,
       handleMenuClick: ({ key, handleData }) => {
@@ -180,6 +230,22 @@ class PageList extends MultiPage {
             accessWayCollection.administrativeDivision.updateLocationInfo
               .permission,
           ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'showTreeCrossingLevelDrawer',
+          icon: iconBuilder.nodeIndex(),
+          text: '级联树信息',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'showOperateLog',
+          icon: iconBuilder.read(),
+          text: '操作日志',
         },
         {
           type: dropdownExpandItemType.divider,
@@ -290,10 +356,15 @@ class PageList extends MultiPage {
   ];
 
   renderPresetOther = () => {
-    const { currentRecord, crossingLevel } = this.state;
+    const { currentRecord } = this.state;
 
     return (
       <>
+        <UpdateBasicInfoDrawer
+          externalData={currentRecord}
+          afterOK={this.afterUpdateBasicInfoDrawerOk}
+        />
+
         <UpdateLocationInfoModal
           externalData={currentRecord}
           afterOK={() => {
@@ -301,10 +372,13 @@ class PageList extends MultiPage {
           }}
         />
 
-        <TreeDefaultProvinceDrawer
-          maskClosable
-          externalData={{ crossingLevel }}
-        />
+        <OperateLogDrawer externalData={currentRecord} />
+
+        <TreeDefaultProvinceDrawer maskClosable />
+
+        <TreeDefaultCityDrawer maskClosable />
+
+        <TreeCrossingLevelDrawer maskClosable externalData={currentRecord} />
       </>
     );
   };

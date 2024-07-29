@@ -1,5 +1,5 @@
 import { connect } from 'easy-soft-dva';
-import { checkHasAuthority } from 'easy-soft-utility';
+import { checkHasAuthority, toNumber } from 'easy-soft-utility';
 
 import { extraBuildType } from 'antd-management-fast-common';
 import { ElasticityTree, iconBuilder } from 'antd-management-fast-component';
@@ -10,10 +10,11 @@ import {
 
 import { accessWayCollection } from '../../../customConfig';
 import { refreshSingleTreeListWithCrossingLevelCacheAction } from '../Assist/action';
+import { fieldData } from '../Common/data';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
-const visibleFlag = '08e1f31d2ba54f2faf95bf96c8a1ff61';
+const visibleFlag = '8e7ff0f9dad04b3386384893d4d7327a';
 
 @connect(({ administrativeDivision, schedulingControl }) => ({
   administrativeDivision,
@@ -31,16 +32,21 @@ class TreeCrossingLevelDrawer extends BaseVerticalFlexDrawer {
 
     this.state = {
       ...this.state,
-      width: 420,
+      width: 550,
       pageTitle: '指定节点树预览',
       loadApiPath: 'administrativeDivision/singleTreeListWithCrossingLevel',
+      crossingLevel: 1,
     };
   }
 
   supplementLoadRequestParams = (o) => {
     const d = o;
 
-    d['wrapperName'] = '地区树';
+    const { externalData, crossingLevel } = this.state;
+    const { code } = externalData;
+
+    d[fieldData.code.name] = code;
+    d[fieldData.crossingLevel.name] = toNumber(crossingLevel);
 
     return d;
   };
@@ -52,9 +58,77 @@ class TreeCrossingLevelDrawer extends BaseVerticalFlexDrawer {
     });
   };
 
+  setCrossingLevelOne = () => {
+    const that = this;
+
+    that.setState(
+      {
+        crossingLevel: 1,
+      },
+      () => {
+        that.reloadData({});
+      },
+    );
+  };
+
+  setCrossingLevelTwo = () => {
+    const that = this;
+
+    that.setState(
+      {
+        crossingLevel: 2,
+      },
+      () => {
+        that.reloadData({});
+      },
+    );
+  };
+
   establishExtraActionConfig = () => {
+    const { crossingLevel } = this.state;
+
     return {
       list: [
+        {
+          buildType: extraBuildType.dropdown,
+          icon: iconBuilder.fork(),
+          size: 'default',
+          text: `${crossingLevel}级级联`,
+          handleData: {},
+          hidden: false,
+          // eslint-disable-next-line no-unused-vars
+          handleButtonClick: ({ handleData }) => {
+            this.reloadData({});
+          },
+          // eslint-disable-next-line no-unused-vars
+          handleMenuClick: ({ key, handleData }) => {
+            switch (key) {
+              case 'setCrossingLevelOne': {
+                this.setCrossingLevelOne();
+
+                break;
+              }
+
+              case 'setCrossingLevelTwo': {
+                this.setCrossingLevelTwo();
+
+                break;
+              }
+            }
+          },
+          items: [
+            {
+              key: 'setCrossingLevelOne',
+              icon: iconBuilder.form(),
+              text: '设为 1 级级联',
+            },
+            {
+              key: 'setCrossingLevelTwo',
+              icon: iconBuilder.form(),
+              text: '设为 2 级级联',
+            },
+          ],
+        },
         {
           buildType: extraBuildType.generalExtraButton,
           icon: iconBuilder.clear(),
@@ -99,7 +173,7 @@ class TreeCrossingLevelDrawer extends BaseVerticalFlexDrawer {
             const { name: title, code: value } = o;
 
             return {
-              title,
+              title: `${title}【${value}】`,
               value,
             };
           }}
