@@ -13,8 +13,8 @@
     "src/pages/"
   ],
   "files": [
-    "config/router.master.template.config.js",
     "../../develop/config/develop.update.project.from.repository.json",
+    "config/router.master.template.config.js",
     "plugin.ts",
     "src/access.js",
     "src/app.jsx",
@@ -24,6 +24,7 @@
     "src/global.less",
     "src/localeConfig/general/zh-CN/menu.js",
     "src/locales/zh-CN/menu.js",
+    "src/modelBuilders/index.js",
     "src/overrides.less",
     "src/utils/init.js",
     "src/utils/tools.jsx",
