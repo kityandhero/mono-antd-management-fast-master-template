@@ -1,7 +1,6 @@
-import { menuCustom } from '../../localeConfig/custom/zh-CN/menu';
-import { menuGeneral } from '../../localeConfig/general/zh-CN/menu';
+import { menuZhCNCustom, menuZhCNGeneral } from '../../localeConfig';
 
 export default {
-  ...menuGeneral,
-  ...menuCustom,
+  ...menuZhCNCustom,
+  ...menuZhCNGeneral,
 };

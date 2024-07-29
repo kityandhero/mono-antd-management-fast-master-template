@@ -1,4 +1,4 @@
-export const menuGeneral = {
+export const menuZhCNGeneral = {
   'menu.home': '首页',
 
   'menu.dashboard': '首页',

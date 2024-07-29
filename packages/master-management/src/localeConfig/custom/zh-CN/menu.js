@@ -1,4 +1,4 @@
-export const menuCustom = {
+export const menuZhCNCustom = {
   'menu.currentManagement.infrastructure': '基础设置',
   'menu.currentManagement.infrastructure-mini': '基础',
   'menu.currentManagement.infrastructure.setting': '基础设定',
