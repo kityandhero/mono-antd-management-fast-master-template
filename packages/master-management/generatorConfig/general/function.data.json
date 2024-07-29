@@ -36,6 +36,11 @@
       "name": "gender"
     },
     {
+      "functionSegment": "BusinessMode",
+      "label": "适用业务",
+      "name": "businessMode"
+    },
+    {
       "functionSegment": "DeviceType",
       "label": "设备类型",
       "name": "deviceType"

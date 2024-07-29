@@ -25,14 +25,15 @@
     "src/localeConfig/general/zh-CN/menu.js",
     "src/locales/zh-CN/menu.js",
     "src/modelBuilders/index.js",
-    "src/overrides.less",
     "src/utils/index.jsx",
     "src/utils/init.js",
     "src/utils/tools.general.jsx",
     "tsconfig.json"
   ],
   "ignoreSyncWhenExistFiles": [
-    "src/utils/tools.custom.jsx",
-    "src/utils/theme.js"
+    "src/app.config.jsx",
+    "src/overrides.less",
+    "src/utils/theme.js",
+    "src/utils/tools.custom.jsx"
   ]
 }
