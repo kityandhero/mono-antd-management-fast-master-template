@@ -37,6 +37,9 @@
     "src/app.config.jsx",
     "src/commonAssist/Action/index.js",
     "src/commonAssist/index.js",
+    "src/localeConfig/custom/index.js",
+    "src/localeConfig/custom/zh-CN/index.js",
+    "src/localeConfig/custom/zh-CN/menu.js",
     "src/overrides.less",
     "src/utils/theme.js",
     "src/utils/tools.custom.jsx"
