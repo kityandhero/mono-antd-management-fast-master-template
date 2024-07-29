@@ -783,6 +783,90 @@ export const administrativeDivision = {
   ],
 };
 
+export const section = {
+  name: 'section',
+  icon: 'section',
+
+  hideChildrenInMenu: true,
+  path: '/news/section',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.section.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/news/section',
+      redirect: '/news/section/pageList',
+    },
+    {
+      path: '/news/section/pageList',
+      redirect: '/news/section/pageList/no',
+    },
+    {
+      path: '/news/section/pageList/:pageKey',
+      component: './Section/PageList',
+    },
+    {
+      path: '/news/section/edit/:op/:id/:pageKey',
+      name: 'edit',
+      hideInMenu: true,
+      component: './Section/Edit',
+      routes: [
+        {
+          path: '/news/section/edit/:op/:id/:pageKey/basicInfo',
+          name: 'basicInfo',
+          component: './Section/Edit/BasicInfo',
+        },
+        {
+          path: '/news/section/edit/:op/:id/:pageKey/sectionApplicationConfig',
+          name: 'sectionApplicationConfig',
+          routes: [
+            {
+              path: '/news/section/edit/:op/:id/:pageKey/sectionApplicationConfig',
+              redirect:
+                '/news/edit/:op/:id/:pageKey/sectionApplicationConfig/pageList',
+            },
+            {
+              path: '/news/section/edit/:op/:id/:pageKey/sectionApplicationConfig/pageList',
+              component: './Section/Edit/SectionApplicationConfig/PageList',
+            },
+          ],
+        },
+        {
+          path: '/news/section/edit/:op/:id/:pageKey/contentInfo',
+          name: 'contentInfo',
+          component: './Section/Edit/ContentInfo',
+        },
+        {
+          path: '/news/section/edit/:op/:id/:pageKey/mediaInfo',
+          name: 'mediaInfo',
+          component: './Section/Edit/MediaInfo',
+        },
+        {
+          path: '/news/section/edit/:op/:id/:pageKey/scoreInfo',
+          component: './Section/Edit/ReadObtainScoreInfo',
+        },
+        {
+          path: '/news/section/edit/:op/:id/:pageKey/operateLog',
+          name: 'operateLog',
+          routes: [
+            {
+              path: '/news/section/edit/:op/:id/:pageKey/operateLog',
+              redirect:
+                '/news/section/edit/:op/:id/:pageKey/operateLog/pageList',
+            },
+            {
+              path: '/news/section/edit/:op/:id/:pageKey/operateLog/pageList',
+              component: './Section/Edit/OperateLog/PageList',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
 export const businessSet = {
   name: 'businessSet',
   icon: 'optionPools',
