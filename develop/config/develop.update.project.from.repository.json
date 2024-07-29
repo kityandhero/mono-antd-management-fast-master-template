@@ -32,6 +32,8 @@
   ],
   "ignoreSyncWhenExistFiles": [
     "src/app.config.jsx",
+    "src/commonAssist/Action/index.js",
+    "src/commonAssist/index.js",
     "src/overrides.less",
     "src/utils/theme.js",
     "src/utils/tools.custom.jsx"
