@@ -1,3 +1,8 @@
+// 此文件若不存在，将在从项目模板升级时候创建，若已存在，则不进行改动。
+// 此文件用于存放自定义的工具函数
+
+//此函数仅为保证编译的示例函数
+
 import { Input, Space } from 'antd';
 import React from 'react';
 

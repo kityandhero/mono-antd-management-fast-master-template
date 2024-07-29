@@ -1,3 +1,6 @@
+// 此文件若不存在，将在从项目模板升级时候创建，若已存在，则不进行改动。
+// 此文件用于定义外观Token
+
 export const themeToken = {
   // colorBgAppListIconHover: 'rgba(0,0,0,0.06)',
   // colorTextAppListIconHover: 'rgba(255,255,255,0.95)',
