@@ -8,6 +8,7 @@ import {
 import {
   columnFacadeMode,
   searchCardConfig,
+  unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
@@ -51,6 +52,14 @@ class PageList extends MultiPage {
         PreviewDrawer.open();
       },
     );
+  };
+
+  fillSearchCardInitialValues = () => {
+    const values = {};
+
+    values[fieldData.status.name] = unlimitedWithStringFlag.flag;
+
+    return values;
   };
 
   establishSearchCardConfig = () => {

@@ -15,6 +15,7 @@ import {
   columnFacadeMode,
   listViewConfig,
   searchCardConfig,
+  unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
@@ -224,6 +225,16 @@ class PageList extends MultiPage {
     });
 
     this.goToPath(`/flow/workflow/edit/load/${workflowId}/key/basicInfo`);
+  };
+
+  fillSearchCardInitialValues = () => {
+    const values = {};
+
+    values[fieldData.scope.name] = unlimitedWithStringFlag.flag;
+    values[fieldData.businessMode.name] = unlimitedWithStringFlag.flag;
+    values[fieldData.status.name] = unlimitedWithStringFlag.flag;
+
+    return values;
   };
 
   establishSearchCardConfig = () => {

@@ -12,12 +12,16 @@ import {
   columnFacadeMode,
   listViewConfig,
   searchCardConfig,
+  unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
 import { buildTagList, iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
-import { getMasterManagerStatusName } from '../../../customSpecialComponents';
+import {
+  getMasterManagerStatusName,
+  renderSearchMasterManagerStatusSelect,
+} from '../../../customSpecialComponents';
 import AddBasicInfoDrawer from '../AddBasicInfoDrawer';
 import {
   refreshCacheAction,
@@ -46,7 +50,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      pageTitle: '用户列表',
+      pageTitle: '管理账户列表',
       paramsKey: accessWayCollection.masterManager.pageList.paramsKey,
       loadApiPath: 'masterManager/pageList',
       dateRangeFieldName: '创建时间',
@@ -267,6 +271,14 @@ class PageList extends MultiPage {
     );
   };
 
+  fillSearchCardInitialValues = () => {
+    const values = {};
+
+    values[fieldData.status.name] = unlimitedWithStringFlag.flag;
+
+    return values;
+  };
+
   establishSearchCardConfig = () => {
     return {
       list: [
@@ -287,6 +299,11 @@ class PageList extends MultiPage {
         },
         {
           lg: 5,
+          type: searchCardConfig.contentItemType.customSelect,
+          component: renderSearchMasterManagerStatusSelect({}),
+        },
+        {
+          lg: 4,
           type: searchCardConfig.contentItemType.component,
           component: this.buildSearchCardButtonCore(),
         },

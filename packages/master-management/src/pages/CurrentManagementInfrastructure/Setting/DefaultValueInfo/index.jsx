@@ -1,4 +1,9 @@
 import { connect } from 'easy-soft-dva';
+import {
+  convertCollection,
+  getValueByKey,
+  whetherNumber,
+} from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
@@ -65,7 +70,7 @@ class Index extends TabPageBase {
         {
           title: {
             icon: iconBuilder.contacts(),
-            text: 'Tinymce',
+            text: '默认地区节点树',
           },
           hasExtra: true,
           extra: {
@@ -87,8 +92,40 @@ class Index extends TabPageBase {
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
+              fieldData: fieldData.defaultProvinceTreeProvinceNodeVisibility,
+              editMode: keyValueEditModeCollection.whether,
+              value: getValueByKey({
+                data: metaData,
+                key: fieldData.obtainScoreByReadSwitch.name,
+                convert: convertCollection.number,
+                formatBuilder: (v) => {
+                  return v === whetherNumber.yes ? '显示' : '隐藏';
+                },
+              }),
+              inputIcon: iconBuilder.swap(),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
               fieldData: fieldData.defaultCityCode,
               editMode: keyValueEditModeCollection.string,
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.defaultCityTreeCityNodeVisibility,
+              editMode: keyValueEditModeCollection.whether,
+              value: getValueByKey({
+                data: metaData,
+                key: fieldData.obtainScoreByReadSwitch.name,
+                convert: convertCollection.number,
+                formatBuilder: (v) => {
+                  return v === whetherNumber.yes ? '显示' : '隐藏';
+                },
+              }),
+              inputIcon: iconBuilder.swap(),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
           ],

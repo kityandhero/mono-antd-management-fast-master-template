@@ -15,6 +15,7 @@ import {
   columnFacadeMode,
   listViewConfig,
   searchCardConfig,
+  unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
@@ -150,6 +151,14 @@ class PageList extends MultiPage {
     this.goToPath(
       `/organization/department/edit/load/${departmentId}/key/basicInfo`,
     );
+  };
+
+  fillSearchCardInitialValues = () => {
+    const values = {};
+
+    values[fieldData.ownershipMode.name] = unlimitedWithStringFlag.flag;
+
+    return values;
   };
 
   establishSearchCardConfig = () => {

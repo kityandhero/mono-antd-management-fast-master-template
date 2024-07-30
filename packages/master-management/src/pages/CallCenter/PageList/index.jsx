@@ -13,6 +13,7 @@ import {
   columnFacadeMode,
   listViewConfig,
   searchCardConfig,
+  unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
 import { buildButton, iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
@@ -226,6 +227,14 @@ class PageList extends MultiPage {
     this.goToPath(
       `/assistTools/callCenter/edit/load/${callCenterId}/key/basicInfo`,
     );
+  };
+
+  fillSearchCardInitialValues = () => {
+    const values = {};
+
+    values[fieldData.status.name] = unlimitedWithStringFlag.flag;
+
+    return values;
   };
 
   establishSearchCardConfig = () => {

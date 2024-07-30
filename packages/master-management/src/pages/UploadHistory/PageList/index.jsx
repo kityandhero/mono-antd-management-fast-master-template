@@ -10,6 +10,7 @@ import {
   columnFacadeMode,
   listViewConfig,
   searchCardConfig,
+  unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
@@ -126,6 +127,15 @@ class PageList extends MultiPage {
 
   afterUploadFileModalClose = () => {
     this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  fillSearchCardInitialValues = () => {
+    const values = {};
+
+    values[fieldData.fileType.name] = unlimitedWithStringFlag.flag;
+    values[fieldData.sourceType.name] = unlimitedWithStringFlag.flag;
+
+    return values;
   };
 
   establishSearchCardConfig = () => {

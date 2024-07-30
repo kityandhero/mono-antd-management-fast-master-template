@@ -15,6 +15,7 @@ import {
   columnFacadeMode,
   listViewConfig,
   searchCardConfig,
+  unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
 import {
   FunctionSupplement,
@@ -466,6 +467,15 @@ class PageList extends MultiPage {
         handleClick: this.showAddBasicInfoDrawer,
       },
     ];
+  };
+
+  fillSearchCardInitialValues = () => {
+    const values = {};
+
+    values[fieldData.questionCreateMode.name] = unlimitedWithStringFlag.flag;
+    values[fieldData.status.name] = unlimitedWithStringFlag.flag;
+
+    return values;
   };
 
   establishSearchCardConfig = () => {

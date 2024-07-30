@@ -1,8 +1,19 @@
+import { Divider, Empty } from 'antd';
+
 import { connect } from 'easy-soft-dva';
-import { checkHasAuthority, toNumber } from 'easy-soft-utility';
+import {
+  checkHasAuthority,
+  getValueByKey,
+  toNumber,
+  whetherNumber,
+} from 'easy-soft-utility';
 
 import { extraBuildType } from 'antd-management-fast-common';
-import { ElasticityTree, iconBuilder } from 'antd-management-fast-component';
+import {
+  buildCustomGrid,
+  ElasticityTree,
+  iconBuilder,
+} from 'antd-management-fast-component';
 import {
   DataDrawer,
   switchControlAssist,
@@ -32,9 +43,10 @@ class TreeCrossingLevelDrawer extends BaseVerticalFlexDrawer {
 
     this.state = {
       ...this.state,
-      width: 550,
+      width: 620,
       pageTitle: '指定节点树预览',
       loadApiPath: 'administrativeDivision/singleTreeListWithCrossingLevel',
+      wrapperVisibility: 1,
       crossingLevel: 1,
     };
   }
@@ -42,10 +54,11 @@ class TreeCrossingLevelDrawer extends BaseVerticalFlexDrawer {
   supplementLoadRequestParams = (o) => {
     const d = o;
 
-    const { externalData, crossingLevel } = this.state;
+    const { externalData, wrapperVisibility, crossingLevel } = this.state;
     const { code } = externalData;
 
     d[fieldData.code.name] = code;
+    d[fieldData.wrapperVisibility.name] = toNumber(wrapperVisibility);
     d[fieldData.crossingLevel.name] = toNumber(crossingLevel);
 
     return d;
@@ -58,11 +71,12 @@ class TreeCrossingLevelDrawer extends BaseVerticalFlexDrawer {
     });
   };
 
-  setCrossingLevelOne = () => {
+  setCrossingLevelOneAndWrapperDisplay = () => {
     const that = this;
 
     that.setState(
       {
+        wrapperVisibility: 1,
         crossingLevel: 1,
       },
       () => {
@@ -71,11 +85,40 @@ class TreeCrossingLevelDrawer extends BaseVerticalFlexDrawer {
     );
   };
 
-  setCrossingLevelTwo = () => {
+  setCrossingLevelOneAndWrapperHidden = () => {
     const that = this;
 
     that.setState(
       {
+        wrapperVisibility: 0,
+        crossingLevel: 1,
+      },
+      () => {
+        that.reloadData({});
+      },
+    );
+  };
+
+  setCrossingLevelTwoAndWrapperDisplay = () => {
+    const that = this;
+
+    that.setState(
+      {
+        wrapperVisibility: 1,
+        crossingLevel: 2,
+      },
+      () => {
+        that.reloadData({});
+      },
+    );
+  };
+
+  setCrossingLevelTwoAndWrapperHidden = () => {
+    const that = this;
+
+    that.setState(
+      {
+        wrapperVisibility: 0,
         crossingLevel: 2,
       },
       () => {
@@ -85,7 +128,7 @@ class TreeCrossingLevelDrawer extends BaseVerticalFlexDrawer {
   };
 
   establishExtraActionConfig = () => {
-    const { crossingLevel } = this.state;
+    const { crossingLevel, wrapperVisibility } = this.state;
 
     return {
       list: [
@@ -93,7 +136,7 @@ class TreeCrossingLevelDrawer extends BaseVerticalFlexDrawer {
           buildType: extraBuildType.dropdown,
           icon: iconBuilder.fork(),
           size: 'default',
-          text: `${crossingLevel}级级联`,
+          text: `${crossingLevel}级级联${wrapperVisibility === whetherNumber.yes ? '【显示包裹节点】' : '【隐藏包裹节点】'}`,
           handleData: {},
           hidden: false,
           // eslint-disable-next-line no-unused-vars
@@ -103,14 +146,26 @@ class TreeCrossingLevelDrawer extends BaseVerticalFlexDrawer {
           // eslint-disable-next-line no-unused-vars
           handleMenuClick: ({ key, handleData }) => {
             switch (key) {
-              case 'setCrossingLevelOne': {
-                this.setCrossingLevelOne();
+              case 'setCrossingLevelOneAndWrapperHidden': {
+                this.setCrossingLevelOneAndWrapperHidden();
 
                 break;
               }
 
-              case 'setCrossingLevelTwo': {
-                this.setCrossingLevelTwo();
+              case 'setCrossingLevelTwoAndWrapperHidden': {
+                this.setCrossingLevelTwoAndWrapperHidden();
+
+                break;
+              }
+
+              case 'setCrossingLevelOneAndWrapperDisplay': {
+                this.setCrossingLevelOneAndWrapperDisplay();
+
+                break;
+              }
+
+              case 'setCrossingLevelTwoAndWrapperDisplay': {
+                this.setCrossingLevelTwoAndWrapperDisplay();
 
                 break;
               }
@@ -118,14 +173,24 @@ class TreeCrossingLevelDrawer extends BaseVerticalFlexDrawer {
           },
           items: [
             {
-              key: 'setCrossingLevelOne',
-              icon: iconBuilder.form(),
-              text: '设为 1 级级联',
+              key: 'setCrossingLevelOneAndWrapperDisplay',
+              icon: iconBuilder.fork(),
+              text: '设为 1 级级联【显示包裹节点】',
             },
             {
-              key: 'setCrossingLevelTwo',
-              icon: iconBuilder.form(),
-              text: '设为 2 级级联',
+              key: 'setCrossingLevelOneAndWrapperHidden',
+              icon: iconBuilder.fork(),
+              text: '设为 1 级级联【隐藏包裹节点】',
+            },
+            {
+              key: 'setCrossingLevelTwoAndWrapperDisplay',
+              icon: iconBuilder.fork(),
+              text: '设为 2 级级联【显示包裹节点】',
+            },
+            {
+              key: 'setCrossingLevelTwoAndWrapperHidden',
+              icon: iconBuilder.fork(),
+              text: '设为 2 级级联【隐藏包裹节点】',
             },
           ],
         },
@@ -163,21 +228,64 @@ class TreeCrossingLevelDrawer extends BaseVerticalFlexDrawer {
   };
 
   renderPresetContentContainorInnerTop = () => {
-    const { metaListData } = this.state;
+    const { firstLoadSuccess, metaListData, metaExtra } = this.state;
 
     return (
       <div style={{ padding: '20px 20px' }}>
-        <ElasticityTree
-          listData={metaListData}
-          dataConvert={(o) => {
-            const { name: title, code: value } = o;
+        {buildCustomGrid({
+          list: [
+            {
+              span: 2,
+              label: fieldData.areaName.label,
+              value: getValueByKey({
+                data: metaExtra,
+                key: fieldData.areaName.name,
+              }),
+            },
+            {
+              span: 2,
+              label: fieldData.areaCode.label,
+              value: getValueByKey({
+                data: metaExtra,
+                key: fieldData.areaCode.name,
+              }),
+            },
+          ],
+          props: {
+            bordered: true,
+            column: 2,
+            size: 'small',
+            labelStyle: {
+              width: '160px',
+            },
+            emptyValue: '暂无',
+            emptyStyle: {
+              color: '#ccc',
+            },
+          },
+        })}
 
-            return {
-              title: `${title}【${value}】`,
-              value,
-            };
-          }}
-        />
+        <Divider orientation="left" style={{ fontSize: '14px' }}>
+          树型展示
+        </Divider>
+
+        {firstLoadSuccess && metaListData.length > 0 ? (
+          <ElasticityTree
+            listData={metaListData}
+            dataConvert={(o) => {
+              const { name: title, code: value } = o;
+
+              return {
+                title: `${title}【${value}】`,
+                value,
+              };
+            }}
+          />
+        ) : null}
+
+        {firstLoadSuccess && metaListData.length === 0 ? (
+          <Empty description="无数据" />
+        ) : null}
       </div>
     );
   };

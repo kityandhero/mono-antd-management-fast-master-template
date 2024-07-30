@@ -161,10 +161,20 @@ export const fieldData = {
     name: 'defaultProvinceCode',
     helper: '',
   },
+  defaultProvinceTreeProvinceNodeVisibility: {
+    label: '默认省级地区树根省级节点可见性',
+    name: 'defaultProvinceTreeProvinceNodeVisibility',
+    helper: '即是否使用默认的地区节点包裹子元素',
+  },
   defaultCityCode: {
     label: '默认市级地区展开节点',
     name: 'defaultCityCode',
     helper: '',
+  },
+  defaultCityTreeCityNodeVisibility: {
+    label: '默认市级地区树根省级节点可见性',
+    name: 'defaultCityTreeCityNodeVisibility',
+    helper: '即是否使用默认的地区节点包裹子元素',
   },
   flowDebugUserId: {
     label: '用于流程调试的用户标识',

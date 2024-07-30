@@ -13,6 +13,7 @@ import {
   defaultEmptyImage,
   listViewConfig,
   searchCardConfig,
+  unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
 import {
   buildListViewItemExtra,
@@ -190,6 +191,14 @@ class PageList extends MultiPage {
     });
 
     this.goToPath(`/assistTools/qrCode/edit/load/${qrCodeId}/key/basicInfo`);
+  };
+
+  fillSearchCardInitialValues = () => {
+    const values = {};
+
+    values[fieldData.status.name] = unlimitedWithStringFlag.flag;
+
+    return values;
   };
 
   establishSearchCardConfig = () => {

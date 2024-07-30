@@ -248,7 +248,7 @@ class PageList extends MultiPage {
         {
           lg: 6,
           type: searchCardConfig.contentItemType.input,
-          fieldData: fieldData.name,
+          fieldData: fieldData.title,
         },
         {
           lg: 6,

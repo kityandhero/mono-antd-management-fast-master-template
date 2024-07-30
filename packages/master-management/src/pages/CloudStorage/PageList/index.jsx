@@ -9,6 +9,7 @@ import {
   columnFacadeMode,
   dropdownExpandItemType,
   searchCardConfig,
+  unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
@@ -87,6 +88,14 @@ class PageList extends MultiPage {
     this.setState({ currentRecord: item }, () => {
       PreviewDrawer.open();
     });
+  };
+
+  fillSearchCardInitialValues = () => {
+    const values = {};
+
+    values[fieldData.sourceType.name] = unlimitedWithStringFlag.flag;
+
+    return values;
   };
 
   establishSearchCardConfig = () => {

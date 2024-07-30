@@ -11,6 +11,7 @@ export * from './ApplicationSourceType';
 export * from './ApplicationStatus';
 export * from './ApplicationType';
 export * from './ApplicationVersionStatus';
+export * from './BusinessMode';
 export * from './BusinessSetStatus';
 export * from './CacheMode';
 export * from './CallCenterCategoryStatus';

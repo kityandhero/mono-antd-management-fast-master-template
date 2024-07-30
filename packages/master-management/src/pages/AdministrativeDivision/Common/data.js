@@ -6,6 +6,11 @@ const fieldExtraData = {
     name: 'parentName',
     helper: '',
   },
+  wrapperVisibility: {
+    label: '地区包裹节点可见性',
+    name: 'wrapperVisibility',
+    helper: '',
+  },
   wrapperName: {
     label: '包裹名',
     name: 'wrapperName',
@@ -19,6 +24,16 @@ const fieldExtraData = {
   refresh: {
     label: '强制刷新',
     name: 'refresh',
+    helper: '',
+  },
+  areaCode: {
+    label: '当前地区代码',
+    name: 'areaCode',
+    helper: '',
+  },
+  areaName: {
+    label: '当前地区',
+    name: 'areaName',
     helper: '',
   },
 };

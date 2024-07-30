@@ -12,6 +12,7 @@ import {
   columnFacadeMode,
   listViewConfig,
   searchCardConfig,
+  unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
 import {
   CenterBox,
@@ -244,6 +245,14 @@ class PageList extends MultiPage {
     const { tagId } = record;
 
     this.goToPath(`/data/tag/edit/load/${tagId}/key/basicInfo`);
+  };
+
+  fillSearchCardInitialValues = () => {
+    const values = {};
+
+    values[fieldData.whetherRecommend.name] = unlimitedWithStringFlag.flag;
+
+    return values;
   };
 
   establishSearchCardConfig = () => {

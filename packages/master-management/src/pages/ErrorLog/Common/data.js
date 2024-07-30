@@ -1,9 +1,17 @@
 import { formNameCollection } from '../../../customConfig';
 
+const fieldExtraData = {
+  webChannelId: {
+    label: '上级区划',
+    name: 'webChannelId',
+    helper: '',
+  },
+};
+
 export const fieldData = {
   ...formNameCollection,
   errorLogId: {
-    label: '数据标识',
+    label: 'Web渠道',
     name: 'errorLogId',
     helper: '',
   },
@@ -192,4 +200,5 @@ export const fieldData = {
     name: 'createTime',
     helper: '',
   },
+  ...fieldExtraData,
 };

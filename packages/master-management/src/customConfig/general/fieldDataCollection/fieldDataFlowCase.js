@@ -150,6 +150,26 @@ export const fieldDataFlowCase = {
     name: 'resetAllApproveSwitchNote',
     helper: '',
   },
+  scope: {
+    label: '应用范围',
+    name: 'scope',
+    helper: '应用范围',
+  },
+  scopeNote: {
+    label: '应用范围',
+    name: 'scopeNote',
+    helper: '应用范围',
+  },
+  businessMode: {
+    label: '适用业务',
+    name: 'businessMode',
+    helper: '',
+  },
+  businessModeNote: {
+    label: '适用业务',
+    name: 'businessModeNote',
+    helper: '',
+  },
   status: {
     label: '状态',
     name: 'status',

@@ -142,7 +142,7 @@ class Index extends MultiPage {
     const values = {};
 
     values[fieldData.resolve.name] = unlimitedWithStringFlag.flag;
-    values[fieldData.channel.name] = unlimitedWithStringFlag.flag;
+    values[fieldData.webChannelId.name] = unlimitedWithStringFlag.flag;
 
     return values;
   };
