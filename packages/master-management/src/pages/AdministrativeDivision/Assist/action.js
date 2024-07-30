@@ -4,6 +4,25 @@ import { actionCore } from 'antd-management-fast-common';
 
 import { fieldData } from '../Common/data';
 
+export function singleTreeListWithDefaultProvinceAction({
+  target,
+  handleData = {},
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: 'administrativeDivision/singleTreeListWithDefaultProvince',
+    params: {
+      ...handleData,
+    },
+    target,
+    handleData,
+    showProcessing: false,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function refreshSingleTreeListWithDefaultProvinceCacheAction({
   target,
   handleData,
@@ -20,6 +39,25 @@ export async function refreshSingleTreeListWithDefaultProvinceCacheAction({
   });
 }
 
+export function singleTreeListWithDefaultCityAction({
+  target,
+  handleData = {},
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: 'administrativeDivision/singleTreeListWithDefaultCity',
+    params: {
+      ...handleData,
+    },
+    target,
+    handleData,
+    showProcessing: false,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function refreshSingleTreeListWithDefaultCityCacheAction({
   target,
   handleData,
@@ -31,6 +69,25 @@ export async function refreshSingleTreeListWithDefaultCityCacheAction({
     params: { ...handleData },
     target,
     handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export function singleTreeListWithCrossingLevelAction({
+  target,
+  handleData = {},
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: 'administrativeDivision/singleTreeListWithCrossingLevel',
+    params: {
+      ...handleData,
+    },
+    target,
+    handleData,
+    showProcessing: false,
     successCallback,
     successMessage,
   });
