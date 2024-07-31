@@ -1,69 +1,133 @@
 {
-  "repository": "https://codeload.github.com/kityandhero/mono-antd-management-fast-template/zip/refs/heads/main",
-  "sourcePath": "mono-antd-management-fast-template-main/packages/management/",
-  "targetPath": "packages/management/",
+  "repository": "https://codeload.github.com/kityandhero/mono-antd-management-fast-master-template/zip/refs/heads/main",
+  "sourcePath": "mono-antd-management-fast-master-template-main/packages/master-management/",
+  "targetPath": "packages/master-management/",
   "syncFolders": [
-    // generatorTemplate start
+    "generatorConfig/general/",
     "generatorTemplate/",
-    // generatorTemplate end
-    // src start
-    // src customConfig start
-    "src/customConfig/general/fieldDataCollection/",
-    // src customConfig end
-    // src customSpecialComponents start
+    "src/components/PageLoading/",
+    "src/customConfig/general/",
     "src/customSpecialComponents/BaseUpdateRoleModal/",
     "src/customSpecialComponents/UpdateModuleModalBase/",
     "src/customSpecialComponents/DataTabContainerSupplement/",
-    // src customSpecialComponents end
-    // src pageBases start
     "src/pageBases/",
-    // src pageBases end
-    // src pages start
-    "src/pages/CurrentAccount/MenuPageBase/",
-    "src/pages/OperationLog/"
-    // src pages end
-    // src end
+    "src/pages/AccessWay/",
+    "src/pages/AdministrativeDivision/",
+    "src/pages/Application/",
+    "src/pages/ApplicationNavigation/",
+    "src/pages/ApplicationSource/",
+    "src/pages/ApplicationVersion/",
+    "src/pages/BusinessSet/",
+    "src/pages/CallCenter/",
+    "src/pages/CallCenterCategory/",
+    "src/pages/Channel/",
+    "src/pages/ChannelExecuteLogSwitch/",
+    "src/pages/ChannelSqlLogSwitch/",
+    "src/pages/CloudStorage/",
+    "src/pages/CurrentAccount/",
+    "src/pages/CurrentManagementInfrastructure/",
+    "src/pages/Department/",
+    "src/pages/DevelopInfo/",
+    "src/pages/EmailSenderAgent/",
+    "src/pages/Entrance/",
+    "src/pages/ErrorLog/",
+    "src/pages/ExecuteLog/",
+    "src/pages/Gallery/",
+    "src/pages/GalleryCategory/",
+    "src/pages/GeneralDiscourse/",
+    "src/pages/GeneralLog/",
+    "src/pages/HostService/",
+    "src/pages/HostServiceLog/",
+    "src/pages/InternalTester/",
+    "src/pages/KeyValueApplication/",
+    "src/pages/KeyValueInfrastructure/",
+    "src/pages/KeyValueSection/",
+    "src/pages/KeyValueWorkflow/",
+    "src/pages/MasterManager/",
+    "src/pages/MasterManagerLoginLog/",
+    "src/pages/MongoSlowQueryInfo/",
+    "src/pages/OperationLog/",
+    "src/pages/OptionPool/",
+    "src/pages/Organization/",
+    "src/pages/PresetRole/",
+    "src/pages/QrCode/",
+    "src/pages/QrCodeCategory/",
+    "src/pages/Question/",
+    "src/pages/QuestionItem/",
+    "src/pages/QuestionTagRelation/",
+    "src/pages/Questionnaire/",
+    "src/pages/QuestionnaireQuestion/",
+    "src/pages/QueueInfo/",
+    "src/pages/Result/",
+    "src/pages/Section/",
+    "src/pages/SectionApplicationConfig/",
+    "src/pages/SmsCategory/",
+    "src/pages/SmsCategoryStatistic/",
+    "src/pages/SmsLog/",
+    "src/pages/SqlEntity/",
+    "src/pages/SqlLog/",
+    "src/pages/Subsidiary/",
+    "src/pages/Tag/",
+    "src/pages/UploadHistory/",
+    "src/pages/User/",
+    "src/pages/UserDepartmentInfo/",
+    "src/pages/UserDevice/",
+    "src/pages/UserLoginLog/",
+    "src/pages/UserQuestionnaire/",
+    "src/pages/UserSubsidiaryInfo/",
+    "src/pages/WeChatMessageRecord/",
+    "src/pages/Workflow/",
+    "src/pages/WorkflowBranchCondition/",
+    "src/pages/WorkflowBranchConditionItem/",
+    "src/pages/WorkflowCase/",
+    "src/pages/WorkflowCaseCarbonCopyNotification/",
+    "src/pages/WorkflowCaseFormAttachment/",
+    "src/pages/WorkflowCaseFormStorage/",
+    "src/pages/WorkflowCaseLatestApprove/",
+    "src/pages/WorkflowCaseNextProcessNotification/",
+    "src/pages/WorkflowCaseNextProcessProgress/",
+    "src/pages/WorkflowCaseProcessHistory/",
+    "src/pages/WorkflowDebugCase/",
+    "src/pages/WorkflowDebugCaseCarbonCopyNotification/",
+    "src/pages/WorkflowDebugCaseFormAttachment/",
+    "src/pages/WorkflowDebugCaseFormStorage/",
+    "src/pages/WorkflowDebugCaseLatestApprove/",
+    "src/pages/WorkflowDebugCaseNextProcessNotification/",
+    "src/pages/WorkflowDebugCaseNextProcessProgress/",
+    "src/pages/WorkflowDebugCaseProcessHistory/",
+    "src/pages/WorkflowFormDesign/",
+    "src/pages/WorkflowLine/",
+    "src/pages/WorkflowNode/",
+    "src/pages/WorkflowNodeApprover/",
+    "src/pages/WorkflowRangeEffectiveExternalDepartmentRelation/",
+    "src/pages/WorkflowRangeEffectiveSubsidiaryRelation/"
   ],
   "syncFiles": [
+    "../../develop/config/develop.update.project.from.repository.json",
+    "config/router.master.general.config.js",
     "plugin.ts",
-    // src start
     "src/access.js",
     "src/app.jsx",
-    // src customConfig start
+    "src/commonAssist/Action/actionGeneral.js",
     "src/customConfig/accessWayCollection.js",
-    "src/customConfig/general/constants.js",
-    "src/customConfig/general/index.js",
     "src/customConfig/index.js",
-    // src customConfig end
-    // src customSpecialComponents start
     "src/customSpecialComponents/CustomAssembly/menuHeader.js",
     "src/customSpecialComponents/CustomAssembly/timeAndOperator.js",
-    // src customSpecialComponents end
-    // src localeConfig start
-    "src/localeConfig/custom/index.js",
     "src/localeConfig/general/index.js",
     "src/localeConfig/general/zh-CN/index.js",
+    "src/localeConfig/general/zh-CN/menu.js",
     "src/localeConfig/index.js",
-    // src localeConfig end
-    // src locales start
     "src/locales/zh-CN/menu.js",
-    // src locales end
-    // src modelBuilders start
     "src/modelBuilders/index.js",
-    // src modelBuilders end
-    // src utils start
+    "src/utils/index.jsx",
     "src/utils/init.js",
     "src/utils/tools.general.jsx",
-    // src utils end
-    // src end
-    "update.project.from.template.repository.config.json"
+    "tsconfig.json",
+    "update.project.from.master.template.repository.config.json"
   ],
   "ignoreSyncWhenExistFiles": [
-    // develop start
     "../../develop/config/develop.initial.environment.json",
     "../../develop/config/develop.subPath.version.ncu.json",
-    // develop end
-    // config start
     "config/config.development.js",
     "config/config.js",
     "config/config.production.js",
@@ -74,9 +138,7 @@
     "config/router.master.custom.config.js",
     "config/router.master.general.config.js",
     "config/theme.config.json",
-    // config end
     "generatorConfig/code.json",
-    // generatorConfig custom start
     "generatorConfig/custom/addBasicInfoDrawer.config.json",
     "generatorConfig/custom/assist.action.config.json",
     "generatorConfig/custom/assist.config.config.json",
@@ -91,8 +153,6 @@
     "generatorConfig/custom/pageList.config.json",
     "generatorConfig/custom/tabPageBase.config.json",
     "generatorConfig/custom/updateBasicInfoDrawer.config.json",
-    // generatorConfig custom end
-    // generatorConfig general start
     "generatorConfig/general/addBasicInfoDrawer.config.json",
     "generatorConfig/general/assist.action.config.json",
     "generatorConfig/general/assist.config.config.json",
@@ -107,38 +167,20 @@
     "generatorConfig/general/pageList.config.json",
     "generatorConfig/general/tabPageBase.config.json",
     "generatorConfig/general/updateBasicInfoDrawer.config.json",
-    // generatorConfig general end
-    // src start
     "src/app.config.jsx",
-    // src commonAssist start
-    "src/commonAssist/Action/actionGeneral.js",
     "src/commonAssist/Action/index.js",
     "src/commonAssist/index.js",
-    // src commonAssist end
-    // src components start
-    "src/components/MenuCard/index.jsx",
-    "src/components/PageLoading/index.jsx",
-    "src/components/index.jsx",
-    // src components end
-    // src customConfig start
     "src/customConfig/constants.js",
     "src/customConfig/custom/accessWayCollection.js",
-    "src/customConfig/general/accessWayCollection.js",
-    // src customConfig end
-    // src customSpecialComponents start
     "src/customSpecialComponents/CustomAssembly/footer.js",
     "src/customSpecialComponents/CustomAssembly/index.js",
     "src/customSpecialComponents/index.jsx",
-    // src customSpecialComponents end
     "src/global.less",
-    // src localeConfig start
     "src/localeConfig/custom/index.js",
     "src/localeConfig/custom/zh-CN/index.js",
     "src/localeConfig/custom/zh-CN/menu.js",
     "src/localeConfig/custom/zh-CN/menu.js",
     "src/localeConfig/general/zh-CN/menu.js",
-    // src localeConfig end
-    // src locales start
     "src/locales/en-CN.js",
     "src/locales/en-CN/component.js",
     "src/locales/en-CN/globalHeader.js",
@@ -150,33 +192,11 @@
     "src/locales/zh-CN/globalHeader.js",
     "src/locales/zh-CN/settingDrawer.js",
     "src/locales/zh-CN/settings.js",
-    // src locales end
     "src/overrides.less",
-    // src pages start
-    "src/pages/CurrentAccount/Common/data.js",
-    "src/pages/CurrentAccount/LoginLog/PageList/index.jsx",
-    "src/pages/CurrentAccount/Setting/BasicInfo/index.jsx",
-    "src/pages/CurrentAccount/Setting/Password/index.jsx",
-    "src/pages/CurrentAccount/Setting/index.jsx",
-    "src/pages/Entrance/index.jsx",
-    "src/pages/Entrance/SignIn/index.jsx",
-    "src/pages/Entrance/Wrapper/index.jsx",
-    "src/pages/Result/Forbidden/index.jsx",
-    "src/pages/Result/Info/index.jsx",
-    "src/pages/Result/LocalError/index.jsx",
-    "src/pages/Result/NotFound/index.jsx",
-    "src/pages/Result/ServerError/index.jsx",
-    "src/pages/Result/Success/index.jsx",
-    "src/pages/Result/Warn/index.jsx",
     "src/pages/Workbench/PageHeaderContent/index.jsx",
-    "src/pages/Workbench/ShortcutPanel/index.jsx",
     "src/pages/Workbench/index.jsx",
-    // src pages end
-    // src utils start
-    "src/utils/index.jsx",
+    "src/pages/Workbench/ShortcutPanel/index.jsx",
     "src/utils/theme.js",
     "src/utils/tools.custom.jsx"
-    // src utils end
-    // src end
   ]
 }
