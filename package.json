@@ -13,7 +13,7 @@
     "start": "cd packages/master-management && npm run start",
     "start:original": "cd packages/master-management && npm run start:original",
     "test:master-management": "cd packages/master-management && npm run z:test",
-    "y:update-project-with-master-template": "npx easy-soft-develop update-project-with-master-template",
+    "y:update-project-from-repository": "npx easy-soft-develop update-project-from-repository",
     "z:auto:adjust:file:all": "npm run z:auto:adjust:file:master-management",
     "z:auto:adjust:file:master-management": "cd packages/master-management && npm run z:auto:adjust:file",
     "z:bootstrap": "npm run z:clean && git pull && npm run z:install",
