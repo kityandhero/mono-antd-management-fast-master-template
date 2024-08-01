@@ -1,6 +1,6 @@
 import { accessWayCollection } from '../src/customConfig/accessWayCollection';
 
-import { dashboard, root } from './router.master.custom.config';
+import { dashboard, root } from './router.custom.config';
 import {
   accessWay,
   account,
@@ -36,7 +36,7 @@ import {
   userLoginLog,
   userSignet,
   weChatMessageRecord,
-} from './router.master.general.config';
+} from './router.general.config';
 
 export default [
   entrance,

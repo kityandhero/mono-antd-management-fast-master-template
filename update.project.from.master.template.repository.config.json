@@ -104,7 +104,6 @@
   ],
   "syncFiles": [
     "../../update.project.from.master.template.repository.config.json",
-    "config/router.master.general.config.js",
     "plugin.ts",
     "src/access.js",
     "src/app.jsx",
@@ -134,8 +133,8 @@
     "config/extraScript.js",
     "config/extraScript.production.js",
     "config/router.config.js",
-    "config/router.master.custom.config.js",
-    "config/router.master.general.config.js",
+    "config/router.custom.config.js",
+    "config/router.general.config.js",
     "config/theme.config.json",
     "generatorConfig/code.json",
     "generatorConfig/custom/addBasicInfoDrawer.config.json",
