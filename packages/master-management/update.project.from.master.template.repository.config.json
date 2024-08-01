@@ -103,7 +103,6 @@
     "src/pages/WorkflowRangeEffectiveSubsidiaryRelation/"
   ],
   "syncFiles": [
-    "../../develop/config/develop.update.project.from.repository.json",
     "config/router.master.general.config.js",
     "plugin.ts",
     "src/access.js",
