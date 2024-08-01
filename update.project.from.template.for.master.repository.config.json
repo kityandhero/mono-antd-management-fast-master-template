@@ -30,7 +30,8 @@
     "src/locales/zh-CN/menu.js",
     "src/modelBuilders/index.js",
     "src/utils/init.js",
-    "src/utils/tools.general.jsx"
+    "src/utils/tools.general.jsx",
+    "tsconfig.json"
   ],
   "ignoreSyncWhenExistFiles": [
     "../../develop/config/develop.initial.environment.json",
