@@ -1,4 +1,4 @@
-export const accessWayBusinessCollection = {
+export const accessWayCustomCollection = {
   cloudStorage: {
     pageList: {
       title: '文件列表',
