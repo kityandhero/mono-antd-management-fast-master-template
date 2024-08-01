@@ -13,6 +13,7 @@
     "src/pages/OperationLog/"
   ],
   "syncFiles": [
+    "../../update.project.from.template.for.master.repository.config.json",
     "plugin.ts",
     "src/access.js",
     "src/app.jsx",
@@ -29,8 +30,7 @@
     "src/locales/zh-CN/menu.js",
     "src/modelBuilders/index.js",
     "src/utils/init.js",
-    "src/utils/tools.general.jsx",
-    "update.project.from.template.repository.config.json"
+    "src/utils/tools.general.jsx"
   ],
   "ignoreSyncWhenExistFiles": [
     "../../develop/config/develop.initial.environment.json",

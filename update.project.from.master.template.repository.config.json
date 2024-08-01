@@ -103,6 +103,7 @@
     "src/pages/WorkflowRangeEffectiveSubsidiaryRelation/"
   ],
   "syncFiles": [
+    "../../update.project.from.master.template.repository.config.json",
     "config/router.master.general.config.js",
     "plugin.ts",
     "src/access.js",
@@ -121,8 +122,7 @@
     "src/utils/index.jsx",
     "src/utils/init.js",
     "src/utils/tools.general.jsx",
-    "tsconfig.json",
-    "update.project.from.master.template.repository.config.json"
+    "tsconfig.json"
   ],
   "ignoreSyncWhenExistFiles": [
     "../../develop/config/develop.initial.environment.json",

@@ -1,7 +1,7 @@
 {
   "repository": "https://codeload.github.com/kityandhero/mono-antd-management-fast-template/zip/refs/heads/main",
   "sourcePath": "mono-antd-management-fast-template-main/packages/management/",
-  "targetPath": "packages/management/",
+  "targetPath": "packages/master-management/",
   "syncFolders": [
     "generatorTemplate/",
     "src/customConfig/general/fieldDataCollection/",
@@ -13,6 +13,7 @@
     "src/pages/OperationLog/"
   ],
   "syncFiles": [
+    "../../update.project.from.template.for.master.repository.config.json",
     "plugin.ts",
     "src/access.js",
     "src/app.jsx",
@@ -29,8 +30,7 @@
     "src/locales/zh-CN/menu.js",
     "src/modelBuilders/index.js",
     "src/utils/init.js",
-    "src/utils/tools.general.jsx",
-    "update.project.from.template.repository.config.json"
+    "src/utils/tools.general.jsx"
   ],
   "ignoreSyncWhenExistFiles": [
     "../../develop/config/develop.initial.environment.json",
@@ -100,11 +100,11 @@
     "src/locales/en-US/menu.js",
     "src/locales/en-US/settingDrawer.js",
     "src/locales/en-US/settings.js",
-    "src/locales/zh-US.js",
-    "src/locales/zh-US/component.js",
-    "src/locales/zh-US/globalHeader.js",
-    "src/locales/zh-US/settingDrawer.js",
-    "src/locales/zh-US/settings.js",
+    "src/locales/zh-CN.js",
+    "src/locales/zh-CN/component.js",
+    "src/locales/zh-CN/globalHeader.js",
+    "src/locales/zh-CN/settingDrawer.js",
+    "src/locales/zh-CN/settings.js",
     "src/overrides.less",
     "src/pages/CurrentAccount/Common/data.js",
     "src/pages/CurrentAccount/LoginLog/PageList/index.jsx",
