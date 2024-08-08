@@ -35,7 +35,7 @@ class ProcessChainDrawer extends BaseVerticalFlexDrawer {
       treeChainAll: null,
       listChainApprove: [],
       treeChainApprove: null,
-      showAll: false,
+      showOnlyApprove: false,
     };
   }
 
@@ -97,7 +97,7 @@ class ProcessChainDrawer extends BaseVerticalFlexDrawer {
   };
 
   establishExtraActionConfig = () => {
-    const { showAll } = this.state;
+    const { showOnlyApprove } = this.state;
 
     const that = this;
 
@@ -107,10 +107,10 @@ class ProcessChainDrawer extends BaseVerticalFlexDrawer {
           buildType: extraBuildType.generalExtraButton,
           icon: iconBuilder.read(),
           text: '全部节点',
-          disabled: !showAll,
+          disabled: !showOnlyApprove,
           handleClick: () => {
             that.setState({
-              showAll: false,
+              showOnlyApprove: false,
             });
           },
         },
@@ -118,10 +118,10 @@ class ProcessChainDrawer extends BaseVerticalFlexDrawer {
           buildType: extraBuildType.generalExtraButton,
           icon: iconBuilder.read(),
           text: '审批节点',
-          disabled: showAll,
+          disabled: showOnlyApprove,
           handleClick: () => {
             that.setState({
-              showAll: true,
+              showOnlyApprove: true,
             });
           },
         },
@@ -136,12 +136,17 @@ class ProcessChainDrawer extends BaseVerticalFlexDrawer {
         {
           text: '当存在分支流程时，节点流转信息和表单数据相关。',
         },
+        {
+          text: '此图仅显示正向审批，不包含逆向审批过程。',
+        },
       ],
     };
   };
 
   renderPresetContentContainorInnerTop = () => {
-    const { showAll, treeChainAll, treeChainApprove } = this.state;
+    const { showOnlyApprove, treeChainAll, treeChainApprove } = this.state;
+
+    console.log({ treeChainAll, treeChainApprove });
 
     return (
       <ScrollFacadeBox
@@ -168,7 +173,7 @@ class ProcessChainDrawer extends BaseVerticalFlexDrawer {
             }}
             behaviors={['drag-canvas', 'zoom-canvas', 'drag-node']}
             data={
-              (showAll ? treeChainAll : treeChainApprove) || {
+              (showOnlyApprove ? treeChainApprove : treeChainAll) || {
                 id: 'root',
                 value: {
                   name: '加载中',

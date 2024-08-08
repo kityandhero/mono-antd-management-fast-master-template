@@ -4,6 +4,28 @@ import { actionCore } from 'antd-management-fast-common';
 
 import { fieldData } from '../Common/data';
 
+export async function getChainByWorkflowAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: 'workflowDebugCase/getChainByWorkflow',
+    params: {
+      workflowId: getValueByKey({
+        data: handleData,
+        key: fieldData.workflowId.name,
+        defaultValue: '',
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function addBasicInfoAction({
   target,
   handleData,

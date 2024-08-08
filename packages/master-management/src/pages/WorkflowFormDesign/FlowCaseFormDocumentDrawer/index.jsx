@@ -24,6 +24,7 @@ const visibleFlag = '64d7f22032f54376a6af4777d475b680';
 const defaultProperties = {
   canDesign: false,
   approveList: [],
+  allApproveProcessList: [],
   values: [],
 };
 
@@ -45,7 +46,7 @@ class FlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
 
     this.state = {
       ...this.state,
-      pageTitle: '流程表单打印设计',
+      pageTitle: '流程表单',
       loadApiPath: 'workflowFormDesign/getByWorkflow',
       width: 1024,
     };
@@ -90,6 +91,11 @@ class FlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
   };
 
   establishHelpConfig = () => {
+    const { canDesign } = {
+      ...defaultProperties,
+      ...this.props,
+    };
+
     return {
       title: '操作提示',
       list: [
@@ -102,6 +108,11 @@ class FlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
         {
           text: '打印预览需要关闭设计模式。',
         },
+        canDesign
+          ? {
+              text: '审批节点样例仅在设计时用于占位进行效果展示, 实际表单将呈现真实审批节点。',
+            }
+          : null,
       ],
     };
   };
@@ -113,7 +124,7 @@ class FlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
   };
 
   renderPresetContentContainorInnerTop = () => {
-    const { canDesign, values, approveList } = {
+    const { canDesign, values, approveList, allApproveProcessList } = {
       ...defaultProperties,
       ...this.props,
     };
@@ -196,6 +207,9 @@ class FlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
           items,
         }}
         approveList={isArray(approveList) ? approveList : []}
+        allApproveProcessList={
+          isArray(allApproveProcessList) ? allApproveProcessList : []
+        }
         remarkTitle="备注"
         remarkName="remark"
         remarkList={remarkSchemaList}

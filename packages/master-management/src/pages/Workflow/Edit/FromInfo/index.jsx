@@ -24,6 +24,7 @@ import {
 
 import {
   accessWayCollection,
+  listSimpleAllApproveProcess,
   listSimpleApprove,
 } from '../../../../customConfig';
 import { fieldData as fieldDataWorkflowFormDesign } from '../../../WorkflowFormDesign/Common/data';
@@ -363,6 +364,7 @@ class BasicInfo extends TabPageBase {
           canDesign
           values={[]}
           approveList={listSimpleApprove}
+          allApproveProcessList={listSimpleAllApproveProcess}
           externalData={{ workflowId }}
           afterClose={() => {
             this.afterFlowCaseFormDocumentDrawerClose();

@@ -840,8 +840,8 @@ class DebugCaseInfo extends TabPageBase {
               {
                 buildType: cardConfig.extraBuildType.generalExtraButton,
                 type: 'default',
-                icon: iconBuilder.read(),
-                text: '表单审批流转节点',
+                icon: iconBuilder.fork(),
+                text: '表单审批链条',
                 disabled: !firstLoadSuccess,
                 hidden: !checkHasAuthority(
                   accessWayCollection.workflowDebugCase.getChainByWorkflow
