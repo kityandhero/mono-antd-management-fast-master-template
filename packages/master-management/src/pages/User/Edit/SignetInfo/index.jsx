@@ -10,8 +10,9 @@ import {
   getDerivedStateFromPropertiesForUrlParameters,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
+import { DocumentPrintDesigner } from 'antd-management-fast-design-playground';
 
-import { accessWayCollection } from '../../../../customConfig';
+import { accessWayCollection, emptySignet } from '../../../../customConfig';
 import { toggleSignetPasswordSwitchAction } from '../../Assist/action';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
@@ -124,6 +125,62 @@ class SignetInfo extends TabPageBase {
   establishCardCollectionConfig = () => {
     const { signet } = this.state;
 
+    // 示例数据
+    const listApprove = [
+      {
+        workflowId: '1744243217534160896',
+        flowCaseId: '1744252844502028288',
+        approveUserId: '1701146521682186240',
+        approveWorkflowNodeId: '1744243666630873088',
+        inWorkflowLineId: '1744247168908267520',
+        approveWorkflowNodeType: 20,
+        approveAction: 100,
+        approveActionMode: 200,
+        note: '拟同意',
+        channel: '504f6296bf1a4b3f9831d9c38d8f6a7b',
+        status: 100,
+        createOperatorId: '1701146521682186240',
+        createTime: '2024-01-08 15:02:07',
+        updateOperatorId: '1701146521682186240',
+        updateTime: '2024-01-08 15:02:07',
+        workflowCaseProcessHistoryId: '1744253128150224896',
+        key: '1744253128150224896',
+        approveActionNote: '通过',
+        approveActionModeNote: '人工操作',
+        approveUserName: '卢志涛',
+        approveUserSignet: signet,
+        approveWorkflowNodeTypeNote: '过程点',
+        statusNote: '正常',
+        workflowName: '范围测试流程T001',
+        flowCaseTitle: '范围测试流程T001实例',
+        approveWorkflowNodeName: '示例审批节点',
+      },
+    ].map((o) => {
+      const {
+        note,
+        approveWorkflowNodeName,
+        approveUserName,
+        approveUserSignet,
+        createTime,
+      } = {
+        approveWorkflowNodeName: '',
+        note: '',
+        approveUserName: '张三',
+        approveUserSignet: '',
+        createTime: '',
+        ...o,
+      };
+
+      return {
+        ...o,
+        title: approveWorkflowNodeName,
+        note: note || '未填写',
+        name: approveUserName,
+        signet: approveUserSignet || emptySignet,
+        time: createTime,
+      };
+    });
+
     return {
       list: [
         {
@@ -153,6 +210,28 @@ class SignetInfo extends TabPageBase {
               afterUploadSuccess: (imageData) => {
                 this.afterImageUploadSuccess(imageData);
               },
+            },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.picture(),
+            text: '签名效果预览',
+            subText: '[需要先保存哦!]',
+          },
+          items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.component,
+              component: (
+                <DocumentPrintDesigner
+                  showToolbar={false}
+                  canDesign={false}
+                  showTitle={false}
+                  showRemark={false}
+                  approveList={listApprove}
+                />
+              ),
             },
           ],
         },

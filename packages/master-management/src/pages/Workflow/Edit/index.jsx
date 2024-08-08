@@ -44,6 +44,7 @@ import {
 } from '../Assist/config';
 import { fieldData } from '../Common/data';
 import { FlowDisplayDrawer } from '../FlowDisplayDrawer';
+import { SetCaseNameTemplateDrawer } from '../SetCaseNameTemplateDrawer';
 import { UpdateChannelModal } from '../UpdateChannelModal';
 import { UpdateMultibranchModal } from '../UpdateMultibranchModal';
 import { UpdateMultiEndModal } from '../UpdateMultiEndModal';
@@ -252,6 +253,14 @@ class Detail extends DataTabContainerSupplement {
     });
   };
 
+  showSetCaseNameTemplateDrawer = () => {
+    SetCaseNameTemplateDrawer.open();
+  };
+
+  afterSetCaseNameTemplateDrawerOk = () => {
+    this.reloadData({});
+  };
+
   showUpdateMultibranchModal = () => {
     UpdateMultibranchModal.open();
   };
@@ -326,6 +335,19 @@ class Detail extends DataTabContainerSupplement {
           ),
           handleClick: ({ handleData }) => {
             that.showUpdateChannelModal(handleData);
+          },
+        },
+        {
+          buildType: extraBuildType.generalExtraButton,
+          type: 'default',
+          icon: iconBuilder.form(),
+          text: '设置实例名模板',
+          handleData: metaData,
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.setCaseNameTemplate.permission,
+          ),
+          handleClick: ({ handleData }) => {
+            that.showSetCaseNameTemplateDrawer(handleData);
           },
         },
         {
@@ -643,6 +665,13 @@ class Detail extends DataTabContainerSupplement {
 
     return (
       <>
+        <SetCaseNameTemplateDrawer
+          externalData={{ workflowId }}
+          afterOK={() => {
+            this.afterSetCaseNameTemplateDrawerOk();
+          }}
+        />
+
         <UpdateMultibranchModal
           externalData={{ workflowId }}
           afterOK={() => {

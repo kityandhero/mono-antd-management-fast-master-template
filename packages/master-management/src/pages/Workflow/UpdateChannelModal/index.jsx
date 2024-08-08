@@ -57,28 +57,6 @@ class UpdateChannelModal extends BaseUpdateModal {
     return d;
   };
 
-  fillInitialValuesAfterLoad = ({
-    metaData = null,
-    // eslint-disable-next-line no-unused-vars
-    metaListData = [],
-    // eslint-disable-next-line no-unused-vars
-    metaExtra = null,
-    // eslint-disable-next-line no-unused-vars
-    metaOriginalData = null,
-  }) => {
-    const values = {};
-
-    if (metaData != null) {
-      values[fieldData.channel.name] = getValueByKey({
-        data: metaData,
-        key: fieldData.channel.name,
-        convert: convertCollection.string,
-      });
-    }
-
-    return values;
-  };
-
   buildNotificationDescription = (
     // eslint-disable-next-line no-unused-vars
     singleData,
@@ -112,6 +90,28 @@ class UpdateChannelModal extends BaseUpdateModal {
       data: metaData,
       key: fieldData.name.name,
     });
+  };
+
+  fillInitialValuesAfterLoad = ({
+    metaData = null,
+    // eslint-disable-next-line no-unused-vars
+    metaListData = [],
+    // eslint-disable-next-line no-unused-vars
+    metaExtra = null,
+    // eslint-disable-next-line no-unused-vars
+    metaOriginalData = null,
+  }) => {
+    const values = {};
+
+    if (metaData != null) {
+      values[fieldData.channel.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.channel.name,
+        convert: convertCollection.string,
+      });
+    }
+
+    return values;
   };
 
   establishCardCollectionConfig = () => {

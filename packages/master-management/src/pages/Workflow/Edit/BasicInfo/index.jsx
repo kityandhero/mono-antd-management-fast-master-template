@@ -99,10 +99,19 @@ class BasicInfo extends TabPageBase {
           },
           items: [
             {
-              lg: 18,
+              lg: 24,
               type: cardConfig.contentItemType.input,
               fieldData: fieldData.name,
               require: true,
+            },
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.onlyShowInput,
+              fieldData: fieldData.caseNameTemplate,
+              value: getValueByKey({
+                data: metaData,
+                key: fieldData.caseNameTemplate.name,
+              }),
             },
           ],
         },

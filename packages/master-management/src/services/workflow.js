@@ -47,6 +47,16 @@ export async function updateBasicInfoData(parameters) {
   });
 }
 
+export const setCaseNameTemplateDataApiAddress =
+  '/workflow/setCaseNameTemplate';
+
+export async function setCaseNameTemplateData(parameters) {
+  return request({
+    api: setCaseNameTemplateDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setChannelDataApiAddress = '/workflow/setChannel';
 
 export async function setChannelData(parameters) {
@@ -115,6 +125,45 @@ export const pageListOperateLogDataApiAddress = '/workflow/pageListOperateLog';
 export async function pageListOperateLogData(parameters) {
   return request({
     api: pageListOperateLogDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const statisticSubmitCountDataApiAddress =
+  '/workflow/statisticSubmitCount';
+
+export async function statisticSubmitCountData(parameters) {
+  return request({
+    api: statisticSubmitCountDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const statisticProcessedCountDataApiAddress =
+  '/workflow/statisticProcessedCount';
+
+export async function statisticProcessedCountData(parameters) {
+  return request({
+    api: statisticProcessedCountDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const statisticWaitCountDataApiAddress = '/workflow/statisticWaitCount';
+
+export async function statisticWaitCountData(parameters) {
+  return request({
+    api: statisticWaitCountDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const statisticCarbonCopyCountDataApiAddress =
+  '/workflow/statisticCarbonCopyCount';
+
+export async function statisticCarbonCopyCountData(parameters) {
+  return request({
+    api: statisticCarbonCopyCountDataApiAddress,
     params: parameters,
   });
 }

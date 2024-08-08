@@ -55,6 +55,26 @@ class UpdateMultiEndModal extends BaseUpdateModal {
     return d;
   };
 
+  establishFormAdditionalConfig = () => {
+    return {
+      labelCol: {
+        flex: '140px',
+      },
+      wrapperCol: {
+        flex: 'auto',
+      },
+    };
+  };
+
+  buildTitleSubText = () => {
+    const { metaData } = this.state;
+
+    return getValueByKey({
+      data: metaData,
+      key: fieldData.name.name,
+    });
+  };
+
   fillInitialValuesAfterLoad = ({
     metaData = null,
     // eslint-disable-next-line no-unused-vars
@@ -75,26 +95,6 @@ class UpdateMultiEndModal extends BaseUpdateModal {
     }
 
     return values;
-  };
-
-  establishFormAdditionalConfig = () => {
-    return {
-      labelCol: {
-        flex: '140px',
-      },
-      wrapperCol: {
-        flex: 'auto',
-      },
-    };
-  };
-
-  buildTitleSubText = () => {
-    const { metaData } = this.state;
-
-    return getValueByKey({
-      data: metaData,
-      key: fieldData.name.name,
-    });
   };
 
   establishCardCollectionConfig = () => {

@@ -2854,6 +2854,11 @@ export const accessWayGeneralCollection = {
       paramsKey: 'db250df0792063ebd82fe994c7f5b642',
       permission: '8a63ab515e30408db57a45d465af14b6',
     },
+    setCaseNameTemplate: {
+      title: '设置实例名模板',
+      paramsKey: '2a1780e0bd7e7c500417dfae0ab473a4',
+      permission: '9655598686db451683eacdd05150a50f',
+    },
     setChannel: {
       title: '更改渠道值，仅用于特殊情况',
       paramsKey: '29f7014f7b472d2c9c12a7d75fff6b6f',
@@ -2893,6 +2898,26 @@ export const accessWayGeneralCollection = {
       title: '操作日志列表',
       paramsKey: 'd3a42cc528ef7c42d4cfb8c1e5515f90',
       permission: '44858bcfa5994645b74d00e145de7425',
+    },
+    statisticSubmitCount: {
+      title: '统计提交审批总数',
+      paramsKey: 'cea17724f70b0c5b789ef9b28f0ca003',
+      permission: 'b5d56e9fca5c48c294b27f5cb0b6efe3',
+    },
+    statisticProcessedCount: {
+      title: '统计审批已办总数',
+      paramsKey: '24cf4c6a483bd50e87777f48f8493839',
+      permission: '09ab77913be04d1c98aba18a5efc1e94',
+    },
+    statisticWaitCount: {
+      title: '统计审批待办总数',
+      paramsKey: 'a2d75e15a5fc11f8e2dc518d04694a97',
+      permission: 'f31f6aa8e52b4c22a4208d0bcdcb8339',
+    },
+    statisticCarbonCopyCount: {
+      title: '统计审批抄送未读总数',
+      paramsKey: '80368a90bad2205cc8351a956d250095',
+      permission: '144dafcae5e149c1bb1e46be3915f16d',
     },
   },
   workflowBranchCondition: {

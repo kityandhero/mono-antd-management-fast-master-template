@@ -21,6 +21,12 @@ const { BaseVerticalFlexDrawer } = DataDrawer;
 
 const visibleFlag = '64d7f22032f54376a6af4777d475b680';
 
+const defaultProperties = {
+  canDesign: false,
+  approveList: [],
+  values: [],
+};
+
 @connect(({ workflowFormDesign, schedulingControl }) => ({
   workflowFormDesign,
   schedulingControl,
@@ -107,7 +113,10 @@ class FlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
   };
 
   renderPresetContentContainorInnerTop = () => {
-    const { canDesign, values, approveList } = this.props;
+    const { canDesign, values, approveList } = {
+      ...defaultProperties,
+      ...this.props,
+    };
     const { metaData } = this.state;
 
     const remarkSchemaList = getValueByKey({
@@ -197,11 +206,5 @@ class FlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
     );
   };
 }
-
-FlowCaseFormDocumentDrawer.defaultProps = {
-  canDesign: false,
-  approveList: [],
-  values: [],
-};
 
 export { FlowCaseFormDocumentDrawer };

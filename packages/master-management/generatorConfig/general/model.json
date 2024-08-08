@@ -4644,6 +4644,13 @@
           "type": "singleData"
         },
         {
+          "title": "设置实例名模板",
+          "api": "/workflow/setCaseNameTemplate",
+          "effect": "setCaseNameTemplate",
+          "service": "setCaseNameTemplateData",
+          "type": "singleData"
+        },
+        {
           "title": "更改渠道值，仅用于特殊情况",
           "api": "/workflow/setChannel",
           "effect": "setChannel",
@@ -4698,6 +4705,34 @@
           "effect": "pageListOperateLog",
           "service": "pageListOperateLogData",
           "type": "pageList"
+        },
+        {
+          "title": "统计提交审批总数",
+          "api": "/workflow/statisticSubmitCount",
+          "effect": "statisticSubmitCount",
+          "service": "statisticSubmitCountData",
+          "type": "singleData"
+        },
+        {
+          "title": "统计审批已办总数",
+          "api": "/workflow/statisticProcessedCount",
+          "effect": "statisticProcessedCount",
+          "service": "statisticProcessedCountData",
+          "type": "singleData"
+        },
+        {
+          "title": "统计审批待办总数",
+          "api": "/workflow/statisticWaitCount",
+          "effect": "statisticWaitCount",
+          "service": "statisticWaitCountData",
+          "type": "singleData"
+        },
+        {
+          "title": "统计审批抄送未读总数",
+          "api": "/workflow/statisticCarbonCopyCount",
+          "effect": "statisticCarbonCopyCount",
+          "service": "statisticCarbonCopyCountData",
+          "type": "singleData"
         }
       ],
       "cover": true,

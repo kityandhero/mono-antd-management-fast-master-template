@@ -59,6 +59,7 @@ import { fieldData as fieldDataWorkflowDebugCaseProcessHistory } from '../../../
 import { WorkflowDebugCaseProcessHistoryPageListDrawer } from '../../../WorkflowDebugCaseProcessHistory/PageListDrawer';
 import { PassModal } from '../../../WorkflowDebugCaseProcessHistory/PassModal';
 import { RefuseModal } from '../../../WorkflowDebugCaseProcessHistory/RefuseModal';
+import { DataSchemaDrawer } from '../../../WorkflowFormDesign/DataSchemaDrawer';
 import { FlowCaseFormDocumentDrawer } from '../../../WorkflowFormDesign/FlowCaseFormDocumentDrawer';
 import { fieldData as fieldDataWorkflowLine } from '../../../WorkflowLine/Common/data';
 import { fieldData as fieldDataWorkflowNode } from '../../../WorkflowNode/Common/data';
@@ -699,6 +700,10 @@ class DebugCaseInfo extends TabPageBase {
     this.reloadData({});
   };
 
+  showDataSchemaDrawer = () => {
+    DataSchemaDrawer.open();
+  };
+
   showWorkflowNodeDetailDrawer = () => {
     WorkflowNodeDetailDrawer.open();
   };
@@ -830,6 +835,23 @@ class DebugCaseInfo extends TabPageBase {
               {
                 buildType: cardConfig.extraBuildType.generalExtraButton,
                 type: 'default',
+                icon: iconBuilder.read(),
+                text: '表单数据配置信息',
+                disabled: !firstLoadSuccess,
+                hidden: !checkHasAuthority(
+                  accessWayCollection.workflowFormDesign.getByWorkflow
+                    .permission,
+                ),
+                handleClick: () => {
+                  this.showDataSchemaDrawer();
+                },
+              },
+              {
+                buildType: cardConfig.extraBuildType.divider,
+              },
+              {
+                buildType: cardConfig.extraBuildType.generalExtraButton,
+                type: 'default',
                 icon: iconBuilder.enable(),
                 text: '开启撤销审批功能',
                 disabled: !firstLoadSuccess,
@@ -917,6 +939,14 @@ class DebugCaseInfo extends TabPageBase {
               lg: 24,
               type: cardConfig.contentItemType.customGrid,
               list: [
+                {
+                  span: 4,
+                  label: fieldData.caseNameTemplate.label,
+                  value: getValueByKey({
+                    data: metaData,
+                    key: fieldData.caseNameTemplate.name,
+                  }),
+                },
                 {
                   span: 2,
                   label: fieldData.title.label,
@@ -1405,6 +1435,8 @@ class DebugCaseInfo extends TabPageBase {
             this.afterFormDrawerOk();
           }}
         />
+
+        <DataSchemaDrawer maskClosable externalData={metaData} />
 
         <WorkflowNodeDetailDrawer
           maskClosable
