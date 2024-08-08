@@ -2,6 +2,7 @@ import { connect } from 'easy-soft-dva';
 import { convertCollection, getValueByKey } from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
+import { iconBuilder } from 'antd-management-fast-component';
 import { DataDisplayer } from 'antd-management-fast-design-playground';
 import {
   DataDrawer,
@@ -142,16 +143,14 @@ class SetCaseNameTemplateDrawer extends BaseUpdateDrawer {
               fieldData: fieldData.caseNameTemplate,
               require: true,
             },
-            {
-              lg: 18,
-              type: cardConfig.contentItemType.divider,
-              text: '表单数据信息',
-              innerProps: {
-                style: {
-                  margin: '20px 0',
-                },
-              },
-            },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
+            text: '表单数据信息',
+          },
+          items: [
             {
               lg: 24,
               type: cardConfig.contentItemType.component,
