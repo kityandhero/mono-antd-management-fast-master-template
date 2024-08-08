@@ -46,6 +46,7 @@ import {
 import { fieldData } from '../../../WorkflowDebugCase/Common/data';
 import { WorkflowDebugCasePageListLatestApprove } from '../../../WorkflowDebugCase/PageListLatestApprove';
 import { WorkflowDebugCasePageListWaitApprove } from '../../../WorkflowDebugCase/PageListWaitApprove';
+import { ProcessChainDrawer } from '../../../WorkflowDebugCase/ProcessChainDrawer';
 import { UpdateBasicInfoDrawer } from '../../../WorkflowDebugCase/UpdateBasicInfoDrawer';
 import { fieldData as fieldDataWorkflowDebugCaseCarbonCopyNotification } from '../../../WorkflowDebugCaseCarbonCopyNotification/Common/data';
 import { FormDrawer } from '../../../WorkflowDebugCaseFormStorage/FormDrawer';
@@ -696,6 +697,10 @@ class DebugCaseInfo extends TabPageBase {
     FormDrawer.open();
   };
 
+  showProcessChainDrawer = () => {
+    ProcessChainDrawer.open();
+  };
+
   afterFormDrawerOk = () => {
     this.reloadData({});
   };
@@ -831,6 +836,20 @@ class DebugCaseInfo extends TabPageBase {
               },
               {
                 buildType: cardConfig.extraBuildType.divider,
+              },
+              {
+                buildType: cardConfig.extraBuildType.generalExtraButton,
+                type: 'default',
+                icon: iconBuilder.read(),
+                text: '表单审批流转节点',
+                disabled: !firstLoadSuccess,
+                hidden: !checkHasAuthority(
+                  accessWayCollection.workflowDebugCase.getChainByWorkflow
+                    .permission,
+                ),
+                handleClick: () => {
+                  this.showProcessChainDrawer();
+                },
               },
               {
                 buildType: cardConfig.extraBuildType.generalExtraButton,
@@ -1437,6 +1456,8 @@ class DebugCaseInfo extends TabPageBase {
         />
 
         <DataSchemaDrawer maskClosable externalData={metaData} />
+
+        <ProcessChainDrawer maskClosable externalData={metaData} />
 
         <WorkflowNodeDetailDrawer
           maskClosable

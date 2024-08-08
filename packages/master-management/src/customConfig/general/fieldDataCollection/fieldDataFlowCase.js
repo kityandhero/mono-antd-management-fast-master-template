@@ -6,6 +6,26 @@ const fieldExtraData = {
     name: 'listFormStorage',
     helper: '',
   },
+  listChainAll: {
+    label: '所有过程链条集合',
+    name: 'listChainAll',
+    helper: '',
+  },
+  treeChainAll: {
+    label: '所有过程链条树',
+    name: 'treeChainAll',
+    helper: '',
+  },
+  listChainApprove: {
+    label: '所有审批链条集合',
+    name: 'listChainApprove',
+    helper: '',
+  },
+  treeChainApprove: {
+    label: '所有审批链条树',
+    name: 'treeChainApprove',
+    helper: '',
+  },
   canEdit: {
     label: '可编辑',
     name: 'canEdit',

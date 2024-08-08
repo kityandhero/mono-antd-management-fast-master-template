@@ -47,6 +47,16 @@ export async function getByWorkflowData(parameters) {
   });
 }
 
+export const getChainByWorkflowDataApiAddress =
+  '/workflowDebugCase/getChainByWorkflow';
+
+export async function getChainByWorkflowData(parameters) {
+  return request({
+    api: getChainByWorkflowDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const updateBasicInfoDataApiAddress =
   '/workflowDebugCase/updateBasicInfo';
 

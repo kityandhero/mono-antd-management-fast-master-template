@@ -3025,6 +3025,11 @@ export const accessWayGeneralCollection = {
       paramsKey: 'd68b65bef3957bce02b6d1ac7f4a3e9e',
       permission: '1685b6c1dd5e4243b95966ff7ebbabd4',
     },
+    getChain: {
+      title: '通过当前表单内容对应的审批节点链',
+      paramsKey: '99a569fc0939334883f30c4d15271526',
+      permission: '51a8a28fd6224c9993ce12459c065e56',
+    },
     openCancelApproveSwitch: {
       title: '开启撤销审批功能',
       paramsKey: 'e035729a5532c2ce37d84af68cc05b0a',
@@ -3162,6 +3167,11 @@ export const accessWayGeneralCollection = {
       title: '通过流程设计获取流程测试实例详情',
       paramsKey: '89cfd4ee2773e3651c8375eef3b7456a',
       permission: '6f8e50d1eebb4068a9510c651d4a7069',
+    },
+    getChainByWorkflow: {
+      title: '通过当前表单内容对应的审批节点链',
+      paramsKey: 'ca15853d1b1eb403dbf94a8deb68e44f',
+      permission: 'd573eda2a39b497db52752c13c6ddf95',
     },
     updateBasicInfo: {
       title: '更新流程测试实例',

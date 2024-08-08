@@ -9,8 +9,8 @@ import {
 } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { buildOrganizationGraphConfig } from '../../../utils';
 import { fieldData } from '../../Subsidiary/Common/data';
-import { buildConfig } from '../Assist/tool';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
@@ -70,7 +70,7 @@ class GraphicalSingleSubsidiaryDepartmentTreeDrawer extends BaseVerticalFlexDraw
         }}
       >
         <OrganizationGraph
-          {...buildConfig()}
+          {...buildOrganizationGraphConfig()}
           data={
             metaData || {
               id: 'root',

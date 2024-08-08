@@ -18,6 +18,15 @@ export async function getData(parameters) {
   });
 }
 
+export const getChainDataApiAddress = '/workflowCase/getChain';
+
+export async function getChainData(parameters) {
+  return request({
+    api: getChainDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const openCancelApproveSwitchDataApiAddress =
   '/workflowCase/openCancelApproveSwitch';
 

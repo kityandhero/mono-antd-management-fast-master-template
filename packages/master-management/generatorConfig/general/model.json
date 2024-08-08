@@ -4896,6 +4896,13 @@
           "type": "singleData"
         },
         {
+          "title": "通过当前表单内容对应的审批节点链",
+          "api": "/workflowCase/getChain",
+          "effect": "getChain",
+          "service": "getChainData",
+          "type": "singleData"
+        },
+        {
           "title": "开启撤销审批功能",
           "api": "/workflowCase/openCancelApproveSwitch",
           "effect": "openCancelApproveSwitch",
@@ -5110,6 +5117,13 @@
           "api": "/workflowDebugCase/getByWorkflow",
           "effect": "getByWorkflow",
           "service": "getByWorkflowData",
+          "type": "singleData"
+        },
+        {
+          "title": "通过当前表单内容对应的审批节点链",
+          "api": "/workflowDebugCase/getChainByWorkflow",
+          "effect": "getChainByWorkflow",
+          "service": "getChainByWorkflowData",
           "type": "singleData"
         },
         {

@@ -7,7 +7,7 @@ import { iconBuilder } from 'antd-management-fast-component';
 import { DataForm } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
-import { buildConfig } from '../Assist/tool';
+import { buildOrganizationGraphConfig } from '../../../utils';
 
 const { BaseUpdateForm } = DataForm;
 
@@ -69,7 +69,7 @@ class AddBasicInfo extends BaseUpdateForm {
               type: cardConfig.contentItemType.component,
               component: metaData ? (
                 <OrganizationGraph
-                  {...buildConfig()}
+                  {...buildOrganizationGraphConfig()}
                   data={
                     metaData || {
                       id: 'root',

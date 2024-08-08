@@ -11,6 +11,7 @@ import {
   closeCancelApproveSwitchData,
   closeResetAllApproveSwitchData,
   getByWorkflowData,
+  getChainByWorkflowData,
   getData,
   openCancelApproveSwitchData,
   openResetAllApproveSwitchData,
@@ -147,6 +148,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(getByWorkflowData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *getChainByWorkflow(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(getChainByWorkflowData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
