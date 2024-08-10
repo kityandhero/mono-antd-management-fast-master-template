@@ -101,8 +101,6 @@ class PageList extends MultiPage {
     const d = o;
     const { tagIdCollection } = this.state;
 
-    console.log({ o });
-
     d[fieldData.tagIdCollection.name] = tagIdCollection.join(',');
 
     return d;

@@ -146,8 +146,6 @@ class ProcessChainDrawer extends BaseVerticalFlexDrawer {
   renderPresetContentContainorInnerTop = () => {
     const { showOnlyApprove, treeChainAll, treeChainApprove } = this.state;
 
-    console.log({ treeChainAll, treeChainApprove });
-
     return (
       <ScrollFacadeBox
         style={{

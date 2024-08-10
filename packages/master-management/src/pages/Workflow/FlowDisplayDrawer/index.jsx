@@ -242,6 +242,4 @@ class FlowDisplayDrawer extends BaseVerticalFlexDrawer {
   };
 }
 
-FlowDisplayDrawer.defaultProps = {};
-
 export { FlowDisplayDrawer };

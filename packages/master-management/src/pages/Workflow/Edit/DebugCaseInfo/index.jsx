@@ -379,6 +379,9 @@ class DebugCaseInfo extends TabPageBase {
       loadApiPath: 'workflowDebugCase/getByWorkflow',
       workflowId: null,
       listApprove: [],
+      listProcessHistory: [],
+      nodeList: [],
+      edgeList: [],
     };
   }
 

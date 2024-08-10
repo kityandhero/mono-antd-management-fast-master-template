@@ -54,8 +54,6 @@ class PageList extends InnerMultiPage {
     const d = o;
     const { questionnaireId } = this.state;
 
-    console.log(this.state);
-
     d[fieldDataQuestionnaireQuestion.questionnaireId.name] = questionnaireId;
 
     return d;

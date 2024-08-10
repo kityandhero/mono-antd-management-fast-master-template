@@ -116,6 +116,11 @@ const fieldExtraData = {
     name: 'workflowChannel',
     helper: '',
   },
+  workflowFormDesign: {
+    label: '表单设计',
+    name: 'workflowFormDesign',
+    helper: '',
+  },
 };
 
 export const fieldDataFlowCase = {
