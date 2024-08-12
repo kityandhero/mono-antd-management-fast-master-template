@@ -1,10 +1,15 @@
 import { connect } from 'easy-soft-dva';
-import { createDayJsDatetime, getValueByKey } from 'easy-soft-utility';
+import {
+  convertCollection,
+  createDayJsDatetime,
+  getValueByKey,
+} from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
 import { keyValueEditModeCollection } from '../../../customConfig';
+import { renderFormFlowFormDisplayModeSelect } from '../../../customSpecialComponents';
 import { buildKeyTag } from '../../../utils';
 import { fieldData } from '../Common/data';
 
@@ -128,6 +133,7 @@ class UpdateKeyValueInfoModal extends BaseUpdateModal {
           values.value = getValueByKey({
             data: currentData,
             key: targetFieldData.name,
+            convert: convertCollection.string,
           });
           break;
         }
@@ -144,8 +150,14 @@ class UpdateKeyValueInfoModal extends BaseUpdateModal {
     } = this.props;
 
     let editType = cardConfig.contentItemType.input;
+    let component = null;
 
     switch (editMode) {
+      case keyValueEditModeCollection.input: {
+        editType = cardConfig.contentItemType.input;
+        break;
+      }
+
       case keyValueEditModeCollection.time: {
         editType = cardConfig.contentItemType.timePicker;
         break;
@@ -165,6 +177,13 @@ class UpdateKeyValueInfoModal extends BaseUpdateModal {
         editType = cardConfig.contentItemType.textarea;
         break;
       }
+      case keyValueEditModeCollection.flowFormDisplayModeWhenApproval: {
+        editType = cardConfig.contentItemType.component;
+        component = renderFormFlowFormDisplayModeSelect({
+          name: 'value',
+        });
+        break;
+      }
 
       default: {
         editType = cardConfig.contentItemType.input;
@@ -181,6 +200,7 @@ class UpdateKeyValueInfoModal extends BaseUpdateModal {
             {
               lg: 24,
               type: editType,
+              ...(component == null ? {} : { component }),
               fieldData: {
                 label,
                 name: 'value',

@@ -181,6 +181,11 @@ export const fieldData = {
     name: 'flowDebugUserId',
     helper: '',
   },
+  flowDebugUserRealName: {
+    label: '用于流程调试的用户姓名',
+    name: 'flowDebugUserRealName',
+    helper: '',
+  },
   flowApproveNotificationTemplate: {
     label: '用于流程调试的审批消息模板',
     name: 'flowApproveNotificationTemplate',
@@ -344,6 +349,11 @@ export const fieldData = {
   scoreAlias: {
     label: '积分别名',
     name: 'scoreAlias',
+    helper: '',
+  },
+  flowFormDisplayModeWhenApproval: {
+    label: '流程表单审批时的显示模式',
+    name: 'flowFormDisplayModeWhenApproval',
     helper: '',
   },
   obtainScoreByReadSwitch: {

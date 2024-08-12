@@ -231,6 +231,11 @@
       "name": "toPosition"
     },
     {
+      "functionSegment": "FlowFormDisplayMode",
+      "label": "流程表单显示模式",
+      "name": "displayMode"
+    },
+    {
       "functionSegment": "FlowFormDesignStatus",
       "label": "状态",
       "name": "status"

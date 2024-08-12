@@ -42,6 +42,7 @@ export * from './FlowCaseProcessHistoryStatus';
 export * from './FlowCaseStatus';
 export * from './FlowEffectiveRange';
 export * from './FlowFormDesignStatus';
+export * from './FlowFormDisplayMode';
 export * from './FlowLineFromPosition';
 export * from './FlowLineStatus';
 export * from './FlowLineToPosition';
