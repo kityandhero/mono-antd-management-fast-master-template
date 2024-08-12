@@ -10,13 +10,14 @@ import {
   isArray,
   isEmptyArray,
   isEmptyObject,
+  logException,
 } from 'easy-soft-utility';
 
 import {
   cardConfig,
   getDerivedStateFromPropertiesForUrlParameters,
 } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
+import { CenterBox, iconBuilder } from 'antd-management-fast-component';
 import {
   DocumentPrintDesigner,
   FileViewer,
@@ -27,6 +28,8 @@ import { FlowProcessHistory } from 'antd-management-fast-flow';
 import {
   accessWayCollection,
   emptySignet,
+  fieldDataFlowCaseFormAttachment,
+  fieldDataFlowFormDesign,
   flowApproveActionModeCollection,
   flowNodeTypeCollection,
 } from '../../../../customConfig';
@@ -40,6 +43,7 @@ import { fieldData as fieldDataWorkflowCaseProcessHistory } from '../../../Workf
 import { fieldData as fieldDataWorkflowFormDesign } from '../../../WorkflowFormDesign/Common/data';
 import { FlowCaseFormDocumentDrawer } from '../../../WorkflowFormDesign/FlowCaseFormDocumentDrawer';
 import { fieldData as fieldDataWorkflowNode } from '../../../WorkflowNode/Common/data';
+import { getChainAction } from '../../Assist/action';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
@@ -322,6 +326,7 @@ class BasicInfo extends TabPageBase {
       submitApiPath: 'workflowCase/submitForm',
       workflowCaseId: null,
       listApprove: [],
+      useDocumentDisplay: true,
     };
   }
 
@@ -333,6 +338,45 @@ class BasicInfo extends TabPageBase {
       parseUrlParametersForSetState,
     );
   }
+
+  doOtherRemoteRequest = () => {
+    this.loadChainApprove();
+  };
+
+  loadChainApprove = () => {
+    const { workflowCaseId } = this.state;
+
+    getChainAction({
+      target: this,
+      handleData: {
+        workflowCaseId: workflowCaseId ?? '',
+      },
+      successCallback: ({ target, remoteData }) => {
+        const listChainApprove = getValueByKey({
+          data: remoteData,
+          key: fieldData.listChainApprove.name,
+          convert: convertCollection.array,
+        });
+
+        target.setState({
+          listChainApprove: isArray(listChainApprove)
+            ? listChainApprove.map((o) => {
+                const { name } = { name: '', ...o };
+
+                return {
+                  title: name,
+                  ...o,
+                };
+              })
+            : [],
+        });
+      },
+    });
+  };
+
+  reloadChainApprove = () => {
+    this.loadChainApprove();
+  };
 
   doOtherAfterLoadSuccess = ({
     // eslint-disable-next-line no-unused-vars
@@ -424,13 +468,10 @@ class BasicInfo extends TabPageBase {
   };
 
   establishCardCollectionConfig = () => {
-    const { firstLoadSuccess, metaData, listApprove } = this.state;
+    const { firstLoadSuccess, useDocumentDisplay, metaData } = this.state;
 
     const {
-      workflowFormDesign,
       nextApproveWorkflowNode,
-      listFormStorage,
-      listAttachment,
       listProcessHistory,
       listNextProcessNotification,
       listCarbonCopyNotification,
@@ -447,41 +488,6 @@ class BasicInfo extends TabPageBase {
       ...metaData,
     };
 
-    const designJson = getValueByKey({
-      data: workflowFormDesign,
-      key: fieldDataWorkflowFormDesign.designSchema.name,
-    });
-
-    const designData = {
-      form: {},
-      schema: {},
-      ...(checkStringIsNullOrWhiteSpace(designJson)
-        ? {}
-        : JSON.parse(designJson)),
-    };
-
-    const dataSchemaList = getValueByKey({
-      data: workflowFormDesign,
-      key: fieldDataWorkflowFormDesign.dataSchemaList.name,
-      convert: convertCollection.array,
-    });
-
-    const hasDataSchema = dataSchemaList.length > 0;
-
-    const initialValues = buildFormInitialValues(listFormStorage);
-
-    const remarkSchemaList = getValueByKey({
-      data: workflowFormDesign,
-      key: fieldDataWorkflowFormDesign.remarkSchemaList.name,
-      convert: convertCollection.array,
-    });
-
-    const remarkColor = getValueByKey({
-      data: workflowFormDesign,
-      key: fieldDataWorkflowFormDesign.remarkColor.name,
-      defaultValue: '',
-    });
-
     return {
       list: [
         {
@@ -494,6 +500,31 @@ class BasicInfo extends TabPageBase {
           extra: {
             affix: true,
             list: [
+              {
+                buildType: cardConfig.extraBuildType.generalExtraButton,
+                icon: iconBuilder.read(),
+                text: '文档模式',
+                disabled: useDocumentDisplay,
+                handleClick: () => {
+                  this.setState({
+                    useDocumentDisplay: true,
+                  });
+                },
+              },
+              {
+                buildType: cardConfig.extraBuildType.generalExtraButton,
+                icon: iconBuilder.form(),
+                text: '表单模式',
+                disabled: !useDocumentDisplay,
+                handleClick: () => {
+                  this.setState({
+                    useDocumentDisplay: false,
+                  });
+                },
+              },
+              {
+                buildType: cardConfig.extraBuildType.divider,
+              },
               {
                 buildType: cardConfig.extraBuildType.generalExtraButton,
                 type: 'default',
@@ -520,77 +551,9 @@ class BasicInfo extends TabPageBase {
             {
               lg: 24,
               type: cardConfig.contentItemType.component,
-              component: (
-                <div
-                  style={{
-                    paddingTop: '20px',
-                  }}
-                >
-                  <SchemaDisplayer
-                    {...designData}
-                    initialValues={initialValues}
-                    showSubmit={false}
-                    showSubmitDivider={false}
-                    submitButtonText="提交表单"
-                    descriptionTitleColor={remarkColor}
-                    descriptionLabelColor={remarkColor}
-                    descriptionTextColor={remarkColor}
-                    descriptions={remarkSchemaList}
-                    descriptionUpperLabel="附件列表"
-                    descriptionUpperComponent={
-                      <FileViewer
-                        canUpload={false}
-                        canRemove={false}
-                        list={listAttachment}
-                        dataTransfer={(o) => {
-                          return {
-                            ...o,
-                            name: getValueByKey({
-                              data: o,
-                              key: fieldDataWorkflowCaseFormAttachment.alias
-                                .name,
-                            }),
-                            url: getValueByKey({
-                              data: o,
-                              key: fieldDataWorkflowCaseFormAttachment.url.name,
-                            }),
-                          };
-                        }}
-                        onUploadButtonClick={() => {
-                          this.showAddAttachmentModal();
-                        }}
-                        onItemClick={(o) => {
-                          this.showWorkflowCaseFormAttachmentPreviewDrawer(o);
-                        }}
-                        onRemove={(o) => {
-                          this.removeAttachment(o);
-                        }}
-                      />
-                    }
-                    onSubmit={(o) => {
-                      this.saveForm(o);
-                    }}
-                  >
-                    {hasDataSchema ? null : (
-                      <Empty description="暂无表单设计，请首先进行设计" />
-                    )}
-                  </SchemaDisplayer>
-
-                  {!isArray(listApprove) || isEmptyArray(listApprove) ? null : (
-                    <Divider>审批信息</Divider>
-                  )}
-
-                  {!isArray(listApprove) || isEmptyArray(listApprove) ? null : (
-                    <DocumentPrintDesigner
-                      showToolbar={false}
-                      canDesign={false}
-                      showTitle={false}
-                      showRemark={false}
-                      approveList={listApprove}
-                    />
-                  )}
-                </div>
-              ),
+              component: useDocumentDisplay
+                ? this.renderFlowCaseFormDocumentDisplay()
+                : this.renderFlowCaseFormFieldDisplay(),
             },
           ],
         },
@@ -689,8 +652,268 @@ class BasicInfo extends TabPageBase {
     };
   };
 
+  renderFlowCaseFormFieldDisplay = () => {
+    const { metaData, listApprove } = this.state;
+
+    const { workflowFormDesign, listFormStorage, listAttachment } = {
+      workflowFormDesign: {},
+      nextApproveWorkflowNode: null,
+      listFormStorage: [],
+      listAttachment: [],
+      listProcessHistory: [],
+      listNextProcessNotification: [],
+      listCarbonCopyNotification: [],
+      listLatestApprove: [],
+      ...metaData,
+    };
+
+    const designJson = getValueByKey({
+      data: workflowFormDesign,
+      key: fieldDataWorkflowFormDesign.designSchema.name,
+    });
+
+    const designData = {
+      form: {},
+      schema: {},
+      ...(checkStringIsNullOrWhiteSpace(designJson)
+        ? {}
+        : JSON.parse(designJson)),
+    };
+
+    const dataSchemaList = getValueByKey({
+      data: workflowFormDesign,
+      key: fieldDataWorkflowFormDesign.dataSchemaList.name,
+      convert: convertCollection.array,
+    });
+
+    const hasDataSchema = dataSchemaList.length > 0;
+
+    const initialValues = buildFormInitialValues(listFormStorage);
+
+    const remarkSchemaList = getValueByKey({
+      data: workflowFormDesign,
+      key: fieldDataWorkflowFormDesign.remarkSchemaList.name,
+      convert: convertCollection.array,
+    });
+
+    const remarkColor = getValueByKey({
+      data: workflowFormDesign,
+      key: fieldDataWorkflowFormDesign.remarkColor.name,
+      defaultValue: '',
+    });
+
+    return (
+      <div
+        style={{
+          paddingTop: '20px',
+        }}
+      >
+        <SchemaDisplayer
+          {...designData}
+          initialValues={initialValues}
+          showSubmit={false}
+          showSubmitDivider={false}
+          submitButtonText="提交表单"
+          descriptionTitleColor={remarkColor}
+          descriptionLabelColor={remarkColor}
+          descriptionTextColor={remarkColor}
+          descriptions={remarkSchemaList}
+          descriptionUpperLabel="附件列表"
+          descriptionUpperComponent={
+            <FileViewer
+              canUpload={false}
+              canRemove={false}
+              list={listAttachment}
+              dataTransfer={(o) => {
+                return {
+                  ...o,
+                  name: getValueByKey({
+                    data: o,
+                    key: fieldDataWorkflowCaseFormAttachment.alias.name,
+                  }),
+                  url: getValueByKey({
+                    data: o,
+                    key: fieldDataWorkflowCaseFormAttachment.url.name,
+                  }),
+                };
+              }}
+              onUploadButtonClick={() => {
+                this.showAddAttachmentModal();
+              }}
+              onItemClick={(o) => {
+                this.showWorkflowCaseFormAttachmentPreviewDrawer(o);
+              }}
+              onRemove={(o) => {
+                this.removeAttachment(o);
+              }}
+            />
+          }
+          onSubmit={(o) => {
+            this.saveForm(o);
+          }}
+        >
+          {hasDataSchema ? null : (
+            <Empty description="暂无表单设计，请首先进行设计" />
+          )}
+        </SchemaDisplayer>
+
+        {!isArray(listApprove) || isEmptyArray(listApprove) ? null : (
+          <Divider>审批信息</Divider>
+        )}
+
+        {!isArray(listApprove) || isEmptyArray(listApprove) ? null : (
+          <DocumentPrintDesigner
+            showToolbar={false}
+            canDesign={false}
+            showTitle={false}
+            showRemark={false}
+            approveList={listApprove}
+          />
+        )}
+      </div>
+    );
+  };
+
+  renderFlowCaseFormDocumentDisplay = () => {
+    const { metaData, listApprove, listChainApprove } = this.state;
+
+    const { workflowFormDesign, listFormStorage, listAttachment } = {
+      workflowFormDesign: {},
+      listFormStorage: [],
+      listAttachment: [],
+      ...metaData,
+    };
+
+    const remarkSchemaList = getValueByKey({
+      data: workflowFormDesign,
+      key: fieldDataFlowFormDesign.remarkSchemaList.name,
+      convert: convertCollection.array,
+    });
+
+    const documentSchema = getValueByKey({
+      data: workflowFormDesign,
+      key: fieldDataFlowFormDesign.documentSchema.name,
+      defaultValue: {},
+    });
+
+    const { general, items: itemsSource } = {
+      general: {},
+      items: [],
+      ...documentSchema,
+    };
+
+    const dataSchema = getValueByKey({
+      data: workflowFormDesign,
+      key: fieldDataFlowFormDesign.dataSchema.name,
+      defaultValue: '[]',
+    });
+
+    let listDataSchema = [];
+
+    try {
+      listDataSchema = JSON.parse(dataSchema);
+    } catch (error) {
+      logException(error);
+    }
+
+    let items = [];
+
+    if (
+      isArray(itemsSource) &&
+      !isEmptyArray(itemsSource) &&
+      isArray(listDataSchema)
+    ) {
+      for (const o of listDataSchema) {
+        const { name } = { name: '', ...o };
+
+        if (checkStringIsNullOrWhiteSpace(name)) {
+          continue;
+        }
+
+        let config = {};
+
+        for (const one of itemsSource) {
+          const { name: nameOne } = { name: '', ...one };
+
+          if (nameOne === name) {
+            config = one;
+
+            break;
+          }
+        }
+
+        items.push({ ...config, ...o });
+      }
+    } else {
+      items = listDataSchema;
+    }
+
+    return (
+      <>
+        <DocumentPrintDesigner
+          canDesign={false}
+          showToolbar={false}
+          title={getValueByKey({
+            data: metaData,
+            key: fieldData.workflowName.name,
+          })}
+          values={isArray(listFormStorage) ? listFormStorage : []}
+          schema={{
+            general: general || {},
+            items,
+          }}
+          approveList={isArray(listApprove) ? listApprove : []}
+          allApproveProcessList={listChainApprove}
+          remarkTitle="备注"
+          remarkName="remark"
+          remarkList={remarkSchemaList}
+        />
+
+        <CenterBox>
+          <div
+            style={{
+              paddingTop: '10px',
+              paddingLeft: '60px',
+              paddingRight: '60px',
+              width: '920px',
+            }}
+          >
+            <FileViewer
+              canUpload
+              canRemove
+              list={listAttachment}
+              dataTransfer={(o) => {
+                return {
+                  ...o,
+                  name: getValueByKey({
+                    data: o,
+                    key: fieldDataFlowCaseFormAttachment.alias.name,
+                  }),
+                  url: getValueByKey({
+                    data: o,
+                    key: fieldDataFlowCaseFormAttachment.url.name,
+                  }),
+                };
+              }}
+              onUploadButtonClick={() => {
+                this.showAddAttachmentModal();
+              }}
+              onItemClick={(o) => {
+                this.showWorkflowCaseFormAttachmentPreviewDrawer(o);
+              }}
+              onRemove={(o) => {
+                this.removeAttachment(o);
+              }}
+            />
+          </div>
+        </CenterBox>
+      </>
+    );
+  };
+
   renderPresetOther = () => {
-    const { metaData, currentAttachment, listApprove } = this.state;
+    const { metaData, currentAttachment, listApprove, listChainApprove } =
+      this.state;
 
     const listFormStorage = getValueByKey({
       data: metaData,
@@ -717,6 +940,7 @@ class BasicInfo extends TabPageBase {
           }}
           values={listFormStorage}
           approveList={listApprove}
+          allApproveProcessList={listChainApprove}
         />
       </>
     );

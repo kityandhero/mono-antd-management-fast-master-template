@@ -38,6 +38,7 @@ class PreviewDrawer extends BaseVerticalFlexDrawer {
 
     this.state = {
       ...this.state,
+      width: 1200,
       pageTitle: '附件预览',
       loadApiPath: 'workflowCaseFormAttachment/get',
       overlayButtonOpenText: '查看文件信息',
