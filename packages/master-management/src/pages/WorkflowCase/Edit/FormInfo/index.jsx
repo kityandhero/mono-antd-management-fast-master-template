@@ -3,6 +3,7 @@ import { Divider, Empty, Table } from 'antd';
 import { connect } from 'easy-soft-dva';
 import {
   checkHasAuthority,
+  checkInCollection,
   checkStringIsNullOrWhiteSpace,
   convertCollection,
   filter,
@@ -31,6 +32,7 @@ import {
   fieldDataFlowCaseFormAttachment,
   fieldDataFlowFormDesign,
   flowApproveActionModeCollection,
+  flowCaseStatusCollection,
   flowNodeTypeCollection,
 } from '../../../../customConfig';
 import { getChannelName } from '../../../../customSpecialComponents';
@@ -326,7 +328,8 @@ class BasicInfo extends TabPageBase {
       submitApiPath: 'workflowCase/submitForm',
       workflowCaseId: null,
       listApprove: [],
-      useDocumentDisplay: true,
+      listChainApprove: [],
+      useDocumentDisplay: false,
     };
   }
 
@@ -390,6 +393,12 @@ class BasicInfo extends TabPageBase {
   }) => {
     const { listProcessHistory } = metaData;
 
+    const flowCaseStatus = getValueByKey({
+      data: metaData,
+      key: fieldData.status.name,
+      defaultValue: {},
+    });
+
     const listApprove = filter(listProcessHistory, (one) => {
       const { approveActionMode } = {
         approveActionMode: 0,
@@ -425,7 +434,18 @@ class BasicInfo extends TabPageBase {
       };
     });
 
-    this.setState({ listApprove: [...listApprove] });
+    this.setState({
+      useDocumentDisplay: checkInCollection(
+        [
+          flowCaseStatusCollection.submitApproval,
+          flowCaseStatusCollection.inApprovalProcess,
+          flowCaseStatusCollection.success,
+          flowCaseStatusCollection.refuse,
+        ],
+        flowCaseStatus,
+      ),
+      listApprove: [...listApprove],
+    });
   };
 
   supplementSubmitRequestParams = (o) => {
@@ -737,14 +757,8 @@ class BasicInfo extends TabPageBase {
                   }),
                 };
               }}
-              onUploadButtonClick={() => {
-                this.showAddAttachmentModal();
-              }}
               onItemClick={(o) => {
                 this.showWorkflowCaseFormAttachmentPreviewDrawer(o);
-              }}
-              onRemove={(o) => {
-                this.removeAttachment(o);
               }}
             />
           }
@@ -879,8 +893,8 @@ class BasicInfo extends TabPageBase {
             }}
           >
             <FileViewer
-              canUpload
-              canRemove
+              showSubmit={false}
+              showSubmitDivider={false}
               list={listAttachment}
               dataTransfer={(o) => {
                 return {
@@ -895,14 +909,8 @@ class BasicInfo extends TabPageBase {
                   }),
                 };
               }}
-              onUploadButtonClick={() => {
-                this.showAddAttachmentModal();
-              }}
               onItemClick={(o) => {
                 this.showWorkflowCaseFormAttachmentPreviewDrawer(o);
-              }}
-              onRemove={(o) => {
-                this.removeAttachment(o);
               }}
             />
           </div>

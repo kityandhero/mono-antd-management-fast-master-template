@@ -23,6 +23,7 @@ export async function getChainAction({
     handleData,
     successCallback,
     successMessage,
+    showProcessing: false,
   });
 }
 
