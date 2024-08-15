@@ -9,6 +9,7 @@ import { getChainByWorkflowAction } from '../../WorkflowDebugCase/Assist/action'
 import { fieldData as fieldDataWorkflowDebugCase } from '../../WorkflowDebugCase/Common/data';
 import { AddAttachmentModal } from '../../WorkflowDebugCaseFormAttachment/AddAttachmentModal';
 import { removeAction } from '../../WorkflowDebugCaseFormAttachment/Assist/action';
+import { PreviewDrawer as WorkflowDebugCaseFormAttachmentPreviewDrawer } from '../../WorkflowDebugCaseFormAttachment/PreviewDrawer';
 
 const visibleFlag = 'd5007ce0991442e4a553b3d2ab28f927';
 
@@ -39,6 +40,7 @@ class FormDrawer extends BaseFlowCaseStorageFormDrawer {
       pageTitle: '工作流测试实例表单',
       loadApiPath: 'workflowDebugCase/get',
       submitApiPath: 'workflowDebugCase/submitForm',
+      currentAttachment: null,
     };
   }
 
@@ -97,14 +99,23 @@ class FormDrawer extends BaseFlowCaseStorageFormDrawer {
     AddAttachmentModal.open();
   };
 
+  openFlowCaseFormAttachmentPreviewDrawer = () => {
+    WorkflowDebugCaseFormAttachmentPreviewDrawer.open();
+  };
+
   renderPresetOther = () => {
-    const { metaData } = this.state;
+    const { metaData, currentAttachment } = this.state;
 
     return (
       <>
         <AddAttachmentModal
           externalData={metaData}
           afterClose={this.afterAddAttachmentModalClose}
+        />
+
+        <WorkflowDebugCaseFormAttachmentPreviewDrawer
+          maskClosable
+          externalData={currentAttachment}
         />
       </>
     );

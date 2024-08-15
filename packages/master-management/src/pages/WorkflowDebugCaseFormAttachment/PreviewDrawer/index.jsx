@@ -6,10 +6,10 @@ import { switchControlAssist } from 'antd-management-fast-framework';
 import { BasePreviewDrawer } from '../../../pageBases';
 import { fieldData } from '../Common/data';
 
-const visibleFlag = '1862037d2beb46af92d85d33e379acd6';
+const visibleFlag = '0ac8f79e1e1347aba69655bc25222fef';
 
-@connect(({ workflowCaseFormAttachment, schedulingControl }) => ({
-  workflowCaseFormAttachment,
+@connect(({ workflowDebugCaseFormAttachment, schedulingControl }) => ({
+  workflowDebugCaseFormAttachment,
   schedulingControl,
 }))
 class PreviewDrawer extends BasePreviewDrawer {
@@ -24,7 +24,7 @@ class PreviewDrawer extends BasePreviewDrawer {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'workflowCaseFormAttachment/get',
+      loadApiPath: 'workflowDebugCaseFormAttachment/get',
     };
   }
 
@@ -32,7 +32,7 @@ class PreviewDrawer extends BasePreviewDrawer {
     const d = o;
     const { externalData } = this.state;
 
-    d[fieldData.workflowCaseFormAttachmentId.name] =
+    d[fieldData.workflowDebugCaseFormAttachmentId.name] =
       this.getFlowCaseFormAttachmentId(externalData);
 
     return d;
@@ -41,13 +41,13 @@ class PreviewDrawer extends BasePreviewDrawer {
   getFlowCaseFormAttachmentId = (o) => {
     return getValueByKey({
       data: o,
-      key: fieldData.workflowCaseFormAttachmentId.name,
+      key: fieldData.workflowDebugCaseFormAttachmentId.name,
       defaultValue: '',
     });
   };
 
   getFlowCaseFormAttachmentIdLabel = () => {
-    return fieldData.workflowCaseFormAttachmentId.label;
+    return fieldData.workflowDebugCaseFormAttachmentId.label;
   };
 }
 

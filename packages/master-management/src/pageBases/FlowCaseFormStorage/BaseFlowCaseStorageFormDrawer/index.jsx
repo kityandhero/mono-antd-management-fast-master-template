@@ -9,7 +9,6 @@ import {
   isArray,
   isEmptyArray,
   logException,
-  showSimpleInfoMessage,
   whetherNumber,
 } from 'easy-soft-utility';
 
@@ -66,6 +65,7 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
       submitApiPath: 'workflowDebugCase/submitForm',
       width: 1024,
       workflowId: null,
+      currentAttachment: null,
       listChainApprove: [],
       listApprove: [],
       listProcessHistory: [],
@@ -189,6 +189,25 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
 
   afterAddAttachmentModalClose = () => {
     this.reloadData({});
+  };
+
+  showFlowCaseFormAttachmentPreviewDrawer = (item) => {
+    const that = this;
+
+    that.setState(
+      {
+        currentAttachment: item,
+      },
+      () => {
+        that.openFlowCaseFormAttachmentPreviewDrawer();
+      },
+    );
+  };
+
+  openFlowCaseFormAttachmentPreviewDrawer = () => {
+    throw new Error(
+      'openFlowCaseFormAttachmentPreviewDrawer need overrode to implement',
+    );
   };
 
   establishExtraActionConfig = () => {
@@ -376,8 +395,8 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
               onUploadButtonClick={() => {
                 this.showAddAttachmentModal();
               }}
-              onItemClick={() => {
-                showSimpleInfoMessage('示例: 点击预览按钮');
+              onItemClick={(o) => {
+                this.showFlowCaseFormAttachmentPreviewDrawer(o);
               }}
               onRemove={(o) => {
                 this.removeAttachment(o);
@@ -473,8 +492,8 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
             onUploadButtonClick={() => {
               this.showAddAttachmentModal();
             }}
-            onItemClick={() => {
-              showSimpleInfoMessage('示例: 点击预览按钮');
+            onItemClick={(o) => {
+              this.showFlowCaseFormAttachmentPreviewDrawer(o);
             }}
             onRemove={(o) => {
               this.removeAttachment(o);

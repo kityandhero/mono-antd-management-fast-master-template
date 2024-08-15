@@ -327,6 +327,7 @@ class BasicInfo extends TabPageBase {
       loadApiPath: 'workflowCase/get',
       submitApiPath: 'workflowCase/submitForm',
       workflowCaseId: null,
+      currentAttachment: null,
       listApprove: [],
       listChainApprove: [],
       useDocumentDisplay: false,
