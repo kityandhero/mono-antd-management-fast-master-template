@@ -4,23 +4,20 @@ import { checkHasAuthority, getValueByKey } from 'easy-soft-utility';
 import { switchControlAssist } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
-import { BaseFlowCaseProcessHistoryPageListDrawer } from '../../../pageBases';
-import { fieldData as fieldDataWorkflowDebugCase } from '../../WorkflowDebugCase/Common/data';
+import { BaseFlowCasePageListWaitApproveDrawer } from '../../../pageBases';
 import { refreshCacheAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
-const visibleFlag = 'b931db31bb2840178b73401d4d32d5a1';
+const visibleFlag = 'b341ea3ea37a45fc9b427f8010d36452';
 
-@connect(({ workflowDebugCaseProcessHistory, schedulingControl }) => ({
-  workflowDebugCaseProcessHistory,
+@connect(({ workflowDebugCase, schedulingControl }) => ({
+  workflowDebugCase,
   schedulingControl,
 }))
-class WorkflowDebugCaseProcessHistoryPageListDrawer extends BaseFlowCaseProcessHistoryPageListDrawer {
-  reloadWhenShow = true;
-
+class WorkflowDebugCasePageListWaitApproveDrawer extends BaseFlowCasePageListWaitApproveDrawer {
   componentAuthority =
-    accessWayCollection.workflowDebugCaseProcessHistory.pageList.permission;
+    accessWayCollection.workflowDebugCase.pageListWaitApprove.permission;
 
   static open() {
     switchControlAssist.open(visibleFlag);
@@ -31,25 +28,25 @@ class WorkflowDebugCaseProcessHistoryPageListDrawer extends BaseFlowCaseProcessH
 
     this.state = {
       ...this.state,
-      pageTitle: '测试流程审批记录列表',
-      loadApiPath: 'workflowDebugCaseProcessHistory/pageList',
+      pageTitle: '待审批列表【仅与当前测试相关】',
+      loadApiPath: 'workflowDebugCase/pageListWaitApprove',
     };
   }
 
-  static getDerivedStateFromProps(nextProperties, previousState) {
-    return super.getDerivedStateFromProps(nextProperties, previousState);
-  }
-
+  // eslint-disable-next-line no-unused-vars
   getFlowCaseId = (o) => {
     return getValueByKey({
       data: o,
-      key: fieldDataWorkflowDebugCase.workflowDebugCaseId.name,
-      defaultValue: '0',
+      key: fieldData.workflowDebugCaseId.name,
     });
   };
 
+  getFlowCaseIdName = () => {
+    return fieldData.workflowDebugCaseId.name;
+  };
+
   getFlowCaseIdDataTarget = () => {
-    return fieldData.workflowDebugCaseProcessHistoryId;
+    return fieldData.workflowDebugCaseId;
   };
 
   refreshCache = (r) => {
@@ -67,4 +64,4 @@ class WorkflowDebugCaseProcessHistoryPageListDrawer extends BaseFlowCaseProcessH
   };
 }
 
-export { WorkflowDebugCaseProcessHistoryPageListDrawer };
+export { WorkflowDebugCasePageListWaitApproveDrawer };

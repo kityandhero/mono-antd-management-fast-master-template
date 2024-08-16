@@ -22,7 +22,6 @@ import {
 import { DataDrawer } from 'antd-management-fast-framework';
 
 import {
-  accessWayCollection,
   emptySignet,
   fieldDataFlowCase,
   fieldDataFlowCaseFormAttachment,
@@ -51,9 +50,6 @@ function buildFormInitialValues(listFormStorage) {
 
 class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
   useFormWrapper = false;
-
-  componentAuthority =
-    accessWayCollection.workflowCaseFormStorage.get.permission;
 
   constructor(properties, visibleFlag) {
     super(properties, visibleFlag);

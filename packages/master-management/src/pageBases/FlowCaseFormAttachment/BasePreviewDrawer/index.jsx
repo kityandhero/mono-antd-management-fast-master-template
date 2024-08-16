@@ -1,3 +1,4 @@
+import React from 'react';
 import DocViewer from '@cyntler/react-doc-viewer';
 
 import {
@@ -5,11 +6,13 @@ import {
   convertCollection,
   formatCollection,
   getValueByKey,
+  whetherNumber,
 } from 'easy-soft-utility';
 
 import { buildCustomGrid, buildPlayer } from 'antd-management-fast-component';
 import { DataDrawer } from 'antd-management-fast-framework';
 
+import { FrameBox } from '../../../components';
 import {
   fieldDataFlowCaseFormAttachment,
   fileTypeCollection,
@@ -20,6 +23,8 @@ const { BaseVerticalFlexDrawer } = DataDrawer;
 
 class BasePreviewDrawer extends BaseVerticalFlexDrawer {
   resetDataAfterLoad = false;
+
+  frameRef = React.createRef();
 
   constructor(properties, visibleFlag) {
     super(properties, visibleFlag);
@@ -85,6 +90,19 @@ class BasePreviewDrawer extends BaseVerticalFlexDrawer {
       defaultValue: '',
     });
 
+    const existPdf = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCaseFormAttachment.existPdf.name,
+      convert: convertCollection.number,
+      defaultValue: 0,
+    });
+
+    const urlPdf = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCaseFormAttachment.urlPdf.name,
+      defaultValue: '',
+    });
+
     const isMedia = checkInCollection(
       [fileTypeCollection.audio, fileTypeCollection.video],
       fileType,
@@ -92,6 +110,20 @@ class BasePreviewDrawer extends BaseVerticalFlexDrawer {
 
     if (isMedia) {
       return buildPlayer({ url: url });
+    }
+
+    if (existPdf === whetherNumber.yes) {
+      return (
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            overflow: 'hidden',
+          }}
+        >
+          <FrameBox url={urlPdf} />
+        </div>
+      );
     }
 
     return (

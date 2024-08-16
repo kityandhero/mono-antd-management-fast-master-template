@@ -1,57 +1,32 @@
-import { connect } from 'easy-soft-dva';
-import {
-  buildRandomHexColor,
-  checkHasAuthority,
-  getValueByKey,
-  toNumber,
-} from 'easy-soft-utility';
+import { buildRandomHexColor, toNumber } from 'easy-soft-utility';
 
 import {
   columnFacadeMode,
   searchCardConfig,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
-import {
-  DataMultiPageView,
-  switchControlAssist,
-} from 'antd-management-fast-framework';
+import { DataMultiPageView } from 'antd-management-fast-framework';
 
-import { accessWayCollection } from '../../../customConfig';
+import { fieldDataFlowCase } from '../../../customConfig';
 import {
   getChannelName,
   getFlowCaseStatusName,
 } from '../../../customSpecialComponents';
-import { refreshCacheAction } from '../Assist/action';
-import { getStatusBadge } from '../Assist/tools';
-import { fieldData } from '../Common/data';
+import { getFlowCaseStatusBadge } from '../Assist/tools';
 
 const { MultiPageDrawer } = DataMultiPageView;
 
-// 显隐控制标记, 必须设置, 标记需要全局唯一
-const visibleFlag = '172aa5d2d5294d6ab02f94c925a5614c';
-
-@connect(({ workflowDebugCase, schedulingControl }) => ({
-  workflowDebugCase,
-  schedulingControl,
-}))
-class WorkflowDebugCasePageListWaitApprove extends MultiPageDrawer {
+class BaseFlowCasePageListLatestApproveDrawer extends MultiPageDrawer {
   reloadWhenShow = true;
 
-  componentAuthority =
-    accessWayCollection.workflowDebugCase.pageListWaitApprove.permission;
-
-  static open() {
-    switchControlAssist.open(visibleFlag);
-  }
-
-  constructor(properties) {
+  constructor(properties, visibleFlag) {
     super(properties, visibleFlag);
 
     this.state = {
       ...this.state,
-      pageTitle: '待审批列表【仅与当前测试相关】',
-      loadApiPath: 'workflowDebugCase/pageListWaitApprove',
-      tableScrollX: 1360,
+      pageTitle: '',
+      loadApiPath: '',
+      tableScrollX: 1300,
     };
   }
 
@@ -69,19 +44,31 @@ class WorkflowDebugCasePageListWaitApprove extends MultiPageDrawer {
     const d = { ...o };
     const { externalData } = this.state;
 
-    d[fieldData.workflowDebugCaseId.name] = getValueByKey({
-      data: externalData,
-      key: fieldData.workflowDebugCaseId.name,
-    });
+    d[this.getFlowCaseIdName()] = this.getFlowCaseId(externalData);
 
     return d;
   };
 
-  refreshCache = (r) => {
-    refreshCacheAction({
-      target: this,
-      handleData: r,
-    });
+  // eslint-disable-next-line no-unused-vars
+  getFlowCaseId = (o) => {
+    throw new Error('getFlowCaseId need overrode to implement');
+  };
+
+  getFlowCaseIdName = () => {
+    throw new Error('getFlowCaseIdName need overrode to implement');
+  };
+
+  getFlowCaseIdDataTarget = () => {
+    throw new Error('getFlowCaseId need overrode to implement');
+  };
+
+  // eslint-disable-next-line no-unused-vars
+  refreshCache = (o) => {
+    throw new Error('refreshCache need overrode to implement');
+  };
+
+  checkHasRefreshCacheAuthority = () => {
+    throw new Error('checkHasRefreshCacheAuthority need overrode to implement');
   };
 
   renderPresetTitleIcon = () => null;
@@ -92,7 +79,7 @@ class WorkflowDebugCasePageListWaitApprove extends MultiPageDrawer {
         {
           lg: 16,
           type: searchCardConfig.contentItemType.input,
-          fieldData: fieldData.approveWorkflowNodeName,
+          fieldData: fieldDataFlowCase.title,
         },
         {
           lg: 8,
@@ -108,10 +95,7 @@ class WorkflowDebugCasePageListWaitApprove extends MultiPageDrawer {
       size: 'small',
       text: '刷新缓存',
       icon: iconBuilder.reload(),
-      disabled: !checkHasAuthority(
-        accessWayCollection.workflowDebugCaseProcessHistory.refreshCache
-          .permission,
-      ),
+      disabled: !this.checkHasRefreshCacheAuthority(),
       handleButtonClick: ({ handleData }) => {
         this.refreshCache(handleData);
       },
@@ -123,31 +107,31 @@ class WorkflowDebugCasePageListWaitApprove extends MultiPageDrawer {
 
   getColumnWrapper = () => [
     {
-      dataTarget: fieldData.title,
+      dataTarget: fieldDataFlowCase.title,
       align: 'left',
       showRichFacade: true,
       emptyValue: '--',
     },
     {
-      dataTarget: fieldData.nextApproveWorkflowNodeName,
+      dataTarget: fieldDataFlowCase.latestApproveWorkflowNodeName,
       width: 200,
       showRichFacade: true,
       emptyValue: '--',
     },
     {
-      dataTarget: fieldData.waitApproveUserRealName,
+      dataTarget: fieldDataFlowCase.latestApproveUserRealName,
       width: 140,
       showRichFacade: true,
       emptyValue: '--',
     },
     {
-      dataTarget: fieldData.workflowName,
+      dataTarget: fieldDataFlowCase.workflowName,
       width: 220,
       showRichFacade: true,
       emptyValue: '--',
     },
     {
-      dataTarget: fieldData.channel,
+      dataTarget: fieldDataFlowCase.channel,
       width: 120,
       showRichFacade: true,
       emptyValue: '--',
@@ -165,14 +149,14 @@ class WorkflowDebugCasePageListWaitApprove extends MultiPageDrawer {
       },
     },
     {
-      dataTarget: fieldData.status,
+      dataTarget: fieldDataFlowCase.status,
       width: 120,
       showRichFacade: true,
       emptyValue: '--',
       facadeMode: columnFacadeMode.badge,
       facadeConfigBuilder: (value) => {
         return {
-          status: getStatusBadge(value),
+          status: getFlowCaseStatusBadge(value),
           text: getFlowCaseStatusName({
             value: value,
           }),
@@ -180,13 +164,13 @@ class WorkflowDebugCasePageListWaitApprove extends MultiPageDrawer {
       },
     },
     {
-      dataTarget: fieldData.workflowDebugCaseId,
+      dataTarget: this.getFlowCaseIdDataTarget(),
       width: 120,
       showRichFacade: true,
       canCopy: true,
     },
     {
-      dataTarget: fieldData.createTime,
+      dataTarget: fieldDataFlowCase.createTime,
       width: 160,
       showRichFacade: true,
       facadeMode: columnFacadeMode.datetime,
@@ -194,4 +178,4 @@ class WorkflowDebugCasePageListWaitApprove extends MultiPageDrawer {
   ];
 }
 
-export { WorkflowDebugCasePageListWaitApprove };
+export { BaseFlowCasePageListLatestApproveDrawer };

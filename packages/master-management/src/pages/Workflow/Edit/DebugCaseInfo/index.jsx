@@ -44,8 +44,8 @@ import {
   submitApprovalAction,
 } from '../../../WorkflowDebugCase/Assist/action';
 import { fieldData } from '../../../WorkflowDebugCase/Common/data';
-import { WorkflowDebugCasePageListLatestApprove } from '../../../WorkflowDebugCase/PageListLatestApprove';
-import { WorkflowDebugCasePageListWaitApprove } from '../../../WorkflowDebugCase/PageListWaitApprove';
+import { WorkflowDebugCasePageListLatestApproveDrawer } from '../../../WorkflowDebugCase/PageListLatestApproveDrawer';
+import { WorkflowDebugCasePageListWaitApproveDrawer } from '../../../WorkflowDebugCase/PageListWaitApproveDrawer';
 import { ProcessChainDrawer } from '../../../WorkflowDebugCase/ProcessChainDrawer';
 import { UpdateBasicInfoDrawer } from '../../../WorkflowDebugCase/UpdateBasicInfoDrawer';
 import { fieldData as fieldDataWorkflowDebugCaseCarbonCopyNotification } from '../../../WorkflowDebugCaseCarbonCopyNotification/Common/data';
@@ -721,11 +721,11 @@ class DebugCaseInfo extends TabPageBase {
   };
 
   showWorkflowDebugCasePageListWaitApproveDrawer = () => {
-    WorkflowDebugCasePageListWaitApprove.open();
+    WorkflowDebugCasePageListWaitApproveDrawer.open();
   };
 
   showWorkflowDebugCasePageListLatestApproveDrawer = () => {
-    WorkflowDebugCasePageListLatestApprove.open();
+    WorkflowDebugCasePageListLatestApproveDrawer.open();
   };
 
   showFlowCaseFormDocumentDrawer = () => {
@@ -1472,12 +1472,12 @@ class DebugCaseInfo extends TabPageBase {
           externalData={metaData}
         />
 
-        <WorkflowDebugCasePageListWaitApprove
+        <WorkflowDebugCasePageListWaitApproveDrawer
           maskClosable
           externalData={metaData}
         />
 
-        <WorkflowDebugCasePageListLatestApprove
+        <WorkflowDebugCasePageListLatestApproveDrawer
           maskClosable
           externalData={metaData}
         />
