@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 
 import {
   checkStringIsNullOrWhiteSpace,
+  isFunction,
   showSimpleErrorMessage,
 } from 'easy-soft-utility';
 
@@ -16,8 +17,18 @@ class FrameBox extends PureComponent {
     };
   }
   render() {
-    const { url } = {
+    const {
+      width,
+      height,
+      border,
+      url,
+      onload: onloadCallback,
+    } = {
       url: '',
+      width: '100%',
+      height: '100%',
+      border: '0px',
+      onload: null,
       ...this.props,
     };
 
@@ -27,27 +38,21 @@ class FrameBox extends PureComponent {
       );
     }
 
-    console.log({ url });
-
     return (
       <iframe
         ref={this.frameRef}
-        scrolling="yes"
-        frameBorder="0"
         style={{
-          width: '100%',
-          height: '100%',
-          // height: this.state.frameHeight,
-          // overflow: 'visible',
+          width,
+          height,
+          border,
         }}
-        // onLoad={() => {
-        //   //iframe高度不超过content的高度即可
-        //   let h = document.documentElement.clientHeight - 20;
+        onLoad={() => {
+          if (!isFunction(onloadCallback)) {
+            return;
+          }
 
-        //   this.setState({
-        //     frameHeight: h + 'px',
-        //   });
-        // }}
+          onloadCallback(document);
+        }}
         src={url}
       />
     );
