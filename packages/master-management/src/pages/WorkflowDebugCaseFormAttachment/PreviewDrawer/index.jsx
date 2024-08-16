@@ -13,8 +13,6 @@ const visibleFlag = '0ac8f79e1e1347aba69655bc25222fef';
   schedulingControl,
 }))
 class PreviewDrawer extends BasePreviewDrawer {
-  resetDataAfterLoad = false;
-
   static open() {
     switchControlAssist.open(visibleFlag);
   }
