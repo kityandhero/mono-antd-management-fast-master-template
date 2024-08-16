@@ -9,10 +9,13 @@ import {
   whetherNumber,
 } from 'easy-soft-utility';
 
-import { buildCustomGrid, buildPlayer } from 'antd-management-fast-component';
+import {
+  buildCustomGrid,
+  buildPlayer,
+  FrameBox,
+} from 'antd-management-fast-component';
 import { DataDrawer } from 'antd-management-fast-framework';
 
-import { FrameBox } from '../../../components';
 import {
   fieldDataFlowCaseFormAttachment,
   fileTypeCollection,
