@@ -1,4 +1,4 @@
-import { Empty } from 'antd';
+import { Empty, Table } from 'antd';
 
 import {
   checkInCollection,
@@ -25,6 +25,7 @@ import {
   emptySignet,
   fieldDataFlowCase,
   fieldDataFlowCaseFormAttachment,
+  fieldDataFlowCaseFormStorage,
   fieldDataFlowFormDesign,
   flowApproveActionModeCollection,
   flowCaseStatusCollection,
@@ -63,9 +64,12 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
       workflowId: null,
       currentAttachment: null,
       listChainApprove: [],
-      listApprove: [],
+      listFormStorage: [],
       listProcessHistory: [],
+      listApprove: [],
       useDocumentDisplay: true,
+      overlayButtonOpenText: '查看键值信息',
+      overlayButtonCloseText: '关闭键值信息',
     };
   }
 
@@ -100,10 +104,19 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
   };
 
   doOtherAfterLoadSuccess = ({ metaData }) => {
-    const { listProcessHistory: listProcessHistorySource } = {
-      listProcessHistory: [],
-      ...metaData,
-    };
+    const listFormStorage = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.listFormStorage.name,
+      convert: convertCollection.array,
+      defaultValue: [],
+    });
+
+    const listProcessHistory = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.listProcessHistory.name,
+      convert: convertCollection.array,
+      defaultValue: [],
+    });
 
     const flowCaseStatus = getValueByKey({
       data: metaData,
@@ -111,7 +124,7 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
       defaultValue: {},
     });
 
-    const listApprove = filter(listProcessHistorySource, (one) => {
+    const listApprove = filter(listProcessHistory, (one) => {
       const { approveActionMode } = {
         approveActionMode: 0,
         ...one,
@@ -156,7 +169,8 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
         ],
         flowCaseStatus,
       ),
-      listProcessHistory: listProcessHistorySource,
+      listFormStorage,
+      listProcessHistory,
       listApprove: [...listApprove],
     });
   };
@@ -519,6 +533,74 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
         {useDocumentDisplay
           ? this.renderFlowCaseFormDocumentDisplay()
           : this.renderFlowCaseFormFieldDisplay()}
+      </div>
+    );
+  };
+
+  renderOverlayContent = () => {
+    const { listFormStorage } = this.state;
+
+    const columnsFormStorage = [
+      {
+        title: fieldDataFlowCaseFormStorage.name.label,
+        dataIndex: fieldDataFlowCaseFormStorage.name.name,
+        key: fieldDataFlowCaseFormStorage.name.name,
+        ellipsis: true,
+        align: 'center',
+        width: '140px',
+      },
+      {
+        title: fieldDataFlowCaseFormStorage.nameNote.label,
+        dataIndex: fieldDataFlowCaseFormStorage.nameNote.name,
+        key: fieldDataFlowCaseFormStorage.nameNote.name,
+        ellipsis: true,
+        align: 'center',
+        width: '140px',
+      },
+      {
+        title: fieldDataFlowCaseFormStorage.valueTypeNote.label,
+        dataIndex: fieldDataFlowCaseFormStorage.valueTypeNote.name,
+        key: fieldDataFlowCaseFormStorage.valueTypeNote.name,
+        ellipsis: true,
+        align: 'center',
+        width: '140px',
+      },
+      {
+        title: fieldDataFlowCaseFormStorage.value.label,
+        dataIndex: fieldDataFlowCaseFormStorage.value.name,
+        key: fieldDataFlowCaseFormStorage.value.name,
+        ellipsis: true,
+        align: 'center',
+      },
+
+      {
+        title: fieldDataFlowCaseFormStorage.calculatedValue.label,
+        dataIndex: fieldDataFlowCaseFormStorage.calculatedValue.name,
+        key: fieldDataFlowCaseFormStorage.calculatedValue.name,
+        ellipsis: true,
+        align: 'center',
+      },
+    ];
+
+    return (
+      <div
+        style={{
+          width: '90%',
+          height: '90%',
+          background: '#fff',
+          padding: '16px',
+          borderRadius: '10px',
+          overflow: 'hidden',
+        }}
+      >
+        <Table
+          columns={columnsFormStorage}
+          size="small"
+          dataSource={listFormStorage}
+          pagination={{
+            hideOnSinglePage: true,
+          }}
+        />
       </div>
     );
   };

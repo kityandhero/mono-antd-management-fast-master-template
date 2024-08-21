@@ -2,7 +2,7 @@ import { formNameCollection } from './fieldDataCommon';
 
 const fieldExtraData = {
   listFormStorage: {
-    label: '表单数据',
+    label: '表单数据列表',
     name: 'listFormStorage',
     helper: '',
   },
@@ -119,6 +119,16 @@ const fieldExtraData = {
   workflowFormDesign: {
     label: '表单设计',
     name: 'workflowFormDesign',
+    helper: '',
+  },
+  listProcessHistory: {
+    label: '审批历史列表',
+    name: 'listProcessHistory',
+    helper: '',
+  },
+  listAttachment: {
+    label: '附件列表',
+    name: 'listAttachment',
     helper: '',
   },
 };

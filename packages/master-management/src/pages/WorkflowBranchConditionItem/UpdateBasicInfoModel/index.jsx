@@ -446,6 +446,9 @@ class UpdateBasicInfoModel extends BaseUpdateModal {
         {
           text: '非数字类型仅能选择 ”等于“、”不等于“  条件。',
         },
+        {
+          text: '日期区间类型将转换为区间对应的总分钟数进行对比。',
+        },
       ],
     };
   };
