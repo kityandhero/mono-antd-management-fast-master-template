@@ -1,5 +1,23 @@
 import { formNameCollection } from './fieldDataCommon';
 
+const fieldExtraData = {
+  namePrefix: {
+    label: '文件前缀',
+    name: 'namePrefix',
+    helper: '',
+  },
+  existPdf: {
+    label: '是否存在Pdf版',
+    name: 'existPdf',
+    helper: '',
+  },
+  urlPdf: {
+    label: 'pdf链接',
+    name: 'urlPdf',
+    helper: '',
+  },
+};
+
 export const fieldDataFlowCaseFormAttachment = {
   ...formNameCollection,
   workflowId: {
@@ -72,4 +90,5 @@ export const fieldDataFlowCaseFormAttachment = {
     name: 'updateTime',
     helper: '',
   },
+  ...fieldExtraData,
 };

@@ -5155,6 +5155,13 @@
           "type": "singleData"
         },
         {
+          "title": "强制结束（即该次审批作废）",
+          "api": "/workflowCase/forceEnd",
+          "effect": "forceEnd",
+          "service": "forceEndData",
+          "type": "singleData"
+        },
+        {
           "title": "刷新缓存",
           "api": "/workflowCase/refreshCache",
           "effect": "refreshCache",
@@ -5397,6 +5404,13 @@
           "api": "/workflowDebugCase/closeResetAllApproveSwitch",
           "effect": "closeResetAllApproveSwitch",
           "service": "closeResetAllApproveSwitchData",
+          "type": "singleData"
+        },
+        {
+          "title": "强制结束（即该次审批作废）",
+          "api": "/workflowDebugCase/forceEnd",
+          "effect": "forceEnd",
+          "service": "forceEndData",
           "type": "singleData"
         },
         {

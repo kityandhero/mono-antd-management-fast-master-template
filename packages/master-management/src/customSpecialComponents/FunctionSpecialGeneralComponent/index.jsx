@@ -73,6 +73,8 @@ export * from './MessageQueueToStoreMode';
 export * from './operationLogStatusList';
 export * from './OptionPoolCategory';
 export * from './OptionPoolStatus';
+export * from './PositionGradeStatus';
+export * from './PositionStatus';
 export * from './PresetRoleStatus';
 export * from './QrCodeCategoryStatus';
 export * from './QrCodeStatus';

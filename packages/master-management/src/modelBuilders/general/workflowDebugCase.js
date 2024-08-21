@@ -10,6 +10,7 @@ import {
 import {
   closeCancelApproveSwitchData,
   closeResetAllApproveSwitchData,
+  forceEndData,
   getByWorkflowData,
   getChainByWorkflowData,
   getData,
@@ -39,6 +40,7 @@ export const workflowDebugCaseTypeCollection = {
   closeCancelApproveSwitch: 'workflowDebugCase/closeCancelApproveSwitch',
   openResetAllApproveSwitch: 'workflowDebugCase/openResetAllApproveSwitch',
   closeResetAllApproveSwitch: 'workflowDebugCase/closeResetAllApproveSwitch',
+  forceEnd: 'workflowDebugCase/forceEnd',
   refreshCache: 'workflowDebugCase/refreshCache',
   pageListOperateLog: 'workflowDebugCase/pageListOperateLog',
 };
@@ -374,6 +376,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(closeResetAllApproveSwitchData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *forceEnd(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(forceEndData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

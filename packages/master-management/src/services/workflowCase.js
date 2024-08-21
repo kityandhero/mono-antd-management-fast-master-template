@@ -67,6 +67,15 @@ export async function closeResetAllApproveSwitchData(parameters) {
   });
 }
 
+export const forceEndDataApiAddress = '/workflowCase/forceEnd';
+
+export async function forceEndData(parameters) {
+  return request({
+    api: forceEndDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const refreshCacheDataApiAddress = '/workflowCase/refreshCache';
 
 export async function refreshCacheData(parameters) {

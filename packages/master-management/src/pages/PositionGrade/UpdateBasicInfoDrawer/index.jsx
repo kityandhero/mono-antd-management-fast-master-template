@@ -72,14 +72,19 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
     const values = {};
 
     if (metaData != null) {
-      values[fieldData.title.name] = getValueByKey({
+      values[fieldData.name.name] = getValueByKey({
         data: metaData,
-        key: fieldData.title.name,
+        key: fieldData.name.name,
       });
 
       values[fieldData.sort.name] = getValueByKey({
         data: metaData,
         key: fieldData.sort.name,
+      });
+
+      values[fieldData.description.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.description.name,
       });
     }
 
@@ -100,7 +105,7 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
             {
               lg: 24,
               type: cardConfig.contentItemType.input,
-              fieldData: fieldData.title,
+              fieldData: fieldData.name,
             },
             {
               lg: 24,

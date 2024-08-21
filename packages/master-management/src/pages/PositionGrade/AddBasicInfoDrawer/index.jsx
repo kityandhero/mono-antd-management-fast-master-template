@@ -41,6 +41,14 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
     };
   }
 
+  fillDefaultInitialValues = () => {
+    const values = {};
+
+    values[fieldData.sort.name] = 0;
+
+    return values;
+  };
+
   establishCardCollectionConfig = () => {
     return {
       list: [
@@ -55,6 +63,25 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
               type: cardConfig.contentItemType.input,
               fieldData: fieldData.name,
               require: true,
+            },
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.inputNumber,
+              fieldData: fieldData.sort,
+              require: false,
+            },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
+            text: '简介 - 描述 - 备注',
+          },
+          items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.textarea,
+              fieldData: fieldData.description,
             },
           ],
         },

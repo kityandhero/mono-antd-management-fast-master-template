@@ -1,22 +1,21 @@
 import React from 'react';
 
 import { connect } from 'easy-soft-dva';
-import {
-  checkHasAuthority,
-  getValueByKey,
-  showSimpleErrorMessage,
-} from 'easy-soft-utility';
+import { checkHasAuthority, showSimpleErrorMessage } from 'easy-soft-utility';
 
 import {
   columnFacadeMode,
+  listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { getPositionStatusName } from '../../../customSpecialComponents';
 import { AddBasicInfoDrawer } from '../AddBasicInfoDrawer';
 import { refreshCacheAction } from '../Assist/action';
+import { getStatusBadge } from '../Assist/tools';
 import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData } from '../Common/data';
 import { OperateLogDrawer } from '../OperateLogDrawer';
@@ -36,7 +35,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      pageTitle: '列表',
+      pageTitle: '职位列表',
       paramsKey: accessWayCollection.position.pageList.paramsKey,
       loadApiPath: 'position/pageList',
       currentRecord: null,
@@ -134,23 +133,13 @@ class PageList extends MultiPage {
     );
   };
 
-  goToEdit = (record) => {
-    const positionId = getValueByKey({
-      data: record,
-      key: fieldData.positionId.name,
-      defaultValue: '',
-    });
-
-    this.goToPath(`/position/edit/load/${positionId}/key/basicInfo`);
-  };
-
   establishSearchCardConfig = () => {
     return {
       list: [
         {
           lg: 6,
           type: searchCardConfig.contentItemType.input,
-          fieldData: fieldData.title,
+          fieldData: fieldData.name,
         },
         {
           lg: 6,
@@ -159,6 +148,19 @@ class PageList extends MultiPage {
         },
       ],
     };
+  };
+
+  establishDataContainerExtraActionCollectionConfig = () => {
+    return [
+      {
+        buildType:
+          listViewConfig.dataContainerExtraActionBuildType.generalButton,
+        type: 'primary',
+        icon: iconBuilder.plus(),
+        text: '新增职位',
+        handleClick: this.showAddBasicInfoDrawer,
+      },
+    ];
   };
 
   establishListItemDropdownConfig = (item) => {
@@ -193,11 +195,31 @@ class PageList extends MultiPage {
 
   getColumnWrapper = () => [
     {
-      dataTarget: fieldData.title,
-      width: 320,
+      dataTarget: fieldData.name,
       align: 'left',
       showRichFacade: true,
       emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.sort,
+      width: 80,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.status,
+      width: 120,
+      showRichFacade: true,
+      emptyValue: '--',
+      facadeMode: columnFacadeMode.badge,
+      facadeConfigBuilder: (value) => {
+        return {
+          status: getStatusBadge(value),
+          text: getPositionStatusName({
+            value: value,
+          }),
+        };
+      },
     },
     {
       dataTarget: fieldData.positionId,

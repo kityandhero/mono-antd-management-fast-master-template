@@ -3178,6 +3178,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '9902f5f101e01edcc1b88aa018fc58a8',
       permission: '75ebf77f8c2d482694be36c7787a2006',
     },
+    forceEnd: {
+      title: '强制结束（即该次审批作废）',
+      paramsKey: '2e4e08dea61b6cf6be094eb4c48230e0',
+      permission: '836d2d7b58d742fbbe696932269bd760',
+    },
     refreshCache: {
       title: '刷新缓存',
       paramsKey: '95a9f7321de9e416b034e149c484c8a3',
@@ -3335,6 +3340,11 @@ export const accessWayInfrastructureCollection = {
       title: '关闭重置审批功能',
       paramsKey: '041136bb80b59b3d783ad9bf0a43eb4e',
       permission: '6ff89656f0b74899b215b02d9bed0830',
+    },
+    forceEnd: {
+      title: '强制结束（即该次审批作废）',
+      paramsKey: 'e03974f34b4431ec3c98e48dded243ed',
+      permission: '960eeeeaee2f429b977aec1ecfd94d64',
     },
     refreshCache: {
       title: '刷新缓存',
