@@ -49,6 +49,8 @@
     "src/pages/OperationLog/",
     "src/pages/OptionPool/",
     "src/pages/Organization/",
+    "src/pages/Position/",
+    "src/pages/PositionGrade/",
     "src/pages/PresetRole/",
     "src/pages/QrCode/",
     "src/pages/QrCodeCategory/",
