@@ -20,6 +20,19 @@ import {
   updateBasicInfoData,
 } from '../../services/userYonYouCorrelation';
 
+export const userYonYouCorrelationTypeCollection = {
+  pageList: 'userYonYouCorrelation/pageList',
+  get: 'userYonYouCorrelation/get',
+  addBasicInfo: 'userYonYouCorrelation/addBasicInfo',
+  import: 'userYonYouCorrelation/import',
+  updateBasicInfo: 'userYonYouCorrelation/updateBasicInfo',
+  setEnable: 'userYonYouCorrelation/setEnable',
+  setDisable: 'userYonYouCorrelation/setDisable',
+  refreshCache: 'userYonYouCorrelation/refreshCache',
+  testExist: 'userYonYouCorrelation/testExist',
+  pageListOperateLog: 'userYonYouCorrelation/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'userYonYouCorrelation',

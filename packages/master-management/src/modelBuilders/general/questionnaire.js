@@ -38,6 +38,37 @@ import {
   uploadVideoData,
 } from '../../services/questionnaire';
 
+export const questionnaireTypeCollection = {
+  pageList: 'questionnaire/pageList',
+  get: 'questionnaire/get',
+  addBasicInfo: 'questionnaire/addBasicInfo',
+  updateBasicInfo: 'questionnaire/updateBasicInfo',
+  updateContentInfo: 'questionnaire/updateContentInfo',
+  updateSort: 'questionnaire/updateSort',
+  updateBusinessMode: 'questionnaire/updateBusinessMode',
+  updateRenderType: 'questionnaire/updateRenderType',
+  toggleGroupDisplay: 'questionnaire/toggleGroupDisplay',
+  toggleRandomOrder: 'questionnaire/toggleRandomOrder',
+  toggleRecommend: 'questionnaire/toggleRecommend',
+  toggleTop: 'questionnaire/toggleTop',
+  toggleVisible: 'questionnaire/toggleVisible',
+  setOnline: 'questionnaire/setOnline',
+  setOffline: 'questionnaire/setOffline',
+  remove: 'questionnaire/remove',
+  refreshCache: 'questionnaire/refreshCache',
+  getMediaItem: 'questionnaire/getMediaItem',
+  addMediaItem: 'questionnaire/addMediaItem',
+  updateMediaItem: 'questionnaire/updateMediaItem',
+  setMediaCollectionSort: 'questionnaire/setMediaCollectionSort',
+  removeMediaItem: 'questionnaire/removeMediaItem',
+  pageListOperateLog: 'questionnaire/pageListOperateLog',
+  uploadImage: 'questionnaire/uploadImage',
+  uploadVideo: 'questionnaire/uploadVideo',
+  uploadAudio: 'questionnaire/uploadAudio',
+  uploadFile: 'questionnaire/uploadFile',
+  uploadFileBase64: 'questionnaire/uploadFileBase64',
+};
+
 export function buildModel() {
   return {
     namespace: 'questionnaire',

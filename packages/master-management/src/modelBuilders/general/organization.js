@@ -12,6 +12,13 @@ import {
   getGraphicalTreeData,
 } from '../../services/organization';
 
+export const organizationTypeCollection = {
+  getGraphicalTree: 'organization/getGraphicalTree',
+  getGraphicalDirectDepartment: 'organization/getGraphicalDirectDepartment',
+  getGraphicalSingleSubsidiaryDepartment:
+    'organization/getGraphicalSingleSubsidiaryDepartment',
+};
+
 export function buildModel() {
   return {
     namespace: 'organization',

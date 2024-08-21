@@ -18,6 +18,17 @@ import {
   uploadVideoData,
 } from '../../services/uploadHistory';
 
+export const uploadHistoryTypeCollection = {
+  pageList: 'uploadHistory/pageList',
+  get: 'uploadHistory/get',
+  remove: 'uploadHistory/remove',
+  refreshCache: 'uploadHistory/refreshCache',
+  uploadImage: 'uploadHistory/uploadImage',
+  uploadVideo: 'uploadHistory/uploadVideo',
+  uploadAudio: 'uploadHistory/uploadAudio',
+  uploadFile: 'uploadHistory/uploadFile',
+};
+
 export function buildModel() {
   return {
     namespace: 'uploadHistory',

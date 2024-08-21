@@ -24,6 +24,22 @@ import {
   uploadImageData,
 } from '../../services/subsidiary';
 
+export const subsidiaryTypeCollection = {
+  pageList: 'subsidiary/pageList',
+  singleList: 'subsidiary/singleList',
+  singleTreeList: 'subsidiary/singleTreeList',
+  get: 'subsidiary/get',
+  addBasicInfo: 'subsidiary/addBasicInfo',
+  updateBasicInfo: 'subsidiary/updateBasicInfo',
+  updateParentId: 'subsidiary/updateParentId',
+  updateSort: 'subsidiary/updateSort',
+  setEnable: 'subsidiary/setEnable',
+  setDisable: 'subsidiary/setDisable',
+  refreshCache: 'subsidiary/refreshCache',
+  uploadImage: 'subsidiary/uploadImage',
+  pageListOperateLog: 'subsidiary/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'subsidiary',

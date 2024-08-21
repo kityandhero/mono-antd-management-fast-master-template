@@ -18,6 +18,17 @@ import {
   resetAllApproveData,
 } from '../../services/workflowDebugCaseProcessHistory';
 
+export const workflowDebugCaseProcessHistoryTypeCollection = {
+  pageList: 'workflowDebugCaseProcessHistory/pageList',
+  get: 'workflowDebugCaseProcessHistory/get',
+  pass: 'workflowDebugCaseProcessHistory/pass',
+  refuse: 'workflowDebugCaseProcessHistory/refuse',
+  cancelApprove: 'workflowDebugCaseProcessHistory/cancelApprove',
+  resetAllApprove: 'workflowDebugCaseProcessHistory/resetAllApprove',
+  refreshCache: 'workflowDebugCaseProcessHistory/refreshCache',
+  pageListOperateLog: 'workflowDebugCaseProcessHistory/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'workflowDebugCaseProcessHistory',

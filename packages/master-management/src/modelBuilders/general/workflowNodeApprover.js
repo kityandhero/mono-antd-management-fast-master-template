@@ -18,6 +18,16 @@ import {
   singleListData,
 } from '../../services/workflowNodeApprover';
 
+export const workflowNodeApproverTypeCollection = {
+  pageList: 'workflowNodeApprover/pageList',
+  singleList: 'workflowNodeApprover/singleList',
+  get: 'workflowNodeApprover/get',
+  addBasicInfo: 'workflowNodeApprover/addBasicInfo',
+  remove: 'workflowNodeApprover/remove',
+  refreshCache: 'workflowNodeApprover/refreshCache',
+  pageListOperateLog: 'workflowNodeApprover/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'workflowNodeApprover',

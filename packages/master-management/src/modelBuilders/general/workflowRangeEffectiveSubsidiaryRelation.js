@@ -19,6 +19,18 @@ import {
   singleListData,
 } from '../../services/workflowRangeEffectiveSubsidiaryRelation';
 
+export const workflowRangeEffectiveSubsidiaryRelationTypeCollection = {
+  pageList: 'workflowRangeEffectiveSubsidiaryRelation/pageList',
+  singleList: 'workflowRangeEffectiveSubsidiaryRelation/singleList',
+  get: 'workflowRangeEffectiveSubsidiaryRelation/get',
+  add: 'workflowRangeEffectiveSubsidiaryRelation/add',
+  remove: 'workflowRangeEffectiveSubsidiaryRelation/remove',
+  removeAll: 'workflowRangeEffectiveSubsidiaryRelation/removeAll',
+  refreshCache: 'workflowRangeEffectiveSubsidiaryRelation/refreshCache',
+  pageListOperateLog:
+    'workflowRangeEffectiveSubsidiaryRelation/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'workflowRangeEffectiveSubsidiaryRelation',

@@ -15,6 +15,14 @@ import {
   removeData,
 } from '../../services/keyValueWorkflow';
 
+export const keyValueWorkflowTypeCollection = {
+  pageList: 'keyValueWorkflow/pageList',
+  get: 'keyValueWorkflow/get',
+  remove: 'keyValueWorkflow/remove',
+  refreshCache: 'keyValueWorkflow/refreshCache',
+  refreshAllCache: 'keyValueWorkflow/refreshAllCache',
+};
+
 export function buildModel() {
   return {
     namespace: 'keyValueWorkflow',

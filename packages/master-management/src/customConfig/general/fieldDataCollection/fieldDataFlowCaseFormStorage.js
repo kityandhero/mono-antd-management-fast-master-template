@@ -1,18 +1,5 @@
 import { formNameCollection } from './fieldDataCommon';
 
-const fieldExtraData = {
-  nameNote: {
-    label: '键描述',
-    name: 'nameNote',
-    helper: '',
-  },
-  valueTypeNote: {
-    label: '值类型',
-    name: 'valueTypeNote',
-    helper: '',
-  },
-};
-
 export const fieldDataFlowCaseFormStorage = {
   ...formNameCollection,
   workflowFormDesignId: {
@@ -34,16 +21,6 @@ export const fieldDataFlowCaseFormStorage = {
     label: '键值',
     name: 'value',
     helper: '键值',
-  },
-  valueType: {
-    label: '值类型',
-    name: 'valueType',
-    helper: '',
-  },
-  calculatedValue: {
-    label: '计算值',
-    name: 'calculatedValue',
-    helper: '',
   },
   status: {
     label: '状态',
@@ -75,5 +52,4 @@ export const fieldDataFlowCaseFormStorage = {
     name: 'updateTime',
     helper: '',
   },
-  ...fieldExtraData,
 };

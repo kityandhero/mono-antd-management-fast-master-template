@@ -23,6 +23,21 @@ import {
   updateSortData,
 } from '../../services/callCenterCategory';
 
+export const callCenterCategoryTypeCollection = {
+  pageList: 'callCenterCategory/pageList',
+  singleList: 'callCenterCategory/singleList',
+  singleTreeList: 'callCenterCategory/singleTreeList',
+  get: 'callCenterCategory/get',
+  addBasicInfo: 'callCenterCategory/addBasicInfo',
+  updateBasicInfo: 'callCenterCategory/updateBasicInfo',
+  updateSort: 'callCenterCategory/updateSort',
+  setEnable: 'callCenterCategory/setEnable',
+  setDisable: 'callCenterCategory/setDisable',
+  remove: 'callCenterCategory/remove',
+  refreshCache: 'callCenterCategory/refreshCache',
+  pageListOperateLog: 'callCenterCategory/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'callCenterCategory',

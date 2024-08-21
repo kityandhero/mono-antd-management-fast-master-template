@@ -23,6 +23,21 @@ import {
   updateSortData,
 } from '../../services/businessSet';
 
+export const businessSetTypeCollection = {
+  pageList: 'businessSet/pageList',
+  singleList: 'businessSet/singleList',
+  singleTreeList: 'businessSet/singleTreeList',
+  get: 'businessSet/get',
+  addBasicInfo: 'businessSet/addBasicInfo',
+  updateBasicInfo: 'businessSet/updateBasicInfo',
+  updateSort: 'businessSet/updateSort',
+  setEnable: 'businessSet/setEnable',
+  setDisable: 'businessSet/setDisable',
+  remove: 'businessSet/remove',
+  refreshCache: 'businessSet/refreshCache',
+  pageListOperateLog: 'businessSet/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'businessSet',

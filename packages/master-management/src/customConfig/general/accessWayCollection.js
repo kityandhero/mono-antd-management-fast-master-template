@@ -1,4 +1,4 @@
-export const accessWayGeneralCollection = {
+export const accessWayInfrastructureCollection = {
   super: {
     title: '超级管理员',
     paramsKey: '1b3231655cebb7a1f783eddf27d254ca',
@@ -149,35 +149,10 @@ export const accessWayGeneralCollection = {
       paramsKey: '9d8cc0870e04d2cbaad7a16f38c1c62f',
       permission: 'e49c8d76fc5e476d8f5efeb85817feb5',
     },
-    getPagePathConfig: {
-      title: '首页路径配置',
-      paramsKey: '93a7e76883969d930bc0bf4cf0e5c0df',
-      permission: '9cb984a291884e3ba40adfc9a14f6825',
-    },
-    getWeChatMessageTemplateConfig: {
-      title: '微信消息模板配置',
-      paramsKey: '42bc5b9321ad05d1ca523c91520db9ec',
-      permission: '8408b3884ae0490d9ba2f75e7926aa8a',
-    },
-    getWeChatMessageTargetPathConfig: {
-      title: '微信消息跳转路径配置',
-      paramsKey: 'b6c4651e12a64f45e22cf47750279a7c',
-      permission: '32f52aa734c74b3ebe9b51ec55240f22',
-    },
-    getCheckInConfig: {
-      title: '签到配置',
-      paramsKey: '6c1062c5345df2eed748ccb05607ce1b',
-      permission: '74fef469f20b47e4accfc442ca1eba47',
-    },
-    getArticleNotificationConfig: {
-      title: '文章推送配置',
-      paramsKey: 'f55b4e7663972e7a42366c7b1a11e94a',
-      permission: '61630f95d998460088f2d15e8b0bfdb7',
-    },
-    getJiGuangConfig: {
-      title: '极光配置',
-      paramsKey: '615a9190c39bd336f695b8caa66548d5',
-      permission: 'a640f16cfc654cdeae2624beedc909c3',
+    getConfigure: {
+      title: '获取配置详情',
+      paramsKey: '53711e183688daea190f0058c31c81ac',
+      permission: '6e7a3c9b3ab44b82a70daf1fc59d3c82',
     },
     updateBasicInfo: {
       title: '更新信息',
@@ -1536,6 +1511,154 @@ export const accessWayGeneralCollection = {
       permission: '9c5ee89824a745fb8305ce24cf160f09',
     },
   },
+  position: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '0f70ea26b6b92d70a4745adbc1fefd59',
+      permission: 'da973cd686d44f6783725ab387e27ac8',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: 'fbc3093c61201a3d5cfdecd05daa8380',
+      permission: '1d1584dc2df74cc28a59f33cc7af14cc',
+    },
+    addBasicInfo: {
+      title: '新建职位',
+      paramsKey: 'd666bfe72df4a5166c3d03c17c2276f1',
+      permission: 'f3d0d62ce5e147f3a8e7df3b57b487bd',
+    },
+    updateBasicInfo: {
+      title: '编辑信息',
+      paramsKey: '1f5c83e36bc88fcddd0667cb2cb39afd',
+      permission: '5f5a925bcd8c43d1a83a334a654c7f06',
+    },
+    updateSort: {
+      title: '更新排序值',
+      paramsKey: '4d748c4abfa12fbaf0dfa2deb5ac6dcf',
+      permission: '377e0cdfb8ad4347a3c75e77f8e41130',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '8fb4bdb7030f6faf0adea590367b0c33',
+      permission: '0de227493f814f06808be7926033026e',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: 'fe11b82c2a2eff0da9c9030aa443576e',
+      permission: 'd9a0659877614694bf3de4070359925c',
+    },
+  },
+  positionBase: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '0f70ea26b6b92d70a4745adbc1fefd59',
+      permission: 'da973cd686d44f6783725ab387e27ac8',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: 'fbc3093c61201a3d5cfdecd05daa8380',
+      permission: '1d1584dc2df74cc28a59f33cc7af14cc',
+    },
+    addBasicInfo: {
+      title: '新建职位',
+      paramsKey: 'd666bfe72df4a5166c3d03c17c2276f1',
+      permission: 'f3d0d62ce5e147f3a8e7df3b57b487bd',
+    },
+    updateBasicInfo: {
+      title: '编辑信息',
+      paramsKey: '1f5c83e36bc88fcddd0667cb2cb39afd',
+      permission: '5f5a925bcd8c43d1a83a334a654c7f06',
+    },
+    updateSort: {
+      title: '更新排序值',
+      paramsKey: '4d748c4abfa12fbaf0dfa2deb5ac6dcf',
+      permission: '377e0cdfb8ad4347a3c75e77f8e41130',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '8fb4bdb7030f6faf0adea590367b0c33',
+      permission: '0de227493f814f06808be7926033026e',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: 'fe11b82c2a2eff0da9c9030aa443576e',
+      permission: 'd9a0659877614694bf3de4070359925c',
+    },
+  },
+  positionGrade: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '658817a0da331769d4e1ff0502a341a2',
+      permission: '175065e14a504fc99b14b733de02af17',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: 'a89e36dd04ab1369deca9c2106ed95d5',
+      permission: 'f2122767b718485d942e1a319774ddce',
+    },
+    addBasicInfo: {
+      title: '新建职级',
+      paramsKey: 'e5a0a7ad8884d6d306dab7428cbe257f',
+      permission: 'd82b8c4541954acb875fdb4ed602227b',
+    },
+    updateBasicInfo: {
+      title: '编辑信息',
+      paramsKey: '1f95165ace67da7afc9b4ba33e126d79',
+      permission: 'f1815e62b0bc47978ed47b797fb86648',
+    },
+    updateSort: {
+      title: '更新排序值',
+      paramsKey: '23dd0cd7f8f7e26c49f51765b0f5a922',
+      permission: '54c93f3b7e4142ba98799768093214f4',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: 'b93fad0388cc844879ba6adb78deb685',
+      permission: '08d3f56214964837a734ec2451978981',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: 'ac084113c7ae6914fea173e05b1c9453',
+      permission: 'bbb62ab5bb62400b9d607e5145b3b8bb',
+    },
+  },
+  positionGradeBase: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '658817a0da331769d4e1ff0502a341a2',
+      permission: '175065e14a504fc99b14b733de02af17',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: 'a89e36dd04ab1369deca9c2106ed95d5',
+      permission: 'f2122767b718485d942e1a319774ddce',
+    },
+    addBasicInfo: {
+      title: '新建职级',
+      paramsKey: 'e5a0a7ad8884d6d306dab7428cbe257f',
+      permission: 'd82b8c4541954acb875fdb4ed602227b',
+    },
+    updateBasicInfo: {
+      title: '编辑信息',
+      paramsKey: '1f95165ace67da7afc9b4ba33e126d79',
+      permission: 'f1815e62b0bc47978ed47b797fb86648',
+    },
+    updateSort: {
+      title: '更新排序值',
+      paramsKey: '23dd0cd7f8f7e26c49f51765b0f5a922',
+      permission: '54c93f3b7e4142ba98799768093214f4',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: 'b93fad0388cc844879ba6adb78deb685',
+      permission: '08d3f56214964837a734ec2451978981',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: 'ac084113c7ae6914fea173e05b1c9453',
+      permission: 'bbb62ab5bb62400b9d607e5145b3b8bb',
+    },
+  },
   presetRole: {
     pageList: {
       title: '分页列表',
@@ -2079,6 +2202,11 @@ export const accessWayGeneralCollection = {
       title: '获取详情',
       paramsKey: '18ee0eb40b4a828009781794eff58f39',
       permission: '356978fecf114d1b9977771ed34221b9',
+    },
+    getConfigure: {
+      title: '获取配置详情',
+      paramsKey: 'fb1c5e1f09a3c3d32b97d822c34e9601',
+      permission: '7fe0f9c775484ed6b5de75c647d52f2d',
     },
     addBasicInfo: {
       title: '新建',

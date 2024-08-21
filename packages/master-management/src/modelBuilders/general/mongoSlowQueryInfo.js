@@ -8,6 +8,10 @@ import {
 
 import { singleListData } from '../../services/mongoSlowQueryInfo';
 
+export const mongoSlowQueryInfoTypeCollection = {
+  singleList: 'mongoSlowQueryInfo/singleList',
+};
+
 export function buildModel() {
   return {
     namespace: 'mongoSlowQueryInfo',

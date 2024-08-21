@@ -24,6 +24,23 @@ import {
   uploadImageData,
 } from '../../services/question';
 
+export const questionTypeCollection = {
+  pageList: 'question/pageList',
+  pageListWithoutQuestionnaire: 'question/pageListWithoutQuestionnaire',
+  get: 'question/get',
+  addBasicInfo: 'question/addBasicInfo',
+  updateBasicInfo: 'question/updateBasicInfo',
+  updateWhetherCorrect: 'question/updateWhetherCorrect',
+  updateAnswer: 'question/updateAnswer',
+  setOnline: 'question/setOnline',
+  setOffline: 'question/setOffline',
+  remove: 'question/remove',
+  refreshCache: 'question/refreshCache',
+  practice: 'question/practice',
+  pageListOperateLog: 'question/pageListOperateLog',
+  uploadImage: 'question/uploadImage',
+};
+
 export function buildModel() {
   return {
     namespace: 'question',

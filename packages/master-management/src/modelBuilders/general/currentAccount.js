@@ -17,6 +17,15 @@ import {
   uploadImageData,
 } from '../../services/currentAccount';
 
+export const currentAccountTypeCollection = {
+  get: 'currentAccount/get',
+  listNotice: 'currentAccount/listNotice',
+  updateBasicInfo: 'currentAccount/updateBasicInfo',
+  changePassword: 'currentAccount/changePassword',
+  pageListLoginLog: 'currentAccount/pageListLoginLog',
+  uploadImage: 'currentAccount/uploadImage',
+};
+
 export function buildModel() {
   return {
     namespace: 'currentAccount',

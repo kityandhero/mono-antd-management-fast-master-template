@@ -1,6 +1,22 @@
 {
   "list": [
     {
+      "folder": "Position/ChangeSortModal",
+      "model": "position",
+      "key": "positionId",
+      "visibleFlag": "a0cc8a0bc2b24b6babf07c2d20cd8c53",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "PositionGrade/ChangeSortModal",
+      "model": "positionGrade",
+      "key": "positionGradeId",
+      "visibleFlag": "2779cdec846e4138b1d41084593172d9",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "Questionnaire/ChangeSortModal",
       "model": "questionnaire",
       "key": "questionnaireId",

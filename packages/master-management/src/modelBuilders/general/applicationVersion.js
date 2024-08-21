@@ -22,6 +22,20 @@ import {
   updateBasicInfoData,
 } from '../../services/applicationVersion';
 
+export const applicationVersionTypeCollection = {
+  pageList: 'applicationVersion/pageList',
+  singleList: 'applicationVersion/singleList',
+  pageListLog: 'applicationVersion/pageListLog',
+  get: 'applicationVersion/get',
+  addBasicInfo: 'applicationVersion/addBasicInfo',
+  updateBasicInfo: 'applicationVersion/updateBasicInfo',
+  setEnable: 'applicationVersion/setEnable',
+  setDisable: 'applicationVersion/setDisable',
+  remove: 'applicationVersion/remove',
+  refreshCache: 'applicationVersion/refreshCache',
+  pageListOperateLog: 'applicationVersion/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'applicationVersion',

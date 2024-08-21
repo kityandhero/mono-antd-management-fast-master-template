@@ -16,6 +16,15 @@ import {
   removeMultiData,
 } from '../../services/errorLog';
 
+export const errorLogTypeCollection = {
+  pageList: 'errorLog/pageList',
+  get: 'errorLog/get',
+  remove: 'errorLog/remove',
+  removeMulti: 'errorLog/removeMulti',
+  removeAll: 'errorLog/removeAll',
+  createTestException: 'errorLog/createTestException',
+};
+
 export function buildModel() {
   return {
     namespace: 'errorLog',

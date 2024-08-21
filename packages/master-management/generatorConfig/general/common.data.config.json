@@ -1,6 +1,20 @@
 {
   "list": [
     {
+      "folder": "Position/Common",
+      "model": "position",
+      "key": "positionId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "PositionGrade/Common",
+      "model": "positionGrade",
+      "key": "positionGradeId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
       "folder": "AdministrativeDivision/Common",
       "model": "administrativeDivision",
       "key": "administrativeDivisionId",

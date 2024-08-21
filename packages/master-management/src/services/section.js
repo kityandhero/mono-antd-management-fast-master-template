@@ -36,6 +36,15 @@ export async function getData(parameters) {
   });
 }
 
+export const getConfigureDataApiAddress = '/section/getConfigure';
+
+export async function getConfigureData(parameters) {
+  return request({
+    api: getConfigureDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const addBasicInfoDataApiAddress = '/section/addBasicInfo';
 
 export async function addBasicInfoData(parameters) {

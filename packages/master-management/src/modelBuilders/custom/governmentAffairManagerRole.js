@@ -8,6 +8,10 @@ import {
 
 import { changeCollectionData } from '../../services/governmentAffairManagerRole';
 
+export const governmentAffairManagerRoleTypeCollection = {
+  changeCollection: 'governmentAffairManagerRole/changeCollection',
+};
+
 export function buildModel() {
   return {
     namespace: 'governmentAffairManagerRole',

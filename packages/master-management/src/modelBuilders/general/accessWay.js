@@ -26,6 +26,29 @@ import {
   testPermissionActionUniqueData,
 } from '../../services/accessWay';
 
+export const accessWayTypeCollection = {
+  pageList: 'accessWay/pageList',
+  pageListAssemblyVerify: 'accessWay/pageListAssemblyVerify',
+  get: 'accessWay/get',
+  getInfrastructurePermissionFileContent:
+    'accessWay/getInfrastructurePermissionFileContent',
+  getBusinessPermissionFileContent:
+    'accessWay/getBusinessPermissionFileContent',
+  getAllPermissionFileContent: 'accessWay/getAllPermissionFileContent',
+  getInfrastructureModelConfigFileContent:
+    'accessWay/getInfrastructureModelConfigFileContent',
+  getBusinessModelConfigFileContent:
+    'accessWay/getBusinessModelConfigFileContent',
+  getAllModelConfigFileContent: 'accessWay/getAllModelConfigFileContent',
+  getActionMap: 'accessWay/getActionMap',
+  getPermissionActionMap: 'accessWay/getPermissionActionMap',
+  getNonePermissionActionMap: 'accessWay/getNonePermissionActionMap',
+  testPermissionActionUnique: 'accessWay/testPermissionActionUnique',
+  testPermissionAction: 'accessWay/testPermissionAction',
+  remove: 'accessWay/remove',
+  refreshCache: 'accessWay/refreshCache',
+};
+
 export function buildModel() {
   return {
     namespace: 'accessWay',

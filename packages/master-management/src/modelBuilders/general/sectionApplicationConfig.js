@@ -21,6 +21,20 @@ import {
   updateConfigItemData,
 } from '../../services/sectionApplicationConfig';
 
+export const sectionApplicationConfigTypeCollection = {
+  pageList: 'sectionApplicationConfig/pageList',
+  get: 'sectionApplicationConfig/get',
+  addBasicInfo: 'sectionApplicationConfig/addBasicInfo',
+  updateBasicInfo: 'sectionApplicationConfig/updateBasicInfo',
+  refreshCache: 'sectionApplicationConfig/refreshCache',
+  remove: 'sectionApplicationConfig/remove',
+  getConfigItem: 'sectionApplicationConfig/getConfigItem',
+  addConfigItem: 'sectionApplicationConfig/addConfigItem',
+  updateConfigItem: 'sectionApplicationConfig/updateConfigItem',
+  removeConfigItem: 'sectionApplicationConfig/removeConfigItem',
+  pageListOperateLog: 'sectionApplicationConfig/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'sectionApplicationConfig',

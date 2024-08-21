@@ -8,6 +8,10 @@ import {
 
 import { getData } from '../../services/metaData';
 
+export const metaDataTypeCollection = {
+  get: 'metaData/get',
+};
+
 export function buildModel() {
   return {
     namespace: 'metaData',

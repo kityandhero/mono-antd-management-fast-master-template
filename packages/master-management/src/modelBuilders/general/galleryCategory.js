@@ -23,6 +23,21 @@ import {
   updateSortData,
 } from '../../services/galleryCategory';
 
+export const galleryCategoryTypeCollection = {
+  pageList: 'galleryCategory/pageList',
+  singleList: 'galleryCategory/singleList',
+  singleTreeList: 'galleryCategory/singleTreeList',
+  get: 'galleryCategory/get',
+  addBasicInfo: 'galleryCategory/addBasicInfo',
+  updateBasicInfo: 'galleryCategory/updateBasicInfo',
+  updateSort: 'galleryCategory/updateSort',
+  setEnable: 'galleryCategory/setEnable',
+  setDisable: 'galleryCategory/setDisable',
+  remove: 'galleryCategory/remove',
+  refreshCache: 'galleryCategory/refreshCache',
+  pageListOperateLog: 'galleryCategory/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'galleryCategory',

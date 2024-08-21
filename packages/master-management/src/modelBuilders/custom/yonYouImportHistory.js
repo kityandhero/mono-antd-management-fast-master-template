@@ -16,6 +16,15 @@ import {
   setMapConfigData,
 } from '../../services/yonYouImportHistory';
 
+export const yonYouImportHistoryTypeCollection = {
+  pageList: 'yonYouImportHistory/pageList',
+  get: 'yonYouImportHistory/get',
+  importFile: 'yonYouImportHistory/importFile',
+  setMapConfig: 'yonYouImportHistory/setMapConfig',
+  refreshCache: 'yonYouImportHistory/refreshCache',
+  pageListOperateLog: 'yonYouImportHistory/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'yonYouImportHistory',

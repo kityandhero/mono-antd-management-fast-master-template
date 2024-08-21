@@ -1,6 +1,20 @@
 {
   "list": [
     {
+      "folder": "Position/PageList",
+      "model": "position",
+      "key": "positionId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "PositionGrade/PageList",
+      "model": "positionGrade",
+      "key": "positionGradeId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "AdministrativeDivision/PageList",
       "model": "administrativeDivision",
       "key": "administrativeDivisionId",

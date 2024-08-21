@@ -25,6 +25,24 @@ import {
   updateBasicInfoData,
 } from '../../services/workflowDebugCase';
 
+export const workflowDebugCaseTypeCollection = {
+  pageList: 'workflowDebugCase/pageList',
+  pageListLatestApprove: 'workflowDebugCase/pageListLatestApprove',
+  pageListWaitApprove: 'workflowDebugCase/pageListWaitApprove',
+  get: 'workflowDebugCase/get',
+  getByWorkflow: 'workflowDebugCase/getByWorkflow',
+  getChainByWorkflow: 'workflowDebugCase/getChainByWorkflow',
+  updateBasicInfo: 'workflowDebugCase/updateBasicInfo',
+  submitForm: 'workflowDebugCase/submitForm',
+  submitApproval: 'workflowDebugCase/submitApproval',
+  openCancelApproveSwitch: 'workflowDebugCase/openCancelApproveSwitch',
+  closeCancelApproveSwitch: 'workflowDebugCase/closeCancelApproveSwitch',
+  openResetAllApproveSwitch: 'workflowDebugCase/openResetAllApproveSwitch',
+  closeResetAllApproveSwitch: 'workflowDebugCase/closeResetAllApproveSwitch',
+  refreshCache: 'workflowDebugCase/refreshCache',
+  pageListOperateLog: 'workflowDebugCase/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'workflowDebugCase',

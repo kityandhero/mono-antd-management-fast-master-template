@@ -10,6 +10,12 @@ import {
 
 import { getData, pageListData, singleListData } from '../../services/channel';
 
+export const channelTypeCollection = {
+  pageList: 'channel/pageList',
+  singleList: 'channel/singleList',
+  get: 'channel/get',
+};
+
 export function buildModel() {
   return {
     namespace: 'channel',

@@ -16,6 +16,14 @@ import {
   updateKeyValueInfoData,
 } from '../../services/channelSqlLogSwitch';
 
+export const channelSqlLogSwitchTypeCollection = {
+  pageList: 'channelSqlLogSwitch/pageList',
+  singleList: 'channelSqlLogSwitch/singleList',
+  get: 'channelSqlLogSwitch/get',
+  updateKeyValueInfo: 'channelSqlLogSwitch/updateKeyValueInfo',
+  refreshCache: 'channelSqlLogSwitch/refreshCache',
+};
+
 export function buildModel() {
   return {
     namespace: 'channelSqlLogSwitch',

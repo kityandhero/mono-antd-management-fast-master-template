@@ -17,6 +17,16 @@ import {
   unbindRelationData,
 } from '../../services/questionnaireQuestion';
 
+export const questionnaireQuestionTypeCollection = {
+  pageList: 'questionnaireQuestion/pageList',
+  get: 'questionnaireQuestion/get',
+  bindRelation: 'questionnaireQuestion/bindRelation',
+  unbindRelation: 'questionnaireQuestion/unbindRelation',
+  setBindSort: 'questionnaireQuestion/setBindSort',
+  setBindScore: 'questionnaireQuestion/setBindScore',
+  refreshCache: 'questionnaireQuestion/refreshCache',
+};
+
 export function buildModel() {
   return {
     namespace: 'questionnaireQuestion',

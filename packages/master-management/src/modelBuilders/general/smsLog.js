@@ -8,6 +8,10 @@ import {
 
 import { pageListData } from '../../services/smsLog';
 
+export const smsLogTypeCollection = {
+  pageList: 'smsLog/pageList',
+};
+
 export function buildModel() {
   return {
     namespace: 'smsLog',

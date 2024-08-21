@@ -28,6 +28,28 @@ import {
   updateBasicInfoData,
 } from '../../services/workflow';
 
+export const workflowTypeCollection = {
+  pageList: 'workflow/pageList',
+  get: 'workflow/get',
+  addOfficeAutomationArticleAudit: 'workflow/addOfficeAutomationArticleAudit',
+  addOfficeAutomationProcessApproval:
+    'workflow/addOfficeAutomationProcessApproval',
+  updateBasicInfo: 'workflow/updateBasicInfo',
+  setCaseNameTemplate: 'workflow/setCaseNameTemplate',
+  setChannel: 'workflow/setChannel',
+  openMultibranch: 'workflow/openMultibranch',
+  openMultiEnd: 'workflow/openMultiEnd',
+  setEnable: 'workflow/setEnable',
+  setDisable: 'workflow/setDisable',
+  refreshCache: 'workflow/refreshCache',
+  remove: 'workflow/remove',
+  pageListOperateLog: 'workflow/pageListOperateLog',
+  statisticSubmitCount: 'workflow/statisticSubmitCount',
+  statisticProcessedCount: 'workflow/statisticProcessedCount',
+  statisticWaitCount: 'workflow/statisticWaitCount',
+  statisticCarbonCopyCount: 'workflow/statisticCarbonCopyCount',
+};
+
 export function buildModel() {
   return {
     namespace: 'workflow',

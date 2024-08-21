@@ -1,6 +1,20 @@
 {
   "list": [
     {
+      "folder": "Position/OperateLogDrawer",
+      "model": "position",
+      "key": "positionId",
+      "visibleFlag": "6e2357dca2354c8ea3e086fcd61f2da8",
+      "coverFile": true
+    },
+    {
+      "folder": "PositionGrade/OperateLogDrawer",
+      "model": "positionGrade",
+      "key": "positionGradeId",
+      "visibleFlag": "6e2357dca2354c8ea3e086fcd61f2da8",
+      "coverFile": true
+    },
+    {
       "folder": "QuestionItem/OperateLogDrawer",
       "model": "questionItem",
       "key": "questionItemId",

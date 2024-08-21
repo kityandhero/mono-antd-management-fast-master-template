@@ -14,6 +14,13 @@ import {
   removeData,
 } from '../../services/internalTester';
 
+export const internalTesterTypeCollection = {
+  pageList: 'internalTester/pageList',
+  get: 'internalTester/get',
+  addBasicInfo: 'internalTester/addBasicInfo',
+  remove: 'internalTester/remove',
+};
+
 export function buildModel() {
   return {
     namespace: 'internalTester',

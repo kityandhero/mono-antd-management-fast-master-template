@@ -1,6 +1,20 @@
 {
   "list": [
     {
+      "folder": "Position/Assist",
+      "model": "position",
+      "key": "positionId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
+      "folder": "PositionGrade/Assist",
+      "model": "positionGrade",
+      "key": "positionGradeId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
       "folder": "AdministrativeDivision/Assist",
       "model": "administrativeDivision",
       "key": "administrativeDivisionId",

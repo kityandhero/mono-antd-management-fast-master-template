@@ -241,45 +241,10 @@
           "type": "singleData"
         },
         {
-          "title": "首页路径配置",
-          "api": "/application/getPagePathConfig",
-          "effect": "getPagePathConfig",
-          "service": "getPagePathConfigData",
-          "type": "singleData"
-        },
-        {
-          "title": "微信消息模板配置",
-          "api": "/application/getWeChatMessageTemplateConfig",
-          "effect": "getWeChatMessageTemplateConfig",
-          "service": "getWeChatMessageTemplateConfigData",
-          "type": "singleData"
-        },
-        {
-          "title": "微信消息跳转路径配置",
-          "api": "/application/getWeChatMessageTargetPathConfig",
-          "effect": "getWeChatMessageTargetPathConfig",
-          "service": "getWeChatMessageTargetPathConfigData",
-          "type": "singleData"
-        },
-        {
-          "title": "签到配置",
-          "api": "/application/getCheckInConfig",
-          "effect": "getCheckInConfig",
-          "service": "getCheckInConfigData",
-          "type": "singleData"
-        },
-        {
-          "title": "文章推送配置",
-          "api": "/application/getArticleNotificationConfig",
-          "effect": "getArticleNotificationConfig",
-          "service": "getArticleNotificationConfigData",
-          "type": "singleData"
-        },
-        {
-          "title": "极光配置",
-          "api": "/application/getJiGuangConfig",
-          "effect": "getJiGuangConfig",
-          "service": "getJiGuangConfigData",
+          "title": "获取配置详情",
+          "api": "/application/getConfigure",
+          "effect": "getConfigure",
+          "service": "getConfigureData",
           "type": "singleData"
         },
         {
@@ -2517,6 +2482,258 @@
       "apis": [
         {
           "title": "分页列表",
+          "api": "/position/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/position/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/position/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新建职位",
+          "api": "/position/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑信息",
+          "api": "/position/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新排序值",
+          "api": "/position/updateSort",
+          "effect": "updateSort",
+          "service": "updateSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/position/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/position/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "职位管理",
+      "name": "position"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/positionBase/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/positionBase/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/positionBase/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新建职位",
+          "api": "/positionBase/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑信息",
+          "api": "/positionBase/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新排序值",
+          "api": "/positionBase/updateSort",
+          "effect": "updateSort",
+          "service": "updateSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/positionBase/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/positionBase/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "职位管理",
+      "name": "positionBase"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/positionGrade/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/positionGrade/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/positionGrade/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新建职级",
+          "api": "/positionGrade/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑信息",
+          "api": "/positionGrade/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新排序值",
+          "api": "/positionGrade/updateSort",
+          "effect": "updateSort",
+          "service": "updateSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/positionGrade/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/positionGrade/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "职级管理",
+      "name": "positionGrade"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/positionGradeBase/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/positionGradeBase/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/positionGradeBase/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新建职级",
+          "api": "/positionGradeBase/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑信息",
+          "api": "/positionGradeBase/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新排序值",
+          "api": "/positionGradeBase/updateSort",
+          "effect": "updateSort",
+          "service": "updateSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/positionGradeBase/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/positionGradeBase/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "职级管理",
+      "name": "positionGradeBase"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
           "api": "/presetRole/pageList",
           "effect": "pageList",
           "service": "pageListData",
@@ -3402,6 +3619,13 @@
           "api": "/section/get",
           "effect": "get",
           "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "获取配置详情",
+          "api": "/section/getConfigure",
+          "effect": "getConfigure",
+          "service": "getConfigureData",
           "type": "singleData"
         },
         {

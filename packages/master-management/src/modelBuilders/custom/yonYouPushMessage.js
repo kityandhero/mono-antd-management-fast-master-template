@@ -15,6 +15,14 @@ import {
   uploadImageData,
 } from '../../services/yonYouPushMessage';
 
+export const yonYouPushMessageTypeCollection = {
+  pageList: 'yonYouPushMessage/pageList',
+  get: 'yonYouPushMessage/get',
+  refreshCache: 'yonYouPushMessage/refreshCache',
+  uploadImage: 'yonYouPushMessage/uploadImage',
+  pageListOperateLog: 'yonYouPushMessage/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'yonYouPushMessage',

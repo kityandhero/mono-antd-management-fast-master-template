@@ -1,7 +1,7 @@
 import { accessWayCustomCollection } from './custom/accessWayCollection';
-import { accessWayGeneralCollection } from './general/accessWayCollection';
+import { accessWayInfrastructureCollection } from './general/accessWayCollection';
 
 export const accessWayCollection = {
-  ...accessWayGeneralCollection,
+  ...accessWayInfrastructureCollection,
   ...accessWayCustomCollection,
 };

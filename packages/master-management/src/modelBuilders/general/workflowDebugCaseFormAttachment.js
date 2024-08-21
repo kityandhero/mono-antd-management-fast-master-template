@@ -19,6 +19,17 @@ import {
   uploadFileData,
 } from '../../services/workflowDebugCaseFormAttachment';
 
+export const workflowDebugCaseFormAttachmentTypeCollection = {
+  pageList: 'workflowDebugCaseFormAttachment/pageList',
+  singleList: 'workflowDebugCaseFormAttachment/singleList',
+  get: 'workflowDebugCaseFormAttachment/get',
+  addBasicInfo: 'workflowDebugCaseFormAttachment/addBasicInfo',
+  remove: 'workflowDebugCaseFormAttachment/remove',
+  refreshCache: 'workflowDebugCaseFormAttachment/refreshCache',
+  pageListOperateLog: 'workflowDebugCaseFormAttachment/pageListOperateLog',
+  uploadFile: 'workflowDebugCaseFormAttachment/uploadFile',
+};
+
 export function buildModel() {
   return {
     namespace: 'workflowDebugCaseFormAttachment',

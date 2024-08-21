@@ -18,6 +18,17 @@ import {
   updateBasicInfoData,
 } from '../../services/smsCategory';
 
+export const smsCategoryTypeCollection = {
+  pageList: 'smsCategory/pageList',
+  get: 'smsCategory/get',
+  addBasicInfo: 'smsCategory/addBasicInfo',
+  updateBasicInfo: 'smsCategory/updateBasicInfo',
+  setEnable: 'smsCategory/setEnable',
+  setDisable: 'smsCategory/setDisable',
+  remove: 'smsCategory/remove',
+  refreshCache: 'smsCategory/refreshCache',
+};
+
 export function buildModel() {
   return {
     namespace: 'smsCategory',

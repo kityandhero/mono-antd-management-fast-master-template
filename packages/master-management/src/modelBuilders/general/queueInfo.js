@@ -19,6 +19,17 @@ import {
   tryStartAllData,
 } from '../../services/queueInfo';
 
+export const queueInfoTypeCollection = {
+  pageList: 'queueInfo/pageList',
+  singleList: 'queueInfo/singleList',
+  get: 'queueInfo/get',
+  tryStartAll: 'queueInfo/tryStartAll',
+  trySend: 'queueInfo/trySend',
+  tryPeek: 'queueInfo/tryPeek',
+  tryDequeue: 'queueInfo/tryDequeue',
+  tryPurge: 'queueInfo/tryPurge',
+};
+
 export function buildModel() {
   return {
     namespace: 'queueInfo',

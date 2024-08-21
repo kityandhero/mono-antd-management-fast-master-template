@@ -16,6 +16,15 @@ import {
   removeMultiData,
 } from '../../services/generalLog';
 
+export const generalLogTypeCollection = {
+  pageList: 'generalLog/pageList',
+  get: 'generalLog/get',
+  remove: 'generalLog/remove',
+  removeMulti: 'generalLog/removeMulti',
+  removeAll: 'generalLog/removeAll',
+  createTestLog: 'generalLog/createTestLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'generalLog',

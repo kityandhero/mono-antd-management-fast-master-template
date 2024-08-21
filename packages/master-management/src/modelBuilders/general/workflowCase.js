@@ -19,6 +19,18 @@ import {
   refreshCacheData,
 } from '../../services/workflowCase';
 
+export const workflowCaseTypeCollection = {
+  pageList: 'workflowCase/pageList',
+  get: 'workflowCase/get',
+  getChain: 'workflowCase/getChain',
+  openCancelApproveSwitch: 'workflowCase/openCancelApproveSwitch',
+  closeCancelApproveSwitch: 'workflowCase/closeCancelApproveSwitch',
+  openResetAllApproveSwitch: 'workflowCase/openResetAllApproveSwitch',
+  closeResetAllApproveSwitch: 'workflowCase/closeResetAllApproveSwitch',
+  refreshCache: 'workflowCase/refreshCache',
+  pageListOperateLog: 'workflowCase/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'workflowCase',

@@ -1,85 +1,418 @@
-import { buildModel as buildAccessWayModel } from './accessWay';
-import { buildModel as buildAdministrativeDivisionModel } from './administrativeDivision';
-import { buildModel as buildApplicationModel } from './application';
-import { buildModel as buildApplicationNavigationModel } from './applicationNavigation';
-import { buildModel as buildApplicationSourceModel } from './applicationSource';
-import { buildModel as buildApplicationVersionModel } from './applicationVersion';
-import { buildModel as buildArticleNotificationApplicationModel } from './articleNotificationApplication';
-import { buildModel as buildBusinessSetModel } from './businessSet';
-import { buildModel as buildCallCenterModel } from './callCenter';
-import { buildModel as buildCallCenterCategoryModel } from './callCenterCategory';
-import { buildModel as buildChannelModel } from './channel';
-import { buildModel as buildChannelExecuteLogSwitchModel } from './channelExecuteLogSwitch';
-import { buildModel as buildChannelSqlLogSwitchModel } from './channelSqlLogSwitch';
-import { buildModel as buildCloudStorageModel } from './cloudStorage';
-import { buildModel as buildCurrentAccountModel } from './currentAccount';
-import { buildModel as buildCurrentManagementInfrastructureModel } from './currentManagementInfrastructure';
-import { buildModel as buildDepartmentModel } from './department';
-import { buildModel as buildEditorModel } from './editor';
-import { buildModel as buildEmailSenderAgentModel } from './emailSenderAgent';
-import { buildModel as buildErrorLogModel } from './errorLog';
-import { buildModel as buildExecuteLogModel } from './executeLog';
-import { buildModel as buildGalleryModel } from './gallery';
-import { buildModel as buildGalleryCategoryModel } from './galleryCategory';
-import { buildModel as buildGeneralDiscourseModel } from './generalDiscourse';
-import { buildModel as buildGeneralLogModel } from './generalLog';
-import { buildModel as buildHostServiceModel } from './hostService';
-import { buildModel as buildHostServiceLogModel } from './hostServiceLog';
-import { buildModel as buildInternalTesterModel } from './internalTester';
-import { buildModel as buildKeyValueApplicationModel } from './keyValueApplication';
-import { buildModel as buildKeyValueInfrastructureModel } from './keyValueInfrastructure';
-import { buildModel as buildKeyValueSectionModel } from './keyValueSection';
-import { buildModel as buildKeyValueWorkflowModel } from './keyValueWorkflow';
-import { buildModel as buildMasterManagerModel } from './masterManager';
-import { buildModel as buildMasterManagerLoginLogModel } from './masterManagerLoginLog';
-import { buildModel as buildMetaDataModel } from './metaData';
-import { buildModel as buildMongoSlowQueryInfoModel } from './mongoSlowQueryInfo';
-import { buildModel as buildOperationLogModel } from './operationLog';
-import { buildModel as buildOptionPoolModel } from './optionPool';
-import { buildModel as buildOrganizationModel } from './organization';
-import { buildModel as buildPresetRoleModel } from './presetRole';
-import { buildModel as buildQrCodeModel } from './qrCode';
-import { buildModel as buildQrCodeCategoryModel } from './qrCodeCategory';
-import { buildModel as buildQuestionModel } from './question';
-import { buildModel as buildQuestionItemModel } from './questionItem';
-import { buildModel as buildQuestionnaireModel } from './questionnaire';
-import { buildModel as buildQuestionnaireQuestionModel } from './questionnaireQuestion';
-import { buildModel as buildQuestionTagRelationModel } from './questionTagRelation';
-import { buildModel as buildQueueInfoModel } from './queueInfo';
-import { buildModel as buildSectionModel } from './section';
-import { buildModel as buildSectionApplicationConfigModel } from './sectionApplicationConfig';
-import { buildModel as buildSmsCategoryModel } from './smsCategory';
-import { buildModel as buildSmsCategoryStatisticModel } from './smsCategoryStatistic';
-import { buildModel as buildSmsLogModel } from './smsLog';
-import { buildModel as buildSmsStatisticModel } from './smsStatistic';
-import { buildModel as buildSqlEntityModel } from './sqlEntity';
-import { buildModel as buildSqlLogModel } from './sqlLog';
-import { buildModel as buildSubsidiaryModel } from './subsidiary';
-import { buildModel as buildTagModel } from './tag';
-import { buildModel as buildUploadHistoryModel } from './uploadHistory';
-import { buildModel as buildUserModel } from './user';
-import { buildModel as buildUserDepartmentInfoModel } from './userDepartmentInfo';
-import { buildModel as buildUserDeviceModel } from './userDevice';
-import { buildModel as buildUserLoginLogModel } from './userLoginLog';
-import { buildModel as buildUserSubsidiaryInfoModel } from './userSubsidiaryInfo';
-import { buildModel as buildWeChatMessageRecordModel } from './weChatMessageRecord';
-import { buildModel as buildWorkflowModel } from './workflow';
-import { buildModel as buildWorkflowBranchConditionModel } from './workflowBranchCondition';
-import { buildModel as buildWorkflowBranchConditionItemModel } from './workflowBranchConditionItem';
-import { buildModel as buildWorkflowCaseModel } from './workflowCase';
-import { buildModel as buildWorkflowCaseFormAttachmentModel } from './workflowCaseFormAttachment';
-import { buildModel as buildWorkflowCaseFormStorageModel } from './workflowCaseFormStorage';
-import { buildModel as buildWorkflowCaseProcessHistoryModel } from './workflowCaseProcessHistory';
-import { buildModel as buildWorkflowDebugCaseModel } from './workflowDebugCase';
-import { buildModel as buildWorkflowDebugCaseFormAttachmentModel } from './workflowDebugCaseFormAttachment';
-import { buildModel as buildWorkflowDebugCaseFormStorageModel } from './workflowDebugCaseFormStorage';
-import { buildModel as buildWorkflowDebugCaseProcessHistoryModel } from './workflowDebugCaseProcessHistory';
-import { buildModel as buildWorkflowFormDesignModel } from './workflowFormDesign';
-import { buildModel as buildWorkflowLineModel } from './workflowLine';
-import { buildModel as buildWorkflowNodeModel } from './workflowNode';
-import { buildModel as buildWorkflowNodeApproverModel } from './workflowNodeApprover';
-import { buildModel as buildWorkflowRangeEffectiveExternalDepartmentRelationModel } from './workflowRangeEffectiveExternalDepartmentRelation';
-import { buildModel as buildWorkflowRangeEffectiveSubsidiaryRelationModel } from './workflowRangeEffectiveSubsidiaryRelation';
+import {
+  accessWayTypeCollection,
+  buildModel as buildAccessWayModel,
+} from './accessWay';
+import {
+  administrativeDivisionTypeCollection,
+  buildModel as buildAdministrativeDivisionModel,
+} from './administrativeDivision';
+import {
+  applicationTypeCollection,
+  buildModel as buildApplicationModel,
+} from './application';
+import {
+  applicationNavigationTypeCollection,
+  buildModel as buildApplicationNavigationModel,
+} from './applicationNavigation';
+import {
+  applicationSourceTypeCollection,
+  buildModel as buildApplicationSourceModel,
+} from './applicationSource';
+import {
+  applicationVersionTypeCollection,
+  buildModel as buildApplicationVersionModel,
+} from './applicationVersion';
+import {
+  articleNotificationApplicationTypeCollection,
+  buildModel as buildArticleNotificationApplicationModel,
+} from './articleNotificationApplication';
+import {
+  buildModel as buildBusinessSetModel,
+  businessSetTypeCollection,
+} from './businessSet';
+import {
+  buildModel as buildCallCenterModel,
+  callCenterTypeCollection,
+} from './callCenter';
+import {
+  buildModel as buildCallCenterCategoryModel,
+  callCenterCategoryTypeCollection,
+} from './callCenterCategory';
+import {
+  buildModel as buildChannelModel,
+  channelTypeCollection,
+} from './channel';
+import {
+  buildModel as buildChannelExecuteLogSwitchModel,
+  channelExecuteLogSwitchTypeCollection,
+} from './channelExecuteLogSwitch';
+import {
+  buildModel as buildChannelSqlLogSwitchModel,
+  channelSqlLogSwitchTypeCollection,
+} from './channelSqlLogSwitch';
+import {
+  buildModel as buildCloudStorageModel,
+  cloudStorageTypeCollection,
+} from './cloudStorage';
+import {
+  buildModel as buildCurrentAccountModel,
+  currentAccountTypeCollection,
+} from './currentAccount';
+import {
+  buildModel as buildCurrentManagementInfrastructureModel,
+  currentManagementInfrastructureTypeCollection,
+} from './currentManagementInfrastructure';
+import {
+  buildModel as buildDepartmentModel,
+  departmentTypeCollection,
+} from './department';
+import { buildModel as buildEditorModel, editorTypeCollection } from './editor';
+import {
+  buildModel as buildEmailSenderAgentModel,
+  emailSenderAgentTypeCollection,
+} from './emailSenderAgent';
+import {
+  buildModel as buildErrorLogModel,
+  errorLogTypeCollection,
+} from './errorLog';
+import {
+  buildModel as buildExecuteLogModel,
+  executeLogTypeCollection,
+} from './executeLog';
+import {
+  buildModel as buildGalleryModel,
+  galleryTypeCollection,
+} from './gallery';
+import {
+  buildModel as buildGalleryCategoryModel,
+  galleryCategoryTypeCollection,
+} from './galleryCategory';
+import {
+  buildModel as buildGeneralDiscourseModel,
+  generalDiscourseTypeCollection,
+} from './generalDiscourse';
+import {
+  buildModel as buildGeneralLogModel,
+  generalLogTypeCollection,
+} from './generalLog';
+import {
+  buildModel as buildHostServiceModel,
+  hostServiceTypeCollection,
+} from './hostService';
+import {
+  buildModel as buildHostServiceLogModel,
+  hostServiceLogTypeCollection,
+} from './hostServiceLog';
+import {
+  buildModel as buildInternalTesterModel,
+  internalTesterTypeCollection,
+} from './internalTester';
+import {
+  buildModel as buildKeyValueApplicationModel,
+  keyValueApplicationTypeCollection,
+} from './keyValueApplication';
+import {
+  buildModel as buildKeyValueInfrastructureModel,
+  keyValueInfrastructureTypeCollection,
+} from './keyValueInfrastructure';
+import {
+  buildModel as buildKeyValueSectionModel,
+  keyValueSectionTypeCollection,
+} from './keyValueSection';
+import {
+  buildModel as buildKeyValueWorkflowModel,
+  keyValueWorkflowTypeCollection,
+} from './keyValueWorkflow';
+import {
+  buildModel as buildMasterManagerModel,
+  masterManagerTypeCollection,
+} from './masterManager';
+import {
+  buildModel as buildMasterManagerLoginLogModel,
+  masterManagerLoginLogTypeCollection,
+} from './masterManagerLoginLog';
+import {
+  buildModel as buildMetaDataModel,
+  metaDataTypeCollection,
+} from './metaData';
+import {
+  buildModel as buildMongoSlowQueryInfoModel,
+  mongoSlowQueryInfoTypeCollection,
+} from './mongoSlowQueryInfo';
+import {
+  buildModel as buildOperationLogModel,
+  operationLogTypeCollection,
+} from './operationLog';
+import {
+  buildModel as buildOptionPoolModel,
+  optionPoolTypeCollection,
+} from './optionPool';
+import {
+  buildModel as buildOrganizationModel,
+  organizationTypeCollection,
+} from './organization';
+import {
+  buildModel as buildPositionModel,
+  positionTypeCollection,
+} from './position';
+import {
+  buildModel as buildPositionBaseModel,
+  positionBaseTypeCollection,
+} from './positionBase';
+import {
+  buildModel as buildPositionGradeModel,
+  positionGradeTypeCollection,
+} from './positionGrade';
+import {
+  buildModel as buildPositionGradeBaseModel,
+  positionGradeBaseTypeCollection,
+} from './positionGradeBase';
+import {
+  buildModel as buildPresetRoleModel,
+  presetRoleTypeCollection,
+} from './presetRole';
+import { buildModel as buildQrCodeModel, qrCodeTypeCollection } from './qrCode';
+import {
+  buildModel as buildQrCodeCategoryModel,
+  qrCodeCategoryTypeCollection,
+} from './qrCodeCategory';
+import {
+  buildModel as buildQuestionModel,
+  questionTypeCollection,
+} from './question';
+import {
+  buildModel as buildQuestionItemModel,
+  questionItemTypeCollection,
+} from './questionItem';
+import {
+  buildModel as buildQuestionnaireModel,
+  questionnaireTypeCollection,
+} from './questionnaire';
+import {
+  buildModel as buildQuestionnaireQuestionModel,
+  questionnaireQuestionTypeCollection,
+} from './questionnaireQuestion';
+import {
+  buildModel as buildQuestionTagRelationModel,
+  questionTagRelationTypeCollection,
+} from './questionTagRelation';
+import {
+  buildModel as buildQueueInfoModel,
+  queueInfoTypeCollection,
+} from './queueInfo';
+import {
+  buildModel as buildSectionModel,
+  sectionTypeCollection,
+} from './section';
+import {
+  buildModel as buildSectionApplicationConfigModel,
+  sectionApplicationConfigTypeCollection,
+} from './sectionApplicationConfig';
+import {
+  buildModel as buildSmsCategoryModel,
+  smsCategoryTypeCollection,
+} from './smsCategory';
+import {
+  buildModel as buildSmsCategoryStatisticModel,
+  smsCategoryStatisticTypeCollection,
+} from './smsCategoryStatistic';
+import { buildModel as buildSmsLogModel, smsLogTypeCollection } from './smsLog';
+import {
+  buildModel as buildSmsStatisticModel,
+  smsStatisticTypeCollection,
+} from './smsStatistic';
+import {
+  buildModel as buildSqlEntityModel,
+  sqlEntityTypeCollection,
+} from './sqlEntity';
+import { buildModel as buildSqlLogModel, sqlLogTypeCollection } from './sqlLog';
+import {
+  buildModel as buildSubsidiaryModel,
+  subsidiaryTypeCollection,
+} from './subsidiary';
+import { buildModel as buildTagModel, tagTypeCollection } from './tag';
+import {
+  buildModel as buildUploadHistoryModel,
+  uploadHistoryTypeCollection,
+} from './uploadHistory';
+import { buildModel as buildUserModel, userTypeCollection } from './user';
+import {
+  buildModel as buildUserDepartmentInfoModel,
+  userDepartmentInfoTypeCollection,
+} from './userDepartmentInfo';
+import {
+  buildModel as buildUserDeviceModel,
+  userDeviceTypeCollection,
+} from './userDevice';
+import {
+  buildModel as buildUserLoginLogModel,
+  userLoginLogTypeCollection,
+} from './userLoginLog';
+import {
+  buildModel as buildUserSubsidiaryInfoModel,
+  userSubsidiaryInfoTypeCollection,
+} from './userSubsidiaryInfo';
+import {
+  buildModel as buildWeChatMessageRecordModel,
+  weChatMessageRecordTypeCollection,
+} from './weChatMessageRecord';
+import {
+  buildModel as buildWorkflowModel,
+  workflowTypeCollection,
+} from './workflow';
+import {
+  buildModel as buildWorkflowBranchConditionModel,
+  workflowBranchConditionTypeCollection,
+} from './workflowBranchCondition';
+import {
+  buildModel as buildWorkflowBranchConditionItemModel,
+  workflowBranchConditionItemTypeCollection,
+} from './workflowBranchConditionItem';
+import {
+  buildModel as buildWorkflowCaseModel,
+  workflowCaseTypeCollection,
+} from './workflowCase';
+import {
+  buildModel as buildWorkflowCaseFormAttachmentModel,
+  workflowCaseFormAttachmentTypeCollection,
+} from './workflowCaseFormAttachment';
+import {
+  buildModel as buildWorkflowCaseFormStorageModel,
+  workflowCaseFormStorageTypeCollection,
+} from './workflowCaseFormStorage';
+import {
+  buildModel as buildWorkflowCaseProcessHistoryModel,
+  workflowCaseProcessHistoryTypeCollection,
+} from './workflowCaseProcessHistory';
+import {
+  buildModel as buildWorkflowDebugCaseModel,
+  workflowDebugCaseTypeCollection,
+} from './workflowDebugCase';
+import {
+  buildModel as buildWorkflowDebugCaseFormAttachmentModel,
+  workflowDebugCaseFormAttachmentTypeCollection,
+} from './workflowDebugCaseFormAttachment';
+import {
+  buildModel as buildWorkflowDebugCaseFormStorageModel,
+  workflowDebugCaseFormStorageTypeCollection,
+} from './workflowDebugCaseFormStorage';
+import {
+  buildModel as buildWorkflowDebugCaseProcessHistoryModel,
+  workflowDebugCaseProcessHistoryTypeCollection,
+} from './workflowDebugCaseProcessHistory';
+import {
+  buildModel as buildWorkflowFormDesignModel,
+  workflowFormDesignTypeCollection,
+} from './workflowFormDesign';
+import {
+  buildModel as buildWorkflowLineModel,
+  workflowLineTypeCollection,
+} from './workflowLine';
+import {
+  buildModel as buildWorkflowNodeModel,
+  workflowNodeTypeCollection,
+} from './workflowNode';
+import {
+  buildModel as buildWorkflowNodeApproverModel,
+  workflowNodeApproverTypeCollection,
+} from './workflowNodeApprover';
+import {
+  buildModel as buildWorkflowRangeEffectiveExternalDepartmentRelationModel,
+  workflowRangeEffectiveExternalDepartmentRelationTypeCollection,
+} from './workflowRangeEffectiveExternalDepartmentRelation';
+import {
+  buildModel as buildWorkflowRangeEffectiveSubsidiaryRelationModel,
+  workflowRangeEffectiveSubsidiaryRelationTypeCollection,
+} from './workflowRangeEffectiveSubsidiaryRelation';
+
+export const modelTypeCollection = {
+  accessWayTypeCollection,
+  administrativeDivisionTypeCollection,
+  applicationTypeCollection,
+  applicationNavigationTypeCollection,
+  applicationSourceTypeCollection,
+  applicationVersionTypeCollection,
+  articleNotificationApplicationTypeCollection,
+  businessSetTypeCollection,
+  callCenterTypeCollection,
+  callCenterCategoryTypeCollection,
+  channelTypeCollection,
+  channelExecuteLogSwitchTypeCollection,
+  channelSqlLogSwitchTypeCollection,
+  cloudStorageTypeCollection,
+  currentAccountTypeCollection,
+  currentManagementInfrastructureTypeCollection,
+  departmentTypeCollection,
+  editorTypeCollection,
+  emailSenderAgentTypeCollection,
+  errorLogTypeCollection,
+  executeLogTypeCollection,
+  galleryTypeCollection,
+  galleryCategoryTypeCollection,
+  generalDiscourseTypeCollection,
+  generalLogTypeCollection,
+  hostServiceTypeCollection,
+  hostServiceLogTypeCollection,
+  internalTesterTypeCollection,
+  keyValueApplicationTypeCollection,
+  keyValueInfrastructureTypeCollection,
+  keyValueSectionTypeCollection,
+  keyValueWorkflowTypeCollection,
+  masterManagerTypeCollection,
+  masterManagerLoginLogTypeCollection,
+  metaDataTypeCollection,
+  mongoSlowQueryInfoTypeCollection,
+  operationLogTypeCollection,
+  optionPoolTypeCollection,
+  organizationTypeCollection,
+  positionTypeCollection,
+  positionBaseTypeCollection,
+  positionGradeTypeCollection,
+  positionGradeBaseTypeCollection,
+  presetRoleTypeCollection,
+  qrCodeTypeCollection,
+  qrCodeCategoryTypeCollection,
+  questionTypeCollection,
+  questionItemTypeCollection,
+  questionnaireTypeCollection,
+  questionnaireQuestionTypeCollection,
+  questionTagRelationTypeCollection,
+  queueInfoTypeCollection,
+  sectionTypeCollection,
+  sectionApplicationConfigTypeCollection,
+  smsCategoryTypeCollection,
+  smsCategoryStatisticTypeCollection,
+  smsLogTypeCollection,
+  smsStatisticTypeCollection,
+  sqlEntityTypeCollection,
+  sqlLogTypeCollection,
+  subsidiaryTypeCollection,
+  tagTypeCollection,
+  uploadHistoryTypeCollection,
+  userTypeCollection,
+  userDepartmentInfoTypeCollection,
+  userDeviceTypeCollection,
+  userLoginLogTypeCollection,
+  userSubsidiaryInfoTypeCollection,
+  weChatMessageRecordTypeCollection,
+  workflowTypeCollection,
+  workflowBranchConditionTypeCollection,
+  workflowBranchConditionItemTypeCollection,
+  workflowCaseTypeCollection,
+  workflowCaseFormAttachmentTypeCollection,
+  workflowCaseFormStorageTypeCollection,
+  workflowCaseProcessHistoryTypeCollection,
+  workflowDebugCaseTypeCollection,
+  workflowDebugCaseFormAttachmentTypeCollection,
+  workflowDebugCaseFormStorageTypeCollection,
+  workflowDebugCaseProcessHistoryTypeCollection,
+  workflowFormDesignTypeCollection,
+  workflowLineTypeCollection,
+  workflowNodeTypeCollection,
+  workflowNodeApproverTypeCollection,
+  workflowRangeEffectiveExternalDepartmentRelationTypeCollection,
+  workflowRangeEffectiveSubsidiaryRelationTypeCollection,
+};
 
 export function listModelBuilder() {
   const list = [];
@@ -124,6 +457,10 @@ export function listModelBuilder() {
     buildOperationLogModel,
     buildOptionPoolModel,
     buildOrganizationModel,
+    buildPositionModel,
+    buildPositionBaseModel,
+    buildPositionGradeModel,
+    buildPositionGradeBaseModel,
     buildPresetRoleModel,
     buildQrCodeModel,
     buildQrCodeCategoryModel,

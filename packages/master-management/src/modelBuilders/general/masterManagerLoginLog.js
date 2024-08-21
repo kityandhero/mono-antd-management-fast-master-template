@@ -17,6 +17,15 @@ import {
   singleListData,
 } from '../../services/masterManagerLoginLog';
 
+export const masterManagerLoginLogTypeCollection = {
+  pageList: 'masterManagerLoginLog/pageList',
+  singleList: 'masterManagerLoginLog/singleList',
+  get: 'masterManagerLoginLog/get',
+  remove: 'masterManagerLoginLog/remove',
+  refreshCache: 'masterManagerLoginLog/refreshCache',
+  pageListOperateLog: 'masterManagerLoginLog/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'masterManagerLoginLog',

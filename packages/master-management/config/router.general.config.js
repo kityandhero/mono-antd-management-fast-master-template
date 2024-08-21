@@ -1371,6 +1371,64 @@ export const department = {
   ],
 };
 
+export const position = {
+  name: 'position',
+  icon: 'position',
+  hideChildrenInMenu: true,
+  path: '/organization/position',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.position.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/organization/position',
+      redirect: '/organization/position/pageList',
+    },
+    {
+      path: '/organization/position/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/organization/position/pageList/no',
+    },
+    {
+      path: '/organization/position/pageList/:pageKey',
+      hideInMenu: true,
+      component: './Position/PageList',
+    },
+  ],
+};
+
+export const positionGrade = {
+  name: 'positionGrade',
+  icon: 'positionGrade',
+  hideChildrenInMenu: true,
+  path: '/organization/positionGrade',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.positionGrade.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/organization/positionGrade',
+      redirect: '/organization/positionGrade/pageList',
+    },
+    {
+      path: '/organization/positionGrade/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/organization/positionGrade/pageList/no',
+    },
+    {
+      path: '/organization/positionGrade/pageList/:pageKey',
+      hideInMenu: true,
+      component: './PositionGrade/PageList',
+    },
+  ],
+};
+
 export const organization = {
   name: 'organization',
   icon: 'deploymentUnit',
@@ -1384,6 +1442,8 @@ export const organization = {
   routes: [
     subsidiary,
     department,
+    position,
+    positionGrade,
     {
       name: 'graph',
       icon: 'graph',

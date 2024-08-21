@@ -491,7 +491,6 @@ export const keyValueEditModeCollection = {
   time: 'time',
   whether: 'whether',
   multiLineString: 'multiLineString',
-  flowFormDisplayModeWhenApproval: 'flowFormDisplayModeWhenApproval',
 };
 
 export const keyValueItemData = {

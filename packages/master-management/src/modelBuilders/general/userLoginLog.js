@@ -17,6 +17,15 @@ import {
   singleListData,
 } from '../../services/userLoginLog';
 
+export const userLoginLogTypeCollection = {
+  pageList: 'userLoginLog/pageList',
+  singleList: 'userLoginLog/singleList',
+  get: 'userLoginLog/get',
+  remove: 'userLoginLog/remove',
+  refreshCache: 'userLoginLog/refreshCache',
+  pageListOperateLog: 'userLoginLog/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'userLoginLog',

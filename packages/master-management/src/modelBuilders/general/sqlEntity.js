@@ -14,6 +14,13 @@ import {
   pageListInfrastructureData,
 } from '../../services/sqlEntity';
 
+export const sqlEntityTypeCollection = {
+  pageListInfrastructure: 'sqlEntity/pageListInfrastructure',
+  pageListBusiness: 'sqlEntity/pageListBusiness',
+  getInfrastructure: 'sqlEntity/getInfrastructure',
+  getBusiness: 'sqlEntity/getBusiness',
+};
+
 export function buildModel() {
   return {
     namespace: 'sqlEntity',

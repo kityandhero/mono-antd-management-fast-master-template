@@ -9,6 +9,11 @@ import {
 
 import { getData, pageListData } from '../../services/smsCategoryStatistic';
 
+export const smsCategoryStatisticTypeCollection = {
+  pageList: 'smsCategoryStatistic/pageList',
+  get: 'smsCategoryStatistic/get',
+};
+
 export function buildModel() {
   return {
     namespace: 'smsCategoryStatistic',

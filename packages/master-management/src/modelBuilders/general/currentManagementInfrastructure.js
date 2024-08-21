@@ -27,6 +27,35 @@ import {
   uploadImageData,
 } from '../../services/currentManagementInfrastructure';
 
+export const currentManagementInfrastructureTypeCollection = {
+  pageListDefaultImage: 'currentManagementInfrastructure/pageListDefaultImage',
+  get: 'currentManagementInfrastructure/get',
+  updateBasicInfo: 'currentManagementInfrastructure/updateBasicInfo',
+  updateFileStorageInfo:
+    'currentManagementInfrastructure/updateFileStorageInfo',
+  updateSmsInfo: 'currentManagementInfrastructure/updateSmsInfo',
+  updateFlowDebugUserId:
+    'currentManagementInfrastructure/updateFlowDebugUserId',
+  updateSecretKeyInfo: 'currentManagementInfrastructure/updateSecretKeyInfo',
+  updateKeyValueInfo: 'currentManagementInfrastructure/updateKeyValueInfo',
+  toggleQiniuImageSwitch:
+    'currentManagementInfrastructure/toggleQiniuImageSwitch',
+  toggleQiniuAudioSwitch:
+    'currentManagementInfrastructure/toggleQiniuAudioSwitch',
+  toggleQiniuVideoSwitch:
+    'currentManagementInfrastructure/toggleQiniuVideoSwitch',
+  toggleQiniuFileSwitch:
+    'currentManagementInfrastructure/toggleQiniuFileSwitch',
+  testDiskSpaceMonitoringConfig:
+    'currentManagementInfrastructure/testDiskSpaceMonitoringConfig',
+  testDiskSpaceMonitoringEmail:
+    'currentManagementInfrastructure/testDiskSpaceMonitoringEmail',
+  testSecretKey: 'currentManagementInfrastructure/testSecretKey',
+  refreshFrontEndApplicationConfig:
+    'currentManagementInfrastructure/refreshFrontEndApplicationConfig',
+  uploadImage: 'currentManagementInfrastructure/uploadImage',
+};
+
 export function buildModel() {
   return {
     namespace: 'currentManagementInfrastructure',

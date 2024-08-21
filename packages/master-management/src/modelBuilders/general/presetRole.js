@@ -29,6 +29,27 @@ import {
   updateModuleData,
 } from '../../services/presetRole';
 
+export const presetRoleTypeCollection = {
+  pageList: 'presetRole/pageList',
+  listModule: 'presetRole/listModule',
+  listTreeModule: 'presetRole/listTreeModule',
+  listSelect: 'presetRole/listSelect',
+  get: 'presetRole/get',
+  addBasicInfo: 'presetRole/addBasicInfo',
+  updateBasicInfo: 'presetRole/updateBasicInfo',
+  addModule: 'presetRole/addModule',
+  addMultiModule: 'presetRole/addMultiModule',
+  addAllModule: 'presetRole/addAllModule',
+  updateModule: 'presetRole/updateModule',
+  removeModule: 'presetRole/removeModule',
+  clearModule: 'presetRole/clearModule',
+  setEnable: 'presetRole/setEnable',
+  setDisable: 'presetRole/setDisable',
+  remove: 'presetRole/remove',
+  refreshCache: 'presetRole/refreshCache',
+  pageListOperateLog: 'presetRole/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'presetRole',

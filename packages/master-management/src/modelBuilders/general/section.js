@@ -11,6 +11,7 @@ import {
 import {
   addBasicInfoData,
   addMediaItemData,
+  getConfigureData,
   getData,
   getMediaItemData,
   pageListData,
@@ -40,6 +41,40 @@ import {
   uploadImageData,
   uploadVideoData,
 } from '../../services/section';
+
+export const sectionTypeCollection = {
+  pageList: 'section/pageList',
+  singleList: 'section/singleList',
+  singleTreeList: 'section/singleTreeList',
+  get: 'section/get',
+  getConfigure: 'section/getConfigure',
+  addBasicInfo: 'section/addBasicInfo',
+  updateBasicInfo: 'section/updateBasicInfo',
+  updateContentInfo: 'section/updateContentInfo',
+  updateBusinessMode: 'section/updateBusinessMode',
+  updateRenderType: 'section/updateRenderType',
+  updateSort: 'section/updateSort',
+  updateParentId: 'section/updateParentId',
+  toggleRecommend: 'section/toggleRecommend',
+  toggleTop: 'section/toggleTop',
+  toggleVisible: 'section/toggleVisible',
+  setReadSectionObtainScore: 'section/setReadSectionObtainScore',
+  setOnline: 'section/setOnline',
+  setOffline: 'section/setOffline',
+  updateKeyValueInfo: 'section/updateKeyValueInfo',
+  refreshCache: 'section/refreshCache',
+  getMediaItem: 'section/getMediaItem',
+  addMediaItem: 'section/addMediaItem',
+  updateMediaItem: 'section/updateMediaItem',
+  setMediaCollectionSort: 'section/setMediaCollectionSort',
+  removeMediaItem: 'section/removeMediaItem',
+  pageListOperateLog: 'section/pageListOperateLog',
+  uploadImage: 'section/uploadImage',
+  uploadVideo: 'section/uploadVideo',
+  uploadAudio: 'section/uploadAudio',
+  uploadFile: 'section/uploadFile',
+  uploadFileBase64: 'section/uploadFileBase64',
+};
 
 export function buildModel() {
   return {
@@ -138,6 +173,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(getData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *getConfigure(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(getConfigureData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

@@ -8,6 +8,10 @@ import {
 
 import { pageListData } from '../../services/operationLog';
 
+export const operationLogTypeCollection = {
+  pageList: 'operationLog/pageList',
+};
+
 export function buildModel() {
   return {
     namespace: 'operationLog',

@@ -171,6 +171,11 @@
       "name": "type"
     },
     {
+      "functionSegment": "FlowNodeApproverMode",
+      "label": "审批人模式",
+      "name": "approverMode"
+    },
+    {
       "functionSegment": "FlowNodeApproverStatus",
       "label": "类型",
       "name": "type"
@@ -532,6 +537,16 @@
     },
     {
       "functionSegment": "AdministrativeDivisionStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "PositionStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "PositionGradeStatus",
       "label": "状态",
       "name": "status"
     }

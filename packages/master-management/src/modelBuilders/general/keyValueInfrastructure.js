@@ -15,6 +15,14 @@ import {
   removeData,
 } from '../../services/keyValueInfrastructure';
 
+export const keyValueInfrastructureTypeCollection = {
+  pageList: 'keyValueInfrastructure/pageList',
+  get: 'keyValueInfrastructure/get',
+  remove: 'keyValueInfrastructure/remove',
+  refreshCache: 'keyValueInfrastructure/refreshCache',
+  refreshAllCache: 'keyValueInfrastructure/refreshAllCache',
+};
+
 export function buildModel() {
   return {
     namespace: 'keyValueInfrastructure',

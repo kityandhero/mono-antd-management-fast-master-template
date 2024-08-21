@@ -19,6 +19,18 @@ import {
   updateRemarkSchemaData,
 } from '../../services/workflowFormDesign';
 
+export const workflowFormDesignTypeCollection = {
+  pageList: 'workflowFormDesign/pageList',
+  get: 'workflowFormDesign/get',
+  getByWorkflow: 'workflowFormDesign/getByWorkflow',
+  addBasicInfo: 'workflowFormDesign/addBasicInfo',
+  updateBasicInfo: 'workflowFormDesign/updateBasicInfo',
+  updateDocumentSchema: 'workflowFormDesign/updateDocumentSchema',
+  updateRemarkSchema: 'workflowFormDesign/updateRemarkSchema',
+  refreshCache: 'workflowFormDesign/refreshCache',
+  pageListOperateLog: 'workflowFormDesign/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'workflowFormDesign',

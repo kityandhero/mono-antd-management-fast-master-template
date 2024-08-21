@@ -180,6 +180,16 @@ export const menuZhCNGeneral = {
   'menu.organization.department.edit.operateLog': '操作日志',
   'menu.organization.department.edit.operateLog.pageList': '日志列表',
 
+  'menu.organization.position': '职位管理',
+  'menu.organization.position-mini': '职位',
+  'menu.organization.position.pageList': '职位列表',
+  'menu.organization.position.pageList-mini': '职位',
+
+  'menu.organization.positionGrade': '职级管理',
+  'menu.organization.positionGrade-mini': '职级',
+  'menu.organization.positionGrade.pageList': '职级列表',
+  'menu.organization.positionGrade.pageList-mini': '职级',
+
   'menu.organization.graph': '关系图例',
   'menu.organization.graph-mini': '图例',
   'menu.organization.graph.graphicalTree': '结构概览',

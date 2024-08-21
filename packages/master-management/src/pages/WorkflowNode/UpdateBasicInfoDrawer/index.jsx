@@ -8,6 +8,7 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { renderFormFlowNodeApproverModeSelect } from '../../../customSpecialComponents';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
@@ -113,6 +114,28 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
               type: cardConfig.contentItemType.input,
               fieldData: fieldData.name,
               require: true,
+            },
+            {
+              lg: 12,
+              type: cardConfig.contentItemType.component,
+              component: renderFormFlowNodeApproverModeSelect({
+                adjustListData: (list) => {
+                  console.log({ list });
+
+                  return list;
+                },
+                onChange: this.onQuestionCreateModeChange,
+              }),
+              require: true,
+            },
+            {
+              lg: 12,
+              type: cardConfig.contentItemType.onlyShowInput,
+              fieldData: fieldData.typeNote,
+              value: getValueByKey({
+                data: metaData,
+                key: fieldData.typeNote.name,
+              }),
             },
           ],
         },

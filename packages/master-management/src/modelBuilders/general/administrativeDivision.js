@@ -24,6 +24,28 @@ import {
   updateLocationInfoData,
 } from '../../services/administrativeDivision';
 
+export const administrativeDivisionTypeCollection = {
+  pageList: 'administrativeDivision/pageList',
+  singleList: 'administrativeDivision/singleList',
+  singleTreeListWithDefaultProvince:
+    'administrativeDivision/singleTreeListWithDefaultProvince',
+  refreshSingleTreeListWithDefaultProvinceCache:
+    'administrativeDivision/refreshSingleTreeListWithDefaultProvinceCache',
+  singleTreeListWithDefaultCity:
+    'administrativeDivision/singleTreeListWithDefaultCity',
+  refreshSingleTreeListWithDefaultCityCache:
+    'administrativeDivision/refreshSingleTreeListWithDefaultCityCache',
+  singleTreeListWithCrossingLevel:
+    'administrativeDivision/singleTreeListWithCrossingLevel',
+  refreshSingleTreeListWithCrossingLevelCache:
+    'administrativeDivision/refreshSingleTreeListWithCrossingLevelCache',
+  get: 'administrativeDivision/get',
+  updateBasicInfo: 'administrativeDivision/updateBasicInfo',
+  updateLocationInfo: 'administrativeDivision/updateLocationInfo',
+  refreshCache: 'administrativeDivision/refreshCache',
+  pageListOperateLog: 'administrativeDivision/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'administrativeDivision',

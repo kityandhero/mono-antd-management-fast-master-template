@@ -27,59 +27,11 @@ export async function getData(parameters) {
   });
 }
 
-export const getPagePathConfigDataApiAddress = '/application/getPagePathConfig';
+export const getConfigureDataApiAddress = '/application/getConfigure';
 
-export async function getPagePathConfigData(parameters) {
+export async function getConfigureData(parameters) {
   return request({
-    api: getPagePathConfigDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const getWeChatMessageTemplateConfigDataApiAddress =
-  '/application/getWeChatMessageTemplateConfig';
-
-export async function getWeChatMessageTemplateConfigData(parameters) {
-  return request({
-    api: getWeChatMessageTemplateConfigDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const getWeChatMessageTargetPathConfigDataApiAddress =
-  '/application/getWeChatMessageTargetPathConfig';
-
-export async function getWeChatMessageTargetPathConfigData(parameters) {
-  return request({
-    api: getWeChatMessageTargetPathConfigDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const getCheckInConfigDataApiAddress = '/application/getCheckInConfig';
-
-export async function getCheckInConfigData(parameters) {
-  return request({
-    api: getCheckInConfigDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const getArticleNotificationConfigDataApiAddress =
-  '/application/getArticleNotificationConfig';
-
-export async function getArticleNotificationConfigData(parameters) {
-  return request({
-    api: getArticleNotificationConfigDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const getJiGuangConfigDataApiAddress = '/application/getJiGuangConfig';
-
-export async function getJiGuangConfigData(parameters) {
-  return request({
-    api: getJiGuangConfigDataApiAddress,
+    api: getConfigureDataApiAddress,
     params: parameters,
   });
 }

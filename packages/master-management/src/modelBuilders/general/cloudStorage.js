@@ -15,6 +15,14 @@ import {
   removeData,
 } from '../../services/cloudStorage';
 
+export const cloudStorageTypeCollection = {
+  pageList: 'cloudStorage/pageList',
+  get: 'cloudStorage/get',
+  remove: 'cloudStorage/remove',
+  refreshCache: 'cloudStorage/refreshCache',
+  pageListOperateLog: 'cloudStorage/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'cloudStorage',

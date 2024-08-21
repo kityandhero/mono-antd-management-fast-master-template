@@ -16,6 +16,15 @@ import {
   removeData,
 } from '../../services/userDevice';
 
+export const userDeviceTypeCollection = {
+  pageList: 'userDevice/pageList',
+  get: 'userDevice/get',
+  addBasicInfo: 'userDevice/addBasicInfo',
+  remove: 'userDevice/remove',
+  refreshCache: 'userDevice/refreshCache',
+  pageListOperateLog: 'userDevice/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'userDevice',

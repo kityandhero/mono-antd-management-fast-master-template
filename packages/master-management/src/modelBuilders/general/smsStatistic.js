@@ -8,6 +8,10 @@ import {
 
 import { pageListData } from '../../services/smsStatistic';
 
+export const smsStatisticTypeCollection = {
+  pageList: 'smsStatistic/pageList',
+};
+
 export function buildModel() {
   return {
     namespace: 'smsStatistic',

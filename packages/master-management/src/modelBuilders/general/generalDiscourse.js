@@ -21,6 +21,19 @@ import {
   updateBasicInfoData,
 } from '../../services/generalDiscourse';
 
+export const generalDiscourseTypeCollection = {
+  pageList: 'generalDiscourse/pageList',
+  singleList: 'generalDiscourse/singleList',
+  get: 'generalDiscourse/get',
+  addBasicInfo: 'generalDiscourse/addBasicInfo',
+  updateBasicInfo: 'generalDiscourse/updateBasicInfo',
+  setEnable: 'generalDiscourse/setEnable',
+  setDisable: 'generalDiscourse/setDisable',
+  remove: 'generalDiscourse/remove',
+  refreshCache: 'generalDiscourse/refreshCache',
+  pageListOperateLog: 'generalDiscourse/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'generalDiscourse',

@@ -24,6 +24,24 @@ import {
   uploadVideoData,
 } from '../../services/applicationNavigation';
 
+export const applicationNavigationTypeCollection = {
+  pageList: 'applicationNavigation/pageList',
+  get: 'applicationNavigation/get',
+  addBasicInfo: 'applicationNavigation/addBasicInfo',
+  updateBasicInfo: 'applicationNavigation/updateBasicInfo',
+  refreshCache: 'applicationNavigation/refreshCache',
+  remove: 'applicationNavigation/remove',
+  getNavigationItem: 'applicationNavigation/getNavigationItem',
+  addNavigationItem: 'applicationNavigation/addNavigationItem',
+  updateNavigationItem: 'applicationNavigation/updateNavigationItem',
+  setNavigationCollectionSort:
+    'applicationNavigation/setNavigationCollectionSort',
+  removeNavigationItem: 'applicationNavigation/removeNavigationItem',
+  uploadImage: 'applicationNavigation/uploadImage',
+  uploadVideo: 'applicationNavigation/uploadVideo',
+  pageListOperateLog: 'applicationNavigation/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'applicationNavigation',

@@ -30,11 +30,6 @@ export const fieldDataFlow = {
     name: 'description',
     helper: '',
   },
-  caseNameTemplate: {
-    label: '实例名模版 ',
-    name: 'caseNameTemplate',
-    helper: '设置实例名模板, 示例: {flowName} 事由{reason}',
-  },
   scope: {
     label: '应用范围',
     name: 'scope',

@@ -10,15 +10,10 @@ import {
 
 import {
   addCustomGlobalDataItemData,
-  getArticleNotificationConfigData,
-  getCheckInConfigData,
+  getConfigureData,
   getCustomGlobalDataData,
   getCustomGlobalDataItemData,
   getData,
-  getJiGuangConfigData,
-  getPagePathConfigData,
-  getWeChatMessageTargetPathConfigData,
-  getWeChatMessageTemplateConfigData,
   pageListData,
   pageListOperateLogData,
   refreshCacheData,
@@ -43,6 +38,38 @@ import {
   uploadImageData,
   uploadVideoData,
 } from '../../services/application';
+
+export const applicationTypeCollection = {
+  pageList: 'application/pageList',
+  singleList: 'application/singleList',
+  get: 'application/get',
+  getConfigure: 'application/getConfigure',
+  updateBasicInfo: 'application/updateBasicInfo',
+  updateWeChatApplicationInfo: 'application/updateWeChatApplicationInfo',
+  updateWeChatPayCertificateInfo: 'application/updateWeChatPayCertificateInfo',
+  updateKeyValueInfo: 'application/updateKeyValueInfo',
+  updateMessageChannelApplicationInfo:
+    'application/updateMessageChannelApplicationInfo',
+  setStart: 'application/setStart',
+  setStop: 'application/setStop',
+  setOwn: 'application/setOwn',
+  testJiGuangSendDevice: 'application/testJiGuangSendDevice',
+  testSendWechatTemplateMessage: 'application/testSendWechatTemplateMessage',
+  testSendWechatUniformMessage: 'application/testSendWechatUniformMessage',
+  testSendSmsCaptcha: 'application/testSendSmsCaptcha',
+  refreshCache: 'application/refreshCache',
+  uploadImage: 'application/uploadImage',
+  uploadVideo: 'application/uploadVideo',
+  uploadAudio: 'application/uploadAudio',
+  uploadFile: 'application/uploadFile',
+  uploadCertificate: 'application/uploadCertificate',
+  getCustomGlobalData: 'application/getCustomGlobalData',
+  getCustomGlobalDataItem: 'application/getCustomGlobalDataItem',
+  addCustomGlobalDataItem: 'application/addCustomGlobalDataItem',
+  updateCustomGlobalDataItem: 'application/updateCustomGlobalDataItem',
+  removeCustomGlobalDataItem: 'application/removeCustomGlobalDataItem',
+  pageListOperateLog: 'application/pageListOperateLog',
+};
 
 export function buildModel() {
   return {
@@ -131,7 +158,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *getPagePathConfig(
+      *getConfigure(
         {
           payload,
           alias,
@@ -140,143 +167,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(getPagePathConfigData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *getWeChatMessageTemplateConfig(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(
-          getWeChatMessageTemplateConfigData,
-          payload,
-        );
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *getWeChatMessageTargetPathConfig(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(
-          getWeChatMessageTargetPathConfigData,
-          payload,
-        );
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *getCheckInConfig(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(getCheckInConfigData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *getArticleNotificationConfig(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(getArticleNotificationConfigData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *getJiGuangConfig(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(getJiGuangConfigData, payload);
+        const response = yield call(getConfigureData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

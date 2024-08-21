@@ -8,6 +8,10 @@ import {
 
 import { uploadImageData } from '../../services/editor';
 
+export const editorTypeCollection = {
+  uploadImage: 'editor/uploadImage',
+};
+
 export function buildModel() {
   return {
     namespace: 'editor',

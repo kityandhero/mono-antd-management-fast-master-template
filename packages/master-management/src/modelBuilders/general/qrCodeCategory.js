@@ -23,6 +23,21 @@ import {
   updateSortData,
 } from '../../services/qrCodeCategory';
 
+export const qrCodeCategoryTypeCollection = {
+  pageList: 'qrCodeCategory/pageList',
+  singleList: 'qrCodeCategory/singleList',
+  singleTreeList: 'qrCodeCategory/singleTreeList',
+  get: 'qrCodeCategory/get',
+  addBasicInfo: 'qrCodeCategory/addBasicInfo',
+  updateBasicInfo: 'qrCodeCategory/updateBasicInfo',
+  updateSort: 'qrCodeCategory/updateSort',
+  setEnable: 'qrCodeCategory/setEnable',
+  setDisable: 'qrCodeCategory/setDisable',
+  remove: 'qrCodeCategory/remove',
+  refreshCache: 'qrCodeCategory/refreshCache',
+  pageListOperateLog: 'qrCodeCategory/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'qrCodeCategory',

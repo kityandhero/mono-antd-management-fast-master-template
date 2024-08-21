@@ -20,6 +20,20 @@ import {
   updateBasicInfoData,
 } from '../../services/workflowBranchConditionItem';
 
+export const workflowBranchConditionItemTypeCollection = {
+  pageList: 'workflowBranchConditionItem/pageList',
+  get: 'workflowBranchConditionItem/get',
+  addFormFieldBasicInfo: 'workflowBranchConditionItem/addFormFieldBasicInfo',
+  addRemoteCallBasicInfo: 'workflowBranchConditionItem/addRemoteCallBasicInfo',
+  updateBasicInfo: 'workflowBranchConditionItem/updateBasicInfo',
+  setRemoteCallUrl: 'workflowBranchConditionItem/setRemoteCallUrl',
+  setRemoteCallParameters:
+    'workflowBranchConditionItem/setRemoteCallParameters',
+  refreshCache: 'workflowBranchConditionItem/refreshCache',
+  remove: 'workflowBranchConditionItem/remove',
+  pageListOperateLog: 'workflowBranchConditionItem/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'workflowBranchConditionItem',

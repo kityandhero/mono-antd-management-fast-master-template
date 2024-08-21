@@ -16,6 +16,15 @@ import {
   setPrimaryData,
 } from '../../services/userSubsidiaryInfo';
 
+export const userSubsidiaryInfoTypeCollection = {
+  pageList: 'userSubsidiaryInfo/pageList',
+  get: 'userSubsidiaryInfo/get',
+  addBasicInfo: 'userSubsidiaryInfo/addBasicInfo',
+  setPrimary: 'userSubsidiaryInfo/setPrimary',
+  remove: 'userSubsidiaryInfo/remove',
+  refreshCache: 'userSubsidiaryInfo/refreshCache',
+};
+
 export function buildModel() {
   return {
     namespace: 'userSubsidiaryInfo',

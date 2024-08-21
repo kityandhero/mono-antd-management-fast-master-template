@@ -19,6 +19,18 @@ import {
   uploadImageData,
 } from '../../services/questionItem';
 
+export const questionItemTypeCollection = {
+  pageList: 'questionItem/pageList',
+  get: 'questionItem/get',
+  addBasicInfo: 'questionItem/addBasicInfo',
+  updateBasicInfo: 'questionItem/updateBasicInfo',
+  updateSort: 'questionItem/updateSort',
+  remove: 'questionItem/remove',
+  refreshCache: 'questionItem/refreshCache',
+  pageListOperateLog: 'questionItem/pageListOperateLog',
+  uploadImage: 'questionItem/uploadImage',
+};
+
 export function buildModel() {
   return {
     namespace: 'questionItem',

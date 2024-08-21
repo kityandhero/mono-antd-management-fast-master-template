@@ -19,6 +19,18 @@ import {
   singleListData,
 } from '../../services/workflowRangeEffectiveExternalDepartmentRelation';
 
+export const workflowRangeEffectiveExternalDepartmentRelationTypeCollection = {
+  pageList: 'workflowRangeEffectiveExternalDepartmentRelation/pageList',
+  singleList: 'workflowRangeEffectiveExternalDepartmentRelation/singleList',
+  get: 'workflowRangeEffectiveExternalDepartmentRelation/get',
+  add: 'workflowRangeEffectiveExternalDepartmentRelation/add',
+  remove: 'workflowRangeEffectiveExternalDepartmentRelation/remove',
+  removeAll: 'workflowRangeEffectiveExternalDepartmentRelation/removeAll',
+  refreshCache: 'workflowRangeEffectiveExternalDepartmentRelation/refreshCache',
+  pageListOperateLog:
+    'workflowRangeEffectiveExternalDepartmentRelation/pageListOperateLog',
+};
+
 export function buildModel() {
   return {
     namespace: 'workflowRangeEffectiveExternalDepartmentRelation',

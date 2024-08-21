@@ -19,6 +19,18 @@ import {
   updateBasicInfoData,
 } from '../../services/governmentAffairManager';
 
+export const governmentAffairManagerTypeCollection = {
+  pageList: 'governmentAffairManager/pageList',
+  get: 'governmentAffairManager/get',
+  addBasicInfo: 'governmentAffairManager/addBasicInfo',
+  updateBasicInfo: 'governmentAffairManager/updateBasicInfo',
+  resetPassword: 'governmentAffairManager/resetPassword',
+  setEnable: 'governmentAffairManager/setEnable',
+  setDisable: 'governmentAffairManager/setDisable',
+  refreshCache: 'governmentAffairManager/refreshCache',
+  remove: 'governmentAffairManager/remove',
+};
+
 export function buildModel() {
   return {
     namespace: 'governmentAffairManager',

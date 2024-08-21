@@ -121,7 +121,8 @@
     "src/modelBuilders/index.js",
     "src/utils/index.jsx",
     "src/utils/init.js",
-    "src/utils/tools.general.jsx",
+    "src/utils/general/index.jsx",
+    "src/utils/general/tools.jsx",
     "tsconfig.json"
   ],
   "ignoreSyncWhenExistFiles": [
@@ -196,6 +197,7 @@
     "src/pages/Workbench/index.jsx",
     "src/pages/Workbench/ShortcutPanel/index.jsx",
     "src/utils/theme.js",
-    "src/utils/tools.custom.jsx"
+    "src/utils/custom/index.jsx",
+    "src/utils/custom/tools.jsx"
   ]
 }
