@@ -2,8 +2,28 @@ import { formNameCollection } from './fieldDataCommon';
 
 const fieldExtraData = {
   listFormStorage: {
-    label: '表单数据',
+    label: '表单数据列表',
     name: 'listFormStorage',
+    helper: '',
+  },
+  listChainAll: {
+    label: '所有过程链条集合',
+    name: 'listChainAll',
+    helper: '',
+  },
+  treeChainAll: {
+    label: '所有过程链条树',
+    name: 'treeChainAll',
+    helper: '',
+  },
+  listChainApprove: {
+    label: '所有审批链条集合',
+    name: 'listChainApprove',
+    helper: '',
+  },
+  treeChainApprove: {
+    label: '所有审批链条树',
+    name: 'treeChainApprove',
     helper: '',
   },
   canEdit: {
@@ -94,6 +114,21 @@ const fieldExtraData = {
   workflowChannel: {
     label: '流程通道',
     name: 'workflowChannel',
+    helper: '',
+  },
+  workflowFormDesign: {
+    label: '表单设计',
+    name: 'workflowFormDesign',
+    helper: '',
+  },
+  listProcessHistory: {
+    label: '审批历史列表',
+    name: 'listProcessHistory',
+    helper: '',
+  },
+  listAttachment: {
+    label: '附件列表',
+    name: 'listAttachment',
     helper: '',
   },
 };
