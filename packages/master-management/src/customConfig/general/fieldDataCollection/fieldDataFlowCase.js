@@ -150,6 +150,11 @@ export const fieldDataFlowCase = {
     name: 'description',
     helper: '',
   },
+  caseNameTemplate: {
+    label: '实例名模版 ',
+    name: 'caseNameTemplate',
+    helper: '设置实例名模板, 示例: {flowName} 事由{reason}',
+  },
   workflowName: {
     label: '流程名称',
     name: 'workflowName',
