@@ -2,7 +2,7 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { actionCore } from 'antd-management-fast-common';
 
-import { workflowCaseTypeCollection } from '../../../modelBuilders/general/workflowCase';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 export async function getChainAction({
@@ -119,7 +119,7 @@ export async function forceEndAction({
   successMessage,
 }) {
   actionCore({
-    api: workflowCaseTypeCollection.forceEnd,
+    api: modelTypeCollection.workflowCaseTypeCollection.forceEnd,
     params: {
       workflowCaseId: getValueByKey({
         data: handleData,
