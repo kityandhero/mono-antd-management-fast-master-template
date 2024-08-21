@@ -14,6 +14,11 @@ export function getStatusBadge(status) {
       break;
     }
 
+    case flowCaseStatusCollection.forcedEnd: {
+      result = 'warning';
+      break;
+    }
+
     default: {
       result = 'default';
       break;

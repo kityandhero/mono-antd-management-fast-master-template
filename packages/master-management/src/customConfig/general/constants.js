@@ -426,6 +426,12 @@ export const flowCaseStatusCollection = {
    * value : 400
    */
   success: 400,
+
+  /**
+   * 强制结束（即该次审批作废）
+   * value : 500
+   */
+  forcedEnd: 500,
 };
 
 /**

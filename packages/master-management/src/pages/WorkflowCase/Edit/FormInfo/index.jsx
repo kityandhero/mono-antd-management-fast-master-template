@@ -328,8 +328,12 @@ class BasicInfo extends TabPageBase {
       submitApiPath: 'workflowCase/submitForm',
       workflowCaseId: null,
       currentAttachment: null,
-      listApprove: [],
+      workflowFormDesign: null,
       listChainApprove: [],
+      listFormStorage: [],
+      listProcessHistory: [],
+      listApprove: [],
+      listAttachment: [],
       useDocumentDisplay: false,
     };
   }
@@ -392,7 +396,32 @@ class BasicInfo extends TabPageBase {
     // eslint-disable-next-line no-unused-vars
     metaOriginalData = null,
   }) => {
-    const { listProcessHistory } = metaData;
+    const listFormStorage = getValueByKey({
+      data: metaData,
+      key: fieldData.listFormStorage.name,
+      convert: convertCollection.array,
+      defaultValue: [],
+    });
+
+    const listProcessHistory = getValueByKey({
+      data: metaData,
+      key: fieldData.listProcessHistory.name,
+      convert: convertCollection.array,
+      defaultValue: [],
+    });
+
+    const listAttachment = getValueByKey({
+      data: metaData,
+      key: fieldData.listAttachment.name,
+      convert: convertCollection.array,
+      defaultValue: [],
+    });
+
+    const workflowFormDesign = getValueByKey({
+      data: metaData,
+      key: fieldData.workflowFormDesign.name,
+      defaultValue: null,
+    });
 
     const flowCaseStatus = getValueByKey({
       data: metaData,
@@ -445,6 +474,10 @@ class BasicInfo extends TabPageBase {
         ],
         flowCaseStatus,
       ),
+      workflowFormDesign,
+      listFormStorage: [...listFormStorage],
+      listProcessHistory: [...listProcessHistory],
+      listAttachment: [...listAttachment],
       listApprove: [...listApprove],
     });
   };
@@ -489,20 +522,20 @@ class BasicInfo extends TabPageBase {
   };
 
   establishCardCollectionConfig = () => {
-    const { firstLoadSuccess, useDocumentDisplay, metaData } = this.state;
+    const {
+      firstLoadSuccess,
+      useDocumentDisplay,
+      metaData,
+      listProcessHistory,
+    } = this.state;
 
     const {
       nextApproveWorkflowNode,
-      listProcessHistory,
       listNextProcessNotification,
       listCarbonCopyNotification,
       listLatestApprove,
     } = {
-      workflowFormDesign: {},
       nextApproveWorkflowNode: null,
-      listFormStorage: [],
-      listAttachment: [],
-      listProcessHistory: [],
       listNextProcessNotification: [],
       listCarbonCopyNotification: [],
       listLatestApprove: [],
@@ -674,19 +707,8 @@ class BasicInfo extends TabPageBase {
   };
 
   renderFlowCaseFormFieldDisplay = () => {
-    const { metaData, listApprove } = this.state;
-
-    const { workflowFormDesign, listFormStorage, listAttachment } = {
-      workflowFormDesign: {},
-      nextApproveWorkflowNode: null,
-      listFormStorage: [],
-      listAttachment: [],
-      listProcessHistory: [],
-      listNextProcessNotification: [],
-      listCarbonCopyNotification: [],
-      listLatestApprove: [],
-      ...metaData,
-    };
+    const { workflowFormDesign, listFormStorage, listApprove, listAttachment } =
+      this.state;
 
     const designJson = getValueByKey({
       data: workflowFormDesign,
@@ -790,14 +812,14 @@ class BasicInfo extends TabPageBase {
   };
 
   renderFlowCaseFormDocumentDisplay = () => {
-    const { metaData, listApprove, listChainApprove } = this.state;
-
-    const { workflowFormDesign, listFormStorage, listAttachment } = {
-      workflowFormDesign: {},
-      listFormStorage: [],
-      listAttachment: [],
-      ...metaData,
-    };
+    const {
+      metaData,
+      workflowFormDesign,
+      listFormStorage,
+      listApprove,
+      listChainApprove,
+      listAttachment,
+    } = this.state;
 
     const remarkSchemaList = getValueByKey({
       data: workflowFormDesign,
@@ -863,6 +885,17 @@ class BasicInfo extends TabPageBase {
       items = listDataSchema;
     }
 
+    const listChainApproveAdjust = isArray(listChainApprove)
+      ? listChainApprove.map((o) => {
+          const { name } = { name: '', ...o };
+
+          return {
+            title: name,
+            ...o,
+          };
+        })
+      : [];
+
     return (
       <>
         <DocumentPrintDesigner
@@ -878,7 +911,7 @@ class BasicInfo extends TabPageBase {
             items,
           }}
           approveList={isArray(listApprove) ? listApprove : []}
-          allApproveProcessList={listChainApprove}
+          allApproveProcessList={listChainApproveAdjust}
           remarkTitle="备注"
           remarkName="remark"
           remarkList={remarkSchemaList}

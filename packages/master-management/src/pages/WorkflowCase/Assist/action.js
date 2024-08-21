@@ -2,6 +2,7 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { actionCore } from 'antd-management-fast-common';
 
+import { workflowCaseTypeCollection } from '../../../modelBuilders/general/workflowCase';
 import { fieldData } from '../Common/data';
 
 export async function getChainAction({
@@ -98,6 +99,27 @@ export async function closeResetAllApproveSwitchAction({
 }) {
   actionCore({
     api: 'workflowCase/closeResetAllApproveSwitch',
+    params: {
+      workflowCaseId: getValueByKey({
+        data: handleData,
+        key: fieldData.workflowCaseId.name,
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export async function forceEndAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: workflowCaseTypeCollection.forceEnd,
     params: {
       workflowCaseId: getValueByKey({
         data: handleData,

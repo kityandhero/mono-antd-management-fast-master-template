@@ -2,6 +2,8 @@ import { connect } from 'easy-soft-dva';
 import {
   buildRandomHexColor,
   checkHasAuthority,
+  checkInCollection,
+  convertCollection,
   getValueByKey,
   showSimpleErrorMessage,
   toNumber,
@@ -9,13 +11,17 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   searchCardConfig,
   unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
-import { accessWayCollection } from '../../../customConfig';
+import {
+  accessWayCollection,
+  flowCaseStatusCollection,
+} from '../../../customConfig';
 import {
   getChannelName,
   getFlowCaseStatusName,
@@ -23,7 +29,7 @@ import {
   renderSearchFlowScopeSelect,
   renderSearchFlowStatusSelect,
 } from '../../../customSpecialComponents';
-import { refreshCacheAction } from '../Assist/action';
+import { forceEndAction, refreshCacheAction } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
@@ -51,6 +57,12 @@ class PageList extends MultiPage {
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
+      case 'forceEnd': {
+        this.forceEnd(handleData);
+
+        break;
+      }
+
       case 'refreshCache': {
         this.refreshCache(handleData);
 
@@ -62,6 +74,13 @@ class PageList extends MultiPage {
         break;
       }
     }
+  };
+
+  forceEnd = (r) => {
+    forceEndAction({
+      target: this,
+      handleData: r,
+    });
   };
 
   refreshCache = (r) => {
@@ -98,7 +117,7 @@ class PageList extends MultiPage {
         {
           lg: 5,
           type: searchCardConfig.contentItemType.input,
-          fieldData: fieldData.name,
+          fieldData: fieldData.title,
         },
         {
           lg: 5,
@@ -125,6 +144,12 @@ class PageList extends MultiPage {
   };
 
   establishListItemDropdownConfig = (record) => {
+    const status = getValueByKey({
+      data: record,
+      key: fieldData.status.name,
+      convert: convertCollection.number,
+    });
+
     return {
       size: 'small',
       text: '详情',
@@ -141,8 +166,26 @@ class PageList extends MultiPage {
       },
       items: [
         {
-          withDivider: true,
-          uponDivider: true,
+          key: 'forceEnd',
+          icon: iconBuilder.stop(),
+          text: '强制结束',
+          disabled: !checkHasAuthority(
+            accessWayCollection.workflowCase.forceEnd.permission,
+          ),
+          hidden: !checkInCollection(
+            [
+              flowCaseStatusCollection.submitApproval,
+              flowCaseStatusCollection.inApprovalProcess,
+            ],
+            status,
+          ),
+          confirm: true,
+          title: '将要强制结束审批（即该次审批作废），确定吗？',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
           text: '刷新缓存',

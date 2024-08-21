@@ -63,10 +63,12 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
       width: 1024,
       workflowId: null,
       currentAttachment: null,
+      workflowFormDesign: null,
       listChainApprove: [],
       listFormStorage: [],
       listProcessHistory: [],
       listApprove: [],
+      listAttachment: [],
       useDocumentDisplay: true,
       overlayButtonOpenText: '查看键值信息',
       overlayButtonCloseText: '关闭键值信息',
@@ -81,9 +83,14 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
 
   executeAfterDoOtherWhenChangeVisibleToHide = () => {
     this.setState({
+      workflowId: null,
+      currentAttachment: null,
+      workflowFormDesign: null,
       listChainApprove: [],
-      listApprove: [],
+      listFormStorage: [],
       listProcessHistory: [],
+      listApprove: [],
+      listAttachment: [],
       useDocumentDisplay: true,
     });
   };
@@ -116,6 +123,19 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
       key: fieldDataFlowCase.listProcessHistory.name,
       convert: convertCollection.array,
       defaultValue: [],
+    });
+
+    const listAttachment = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.listAttachment.name,
+      convert: convertCollection.array,
+      defaultValue: [],
+    });
+
+    const workflowFormDesign = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.workflowFormDesign.name,
+      defaultValue: null,
     });
 
     const flowCaseStatus = getValueByKey({
@@ -169,8 +189,10 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
         ],
         flowCaseStatus,
       ),
-      listFormStorage,
-      listProcessHistory,
+      workflowFormDesign,
+      listFormStorage: [...listFormStorage],
+      listProcessHistory: [...listProcessHistory],
+      listAttachment: [...listAttachment],
       listApprove: [...listApprove],
     });
   };
@@ -271,14 +293,14 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
   };
 
   renderFlowCaseFormDocumentDisplay = () => {
-    const { metaData, listApprove, listChainApprove } = this.state;
-
-    const { workflowFormDesign, listFormStorage, listAttachment } = {
-      workflowFormDesign: {},
-      listFormStorage: [],
-      listAttachment: [],
-      ...metaData,
-    };
+    const {
+      metaData,
+      workflowFormDesign,
+      listFormStorage,
+      listApprove,
+      listChainApprove,
+      listAttachment,
+    } = this.state;
 
     const remarkSchemaList = getValueByKey({
       data: workflowFormDesign,
@@ -419,14 +441,8 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
   };
 
   renderFlowCaseFormFieldDisplay = () => {
-    const { metaData } = this.state;
-
-    const { workflowFormDesign, listFormStorage, listAttachment } = {
-      workflowFormDesign: {},
-      listFormStorage: [],
-      listAttachment: [],
-      ...metaData,
-    };
+    const { metaData, workflowFormDesign, listFormStorage, listAttachment } =
+      this.state;
 
     const canEdit = getValueByKey({
       data: metaData,
@@ -470,54 +486,56 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
     });
 
     return (
-      <SchemaDisplayer
-        {...designData}
-        initialValues={initialValues}
-        showSubmit={canEdit === whetherNumber.yes}
-        showSubmitDivider={canEdit === whetherNumber.yes}
-        submitButtonText="提交表单"
-        descriptionTitleColor={remarkColor}
-        descriptionLabelColor={remarkColor}
-        descriptionTextColor={remarkColor}
-        descriptions={remarkSchemaList}
-        descriptionUpperLabel="附件列表"
-        descriptionUpperComponent={
-          <FileViewer
-            canUpload
-            canRemove
-            list={listAttachment}
-            dataTransfer={(o) => {
-              return {
-                ...o,
-                name: getValueByKey({
-                  data: o,
-                  key: fieldDataFlowCaseFormAttachment.alias.name,
-                }),
-                url: getValueByKey({
-                  data: o,
-                  key: fieldDataFlowCaseFormAttachment.url.name,
-                }),
-              };
-            }}
-            onUploadButtonClick={() => {
-              this.showAddAttachmentModal();
-            }}
-            onItemClick={(o) => {
-              this.showFlowCaseFormAttachmentPreviewDrawer(o);
-            }}
-            onRemove={(o) => {
-              this.removeAttachment(o);
-            }}
-          />
-        }
-        onSubmit={(o) => {
-          this.saveForm(o);
-        }}
-      >
-        {hasDataSchema ? null : (
-          <Empty description="暂无表单设计，请首先进行设计" />
-        )}
-      </SchemaDisplayer>
+      <div style={{ paddingBottom: '14px' }}>
+        <SchemaDisplayer
+          {...designData}
+          initialValues={initialValues}
+          showSubmit={canEdit === whetherNumber.yes}
+          showSubmitDivider={canEdit === whetherNumber.yes}
+          submitButtonText="提交表单"
+          descriptionTitleColor={remarkColor}
+          descriptionLabelColor={remarkColor}
+          descriptionTextColor={remarkColor}
+          descriptions={remarkSchemaList}
+          descriptionUpperLabel="附件列表"
+          descriptionUpperComponent={
+            <FileViewer
+              canUpload
+              canRemove
+              list={listAttachment}
+              dataTransfer={(o) => {
+                return {
+                  ...o,
+                  name: getValueByKey({
+                    data: o,
+                    key: fieldDataFlowCaseFormAttachment.alias.name,
+                  }),
+                  url: getValueByKey({
+                    data: o,
+                    key: fieldDataFlowCaseFormAttachment.url.name,
+                  }),
+                };
+              }}
+              onUploadButtonClick={() => {
+                this.showAddAttachmentModal();
+              }}
+              onItemClick={(o) => {
+                this.showFlowCaseFormAttachmentPreviewDrawer(o);
+              }}
+              onRemove={(o) => {
+                this.removeAttachment(o);
+              }}
+            />
+          }
+          onSubmit={(o) => {
+            this.saveForm(o);
+          }}
+        >
+          {hasDataSchema ? null : (
+            <Empty description="暂无表单设计，请首先进行设计" />
+          )}
+        </SchemaDisplayer>
+      </div>
     );
   };
 
