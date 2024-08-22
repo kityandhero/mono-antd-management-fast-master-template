@@ -716,7 +716,10 @@ class BasicInfo extends TabPageBase {
 
     const hasDataSchema = dataSchemaList.length > 0;
 
-    const initialValues = buildFlowCaseFormInitialValues(listFormStorage);
+    const initialValues = buildFlowCaseFormInitialValues(
+      listFormStorage,
+      dataSchemaList,
+    );
 
     const remarkSchemaList = getValueByKey({
       data: workflowFormDesign,
