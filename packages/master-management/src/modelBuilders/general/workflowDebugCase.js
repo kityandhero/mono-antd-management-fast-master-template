@@ -19,6 +19,7 @@ import {
   pageListData,
   pageListLatestApproveData,
   pageListOperateLogData,
+  pageListUnderwayData,
   pageListWaitApproveData,
   refreshCacheData,
   submitApprovalData,
@@ -28,6 +29,7 @@ import {
 
 export const workflowDebugCaseTypeCollection = {
   pageList: 'workflowDebugCase/pageList',
+  pageListUnderway: 'workflowDebugCase/pageListUnderway',
   pageListLatestApprove: 'workflowDebugCase/pageListLatestApprove',
   pageListWaitApprove: 'workflowDebugCase/pageListWaitApprove',
   get: 'workflowDebugCase/get',
@@ -64,6 +66,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(pageListData, payload);
+
+        const dataAdjust = pretreatmentRemotePageListData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *pageListUnderway(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(pageListUnderwayData, payload);
 
         const dataAdjust = pretreatmentRemotePageListData({
           source: response,

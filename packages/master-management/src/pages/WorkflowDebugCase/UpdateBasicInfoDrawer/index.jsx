@@ -30,7 +30,6 @@ class UpdateBasicInfoDrawer extends BaseFlowCaseUpdateBasicInfoDrawer {
     };
   }
 
-  // eslint-disable-next-line no-unused-vars
   getFlowCaseId = (o) => {
     return getValueByKey({
       data: o,

@@ -36,6 +36,7 @@ import {
   flowNodeTypeCollection,
 } from '../../../../customConfig';
 import { getChannelName } from '../../../../customSpecialComponents';
+import { buildFlowCaseFormInitialValues } from '../../../../utils';
 import { fieldData as fieldDataWorkflowCaseCarbonCopyNotification } from '../../../WorkflowCaseCarbonCopyNotification/Common/data';
 import { fieldData as fieldDataWorkflowCaseFormAttachment } from '../../../WorkflowCaseFormAttachment/Common/data';
 import { PreviewDrawer as WorkflowCaseFormAttachmentPreviewDrawer } from '../../../WorkflowCaseFormAttachment/PreviewDrawer';
@@ -211,22 +212,6 @@ const columnsCaseLatestApprove = [
     width: '160px',
   },
 ];
-
-function buildFormInitialValues(listFormStorage) {
-  const data = {};
-
-  if (isArray(listFormStorage) && !isEmptyArray(listFormStorage)) {
-    for (const o of listFormStorage) {
-      try {
-        data[o.name] = JSON.parse(o.value);
-      } catch {
-        data[o.name] = o.value;
-      }
-    }
-  }
-
-  return data;
-}
 
 function processHistoryItemDataConvert(o) {
   const approveWorkflowNodeName = getValueByKey({
@@ -731,7 +716,7 @@ class BasicInfo extends TabPageBase {
 
     const hasDataSchema = dataSchemaList.length > 0;
 
-    const initialValues = buildFormInitialValues(listFormStorage);
+    const initialValues = buildFlowCaseFormInitialValues(listFormStorage);
 
     const remarkSchemaList = getValueByKey({
       data: workflowFormDesign,

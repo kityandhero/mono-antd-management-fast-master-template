@@ -9,6 +9,16 @@ export async function pageListData(parameters) {
   });
 }
 
+export const pageListUnderwayDataApiAddress =
+  '/workflowDebugCase/pageListUnderway';
+
+export async function pageListUnderwayData(parameters) {
+  return request({
+    api: pageListUnderwayDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const pageListLatestApproveDataApiAddress =
   '/workflowDebugCase/pageListLatestApprove';
 

@@ -39,6 +39,7 @@ import { getChannelName } from '../../../../customSpecialComponents';
 import {
   closeCancelApproveSwitchAction,
   closeResetAllApproveSwitchAction,
+  forceEndAction,
   openCancelApproveSwitchAction,
   openResetAllApproveSwitchAction,
   submitApprovalAction,
@@ -657,6 +658,16 @@ class DebugCaseInfo extends TabPageBase {
     });
   };
 
+  forceEnd = (o) => {
+    forceEndAction({
+      target: this,
+      handleData: o,
+      successCallback: ({ target }) => {
+        target.reloadData({});
+      },
+    });
+  };
+
   resetAllApprove = (o) => {
     resetAllApproveAction({
       target: this,
@@ -1165,6 +1176,9 @@ class DebugCaseInfo extends TabPageBase {
                 },
               },
               {
+                buildType: cardConfig.extraBuildType.divider,
+              },
+              {
                 buildType: cardConfig.extraBuildType.generalExtraButton,
                 type: 'default',
                 icon: iconBuilder.undo(),
@@ -1185,6 +1199,30 @@ class DebugCaseInfo extends TabPageBase {
                 ),
                 handleClick: () => {
                   this.cancelApprove(metaData);
+                },
+              },
+              {
+                buildType: cardConfig.extraBuildType.generalExtraButton,
+                type: 'default',
+                icon: iconBuilder.stop(),
+                text: '强制结束',
+                disabled:
+                  !firstLoadSuccess ||
+                  !checkInCollection(
+                    [
+                      flowCaseStatusCollection.submitApproval,
+                      flowCaseStatusCollection.inApprovalProcess,
+                    ],
+                    status,
+                  ),
+                hidden: !checkHasAuthority(
+                  accessWayCollection.workflowDebugCaseProcessHistory.refuse
+                    .permission,
+                ),
+                confirm: true,
+                title: '将要强制结束审批（即该次审批作废），确定吗？',
+                handleClick: () => {
+                  this.forceEnd(metaData);
                 },
               },
               {

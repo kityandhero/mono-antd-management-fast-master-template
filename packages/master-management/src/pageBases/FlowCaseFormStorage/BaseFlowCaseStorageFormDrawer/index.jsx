@@ -30,24 +30,9 @@ import {
   flowApproveActionModeCollection,
   flowCaseStatusCollection,
 } from '../../../customConfig';
+import { buildFlowCaseFormInitialValues } from '../../../utils';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
-
-function buildFormInitialValues(listFormStorage) {
-  const data = {};
-
-  if (isArray(listFormStorage) && !isEmptyArray(listFormStorage)) {
-    for (const o of listFormStorage) {
-      try {
-        data[o.name] = JSON.parse(o.value);
-      } catch {
-        data[o.name] = o.value;
-      }
-    }
-  }
-
-  return data;
-}
 
 class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
   useFormWrapper = false;
@@ -76,6 +61,10 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
   }
 
   loadChainApprove = () => {};
+
+  reloadChainApprove = () => {
+    this.loadChainApprove();
+  };
 
   executeAfterDoOtherWhenChangeVisibleToShow = () => {
     this.loadChainApprove();
@@ -471,7 +460,7 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
 
     const hasDataSchema = dataSchemaList.length > 0;
 
-    const initialValues = buildFormInitialValues(listFormStorage);
+    const initialValues = buildFlowCaseFormInitialValues(listFormStorage);
 
     const remarkSchemaList = getValueByKey({
       data: workflowFormDesign,

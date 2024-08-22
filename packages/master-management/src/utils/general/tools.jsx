@@ -9,6 +9,9 @@ import {
   datetimeFormat,
   formatDatetime,
   getValueByKey,
+  hasKey,
+  isArray,
+  isEmptyArray,
   isEmptyObject,
   isNull,
 } from 'easy-soft-utility';
@@ -470,4 +473,55 @@ export function buildOrganizationGraphConfig() {
       });
     },
   };
+}
+
+export function buildFlowCaseFormInitialValues(
+  listFormStorage,
+  dataSchemaList,
+) {
+  const data = {};
+
+  if (isArray(listFormStorage) && !isEmptyArray(listFormStorage)) {
+    for (const o of listFormStorage) {
+      try {
+        data[o.name] = JSON.parse(o.value);
+      } catch {
+        data[o.name] = o.value;
+      }
+    }
+  }
+
+  if (!isArray(dataSchemaList) || isEmptyArray(dataSchemaList)) {
+    return data;
+  }
+
+  for (const item of dataSchemaList) {
+    const { name, type } = { name: '', type: '', ...item };
+
+    if (checkStringIsNullOrWhiteSpace(name)) {
+      continue;
+    }
+
+    if (checkStringIsNullOrWhiteSpace(type)) {
+      continue;
+    }
+
+    if (hasKey(data, name)) {
+      continue;
+    }
+
+    if (type === 'string') {
+      data[name] = '';
+    }
+
+    if (type === 'number') {
+      data[name] = '';
+    }
+
+    if (type === '[]') {
+      data[name] = [];
+    }
+  }
+
+  return data;
 }

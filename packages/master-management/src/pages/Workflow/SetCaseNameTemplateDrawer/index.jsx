@@ -174,7 +174,7 @@ class SetCaseNameTemplateDrawer extends BaseUpdateDrawer {
           text: '占位符请使用名称列的字符, 用{}包裹, 例如 {013zvfw9eu9}, {}内不要有空白符.',
         },
         {
-          text: '内置固定占位符 {flowName}, 代表当前流程名称, 可以选择性使用.',
+          text: '内置固定占位符, {flowName} 代表当前流程名称, {approverName} 代表当前申请人名称, 可以选择性使用.',
         },
         {
           text: '配置此处前请先完善表单设计.',

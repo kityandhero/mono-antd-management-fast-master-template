@@ -5113,6 +5113,13 @@
           "type": "pageList"
         },
         {
+          "title": "进行中的流程分页列表",
+          "api": "/workflowCase/pageListUnderway",
+          "effect": "pageListUnderway",
+          "service": "pageListUnderwayData",
+          "type": "pageList"
+        },
+        {
           "title": "获取详情",
           "api": "/workflowCase/get",
           "effect": "get",
@@ -5320,6 +5327,13 @@
           "api": "/workflowDebugCase/pageList",
           "effect": "pageList",
           "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "进行中的流程分页列表",
+          "api": "/workflowDebugCase/pageListUnderway",
+          "effect": "pageListUnderway",
+          "service": "pageListUnderwayData",
           "type": "pageList"
         },
         {

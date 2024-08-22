@@ -17,11 +17,13 @@ import {
   openResetAllApproveSwitchData,
   pageListData,
   pageListOperateLogData,
+  pageListUnderwayData,
   refreshCacheData,
 } from '../../services/workflowCase';
 
 export const workflowCaseTypeCollection = {
   pageList: 'workflowCase/pageList',
+  pageListUnderway: 'workflowCase/pageListUnderway',
   get: 'workflowCase/get',
   getChain: 'workflowCase/getChain',
   openCancelApproveSwitch: 'workflowCase/openCancelApproveSwitch',
@@ -52,6 +54,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(pageListData, payload);
+
+        const dataAdjust = pretreatmentRemotePageListData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *pageListUnderway(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(pageListUnderwayData, payload);
 
         const dataAdjust = pretreatmentRemotePageListData({
           source: response,

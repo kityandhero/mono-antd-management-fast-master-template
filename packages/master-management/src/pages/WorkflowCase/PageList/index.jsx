@@ -5,6 +5,7 @@ import {
   checkInCollection,
   convertCollection,
   getValueByKey,
+  handleItem,
   showSimpleErrorMessage,
   toNumber,
 } from 'easy-soft-utility';
@@ -55,6 +56,33 @@ class PageList extends MultiPage {
     };
   }
 
+  handleItemStatus = ({ target, handleData, remoteData }) => {
+    const id = getValueByKey({
+      data: handleData,
+      key: fieldData.workflowCaseId.name,
+    });
+
+    handleItem({
+      target,
+      value: id,
+      compareValueHandler: (o) => {
+        const { workflowId: v } = o;
+
+        return v;
+      },
+      handler: (d) => {
+        const o = d;
+
+        o[fieldData.status.name] = getValueByKey({
+          data: remoteData,
+          key: fieldData.status.name,
+        });
+
+        return d;
+      },
+    });
+  };
+
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
       case 'forceEnd': {
@@ -80,6 +108,9 @@ class PageList extends MultiPage {
     forceEndAction({
       target: this,
       handleData: r,
+      successCallback: ({ target, handleData, remoteData }) => {
+        target.handleItemStatus({ target, handleData, remoteData });
+      },
     });
   };
 

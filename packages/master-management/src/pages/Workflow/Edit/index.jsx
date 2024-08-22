@@ -9,6 +9,7 @@ import {
 } from 'easy-soft-utility';
 
 import {
+  dropdownExpandItemType,
   extraBuildType,
   getDerivedStateFromPropertiesForUrlParameters,
   tabBarCollection,
@@ -30,6 +31,8 @@ import {
 } from '../../../customSpecialComponents';
 import { PageListDrawer as WorkflowBranchConditionPageListDrawer } from '../../WorkflowBranchCondition/PageListDrawer';
 import { PageListDrawer as WorkflowBranchConditionItemPageListDrawer } from '../../WorkflowBranchConditionItem/PageListDrawer';
+import { WorkflowCasePageListUnderwayDrawer } from '../../WorkflowCase/PageListUnderwayDrawer';
+import { WorkflowDebugCasePageListUnderwayDrawer } from '../../WorkflowDebugCase/PageListUnderwayDrawer';
 import { PageListDrawer as WorkflowLinePageListDrawer } from '../../WorkflowLine/PageListDrawer';
 import { PageListDrawer as WorkflowNodePageListDrawer } from '../../WorkflowNode/PageListDrawer';
 import { PageListDrawer as WorkflowNodeApproverPageListDrawer } from '../../WorkflowNodeApprover/PageListDrawer';
@@ -309,6 +312,14 @@ class Detail extends DataTabContainerSupplement {
     WorkflowLinePageListDrawer.open();
   };
 
+  showWorkflowCasePageListUnderwayDrawer = () => {
+    WorkflowCasePageListUnderwayDrawer.open();
+  };
+
+  showWorkflowDebugCasePageListUnderwayDrawer = () => {
+    WorkflowDebugCasePageListUnderwayDrawer.open();
+  };
+
   establishPageHeaderTitlePrefix = () => {
     return '流程';
   };
@@ -492,6 +503,16 @@ class Detail extends DataTabContainerSupplement {
       disabled: this.checkInProgress(),
       handleMenuClick: ({ key, handleData }) => {
         switch (key) {
+          case 'showWorkflowCasePageListUnderwayDrawer': {
+            that.showWorkflowCasePageListUnderwayDrawer(handleData);
+            break;
+          }
+
+          case 'showWorkflowDebugCasePageListUnderwayDrawer': {
+            that.showWorkflowDebugCasePageListUnderwayDrawer(handleData);
+            break;
+          }
+
           case 'openMultibranch': {
             that.showUpdateMultibranchModal(handleData);
             break;
@@ -515,6 +536,25 @@ class Detail extends DataTabContainerSupplement {
       },
       handleData: metaData,
       items: [
+        {
+          key: 'showWorkflowCasePageListUnderwayDrawer',
+          icon: iconBuilder.unorderedList(),
+          text: '进行中的审批实例列表',
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowCase.pageListUnderway.permission,
+          ),
+        },
+        {
+          key: 'showWorkflowDebugCasePageListUnderwayDrawer',
+          icon: iconBuilder.unorderedList(),
+          text: '进行中的测试实例列表',
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowDebugCase.pageListUnderway.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
         {
           key: 'openMultibranch',
           icon: iconBuilder.branches(),
@@ -544,8 +584,9 @@ class Detail extends DataTabContainerSupplement {
             }) === whetherNumber.yes,
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
           text: '刷新缓存',
@@ -716,6 +757,16 @@ class Detail extends DataTabContainerSupplement {
         />
 
         <WorkflowNodeApproverPageListDrawer
+          maskClosable
+          externalData={{ workflowId }}
+        />
+
+        <WorkflowCasePageListUnderwayDrawer
+          maskClosable
+          externalData={{ workflowId }}
+        />
+
+        <WorkflowDebugCasePageListUnderwayDrawer
           maskClosable
           externalData={{ workflowId }}
         />

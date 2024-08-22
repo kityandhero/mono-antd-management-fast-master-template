@@ -2,6 +2,7 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { actionCore } from 'antd-management-fast-common';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 export async function getChainByWorkflowAction({
@@ -11,7 +12,7 @@ export async function getChainByWorkflowAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowDebugCase/getChainByWorkflow',
+    api: modelTypeCollection.workflowDebugCaseTypeCollection.getChainByWorkflow,
     params: {
       workflowId: getValueByKey({
         data: handleData,
@@ -33,7 +34,7 @@ export async function addBasicInfoAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowDebugCase/addBasicInfo',
+    api: modelTypeCollection.workflowDebugCaseTypeCollection.addBasicInfo,
     params: {
       workflowId: getValueByKey({
         data: handleData,
@@ -55,7 +56,7 @@ export async function submitApprovalAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowDebugCase/submitApproval',
+    api: modelTypeCollection.workflowDebugCaseTypeCollection.submitApproval,
     params: {
       workflowDebugCaseId: getValueByKey({
         data: handleData,
@@ -77,7 +78,8 @@ export async function openCancelApproveSwitchAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowDebugCase/openCancelApproveSwitch',
+    api: modelTypeCollection.workflowDebugCaseTypeCollection
+      .openCancelApproveSwitch,
     params: {
       workflowDebugCaseId: getValueByKey({
         data: handleData,
@@ -99,7 +101,8 @@ export async function closeCancelApproveSwitchAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowDebugCase/closeCancelApproveSwitch',
+    api: modelTypeCollection.workflowDebugCaseTypeCollection
+      .closeCancelApproveSwitch,
     params: {
       workflowDebugCaseId: getValueByKey({
         data: handleData,
@@ -121,7 +124,8 @@ export async function openResetAllApproveSwitchAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowDebugCase/openResetAllApproveSwitch',
+    api: modelTypeCollection.workflowDebugCaseTypeCollection
+      .openResetAllApproveSwitch,
     params: {
       workflowDebugCaseId: getValueByKey({
         data: handleData,
@@ -143,7 +147,8 @@ export async function closeResetAllApproveSwitchAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowDebugCase/closeResetAllApproveSwitch',
+    api: modelTypeCollection.workflowDebugCaseTypeCollection
+      .closeResetAllApproveSwitch,
     params: {
       workflowDebugCaseId: getValueByKey({
         data: handleData,
@@ -158,14 +163,14 @@ export async function closeResetAllApproveSwitchAction({
   });
 }
 
-export async function removeAction({
+export async function forceEndAction({
   target,
   handleData,
   successCallback,
   successMessage,
 }) {
   actionCore({
-    api: 'workflowDebugCase/remove',
+    api: modelTypeCollection.workflowDebugCaseTypeCollection.forceEnd,
     params: {
       workflowDebugCaseId: getValueByKey({
         data: handleData,
@@ -187,7 +192,7 @@ export async function refreshCacheAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowDebugCase/refreshCache',
+    api: modelTypeCollection.workflowDebugCaseTypeCollection.refreshCache,
     params: {
       workflowDebugCaseId: getValueByKey({
         data: handleData,

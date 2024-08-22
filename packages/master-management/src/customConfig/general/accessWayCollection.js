@@ -3148,6 +3148,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '0be6a5ffd765934c778e9ed8e9a49096',
       permission: '38c3a2128eff499684bffeaa270bec19',
     },
+    pageListUnderway: {
+      title: '进行中的流程分页列表',
+      paramsKey: 'fcf983a37243370bdf03327e18ba9f06',
+      permission: '9760b2c308f64bd289bac683f0bd63be',
+    },
     get: {
       title: '获取详情',
       paramsKey: 'd68b65bef3957bce02b6d1ac7f4a3e9e',
@@ -3280,6 +3285,11 @@ export const accessWayInfrastructureCollection = {
       title: '分页列表',
       paramsKey: 'c9121bc9e100ee6c0f95158d28d96f3c',
       permission: 'aa5c291e90324ff9b90e4a523c5e2b1a',
+    },
+    pageListUnderway: {
+      title: '进行中的流程分页列表',
+      paramsKey: '33b3fe34642b12add9a18bca09aed3bc',
+      permission: 'ab9f74a856e94a5ba727a43b5bb71cdd',
     },
     pageListLatestApprove: {
       title: '已审批流程实例分页列表',
