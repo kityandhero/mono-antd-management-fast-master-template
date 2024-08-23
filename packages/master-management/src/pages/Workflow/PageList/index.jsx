@@ -13,6 +13,7 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   listViewConfig,
   searchCardConfig,
   unlimitedWithStringFlag,
@@ -316,8 +317,9 @@ class PageList extends MultiPage {
           text: '设置数据通道',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'setEnable',
           icon: iconBuilder.playCircle(),
           text: '设为启用',
@@ -334,8 +336,9 @@ class PageList extends MultiPage {
           title: '将要设为禁用，确定吗？',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
           text: '刷新缓存',
@@ -343,8 +346,9 @@ class PageList extends MultiPage {
           title: '将要刷新缓存，确定吗？',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'remove',
           icon: iconBuilder.delete(),
           text: '移除流程',

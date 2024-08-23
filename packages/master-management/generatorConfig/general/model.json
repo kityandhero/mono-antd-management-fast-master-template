@@ -4623,6 +4623,34 @@
           "type": "singleData"
         },
         {
+          "title": "设置职位",
+          "api": "/userDepartmentInfo/setPosition",
+          "effect": "setPosition",
+          "service": "setPositionData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除职位",
+          "api": "/userDepartmentInfo/removePosition",
+          "effect": "removePosition",
+          "service": "removePositionData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置职级",
+          "api": "/userDepartmentInfo/setPositionGrade",
+          "effect": "setPositionGrade",
+          "service": "setPositionGradeData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除职级",
+          "api": "/userDepartmentInfo/removePositionGrade",
+          "effect": "removePositionGrade",
+          "service": "removePositionGradeData",
+          "type": "singleData"
+        },
+        {
           "title": "移除绑定",
           "api": "/userDepartmentInfo/remove",
           "effect": "remove",

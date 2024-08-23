@@ -13,6 +13,7 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
@@ -273,9 +274,10 @@ class PageList extends MultiPage {
           title: '即将设为禁用，确定吗？',
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'updateSort',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.edit(),
           text: '设置排序',
           hidden: !checkHasAuthority(
@@ -283,9 +285,10 @@ class PageList extends MultiPage {
           ),
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.reload(),
           text: '刷新缓存',
           hidden: !checkHasAuthority(

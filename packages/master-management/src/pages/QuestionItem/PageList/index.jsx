@@ -9,6 +9,7 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   searchCardConfig,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
@@ -157,9 +158,10 @@ class PageList extends MultiPage {
           ),
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.reload(),
           text: '刷新缓存',
           hidden: !checkHasAuthority(

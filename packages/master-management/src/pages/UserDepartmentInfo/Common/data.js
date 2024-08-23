@@ -1,5 +1,18 @@
 import { formNameCollection } from '../../../customConfig';
 
+const fieldExtraData = {
+  positionName: {
+    label: '职位',
+    name: 'positionName',
+    helper: '',
+  },
+  positionGradeName: {
+    label: '职级',
+    name: 'positionGradeName',
+    helper: '',
+  },
+};
+
 export const fieldData = {
   ...formNameCollection,
   userDepartmentInfoId: {
@@ -20,6 +33,16 @@ export const fieldData = {
   subsidiaryId: {
     label: '公司标识',
     name: 'subsidiaryId',
+    helper: '',
+  },
+  positionId: {
+    label: '职位',
+    name: 'positionId',
+    helper: '',
+  },
+  positionGradeId: {
+    label: '职级',
+    name: 'positionGradeId',
     helper: '',
   },
   realName: {
@@ -87,6 +110,7 @@ export const fieldData = {
     name: 'updateTime',
     helper: '',
   },
+  ...fieldExtraData,
 };
 
 /**

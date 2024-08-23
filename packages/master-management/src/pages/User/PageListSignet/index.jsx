@@ -12,6 +12,7 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   searchCardConfig,
 } from 'antd-management-fast-common';
 import {
@@ -233,8 +234,9 @@ class PageListSignet extends MultiPage {
           text: '重置密码',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'openSignetPasswordSwitch',
           icon: iconBuilder.playCircle(),
           text: '开启密码',
@@ -251,8 +253,9 @@ class PageListSignet extends MultiPage {
           title: '将要关闭印章密码，确定吗？',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
           text: '刷新缓存',

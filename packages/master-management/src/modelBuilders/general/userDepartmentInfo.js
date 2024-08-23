@@ -13,6 +13,10 @@ import {
   pageListData,
   refreshCacheData,
   removeData,
+  removePositionData,
+  removePositionGradeData,
+  setPositionData,
+  setPositionGradeData,
   setPrimaryData,
 } from '../../services/userDepartmentInfo';
 
@@ -21,6 +25,10 @@ export const userDepartmentInfoTypeCollection = {
   get: 'userDepartmentInfo/get',
   addBasicInfo: 'userDepartmentInfo/addBasicInfo',
   setPrimary: 'userDepartmentInfo/setPrimary',
+  setPosition: 'userDepartmentInfo/setPosition',
+  removePosition: 'userDepartmentInfo/removePosition',
+  setPositionGrade: 'userDepartmentInfo/setPositionGrade',
+  removePositionGrade: 'userDepartmentInfo/removePositionGrade',
   remove: 'userDepartmentInfo/remove',
   refreshCache: 'userDepartmentInfo/refreshCache',
 };
@@ -122,6 +130,110 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(setPrimaryData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setPosition(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setPositionData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *removePosition(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(removePositionData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setPositionGrade(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setPositionGradeData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *removePositionGrade(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(removePositionGradeData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

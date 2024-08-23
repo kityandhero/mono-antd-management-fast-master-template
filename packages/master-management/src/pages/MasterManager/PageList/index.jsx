@@ -10,6 +10,7 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   listViewConfig,
   searchCardConfig,
   unlimitedWithStringFlag,
@@ -357,8 +358,9 @@ class PageList extends MultiPage {
           text: '变更权限',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'setEnable',
           icon: iconBuilder.playCircle(),
           text: '设为启用',
@@ -379,8 +381,9 @@ class PageList extends MultiPage {
           title: '将要设为禁用，确定吗？',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'remove',
           icon: iconBuilder.delete(),
           disabled: canOperate === whetherNumber.no,

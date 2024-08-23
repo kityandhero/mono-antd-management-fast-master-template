@@ -11,6 +11,7 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   listViewConfig,
   searchCardConfig,
   unlimitedWithStringFlag,
@@ -329,8 +330,9 @@ class PageList extends MultiPage {
           text: '设置排序值',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'setOnline',
           icon: iconBuilder.upload(),
           text: '设为上线',
@@ -347,16 +349,18 @@ class PageList extends MultiPage {
           title: '将要设为下线，确定吗？',
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'showOperateLog',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.read(),
           text: '操作日志',
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.reload(),
           text: '刷新缓存',
           confirm: true,

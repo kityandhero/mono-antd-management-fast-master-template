@@ -13,6 +13,7 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   listViewConfig,
   searchCardConfig,
   unlimitedWithStringFlag,
@@ -229,8 +230,9 @@ class PageList extends MultiPage {
           text: '设置排序值',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'setNormal',
           icon: iconBuilder.playCircle(),
           text: '设为正常',
@@ -247,8 +249,9 @@ class PageList extends MultiPage {
           title: '将要设为禁用，确定吗？',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
           text: '刷新缓存',

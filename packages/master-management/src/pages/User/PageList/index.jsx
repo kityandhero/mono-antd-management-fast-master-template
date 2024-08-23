@@ -9,6 +9,7 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
@@ -327,8 +328,9 @@ class PageList extends MultiPage {
           text: '变更权限',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'setEnable',
           icon: iconBuilder.playCircle(),
           text: '设为启用',
@@ -345,8 +347,9 @@ class PageList extends MultiPage {
           title: '将要设为禁用，确定吗？',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'remove',
           icon: iconBuilder.delete(),
           text: '移除账户',
@@ -354,8 +357,9 @@ class PageList extends MultiPage {
           title: '将要移除账户，确定吗？',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
           text: '刷新缓存',

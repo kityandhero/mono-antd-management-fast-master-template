@@ -8,6 +8,7 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   getDerivedStateFromPropertiesForUrlParameters,
   listViewConfig,
   searchCardConfig,
@@ -197,8 +198,9 @@ class PageList extends InnerMultiPage {
           title: '将要将该部门设为主要所属关系，确定吗？',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'remove',
           icon: iconBuilder.delete(),
           text: '移除所属关系',
@@ -206,8 +208,9 @@ class PageList extends InnerMultiPage {
           title: '将要移除所属关系，确定吗？',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
           text: '刷新缓存',

@@ -2,7 +2,27 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { actionCore } from 'antd-management-fast-common';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
+
+export function singleListAction({
+  target,
+  handleData = {},
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.positionTypeCollection.singleList,
+    params: {
+      ...handleData,
+    },
+    target,
+    handleData,
+    showProcessing: false,
+    successCallback,
+    successMessage,
+  });
+}
 
 export async function refreshCacheAction({
   target,
@@ -11,7 +31,7 @@ export async function refreshCacheAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'position/refreshCache',
+    api: modelTypeCollection.positionTypeCollection.refreshCache,
     params: {
       positionId: getValueByKey({
         data: handleData,

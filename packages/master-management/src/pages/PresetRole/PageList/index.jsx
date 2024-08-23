@@ -10,6 +10,7 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   getDerivedStateFromPropertiesForUrlParameters,
   listViewConfig,
   searchCardConfig,
@@ -272,9 +273,10 @@ class PageList extends MultiPage {
           hidden: !!itemIsSuper,
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'setEnable',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.upCircle(),
           text: '设为上线',
           hidden: !!itemIsSuper,
@@ -292,9 +294,10 @@ class PageList extends MultiPage {
           title: '将要设置为下线，确定吗？',
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.reload(),
           text: '刷新缓存',
           confirm: true,

@@ -2822,6 +2822,26 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'bee5e2a0dcb2318fc1ec3bcb3cd50afe',
       permission: '2eeec726b3ee453c80ec06ab684f1ec2',
     },
+    setPosition: {
+      title: '设置职位',
+      paramsKey: 'dfdd7454d7eccfd307afe2c87fde64b7',
+      permission: '990a1f3039184fe2ab6f559efb8fc251',
+    },
+    removePosition: {
+      title: '移除职位',
+      paramsKey: '700c7fe47b229ca1cc569423cf82a15b',
+      permission: 'cd5f9a929a2b4c7199d8d7d15829ca2a',
+    },
+    setPositionGrade: {
+      title: '设置职级',
+      paramsKey: '2d591f1c7e647e30afb0a1e472f03cac',
+      permission: 'db8f5711df0a44f5800afbe800ba8c54',
+    },
+    removePositionGrade: {
+      title: '移除职级',
+      paramsKey: '1574ee8c56d47b869f7bfbd186e64927',
+      permission: 'afff2aa8ebed42f5a821b204550710f5',
+    },
     remove: {
       title: '移除绑定',
       paramsKey: 'a8e19a1d8158af51c72e6cc390b1f9a6',

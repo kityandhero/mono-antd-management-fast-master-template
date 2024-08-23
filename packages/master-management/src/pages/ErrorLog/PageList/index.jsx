@@ -9,6 +9,7 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   listViewConfig,
   searchCardConfig,
   unlimitedWithStringFlag,
@@ -231,8 +232,9 @@ class Index extends MultiPage {
           text: '日志详情',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'remove',
           icon: iconBuilder.delete(),
           text: '删除日志',

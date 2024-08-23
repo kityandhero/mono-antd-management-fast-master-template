@@ -2,6 +2,7 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { actionCore } from 'antd-management-fast-common';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 export async function addBasicInfoAction({
@@ -11,7 +12,7 @@ export async function addBasicInfoAction({
   successMessage,
 }) {
   actionCore({
-    api: 'userDepartmentInfo/addBasicInfo',
+    api: modelTypeCollection.userDepartmentInfoTypeCollection.addBasicInfo,
     params: handleData,
     target,
     handleData,
@@ -27,8 +28,64 @@ export async function setPrimaryAction({
   successMessage,
 }) {
   actionCore({
-    api: 'userDepartmentInfo/setPrimary',
-    params: handleData,
+    api: modelTypeCollection.userDepartmentInfoTypeCollection.setPrimary,
+    params: {
+      userId: getValueByKey({
+        data: handleData,
+        key: fieldData.userId.name,
+        defaultValue: '',
+      }),
+      departmentId: getValueByKey({
+        data: handleData,
+        key: fieldData.departmentId.name,
+        defaultValue: '',
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export async function removePositionAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.userDepartmentInfoTypeCollection.removePosition,
+    params: {
+      userDepartmentInfoId: getValueByKey({
+        data: handleData,
+        key: fieldData.userDepartmentInfoId.name,
+        defaultValue: '',
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export async function removePositionGradeAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.userDepartmentInfoTypeCollection
+      .removePositionGrade,
+    params: {
+      userDepartmentInfoId: getValueByKey({
+        data: handleData,
+        key: fieldData.userDepartmentInfoId.name,
+        defaultValue: '',
+      }),
+    },
     target,
     handleData,
     successCallback,
@@ -43,7 +100,7 @@ export async function removeAction({
   successMessage,
 }) {
   actionCore({
-    api: 'userDepartmentInfo/remove',
+    api: modelTypeCollection.userDepartmentInfoTypeCollection.remove,
     params: {
       userId: getValueByKey({
         data: handleData,
@@ -70,7 +127,7 @@ export async function refreshCacheAction({
   successMessage,
 }) {
   actionCore({
-    api: 'userDepartmentInfo/refreshCache',
+    api: modelTypeCollection.userDepartmentInfoTypeCollection.refreshCache,
     params: {
       userDepartmentInfoId: getValueByKey({
         data: handleData,

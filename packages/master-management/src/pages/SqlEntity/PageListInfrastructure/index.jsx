@@ -3,7 +3,10 @@ import React from 'react';
 import { connect } from 'easy-soft-dva';
 import { checkHasAuthority, showSimpleErrorMessage } from 'easy-soft-utility';
 
-import { searchCardConfig } from 'antd-management-fast-common';
+import {
+  dropdownExpandItemType,
+  searchCardConfig,
+} from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
@@ -147,8 +150,6 @@ class PageList extends MultiPage {
       items: [
         {
           key: 'showFieldCustomContentDrawer',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.read(),
           text: '自定义字段信息',
           hidden: !checkHasAuthority(
@@ -156,9 +157,10 @@ class PageList extends MultiPage {
           ),
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'showFieldInheritedContentDrawer',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.read(),
           text: '继承字段信息',
           hidden: !checkHasAuthority(
@@ -166,9 +168,10 @@ class PageList extends MultiPage {
           ),
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'showFieldAllContentDrawer',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.read(),
           text: '所有字段信息',
           hidden: !checkHasAuthority(

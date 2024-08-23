@@ -36,6 +36,45 @@ export async function setPrimaryData(parameters) {
   });
 }
 
+export const setPositionDataApiAddress = '/userDepartmentInfo/setPosition';
+
+export async function setPositionData(parameters) {
+  return request({
+    api: setPositionDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const removePositionDataApiAddress =
+  '/userDepartmentInfo/removePosition';
+
+export async function removePositionData(parameters) {
+  return request({
+    api: removePositionDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const setPositionGradeDataApiAddress =
+  '/userDepartmentInfo/setPositionGrade';
+
+export async function setPositionGradeData(parameters) {
+  return request({
+    api: setPositionGradeDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const removePositionGradeDataApiAddress =
+  '/userDepartmentInfo/removePositionGrade';
+
+export async function removePositionGradeData(parameters) {
+  return request({
+    api: removePositionGradeDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const removeDataApiAddress = '/userDepartmentInfo/remove';
 
 export async function removeData(parameters) {

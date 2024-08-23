@@ -8,6 +8,7 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   getDerivedStateFromPropertiesForUrlParameters,
   listViewConfig,
   searchCardConfig,
@@ -24,9 +25,13 @@ import { PageListBindUserDrawer } from '../../../../Department/PageListBindUserD
 import {
   refreshCacheAction,
   removeAction,
+  removePositionAction,
+  removePositionGradeAction,
   setPrimaryAction,
 } from '../../../../UserDepartmentInfo/Assist/action';
 import { getStatusBadge } from '../../../../UserDepartmentInfo/Assist/tools';
+import { ChangePositionGradeModal } from '../../../../UserDepartmentInfo/ChangePositionGradeModal';
+import { ChangePositionModal } from '../../../../UserDepartmentInfo/ChangePositionModal';
 import { fieldData } from '../../../../UserDepartmentInfo/Common/data';
 import {
   checkNeedUpdateAssist,
@@ -56,6 +61,7 @@ class PageList extends InnerMultiPage {
       loadApiPath: 'userDepartmentInfo/pageList',
       dateRangeFieldName: '创建时间',
       userId: null,
+      currentRecord: null,
     };
   }
 
@@ -89,6 +95,30 @@ class PageList extends InnerMultiPage {
         break;
       }
 
+      case 'setPosition': {
+        this.showChangePositionModal(handleData);
+
+        break;
+      }
+
+      case 'removePosition': {
+        this.removePosition(handleData);
+
+        break;
+      }
+
+      case 'setPositionGrade': {
+        this.showChangePositionGradeModal(handleData);
+
+        break;
+      }
+
+      case 'removePositionGrade': {
+        this.removePositionGrade(handleData);
+
+        break;
+      }
+
       case 'remove': {
         this.remove(handleData);
 
@@ -110,6 +140,26 @@ class PageList extends InnerMultiPage {
 
   setPrimary = (r) => {
     setPrimaryAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target }) => {
+        target.refreshDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
+  removePosition = (r) => {
+    removePositionAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target }) => {
+        target.refreshDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
+  removePositionGrade = (r) => {
+    removePositionGradeAction({
       target: this,
       handleData: r,
       successCallback: ({ target }) => {
@@ -140,6 +190,26 @@ class PageList extends InnerMultiPage {
   };
 
   afterPageListBindUserDrawerClose = () => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  showChangePositionModal = (o) => {
+    this.setState({ currentRecord: o }, () => {
+      ChangePositionModal.open();
+    });
+  };
+
+  afterChangePositionModalClose = () => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  showChangePositionGradeModal = (o) => {
+    this.setState({ currentRecord: o }, () => {
+      ChangePositionGradeModal.open();
+    });
+  };
+
+  afterChangePositionGradeModalClose = () => {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
@@ -197,8 +267,6 @@ class PageList extends InnerMultiPage {
           title: '将要将该公司设为主要所属关系，确定吗？',
         },
         {
-          withDivider: true,
-          uponDivider: true,
           key: 'remove',
           icon: iconBuilder.delete(),
           text: '移除所属关系',
@@ -206,8 +274,39 @@ class PageList extends InnerMultiPage {
           title: '将要移除所属关系，确定吗？',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'setPosition',
+          icon: iconBuilder.edit(),
+          text: '设置职位',
+        },
+        {
+          key: 'removePosition',
+          icon: iconBuilder.delete(),
+          text: '移除职位',
+          confirm: true,
+          title: '将要将该职位移除，确定吗？',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'setPositionGrade',
+          icon: iconBuilder.edit(),
+          text: '设置职级',
+        },
+        {
+          key: 'removePositionGrade',
+          icon: iconBuilder.delete(),
+          text: '移除职级',
+          confirm: true,
+          title: '将要将该职级移除，确定吗？',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
           text: '刷新缓存',
@@ -234,7 +333,19 @@ class PageList extends InnerMultiPage {
     },
     {
       dataTarget: fieldData.departmentName,
-      width: 300,
+      width: 180,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.positionName,
+      width: 160,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.positionGradeName,
+      width: 160,
       showRichFacade: true,
       emptyValue: '--',
     },
@@ -309,13 +420,23 @@ class PageList extends InnerMultiPage {
   };
 
   renderPresetOther = () => {
-    const { userId } = this.state;
+    const { userId, currentRecord } = this.state;
 
     return (
       <>
         <PageListBindUserDrawer
           externalData={{ userId }}
           afterClose={this.afterPageListBindUserDrawerClose}
+        />
+
+        <ChangePositionModal
+          externalData={currentRecord}
+          afterClose={this.afterChangePositionModalClose}
+        />
+
+        <ChangePositionGradeModal
+          externalData={currentRecord}
+          afterClose={this.afterChangePositionGradeModalClose}
         />
       </>
     );

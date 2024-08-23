@@ -8,6 +8,7 @@ import {
 import {
   columnFacadeMode,
   defaultEmptyImage,
+  dropdownExpandItemType,
   listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
@@ -225,8 +226,9 @@ class PageList extends InnerMultiPage {
       },
       items: [
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
           text: '刷新缓存',

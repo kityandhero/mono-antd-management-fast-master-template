@@ -11,6 +11,7 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   getDerivedStateFromPropertiesForUrlParameters,
   listViewConfig,
   searchCardConfig,
@@ -214,8 +215,6 @@ class PageList extends InnerMultiPage {
       items: [
         {
           key: 'remove',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.delete(),
           text: '移除信息',
           hidden: !checkHasAuthority(
@@ -226,9 +225,10 @@ class PageList extends InnerMultiPage {
           },
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.reload(),
           text: '刷新缓存',
           hidden: !checkHasAuthority(

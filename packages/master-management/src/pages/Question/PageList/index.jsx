@@ -13,6 +13,7 @@ import {
 import {
   cardConfig,
   columnFacadeMode,
+  dropdownExpandItemType,
   listViewConfig,
   searchCardConfig,
   unlimitedWithStringFlag,
@@ -399,9 +400,10 @@ class PageList extends MultiPage {
           ),
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'updateWhetherCorrect',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.edit(),
           text: '设置判断结果',
           hidden:
@@ -419,9 +421,10 @@ class PageList extends MultiPage {
           ),
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'setOnline',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.upload(),
           text: '设为上线',
           hidden: !checkHasAuthority(
@@ -445,8 +448,9 @@ class PageList extends MultiPage {
           },
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'remove',
           icon: iconBuilder.delete(),
           text: '移除数据',
@@ -457,9 +461,10 @@ class PageList extends MultiPage {
           title: '将要移除数据，确定吗？',
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.reload(),
           text: '刷新缓存',
           hidden: !checkHasAuthority(

@@ -8,6 +8,7 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   listViewConfig,
   searchCardConfig,
   unlimitedWithStringFlag,
@@ -225,8 +226,6 @@ class PageList extends MultiPage {
       items: [
         {
           key: 'remove',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.delete(),
           text: '移除信息',
           hidden: !checkHasAuthority(
@@ -236,9 +235,10 @@ class PageList extends MultiPage {
           title: '将要移除信息，确定吗？',
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.reload(),
           text: '刷新缓存',
           hidden: !checkHasAuthority(

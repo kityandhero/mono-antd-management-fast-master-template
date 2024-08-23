@@ -10,6 +10,7 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   listViewConfig,
   searchCardConfig,
   unlimitedWithStringFlag,
@@ -331,8 +332,9 @@ class PageList extends MultiPage {
           text: '设置适用对象',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'toggleRecommend',
           icon: iconBuilder.swap(),
           text: '切换推荐',
@@ -343,8 +345,9 @@ class PageList extends MultiPage {
           title: '将要切换推荐设置，确定吗？',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'setEnable',
           icon: iconBuilder.playCircle(),
           text: '设为启用',
@@ -367,8 +370,9 @@ class PageList extends MultiPage {
           title: '将要设为禁用，确定吗？',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'remove',
           icon: iconBuilder.delete(),
           text: '移除标签',
@@ -377,8 +381,9 @@ class PageList extends MultiPage {
           title: '将要移除标签，确定吗？',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
           text: '刷新缓存',

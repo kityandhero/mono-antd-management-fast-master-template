@@ -12,6 +12,7 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   getDerivedStateFromPropertiesForUrlParameters,
   listViewConfig,
   searchCardConfig,
@@ -302,8 +303,9 @@ class PageList extends MultiPage {
           text: '设置排序值',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'setEnable',
           icon: iconBuilder.playCircle(),
           text: '设为启用',
@@ -320,16 +322,18 @@ class PageList extends MultiPage {
           title: '即将设为禁用，确定吗？',
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'showOperateLog',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.read(),
           text: '操作日志',
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.reload(),
           text: '刷新缓存',
           confirm: true,

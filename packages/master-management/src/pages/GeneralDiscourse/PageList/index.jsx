@@ -12,6 +12,7 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   getDerivedStateFromPropertiesForUrlParameters,
   listViewConfig,
   searchCardConfig,
@@ -277,18 +278,20 @@ class PageList extends MultiPage {
           title: '即将设为禁用，确定吗？',
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'remove',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.delete(),
           text: '移除',
           confirm: true,
           title: '即将移除常用语，确定吗？',
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.reload(),
           text: '刷新缓存',
           confirm: true,

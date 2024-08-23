@@ -6,7 +6,11 @@ import {
   whetherNumber,
 } from 'easy-soft-utility';
 
-import { listViewConfig, searchCardConfig } from 'antd-management-fast-common';
+import {
+  dropdownExpandItemType,
+  listViewConfig,
+  searchCardConfig,
+} from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
@@ -207,9 +211,10 @@ class Index extends MultiPage {
           title: '即将测试消息发送，确定吗？',
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'tryPeek',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.read(),
           text: '测试读取',
         },
@@ -222,18 +227,20 @@ class Index extends MultiPage {
             '即将尝试消费队列数据,该操作会导致队列被移出，请谨慎操作，确定继续吗？',
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'startQueue',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.playCircle(),
           text: '尝试启动消费端',
           confirm: true,
           title: '即将尝试启动消费端，确定继续吗？',
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'tryPurge',
-          withDivider: true,
-          uponDivider: true,
           icon: iconBuilder.clear(),
           text: '尝试清空队列',
           confirm: true,

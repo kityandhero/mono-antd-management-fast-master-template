@@ -9,6 +9,7 @@ import {
 import {
   buildRandomHexColor,
   columnFacadeMode,
+  dropdownExpandItemType,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import {
@@ -144,8 +145,9 @@ class Index extends MultiPage {
           text: '日志详情',
         },
         {
-          withDivider: true,
-          uponDivider: true,
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'delete',
           icon: iconBuilder.delete(),
           text: '删除日志',
