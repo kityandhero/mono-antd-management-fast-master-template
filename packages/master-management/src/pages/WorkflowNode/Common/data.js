@@ -80,6 +80,16 @@ export const fieldData = {
     name: 'typeNote',
     helper: '',
   },
+  approverMode: {
+    label: '审批人模式',
+    name: 'approverMode',
+    helper: '',
+  },
+  approverModeNote: {
+    label: '审批人模式',
+    name: 'approverModeNote',
+    helper: '',
+  },
   status: {
     label: '状态',
     name: 'status',

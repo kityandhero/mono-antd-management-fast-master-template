@@ -19,6 +19,7 @@ import {
 import { accessWayCollection } from '../../../customConfig';
 import {
   getChannelName,
+  getFlowNodeApproverModeName,
   getFlowNodeStatusName,
   getFlowNodeTypeName,
 } from '../../../customSpecialComponents';
@@ -51,7 +52,7 @@ class PageListDrawer extends MultiPageDrawer {
       ...this.state,
       pageTitle: '流程节点列表',
       loadApiPath: 'workflowNode/pageList',
-      tableScrollX: 1140,
+      tableScrollX: 1260,
     };
   }
 
@@ -141,6 +142,24 @@ class PageListDrawer extends MultiPageDrawer {
       },
       formatValue: (value) => {
         return getFlowNodeTypeName({
+          value: value,
+        });
+      },
+    },
+    {
+      dataTarget: fieldData.approverMode,
+      width: 120,
+      showRichFacade: true,
+      emptyValue: '--',
+      facadeConfigBuilder: (value) => {
+        return {
+          color: buildRandomHexColor({
+            seed: toNumber(value) * 3 + 20,
+          }),
+        };
+      },
+      formatValue: (value) => {
+        return getFlowNodeApproverModeName({
           value: value,
         });
       },

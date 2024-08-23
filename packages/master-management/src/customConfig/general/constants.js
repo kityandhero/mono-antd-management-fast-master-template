@@ -222,6 +222,29 @@ export const flowNodeTypeCollection = {
 };
 
 /**
+ * 流程节点审批人模式值集合
+ */
+export const flowNodeApproverModeCollection = {
+  /**
+   * 无需人员审批
+   * value : 0
+   */
+  none: 0,
+
+  /**
+   * 指定人员
+   * value : 100
+   */
+  designated: 100,
+
+  /**
+   * 直属部门
+   * value : 200
+   */
+  directlyAffiliatedDepartment: 200,
+};
+
+/**
  * 流程节点状态值集合
  */
 export const flowNodeStatusCollection = {

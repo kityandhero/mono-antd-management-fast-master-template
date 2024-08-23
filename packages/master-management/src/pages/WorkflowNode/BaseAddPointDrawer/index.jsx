@@ -1,8 +1,14 @@
+import { toString } from 'easy-soft-utility';
+
 import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataDrawer } from 'antd-management-fast-framework';
 
-import { buildNowTimeFieldItem } from '../../../customSpecialComponents';
+import { flowNodeApproverModeCollection } from '../../../customConfig';
+import {
+  buildNowTimeFieldItem,
+  renderFormFlowNodeApproverModeSelect,
+} from '../../../customSpecialComponents';
 import { fieldData } from '../Common/data';
 
 const { BaseAddDrawer } = DataDrawer;
@@ -26,6 +32,16 @@ class BaseAddPointDrawer extends BaseAddDrawer {
     return d;
   };
 
+  fillDefaultInitialValues = () => {
+    const initialValues = {};
+
+    initialValues[fieldData.approverMode.name] = toString(
+      flowNodeApproverModeCollection.designated,
+    );
+
+    return initialValues;
+  };
+
   establishCardCollectionConfig = () => {
     return {
       list: [
@@ -39,6 +55,12 @@ class BaseAddPointDrawer extends BaseAddDrawer {
               lg: 24,
               type: cardConfig.contentItemType.input,
               fieldData: fieldData.name,
+              require: true,
+            },
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.component,
+              component: renderFormFlowNodeApproverModeSelect({}),
               require: true,
             },
           ],
