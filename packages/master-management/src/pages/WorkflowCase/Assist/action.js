@@ -12,7 +12,7 @@ export async function getChainAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowCase/getChain',
+    api: modelTypeCollection.workflowCaseTypeCollection.getChain,
     params: {
       workflowCaseId: getValueByKey({
         data: handleData,
@@ -35,7 +35,7 @@ export async function openCancelApproveSwitchAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowCase/openCancelApproveSwitch',
+    api: modelTypeCollection.workflowCaseTypeCollection.openCancelApproveSwitch,
     params: {
       workflowCaseId: getValueByKey({
         data: handleData,
@@ -56,7 +56,8 @@ export async function closeCancelApproveSwitchAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowCase/closeCancelApproveSwitch',
+    api: modelTypeCollection.workflowCaseTypeCollection
+      .closeCancelApproveSwitch,
     params: {
       workflowCaseId: getValueByKey({
         data: handleData,
@@ -77,7 +78,8 @@ export async function openResetAllApproveSwitchAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowCase/openResetAllApproveSwitch',
+    api: modelTypeCollection.workflowCaseTypeCollection
+      .openResetAllApproveSwitch,
     params: {
       workflowCaseId: getValueByKey({
         data: handleData,
@@ -98,7 +100,8 @@ export async function closeResetAllApproveSwitchAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowCase/closeResetAllApproveSwitch',
+    api: modelTypeCollection.workflowCaseTypeCollection
+      .closeResetAllApproveSwitch,
     params: {
       workflowCaseId: getValueByKey({
         data: handleData,
@@ -133,6 +136,27 @@ export async function forceEndAction({
   });
 }
 
+export async function removeAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.workflowCaseTypeCollection.remove,
+    params: {
+      workflowCaseId: getValueByKey({
+        data: handleData,
+        key: fieldData.workflowCaseId.name,
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function refreshCacheAction({
   target,
   handleData,
@@ -140,7 +164,7 @@ export async function refreshCacheAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowCase/refreshCache',
+    api: modelTypeCollection.workflowCaseTypeCollection.refreshCache,
     params: {
       workflowCaseId: getValueByKey({
         data: handleData,

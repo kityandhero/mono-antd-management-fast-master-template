@@ -3188,6 +3188,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '2e4e08dea61b6cf6be094eb4c48230e0',
       permission: '836d2d7b58d742fbbe696932269bd760',
     },
+    remove: {
+      title: '移除',
+      paramsKey: '2162c9d3e6a877d2963311ad49b9a10a',
+      permission: '90ef7cc045b640169f415f657a1583d4',
+    },
     refreshCache: {
       title: '刷新缓存',
       paramsKey: '95a9f7321de9e416b034e149c484c8a3',

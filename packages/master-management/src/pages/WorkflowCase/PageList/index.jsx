@@ -30,7 +30,11 @@ import {
   renderSearchFlowScopeSelect,
   renderSearchFlowStatusSelect,
 } from '../../../customSpecialComponents';
-import { forceEndAction, refreshCacheAction } from '../Assist/action';
+import {
+  forceEndAction,
+  refreshCacheAction,
+  removeAction,
+} from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
@@ -91,6 +95,12 @@ class PageList extends MultiPage {
         break;
       }
 
+      case 'remove': {
+        this.remove(handleData);
+
+        break;
+      }
+
       case 'refreshCache': {
         this.refreshCache(handleData);
 
@@ -110,6 +120,16 @@ class PageList extends MultiPage {
       handleData: r,
       successCallback: ({ target, handleData, remoteData }) => {
         target.handleItemStatus({ target, handleData, remoteData });
+      },
+    });
+  };
+
+  remove = (r) => {
+    removeAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target }) => {
+        target.reloadData({});
       },
     });
   };
@@ -212,6 +232,19 @@ class PageList extends MultiPage {
           ),
           confirm: true,
           title: '将要强制结束审批（即该次审批作废），确定吗？',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'remove',
+          icon: iconBuilder.delete(),
+          text: '移除审批',
+          disabled: !checkHasAuthority(
+            accessWayCollection.workflowCase.remove.permission,
+          ),
+          confirm: true,
+          title: '将要移除目标审批，确定吗？',
         },
         {
           type: dropdownExpandItemType.divider,

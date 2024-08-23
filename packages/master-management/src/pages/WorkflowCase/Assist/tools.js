@@ -4,6 +4,11 @@ export function getStatusBadge(status) {
   let result = 'default';
 
   switch (status) {
+    case flowCaseStatusCollection.submitApproval: {
+      result = 'processing';
+      break;
+    }
+
     case flowCaseStatusCollection.inApprovalProcess: {
       result = 'processing';
       break;

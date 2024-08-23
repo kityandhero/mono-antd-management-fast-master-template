@@ -19,6 +19,7 @@ import {
   pageListOperateLogData,
   pageListUnderwayData,
   refreshCacheData,
+  removeData,
 } from '../../services/workflowCase';
 
 export const workflowCaseTypeCollection = {
@@ -31,6 +32,7 @@ export const workflowCaseTypeCollection = {
   openResetAllApproveSwitch: 'workflowCase/openResetAllApproveSwitch',
   closeResetAllApproveSwitch: 'workflowCase/closeResetAllApproveSwitch',
   forceEnd: 'workflowCase/forceEnd',
+  remove: 'workflowCase/remove',
   refreshCache: 'workflowCase/refreshCache',
   pageListOperateLog: 'workflowCase/pageListOperateLog',
 };
@@ -262,6 +264,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(forceEndData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *remove(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(removeData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

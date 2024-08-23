@@ -85,6 +85,15 @@ export async function forceEndData(parameters) {
   });
 }
 
+export const removeDataApiAddress = '/workflowCase/remove';
+
+export async function removeData(parameters) {
+  return request({
+    api: removeDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const refreshCacheDataApiAddress = '/workflowCase/refreshCache';
 
 export async function refreshCacheData(parameters) {

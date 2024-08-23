@@ -5169,6 +5169,13 @@
           "type": "singleData"
         },
         {
+          "title": "移除",
+          "api": "/workflowCase/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
           "title": "刷新缓存",
           "api": "/workflowCase/refreshCache",
           "effect": "refreshCache",
