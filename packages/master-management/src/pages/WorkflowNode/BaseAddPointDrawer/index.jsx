@@ -1,10 +1,7 @@
-import { toString } from 'easy-soft-utility';
-
 import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataDrawer } from 'antd-management-fast-framework';
 
-import { flowNodeApproverModeCollection } from '../../../customConfig';
 import {
   buildNowTimeFieldItem,
   renderFormFlowNodeApproverModeSelect,
@@ -30,16 +27,6 @@ class BaseAddPointDrawer extends BaseAddDrawer {
     d.workflowId = workflowId;
 
     return d;
-  };
-
-  fillDefaultInitialValues = () => {
-    const initialValues = {};
-
-    initialValues[fieldData.approverMode.name] = toString(
-      flowNodeApproverModeCollection.designated,
-    );
-
-    return initialValues;
   };
 
   establishCardCollectionConfig = () => {

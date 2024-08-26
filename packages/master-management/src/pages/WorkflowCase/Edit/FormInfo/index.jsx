@@ -34,6 +34,7 @@ import {
   flowApproveActionModeCollection,
   flowCaseStatusCollection,
   flowNodeTypeCollection,
+  signetStyle,
 } from '../../../../customConfig';
 import { getChannelName } from '../../../../customSpecialComponents';
 import { buildFlowCaseFormInitialValues } from '../../../../utils';
@@ -793,6 +794,7 @@ class BasicInfo extends TabPageBase {
             showTitle={false}
             showRemark={false}
             approveList={listApprove}
+            signetStyle={signetStyle}
           />
         )}
       </div>
@@ -900,6 +902,7 @@ class BasicInfo extends TabPageBase {
           }}
           approveList={isArray(listApprove) ? listApprove : []}
           allApproveProcessList={listChainApproveAdjust}
+          signetStyle={signetStyle}
           remarkTitle="备注"
           remarkName="remark"
           remarkList={remarkSchemaList}

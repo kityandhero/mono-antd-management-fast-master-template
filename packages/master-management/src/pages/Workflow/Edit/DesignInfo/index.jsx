@@ -762,10 +762,10 @@ class Index extends TabPageBase {
                       listInLineKey={fieldDataWorkflowNode.listInLine.name}
                       listOutLineKey={fieldDataWorkflowNode.listOutLine.name}
                       listApproverKey={fieldDataWorkflowNode.listApprover.name}
-                      personnelNameKey={
+                      approverNameKey={
                         fieldDataWorkflowNodeApprover.userRealName.name
                       }
-                      personnelNameLabel={
+                      approverNameLabel={
                         fieldDataWorkflowNodeApprover.userRealName.label
                       }
                       nodes={[...(isArray(nodeList) ? nodeList : [])]}

@@ -245,6 +245,23 @@ export const flowNodeApproverModeCollection = {
 };
 
 /**
+ * 审批节点签批方式值集合
+ */
+export const flowNodeApproveModeCollection = {
+  /**
+   * 或签【需要首个审批的人员同意即可】
+   * value : 0
+   */
+  oneAgree: 0,
+
+  /**
+   * 或签【需要全部审批的人员同意方可】
+   * value : 100
+   */
+  allAgree: 100,
+};
+
+/**
  * 流程节点状态值集合
  */
 export const flowNodeStatusCollection = {

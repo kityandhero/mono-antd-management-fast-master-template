@@ -12,7 +12,11 @@ import {
 import { iconBuilder } from 'antd-management-fast-component';
 import { DocumentPrintDesigner } from 'antd-management-fast-design-playground';
 
-import { accessWayCollection, emptySignet } from '../../../../customConfig';
+import {
+  accessWayCollection,
+  emptySignet,
+  signetStyle,
+} from '../../../../customConfig';
 import { toggleSignetPasswordSwitchAction } from '../../Assist/action';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
@@ -230,6 +234,7 @@ class SignetInfo extends TabPageBase {
                   showTitle={false}
                   showRemark={false}
                   approveList={listApprove}
+                  signetStyle={signetStyle}
                 />
               ),
             },

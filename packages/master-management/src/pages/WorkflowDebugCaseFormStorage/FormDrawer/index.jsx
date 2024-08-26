@@ -14,9 +14,15 @@ import { PreviewDrawer as WorkflowDebugCaseFormAttachmentPreviewDrawer } from '.
 const visibleFlag = 'd5007ce0991442e4a553b3d2ab28f927';
 
 @connect(
-  ({ workflowFormDesign, workflowCaseFormStorage, schedulingControl }) => ({
+  ({
     workflowFormDesign,
-    workflowCaseFormStorage,
+    workflowDebugCase,
+    workflowDebugCaseFormStorage,
+    schedulingControl,
+  }) => ({
+    workflowFormDesign,
+    workflowDebugCase,
+    workflowDebugCaseFormStorage,
     schedulingControl,
   }),
 )

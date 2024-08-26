@@ -29,6 +29,7 @@ import {
   fieldDataFlowFormDesign,
   flowApproveActionModeCollection,
   flowCaseStatusCollection,
+  signetStyle,
 } from '../../../customConfig';
 import { buildFlowCaseFormInitialValues } from '../../../utils';
 
@@ -382,6 +383,7 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
           }}
           approveList={isArray(listApprove) ? listApprove : []}
           allApproveProcessList={listChainApproveAdjust}
+          signetStyle={signetStyle}
           remarkTitle="备注"
           remarkName="remark"
           remarkList={remarkSchemaList}

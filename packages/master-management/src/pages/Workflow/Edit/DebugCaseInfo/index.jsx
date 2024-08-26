@@ -62,7 +62,7 @@ import { WorkflowDebugCaseProcessHistoryPageListDrawer } from '../../../Workflow
 import { PassModal } from '../../../WorkflowDebugCaseProcessHistory/PassModal';
 import { RefuseModal } from '../../../WorkflowDebugCaseProcessHistory/RefuseModal';
 import { DataSchemaDrawer } from '../../../WorkflowFormDesign/DataSchemaDrawer';
-import { FlowCaseFormDocumentDrawer } from '../../../WorkflowFormDesign/FlowCaseFormDocumentDrawer';
+import { FlowDebugCaseFormDocumentDrawer } from '../../../WorkflowFormDesign/FlowDebugCaseFormDocumentDrawer';
 import { fieldData as fieldDataWorkflowLine } from '../../../WorkflowLine/Common/data';
 import { fieldData as fieldDataWorkflowNode } from '../../../WorkflowNode/Common/data';
 import { WorkflowNodeDetailDrawer } from '../../../WorkflowNode/DetailDrawer';
@@ -739,8 +739,8 @@ class DebugCaseInfo extends TabPageBase {
     WorkflowDebugCasePageListLatestApproveDrawer.open();
   };
 
-  showFlowCaseFormDocumentDrawer = () => {
-    FlowCaseFormDocumentDrawer.open();
+  showFlowDebugCaseFormDocumentDrawer = () => {
+    FlowDebugCaseFormDocumentDrawer.open();
   };
 
   fillInitialValuesAfterLoad = ({
@@ -956,7 +956,7 @@ class DebugCaseInfo extends TabPageBase {
                     accessWayCollection.workflowDebugCase.get.permission,
                   ),
                 handleClick: () => {
-                  this.showFlowCaseFormDocumentDrawer();
+                  this.showFlowDebugCaseFormDocumentDrawer();
                 },
               },
               {
@@ -1331,10 +1331,10 @@ class DebugCaseInfo extends TabPageBase {
                     listInLineKey={fieldDataWorkflowNode.listInLine.name}
                     listOutLineKey={fieldDataWorkflowNode.listOutLine.name}
                     listApproverKey={fieldDataWorkflowNode.listApprover.name}
-                    personnelNameKey={
+                    approverNameKey={
                       fieldDataWorkflowNodeApprover.userRealName.name
                     }
-                    personnelNameLabel={
+                    approverNameLabel={
                       fieldDataWorkflowNodeApprover.userRealName.label
                     }
                     nodes={[...(isArray(nodeList) ? nodeList : [])]}
@@ -1520,7 +1520,7 @@ class DebugCaseInfo extends TabPageBase {
           externalData={metaData}
         />
 
-        <FlowCaseFormDocumentDrawer
+        <FlowDebugCaseFormDocumentDrawer
           maskClosable
           canDesign={false}
           externalData={{

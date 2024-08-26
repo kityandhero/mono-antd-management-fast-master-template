@@ -171,6 +171,11 @@
       "name": "type"
     },
     {
+      "functionSegment": "FlowNodeApproveMode",
+      "label": "审批模式",
+      "name": "approveMode"
+    },
+    {
       "functionSegment": "FlowNodeApproverMode",
       "label": "审批人模式",
       "name": "approverMode"
