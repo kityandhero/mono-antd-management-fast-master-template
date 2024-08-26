@@ -1,5 +1,7 @@
 import { formNameCollection } from '../../../customConfig';
 
+const fieldExtraData = {};
+
 export const fieldData = {
   ...formNameCollection,
   workflowNodeApproverId: {
@@ -37,6 +39,21 @@ export const fieldData = {
     name: 'userRealName',
     helper: '',
   },
+  positionGradeId: {
+    label: '职级',
+    name: 'positionGradeId',
+    helper: '',
+  },
+  positionGradeName: {
+    label: '职级',
+    name: 'positionGradeName',
+    helper: '',
+  },
+  approverName: {
+    label: '审批',
+    name: 'approverName',
+    helper: '',
+  },
   status: {
     label: '状态',
     name: 'status',
@@ -67,4 +84,5 @@ export const fieldData = {
     name: 'updateTime',
     helper: '',
   },
+  ...fieldExtraData,
 };

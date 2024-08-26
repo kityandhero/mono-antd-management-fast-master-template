@@ -3685,10 +3685,15 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'ba35f2917dd593c923763d8b3eabeb52',
       permission: '67f4559c25514292a72e979d50c08a32',
     },
-    addBasicInfo: {
+    addApproverBasicInfo: {
       title: '增加流程节点审批人',
       paramsKey: '5b2c1246a29e46d9bc617276c71a7f92',
       permission: 'd6e117c5bc3d48adb5c58ac00fe7cc1e',
+    },
+    addPositionGradeBasicInfo: {
+      title: '增加流程节点审批职级',
+      paramsKey: '83b5dc7b8321d750ea8a9a56860c2d14',
+      permission: '77b32d82bee44564aa4a36fd7aa9b08a',
     },
     remove: {
       title: '删除流程节点审批人',

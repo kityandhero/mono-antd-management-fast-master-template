@@ -10,20 +10,20 @@ import {
 
 import { buildNowTimeFieldItem } from '../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../modelBuilders';
-import { fieldData as fieldDataUser } from '../../User/Common/data';
-import { UserSelectModalField } from '../../User/SelectModalField';
+import { fieldData as fieldDataPositionGrade } from '../../PositionGrade/Common/data';
+import { PositionGradeSelectModalField } from '../../PositionGrade/SelectModalField';
 import { fieldData as fieldDataWorkflowNode } from '../../WorkflowNode/Common/data';
 import { fieldData } from '../Common/data';
 
 const { BaseAddDrawer } = DataDrawer;
 
-const visibleFlag = 'e4b322f1e27e49c3bea3822de4a14ccb';
+const visibleFlag = '14cc7f389c9b4a459734ec4e529f33ff';
 
 @connect(({ workflowNodeApprover, schedulingControl }) => ({
   workflowNodeApprover,
   schedulingControl,
 }))
-class AddWorkflowNodeApproverDrawer extends BaseAddDrawer {
+class AddWorkflowNodeApprovePositionGradeDrawer extends BaseAddDrawer {
   destroyOnClose = true;
 
   static open() {
@@ -35,20 +35,20 @@ class AddWorkflowNodeApproverDrawer extends BaseAddDrawer {
 
     this.state = {
       ...this.state,
-      pageTitle: '新增节点审批人',
+      pageTitle: '新增节点审批职级',
       submitApiPath:
         modelTypeCollection.workflowNodeApproverTypeCollection
-          .addApproverBasicInfo,
-      userId: '',
+          .addPositionGradeBasicInfo,
+      positionGradeId: '',
     };
   }
 
   supplementSubmitRequestParams = (o) => {
     const d = o;
-    const { userId } = this.state;
+    const { positionGradeId } = this.state;
     const { externalData } = this.props;
 
-    d[fieldData.userId.name] = userId;
+    d[fieldData.positionGradeId.name] = positionGradeId;
 
     d[fieldData.workflowId.name] = getValueByKey({
       data: externalData,
@@ -65,19 +65,19 @@ class AddWorkflowNodeApproverDrawer extends BaseAddDrawer {
 
   clearCustomerSelect = () => {
     this.setState({
-      userId: '',
+      positionGradeId: '',
     });
   };
 
   afterCustomerSelect = (d) => {
-    const userId = getValueByKey({
+    const positionGradeId = getValueByKey({
       data: d,
-      key: fieldDataUser.userId.name,
+      key: fieldDataPositionGrade.positionGradeId.name,
       defaultValue: '0',
     });
 
     this.setState({
-      userId: userId,
+      positionGradeId: positionGradeId,
     });
   };
 
@@ -124,15 +124,15 @@ class AddWorkflowNodeApproverDrawer extends BaseAddDrawer {
         {
           title: {
             icon: iconBuilder.contacts(),
-            text: '审核人员',
+            text: '审核人职级',
           },
           items: [
             {
               lg: 24,
               type: cardConfig.contentItemType.component,
               component: (
-                <UserSelectModalField
-                  label={fieldData.userRealName.label}
+                <PositionGradeSelectModalField
+                  label={fieldData.positionGradeName.label}
                   afterSelectSuccess={(d) => {
                     this.afterCustomerSelect(d);
                   }}
@@ -150,4 +150,4 @@ class AddWorkflowNodeApproverDrawer extends BaseAddDrawer {
   };
 }
 
-export { AddWorkflowNodeApproverDrawer };
+export { AddWorkflowNodeApprovePositionGradeDrawer };

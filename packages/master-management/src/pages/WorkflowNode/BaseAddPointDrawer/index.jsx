@@ -69,6 +69,20 @@ class BaseAddPointDrawer extends BaseAddDrawer {
       ],
     };
   };
+
+  establishHelpConfig = () => {
+    return {
+      title: '操作提示',
+      list: [
+        {
+          text: '操作人模式为 ”指定人员“ 时, 需要选择人员作为审批人。',
+        },
+        {
+          text: '操作人模式为 ”直属部门“ 时, 需要选择职级, 符合所选职级的直属部门人员作为审批人。',
+        },
+      ],
+    };
+  };
 }
 
 export { BaseAddPointDrawer };

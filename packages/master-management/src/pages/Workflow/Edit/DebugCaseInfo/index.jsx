@@ -1332,10 +1332,10 @@ class DebugCaseInfo extends TabPageBase {
                     listOutLineKey={fieldDataWorkflowNode.listOutLine.name}
                     listApproverKey={fieldDataWorkflowNode.listApprover.name}
                     approverNameKey={
-                      fieldDataWorkflowNodeApprover.userRealName.name
+                      fieldDataWorkflowNodeApprover.approverName.name
                     }
                     approverNameLabel={
-                      fieldDataWorkflowNodeApprover.userRealName.label
+                      fieldDataWorkflowNodeApprover.approverName.label
                     }
                     nodes={[...(isArray(nodeList) ? nodeList : [])]}
                     edges={[...(isArray(edgeList) ? edgeList : [])]}

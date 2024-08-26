@@ -2,28 +2,8 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { actionCore, confirmActionCore } from 'antd-management-fast-common';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
-
-export function addBasicInfoAction({
-  target,
-  handleData,
-  beforeProcess,
-  completeProcess,
-  successCallback,
-  successMessage,
-}) {
-  actionCore({
-    api: 'workflowNodeApprover/addBasicInfo',
-    params: handleData || {},
-    target,
-    handleData,
-    beforeProcess,
-    completeProcess,
-    successCallback,
-    successMessage,
-    setProgressingFirst: false,
-  });
-}
 
 export async function removeAction({
   target,
@@ -32,7 +12,7 @@ export async function removeAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowNodeApprover/remove',
+    api: modelTypeCollection.workflowNodeApproverTypeCollection.remove,
     params: {
       workflowNodeApproverId: getValueByKey({
         data: handleData,
@@ -55,7 +35,7 @@ export async function removeConfirmAction({
   confirmActionCore({
     title: `移除流程节点审批人`,
     content: `即将流程节点审批人, 确定吗？`,
-    api: 'workflowNodeApprover/remove',
+    api: modelTypeCollection.workflowNodeApproverTypeCollection.remove,
     params: {
       workflowNodeApproverId: getValueByKey({
         data: handleData,
@@ -76,7 +56,7 @@ export async function refreshCacheAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowNodeApprover/refreshCache',
+    api: modelTypeCollection.workflowNodeApproverTypeCollection.refreshCache,
     params: {
       workflowNodeApproverId: getValueByKey({
         data: handleData,

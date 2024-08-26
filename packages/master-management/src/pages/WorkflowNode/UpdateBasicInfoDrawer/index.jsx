@@ -1,5 +1,12 @@
 import { connect } from 'easy-soft-dva';
-import { formatCollection, getValueByKey } from 'easy-soft-utility';
+import {
+  checkInCollection,
+  convertCollection,
+  filter,
+  formatCollection,
+  getValueByKey,
+  toString,
+} from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
@@ -8,6 +15,7 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { flowNodeApproverModeCollection } from '../../../customConfig';
 import { renderFormFlowNodeApproverModeSelect } from '../../../customSpecialComponents';
 import { fieldData } from '../Common/data';
 
@@ -89,6 +97,12 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
         key: fieldData.name.name,
       });
 
+      values[fieldData.approverMode.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.approverMode.name,
+        convert: convertCollection.string,
+      });
+
       values[fieldData.description.name] = getValueByKey({
         data: metaData,
         key: fieldData.description.name,
@@ -120,11 +134,22 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
               type: cardConfig.contentItemType.component,
               component: renderFormFlowNodeApproverModeSelect({
                 adjustListData: (list) => {
-                  console.log({ list });
+                  const listAdjust = filter(list, (one) => {
+                    const { flag } = one;
 
-                  return list;
+                    return checkInCollection(
+                      [
+                        toString(flowNodeApproverModeCollection.designated),
+                        toString(
+                          flowNodeApproverModeCollection.directlyAffiliatedDepartment,
+                        ),
+                      ],
+                      toString(flag),
+                    );
+                  });
+
+                  return listAdjust;
                 },
-                onChange: this.onQuestionCreateModeChange,
               }),
               require: true,
             },
@@ -177,6 +202,20 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
               }),
             },
           ],
+        },
+      ],
+    };
+  };
+
+  establishHelpConfig = () => {
+    return {
+      title: '操作提示',
+      list: [
+        {
+          text: '操作人模式为 ”指定人员“ 时, 需要选择人员作为审批人。',
+        },
+        {
+          text: '操作人模式为 ”直属部门“ 时, 需要选择职级, 符合所选职级的直属部门人员作为审批人。',
         },
       ],
     };

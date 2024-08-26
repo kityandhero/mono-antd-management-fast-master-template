@@ -5926,9 +5926,16 @@
         },
         {
           "title": "增加流程节点审批人",
-          "api": "/workflowNodeApprover/addBasicInfo",
-          "effect": "addBasicInfo",
-          "service": "addBasicInfoData",
+          "api": "/workflowNodeApprover/addApproverBasicInfo",
+          "effect": "addApproverBasicInfo",
+          "service": "addApproverBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "增加流程节点审批职级",
+          "api": "/workflowNodeApprover/addPositionGradeBasicInfo",
+          "effect": "addPositionGradeBasicInfo",
+          "service": "addPositionGradeBasicInfoData",
           "type": "singleData"
         },
         {

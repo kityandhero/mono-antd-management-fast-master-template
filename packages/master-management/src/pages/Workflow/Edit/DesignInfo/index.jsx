@@ -6,6 +6,7 @@ import {
   findIndex,
   getValueByKey,
   isArray,
+  showSimpleErrorMessage,
   toLowerFirst,
   whetherNumber,
 } from 'easy-soft-utility';
@@ -20,6 +21,7 @@ import { adjustEdge, Flow } from 'antd-management-fast-flow';
 import {
   accessWayCollection,
   flowLineTypeCollection,
+  flowNodeApproverModeCollection,
   flowNodeTypeCollection,
 } from '../../../../customConfig';
 import { BranchConditionDrawer } from '../../../WorkflowBranchCondition/BranchConditionDrawer';
@@ -48,6 +50,7 @@ import { ChangeBackwardModal } from '../../../WorkflowNode/ChangeBackwardModal';
 import { ChangeForwardModal } from '../../../WorkflowNode/ChangeForwardModal';
 import { fieldData as fieldDataWorkflowNode } from '../../../WorkflowNode/Common/data';
 import { UpdateBasicInfoDrawer } from '../../../WorkflowNode/UpdateBasicInfoDrawer';
+import { AddWorkflowNodeApprovePositionGradeDrawer } from '../../../WorkflowNodeApprover/AddWorkflowNodeApprovePositionGradeDrawer';
 import { AddWorkflowNodeApproverDrawer } from '../../../WorkflowNodeApprover/AddWorkflowNodeApproverDrawer';
 import { removeConfirmAction as removeNodeApproverConfirmAction } from '../../../WorkflowNodeApprover/Assist/action';
 import { fieldData as fieldDataWorkflowNodeApprover } from '../../../WorkflowNodeApprover/Common/data';
@@ -176,7 +179,29 @@ class Index extends TabPageBase {
           data: {
             data: o,
             onAddApprover: (data) => {
-              this.showAddWorkflowNodeApproverDrawer(data);
+              const approverMode = getValueByKey({
+                data: data,
+                key: fieldDataWorkflowNode.approverMode.name,
+                convert: convertCollection.number,
+              });
+
+              switch (approverMode) {
+                case flowNodeApproverModeCollection.designated: {
+                  this.showAddWorkflowNodeApproverDrawer(data);
+
+                  return;
+                }
+
+                case flowNodeApproverModeCollection.directlyAffiliatedDepartment: {
+                  this.showAddWorkflowNodeApprovePositionGradeDrawer(data);
+
+                  return;
+                }
+
+                default: {
+                  showSimpleErrorMessage('未找到匹配的审批人模式');
+                }
+              }
             },
             onRemoveApprover: (data) => {
               this.removeNodeApproverConfirm(data);
@@ -590,6 +615,21 @@ class Index extends TabPageBase {
     this.reloadData({});
   };
 
+  showAddWorkflowNodeApprovePositionGradeDrawer = (record) => {
+    this.setState(
+      {
+        currentRecord: record,
+      },
+      () => {
+        AddWorkflowNodeApprovePositionGradeDrawer.open();
+      },
+    );
+  };
+
+  afterAddWorkflowNodeApprovePositionGradeDrawerOk = () => {
+    this.reloadData({});
+  };
+
   fillInitialValuesAfterLoad = ({
     // eslint-disable-next-line no-unused-vars
     metaData = null,
@@ -763,10 +803,10 @@ class Index extends TabPageBase {
                       listOutLineKey={fieldDataWorkflowNode.listOutLine.name}
                       listApproverKey={fieldDataWorkflowNode.listApprover.name}
                       approverNameKey={
-                        fieldDataWorkflowNodeApprover.userRealName.name
+                        fieldDataWorkflowNodeApprover.approverName.name
                       }
                       approverNameLabel={
-                        fieldDataWorkflowNodeApprover.userRealName.label
+                        fieldDataWorkflowNodeApprover.approverName.label
                       }
                       nodes={[...(isArray(nodeList) ? nodeList : [])]}
                       edges={[...(isArray(edgeList) ? edgeList : [])]}
@@ -871,6 +911,13 @@ class Index extends TabPageBase {
           externalData={currentRecord}
           afterClose={() => {
             this.afterAddWorkflowNodeApproverDrawerOk();
+          }}
+        />
+
+        <AddWorkflowNodeApprovePositionGradeDrawer
+          externalData={currentRecord}
+          afterClose={() => {
+            this.afterAddWorkflowNodeApprovePositionGradeDrawerOk();
           }}
         />
       </>

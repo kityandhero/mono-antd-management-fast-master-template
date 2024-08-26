@@ -9,7 +9,8 @@ import {
 } from 'easy-soft-utility';
 
 import {
-  addBasicInfoData,
+  addApproverBasicInfoData,
+  addPositionGradeBasicInfoData,
   getData,
   pageListData,
   pageListOperateLogData,
@@ -22,7 +23,8 @@ export const workflowNodeApproverTypeCollection = {
   pageList: 'workflowNodeApprover/pageList',
   singleList: 'workflowNodeApprover/singleList',
   get: 'workflowNodeApprover/get',
-  addBasicInfo: 'workflowNodeApprover/addBasicInfo',
+  addApproverBasicInfo: 'workflowNodeApprover/addApproverBasicInfo',
+  addPositionGradeBasicInfo: 'workflowNodeApprover/addPositionGradeBasicInfo',
   remove: 'workflowNodeApprover/remove',
   refreshCache: 'workflowNodeApprover/refreshCache',
   pageListOperateLog: 'workflowNodeApprover/pageListOperateLog',
@@ -115,7 +117,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *addBasicInfo(
+      *addApproverBasicInfo(
         {
           payload,
           alias,
@@ -124,7 +126,33 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(addBasicInfoData, payload);
+        const response = yield call(addApproverBasicInfoData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *addPositionGradeBasicInfo(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(addPositionGradeBasicInfoData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

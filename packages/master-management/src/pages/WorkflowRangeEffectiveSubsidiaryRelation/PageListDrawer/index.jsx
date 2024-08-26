@@ -22,12 +22,12 @@ import {
   getFlowLineStatusName,
   getFlowLineTypeName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshCacheAction } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
 const { MultiPageDrawer } = DataMultiPageView;
-
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = 'e91c738150c248aa9512778106310fca';
 
@@ -52,7 +52,9 @@ class PageListDrawer extends MultiPageDrawer {
     this.state = {
       ...this.state,
       pageTitle: '适用子公司列表',
-      loadApiPath: 'workflowRangeEffectiveSubsidiaryRelation/pageList',
+      loadApiPath:
+        modelTypeCollection
+          .workflowRangeEffectiveSubsidiaryRelationTypeCollection.pageList,
       tableScrollX: 1120,
     };
   }

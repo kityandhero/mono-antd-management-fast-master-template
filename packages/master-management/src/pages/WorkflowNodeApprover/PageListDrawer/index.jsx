@@ -21,6 +21,7 @@ import {
   getChannelName,
   getFlowNodeApproverStatusName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshCacheAction } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
@@ -50,7 +51,8 @@ class PageListDrawer extends MultiPageDrawer {
     this.state = {
       ...this.state,
       pageTitle: '流程节点审批人列表',
-      loadApiPath: 'workflowNodeApprover/pageList',
+      loadApiPath:
+        modelTypeCollection.workflowNodeApproverTypeCollection.pageList,
       tableScrollX: 1240,
     };
   }

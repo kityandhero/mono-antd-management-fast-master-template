@@ -27,11 +27,22 @@ export async function getData(parameters) {
   });
 }
 
-export const addBasicInfoDataApiAddress = '/workflowNodeApprover/addBasicInfo';
+export const addApproverBasicInfoDataApiAddress =
+  '/workflowNodeApprover/addApproverBasicInfo';
 
-export async function addBasicInfoData(parameters) {
+export async function addApproverBasicInfoData(parameters) {
   return request({
-    api: addBasicInfoDataApiAddress,
+    api: addApproverBasicInfoDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const addPositionGradeBasicInfoDataApiAddress =
+  '/workflowNodeApprover/addPositionGradeBasicInfo';
+
+export async function addPositionGradeBasicInfoData(parameters) {
+  return request({
+    api: addPositionGradeBasicInfoDataApiAddress,
     params: parameters,
   });
 }
