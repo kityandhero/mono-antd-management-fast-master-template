@@ -19,6 +19,7 @@ import {
   removeData,
   setCaseNameTemplateData,
   setChannelData,
+  setDebugApproverModeData,
   setDisableData,
   setEnableData,
   statisticCarbonCopyCountData,
@@ -36,6 +37,7 @@ export const workflowTypeCollection = {
     'workflow/addOfficeAutomationProcessApproval',
   updateBasicInfo: 'workflow/updateBasicInfo',
   setCaseNameTemplate: 'workflow/setCaseNameTemplate',
+  setDebugApproverMode: 'workflow/setDebugApproverMode',
   setChannel: 'workflow/setChannel',
   openMultibranch: 'workflow/openMultibranch',
   openMultiEnd: 'workflow/openMultiEnd',
@@ -205,6 +207,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(setCaseNameTemplateData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setDebugApproverMode(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setDebugApproverModeData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

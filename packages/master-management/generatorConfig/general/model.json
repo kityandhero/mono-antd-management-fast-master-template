@@ -4903,6 +4903,13 @@
           "type": "singleData"
         },
         {
+          "title": "设置流程测试审批人模式",
+          "api": "/workflow/setDebugApproverMode",
+          "effect": "setDebugApproverMode",
+          "service": "setDebugApproverModeData",
+          "type": "singleData"
+        },
+        {
           "title": "更改渠道值，仅用于特殊情况",
           "api": "/workflow/setChannel",
           "effect": "setChannel",
@@ -5316,6 +5323,34 @@
     {
       "apis": [
         {
+          "title": "流程实例下一流转过程管理",
+          "api": "/workflowCaseNextProcessProgress/getByFlowCaseId",
+          "effect": "getByFlowCaseId",
+          "service": "getByFlowCaseIdData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "流程实例下一流转过程管理",
+      "name": "workflowCaseNextProcessProgress"
+    },
+    {
+      "apis": [
+        {
+          "title": "流程实例下一流转过程管理",
+          "api": "/workflowCaseNextProcessProgressBase/getByFlowCaseId",
+          "effect": "getByFlowCaseId",
+          "service": "getByFlowCaseIdData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "流程实例下一流转过程管理",
+      "name": "workflowCaseNextProcessProgressBase"
+    },
+    {
+      "apis": [
+        {
           "title": "分页列表",
           "api": "/workflowCaseProcessHistory/pageList",
           "effect": "pageList",
@@ -5599,6 +5634,34 @@
       "cover": true,
       "title": "流程测试表单存储管理",
       "name": "workflowDebugCaseFormStorage"
+    },
+    {
+      "apis": [
+        {
+          "title": "通过流程实例获取",
+          "api": "/workflowDebugCaseNextProcessProgress/getByFlowCaseId",
+          "effect": "getByFlowCaseId",
+          "service": "getByFlowCaseIdData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "流程测试实例下一流转过程管理",
+      "name": "workflowDebugCaseNextProcessProgress"
+    },
+    {
+      "apis": [
+        {
+          "title": "通过流程实例获取",
+          "api": "/workflowDebugCaseNextProcessProgressBase/getByFlowCaseId",
+          "effect": "getByFlowCaseId",
+          "service": "getByFlowCaseIdData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "流程测试实例下一流转过程管理",
+      "name": "workflowDebugCaseNextProcessProgressBase"
     },
     {
       "apis": [

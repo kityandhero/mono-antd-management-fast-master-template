@@ -281,6 +281,14 @@ import {
   workflowCaseFormStorageTypeCollection,
 } from './workflowCaseFormStorage';
 import {
+  buildModel as buildWorkflowCaseNextProcessProgressModel,
+  workflowCaseNextProcessProgressTypeCollection,
+} from './workflowCaseNextProcessProgress';
+import {
+  buildModel as buildWorkflowCaseNextProcessProgressBaseModel,
+  workflowCaseNextProcessProgressBaseTypeCollection,
+} from './workflowCaseNextProcessProgressBase';
+import {
   buildModel as buildWorkflowCaseProcessHistoryModel,
   workflowCaseProcessHistoryTypeCollection,
 } from './workflowCaseProcessHistory';
@@ -296,6 +304,14 @@ import {
   buildModel as buildWorkflowDebugCaseFormStorageModel,
   workflowDebugCaseFormStorageTypeCollection,
 } from './workflowDebugCaseFormStorage';
+import {
+  buildModel as buildWorkflowDebugCaseNextProcessProgressModel,
+  workflowDebugCaseNextProcessProgressTypeCollection,
+} from './workflowDebugCaseNextProcessProgress';
+import {
+  buildModel as buildWorkflowDebugCaseNextProcessProgressBaseModel,
+  workflowDebugCaseNextProcessProgressBaseTypeCollection,
+} from './workflowDebugCaseNextProcessProgressBase';
 import {
   buildModel as buildWorkflowDebugCaseProcessHistoryModel,
   workflowDebugCaseProcessHistoryTypeCollection,
@@ -401,10 +417,14 @@ export const modelTypeCollection = {
   workflowCaseTypeCollection,
   workflowCaseFormAttachmentTypeCollection,
   workflowCaseFormStorageTypeCollection,
+  workflowCaseNextProcessProgressTypeCollection,
+  workflowCaseNextProcessProgressBaseTypeCollection,
   workflowCaseProcessHistoryTypeCollection,
   workflowDebugCaseTypeCollection,
   workflowDebugCaseFormAttachmentTypeCollection,
   workflowDebugCaseFormStorageTypeCollection,
+  workflowDebugCaseNextProcessProgressTypeCollection,
+  workflowDebugCaseNextProcessProgressBaseTypeCollection,
   workflowDebugCaseProcessHistoryTypeCollection,
   workflowFormDesignTypeCollection,
   workflowLineTypeCollection,
@@ -493,10 +513,14 @@ export function listModelBuilder() {
     buildWorkflowCaseModel,
     buildWorkflowCaseFormAttachmentModel,
     buildWorkflowCaseFormStorageModel,
+    buildWorkflowCaseNextProcessProgressModel,
+    buildWorkflowCaseNextProcessProgressBaseModel,
     buildWorkflowCaseProcessHistoryModel,
     buildWorkflowDebugCaseModel,
     buildWorkflowDebugCaseFormAttachmentModel,
     buildWorkflowDebugCaseFormStorageModel,
+    buildWorkflowDebugCaseNextProcessProgressModel,
+    buildWorkflowDebugCaseNextProcessProgressBaseModel,
     buildWorkflowDebugCaseProcessHistoryModel,
     buildWorkflowFormDesignModel,
     buildWorkflowLineModel,

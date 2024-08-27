@@ -181,6 +181,16 @@ export const fieldData = {
     name: 'flowDebugUserId',
     helper: '',
   },
+  flowDebugApproverMode: {
+    label: '用于流程调试的审批人模式',
+    name: 'flowDebugApproverMode',
+    helper: '',
+  },
+  flowDebugApproverModeNote: {
+    label: '用于流程调试的审批人模式',
+    name: 'flowDebugApproverModeNote',
+    helper: '',
+  },
   flowDebugUserRealName: {
     label: '用于流程调试的用户姓名',
     name: 'flowDebugUserRealName',

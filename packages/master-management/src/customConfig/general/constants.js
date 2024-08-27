@@ -29,6 +29,23 @@ export const fileTypeCollection = {
   file: 400,
 };
 
+/**
+ * 流程调试审批人模式值集合
+ */
+export const flowDebugApproverModeCollection = {
+  /**
+   * 全局适用
+   * value : 0
+   */
+  debugUser: 0,
+
+  /**
+   * 流程配置账户
+   * value : 100
+   */
+  flowConfiguration: 100,
+};
+
 export const flowEffectiveRangeCollection = {
   /**
    * 全局适用

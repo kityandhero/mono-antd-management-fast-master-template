@@ -1,7 +1,7 @@
 import { Divider, Table } from 'antd';
 
 import { connect } from 'easy-soft-dva';
-import { getValueByKey } from 'easy-soft-utility';
+import { convertCollection, getValueByKey } from 'easy-soft-utility';
 
 import { buildCustomGrid } from 'antd-management-fast-component';
 import {
@@ -9,7 +9,10 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
-import { accessWayCollection } from '../../../customConfig';
+import {
+  accessWayCollection,
+  flowNodeApproverModeCollection,
+} from '../../../customConfig';
 import { AddAttachmentModal } from '../../WorkflowDebugCaseFormAttachment/AddAttachmentModal';
 import { fieldData as fieldDataWorkflowNodeApprover } from '../../WorkflowNodeApprover/Common/data';
 import { fieldData } from '../Common/data';
@@ -114,23 +117,53 @@ class WorkflowNodeDetailDrawer extends BaseVerticalFlexDrawer {
       },
     });
 
-    const columns = [
-      {
-        title: fieldDataWorkflowNodeApprover.userId.label,
-        dataIndex: fieldDataWorkflowNodeApprover.userId.name,
-        key: fieldDataWorkflowNodeApprover.userId.name,
-        ellipsis: true,
-      },
-      {
-        title: fieldDataWorkflowNodeApprover.userRealName.label,
-        dataIndex: fieldDataWorkflowNodeApprover.userRealName.name,
-        key: fieldDataWorkflowNodeApprover.userRealName.name,
-        width: '120px',
-      },
-    ];
+    const approverMode = getValueByKey({
+      data: metaData,
+      key: fieldData.approverMode.name,
+      convert: convertCollection.number,
+    });
+
+    const columns = [];
+
+    if (approverMode === flowNodeApproverModeCollection.designated) {
+      columns.push(
+        {
+          title: fieldDataWorkflowNodeApprover.userId.label,
+          dataIndex: fieldDataWorkflowNodeApprover.userId.name,
+          key: fieldDataWorkflowNodeApprover.userId.name,
+          ellipsis: true,
+        },
+        {
+          title: fieldDataWorkflowNodeApprover.userRealName.label,
+          dataIndex: fieldDataWorkflowNodeApprover.userRealName.name,
+          key: fieldDataWorkflowNodeApprover.userRealName.name,
+          width: '120px',
+        },
+      );
+    }
+
+    if (
+      approverMode ===
+      flowNodeApproverModeCollection.directlyAffiliatedDepartment
+    ) {
+      columns.push(
+        {
+          title: fieldDataWorkflowNodeApprover.positionGradeId.label,
+          dataIndex: fieldDataWorkflowNodeApprover.positionGradeId.name,
+          key: fieldDataWorkflowNodeApprover.positionGradeId.name,
+          ellipsis: true,
+        },
+        {
+          title: fieldDataWorkflowNodeApprover.positionGradeName.label,
+          dataIndex: fieldDataWorkflowNodeApprover.positionGradeName.name,
+          key: fieldDataWorkflowNodeApprover.positionGradeName.name,
+          width: '120px',
+        },
+      );
+    }
 
     return (
-      <div>
+      <div style={{ padding: '10px' }}>
         {grid}
 
         <Divider />

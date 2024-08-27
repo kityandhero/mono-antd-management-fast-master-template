@@ -1,5 +1,12 @@
 import { fieldDataFlowCaseNextProcessProgress } from '../../../customConfig';
 
+const fieldExtraData = {
+  workflowDebugCaseId: {
+    label: '实例标识',
+    name: 'workflowDebugCaseId',
+    helper: '',
+  },
+};
 export const fieldData = {
   ...fieldDataFlowCaseNextProcessProgress,
   workflowDebugCaseNextProcessProgressId: {
@@ -7,4 +14,5 @@ export const fieldData = {
     name: 'workflowDebugCaseNextProcessProgressId',
     helper: '',
   },
+  ...fieldExtraData,
 };

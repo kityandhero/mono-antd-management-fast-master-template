@@ -1,5 +1,28 @@
 import { formNameCollection } from './fieldDataCommon';
 
+const fieldExtraData = {
+  flowCaseTitle: {
+    label: '流程实例名',
+    name: 'flowCaseTitle',
+    helper: '',
+  },
+  workflowName: {
+    label: '流程名',
+    name: 'workflowName',
+    helper: '',
+  },
+  nextWorkflowNodeName: {
+    label: '下一审批的流程节点',
+    name: 'nextWorkflowNodeName',
+    helper: '',
+  },
+  nextWorkflowNodeTypeNote: {
+    label: '下一审批的流程节点类型',
+    name: 'nextWorkflowNodeTypeNote',
+    helper: '',
+  },
+};
+
 export const fieldDataFlowCaseNextProcessProgress = {
   ...formNameCollection,
   workflowId: {
@@ -12,64 +35,24 @@ export const fieldDataFlowCaseNextProcessProgress = {
     name: 'flowCaseId',
     helper: '',
   },
-  workflowName: {
-    label: '流程名称',
-    name: 'workflowName',
+  previousProcessHistoryId: {
+    label: '上一步审批历史标识',
+    name: 'previousProcessHistoryId',
     helper: '',
   },
-  approveWorkflowNodeId: {
-    label: '审批流程节点标识',
-    name: 'approveWorkflowNodeId',
+  nextWorkflowNodeId: {
+    label: '下一审批的流程节点标识',
+    name: 'nextWorkflowNodeId',
     helper: '',
   },
-  approveWorkflowNodeName: {
-    label: '审批流程节点名称',
-    name: 'approveWorkflowNodeName',
+  inWorkflowLineId: {
+    label: '下一审批节点驶入线条',
+    name: 'inWorkflowLineId',
     helper: '',
   },
-  approveWorkflowNodeType: {
-    label: '审批流程节点类型',
-    name: 'approveWorkflowNodeType',
-    helper: '',
-  },
-  approveWorkflowNodeTypeNote: {
-    label: '审批流程节点类型',
-    name: 'approveWorkflowNodeTypeNote',
-    helper: '',
-  },
-  note: {
-    label: '备注',
-    name: 'note',
-    helper: '',
-  },
-  approveUserId: {
-    label: '审批人用户标识',
-    name: 'approveUserId',
-    helper: '',
-  },
-  approveUserName: {
-    label: '审批人名称',
-    name: 'approveUserName',
-    helper: '',
-  },
-  approveAction: {
-    label: '审批动作',
-    name: 'approveAction',
-    helper: '',
-  },
-  approveActionNote: {
-    label: '审批动作',
-    name: 'approveActionNote',
-    helper: '',
-  },
-  approveActionMode: {
-    label: '审批动作模式',
-    name: 'approveActionMode',
-    helper: '',
-  },
-  approveActionModeNote: {
-    label: '审批动作模式',
-    name: 'approveActionModeNote',
+  nextWorkflowNodeType: {
+    label: '下一审批的流程节点类型',
+    name: 'nextWorkflowNodeType',
     helper: '',
   },
   status: {
@@ -102,4 +85,5 @@ export const fieldDataFlowCaseNextProcessProgress = {
     name: 'updateTime',
     helper: '',
   },
+  ...fieldExtraData,
 };

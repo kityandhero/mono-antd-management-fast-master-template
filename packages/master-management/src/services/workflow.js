@@ -57,6 +57,16 @@ export async function setCaseNameTemplateData(parameters) {
   });
 }
 
+export const setDebugApproverModeDataApiAddress =
+  '/workflow/setDebugApproverMode';
+
+export async function setDebugApproverModeData(parameters) {
+  return request({
+    api: setDebugApproverModeDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setChannelDataApiAddress = '/workflow/setChannel';
 
 export async function setChannelData(parameters) {

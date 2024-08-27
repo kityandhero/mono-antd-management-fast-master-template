@@ -3007,6 +3007,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '2a1780e0bd7e7c500417dfae0ab473a4',
       permission: '9655598686db451683eacdd05150a50f',
     },
+    setDebugApproverMode: {
+      title: '设置流程测试审批人模式',
+      paramsKey: '58b6c5f2b071272fdcaa4fc3ef42d8a7',
+      permission: 'a996569277fa4cd6a1e9e52d59661828',
+    },
     setChannel: {
       title: '更改渠道值，仅用于特殊情况',
       paramsKey: '29f7014f7b472d2c9c12a7d75fff6b6f',
@@ -3278,6 +3283,20 @@ export const accessWayInfrastructureCollection = {
       permission: '54d711c694294f53a37a06cf3d4d1172',
     },
   },
+  workflowCaseNextProcessProgress: {
+    getByFlowCaseId: {
+      title: '流程实例下一流转过程管理',
+      paramsKey: 'bf62c04988031141e31dcbc4a619c914',
+      permission: 'b2a667cc263744cbb6bf0d3614c97a13',
+    },
+  },
+  workflowCaseNextProcessProgressBase: {
+    getByFlowCaseId: {
+      title: '流程实例下一流转过程管理',
+      paramsKey: 'bf62c04988031141e31dcbc4a619c914',
+      permission: 'b2a667cc263744cbb6bf0d3614c97a13',
+    },
+  },
   workflowCaseProcessHistory: {
     pageList: {
       title: '分页列表',
@@ -3464,6 +3483,20 @@ export const accessWayInfrastructureCollection = {
       title: '操作日志列表',
       paramsKey: '529727c404490408f9c0863feb03fda6',
       permission: 'c1e1e038133248ca907c42dd1719f22d',
+    },
+  },
+  workflowDebugCaseNextProcessProgress: {
+    getByFlowCaseId: {
+      title: '通过流程实例获取',
+      paramsKey: 'ec53ac4b785166987670458a6289aa33',
+      permission: 'cee1b7f9fed5480c919971fa4e2965ca',
+    },
+  },
+  workflowDebugCaseNextProcessProgressBase: {
+    getByFlowCaseId: {
+      title: '通过流程实例获取',
+      paramsKey: 'ec53ac4b785166987670458a6289aa33',
+      permission: 'cee1b7f9fed5480c919971fa4e2965ca',
     },
   },
   workflowDebugCaseProcessHistory: {

@@ -4,18 +4,19 @@ import { convertCollection, getValueByKey } from 'easy-soft-utility';
 import { cardConfig } from 'antd-management-fast-common';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
-import { renderFormChannelSelect } from '../../../customSpecialComponents';
+import { renderFormFlowDebugApproverModeSelect } from '../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
-const visibleFlag = '87c86b22e8294391af2180b1a7543956';
+
+const visibleFlag = '2b7a92d83e3c4b858267b78594ffeba0';
 
 @connect(({ workflow, schedulingControl }) => ({
   workflow,
   schedulingControl,
 }))
-class UpdateChannelModal extends BaseUpdateModal {
+class UpdateDebugApproverModeModal extends BaseUpdateModal {
   static open() {
     switchControlAssist.open(visibleFlag);
   }
@@ -27,7 +28,8 @@ class UpdateChannelModal extends BaseUpdateModal {
       ...this.state,
       pageTitle: '设置数据通道',
       loadApiPath: modelTypeCollection.workflowTypeCollection.get,
-      submitApiPath: modelTypeCollection.workflowTypeCollection.setChannel,
+      submitApiPath:
+        modelTypeCollection.workflowTypeCollection.setDebugApproverMode,
     };
   }
 
@@ -75,10 +77,10 @@ class UpdateChannelModal extends BaseUpdateModal {
   establishFormAdditionalConfig = () => {
     return {
       labelCol: {
-        span: 5,
+        flex: '120px',
       },
       wrapperCol: {
-        span: 19,
+        flex: 'auto',
       },
     };
   };
@@ -104,9 +106,9 @@ class UpdateChannelModal extends BaseUpdateModal {
     const values = {};
 
     if (metaData != null) {
-      values[fieldData.channel.name] = getValueByKey({
+      values[fieldData.debugApproverMode.name] = getValueByKey({
         data: metaData,
-        key: fieldData.channel.name,
+        key: fieldData.debugApproverMode.name,
         convert: convertCollection.string,
       });
     }
@@ -122,7 +124,7 @@ class UpdateChannelModal extends BaseUpdateModal {
             {
               lg: 24,
               type: cardConfig.contentItemType.component,
-              component: renderFormChannelSelect({}),
+              component: renderFormFlowDebugApproverModeSelect({}),
               require: true,
             },
           ],
@@ -132,4 +134,4 @@ class UpdateChannelModal extends BaseUpdateModal {
   };
 }
 
-export { UpdateChannelModal };
+export { UpdateDebugApproverModeModal };

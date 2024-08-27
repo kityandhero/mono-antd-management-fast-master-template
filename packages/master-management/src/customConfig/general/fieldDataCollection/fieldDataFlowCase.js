@@ -160,6 +160,11 @@ export const fieldDataFlowCase = {
     name: 'workflowName',
     helper: '',
   },
+  userId: {
+    label: '发起人',
+    name: 'userId',
+    helper: '',
+  },
   userRealName: {
     label: '发起人',
     name: 'userRealName',
@@ -200,6 +205,16 @@ export const fieldDataFlowCase = {
     name: 'scopeNote',
     helper: '应用范围',
   },
+  debugApproverMode: {
+    label: '调试审批人模式',
+    name: 'debugApproverMode',
+    helper: '',
+  },
+  debugApproverModeNote: {
+    label: '调试审批人模式',
+    name: 'debugApproverModeNote',
+    helper: '',
+  },
   businessMode: {
     label: '适用业务',
     name: 'businessMode',
@@ -208,6 +223,11 @@ export const fieldDataFlowCase = {
   businessModeNote: {
     label: '适用业务',
     name: 'businessModeNote',
+    helper: '',
+  },
+  lastSubmitApprovalTime: {
+    label: '最后提交审批时间',
+    name: 'lastSubmitApprovalTime',
     helper: '',
   },
   status: {

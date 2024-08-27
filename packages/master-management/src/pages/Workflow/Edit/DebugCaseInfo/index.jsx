@@ -5,18 +5,21 @@ import { connect } from 'easy-soft-dva';
 import {
   checkHasAuthority,
   checkInCollection,
+  checkStringIsNullOrWhiteSpace,
   convertCollection,
   filter,
   getValueByKey,
   isArray,
   isEmptyObject,
   isNull,
+  showSimpleErrorMessage,
   toLowerFirst,
   whetherNumber,
 } from 'easy-soft-utility';
 
 import {
   cardConfig,
+  dropdownExpandItemType,
   getDerivedStateFromPropertiesForUrlParameters,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
@@ -30,8 +33,10 @@ import {
 import {
   accessWayCollection,
   emptySignet,
+  fieldDataFlowCase,
   flowApproveActionModeCollection,
   flowCaseStatusCollection,
+  flowDebugApproverModeCollection,
   flowLineTypeCollection,
   flowNodeTypeCollection,
 } from '../../../../customConfig';
@@ -53,6 +58,7 @@ import { fieldData as fieldDataWorkflowDebugCaseCarbonCopyNotification } from '.
 import { FormDrawer } from '../../../WorkflowDebugCaseFormStorage/FormDrawer';
 import { fieldData as fieldDataWorkflowDebugCaseLatestApprove } from '../../../WorkflowDebugCaseLatestApprove/Common/data';
 import { fieldData as fieldDataWorkflowDebugCaseNextProcessNotification } from '../../../WorkflowDebugCaseNextProcessNotification/Common/data';
+import { WorkflowDebugCaseNextProcessProgressDrawer } from '../../../WorkflowDebugCaseNextProcessProgress/FlowCaseNextProcessProgressDrawer';
 import {
   cancelApproveAction,
   resetAllApproveAction,
@@ -70,6 +76,7 @@ import { fieldData as fieldDataWorkflowNodeApprover } from '../../../WorkflowNod
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData as fieldDataWorkflow } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
+import { UpdateDebugApproverModeModal } from '../../UpdateDebugApproverModeModal';
 
 const columnsNextProcessNotification = [
   {
@@ -707,6 +714,14 @@ class DebugCaseInfo extends TabPageBase {
     this.reloadData({});
   };
 
+  showUpdateDebugApproverModeModal = () => {
+    UpdateDebugApproverModeModal.open();
+  };
+
+  afterUpdateDebugApproverModeModalOK = () => {
+    this.reloadData({});
+  };
+
   showFormDrawer = () => {
     FormDrawer.open();
   };
@@ -741,6 +756,10 @@ class DebugCaseInfo extends TabPageBase {
 
   showFlowDebugCaseFormDocumentDrawer = () => {
     FlowDebugCaseFormDocumentDrawer.open();
+  };
+
+  showWorkflowDebugCaseNextProcessProgressDrawer = () => {
+    WorkflowDebugCaseNextProcessProgressDrawer.open();
   };
 
   fillInitialValuesAfterLoad = ({
@@ -802,6 +821,33 @@ class DebugCaseInfo extends TabPageBase {
     const resetAllApproveSwitch = getValueByKey({
       data: metaData,
       key: fieldData.resetAllApproveSwitch.name,
+      convert: convertCollection.number,
+    });
+
+    const userId = getValueByKey({
+      data: metaData,
+      key: fieldData.userId.name,
+      convert: convertCollection.string,
+    });
+
+    const userRealName = getValueByKey({
+      data: metaData,
+      key: fieldData.userRealName.name,
+    });
+
+    const flowDebugUserRealName = getValueByKey({
+      data: metaData,
+      key: fieldData.flowDebugUserRealName.name,
+    });
+
+    const flowDebugUserId = getValueByKey({
+      data: metaData,
+      key: fieldData.flowDebugUserId.name,
+    });
+
+    const debugApproverMode = getValueByKey({
+      data: metaData,
+      key: fieldData.debugApproverMode.name,
       convert: convertCollection.number,
     });
 
@@ -963,6 +1009,37 @@ class DebugCaseInfo extends TabPageBase {
                 buildType: cardConfig.extraBuildType.divider,
               },
               {
+                buildType: cardConfig.extraBuildType.dropdownEllipsis,
+                handleMenuClick: ({ key, handleData }) => {
+                  switch (key) {
+                    case 'showUpdateDebugApproverModeModal': {
+                      this.showUpdateDebugApproverModeModal(handleData);
+                      break;
+                    }
+
+                    default: {
+                      showSimpleErrorMessage('can not find matched key');
+                      break;
+                    }
+                  }
+                },
+                handleData: metaData,
+                items: [
+                  {
+                    key: 'showUpdateDebugApproverModeModal',
+                    icon: iconBuilder.edit(),
+                    text: '配置调试审批人模式',
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflowCase.pageListUnderway
+                        .permission,
+                    ),
+                  },
+                ],
+              },
+              {
+                buildType: cardConfig.extraBuildType.divider,
+              },
+              {
                 buildType: cardConfig.extraBuildType.refresh,
               },
             ],
@@ -1025,11 +1102,16 @@ class DebugCaseInfo extends TabPageBase {
                   }),
                 },
                 {
-                  span: 2,
+                  span: 1,
                   label: fieldData.userRealName.label,
+                  value: `${userRealName} ${checkStringIsNullOrWhiteSpace(userId) ? '' : `[${userId}]`}`,
+                },
+                {
+                  span: 1,
+                  label: fieldData.lastSubmitApprovalTime.label,
                   value: getValueByKey({
                     data: metaData,
-                    key: fieldData.userRealName.name,
+                    key: fieldData.lastSubmitApprovalTime.name,
                   }),
                 },
                 {
@@ -1065,20 +1147,24 @@ class DebugCaseInfo extends TabPageBase {
                   }),
                 },
                 {
-                  span: 1,
-                  label: fieldData.flowDebugUserRealName.label,
+                  span:
+                    debugApproverMode ===
+                    flowDebugApproverModeCollection.flowConfiguration
+                      ? 2
+                      : 1,
+                  label: fieldDataFlowCase.debugApproverModeNote.label,
                   value: getValueByKey({
                     data: metaData,
-                    key: fieldData.flowDebugUserRealName.name,
+                    key: fieldDataFlowCase.debugApproverModeNote.name,
                   }),
                 },
                 {
                   span: 1,
-                  label: fieldData.flowDebugUserId.label,
-                  value: getValueByKey({
-                    data: metaData,
-                    key: fieldData.flowDebugUserId.name,
-                  }),
+                  label: fieldData.flowDebugUserRealName.label,
+                  value: `${flowDebugUserRealName} ${checkStringIsNullOrWhiteSpace(flowDebugUserId) ? '' : `[${flowDebugUserId}]`}`,
+                  hidden:
+                    debugApproverMode ===
+                    flowDebugApproverModeCollection.flowConfiguration,
                 },
               ],
               props: {
@@ -1250,65 +1336,112 @@ class DebugCaseInfo extends TabPageBase {
                 buildType: cardConfig.extraBuildType.divider,
               },
               {
-                buildType: cardConfig.extraBuildType.generalExtraButton,
-                type: 'dashed',
-                icon: iconBuilder.read(),
-                text: '下次审批信息',
-                disabled:
-                  !firstLoadSuccess ||
-                  isNull(nextApproveWorkflowNode) ||
-                  isEmptyObject(nextApproveWorkflowNode),
-                hidden: !checkHasAuthority(
-                  accessWayCollection.workflowNode.get.permission,
-                ),
-                handleClick: () => {
-                  this.showWorkflowNodeDetailDrawer();
-                },
-              },
-              {
-                buildType: cardConfig.extraBuildType.generalExtraButton,
-                type: 'dashed',
-                icon: iconBuilder.unorderedList(),
-                text: '已审批实例',
+                buildType: cardConfig.extraBuildType.dropdownEllipsis,
                 disabled: !firstLoadSuccess,
-                hidden: !checkHasAuthority(
-                  accessWayCollection.workflowDebugCase.pageListLatestApprove
-                    .permission,
-                ),
-                handleClick: () => {
-                  this.showWorkflowDebugCasePageListLatestApproveDrawer();
+                handleMenuClick: ({ key, handleData }) => {
+                  switch (key) {
+                    case 'showWorkflowNodeDetailDrawer': {
+                      this.showWorkflowNodeDetailDrawer(handleData);
+                      break;
+                    }
+
+                    case 'showWorkflowDebugCaseNextProcessProgressDrawer': {
+                      this.showWorkflowDebugCaseNextProcessProgressDrawer(
+                        handleData,
+                      );
+                      break;
+                    }
+
+                    case 'showWorkflowDebugCasePageListLatestApproveDrawer': {
+                      this.showWorkflowDebugCasePageListLatestApproveDrawer(
+                        handleData,
+                      );
+                      break;
+                    }
+
+                    case 'showWorkflowDebugCasePageListWaitApproveDrawer': {
+                      this.showWorkflowDebugCasePageListWaitApproveDrawer(
+                        handleData,
+                      );
+                      break;
+                    }
+
+                    case 'showWorkflowDebugCaseProcessHistoryPageListDrawer': {
+                      this.showWorkflowDebugCaseProcessHistoryPageListDrawer(
+                        handleData,
+                      );
+                      break;
+                    }
+
+                    default: {
+                      showSimpleErrorMessage('can not find matched key');
+                      break;
+                    }
+                  }
                 },
-              },
-              {
-                buildType: cardConfig.extraBuildType.generalExtraButton,
-                type: 'dashed',
-                icon: iconBuilder.unorderedList(),
-                text: '待审批实例',
-                disabled: !firstLoadSuccess,
-                hidden: !checkHasAuthority(
-                  accessWayCollection.workflowDebugCase.pageListWaitApprove
-                    .permission,
-                ),
-                handleClick: () => {
-                  this.showWorkflowDebugCasePageListWaitApproveDrawer();
-                },
-              },
-              {
-                buildType: cardConfig.extraBuildType.divider,
-              },
-              {
-                buildType: cardConfig.extraBuildType.generalExtraButton,
-                type: 'dashed',
-                icon: iconBuilder.unorderedList(),
-                text: '审批记录',
-                disabled: !firstLoadSuccess,
-                hidden: !checkHasAuthority(
-                  accessWayCollection.workflowDebugCaseProcessHistory.pageList
-                    .permission,
-                ),
-                handleClick: () => {
-                  this.showWorkflowDebugCaseProcessHistoryPageListDrawer();
-                },
+                handleData: metaData,
+                items: [
+                  {
+                    key: 'showWorkflowNodeDetailDrawer',
+                    icon: iconBuilder.read(),
+                    text: '下次审批节点信息',
+                    disabled:
+                      !firstLoadSuccess ||
+                      isNull(nextApproveWorkflowNode) ||
+                      isEmptyObject(nextApproveWorkflowNode),
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflowNode.get.permission,
+                    ),
+                  },
+                  {
+                    key: 'showWorkflowDebugCaseNextProcessProgressDrawer',
+                    icon: iconBuilder.read(),
+                    text: '下次审批流转信息',
+                    disabled:
+                      !firstLoadSuccess ||
+                      isNull(nextApproveWorkflowNode) ||
+                      isEmptyObject(nextApproveWorkflowNode),
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflowNode.get.permission,
+                    ),
+                  },
+                  {
+                    type: dropdownExpandItemType.divider,
+                  },
+                  {
+                    key: 'showWorkflowDebugCasePageListLatestApproveDrawer',
+                    icon: iconBuilder.unorderedList(),
+                    text: '已审批实例',
+                    disabled: !firstLoadSuccess,
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflowDebugCase
+                        .pageListLatestApprove.permission,
+                    ),
+                  },
+                  {
+                    key: 'showWorkflowDebugCasePageListWaitApproveDrawer',
+                    icon: iconBuilder.unorderedList(),
+                    text: '待审批实例',
+                    disabled: !firstLoadSuccess,
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflowDebugCase.pageListWaitApprove
+                        .permission,
+                    ),
+                  },
+                  {
+                    type: dropdownExpandItemType.divider,
+                  },
+                  {
+                    key: 'showWorkflowDebugCaseProcessHistoryPageListDrawer',
+                    icon: iconBuilder.unorderedList(),
+                    text: '审批记录',
+                    disabled: !firstLoadSuccess,
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflowDebugCaseProcessHistory
+                        .pageList.permission,
+                    ),
+                  },
+                ],
               },
             ],
           },
@@ -1447,6 +1580,12 @@ class DebugCaseInfo extends TabPageBase {
         {
           text: '调试审批进度将统一使用测试用户进行操作。',
         },
+        {
+          text: '审批人调试为 “测试账户”的时候, 与正式审批存在一定差异, 主要在于审批人相关部分, 流程调试主要排除除审批人之外的流程配置问题。',
+        },
+        {
+          text: '审批人调试为 “流程配置”的时候, 将最大程度模拟审批。',
+        },
       ],
     };
   };
@@ -1518,6 +1657,18 @@ class DebugCaseInfo extends TabPageBase {
         <WorkflowDebugCasePageListLatestApproveDrawer
           maskClosable
           externalData={metaData}
+        />
+
+        <WorkflowDebugCaseNextProcessProgressDrawer
+          maskClosable
+          externalData={metaData}
+        />
+
+        <UpdateDebugApproverModeModal
+          externalData={metaData}
+          afterOK={() => {
+            this.afterUpdateDebugApproverModeModalOK();
+          }}
         />
 
         <FlowDebugCaseFormDocumentDrawer

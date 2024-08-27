@@ -65,6 +65,16 @@ export const fieldDataFlow = {
     name: 'effectiveRangeNote',
     helper: '',
   },
+  debugApproverMode: {
+    label: '调试审批人模式',
+    name: 'debugApproverMode',
+    helper: '',
+  },
+  debugApproverModeNote: {
+    label: '调试审批人模式',
+    name: 'debugApproverModeNote',
+    helper: '',
+  },
   whetherAllowMultibranch: {
     label: '允许多路分支',
     name: 'whetherAllowMultibranch',

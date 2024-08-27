@@ -40,6 +40,7 @@ export * from './FlowCaseFormAttachmentStatus';
 export * from './FlowCaseFormStorageStatus';
 export * from './FlowCaseProcessHistoryStatus';
 export * from './FlowCaseStatus';
+export * from './FlowDebugApproverMode';
 export * from './FlowEffectiveRange';
 export * from './FlowFormDesignStatus';
 export * from './FlowFormDisplayMode';

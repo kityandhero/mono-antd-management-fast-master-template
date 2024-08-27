@@ -1,5 +1,7 @@
 import { fieldDataFlowCaseFormAttachment } from '../../../customConfig';
 
+const fieldExtraData = {};
+
 export const fieldData = {
   ...fieldDataFlowCaseFormAttachment,
   workflowDebugCaseFormAttachmentId: {
@@ -7,4 +9,5 @@ export const fieldData = {
     name: 'workflowDebugCaseFormAttachmentId',
     helper: '',
   },
+  ...fieldExtraData,
 };
