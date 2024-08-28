@@ -32,7 +32,7 @@ class BaseFlowCaseNextProcessProgressPageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      pageTitle: '流程实例列表',
+      pageTitle: '流程实例审批进程列表',
       loadApiPath: '',
       dateRangeFieldName: '创建时间',
       currentRecord: null,

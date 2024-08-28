@@ -30,7 +30,7 @@ class BaseFlowCaseNextProcessApprovePageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      pageTitle: '流程实例列表',
+      pageTitle: '流程实例下一审批信息列表',
       paramsKey: accessWayCollection.workflowCase.pageList.paramsKey,
       loadApiPath: 'workflowCase/pageList',
       dateRangeFieldName: '创建时间',

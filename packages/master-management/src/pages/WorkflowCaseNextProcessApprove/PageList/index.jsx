@@ -23,7 +23,6 @@ class PageList extends BaseFlowCaseNextProcessApprovePageList {
 
     this.state = {
       ...this.state,
-      pageTitle: '流程实例审批进程列表',
       paramsKey:
         accessWayCollection.workflowCaseNextProcessApprove.pageList.paramsKey,
       loadApiPath:
