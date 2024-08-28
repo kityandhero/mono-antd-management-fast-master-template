@@ -7,4 +7,9 @@ export const fieldData = {
     name: 'workflowCaseProcessHistoryId',
     helper: '',
   },
+  workflowCaseId: {
+    label: '实例标识',
+    name: 'workflowCaseId',
+    helper: '',
+  },
 };

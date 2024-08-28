@@ -1,15 +1,24 @@
 import {
   getTacitlyState,
+  pretreatmentRemotePageListData,
   pretreatmentRemoteSingleData,
   reducerCollection,
   reducerDefaultParameters,
   reducerNameCollection,
 } from 'easy-soft-utility';
 
-import { getByFlowCaseIdData } from '../../services/workflowDebugCaseNextProcessProgress';
+import {
+  getByFlowCaseIdData,
+  pageListData,
+  refreshCacheData,
+  singleListData,
+} from '../../services/workflowDebugCaseNextProcessProgress';
 
 export const workflowDebugCaseNextProcessProgressTypeCollection = {
+  pageList: 'workflowDebugCaseNextProcessProgress/pageList',
+  singleList: 'workflowDebugCaseNextProcessProgress/singleList',
   getByFlowCaseId: 'workflowDebugCaseNextProcessProgress/getByFlowCaseId',
+  refreshCache: 'workflowDebugCaseNextProcessProgress/refreshCache',
 };
 
 export function buildModel() {
@@ -21,6 +30,58 @@ export function buildModel() {
     },
 
     effects: {
+      *pageList(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(pageListData, payload);
+
+        const dataAdjust = pretreatmentRemotePageListData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *singleList(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(singleListData, payload);
+
+        const dataAdjust = pretreatmentRemotePageListData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
       *getByFlowCaseId(
         {
           payload,
@@ -31,6 +92,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(getByFlowCaseIdData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *refreshCache(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(refreshCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

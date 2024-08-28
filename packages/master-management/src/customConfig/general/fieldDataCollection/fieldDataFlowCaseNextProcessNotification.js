@@ -1,5 +1,13 @@
 import { formNameCollection } from './fieldDataCommon';
 
+const fieldExtraData = {
+  flowCaseTitle: {
+    label: '实例标题',
+    name: 'flowCaseTitle',
+    helper: '',
+  },
+};
+
 export const fieldDataFlowCaseNextProcessNotification = {
   ...formNameCollection,
   workflowId: {
@@ -52,6 +60,16 @@ export const fieldDataFlowCaseNextProcessNotification = {
     name: 'whetherSendNote',
     helper: '',
   },
+  whetherRead: {
+    label: '是否已读',
+    name: 'whetherSend',
+    helper: '',
+  },
+  whetherReadNote: {
+    label: '是否已读',
+    name: 'whetherSendNote',
+    helper: '',
+  },
   status: {
     label: '状态',
     name: 'status',
@@ -82,4 +100,5 @@ export const fieldDataFlowCaseNextProcessNotification = {
     name: 'updateTime',
     helper: '',
   },
+  ...fieldExtraData,
 };

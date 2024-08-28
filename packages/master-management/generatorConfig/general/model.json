@@ -2545,69 +2545,6 @@
       "apis": [
         {
           "title": "分页列表",
-          "api": "/positionBase/pageList",
-          "effect": "pageList",
-          "service": "pageListData",
-          "type": "pageList"
-        },
-        {
-          "title": "单页列表",
-          "api": "/positionBase/singleList",
-          "effect": "singleList",
-          "service": "singleListData",
-          "type": "singleList"
-        },
-        {
-          "title": "获取详情",
-          "api": "/positionBase/get",
-          "effect": "get",
-          "service": "getData",
-          "type": "singleData"
-        },
-        {
-          "title": "新建职位",
-          "api": "/positionBase/addBasicInfo",
-          "effect": "addBasicInfo",
-          "service": "addBasicInfoData",
-          "type": "singleData"
-        },
-        {
-          "title": "编辑信息",
-          "api": "/positionBase/updateBasicInfo",
-          "effect": "updateBasicInfo",
-          "service": "updateBasicInfoData",
-          "type": "singleData"
-        },
-        {
-          "title": "更新排序值",
-          "api": "/positionBase/updateSort",
-          "effect": "updateSort",
-          "service": "updateSortData",
-          "type": "singleData"
-        },
-        {
-          "title": "刷新缓存",
-          "api": "/positionBase/refreshCache",
-          "effect": "refreshCache",
-          "service": "refreshCacheData",
-          "type": "singleData"
-        },
-        {
-          "title": "操作日志列表",
-          "api": "/positionBase/pageListOperateLog",
-          "effect": "pageListOperateLog",
-          "service": "pageListOperateLogData",
-          "type": "pageList"
-        }
-      ],
-      "cover": true,
-      "title": "职位管理",
-      "name": "positionBase"
-    },
-    {
-      "apis": [
-        {
-          "title": "分页列表",
           "api": "/positionGrade/pageList",
           "effect": "pageList",
           "service": "pageListData",
@@ -2666,69 +2603,6 @@
       "cover": true,
       "title": "职级管理",
       "name": "positionGrade"
-    },
-    {
-      "apis": [
-        {
-          "title": "分页列表",
-          "api": "/positionGradeBase/pageList",
-          "effect": "pageList",
-          "service": "pageListData",
-          "type": "pageList"
-        },
-        {
-          "title": "单页列表",
-          "api": "/positionGradeBase/singleList",
-          "effect": "singleList",
-          "service": "singleListData",
-          "type": "singleList"
-        },
-        {
-          "title": "获取详情",
-          "api": "/positionGradeBase/get",
-          "effect": "get",
-          "service": "getData",
-          "type": "singleData"
-        },
-        {
-          "title": "新建职级",
-          "api": "/positionGradeBase/addBasicInfo",
-          "effect": "addBasicInfo",
-          "service": "addBasicInfoData",
-          "type": "singleData"
-        },
-        {
-          "title": "编辑信息",
-          "api": "/positionGradeBase/updateBasicInfo",
-          "effect": "updateBasicInfo",
-          "service": "updateBasicInfoData",
-          "type": "singleData"
-        },
-        {
-          "title": "更新排序值",
-          "api": "/positionGradeBase/updateSort",
-          "effect": "updateSort",
-          "service": "updateSortData",
-          "type": "singleData"
-        },
-        {
-          "title": "刷新缓存",
-          "api": "/positionGradeBase/refreshCache",
-          "effect": "refreshCache",
-          "service": "refreshCacheData",
-          "type": "singleData"
-        },
-        {
-          "title": "操作日志列表",
-          "api": "/positionGradeBase/pageListOperateLog",
-          "effect": "pageListOperateLog",
-          "service": "pageListOperateLogData",
-          "type": "pageList"
-        }
-      ],
-      "cover": true,
-      "title": "职级管理",
-      "name": "positionGradeBase"
     },
     {
       "apis": [
@@ -5323,30 +5197,107 @@
     {
       "apis": [
         {
+          "title": "分页列表",
+          "api": "/workflowCaseNextProcessApprove/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/workflowCaseNextProcessApprove/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/workflowCaseNextProcessApprove/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/workflowCaseNextProcessApprove/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "流程实例下一审批通知管理",
+      "name": "workflowCaseNextProcessApprove"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/workflowCaseNextProcessNotification/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/workflowCaseNextProcessNotification/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/workflowCaseNextProcessNotification/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/workflowCaseNextProcessNotification/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "流程实例下一审批通知管理",
+      "name": "workflowCaseNextProcessNotification"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/workflowCaseNextProcessProgress/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/workflowCaseNextProcessProgress/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "pageList"
+        },
+        {
           "title": "流程实例下一流转过程管理",
           "api": "/workflowCaseNextProcessProgress/getByFlowCaseId",
           "effect": "getByFlowCaseId",
           "service": "getByFlowCaseIdData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/workflowCaseNextProcessProgress/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
           "type": "singleData"
         }
       ],
       "cover": true,
       "title": "流程实例下一流转过程管理",
       "name": "workflowCaseNextProcessProgress"
-    },
-    {
-      "apis": [
-        {
-          "title": "流程实例下一流转过程管理",
-          "api": "/workflowCaseNextProcessProgressBase/getByFlowCaseId",
-          "effect": "getByFlowCaseId",
-          "service": "getByFlowCaseIdData",
-          "type": "singleData"
-        }
-      ],
-      "cover": true,
-      "title": "流程实例下一流转过程管理",
-      "name": "workflowCaseNextProcessProgressBase"
     },
     {
       "apis": [
@@ -5638,30 +5589,107 @@
     {
       "apis": [
         {
+          "title": "分页列表",
+          "api": "/workflowDebugCaseNextProcessApprove/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/workflowDebugCaseNextProcessApprove/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/workflowDebugCaseNextProcessApprove/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/workflowDebugCaseNextProcessApprove/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "流程测试实例下一审批通知管理",
+      "name": "workflowDebugCaseNextProcessApprove"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/workflowDebugCaseNextProcessNotification/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/workflowDebugCaseNextProcessNotification/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/workflowDebugCaseNextProcessNotification/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/workflowDebugCaseNextProcessNotification/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "流程测试实例下一审批通知管理",
+      "name": "workflowDebugCaseNextProcessNotification"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/workflowDebugCaseNextProcessProgress/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/workflowDebugCaseNextProcessProgress/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "pageList"
+        },
+        {
           "title": "通过流程实例获取",
           "api": "/workflowDebugCaseNextProcessProgress/getByFlowCaseId",
           "effect": "getByFlowCaseId",
           "service": "getByFlowCaseIdData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/workflowDebugCaseNextProcessProgress/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
           "type": "singleData"
         }
       ],
       "cover": true,
       "title": "流程测试实例下一流转过程管理",
       "name": "workflowDebugCaseNextProcessProgress"
-    },
-    {
-      "apis": [
-        {
-          "title": "通过流程实例获取",
-          "api": "/workflowDebugCaseNextProcessProgressBase/getByFlowCaseId",
-          "effect": "getByFlowCaseId",
-          "service": "getByFlowCaseIdData",
-          "type": "singleData"
-        }
-      ],
-      "cover": true,
-      "title": "流程测试实例下一流转过程管理",
-      "name": "workflowDebugCaseNextProcessProgressBase"
     },
     {
       "apis": [

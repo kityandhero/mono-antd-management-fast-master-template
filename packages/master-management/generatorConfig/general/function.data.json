@@ -281,6 +281,21 @@
       "name": "status"
     },
     {
+      "functionSegment": "FlowCaseNextProcessApproveStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "FlowCaseNextProcessNotificationStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "FlowCaseNextProcessProgressStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
       "functionSegment": "FlowCaseProcessHistoryStatus",
       "label": "状态",
       "name": "status"

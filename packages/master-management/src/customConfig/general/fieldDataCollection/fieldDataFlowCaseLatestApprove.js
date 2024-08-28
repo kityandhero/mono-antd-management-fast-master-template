@@ -1,5 +1,7 @@
 import { formNameCollection } from './fieldDataCommon';
 
+const fieldExtraData = {};
+
 export const fieldDataFlowCaseLatestApprove = {
   ...formNameCollection,
   workflowId: {
@@ -87,4 +89,5 @@ export const fieldDataFlowCaseLatestApprove = {
     name: 'updateTime',
     helper: '',
   },
+  ...fieldExtraData,
 };

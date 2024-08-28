@@ -1,4 +1,8 @@
-import { buildRandomHexColor, toNumber } from 'easy-soft-utility';
+import {
+  buildRandomHexColor,
+  getValueByKey,
+  toNumber,
+} from 'easy-soft-utility';
 
 import {
   columnFacadeMode,
@@ -46,8 +50,10 @@ class BaseFlowCaseProcessHistoryPageListDrawer extends MultiPageDrawer {
     const d = { ...o };
     const { externalData } = this.state;
 
-    d[fieldDataFlowCaseProcessHistory.flowCaseId.name] =
-      this.getFlowCaseId(externalData);
+    d[fieldDataFlowCaseProcessHistory.flowCaseId.name] = getValueByKey({
+      data: externalData,
+      key: fieldDataFlowCaseProcessHistory.flowCaseId.name,
+    });
 
     return d;
   };
@@ -58,7 +64,7 @@ class BaseFlowCaseProcessHistoryPageListDrawer extends MultiPageDrawer {
   };
 
   getFlowCaseIdDataTarget = () => {
-    throw new Error('getFlowCaseId need overrode to implement');
+    throw new Error('getFlowCaseIdDataTarget need overrode to implement');
   };
 
   // eslint-disable-next-line no-unused-vars

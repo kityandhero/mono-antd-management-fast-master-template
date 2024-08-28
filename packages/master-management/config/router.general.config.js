@@ -1480,6 +1480,10 @@ export const flow = {
     accessWayCollection.super.permission,
     accessWayCollection.workflow.pageList.permission,
     accessWayCollection.workflowCase.pageList.permission,
+    accessWayCollection.workflowCaseProcessHistory.pageList.permission,
+    accessWayCollection.workflowCaseNextProcessProgress.pageList.permission,
+    accessWayCollection.workflowCaseNextProcessNotification.pageList.permission,
+    accessWayCollection.workflowCaseNextProcessApprove.pageList.permission,
   ],
   routes: [
     {
@@ -1643,6 +1647,119 @@ export const flow = {
               ],
             },
           ],
+        },
+      ],
+    },
+    {
+      name: 'workflowCaseProcessHistory',
+      icon: 'bars',
+      hideChildrenInMenu: true,
+      path: '/flow/workflowCaseProcessHistory',
+      access: 'checkAccess',
+      authority: [
+        accessWayCollection.super.permission,
+        accessWayCollection.workflowCaseProcessHistory.pageList.permission,
+      ],
+      routes: [
+        {
+          path: '/flow/workflowCaseProcessHistory',
+          redirect: '/flow/workflowCaseProcessHistory/pageList',
+        },
+        {
+          path: '/flow/workflowCaseProcessHistory/pageList',
+          name: 'pageList',
+          icon: 'bars',
+          redirect: '/flow/workflowCaseProcessHistory/pageList/no',
+        },
+        {
+          path: '/flow/workflowCaseProcessHistory/pageList/:pageKey',
+          hideInMenu: true,
+          component: './WorkflowCaseProcessHistory/PageList',
+        },
+      ],
+    },
+    {
+      name: 'workflowCaseNextProcessProgress',
+      icon: 'bars',
+      hideChildrenInMenu: true,
+      path: '/flow/workflowCaseNextProcessProgress',
+      access: 'checkAccess',
+      authority: [
+        accessWayCollection.super.permission,
+        accessWayCollection.workflowCaseNextProcessProgress.pageList.permission,
+      ],
+      routes: [
+        {
+          path: '/flow/workflowCaseNextProcessProgress',
+          redirect: '/flow/workflowCaseNextProcessProgress/pageList',
+        },
+        {
+          path: '/flow/workflowCaseNextProcessProgress/pageList',
+          name: 'pageList',
+          icon: 'bars',
+          redirect: '/flow/workflowCaseNextProcessProgress/pageList/no',
+        },
+        {
+          path: '/flow/workflowCaseNextProcessProgress/pageList/:pageKey',
+          hideInMenu: true,
+          component: './WorkflowCaseNextProcessProgress/PageList',
+        },
+      ],
+    },
+    {
+      name: 'workflowCaseNextProcessNotification',
+      icon: 'bars',
+      hideChildrenInMenu: true,
+      path: '/flow/workflowCaseNextProcessNotification',
+      access: 'checkAccess',
+      authority: [
+        accessWayCollection.super.permission,
+        accessWayCollection.workflowCaseNextProcessNotification.pageList
+          .permission,
+      ],
+      routes: [
+        {
+          path: '/flow/workflowCaseNextProcessNotification',
+          redirect: '/flow/workflowCaseNextProcessNotification/pageList',
+        },
+        {
+          path: '/flow/workflowCaseNextProcessNotification/pageList',
+          name: 'pageList',
+          icon: 'bars',
+          redirect: '/flow/workflowCaseNextProcessNotification/pageList/no',
+        },
+        {
+          path: '/flow/workflowCaseNextProcessNotification/pageList/:pageKey',
+          hideInMenu: true,
+          component: './WorkflowCaseNextProcessNotification/PageList',
+        },
+      ],
+    },
+    {
+      name: 'workflowCaseNextProcessApprove',
+      icon: 'bars',
+      hideChildrenInMenu: true,
+      path: '/flow/workflowCaseNextProcessApprove',
+      access: 'checkAccess',
+      authority: [
+        accessWayCollection.super.permission,
+        accessWayCollection.workflowCaseNextProcessApprove.pageList.permission,
+      ],
+      routes: [
+        {
+          path: '/flow/workflowCaseNextProcessApprove',
+          redirect: '/flow/workflowCaseNextProcessApprove/pageList',
+        },
+        {
+          path: '/flow/workflowCaseNextProcessApprove/pageList',
+          name: 'pageList',
+          icon: 'bars',
+          redirect: '/flow/workflowCaseNextProcessApprove/pageList/no',
+        },
+        {
+          path: '/flow/workflowCaseNextProcessApprove/pageList/:pageKey',
+          hideInMenu: true,
+          component: './WorkflowCaseNextProcessApprove/PageList',
         },
       ],
     },

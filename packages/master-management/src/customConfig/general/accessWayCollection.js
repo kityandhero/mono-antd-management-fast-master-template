@@ -1548,81 +1548,7 @@ export const accessWayInfrastructureCollection = {
       permission: 'd9a0659877614694bf3de4070359925c',
     },
   },
-  positionBase: {
-    pageList: {
-      title: '分页列表',
-      paramsKey: '0f70ea26b6b92d70a4745adbc1fefd59',
-      permission: 'da973cd686d44f6783725ab387e27ac8',
-    },
-    get: {
-      title: '获取详情',
-      paramsKey: 'fbc3093c61201a3d5cfdecd05daa8380',
-      permission: '1d1584dc2df74cc28a59f33cc7af14cc',
-    },
-    addBasicInfo: {
-      title: '新建职位',
-      paramsKey: 'd666bfe72df4a5166c3d03c17c2276f1',
-      permission: 'f3d0d62ce5e147f3a8e7df3b57b487bd',
-    },
-    updateBasicInfo: {
-      title: '编辑信息',
-      paramsKey: '1f5c83e36bc88fcddd0667cb2cb39afd',
-      permission: '5f5a925bcd8c43d1a83a334a654c7f06',
-    },
-    updateSort: {
-      title: '更新排序值',
-      paramsKey: '4d748c4abfa12fbaf0dfa2deb5ac6dcf',
-      permission: '377e0cdfb8ad4347a3c75e77f8e41130',
-    },
-    refreshCache: {
-      title: '刷新缓存',
-      paramsKey: '8fb4bdb7030f6faf0adea590367b0c33',
-      permission: '0de227493f814f06808be7926033026e',
-    },
-    pageListOperateLog: {
-      title: '操作日志列表',
-      paramsKey: 'fe11b82c2a2eff0da9c9030aa443576e',
-      permission: 'd9a0659877614694bf3de4070359925c',
-    },
-  },
   positionGrade: {
-    pageList: {
-      title: '分页列表',
-      paramsKey: '658817a0da331769d4e1ff0502a341a2',
-      permission: '175065e14a504fc99b14b733de02af17',
-    },
-    get: {
-      title: '获取详情',
-      paramsKey: 'a89e36dd04ab1369deca9c2106ed95d5',
-      permission: 'f2122767b718485d942e1a319774ddce',
-    },
-    addBasicInfo: {
-      title: '新建职级',
-      paramsKey: 'e5a0a7ad8884d6d306dab7428cbe257f',
-      permission: 'd82b8c4541954acb875fdb4ed602227b',
-    },
-    updateBasicInfo: {
-      title: '编辑信息',
-      paramsKey: '1f95165ace67da7afc9b4ba33e126d79',
-      permission: 'f1815e62b0bc47978ed47b797fb86648',
-    },
-    updateSort: {
-      title: '更新排序值',
-      paramsKey: '23dd0cd7f8f7e26c49f51765b0f5a922',
-      permission: '54c93f3b7e4142ba98799768093214f4',
-    },
-    refreshCache: {
-      title: '刷新缓存',
-      paramsKey: 'b93fad0388cc844879ba6adb78deb685',
-      permission: '08d3f56214964837a734ec2451978981',
-    },
-    pageListOperateLog: {
-      title: '操作日志列表',
-      paramsKey: 'ac084113c7ae6914fea173e05b1c9453',
-      permission: 'bbb62ab5bb62400b9d607e5145b3b8bb',
-    },
-  },
-  positionGradeBase: {
     pageList: {
       title: '分页列表',
       paramsKey: '658817a0da331769d4e1ff0502a341a2',
@@ -3283,18 +3209,70 @@ export const accessWayInfrastructureCollection = {
       permission: '54d711c694294f53a37a06cf3d4d1172',
     },
   },
+  workflowCaseNextProcessApprove: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: 'e7eb7004be23916f9afdd72befd43002',
+      permission: 'ad16e7de956f4b56a6c6dfda13a5dc8b',
+    },
+    singleList: {
+      title: '单页列表',
+      paramsKey: 'c0e7bb632d2acebecaf5bc27283ffeb7',
+      permission: '5ba60b547b9e4e94980377aa8ed3c4be',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '02167096f8fecbb095b8b45ba4fd6c5e',
+      permission: '75f794eb1036477ebedbb13e797c1e44',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '5b7ab553e4207e971373f39bec1850c3',
+      permission: '05773853197d437e834c29ceb441c009',
+    },
+  },
+  workflowCaseNextProcessNotification: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: 'e7eb7004be23916f9afdd72befd43002',
+      permission: 'ad16e7de956f4b56a6c6dfda13a5dc8b',
+    },
+    singleList: {
+      title: '单页列表',
+      paramsKey: 'c0e7bb632d2acebecaf5bc27283ffeb7',
+      permission: '5ba60b547b9e4e94980377aa8ed3c4be',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: 'c93faf834b4514db9e0d6f993ec396f8',
+      permission: '98a420170b9948ac8e5c3b42a60b6ac0',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '9b51a79624d34616dff5c15b531393ab',
+      permission: '93d3499808214e42b275ee7daebc642d',
+    },
+  },
   workflowCaseNextProcessProgress: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '99dd23a0f906b5f40d2a261fe4127c84',
+      permission: 'daade3865fb64b588e4f6c6a70f340b3',
+    },
+    singleList: {
+      title: '单页列表',
+      paramsKey: 'f50a5ad36e7c8653164b0b2609aeccae',
+      permission: '64c5e65e647245c29db169a13076cf70',
+    },
     getByFlowCaseId: {
       title: '流程实例下一流转过程管理',
       paramsKey: 'bf62c04988031141e31dcbc4a619c914',
       permission: 'b2a667cc263744cbb6bf0d3614c97a13',
     },
-  },
-  workflowCaseNextProcessProgressBase: {
-    getByFlowCaseId: {
-      title: '流程实例下一流转过程管理',
-      paramsKey: 'bf62c04988031141e31dcbc4a619c914',
-      permission: 'b2a667cc263744cbb6bf0d3614c97a13',
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '5a21f6d16a485dd942896be04e95c823',
+      permission: '71085f9e38454b09928017f9d0efb253',
     },
   },
   workflowCaseProcessHistory: {
@@ -3485,18 +3463,70 @@ export const accessWayInfrastructureCollection = {
       permission: 'c1e1e038133248ca907c42dd1719f22d',
     },
   },
+  workflowDebugCaseNextProcessApprove: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '555e5d4ecc098d6a106d169d00e60339',
+      permission: '57dc9853b10447a3aa56a219c0002bfe',
+    },
+    singleList: {
+      title: '单页列表',
+      paramsKey: '561affcfbe835ae92033f5aec57daba9',
+      permission: 'ed993d9224344ff6b25678f8d9e2657a',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '335e871e27c1071f575eab87df93620a',
+      permission: 'abe365320c774c179a545904856cc329',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '42512bf2cec46ddd5d6418aed36e1762',
+      permission: '7e44c4ef46a941ed984e1db02b9bc208',
+    },
+  },
+  workflowDebugCaseNextProcessNotification: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '555e5d4ecc098d6a106d169d00e60339',
+      permission: '57dc9853b10447a3aa56a219c0002bfe',
+    },
+    singleList: {
+      title: '单页列表',
+      paramsKey: '561affcfbe835ae92033f5aec57daba9',
+      permission: 'ed993d9224344ff6b25678f8d9e2657a',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '98e25161f9147e96a1f851403695dd33',
+      permission: '22e2b34d3a204f69af4dafd14fae0bed',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: 'f6bd5a5c674b147e20650de507b5a644',
+      permission: 'f906c054b40b42378e9250ce850784a9',
+    },
+  },
   workflowDebugCaseNextProcessProgress: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: 'ee515cec6f7a274fd0c7a31a318ccdee',
+      permission: 'bb684f97e11e425fa366f552d1aa4174',
+    },
+    singleList: {
+      title: '单页列表',
+      paramsKey: 'b5c41572653c1c776649b9c26a0bd0ac',
+      permission: '52b61ef99a5e4af59405d20255ab6625',
+    },
     getByFlowCaseId: {
       title: '通过流程实例获取',
       paramsKey: 'ec53ac4b785166987670458a6289aa33',
       permission: 'cee1b7f9fed5480c919971fa4e2965ca',
     },
-  },
-  workflowDebugCaseNextProcessProgressBase: {
-    getByFlowCaseId: {
-      title: '通过流程实例获取',
-      paramsKey: 'ec53ac4b785166987670458a6289aa33',
-      permission: 'cee1b7f9fed5480c919971fa4e2965ca',
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '8e987cbde716bbc02ce354c44cf2a43e',
+      permission: '1acae57294284d6aabdbab81bfed76f3',
     },
   },
   workflowDebugCaseProcessHistory: {

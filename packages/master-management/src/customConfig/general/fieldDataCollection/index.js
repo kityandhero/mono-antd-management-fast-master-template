@@ -5,6 +5,7 @@ export * from './fieldDataFlowCaseCarbonCopyNotification';
 export * from './fieldDataFlowCaseFormAttachment';
 export * from './fieldDataFlowCaseFormStorage';
 export * from './fieldDataFlowCaseLatestApprove';
+export * from './fieldDataFlowCaseNextProcessApprove';
 export * from './fieldDataFlowCaseNextProcessNotification';
 export * from './fieldDataFlowCaseNextProcessProgress';
 export * from './fieldDataFlowCaseProcessHistory';

@@ -156,17 +156,9 @@ import {
   positionTypeCollection,
 } from './position';
 import {
-  buildModel as buildPositionBaseModel,
-  positionBaseTypeCollection,
-} from './positionBase';
-import {
   buildModel as buildPositionGradeModel,
   positionGradeTypeCollection,
 } from './positionGrade';
-import {
-  buildModel as buildPositionGradeBaseModel,
-  positionGradeBaseTypeCollection,
-} from './positionGradeBase';
 import {
   buildModel as buildPresetRoleModel,
   presetRoleTypeCollection,
@@ -281,13 +273,17 @@ import {
   workflowCaseFormStorageTypeCollection,
 } from './workflowCaseFormStorage';
 import {
+  buildModel as buildWorkflowCaseNextProcessApproveModel,
+  workflowCaseNextProcessApproveTypeCollection,
+} from './workflowCaseNextProcessApprove';
+import {
+  buildModel as buildWorkflowCaseNextProcessNotificationModel,
+  workflowCaseNextProcessNotificationTypeCollection,
+} from './workflowCaseNextProcessNotification';
+import {
   buildModel as buildWorkflowCaseNextProcessProgressModel,
   workflowCaseNextProcessProgressTypeCollection,
 } from './workflowCaseNextProcessProgress';
-import {
-  buildModel as buildWorkflowCaseNextProcessProgressBaseModel,
-  workflowCaseNextProcessProgressBaseTypeCollection,
-} from './workflowCaseNextProcessProgressBase';
 import {
   buildModel as buildWorkflowCaseProcessHistoryModel,
   workflowCaseProcessHistoryTypeCollection,
@@ -305,13 +301,17 @@ import {
   workflowDebugCaseFormStorageTypeCollection,
 } from './workflowDebugCaseFormStorage';
 import {
+  buildModel as buildWorkflowDebugCaseNextProcessApproveModel,
+  workflowDebugCaseNextProcessApproveTypeCollection,
+} from './workflowDebugCaseNextProcessApprove';
+import {
+  buildModel as buildWorkflowDebugCaseNextProcessNotificationModel,
+  workflowDebugCaseNextProcessNotificationTypeCollection,
+} from './workflowDebugCaseNextProcessNotification';
+import {
   buildModel as buildWorkflowDebugCaseNextProcessProgressModel,
   workflowDebugCaseNextProcessProgressTypeCollection,
 } from './workflowDebugCaseNextProcessProgress';
-import {
-  buildModel as buildWorkflowDebugCaseNextProcessProgressBaseModel,
-  workflowDebugCaseNextProcessProgressBaseTypeCollection,
-} from './workflowDebugCaseNextProcessProgressBase';
 import {
   buildModel as buildWorkflowDebugCaseProcessHistoryModel,
   workflowDebugCaseProcessHistoryTypeCollection,
@@ -382,9 +382,7 @@ export const modelTypeCollection = {
   optionPoolTypeCollection,
   organizationTypeCollection,
   positionTypeCollection,
-  positionBaseTypeCollection,
   positionGradeTypeCollection,
-  positionGradeBaseTypeCollection,
   presetRoleTypeCollection,
   qrCodeTypeCollection,
   qrCodeCategoryTypeCollection,
@@ -417,14 +415,16 @@ export const modelTypeCollection = {
   workflowCaseTypeCollection,
   workflowCaseFormAttachmentTypeCollection,
   workflowCaseFormStorageTypeCollection,
+  workflowCaseNextProcessApproveTypeCollection,
+  workflowCaseNextProcessNotificationTypeCollection,
   workflowCaseNextProcessProgressTypeCollection,
-  workflowCaseNextProcessProgressBaseTypeCollection,
   workflowCaseProcessHistoryTypeCollection,
   workflowDebugCaseTypeCollection,
   workflowDebugCaseFormAttachmentTypeCollection,
   workflowDebugCaseFormStorageTypeCollection,
+  workflowDebugCaseNextProcessApproveTypeCollection,
+  workflowDebugCaseNextProcessNotificationTypeCollection,
   workflowDebugCaseNextProcessProgressTypeCollection,
-  workflowDebugCaseNextProcessProgressBaseTypeCollection,
   workflowDebugCaseProcessHistoryTypeCollection,
   workflowFormDesignTypeCollection,
   workflowLineTypeCollection,
@@ -478,9 +478,7 @@ export function listModelBuilder() {
     buildOptionPoolModel,
     buildOrganizationModel,
     buildPositionModel,
-    buildPositionBaseModel,
     buildPositionGradeModel,
-    buildPositionGradeBaseModel,
     buildPresetRoleModel,
     buildQrCodeModel,
     buildQrCodeCategoryModel,
@@ -513,14 +511,16 @@ export function listModelBuilder() {
     buildWorkflowCaseModel,
     buildWorkflowCaseFormAttachmentModel,
     buildWorkflowCaseFormStorageModel,
+    buildWorkflowCaseNextProcessApproveModel,
+    buildWorkflowCaseNextProcessNotificationModel,
     buildWorkflowCaseNextProcessProgressModel,
-    buildWorkflowCaseNextProcessProgressBaseModel,
     buildWorkflowCaseProcessHistoryModel,
     buildWorkflowDebugCaseModel,
     buildWorkflowDebugCaseFormAttachmentModel,
     buildWorkflowDebugCaseFormStorageModel,
+    buildWorkflowDebugCaseNextProcessApproveModel,
+    buildWorkflowDebugCaseNextProcessNotificationModel,
     buildWorkflowDebugCaseNextProcessProgressModel,
-    buildWorkflowDebugCaseNextProcessProgressBaseModel,
     buildWorkflowDebugCaseProcessHistoryModel,
     buildWorkflowFormDesignModel,
     buildWorkflowLineModel,

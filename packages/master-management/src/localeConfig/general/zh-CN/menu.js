@@ -230,6 +230,26 @@ export const menuZhCNGeneral = {
   'menu.flow.workflowCase.edit.operateLog': '操作日志',
   'menu.flow.workflowCase.edit.operateLog.pageList': '日志列表',
 
+  'menu.flow.workflowCaseProcessHistory': '流程实例审批历史',
+  'menu.flow.workflowCaseProcessHistory-mini': '审历',
+  'menu.flow.workflowCaseProcessHistory.pageList': '实例审批历史列表',
+  'menu.flow.workflowCaseProcessHistory.pageList-mini': '列表',
+
+  'menu.flow.workflowCaseNextProcessProgress': '流程实例审批进程',
+  'menu.flow.workflowCaseNextProcessProgress-mini': '进程',
+  'menu.flow.workflowCaseNextProcessProgress.pageList': '实例审批进程列表',
+  'menu.flow.workflowCaseNextProcessProgress.pageList-mini': '列表',
+
+  'menu.flow.workflowCaseNextProcessNotification': '流程实例审批通知',
+  'menu.flow.workflowCaseNextProcessNotification-mini': '通知',
+  'menu.flow.workflowCaseNextProcessNotification.pageList': '实例审批通知列表',
+  'menu.flow.workflowCaseNextProcessNotification.pageList-mini': '列表',
+
+  'menu.flow.workflowCaseNextProcessApprove': '流程实例审批预告',
+  'menu.flow.workflowCaseNextProcessApprove-mini': '预告',
+  'menu.flow.workflowCaseNextProcessApprove.pageList': '实例审批预告列表',
+  'menu.flow.workflowCaseNextProcessApprove.pageList-mini': '列表',
+
   'menu.permission': '权限相关',
   'menu.permission-mini': '权限',
 

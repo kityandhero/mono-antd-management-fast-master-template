@@ -1,14 +1,22 @@
 import { formNameCollection } from './fieldDataCommon';
 
+const fieldExtraData = {
+  flowCaseTitle: {
+    label: '实例标题',
+    name: 'flowCaseTitle',
+    helper: '',
+  },
+};
+
 export const fieldDataFlowCaseProcessHistory = {
   ...formNameCollection,
   flowCaseId: {
-    label: '测试实例标识',
+    label: '实例标识',
     name: 'flowCaseId',
     helper: '',
   },
   workflowId: {
-    label: '流程设计标识',
+    label: '流程标识',
     name: 'workflowId',
     helper: '',
   },
@@ -72,6 +80,11 @@ export const fieldDataFlowCaseProcessHistory = {
     name: 'approveActionModeNote',
     helper: '',
   },
+  inWorkflowLineId: {
+    label: '驶入线条标识',
+    name: 'inWorkflowLineId',
+    helper: '',
+  },
   status: {
     label: '状态',
     name: 'status',
@@ -102,4 +115,5 @@ export const fieldDataFlowCaseProcessHistory = {
     name: 'updateTime',
     helper: '',
   },
+  ...fieldExtraData,
 };

@@ -1,5 +1,7 @@
 import { formNameCollection } from './fieldDataCommon';
 
+const fieldExtraData = {};
+
 export const fieldDataFlowCaseCarbonCopyNotification = {
   ...formNameCollection,
   workflowId: {
@@ -92,4 +94,5 @@ export const fieldDataFlowCaseCarbonCopyNotification = {
     name: 'updateTime',
     helper: '',
   },
+  ...fieldExtraData,
 };

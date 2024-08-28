@@ -492,6 +492,75 @@ export const flowCaseStatusCollection = {
 };
 
 /**
+ * 流程实例下一审批信息数据状态值集合
+ */
+export const flowCaseNextProcessApproveStatusCollection = {
+  /**
+   * 已撤销
+   * value : -1
+   */
+  cancel: -1,
+
+  /**
+   * 未知
+   * value : 0
+   */
+  unknown: 0,
+
+  /**
+   * 正常
+   * value : 100
+   */
+  normal: 100,
+};
+
+/**
+ * 流程实例下一审批通知数据状态值集合
+ */
+export const flowCaseNextProcessNotificationStatusCollection = {
+  /**
+   * 已撤销
+   * value : -1
+   */
+  cancel: -1,
+
+  /**
+   * 未知
+   * value : 0
+   */
+  unknown: 0,
+
+  /**
+   * 正常
+   * value : 100
+   */
+  normal: 100,
+};
+
+/**
+ * 流程实例下一审批流程数据状态值集合
+ */
+export const flowCaseNextProcessProgressStatusCollection = {
+  /**
+   * 已撤销
+   * value : -1
+   */
+  cancel: -1,
+
+  /**
+   * 未知
+   * value : 0
+   */
+  unknown: 0,
+
+  /**
+   * 正常
+   * value : 100
+   */
+  normal: 100,
+};
+
+/**
  * 流程历史数据状态值集合
  */
 export const flowCaseProcessHistoryStatusCollection = {
