@@ -7,13 +7,11 @@ import {
   checkInCollection,
   checkStringIsNullOrWhiteSpace,
   convertCollection,
-  filter,
   getValueByKey,
   isArray,
   isEmptyObject,
   isNull,
   showSimpleErrorMessage,
-  toLowerFirst,
   whetherNumber,
 } from 'easy-soft-utility';
 
@@ -23,24 +21,25 @@ import {
   getDerivedStateFromPropertiesForUrlParameters,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
-import {
-  adjustEdge,
-  adjustNode,
-  Flow,
-  FlowProcessHistory,
-} from 'antd-management-fast-flow';
+import { Flow, FlowProcessHistory } from 'antd-management-fast-flow';
 
 import {
   accessWayCollection,
-  emptySignet,
   fieldDataFlowCase,
-  flowApproveActionModeCollection,
   flowCaseStatusCollection,
   flowDebugApproverModeCollection,
-  flowLineTypeCollection,
   flowNodeTypeCollection,
 } from '../../../../customConfig';
 import { getChannelName } from '../../../../customSpecialComponents';
+import {
+  adjustFlowCaseDataToState,
+  buildColumnsCarbonCopyNotification,
+  buildColumnsCaseLatestApprove,
+  buildColumnsNextProcessApprove,
+  buildColumnsNextProcessNotification,
+  convertProcessHistoryItemData,
+  convertProcessHistoryNextData,
+} from '../../../../pageBases';
 import {
   closeCancelApproveSwitchAction,
   closeResetAllApproveSwitchAction,
@@ -57,310 +56,24 @@ import { UpdateBasicInfoDrawer } from '../../../WorkflowDebugCase/UpdateBasicInf
 import { fieldData as fieldDataWorkflowDebugCaseCarbonCopyNotification } from '../../../WorkflowDebugCaseCarbonCopyNotification/Common/data';
 import { FormDrawer } from '../../../WorkflowDebugCaseFormStorage/FormDrawer';
 import { fieldData as fieldDataWorkflowDebugCaseLatestApprove } from '../../../WorkflowDebugCaseLatestApprove/Common/data';
+import { fieldData as fieldDataWorkflowDebugCaseNextProcessApprove } from '../../../WorkflowDebugCaseNextProcessApprove/Common/data';
 import { fieldData as fieldDataWorkflowDebugCaseNextProcessNotification } from '../../../WorkflowDebugCaseNextProcessNotification/Common/data';
-import { WorkflowDebugCaseNextProcessProgressDrawer } from '../../../WorkflowDebugCaseNextProcessProgress/FlowCaseNextProcessProgressDrawer';
+import { WorkflowDebugCaseNextProcessProgressPreviewDrawer } from '../../../WorkflowDebugCaseNextProcessProgress/PreviewDrawer';
 import {
   cancelApproveAction,
   resetAllApproveAction,
 } from '../../../WorkflowDebugCaseProcessHistory/Assist/action';
-import { fieldData as fieldDataWorkflowDebugCaseProcessHistory } from '../../../WorkflowDebugCaseProcessHistory/Common/data';
 import { WorkflowDebugCaseProcessHistoryPageListDrawer } from '../../../WorkflowDebugCaseProcessHistory/PageListDrawer';
 import { PassModal } from '../../../WorkflowDebugCaseProcessHistory/PassModal';
 import { RefuseModal } from '../../../WorkflowDebugCaseProcessHistory/RefuseModal';
 import { DataSchemaDrawer } from '../../../WorkflowFormDesign/DataSchemaDrawer';
 import { FlowDebugCaseFormDocumentDrawer } from '../../../WorkflowFormDesign/FlowDebugCaseFormDocumentDrawer';
-import { fieldData as fieldDataWorkflowLine } from '../../../WorkflowLine/Common/data';
 import { fieldData as fieldDataWorkflowNode } from '../../../WorkflowNode/Common/data';
 import { WorkflowNodeDetailDrawer } from '../../../WorkflowNode/DetailDrawer';
 import { fieldData as fieldDataWorkflowNodeApprover } from '../../../WorkflowNodeApprover/Common/data';
 import { parseUrlParametersForSetState } from '../../Assist/config';
-import { fieldData as fieldDataWorkflow } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
 import { UpdateDebugApproverModeModal } from '../../UpdateDebugApproverModeModal';
-
-const columnsNextProcessNotification = [
-  {
-    title:
-      fieldDataWorkflowDebugCaseNextProcessNotification.nextWorkflowNodeName
-        .label,
-    dataIndex:
-      fieldDataWorkflowDebugCaseNextProcessNotification.nextWorkflowNodeName
-        .name,
-    key: fieldDataWorkflowDebugCaseNextProcessNotification.nextWorkflowNodeName
-      .name,
-    width: '200px',
-  },
-  {
-    title: fieldDataWorkflowDebugCaseNextProcessNotification.content.label,
-    dataIndex: fieldDataWorkflowDebugCaseNextProcessNotification.content.name,
-    key: fieldDataWorkflowDebugCaseNextProcessNotification.content.name,
-    ellipsis: true,
-  },
-  {
-    title:
-      fieldDataWorkflowDebugCaseNextProcessNotification.nextApproveUserRealName
-        .label,
-    dataIndex:
-      fieldDataWorkflowDebugCaseNextProcessNotification.nextApproveUserRealName
-        .name,
-    key: fieldDataWorkflowDebugCaseNextProcessNotification
-      .nextApproveUserRealName.name,
-    align: 'center',
-    ellipsis: true,
-    width: '120px',
-  },
-  {
-    title:
-      fieldDataWorkflowDebugCaseNextProcessNotification.whetherSendNote.label,
-    dataIndex:
-      fieldDataWorkflowDebugCaseNextProcessNotification.whetherSendNote.name,
-    key: fieldDataWorkflowDebugCaseNextProcessNotification.whetherSendNote.name,
-    align: 'center',
-    ellipsis: true,
-    width: '100px',
-  },
-  {
-    title: fieldDataWorkflowDebugCaseNextProcessNotification.channel.label,
-    dataIndex: fieldDataWorkflowDebugCaseNextProcessNotification.channel.name,
-    key: fieldDataWorkflowDebugCaseNextProcessNotification.channel.name,
-    align: 'center',
-    ellipsis: true,
-    width: '120px',
-    render: (text) => {
-      return getChannelName({
-        value: text,
-      });
-    },
-  },
-  {
-    title:
-      fieldDataWorkflowDebugCaseNextProcessNotification
-        .workflowDebugCaseNextProcessNotificationId.label,
-    dataIndex:
-      fieldDataWorkflowDebugCaseNextProcessNotification
-        .workflowDebugCaseNextProcessNotificationId.name,
-    key: fieldDataWorkflowDebugCaseNextProcessNotification
-      .workflowDebugCaseNextProcessNotificationId.name,
-    align: 'center',
-    ellipsis: true,
-    width: '160px',
-  },
-  {
-    title: fieldDataWorkflowDebugCaseNextProcessNotification.createTime.label,
-    dataIndex:
-      fieldDataWorkflowDebugCaseNextProcessNotification.createTime.name,
-    key: fieldDataWorkflowDebugCaseNextProcessNotification.createTime.name,
-    align: 'center',
-    ellipsis: true,
-    width: '160px',
-  },
-];
-
-const columnsCarbonCopyNotification = [
-  {
-    title: fieldDataWorkflowDebugCaseCarbonCopyNotification.content.label,
-    dataIndex: fieldDataWorkflowDebugCaseCarbonCopyNotification.content.name,
-    key: fieldDataWorkflowDebugCaseCarbonCopyNotification.content.name,
-    ellipsis: true,
-  },
-  {
-    title:
-      fieldDataWorkflowDebugCaseCarbonCopyNotification.carbonCopyUserRealName
-        .label,
-    dataIndex:
-      fieldDataWorkflowDebugCaseCarbonCopyNotification.carbonCopyUserRealName
-        .name,
-    key: fieldDataWorkflowDebugCaseCarbonCopyNotification.carbonCopyUserRealName
-      .name,
-    align: 'center',
-    ellipsis: true,
-    width: '120px',
-  },
-  {
-    title:
-      fieldDataWorkflowDebugCaseCarbonCopyNotification.whetherSendNote.label,
-    dataIndex:
-      fieldDataWorkflowDebugCaseCarbonCopyNotification.whetherSendNote.name,
-    key: fieldDataWorkflowDebugCaseCarbonCopyNotification.whetherSendNote.name,
-    align: 'center',
-    ellipsis: true,
-    width: '100px',
-  },
-  {
-    title: fieldDataWorkflowDebugCaseCarbonCopyNotification.channel.label,
-    dataIndex: fieldDataWorkflowDebugCaseCarbonCopyNotification.channel.name,
-    key: fieldDataWorkflowDebugCaseCarbonCopyNotification.channel.name,
-    align: 'center',
-    ellipsis: true,
-    width: '120px',
-    render: (text) => {
-      return getChannelName({
-        value: text,
-      });
-    },
-  },
-  {
-    title:
-      fieldDataWorkflowDebugCaseCarbonCopyNotification
-        .workflowDebugCaseCarbonCopyNotificationId.label,
-    dataIndex:
-      fieldDataWorkflowDebugCaseCarbonCopyNotification
-        .workflowDebugCaseCarbonCopyNotificationId.name,
-    key: fieldDataWorkflowDebugCaseCarbonCopyNotification
-      .workflowDebugCaseCarbonCopyNotificationId.name,
-    align: 'center',
-    ellipsis: true,
-    width: '160px',
-  },
-  {
-    title: fieldDataWorkflowDebugCaseCarbonCopyNotification.createTime.label,
-    dataIndex: fieldDataWorkflowDebugCaseCarbonCopyNotification.createTime.name,
-    key: fieldDataWorkflowDebugCaseCarbonCopyNotification.createTime.name,
-    align: 'center',
-    ellipsis: true,
-    width: '160px',
-  },
-];
-
-const columnsCaseLatestApprove = [
-  {
-    title: fieldDataWorkflowDebugCaseLatestApprove.workflowNodeName.label,
-    dataIndex: fieldDataWorkflowDebugCaseLatestApprove.workflowNodeName.name,
-    key: fieldDataWorkflowDebugCaseLatestApprove.workflowNodeName.name,
-  },
-  {
-    title: fieldDataWorkflowDebugCaseLatestApprove.approveActionNote.label,
-    dataIndex: fieldDataWorkflowDebugCaseLatestApprove.approveActionNote.name,
-    key: fieldDataWorkflowDebugCaseLatestApprove.approveActionNote.name,
-    ellipsis: true,
-    align: 'center',
-    width: '140px',
-  },
-  {
-    title: fieldDataWorkflowDebugCaseLatestApprove.approveUserRealName.label,
-    dataIndex: fieldDataWorkflowDebugCaseLatestApprove.approveUserRealName.name,
-    key: fieldDataWorkflowDebugCaseLatestApprove.approveUserRealName.name,
-    align: 'center',
-    ellipsis: true,
-    width: '160px',
-  },
-  {
-    title: fieldDataWorkflowDebugCaseLatestApprove.channel.label,
-    dataIndex: fieldDataWorkflowDebugCaseLatestApprove.channel.name,
-    key: fieldDataWorkflowDebugCaseLatestApprove.channel.name,
-    align: 'center',
-    ellipsis: true,
-    width: '120px',
-    render: (text) => {
-      return getChannelName({
-        value: text,
-      });
-    },
-  },
-  {
-    title:
-      fieldDataWorkflowDebugCaseLatestApprove.workflowDebugCaseLatestApproveId
-        .label,
-    dataIndex:
-      fieldDataWorkflowDebugCaseLatestApprove.workflowDebugCaseLatestApproveId
-        .name,
-    key: fieldDataWorkflowDebugCaseLatestApprove
-      .workflowDebugCaseLatestApproveId.name,
-    align: 'center',
-    ellipsis: true,
-    width: '160px',
-  },
-  {
-    title: fieldDataWorkflowDebugCaseLatestApprove.updateTime.label,
-    dataIndex: fieldDataWorkflowDebugCaseLatestApprove.updateTime.name,
-    key: fieldDataWorkflowDebugCaseLatestApprove.updateTime.name,
-    align: 'center',
-    ellipsis: true,
-    width: '160px',
-  },
-];
-
-function processHistoryItemDataConvert(o) {
-  const approveWorkflowNodeName = getValueByKey({
-    data: o,
-    key: fieldDataWorkflowDebugCaseProcessHistory.approveWorkflowNodeName.name,
-  });
-
-  const approveWorkflowNodeType = getValueByKey({
-    data: o,
-    key: fieldDataWorkflowDebugCaseProcessHistory.approveWorkflowNodeType.name,
-    convert: convertCollection.number,
-  });
-
-  const approveActionNote = getValueByKey({
-    data: o,
-    key: fieldDataWorkflowDebugCaseProcessHistory.approveActionNote.name,
-  });
-
-  const approveActionMode = getValueByKey({
-    data: o,
-    key: fieldDataWorkflowDebugCaseProcessHistory.approveActionMode.name,
-  });
-
-  const note = getValueByKey({
-    data: o,
-    key: fieldDataWorkflowDebugCaseProcessHistory.note.name,
-  });
-
-  const approveUserName = getValueByKey({
-    data: o,
-    key: fieldDataWorkflowDebugCaseProcessHistory.approveUserName.name,
-  });
-
-  const time = getValueByKey({
-    data: o,
-    key: fieldDataWorkflowDebugCaseProcessHistory.createTime.name,
-  });
-
-  if (approveWorkflowNodeType === flowNodeTypeCollection.intermediateNode) {
-    return {
-      ...o,
-      title: approveWorkflowNodeName,
-      result: approveActionNote,
-      note: note || '未填写',
-      operatorName: `${approveUserName} 【调试模式】`,
-      time,
-    };
-  }
-
-  return {
-    ...o,
-    title: approveWorkflowNodeName,
-    result: '',
-    note: '',
-    operatorName: '',
-    time: '',
-    compact: approveActionMode === flowApproveActionModeCollection.autoControl,
-  };
-}
-
-function processHistoryNextDataConvert(o) {
-  if (o == null || isEmptyObject(o)) {
-    return null;
-  }
-
-  const nextApproveWorkflowNodeName = getValueByKey({
-    data: o,
-    key: fieldDataWorkflowNode.name.name,
-  });
-
-  return {
-    ...o,
-    titlePrefix: '待审批节点',
-    title: nextApproveWorkflowNodeName,
-    icon: iconBuilder.clock(),
-    color: 'blue',
-    result: '',
-    note: '',
-    operatorName: '',
-    time: '',
-  };
-}
 
 @connect(
   ({
@@ -403,199 +116,13 @@ class DebugCaseInfo extends TabPageBase {
   }
 
   doOtherAfterLoadSuccess = ({ metaData }) => {
-    const {
-      workflow,
-      nextApproveWorkflowNodeId,
-      listProcessHistory: listProcessHistorySource,
-    } = {
-      workflow: {
-        workflowNodeList: [],
-        workflowLineList: [],
-      },
-      listProcessHistory: [],
-      nextApproveWorkflowNodeId: '',
-      ...metaData,
-    };
-
-    const listApprove = filter(listProcessHistorySource, (one) => {
-      const { approveActionMode } = {
-        approveActionMode: 0,
-        ...one,
-      };
-
-      return (
-        approveActionMode === flowApproveActionModeCollection.manualControl
-      );
-    }).map((o) => {
-      const {
-        note,
-        approveWorkflowNodeName,
-        approveUserName,
-        approveUserSignet,
-        createTime,
-      } = {
-        approveWorkflowNodeName: '',
-        note: '',
-        approveUserName: '张三',
-        approveUserSignet: '',
-        createTime: '',
-        ...o,
-      };
-
-      return {
-        ...o,
-        title: approveWorkflowNodeName,
-        note: note || '未填写',
-        name: approveUserName,
-        signet: approveUserSignet || emptySignet,
-        time: createTime,
-      };
-    });
-
-    const workflowNodeList = getValueByKey({
-      data: workflow,
-      key: fieldDataWorkflow.workflowNodeList.name,
-      convert: convertCollection.array,
-    });
-
-    const workflowLineList = getValueByKey({
-      data: workflow,
-      key: fieldDataWorkflow.workflowLineList.name,
-      convert: convertCollection.array,
-    });
-
-    const nodeList = (isArray(workflowNodeList) ? workflowNodeList : []).map(
-      (o) => {
-        const workflowNodeId = getValueByKey({
-          data: o,
-          key: fieldDataWorkflowNode.workflowNodeId.name,
-        });
-
-        const type = getValueByKey({
-          data: o,
-          key: fieldDataWorkflowNode.type.name,
-          convert: convertCollection.number,
-        });
-
-        let nodeType = 'intermediate';
-
-        switch (type) {
-          case flowNodeTypeCollection.startNode: {
-            nodeType = 'start';
-            break;
-          }
-
-          case flowNodeTypeCollection.endNode: {
-            nodeType = 'end';
-            break;
-          }
-
-          case flowNodeTypeCollection.intermediateNode: {
-            nodeType = 'intermediate';
-            break;
-          }
-
-          case flowNodeTypeCollection.carbonCopyPoint: {
-            nodeType = 'carbonCopy';
-            break;
-          }
-
-          default: {
-            nodeType = 'intermediate';
-          }
-        }
-
-        const { viewConfig } = {
-          viewConfig: {
-            position: {
-              x: 0,
-              y: 0,
-            },
-          },
-          ...o,
-        };
-
-        const result = adjustNode({
-          id: workflowNodeId,
-          type: nodeType,
-          ...viewConfig,
-          data: {
-            data: o,
-            isNext: nextApproveWorkflowNodeId === workflowNodeId,
-          },
-        });
-
-        return result;
-      },
-    );
-
-    const edgeList = (isArray(workflowLineList) ? workflowLineList : []).map(
-      (o, index) => {
-        const workflowLineId = getValueByKey({
-          data: o,
-          key: fieldDataWorkflowLine.workflowLineId.name,
-        });
-
-        const fromId = getValueByKey({
-          data: o,
-          key: fieldDataWorkflowLine.fromId.name,
-        });
-
-        const fromPositionName = getValueByKey({
-          data: o,
-          key: fieldDataWorkflowLine.fromPositionName.name,
-          convertBuilder: (v) => {
-            return toLowerFirst(v);
-          },
-        });
-
-        const toId = getValueByKey({
-          data: o,
-          key: fieldDataWorkflowLine.toId.name,
-        });
-
-        const toPositionName = getValueByKey({
-          data: o,
-          key: fieldDataWorkflowLine.toPositionName.name,
-          convertBuilder: (v) => {
-            return toLowerFirst(v);
-          },
-        });
-
-        const type = getValueByKey({
-          data: o,
-          key: fieldDataWorkflowLine.type.name,
-          convert: convertCollection.number,
-        });
-
-        const positionList = ['top', 'left', 'bottom', 'right'];
-
-        return adjustEdge({
-          index,
-          id: workflowLineId,
-          forward:
-            type === flowLineTypeCollection.forward ||
-            type === flowLineTypeCollection.carbonCopy,
-          carbonCopy: type === flowLineTypeCollection.carbonCopy,
-          source: fromId,
-          sourceHandle: checkInCollection(positionList, fromPositionName)
-            ? fromPositionName
-            : 'bottom',
-          target: toId,
-          targetHandle: checkInCollection(positionList, toPositionName)
-            ? toPositionName
-            : 'top',
-          data: {
-            data: o,
-          },
-        });
-      },
-    );
+    const { nodeList, edgeList, listApprove, listProcessHistory } =
+      adjustFlowCaseDataToState(metaData);
 
     this.setState({
       nodeList: [...nodeList],
       edgeList: [...edgeList],
-      listProcessHistory: listProcessHistorySource,
+      listProcessHistory: [...listProcessHistory],
       listApprove: [...listApprove],
     });
   };
@@ -758,8 +285,8 @@ class DebugCaseInfo extends TabPageBase {
     FlowDebugCaseFormDocumentDrawer.open();
   };
 
-  showWorkflowDebugCaseNextProcessProgressDrawer = () => {
-    WorkflowDebugCaseNextProcessProgressDrawer.open();
+  showWorkflowDebugCaseNextProcessProgressPreviewDrawer = () => {
+    WorkflowDebugCaseNextProcessProgressPreviewDrawer.open();
   };
 
   fillInitialValuesAfterLoad = ({
@@ -801,12 +328,14 @@ class DebugCaseInfo extends TabPageBase {
       latestApproveWorkflowNodeType,
       nextApproveWorkflowNode,
       listNextProcessNotification,
+      listNextProcessApprove,
       listCarbonCopyNotification,
       listLatestApprove,
     } = {
       latestApproveWorkflowNodeType: 0,
       nextApproveWorkflowNode: null,
       listNextProcessNotification: [],
+      listNextProcessApprove: [],
       listCarbonCopyNotification: [],
       listLatestApprove: [],
       ...metaData,
@@ -1104,7 +633,7 @@ class DebugCaseInfo extends TabPageBase {
                 {
                   span: 1,
                   label: fieldData.userRealName.label,
-                  value: `${userRealName} ${checkStringIsNullOrWhiteSpace(userId) ? '' : `[${userId}]`}`,
+                  value: `${userRealName ?? ''} ${checkStringIsNullOrWhiteSpace(userId) ? '' : `[${userId}]`}`,
                 },
                 {
                   span: 1,
@@ -1137,6 +666,22 @@ class DebugCaseInfo extends TabPageBase {
                     }) == whetherNumber.yes
                       ? '开启'
                       : '关闭',
+                },
+                {
+                  span: 2,
+                  label: fieldData.userDepartments.label,
+                  value: getValueByKey({
+                    data: metaData,
+                    key: fieldData.userDepartments.name,
+                  }),
+                },
+                {
+                  span: 2,
+                  label: fieldData.userSubsidiaries.label,
+                  value: getValueByKey({
+                    data: metaData,
+                    key: fieldData.userSubsidiaries.name,
+                  }),
                 },
                 {
                   span: 2,
@@ -1345,8 +890,8 @@ class DebugCaseInfo extends TabPageBase {
                       break;
                     }
 
-                    case 'showWorkflowDebugCaseNextProcessProgressDrawer': {
-                      this.showWorkflowDebugCaseNextProcessProgressDrawer(
+                    case 'showWorkflowDebugCaseNextProcessProgressPreviewDrawer': {
+                      this.showWorkflowDebugCaseNextProcessProgressPreviewDrawer(
                         handleData,
                       );
                       break;
@@ -1394,7 +939,7 @@ class DebugCaseInfo extends TabPageBase {
                     ),
                   },
                   {
-                    key: 'showWorkflowDebugCaseNextProcessProgressDrawer',
+                    key: 'showWorkflowDebugCaseNextProcessProgressPreviewDrawer',
                     icon: iconBuilder.read(),
                     text: '下次审批流转信息',
                     disabled:
@@ -1491,9 +1036,9 @@ class DebugCaseInfo extends TabPageBase {
               list={[
                 ...(isArray(listProcessHistory) ? listProcessHistory : []),
               ]}
-              listItemConvert={processHistoryItemDataConvert}
+              listItemConvert={convertProcessHistoryItemData}
               nextData={nextApproveWorkflowNode}
-              nextDataConvert={processHistoryNextDataConvert}
+              nextDataConvert={convertProcessHistoryNextData}
             />
           ),
         },
@@ -1509,7 +1054,14 @@ class DebugCaseInfo extends TabPageBase {
               component: (
                 <div>
                   <Table
-                    columns={columnsCaseLatestApprove}
+                    columns={buildColumnsCaseLatestApprove({
+                      flowCaseLatestApproveIdLabel:
+                        fieldDataWorkflowDebugCaseLatestApprove
+                          .workflowDebugCaseLatestApproveId.label,
+                      flowCaseLatestApproveIdName:
+                        fieldDataWorkflowDebugCaseLatestApprove
+                          .workflowDebugCaseLatestApproveId.name,
+                    })}
                     size="small"
                     dataSource={listLatestApprove}
                     pagination={{
@@ -1524,7 +1076,23 @@ class DebugCaseInfo extends TabPageBase {
         {
           title: {
             icon: iconBuilder.contacts(),
-            text: '审批通知发送列表',
+            text: '下一审批预告列表',
+          },
+          hasExtra: true,
+          extra: {
+            list: [
+              {
+                buildType: cardConfig.extraBuildType.iconInfo,
+                icon: iconBuilder.infoCircle(),
+                text: '每次审批都会更新此处内容, 重置审批将清空',
+                textStyle: {
+                  color: '#666',
+                },
+                iconStyle: {
+                  color: '#666',
+                },
+              },
+            ],
           },
           items: [
             {
@@ -1533,7 +1101,60 @@ class DebugCaseInfo extends TabPageBase {
               component: (
                 <div>
                   <Table
-                    columns={columnsNextProcessNotification}
+                    columns={buildColumnsNextProcessApprove({
+                      flowCaseNextProcessApproveIdLabel:
+                        fieldDataWorkflowDebugCaseNextProcessApprove
+                          .workflowDebugCaseNextProcessApproveId.label,
+                      flowCaseNextProcessApproveIdName:
+                        fieldDataWorkflowDebugCaseNextProcessApprove
+                          .workflowDebugCaseNextProcessApproveId.name,
+                    })}
+                    size="small"
+                    dataSource={listNextProcessApprove}
+                    pagination={{
+                      hideOnSinglePage: true,
+                    }}
+                  />
+                </div>
+              ),
+            },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
+            text: '审批通知发送列表',
+          },
+          extra: {
+            list: [
+              {
+                buildType: cardConfig.extraBuildType.iconInfo,
+                icon: iconBuilder.infoCircle(),
+                text: '此处为每次审批之后触发的通知, 重置审批将清空',
+                textStyle: {
+                  color: '#666',
+                },
+                iconStyle: {
+                  color: '#666',
+                },
+              },
+            ],
+          },
+          items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.component,
+              component: (
+                <div>
+                  <Table
+                    columns={buildColumnsNextProcessNotification({
+                      flowCaseNextProcessNotificationIdLabel:
+                        fieldDataWorkflowDebugCaseNextProcessNotification
+                          .workflowDebugCaseNextProcessNotificationId.label,
+                      flowCaseNextProcessNotificationIdName:
+                        fieldDataWorkflowDebugCaseNextProcessNotification
+                          .workflowDebugCaseNextProcessNotificationId.name,
+                    })}
                     size="small"
                     dataSource={listNextProcessNotification}
                     pagination={{
@@ -1557,7 +1178,14 @@ class DebugCaseInfo extends TabPageBase {
               component: (
                 <div>
                   <Table
-                    columns={columnsCarbonCopyNotification}
+                    columns={buildColumnsCarbonCopyNotification({
+                      flowCasCarbonCopyNotificationIdLabel:
+                        fieldDataWorkflowDebugCaseCarbonCopyNotification
+                          .workflowDebugCaseCarbonCopyNotificationId.label,
+                      flowCaseCarbonCopyNotificationIdName:
+                        fieldDataWorkflowDebugCaseCarbonCopyNotification
+                          .workflowDebugCaseCarbonCopyNotificationId.name,
+                    })}
                     size="small"
                     dataSource={listCarbonCopyNotification}
                     pagination={{
@@ -1646,7 +1274,13 @@ class DebugCaseInfo extends TabPageBase {
 
         <WorkflowDebugCaseProcessHistoryPageListDrawer
           maskClosable
-          externalData={metaData}
+          externalData={{
+            flowCaseId: getValueByKey({
+              data: metaData,
+              key: fieldData.workflowDebugCaseId.name,
+              defaultValue: '',
+            }),
+          }}
         />
 
         <WorkflowDebugCasePageListWaitApproveDrawer
@@ -1659,9 +1293,15 @@ class DebugCaseInfo extends TabPageBase {
           externalData={metaData}
         />
 
-        <WorkflowDebugCaseNextProcessProgressDrawer
+        <WorkflowDebugCaseNextProcessProgressPreviewDrawer
           maskClosable
-          externalData={metaData}
+          externalData={{
+            flowCaseId: getValueByKey({
+              data: metaData,
+              key: fieldData.workflowDebugCaseId.name,
+              defaultValue: '',
+            }),
+          }}
         />
 
         <UpdateDebugApproverModeModal

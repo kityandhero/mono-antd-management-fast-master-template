@@ -4,16 +4,16 @@ import { getValueByKey } from 'easy-soft-utility';
 import { switchControlAssist } from 'antd-management-fast-framework';
 
 import { modelTypeCollection } from '../../../modelBuilders';
-import { BaseFlowCaseNextProcessProgressDrawer } from '../../../pageBases';
+import { BaseFlowCaseNextProcessProgressPreviewDrawer } from '../../../pageBases';
 import { fieldData } from '../Common/data';
 
-const visibleFlag = '047df2db06fd49ccaad430656c03139a';
+const visibleFlag = '972d2d4604e94f24be6568e0a5367248';
 
 @connect(({ workflowDebugCaseNextProcessProgress, schedulingControl }) => ({
   workflowDebugCaseNextProcessProgress,
   schedulingControl,
 }))
-class WorkflowDebugCaseNextProcessProgressDrawer extends BaseFlowCaseNextProcessProgressDrawer {
+class WorkflowDebugCaseNextProcessProgressPreviewDrawer extends BaseFlowCaseNextProcessProgressPreviewDrawer {
   static open() {
     switchControlAssist.open(visibleFlag);
   }
@@ -33,14 +33,13 @@ class WorkflowDebugCaseNextProcessProgressDrawer extends BaseFlowCaseNextProcess
     const d = o;
     const { externalData } = this.state;
 
-    d[fieldData.workflowDebugCaseId.name] = getValueByKey({
+    d[fieldData.flowCaseId.name] = getValueByKey({
       data: externalData,
-      key: fieldData.workflowDebugCaseId.name,
-      defaultValue: '',
+      key: fieldData.flowCaseId.name,
     });
 
     return d;
   };
 }
 
-export { WorkflowDebugCaseNextProcessProgressDrawer };
+export { WorkflowDebugCaseNextProcessProgressPreviewDrawer };

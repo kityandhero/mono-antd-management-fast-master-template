@@ -10,4 +10,5 @@ export * from './fieldDataFlowCaseNextProcessNotification';
 export * from './fieldDataFlowCaseNextProcessProgress';
 export * from './fieldDataFlowCaseProcessHistory';
 export * from './fieldDataFlowFormDesign';
+export * from './fieldDataFlowLine';
 export * from './fieldDataFlowNode';

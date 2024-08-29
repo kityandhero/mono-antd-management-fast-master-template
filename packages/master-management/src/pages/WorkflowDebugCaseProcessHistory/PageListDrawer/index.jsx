@@ -1,16 +1,15 @@
 import { connect } from 'easy-soft-dva';
-import { checkHasAuthority, getValueByKey } from 'easy-soft-utility';
+import { checkHasAuthority } from 'easy-soft-utility';
 
 import { switchControlAssist } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
 import { BaseFlowCaseProcessHistoryPageListDrawer } from '../../../pageBases';
-import { fieldData as fieldDataWorkflowDebugCase } from '../../WorkflowDebugCase/Common/data';
 import { refreshCacheAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
-const visibleFlag = 'b931db31bb2840178b73401d4d32d5a1';
+const visibleFlag = '0e532e94b3cc4f23ac5d57e744e97e37';
 
 @connect(({ workflowDebugCaseProcessHistory, schedulingControl }) => ({
   workflowDebugCaseProcessHistory,
@@ -36,19 +35,7 @@ class WorkflowDebugCaseProcessHistoryPageListDrawer extends BaseFlowCaseProcessH
     };
   }
 
-  static getDerivedStateFromProps(nextProperties, previousState) {
-    return super.getDerivedStateFromProps(nextProperties, previousState);
-  }
-
-  getFlowCaseId = (o) => {
-    return getValueByKey({
-      data: o,
-      key: fieldDataWorkflowDebugCase.workflowDebugCaseId.name,
-      defaultValue: '0',
-    });
-  };
-
-  getFlowCaseIdDataTarget = () => {
+  getFlowCaseProcessHistoryIdDataTarget = () => {
     return fieldData.workflowDebugCaseProcessHistoryId;
   };
 

@@ -59,12 +59,14 @@ class BaseFlowCaseProcessHistoryPageListDrawer extends MultiPageDrawer {
   };
 
   // eslint-disable-next-line no-unused-vars
-  getFlowCaseId = (o) => {
-    throw new Error('getFlowCaseId need overrode to implement');
+  getFlowCaseProcessHistoryId = (o) => {
+    throw new Error('getFlowCaseProcessHistoryId need overrode to implement');
   };
 
-  getFlowCaseIdDataTarget = () => {
-    throw new Error('getFlowCaseIdDataTarget need overrode to implement');
+  getFlowCaseProcessHistoryIdDataTarget = () => {
+    throw new Error(
+      'getFlowCaseProcessHistoryIdDataTarget need overrode to implement',
+    );
   };
 
   // eslint-disable-next-line no-unused-vars
@@ -193,7 +195,7 @@ class BaseFlowCaseProcessHistoryPageListDrawer extends MultiPageDrawer {
       },
     },
     {
-      dataTarget: this.getFlowCaseIdDataTarget(),
+      dataTarget: this.getFlowCaseProcessHistoryIdDataTarget(),
       width: 120,
       showRichFacade: true,
       canCopy: true,

@@ -27,8 +27,8 @@ import { getFlowCaseNextProcessApproveStatusBadge } from '../Assist/tools';
 const { MultiPageDrawer } = DataMultiPageView;
 
 class BaseFlowCaseNextProcessApprovePageListDrawer extends MultiPageDrawer {
-  constructor(properties) {
-    super(properties);
+  constructor(properties, visibleFlag) {
+    super(properties, visibleFlag);
 
     this.state = {
       ...this.state,

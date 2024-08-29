@@ -30,6 +30,7 @@ class WorkflowDebugCasePageListLatestApproveDrawer extends BaseFlowCasePageListL
       ...this.state,
       pageTitle: '已审批列表【仅与当前测试相关】',
       loadApiPath: 'workflowDebugCase/pageListLatestApprove',
+      tableScrollX: 1500,
     };
   }
 

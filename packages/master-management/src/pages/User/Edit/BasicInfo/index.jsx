@@ -23,6 +23,8 @@ import { TabPageBase } from '../../TabPageBase';
   schedulingControl,
 }))
 class BasicInfo extends TabPageBase {
+  reloadHeaderOnSubmitSuccess = true;
+
   componentAuthority = accessWayCollection.user.get.permission;
 
   constructor(properties) {

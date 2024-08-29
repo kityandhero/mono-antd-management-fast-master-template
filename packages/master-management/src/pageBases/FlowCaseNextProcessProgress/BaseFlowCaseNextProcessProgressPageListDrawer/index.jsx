@@ -27,11 +27,12 @@ import { getFlowCaseNextProcessProgressStatusBadge } from '../Assist/tools';
 const { MultiPageDrawer } = DataMultiPageView;
 
 class BaseFlowCaseNextProcessProgressPageListDrawer extends MultiPageDrawer {
-  constructor(properties) {
-    super(properties);
+  constructor(properties, visibleFlag) {
+    super(properties, visibleFlag);
 
     this.state = {
       ...this.state,
+      tableScrollX: 1180,
       pageTitle: '流程实例列表',
       loadApiPath: '',
       dateRangeFieldName: '创建时间',
@@ -39,9 +40,17 @@ class BaseFlowCaseNextProcessProgressPageListDrawer extends MultiPageDrawer {
     };
   }
 
-  // eslint-disable-next-line no-unused-vars
-  getFlowCaseId = (o) => {
-    throw new Error('getFlowCaseId need overrode to implement');
+  supplementLoadRequestParams = (o) => {
+    const d = o;
+    const { externalData } = this.state;
+
+    d[fieldDataFlowCaseNextProcessProgress.flowCaseId.name] = getValueByKey({
+      data: externalData,
+      key: fieldDataFlowCaseNextProcessProgress.flowCaseId.name,
+      defaultValue: '',
+    });
+
+    return d;
   };
 
   // eslint-disable-next-line no-unused-vars
@@ -49,10 +58,6 @@ class BaseFlowCaseNextProcessProgressPageListDrawer extends MultiPageDrawer {
     throw new Error(
       'getFlowCaseNextProcessProgressId need overrode to implement',
     );
-  };
-
-  getFlowCaseIdDataTarget = () => {
-    throw new Error('getFlowCaseIdDataTarget need overrode to implement');
   };
 
   getFlowCaseNextProcessProgressIdDataTarget = () => {
@@ -120,12 +125,12 @@ class BaseFlowCaseNextProcessProgressPageListDrawer extends MultiPageDrawer {
     return {
       list: [
         {
-          lg: 5,
+          lg: 12,
           type: searchCardConfig.contentItemType.input,
           fieldData: fieldDataFlowCaseNextProcessProgress.flowCaseTitle,
         },
         {
-          lg: 4,
+          lg: 12,
           type: searchCardConfig.contentItemType.component,
           component: this.buildSearchCardButtonCore(),
         },
@@ -162,14 +167,8 @@ class BaseFlowCaseNextProcessProgressPageListDrawer extends MultiPageDrawer {
 
   getColumnWrapper = () => [
     {
-      dataTarget: fieldDataFlowCaseNextProcessProgress.title,
-      align: 'left',
-      showRichFacade: true,
-      emptyValue: '--',
-    },
-    {
       dataTarget: fieldDataFlowCaseNextProcessProgress.nextWorkflowNodeName,
-      width: 140,
+      align: 'left',
       showRichFacade: true,
       emptyValue: '--',
     },

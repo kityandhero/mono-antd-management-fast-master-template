@@ -26,7 +26,7 @@ class BaseFlowCasePageListLatestApproveDrawer extends MultiPageDrawer {
       ...this.state,
       pageTitle: '',
       loadApiPath: '',
-      tableScrollX: 1300,
+      tableScrollX: 1360,
     };
   }
 

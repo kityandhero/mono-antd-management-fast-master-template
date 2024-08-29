@@ -27,8 +27,8 @@ import { getFlowCaseNextProcessNotificationStatusBadge } from '../Assist/tools';
 const { MultiPageDrawer } = DataMultiPageView;
 
 class BaseFlowCaseNextProcessNotificationPageListDrawer extends MultiPageDrawer {
-  constructor(properties) {
-    super(properties);
+  constructor(properties, visibleFlag) {
+    super(properties, visibleFlag);
 
     this.state = {
       ...this.state,

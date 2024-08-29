@@ -1,6 +1,11 @@
 import { formNameCollection } from './fieldDataCommon';
 
 const fieldExtraData = {
+  workflow: {
+    label: '流程',
+    name: 'workflow',
+    helper: '',
+  },
   listFormStorage: {
     label: '表单数据列表',
     name: 'listFormStorage',
@@ -91,6 +96,11 @@ const fieldExtraData = {
     name: 'latestApproveWorkflowNode',
     helper: '',
   },
+  nextApproveWorkflowNodeId: {
+    label: '下一审批节点标识',
+    name: 'nextApproveWorkflowNodeId',
+    helper: '',
+  },
   nextApproveWorkflowNodeName: {
     label: '下一审批节点',
     name: 'nextApproveWorkflowNodeName',
@@ -129,6 +139,16 @@ const fieldExtraData = {
   listAttachment: {
     label: '附件列表',
     name: 'listAttachment',
+    helper: '',
+  },
+  userSubsidiaries: {
+    label: '发起人所属公司',
+    name: 'userSubsidiaries',
+    helper: '',
+  },
+  userDepartments: {
+    label: '发起人所属部门',
+    name: 'userDepartments',
     helper: '',
   },
 };
