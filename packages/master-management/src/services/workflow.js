@@ -112,6 +112,15 @@ export async function setDisableData(parameters) {
   });
 }
 
+export const createDuplicateDataApiAddress = '/workflow/createDuplicate';
+
+export async function createDuplicateData(parameters) {
+  return request({
+    api: createDuplicateDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const refreshCacheDataApiAddress = '/workflow/refreshCache';
 
 export async function refreshCacheData(parameters) {

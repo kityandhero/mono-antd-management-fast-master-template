@@ -2,6 +2,7 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { actionCore } from 'antd-management-fast-common';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 export async function setEnableAction({
@@ -11,7 +12,7 @@ export async function setEnableAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflow/setEnable',
+    api: modelTypeCollection.workflowTypeCollection.setEnable,
     params: {
       workflowId: getValueByKey({
         data: handleData,
@@ -32,7 +33,7 @@ export async function setDisableAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflow/setDisable',
+    api: modelTypeCollection.workflowTypeCollection.setDisable,
     params: {
       workflowId: getValueByKey({
         data: handleData,
@@ -53,7 +54,7 @@ export async function removeAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflow/remove',
+    api: modelTypeCollection.workflowTypeCollection.remove,
     params: {
       workflowId: getValueByKey({
         data: handleData,
@@ -74,7 +75,7 @@ export async function refreshCacheAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflow/refreshCache',
+    api: modelTypeCollection.workflowTypeCollection.refreshCache,
     params: {
       workflowId: getValueByKey({
         data: handleData,

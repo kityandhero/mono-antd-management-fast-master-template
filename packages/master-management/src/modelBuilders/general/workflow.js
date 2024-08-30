@@ -10,6 +10,7 @@ import {
 import {
   addOfficeAutomationArticleAuditData,
   addOfficeAutomationProcessApprovalData,
+  createDuplicateData,
   getData,
   openMultibranchData,
   openMultiEndData,
@@ -43,6 +44,7 @@ export const workflowTypeCollection = {
   openMultiEnd: 'workflow/openMultiEnd',
   setEnable: 'workflow/setEnable',
   setDisable: 'workflow/setDisable',
+  createDuplicate: 'workflow/createDuplicate',
   refreshCache: 'workflow/refreshCache',
   remove: 'workflow/remove',
   pageListOperateLog: 'workflow/pageListOperateLog',
@@ -363,6 +365,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(setDisableData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *createDuplicate(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(createDuplicateData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

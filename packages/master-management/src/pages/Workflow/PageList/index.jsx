@@ -45,6 +45,7 @@ import {
 } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
+import { CreateDuplicateModal } from '../CreateDuplicateModal';
 import { UpdateChannelModal } from '../UpdateChannelModal';
 
 const { MultiPage } = DataMultiPageView;
@@ -105,6 +106,11 @@ class PageList extends MultiPage {
 
       case 'updateSort': {
         this.showChangeSortModal(handleData);
+        break;
+      }
+
+      case 'showCreateDuplicateModal': {
+        this.showCreateDuplicateModal(handleData);
         break;
       }
 
@@ -219,6 +225,16 @@ class PageList extends MultiPage {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
+  showCreateDuplicateModal = (o) => {
+    this.setState({ currentRecord: o }, () => {
+      CreateDuplicateModal.open();
+    });
+  };
+
+  afterCreateDuplicateModalOk = () => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
   goToEdit = (item) => {
     const workflowId = getValueByKey({
       data: item,
@@ -315,6 +331,17 @@ class PageList extends MultiPage {
           key: 'setChannel',
           icon: iconBuilder.edit(),
           text: '设置数据通道',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'showCreateDuplicateModal',
+          icon: iconBuilder.plusCircle(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.createDuplicate.permission,
+          ),
+          text: '复制流程',
         },
         {
           type: dropdownExpandItemType.divider,
@@ -490,6 +517,13 @@ class PageList extends MultiPage {
           externalData={currentRecord}
           afterOK={() => {
             this.afterUpdateChannelModalOk();
+          }}
+        />
+
+        <CreateDuplicateModal
+          externalData={currentRecord}
+          afterOK={() => {
+            this.afterCreateDuplicateModalOk();
           }}
         />
       </>

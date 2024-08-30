@@ -1,6 +1,11 @@
 import { formNameCollection } from './fieldDataCommon';
 
 const formExtraData = {
+  duplicateName: {
+    label: '副本名称',
+    name: 'duplicateName',
+    helper: '',
+  },
   workflowNodeList: {
     label: '节点信息',
     name: 'workflowNodeList',

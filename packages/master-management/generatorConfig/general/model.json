@@ -4819,6 +4819,13 @@
           "type": "singleData"
         },
         {
+          "title": "创建副本",
+          "api": "/workflow/createDuplicate",
+          "effect": "createDuplicate",
+          "service": "createDuplicateData",
+          "type": "singleData"
+        },
+        {
           "title": "刷新缓存",
           "api": "/workflow/refreshCache",
           "effect": "refreshCache",

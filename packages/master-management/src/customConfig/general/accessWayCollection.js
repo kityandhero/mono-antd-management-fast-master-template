@@ -2963,6 +2963,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'f165b83714ca50cd1e32ac204e552d00',
       permission: 'a3e3a85dd55b4d9aa1762d96e52bd860',
     },
+    createDuplicate: {
+      title: '创建副本',
+      paramsKey: '2b5cf6da7194f37e33a46fda3e9c50c6',
+      permission: 'bd58c24000984875b64ce51242088de0',
+    },
     refreshCache: {
       title: '刷新缓存',
       paramsKey: '6cf0ee284dec4d9af6d18a923c11f39a',
