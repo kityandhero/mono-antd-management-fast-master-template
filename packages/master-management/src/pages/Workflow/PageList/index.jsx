@@ -337,7 +337,7 @@ class PageList extends MultiPage {
         },
         {
           key: 'showCreateDuplicateModal',
-          icon: iconBuilder.plusCircle(),
+          icon: iconBuilder.copy(),
           hidden: !checkHasAuthority(
             accessWayCollection.workflow.createDuplicate.permission,
           ),
