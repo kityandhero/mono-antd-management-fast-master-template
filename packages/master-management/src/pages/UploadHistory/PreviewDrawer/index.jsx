@@ -104,36 +104,38 @@ class PreviewDrawer extends BaseVerticalFlexDrawer {
     }
 
     return (
-      <DocViewer
-        config={{
-          header: {
-            disableHeader: true,
-            disableFileName: true,
-            retainURLParams: false,
-          },
-          csvDelimiter: ',', // "," as default,
-          pdfZoom: {
-            defaultZoom: 1.1, // 1 as default,
-            zoomJump: 0.2, // 0.1 as default,
-          },
-          pdfVerticalScrollByDefault: true, // false as default
-        }}
-        style={{ height: '100%' }}
-        documents={[
-          {
+      <div style={{ height: '100%', overflow: 'hidden' }}>
+        <DocViewer
+          config={{
+            header: {
+              disableHeader: true,
+              disableFileName: true,
+              retainURLParams: false,
+            },
+            csvDelimiter: ',', // "," as default,
+            pdfZoom: {
+              defaultZoom: 1.1, // 1 as default,
+              zoomJump: 0.2, // 0.1 as default,
+            },
+            pdfVerticalScrollByDefault: true, // false as default
+          }}
+          style={{ height: '100%' }}
+          documents={[
+            {
+              uri: getValueByKey({
+                data: metaData,
+                key: fieldData.url.name,
+              }),
+            },
+          ]}
+          initialActiveDocument={{
             uri: getValueByKey({
               data: metaData,
               key: fieldData.url.name,
             }),
-          },
-        ]}
-        initialActiveDocument={{
-          uri: getValueByKey({
-            data: metaData,
-            key: fieldData.url.name,
-          }),
-        }}
-      />
+          }}
+        />
+      </div>
     );
   };
 
