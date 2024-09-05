@@ -1,7 +1,15 @@
 import { connect } from 'easy-soft-dva';
-import { formatCollection, getValueByKey } from 'easy-soft-utility';
+import {
+  convertCollection,
+  formatCollection,
+  getValueByKey,
+} from 'easy-soft-utility';
 
-import { cardConfig } from 'antd-management-fast-common';
+import {
+  cardConfig,
+  copyToClipboard,
+  extraBuildType,
+} from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import {
   DataDrawer,
@@ -45,6 +53,33 @@ class PreviewDrawer extends BaseLoadDrawer {
     });
 
     return d;
+  };
+
+  establishExtraActionConfig = () => {
+    const that = this;
+
+    return {
+      list: [
+        {
+          buildType: extraBuildType.generalExtraButton,
+          icon: iconBuilder.copy(),
+          text: '复制内容',
+          disabled: this.checkInProgress(),
+          handleClick: () => {
+            const { metaData } = that.state;
+
+            copyToClipboard(
+              getValueByKey({
+                data: metaData,
+                key: fieldData.commandString.name,
+                convert: convertCollection.string,
+              }),
+              false,
+            );
+          },
+        },
+      ],
+    };
   };
 
   establishCardCollectionConfig = () => {
