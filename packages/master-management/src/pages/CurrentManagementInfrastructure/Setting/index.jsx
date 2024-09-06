@@ -8,6 +8,7 @@ import {
   refreshMetaData,
 } from 'antd-management-fast-framework';
 
+import { refreshAllCacheAction } from '../../KeyValueInfrastructure/Assist/action';
 import { fieldData } from '../Common/data';
 
 @connect(({ currentManagementInfrastructure, schedulingControl }) => ({
@@ -93,6 +94,16 @@ class Setting extends DataTabContainer {
     });
   };
 
+  refreshAllCache = () => {
+    refreshAllCacheAction({
+      target: this,
+      handleData: {},
+      successCallback: () => {
+        showSimpleSuccessMessage('全部基础配置缓存刷新成功');
+      },
+    });
+  };
+
   establishPageHeaderAvatarConfig = () => {
     const { metaData } = this.state;
 
@@ -128,6 +139,15 @@ class Setting extends DataTabContainer {
                 showSimpleSuccessMessage('元数据刷新成功');
               },
             });
+          },
+          handleData: metaData,
+        },
+        {
+          key: 'refreshMetaData',
+          text: '刷新全部基础配置缓存',
+          icon: iconBuilder.redo(),
+          handleButtonClick: () => {
+            this.refreshAllCache();
           },
           handleData: metaData,
         },

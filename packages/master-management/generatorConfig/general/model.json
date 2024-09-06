@@ -969,6 +969,13 @@
           "type": "singleData"
         },
         {
+          "title": "移除单页树型列表缓存",
+          "api": "/callCenterCategory/removeSingleTreeListCache",
+          "effect": "removeSingleTreeListCache",
+          "service": "removeSingleTreeListCacheData",
+          "type": "singleData"
+        },
+        {
           "title": "刷新缓存",
           "api": "/callCenterCategory/refreshCache",
           "effect": "refreshCache",
@@ -1764,6 +1771,13 @@
           "api": "/galleryCategory/remove",
           "effect": "remove",
           "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除单页树型列表缓存",
+          "api": "/galleryCategory/removeSingleTreeListCache",
+          "effect": "removeSingleTreeListCache",
+          "service": "removeSingleTreeListCacheData",
           "type": "singleData"
         },
         {
@@ -2894,6 +2908,13 @@
           "type": "singleData"
         },
         {
+          "title": "移除单页树型列表缓存",
+          "api": "/qrCodeCategory/removeSingleTreeListCache",
+          "effect": "removeSingleTreeListCache",
+          "service": "removeSingleTreeListCacheData",
+          "type": "singleData"
+        },
+        {
           "title": "刷新缓存",
           "api": "/qrCodeCategory/refreshCache",
           "effect": "refreshCache",
@@ -3783,6 +3804,20 @@
           "type": "pageList"
         },
         {
+          "title": "单页列表",
+          "api": "/smsCategory/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        },
+        {
+          "title": "单页树型列表",
+          "api": "/smsCategory/singleTreeList",
+          "effect": "singleTreeList",
+          "service": "singleTreeListData",
+          "type": "singleList"
+        },
+        {
           "title": "获取详情",
           "api": "/smsCategory/get",
           "effect": "get",
@@ -3825,6 +3860,13 @@
           "type": "singleData"
         },
         {
+          "title": "移除单页树型列表缓存",
+          "api": "/smsCategory/removeSingleTreeListCache",
+          "effect": "removeSingleTreeListCache",
+          "service": "removeSingleTreeListCacheData",
+          "type": "singleData"
+        },
+        {
           "title": "刷新缓存",
           "api": "/smsCategory/refreshCache",
           "effect": "refreshCache",
@@ -3864,6 +3906,27 @@
           "api": "/smsLog/pageList",
           "effect": "pageList",
           "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/smsLog/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/smsLog/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/smsLog/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
           "type": "pageList"
         }
       ],

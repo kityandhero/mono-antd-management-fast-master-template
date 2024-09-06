@@ -1,5 +1,10 @@
 import { connect } from 'easy-soft-dva';
-import { getValueByKey, toString, zeroInt } from 'easy-soft-utility';
+import {
+  getValueByKey,
+  toString,
+  whetherNumber,
+  zeroInt,
+} from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
 import { buildButton, iconBuilder } from 'antd-management-fast-component';
@@ -29,13 +34,13 @@ class AddBasicInfo extends BaseAddForm {
   }
 
   doOtherRemoteRequest = () => {
-    this.loadCategoryTreeList();
+    this.loadCategoryTreeList({ refresh: whetherNumber.no });
   };
 
-  loadCategoryTreeList = () => {
+  loadCategoryTreeList = ({ refresh = whetherNumber.no }) => {
     categorySingleTreeListAction({
       target: this,
-      handleData: {},
+      handleData: { refresh },
       successCallback: ({ target, remoteListData }) => {
         target.setState({
           categoryTreeData: remoteListData,
@@ -45,7 +50,7 @@ class AddBasicInfo extends BaseAddForm {
   };
 
   reloadCategoryTreeList = () => {
-    this.loadCategoryTreeList();
+    this.loadCategoryTreeList({ refresh: whetherNumber.yes });
   };
 
   supplementSubmitRequestParams = (o) => {

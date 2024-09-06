@@ -2,6 +2,7 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { actionCore } from 'antd-management-fast-common';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 export function singleTreeListAction({
@@ -11,7 +12,7 @@ export function singleTreeListAction({
   successMessage,
 }) {
   actionCore({
-    api: 'qrCodeCategory/singleTreeList',
+    api: modelTypeCollection.qrCodeCategoryTypeCollection.singleTreeList,
     params: {
       ...handleData,
     },
@@ -30,7 +31,7 @@ export function setEnableAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'qrCodeCategory/setEnable',
+    api: modelTypeCollection.qrCodeCategoryTypeCollection.setEnable,
     params: {
       qrCodeCategoryId: getValueByKey({
         data: handleData,
@@ -51,13 +52,30 @@ export function setDisableAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'qrCodeCategory/setDisable',
+    api: modelTypeCollection.qrCodeCategoryTypeCollection.setDisable,
     params: {
       qrCodeCategoryId: getValueByKey({
         data: handleData,
         key: fieldData.qrCodeCategoryId.name,
       }),
     },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export async function removeSingleTreeListCacheAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage = null,
+}) {
+  actionCore({
+    api: modelTypeCollection.qrCodeCategoryTypeCollection
+      .removeSingleTreeListCache,
+    params: { ...handleData },
     target,
     handleData,
     successCallback,
@@ -72,7 +90,7 @@ export async function refreshCacheAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'qrCodeCategory/refreshCache',
+    api: modelTypeCollection.qrCodeCategoryTypeCollection.refreshCache,
     params: {
       qrCodeCategoryId: getValueByKey({
         data: handleData,

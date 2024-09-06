@@ -4,6 +4,7 @@ import {
   getValueByKey,
   toNumber,
   toString,
+  whetherNumber,
   zeroInt,
 } from 'easy-soft-utility';
 
@@ -40,13 +41,13 @@ class AddBasicInfo extends BaseAddForm {
   }
 
   doOtherRemoteRequest = () => {
-    this.loadCategoryTreeList();
+    this.loadCategoryTreeList({ refresh: whetherNumber.no });
   };
 
-  loadCategoryTreeList = () => {
+  loadCategoryTreeList = ({ refresh = whetherNumber.no }) => {
     categorySingleTreeListAction({
       target: this,
-      handleData: {},
+      handleData: { refresh },
       successCallback: ({ target, remoteListData }) => {
         target.setState({
           categoryTreeData: remoteListData,
@@ -56,7 +57,7 @@ class AddBasicInfo extends BaseAddForm {
   };
 
   reloadCategoryTreeList = () => {
-    this.loadCategoryTreeList();
+    this.loadCategoryTreeList({ refresh: whetherNumber.yes });
   };
 
   supplementSubmitRequestParams = (o) => {

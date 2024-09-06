@@ -90,6 +90,16 @@ export async function removeData(parameters) {
   });
 }
 
+export const removeSingleTreeListCacheDataApiAddress =
+  '/qrCodeCategory/removeSingleTreeListCache';
+
+export async function removeSingleTreeListCacheData(parameters) {
+  return request({
+    api: removeSingleTreeListCacheDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const refreshCacheDataApiAddress = '/qrCodeCategory/refreshCache';
 
 export async function refreshCacheData(parameters) {

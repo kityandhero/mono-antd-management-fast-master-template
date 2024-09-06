@@ -1,7 +1,10 @@
 import React from 'react';
 
 import { connect } from 'easy-soft-dva';
-import { checkStringIsNullOrWhiteSpace } from 'easy-soft-utility';
+import {
+  checkStringIsNullOrWhiteSpace,
+  getValueByKey,
+} from 'easy-soft-utility';
 
 import {
   columnFacadeMode,
@@ -53,6 +56,37 @@ class PageList extends MultiPage {
     }
 
     return d;
+  };
+
+  handleSearchResetState = () => {
+    return {
+      smsCategoryId: '',
+      smsCategoryName: '',
+    };
+  };
+
+  afterSmsCategorySelect = (d) => {
+    const smsCategoryId = getValueByKey({
+      data: d,
+      key: fieldData.smsCategoryId.name,
+    });
+
+    const smsCategoryName = getValueByKey({
+      data: d,
+      key: fieldData.smsCategoryName.name,
+    });
+
+    this.setState({
+      smsCategoryId: smsCategoryId,
+      smsCategoryName: smsCategoryName,
+    });
+  };
+
+  afterSmsCategoryClearSelect = () => {
+    this.setState({
+      smsCategoryId: '',
+      smsCategoryName: '',
+    });
   };
 
   establishSearchCardConfig = () => {

@@ -90,6 +90,16 @@ export async function removeData(parameters) {
   });
 }
 
+export const removeSingleTreeListCacheDataApiAddress =
+  '/galleryCategory/removeSingleTreeListCache';
+
+export async function removeSingleTreeListCacheData(parameters) {
+  return request({
+    api: removeSingleTreeListCacheDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const refreshCacheDataApiAddress = '/galleryCategory/refreshCache';
 
 export async function refreshCacheData(parameters) {

@@ -9,6 +9,24 @@ export async function pageListData(parameters) {
   });
 }
 
+export const singleListDataApiAddress = '/smsCategory/singleList';
+
+export async function singleListData(parameters) {
+  return request({
+    api: singleListDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const singleTreeListDataApiAddress = '/smsCategory/singleTreeList';
+
+export async function singleTreeListData(parameters) {
+  return request({
+    api: singleTreeListDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const getDataApiAddress = '/smsCategory/get';
 
 export async function getData(parameters) {
@@ -59,6 +77,16 @@ export const removeDataApiAddress = '/smsCategory/remove';
 export async function removeData(parameters) {
   return request({
     api: removeDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const removeSingleTreeListCacheDataApiAddress =
+  '/smsCategory/removeSingleTreeListCache';
+
+export async function removeSingleTreeListCacheData(parameters) {
+  return request({
+    api: removeSingleTreeListCacheDataApiAddress,
     params: parameters,
   });
 }

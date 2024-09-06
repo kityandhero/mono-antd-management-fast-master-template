@@ -1,5 +1,7 @@
 import { formNameCollection } from '../../../customConfig';
 
+const fieldExtraData = {};
+
 export const fieldData = {
   ...formNameCollection,
   smsLogId: {
@@ -77,6 +79,7 @@ export const fieldData = {
     name: 'errorMessage',
     helper: '',
   },
+  ...fieldExtraData,
 };
 
 /**

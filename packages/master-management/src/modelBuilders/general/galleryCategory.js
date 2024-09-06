@@ -15,6 +15,7 @@ import {
   pageListOperateLogData,
   refreshCacheData,
   removeData,
+  removeSingleTreeListCacheData,
   setDisableData,
   setEnableData,
   singleListData,
@@ -34,6 +35,7 @@ export const galleryCategoryTypeCollection = {
   setEnable: 'galleryCategory/setEnable',
   setDisable: 'galleryCategory/setDisable',
   remove: 'galleryCategory/remove',
+  removeSingleTreeListCache: 'galleryCategory/removeSingleTreeListCache',
   refreshCache: 'galleryCategory/refreshCache',
   pageListOperateLog: 'galleryCategory/pageListOperateLog',
 };
@@ -291,6 +293,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(removeData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *removeSingleTreeListCache(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(removeSingleTreeListCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

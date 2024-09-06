@@ -16,6 +16,7 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseLoadDrawer } = DataDrawer;
@@ -39,7 +40,7 @@ class PreviewDrawer extends BaseLoadDrawer {
     this.state = {
       ...this.state,
       pageTitle: '异常摘要信息',
-      loadApiPath: 'sqlLog/get',
+      loadApiPath: modelTypeCollection.sqlLogTypeCollection.get,
     };
   }
 
@@ -63,7 +64,7 @@ class PreviewDrawer extends BaseLoadDrawer {
         {
           buildType: extraBuildType.generalExtraButton,
           icon: iconBuilder.copy(),
-          text: '复制内容',
+          text: '复制命令',
           disabled: this.checkInProgress(),
           handleClick: () => {
             const { metaData } = that.state;

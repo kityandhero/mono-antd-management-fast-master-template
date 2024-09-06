@@ -92,6 +92,16 @@ export async function removeData(parameters) {
   });
 }
 
+export const removeSingleTreeListCacheDataApiAddress =
+  '/callCenterCategory/removeSingleTreeListCache';
+
+export async function removeSingleTreeListCacheData(parameters) {
+  return request({
+    api: removeSingleTreeListCacheDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const refreshCacheDataApiAddress = '/callCenterCategory/refreshCache';
 
 export async function refreshCacheData(parameters) {

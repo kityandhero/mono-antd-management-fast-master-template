@@ -2,6 +2,7 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { actionCore } from 'antd-management-fast-common';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 export function singleTreeListAction({
@@ -11,7 +12,7 @@ export function singleTreeListAction({
   successMessage,
 }) {
   actionCore({
-    api: 'galleryCategory/singleTreeList',
+    api: modelTypeCollection.galleryCategoryTypeCollection.singleTreeList,
     params: {
       ...handleData,
     },
@@ -30,7 +31,7 @@ export function setEnableAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'galleryCategory/setEnable',
+    api: modelTypeCollection.galleryCategoryTypeCollection.setEnable,
     params: {
       galleryCategoryId: getValueByKey({
         data: handleData,
@@ -51,13 +52,30 @@ export function setDisableAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'galleryCategory/setDisable',
+    api: modelTypeCollection.galleryCategoryTypeCollection.setDisable,
     params: {
       galleryCategoryId: getValueByKey({
         data: handleData,
         key: fieldData.galleryCategoryId.name,
       }),
     },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export async function removeSingleTreeListCacheAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage = null,
+}) {
+  actionCore({
+    api: modelTypeCollection.galleryCategoryTypeCollection
+      .removeSingleTreeListCache,
+    params: { ...handleData },
     target,
     handleData,
     successCallback,
@@ -72,7 +90,7 @@ export async function refreshCacheAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'galleryCategory/refreshCache',
+    api: modelTypeCollection.galleryCategoryTypeCollection.refreshCache,
     params: {
       galleryCategoryId: getValueByKey({
         data: handleData,

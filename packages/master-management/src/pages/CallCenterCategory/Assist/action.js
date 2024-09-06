@@ -2,6 +2,7 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { actionCore } from 'antd-management-fast-common';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 export function singleTreeListAction({
@@ -11,7 +12,7 @@ export function singleTreeListAction({
   successMessage,
 }) {
   actionCore({
-    api: 'callCenterCategory/singleTreeList',
+    api: modelTypeCollection.callCenterCategoryTypeCollection.singleTreeList,
     params: {
       ...handleData,
     },
@@ -30,7 +31,7 @@ export function setEnableAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'callCenterCategory/setEnable',
+    api: modelTypeCollection.callCenterCategoryTypeCollection.setEnable,
     params: {
       callCenterCategoryId: getValueByKey({
         data: handleData,
@@ -51,13 +52,30 @@ export function setDisableAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'callCenterCategory/setDisable',
+    api: modelTypeCollection.callCenterCategoryTypeCollection.setDisable,
     params: {
       callCenterCategoryId: getValueByKey({
         data: handleData,
         key: fieldData.callCenterCategoryId.name,
       }),
     },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export async function removeSingleTreeListCacheAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage = null,
+}) {
+  actionCore({
+    api: modelTypeCollection.callCenterCategoryTypeCollection
+      .removeSingleTreeListCache,
+    params: { ...handleData },
     target,
     handleData,
     successCallback,
@@ -72,7 +90,7 @@ export async function refreshCacheAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'callCenterCategory/refreshCache',
+    api: modelTypeCollection.callCenterCategoryTypeCollection.refreshCache,
     params: {
       callCenterCategoryId: getValueByKey({
         data: handleData,

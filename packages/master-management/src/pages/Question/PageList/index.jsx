@@ -75,13 +75,6 @@ class PageList extends MultiPage {
     this.loadTagTreeList();
   };
 
-  handleSearchResetState = () => {
-    return {
-      tagIdCollection: [],
-      tagName: '',
-    };
-  };
-
   loadTagTreeList = () => {
     singleTreeListWithQuestionAction({
       target: this,
@@ -105,6 +98,13 @@ class PageList extends MultiPage {
     d[fieldData.tagIdCollection.name] = tagIdCollection.join(',');
 
     return d;
+  };
+
+  handleSearchResetState = () => {
+    return {
+      tagIdCollection: [],
+      tagName: '',
+    };
   };
 
   handleMenuClick = ({ key, handleData }) => {

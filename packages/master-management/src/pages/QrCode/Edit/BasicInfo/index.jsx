@@ -3,6 +3,7 @@ import {
   convertCollection,
   getValueByKey,
   toString,
+  whetherNumber,
   zeroString,
 } from 'easy-soft-utility';
 
@@ -50,13 +51,13 @@ class Index extends TabPageBase {
   }
 
   doOtherRemoteRequest = () => {
-    this.loadCategoryTreeList();
+    this.loadCategoryTreeList({ refresh: whetherNumber.no });
   };
 
-  loadCategoryTreeList = () => {
+  loadCategoryTreeList = ({ refresh = whetherNumber.no }) => {
     categorySingleTreeListAction({
       target: this,
-      handleData: {},
+      handleData: { refresh },
       successCallback: ({ target, remoteListData }) => {
         target.setState({
           categoryTreeData: remoteListData,
@@ -66,7 +67,7 @@ class Index extends TabPageBase {
   };
 
   reloadCategoryTreeList = () => {
-    this.loadCategoryTreeList();
+    this.loadCategoryTreeList({ refresh: whetherNumber.yes });
   };
 
   supplementLoadRequestParams = (o) => {

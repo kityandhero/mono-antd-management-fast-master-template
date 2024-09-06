@@ -603,6 +603,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'b4ddcf42b1526fe97dcd59b54325cc3c',
       permission: 'a8868f1c49fa4297bded252d4b6a2704',
     },
+    removeSingleTreeListCache: {
+      title: '移除单页树型列表缓存',
+      paramsKey: '1e48bdfb50e927b092e2915c06b5d479',
+      permission: 'd1dd3ad3952f4d4abfa6a19d97009659',
+    },
     refreshCache: {
       title: '刷新缓存',
       paramsKey: '1d9e6422753024c74261d1f0031c39a2',
@@ -1064,6 +1069,11 @@ export const accessWayInfrastructureCollection = {
       title: '移除',
       paramsKey: '7680e7c70203d348136cf33ac27bb52e',
       permission: 'd515663dee0f4823bf3987750a7ccca7',
+    },
+    removeSingleTreeListCache: {
+      title: '移除单页树型列表缓存',
+      paramsKey: '4aa2cb68d28b42721eb527dc0a49c154',
+      permission: '3d847a8a94de43959972b8f7c2c5ad8c',
     },
     refreshCache: {
       title: '刷新缓存',
@@ -1765,6 +1775,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '5cf8d098afb248a277705eb5cb21da40',
       permission: '56f67dbc2e504b9c9ecb00f123d64946',
     },
+    removeSingleTreeListCache: {
+      title: '移除单页树型列表缓存',
+      paramsKey: 'efc35257035f0b29dba30e0da16ef54f',
+      permission: '5bb839ff0a614104bbfab8e458c8a881',
+    },
     refreshCache: {
       title: '刷新缓存',
       paramsKey: 'e00c65d226bb8bc7d2915eced43dabc0',
@@ -2358,6 +2373,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'ce893b6fa9f28f727596a17227c9e2be',
       permission: '9bf1e8cf76f24cecb1caf28252f1ef58',
     },
+    removeSingleTreeListCache: {
+      title: '移除单页树型列表缓存',
+      paramsKey: '351b38fb2a53d5e7003a685cdf26c3c9',
+      permission: 'df8527c2fac4465fb40a8ca08a48f736',
+    },
     refreshCache: {
       title: '刷新缓存',
       paramsKey: '15a4faa9e6b6ad84c375ee8a284eccb6',
@@ -2381,6 +2401,21 @@ export const accessWayInfrastructureCollection = {
       title: '分页列表',
       paramsKey: '968dbf504c9aa6f3a805a80e08579b25',
       permission: '30dd2a910f7e4266ac91e8a955067a7b',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '047929dbb06505ed48383678fb7626f4',
+      permission: '3201a493fa10426e8112ad689f214a5b',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '5845002e35fb296342656d3c7001857a',
+      permission: '077a9943678845a6b8d86e5790bc4607',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: '20071765f9b5576c200001b9dc211bd2',
+      permission: '874bf0c4848d49268ab160067d78f3d7',
     },
   },
   smsStatistic: {

@@ -7,6 +7,7 @@ import {
   handleItem,
   showSimpleErrorMessage,
   toString,
+  whetherNumber,
 } from 'easy-soft-utility';
 
 import {
@@ -60,13 +61,13 @@ class PageList extends MultiPage {
   }
 
   doOtherRemoteRequest = () => {
-    this.loadCategoryTreeList();
+    this.loadCategoryTreeList({ refresh: whetherNumber.no });
   };
 
-  loadCategoryTreeList = () => {
+  loadCategoryTreeList = ({ refresh = whetherNumber.no }) => {
     categorySingleTreeListAction({
       target: this,
-      handleData: {},
+      handleData: { refresh },
       successCallback: ({ target, remoteListData }) => {
         target.setState({
           categoryTreeData: remoteListData,
@@ -76,7 +77,7 @@ class PageList extends MultiPage {
   };
 
   reloadCategoryTreeList = () => {
-    this.loadCategoryTreeList();
+    this.loadCategoryTreeList({ refresh: whetherNumber.yes });
   };
 
   supplementLoadRequestParams = (o) => {
