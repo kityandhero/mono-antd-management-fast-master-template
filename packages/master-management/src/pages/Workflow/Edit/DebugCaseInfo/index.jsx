@@ -12,7 +12,9 @@ import {
   isEmptyObject,
   isNull,
   showSimpleErrorMessage,
+  toString,
   whetherNumber,
+  zeroString,
 } from 'easy-soft-utility';
 
 import {
@@ -74,6 +76,7 @@ import { fieldData as fieldDataWorkflowNodeApprover } from '../../../WorkflowNod
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { TabPageBase } from '../../TabPageBase';
 import { UpdateDebugApproverModeModal } from '../../UpdateDebugApproverModeModal';
+import { UpdateDebugUserModeModal } from '../../UpdateDebugUserModeModal';
 
 @connect(
   ({
@@ -249,6 +252,14 @@ class DebugCaseInfo extends TabPageBase {
     this.reloadData({});
   };
 
+  showUpdateDebugUserModeModal = () => {
+    UpdateDebugUserModeModal.open();
+  };
+
+  afterUpdateDebugUserModeModalOK = () => {
+    this.reloadData({});
+  };
+
   showFormDrawer = () => {
     FormDrawer.open();
   };
@@ -369,9 +380,19 @@ class DebugCaseInfo extends TabPageBase {
       key: fieldData.flowDebugUserRealName.name,
     });
 
+    const flowDebugApproverUserRealName = getValueByKey({
+      data: metaData,
+      key: fieldData.flowDebugApproverUserRealName.name,
+    });
+
     const flowDebugUserId = getValueByKey({
       data: metaData,
       key: fieldData.flowDebugUserId.name,
+    });
+
+    const flowDebugApproverUserId = getValueByKey({
+      data: metaData,
+      key: fieldData.flowDebugApproverUserId.name,
     });
 
     const debugApproverMode = getValueByKey({
@@ -541,6 +562,11 @@ class DebugCaseInfo extends TabPageBase {
                 buildType: cardConfig.extraBuildType.dropdownEllipsis,
                 handleMenuClick: ({ key, handleData }) => {
                   switch (key) {
+                    case 'showUpdateDebugUserModeModal': {
+                      this.showUpdateDebugUserModeModal(handleData);
+                      break;
+                    }
+
                     case 'showUpdateDebugApproverModeModal': {
                       this.showUpdateDebugApproverModeModal(handleData);
                       break;
@@ -555,11 +581,22 @@ class DebugCaseInfo extends TabPageBase {
                 handleData: metaData,
                 items: [
                   {
+                    key: 'showUpdateDebugUserModeModal',
+                    icon: iconBuilder.edit(),
+                    text: '配置调试发起人模式',
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflow.setDebugUserMode.permission,
+                    ),
+                  },
+                  {
+                    type: dropdownExpandItemType.divider,
+                  },
+                  {
                     key: 'showUpdateDebugApproverModeModal',
                     icon: iconBuilder.edit(),
                     text: '配置调试审批人模式',
                     hidden: !checkHasAuthority(
-                      accessWayCollection.workflowCase.pageListUnderway
+                      accessWayCollection.workflow.setDebugApproverMode
                         .permission,
                     ),
                   },
@@ -578,14 +615,6 @@ class DebugCaseInfo extends TabPageBase {
               lg: 24,
               type: cardConfig.contentItemType.customGrid,
               list: [
-                {
-                  span: 4,
-                  label: fieldData.caseNameTemplate.label,
-                  value: getValueByKey({
-                    data: metaData,
-                    key: fieldData.caseNameTemplate.name,
-                  }),
-                },
                 {
                   span: 2,
                   label: fieldData.title.label,
@@ -631,9 +660,9 @@ class DebugCaseInfo extends TabPageBase {
                   }),
                 },
                 {
-                  span: 1,
+                  span: 3,
                   label: fieldData.userRealName.label,
-                  value: `${userRealName ?? ''} ${checkStringIsNullOrWhiteSpace(userId) ? '' : `[${userId}]`}`,
+                  value: `${userRealName ?? ''}${checkStringIsNullOrWhiteSpace(userId) ? '' : toString(userId) === zeroString ? '' : ` [${userId}]`}`,
                 },
                 {
                   span: 1,
@@ -641,6 +670,66 @@ class DebugCaseInfo extends TabPageBase {
                   value: getValueByKey({
                     data: metaData,
                     key: fieldData.lastSubmitApprovalTime.name,
+                  }),
+                },
+                {
+                  span: 2,
+                  label: fieldData.userDepartments.label,
+                  value: getValueByKey({
+                    data: metaData,
+                    key: fieldData.userDepartments.name,
+                  }),
+                },
+                {
+                  span: 2,
+                  label: fieldData.userSubsidiaries.label,
+                  value: getValueByKey({
+                    data: metaData,
+                    key: fieldData.userSubsidiaries.name,
+                  }),
+                },
+              ],
+              props: {
+                bordered: true,
+                size: 'small',
+                column: 4,
+                labelStyle: {
+                  width: '140px',
+                },
+                emptyValue: '暂无',
+                emptyStyle: {
+                  color: '#ccc',
+                },
+              },
+            },
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.divider,
+              text: '配置信息',
+              innerProps: {
+                style: {
+                  margin: '20px 0',
+                },
+              },
+            },
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.customGrid,
+              list: [
+                {
+                  span: 4,
+                  label: fieldData.caseNameTemplate.label,
+                  value: getValueByKey({
+                    data: metaData,
+                    key: fieldData.caseNameTemplate.name,
+                  }),
+                },
+                {
+                  span: 2,
+                  label: fieldDataWorkflowNode.name.label,
+                  value: getValueByKey({
+                    data: nextApproveWorkflowNode,
+                    key: fieldDataWorkflowNode.name.name,
                   }),
                 },
                 {
@@ -669,34 +758,28 @@ class DebugCaseInfo extends TabPageBase {
                 },
                 {
                   span: 2,
-                  label: fieldData.userDepartments.label,
+                  label: fieldDataFlowCase.debugUserModeNote.label,
                   value: getValueByKey({
                     data: metaData,
-                    key: fieldData.userDepartments.name,
+                    key: fieldDataFlowCase.debugUserModeNote.name,
                   }),
                 },
                 {
-                  span: 2,
-                  label: fieldData.userSubsidiaries.label,
-                  value: getValueByKey({
-                    data: metaData,
-                    key: fieldData.userSubsidiaries.name,
-                  }),
+                  span: 1,
+                  label: fieldData.flowDebugUserRealName.label,
+                  value: flowDebugUserRealName,
                 },
                 {
-                  span: 2,
-                  label: fieldDataWorkflowNode.name.label,
-                  value: getValueByKey({
-                    data: nextApproveWorkflowNode,
-                    key: fieldDataWorkflowNode.name.name,
-                  }),
+                  span: 1,
+                  label: fieldData.flowDebugUserId.label,
+                  value: flowDebugUserId,
                 },
                 {
                   span:
                     debugApproverMode ===
                     flowDebugApproverModeCollection.flowConfiguration
-                      ? 2
-                      : 1,
+                      ? 4
+                      : 2,
                   label: fieldDataFlowCase.debugApproverModeNote.label,
                   value: getValueByKey({
                     data: metaData,
@@ -705,8 +788,16 @@ class DebugCaseInfo extends TabPageBase {
                 },
                 {
                   span: 1,
-                  label: fieldData.flowDebugUserRealName.label,
-                  value: `${flowDebugUserRealName} ${checkStringIsNullOrWhiteSpace(flowDebugUserId) ? '' : `[${flowDebugUserId}]`}`,
+                  label: fieldData.flowDebugApproverUserRealName.label,
+                  value: flowDebugApproverUserRealName,
+                  hidden:
+                    debugApproverMode ===
+                    flowDebugApproverModeCollection.flowConfiguration,
+                },
+                {
+                  span: 1,
+                  label: fieldData.flowDebugApproverUserRealName.label,
+                  value: flowDebugApproverUserId,
                   hidden:
                     debugApproverMode ===
                     flowDebugApproverModeCollection.flowConfiguration,
@@ -717,7 +808,7 @@ class DebugCaseInfo extends TabPageBase {
                 size: 'small',
                 column: 4,
                 labelStyle: {
-                  width: '120px',
+                  width: '140px',
                 },
                 emptyValue: '暂无',
                 emptyStyle: {
@@ -1308,6 +1399,13 @@ class DebugCaseInfo extends TabPageBase {
           externalData={metaData}
           afterOK={() => {
             this.afterUpdateDebugApproverModeModalOK();
+          }}
+        />
+
+        <UpdateDebugUserModeModal
+          externalData={metaData}
+          afterOK={() => {
+            this.afterUpdateDebugUserModeModalOK();
           }}
         />
 

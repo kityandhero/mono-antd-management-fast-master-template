@@ -80,6 +80,26 @@ export const fieldDataFlow = {
     name: 'debugApproverModeNote',
     helper: '',
   },
+  debugUserMode: {
+    label: '调试申请人模式',
+    name: 'debugUserMode',
+    helper: '',
+  },
+  debugUserModeNote: {
+    label: '调试申请人模式',
+    name: 'debugUserModeNote',
+    helper: '',
+  },
+  debugUserId: {
+    label: '调试申请人标识',
+    name: 'debugUserId',
+    helper: '',
+  },
+  debugUserRealName: {
+    label: '调试申请人名称',
+    name: 'debugUserRealName',
+    helper: '',
+  },
   whetherAllowMultibranch: {
     label: '允许多路分支',
     name: 'whetherAllowMultibranch',

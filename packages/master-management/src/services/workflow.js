@@ -67,6 +67,24 @@ export async function setDebugApproverModeData(parameters) {
   });
 }
 
+export const setDebugUserModeDataApiAddress = '/workflow/setDebugUserMode';
+
+export async function setDebugUserModeData(parameters) {
+  return request({
+    api: setDebugUserModeDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const setDebugUserIdDataApiAddress = '/workflow/setDebugUserId';
+
+export async function setDebugUserIdData(parameters) {
+  return request({
+    api: setDebugUserIdDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setChannelDataApiAddress = '/workflow/setChannel';
 
 export async function setChannelData(parameters) {

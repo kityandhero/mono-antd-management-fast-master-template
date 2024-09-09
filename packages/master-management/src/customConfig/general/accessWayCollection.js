@@ -2973,6 +2973,16 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '58b6c5f2b071272fdcaa4fc3ef42d8a7',
       permission: 'a996569277fa4cd6a1e9e52d59661828',
     },
+    setDebugUserMode: {
+      title: '设置测试申请人模式',
+      paramsKey: '87e4ed4dbc1bd76de9c411091f6d452c',
+      permission: '9cf5b362b6da4b29806de8086b84eb32',
+    },
+    setDebugUserId: {
+      title: '设置测试申请人用户',
+      paramsKey: 'f2d01ac99d7e035781f5827f7edf3983',
+      permission: 'd8bda1e677c54d64950a9e32c60a021f',
+    },
     setChannel: {
       title: '更改渠道值，仅用于特殊情况',
       paramsKey: '29f7014f7b472d2c9c12a7d75fff6b6f',

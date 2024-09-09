@@ -136,6 +136,11 @@
       "name": "debugApproverMode"
     },
     {
+      "functionSegment": "FlowDebugUserMode",
+      "label": "调试申请人模式",
+      "name": "debugUserMode"
+    },
+    {
       "functionSegment": "FlowApproveAction",
       "label": "审批动作",
       "name": "approveAction"

@@ -41,28 +41,53 @@ const fieldExtraData = {
     name: 'canApprove',
     helper: '',
   },
+  flowDebugApproverUserId: {
+    label: '流程调试审批人标识',
+    name: 'flowDebugApproverUserId',
+    helper: '',
+  },
+  flowDebugApproverUserRealName: {
+    label: '流程调试审批人姓名',
+    name: 'flowDebugApproverUserRealName',
+    helper: '',
+  },
+  flowDebugApproverUserNickname: {
+    label: '流程调试审批人昵称',
+    name: 'flowDebugApproverUserNickname',
+    helper: '',
+  },
+  flowDebugApproverUserAvatar: {
+    label: '流程调试审批人头像',
+    name: 'flowDebugApproverUserAvatar',
+    helper: '',
+  },
+  flowDebugApproverUserSignet: {
+    label: '流程调试审批人签章',
+    name: 'flowDebugApproverUserSignet',
+    helper: '',
+  },
   flowDebugUserId: {
-    label: '流程调试用户标识',
+    label: '流程调试发起人标识',
     name: 'flowDebugUserId',
     helper: '',
   },
   flowDebugUserRealName: {
-    label: '流程调试用户姓名',
+    label: '流程调试发起人姓名',
     name: 'flowDebugUserRealName',
     helper: '',
   },
   flowDebugUserNickname: {
-    label: '流程调试用户昵称',
+    label: '流程调试发起人昵称',
     name: 'flowDebugUserNickname',
     helper: '',
   },
   flowDebugUserAvatar: {
-    label: '流程调试用户头像',
+    label: '流程调试发起人头像',
     name: 'flowDebugUserAvatar',
     helper: '',
   },
   flowDebugUserSignet: {
-    label: '流程调试用户签章',
+    label: '流程调试发起人签章',
     name: 'flowDebugUserSignet',
     helper: '',
   },
@@ -233,6 +258,16 @@ export const fieldDataFlowCase = {
   debugApproverModeNote: {
     label: '调试审批人模式',
     name: 'debugApproverModeNote',
+    helper: '',
+  },
+  debugUserMode: {
+    label: '调试发起人模式',
+    name: 'debugUserMode',
+    helper: '',
+  },
+  debugUserModeNote: {
+    label: '调试发起人模式',
+    name: 'debugUserModeNote',
     helper: '',
   },
   businessMode: {

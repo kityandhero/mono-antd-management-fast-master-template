@@ -4847,6 +4847,20 @@
           "type": "singleData"
         },
         {
+          "title": "设置测试申请人模式",
+          "api": "/workflow/setDebugUserMode",
+          "effect": "setDebugUserMode",
+          "service": "setDebugUserModeData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置测试申请人用户",
+          "api": "/workflow/setDebugUserId",
+          "effect": "setDebugUserId",
+          "service": "setDebugUserIdData",
+          "type": "singleData"
+        },
+        {
           "title": "更改渠道值，仅用于特殊情况",
           "api": "/workflow/setChannel",
           "effect": "setChannel",

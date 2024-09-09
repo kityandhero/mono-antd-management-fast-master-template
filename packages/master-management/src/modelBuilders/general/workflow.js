@@ -21,6 +21,8 @@ import {
   setCaseNameTemplateData,
   setChannelData,
   setDebugApproverModeData,
+  setDebugUserIdData,
+  setDebugUserModeData,
   setDisableData,
   setEnableData,
   statisticCarbonCopyCountData,
@@ -39,6 +41,8 @@ export const workflowTypeCollection = {
   updateBasicInfo: 'workflow/updateBasicInfo',
   setCaseNameTemplate: 'workflow/setCaseNameTemplate',
   setDebugApproverMode: 'workflow/setDebugApproverMode',
+  setDebugUserMode: 'workflow/setDebugUserMode',
+  setDebugUserId: 'workflow/setDebugUserId',
   setChannel: 'workflow/setChannel',
   openMultibranch: 'workflow/openMultibranch',
   openMultiEnd: 'workflow/openMultiEnd',
@@ -235,6 +239,58 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(setDebugApproverModeData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setDebugUserMode(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setDebugUserModeData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setDebugUserId(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setDebugUserIdData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
