@@ -200,6 +200,11 @@ export const fieldDataFlowCase = {
     name: 'caseNameTemplate',
     helper: '设置实例名模板, 示例: {flowName} 事由{reason}',
   },
+  smsTemplate: {
+    label: '短信通知模版 ',
+    name: 'smsTemplate',
+    helper: '设置短信通知模版, 示例: {flowName} 事由{reason}',
+  },
   workflowName: {
     label: '流程名称',
     name: 'workflowName',

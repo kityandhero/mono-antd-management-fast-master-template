@@ -779,6 +779,14 @@ class DebugCaseInfo extends TabPageBase {
                   }),
                 },
                 {
+                  span: 4,
+                  label: fieldData.smsTemplate.label,
+                  value: getValueByKey({
+                    data: metaData,
+                    key: fieldData.smsTemplate.name,
+                  }),
+                },
+                {
                   span: 2,
                   label: fieldDataWorkflowNode.name.label,
                   value: getValueByKey({
