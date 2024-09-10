@@ -44,8 +44,6 @@ class WorkflowDebugCasePageListUnderwayDrawer extends BaseFlowCasePageListUnderw
       target: this,
       handleData: r,
       successCallback: ({ target }) => {
-        console.log(target);
-
         target.afterForceEnd({});
       },
     });

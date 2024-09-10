@@ -50,6 +50,16 @@ export const fieldDataFlowFormDesign = {
     name: 'dataSchemaList',
     helper: '',
   },
+  documentGeneralSchema: {
+    label: '文档布局配置',
+    name: 'documentGeneralSchema',
+    helper: '',
+  },
+  documentItemSchema: {
+    label: '文档项配置',
+    name: 'documentItemSchema',
+    helper: '',
+  },
   documentSchema: {
     label: '文档配置',
     name: 'documentSchema',

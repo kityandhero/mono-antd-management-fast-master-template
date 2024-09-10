@@ -7,6 +7,7 @@ import {
   logException,
 } from 'easy-soft-utility';
 
+import { SyntaxHighlighter } from 'antd-management-fast-component';
 import { DocumentPrintDesigner } from 'antd-management-fast-design-playground';
 import { DataDrawer } from 'antd-management-fast-framework';
 
@@ -30,6 +31,8 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
       pageTitle: '流程表单',
       loadApiPath: 'workflowFormDesign/getByWorkflow',
       width: 1024,
+      overlayButtonOpenText: '查看数据',
+      overlayButtonCloseText: '关闭数据',
     };
   }
 
@@ -55,71 +58,8 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
     throw new Error('getAllApproveProcessList need overrode to implement');
   };
 
-  saveDataSchema = (data) => {
+  getItems = () => {
     const { metaData } = this.state;
-
-    const workflowFormDesignId = getValueByKey({
-      data: metaData,
-      key: fieldDataFlowFormDesign.workflowFormDesignId.name,
-    });
-
-    updateDocumentSchemaAction({
-      target: this,
-      handleData: {
-        workflowFormDesignId: workflowFormDesignId || '',
-        documentSchema: JSON.stringify(data),
-      },
-      successCallback: ({ target }) => {
-        target.reloadData({});
-      },
-    });
-  };
-
-  establishHelpConfig = () => {
-    const { canDesign } = {
-      ...defaultProperties,
-      ...this.props,
-    };
-
-    return {
-      title: '操作提示',
-      list: [
-        {
-          text: '此图例显示的流程表单打印概览, 仅可查看。',
-        },
-        {
-          text: '设置为非独占行的单元, 若前一个单元为独占, 则此单元也将转换为行布局, 宽度设置将无效。',
-        },
-        {
-          text: '打印预览需要关闭设计模式。',
-        },
-        canDesign
-          ? {
-              text: '审批节点样例仅在设计时用于占位进行效果展示, 实际表单将呈现真实审批节点。',
-            }
-          : null,
-      ],
-    };
-  };
-
-  establishPresetContentContainorInnerTopStyle = () => {
-    return {
-      backgroundColor: '#ccc',
-    };
-  };
-
-  renderPresetContentContainorInnerTop = () => {
-    const { canDesign, values, approveList } = {
-      ...defaultProperties,
-      ...this.props,
-    };
-    const { metaData } = this.state;
-
-    const remarkSchemaList = getValueByKey({
-      data: metaData,
-      key: fieldDataFlowFormDesign.remarkSchemaList.name,
-      convert: convertCollection.array,
-    });
 
     const documentSchema = getValueByKey({
       data: metaData,
@@ -127,8 +67,7 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
       defaultValue: {},
     });
 
-    const { general, items: itemsSource } = {
-      general: {},
+    const { items: itemsSource } = {
       items: [],
       ...documentSchema,
     };
@@ -179,6 +118,104 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
       items = listDataSchema;
     }
 
+    return items;
+  };
+
+  saveDataSchema = (data) => {
+    const { metaData } = this.state;
+
+    const workflowFormDesignId = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowFormDesign.workflowFormDesignId.name,
+    });
+
+    const { general, items } = {
+      general: {},
+      items: [],
+      ...data,
+    };
+
+    delete general['general'];
+    delete general['items'];
+
+    const o = {};
+
+    o[fieldDataFlowFormDesign.workflowFormDesignId.name] =
+      workflowFormDesignId || '';
+
+    o[fieldDataFlowFormDesign.documentGeneralSchema.name] =
+      JSON.stringify(general);
+
+    o[fieldDataFlowFormDesign.documentItemSchema.name] = JSON.stringify(items);
+
+    updateDocumentSchemaAction({
+      target: this,
+      handleData: o,
+      successCallback: ({ target }) => {
+        target.reloadData({});
+      },
+    });
+  };
+
+  establishHelpConfig = () => {
+    const { canDesign } = {
+      ...defaultProperties,
+      ...this.props,
+    };
+
+    return {
+      title: '操作提示',
+      list: [
+        {
+          text: '此图例显示的流程表单打印概览, 仅可查看。',
+        },
+        {
+          text: '设置为非独占行的单元, 若前一个单元为独占, 则此单元也将转换为行布局, 宽度设置将无效; 设置为金额显示模式的格子，仅在可以转换的情况下才能用金额显示。',
+        },
+        {
+          text: '打印预览需要关闭设计模式。',
+        },
+        canDesign
+          ? {
+              text: '审批节点样例仅在设计时用于占位进行效果展示, 实际表单将呈现真实审批节点。',
+            }
+          : null,
+      ],
+    };
+  };
+
+  establishPresetContentContainorInnerTopStyle = () => {
+    return {
+      backgroundColor: '#ccc',
+    };
+  };
+
+  renderPresetContentContainorInnerTop = () => {
+    const { canDesign, values, approveList } = {
+      ...defaultProperties,
+      ...this.props,
+    };
+    const { metaData } = this.state;
+
+    const remarkSchemaList = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowFormDesign.remarkSchemaList.name,
+      convert: convertCollection.array,
+    });
+
+    const documentSchema = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowFormDesign.documentSchema.name,
+      defaultValue: {},
+    });
+
+    const { general } = {
+      general: {},
+      ...documentSchema,
+    };
+
+    const items = this.getItems();
+
     const allApproveProcessList = this.getAllApproveProcessList();
 
     return (
@@ -205,6 +242,66 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
           this.saveDataSchema(data);
         }}
       />
+    );
+  };
+
+  renderOverlayContent = () => {
+    const { values } = {
+      ...defaultProperties,
+      ...this.props,
+    };
+    const { metaData } = this.state;
+
+    const documentSchema = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowFormDesign.documentSchema.name,
+      defaultValue: {},
+    });
+
+    const { general } = {
+      general: {},
+      ...documentSchema,
+    };
+
+    const items = this.getItems();
+
+    const remarkSchemaList = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowFormDesign.remarkSchemaList.name,
+      convert: convertCollection.array,
+    });
+
+    const data = {
+      documentSchema: {
+        general,
+        items,
+      },
+      values: isArray(values) ? values : [],
+      remarkSchemaList,
+    };
+
+    return (
+      <div
+        style={{
+          width: '90%',
+          height: '90%',
+          background: '#fff',
+          padding: '16px 16px 26px 16px',
+          borderRadius: '10px',
+          overflow: 'hidden',
+        }}
+      >
+        <SyntaxHighlighter
+          language="js"
+          value={JSON.stringify(data, null, 2)}
+          other={{ showLineNumbers: true, wrapLines: true }}
+          style={{
+            height: '100%',
+            marginLeft: '0px',
+            marginRight: '0px',
+          }}
+        />
+      </div>
     );
   };
 }
