@@ -29,7 +29,10 @@ class SelectField extends BaseSelectFieldExtra {
   };
 
   renderPresetSelector = () => {
-    const { label } = this.props;
+    const { label } = {
+      label: '',
+      ...this.props,
+    };
 
     return (
       <PageListDrawer
@@ -40,9 +43,5 @@ class SelectField extends BaseSelectFieldExtra {
     );
   };
 }
-
-SelectField.defaultProps = {
-  ...BaseSelectFieldExtra.defaultProps,
-};
 
 export { SelectField };

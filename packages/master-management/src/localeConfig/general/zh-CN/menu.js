@@ -44,8 +44,8 @@ export const menuZhCNGeneral = {
 
   'menu.logs.mongoSlowQueryInfo': '慢查询日志',
   'menu.logs.mongoSlowQueryInfo-mini': '慢查询',
-  'menu.logs.mongoSlowQueryInfo.pageList': '慢查询列表',
-  'menu.logs.mongoSlowQueryInfo.pageList-mini': 'Mongo',
+  'menu.logs.mongoSlowQueryInfo.singleList': '慢查询列表',
+  'menu.logs.mongoSlowQueryInfo.singleList-mini': 'Mongo',
 
   'menu.queues': '消息队列',
   'menu.queues-mini': 'MQ',

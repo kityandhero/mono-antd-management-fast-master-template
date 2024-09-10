@@ -48,6 +48,7 @@ import {
 import { fieldData } from '../Common/data';
 import { FlowDisplayDrawer } from '../FlowDisplayDrawer';
 import { SetCaseNameTemplateDrawer } from '../SetCaseNameTemplateDrawer';
+import { SetSmsTemplateDrawer } from '../SetSmsTemplateDrawer';
 import { UpdateChannelModal } from '../UpdateChannelModal';
 import { UpdateMultibranchModal } from '../UpdateMultibranchModal';
 import { UpdateMultiEndModal } from '../UpdateMultiEndModal';
@@ -264,6 +265,14 @@ class Detail extends DataTabContainerSupplement {
     this.reloadData({});
   };
 
+  showSetSmsTemplateDrawer = () => {
+    SetSmsTemplateDrawer.open();
+  };
+
+  afterSetSmsTemplateDrawerOk = () => {
+    this.reloadData({});
+  };
+
   showUpdateMultibranchModal = () => {
     UpdateMultibranchModal.open();
   };
@@ -338,19 +347,6 @@ class Detail extends DataTabContainerSupplement {
         {
           buildType: extraBuildType.generalExtraButton,
           type: 'default',
-          icon: iconBuilder.swap(),
-          text: '设置数据通道',
-          handleData: metaData,
-          hidden: !checkHasAuthority(
-            accessWayCollection.workflow.setChannel.permission,
-          ),
-          handleClick: ({ handleData }) => {
-            that.showUpdateChannelModal(handleData);
-          },
-        },
-        {
-          buildType: extraBuildType.generalExtraButton,
-          type: 'default',
           icon: iconBuilder.form(),
           text: '设置实例名模板',
           handleData: metaData,
@@ -359,6 +355,19 @@ class Detail extends DataTabContainerSupplement {
           ),
           handleClick: ({ handleData }) => {
             that.showSetCaseNameTemplateDrawer(handleData);
+          },
+        },
+        {
+          buildType: extraBuildType.generalExtraButton,
+          type: 'default',
+          icon: iconBuilder.form(),
+          text: '设置短信通知模板',
+          handleData: metaData,
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.setSmsTemplate.permission,
+          ),
+          handleClick: ({ handleData }) => {
+            that.showSetSmsTemplateDrawer(handleData);
           },
         },
         {
@@ -523,6 +532,11 @@ class Detail extends DataTabContainerSupplement {
             break;
           }
 
+          case 'showUpdateChannelModal': {
+            that.showUpdateChannelModal(handleData);
+            break;
+          }
+
           case 'refreshCache': {
             that.refreshCache(handleData);
             break;
@@ -582,6 +596,17 @@ class Detail extends DataTabContainerSupplement {
               key: fieldData.whetherAllowMultiEnd.name,
               convert: convertCollection.number,
             }) === whetherNumber.yes,
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'showUpdateChannelModal',
+          icon: iconBuilder.swap(),
+          text: '设置数据通道',
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.setChannel.permission,
+          ),
         },
         {
           type: dropdownExpandItemType.divider,
@@ -698,6 +723,13 @@ class Detail extends DataTabContainerSupplement {
           key: fieldData.whetherAllowMultiEndNote.name,
         }),
       },
+      {
+        label: fieldData.globalDebugUserRealName.label,
+        value: getValueByKey({
+          data: metaData,
+          key: fieldData.globalDebugUserRealName.name,
+        }),
+      },
     ];
   };
 
@@ -710,6 +742,13 @@ class Detail extends DataTabContainerSupplement {
           externalData={{ workflowId }}
           afterOK={() => {
             this.afterSetCaseNameTemplateDrawerOk();
+          }}
+        />
+
+        <SetSmsTemplateDrawer
+          externalData={{ workflowId }}
+          afterOK={() => {
+            this.afterSetSmsTemplateDrawerOk();
           }}
         />
 

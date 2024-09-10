@@ -2968,6 +2968,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '2a1780e0bd7e7c500417dfae0ab473a4',
       permission: '9655598686db451683eacdd05150a50f',
     },
+    setSmsTemplate: {
+      title: '设置短信模板',
+      paramsKey: 'e73209fe91b885f2d08820d43cf594e8',
+      permission: '01bf3d1613874dc09bd17d37030d1636',
+    },
     setDebugApproverMode: {
       title: '设置流程测试审批人模式',
       paramsKey: '58b6c5f2b071272fdcaa4fc3ef42d8a7',
@@ -3297,6 +3302,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'c93faf834b4514db9e0d6f993ec396f8',
       permission: '98a420170b9948ac8e5c3b42a60b6ac0',
     },
+    sendNotification: {
+      title: '发送通知',
+      paramsKey: '10872fd0d58bb3e08231717e64f670db',
+      permission: '0d7bd003fc374ec6a54d98c6a77a9c46',
+    },
     refreshCache: {
       title: '刷新缓存',
       paramsKey: '9b51a79624d34616dff5c15b531393ab',
@@ -3550,6 +3560,11 @@ export const accessWayInfrastructureCollection = {
       title: '获取详情',
       paramsKey: '98e25161f9147e96a1f851403695dd33',
       permission: '22e2b34d3a204f69af4dafd14fae0bed',
+    },
+    sendNotification: {
+      title: '发送通知',
+      paramsKey: '4a0cfdced7c5a1769fc965efe18d746a',
+      permission: '6369912020354deeade90d82e1cd9a86',
     },
     refreshCache: {
       title: '刷新缓存',

@@ -57,6 +57,15 @@ export async function setCaseNameTemplateData(parameters) {
   });
 }
 
+export const setSmsTemplateDataApiAddress = '/workflow/setSmsTemplate';
+
+export async function setSmsTemplateData(parameters) {
+  return request({
+    api: setSmsTemplateDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setDebugApproverModeDataApiAddress =
   '/workflow/setDebugApproverMode';
 

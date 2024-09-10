@@ -35,7 +35,10 @@ class UserSelectDrawerField extends BaseSelectFieldExtra {
   };
 
   renderPresetSelector = () => {
-    const { label } = this.props;
+    const { label } = {
+      label: '',
+      ...this.props,
+    };
 
     return (
       <PageListDrawer
@@ -46,9 +49,5 @@ class UserSelectDrawerField extends BaseSelectFieldExtra {
     );
   };
 }
-
-UserSelectDrawerField.defaultProps = {
-  ...BaseSelectFieldExtra.defaultProps,
-};
 
 export { UserSelectDrawerField };

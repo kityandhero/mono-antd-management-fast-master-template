@@ -335,11 +335,6 @@ class Index extends TabPageBase {
     return (
       <>
         <PageListSelectActionDrawer
-          externalData={{
-            currentData: metaData,
-            fieldData: targetFieldData,
-          }}
-          editMode={keyValueEditMode || keyValueEditModeCollection.string}
           afterSelect={(selectData) => {
             this.updateFlowDebugUserId(selectData);
           }}

@@ -25,6 +25,7 @@ import {
   setDebugUserModeData,
   setDisableData,
   setEnableData,
+  setSmsTemplateData,
   statisticCarbonCopyCountData,
   statisticProcessedCountData,
   statisticSubmitCountData,
@@ -40,6 +41,7 @@ export const workflowTypeCollection = {
     'workflow/addOfficeAutomationProcessApproval',
   updateBasicInfo: 'workflow/updateBasicInfo',
   setCaseNameTemplate: 'workflow/setCaseNameTemplate',
+  setSmsTemplate: 'workflow/setSmsTemplate',
   setDebugApproverMode: 'workflow/setDebugApproverMode',
   setDebugUserMode: 'workflow/setDebugUserMode',
   setDebugUserId: 'workflow/setDebugUserId',
@@ -213,6 +215,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(setCaseNameTemplateData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setSmsTemplate(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setSmsTemplateData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

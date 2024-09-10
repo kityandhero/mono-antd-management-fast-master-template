@@ -22,7 +22,7 @@ import {
   dropdownExpandItemType,
   getDerivedStateFromPropertiesForUrlParameters,
 } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
+import { buildDropdown, iconBuilder } from 'antd-management-fast-component';
 import { Flow, FlowProcessHistory } from 'antd-management-fast-flow';
 
 import {
@@ -59,7 +59,12 @@ import { fieldData as fieldDataWorkflowDebugCaseCarbonCopyNotification } from '.
 import { FormDrawer } from '../../../WorkflowDebugCaseFormStorage/FormDrawer';
 import { fieldData as fieldDataWorkflowDebugCaseLatestApprove } from '../../../WorkflowDebugCaseLatestApprove/Common/data';
 import { fieldData as fieldDataWorkflowDebugCaseNextProcessApprove } from '../../../WorkflowDebugCaseNextProcessApprove/Common/data';
+import {
+  refreshCacheAction as refreshNextProcessNotificationCacheAction,
+  sendNextProcessNotificationAction,
+} from '../../../WorkflowDebugCaseNextProcessNotification/Assist/action';
 import { fieldData as fieldDataWorkflowDebugCaseNextProcessNotification } from '../../../WorkflowDebugCaseNextProcessNotification/Common/data';
+import { WorkflowDebugCaseNextProcessNotificationPreviewDrawer } from '../../../WorkflowDebugCaseNextProcessNotification/PreviewDrawer';
 import { WorkflowDebugCaseNextProcessProgressPreviewDrawer } from '../../../WorkflowDebugCaseNextProcessProgress/PreviewDrawer';
 import {
   cancelApproveAction,
@@ -76,6 +81,7 @@ import { fieldData as fieldDataWorkflowNodeApprover } from '../../../WorkflowNod
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { TabPageBase } from '../../TabPageBase';
 import { UpdateDebugApproverModeModal } from '../../UpdateDebugApproverModeModal';
+import { UpdateDebugUserDrawer } from '../../UpdateDebugUserDrawer';
 import { UpdateDebugUserModeModal } from '../../UpdateDebugUserModeModal';
 
 @connect(
@@ -106,6 +112,7 @@ class DebugCaseInfo extends TabPageBase {
       listProcessHistory: [],
       nodeList: [],
       edgeList: [],
+      currentNextProcessNotification: null,
     };
   }
 
@@ -220,6 +227,26 @@ class DebugCaseInfo extends TabPageBase {
     });
   };
 
+  refreshNextProcessNotificationCache = (o) => {
+    refreshNextProcessNotificationCacheAction({
+      target: this,
+      handleData: o,
+      successCallback: ({ target }) => {
+        target.reloadData({});
+      },
+    });
+  };
+
+  sendNextProcessNotification = (o) => {
+    sendNextProcessNotificationAction({
+      target: this,
+      handleData: o,
+      successCallback: ({ target }) => {
+        target.reloadData({});
+      },
+    });
+  };
+
   showUpdateBasicInfoDrawer = () => {
     UpdateBasicInfoDrawer.open();
   };
@@ -257,6 +284,14 @@ class DebugCaseInfo extends TabPageBase {
   };
 
   afterUpdateDebugUserModeModalOK = () => {
+    this.reloadData({});
+  };
+
+  showUpdateDebugUserDrawer = () => {
+    UpdateDebugUserDrawer.open();
+  };
+
+  afterUpdateDebugUserDrawerOK = () => {
     this.reloadData({});
   };
 
@@ -298,6 +333,12 @@ class DebugCaseInfo extends TabPageBase {
 
   showWorkflowDebugCaseNextProcessProgressPreviewDrawer = () => {
     WorkflowDebugCaseNextProcessProgressPreviewDrawer.open();
+  };
+
+  showWorkflowDebugCaseNextProcessNotificationPreviewDrawer = (o) => {
+    this.setState({ currentNextProcessNotification: o }, () => {
+      WorkflowDebugCaseNextProcessNotificationPreviewDrawer.open();
+    });
   };
 
   fillInitialValuesAfterLoad = ({
@@ -562,6 +603,11 @@ class DebugCaseInfo extends TabPageBase {
                 buildType: cardConfig.extraBuildType.dropdownEllipsis,
                 handleMenuClick: ({ key, handleData }) => {
                   switch (key) {
+                    case 'showUpdateDebugUserDrawer': {
+                      this.showUpdateDebugUserDrawer(handleData);
+                      break;
+                    }
+
                     case 'showUpdateDebugUserModeModal': {
                       this.showUpdateDebugUserModeModal(handleData);
                       break;
@@ -580,6 +626,14 @@ class DebugCaseInfo extends TabPageBase {
                 },
                 handleData: metaData,
                 items: [
+                  {
+                    key: 'showUpdateDebugUserDrawer',
+                    icon: iconBuilder.edit(),
+                    text: '配置本流程指定调试发起人',
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflow.setDebugUserId.permission,
+                    ),
+                  },
                   {
                     key: 'showUpdateDebugUserModeModal',
                     icon: iconBuilder.edit(),
@@ -705,7 +759,7 @@ class DebugCaseInfo extends TabPageBase {
             {
               lg: 24,
               type: cardConfig.contentItemType.divider,
-              text: '配置信息',
+              text: '以下为配置信息',
               innerProps: {
                 style: {
                   margin: '20px 0',
@@ -817,6 +871,16 @@ class DebugCaseInfo extends TabPageBase {
               },
             },
           ],
+          instruction: {
+            title: '局部操作说明',
+            showDivider: false,
+            showNumber: true,
+            list: [
+              {
+                text: '流程调试模式提交人信息, 将根据当前的流程调试提交人模式判断显示 "全局测试提交人/流程特定测试提交人".',
+              },
+            ],
+          },
         },
         {
           title: {
@@ -1245,6 +1309,61 @@ class DebugCaseInfo extends TabPageBase {
                       flowCaseNextProcessNotificationIdName:
                         fieldDataWorkflowDebugCaseNextProcessNotification
                           .workflowDebugCaseNextProcessNotificationId.name,
+                      operationBuilder: (v, o) => {
+                        return buildDropdown({
+                          size: 'small',
+                          text: '查看',
+                          icon: iconBuilder.read(),
+                          disabled: !checkHasAuthority(
+                            accessWayCollection.workflow.get.permission,
+                          ),
+                          handleButtonClick: ({ handleData }) => {
+                            this.showWorkflowDebugCaseNextProcessNotificationPreviewDrawer(
+                              handleData,
+                            );
+                          },
+                          handleData: o,
+                          handleMenuClick: ({ key, handleData }) => {
+                            switch (key) {
+                              case 'sendNextProcessNotification': {
+                                this.sendNextProcessNotification(handleData);
+                                break;
+                              }
+
+                              case 'refreshCache': {
+                                this.refreshNextProcessNotificationCache(
+                                  handleData,
+                                );
+                                break;
+                              }
+
+                              default: {
+                                showSimpleErrorMessage(
+                                  'can not find matched key',
+                                );
+                                break;
+                              }
+                            }
+                          },
+                          items: [
+                            {
+                              key: 'sendNextProcessNotification',
+                              icon: iconBuilder.message(),
+                              text: '发送短信通知',
+                            },
+                            {
+                              type: dropdownExpandItemType.divider,
+                            },
+                            {
+                              key: 'refreshNextProcessNotificationCache',
+                              icon: iconBuilder.reload(),
+                              text: '刷新缓存',
+                              confirm: true,
+                              title: '将要刷新缓存，确定吗？',
+                            },
+                          ],
+                        });
+                      },
                     })}
                     size="small"
                     dataSource={listNextProcessNotification}
@@ -1256,6 +1375,19 @@ class DebugCaseInfo extends TabPageBase {
               ),
             },
           ],
+          instruction: {
+            title: '通知说明',
+            showDivider: false,
+            showNumber: true,
+            list: [
+              {
+                text: '一般通知的文本将基于配置的模板生成, 如未配置模板, 显示的通知内容可能未符合预期.',
+              },
+              {
+                text: '短信通知的文本将基于短信类别中的模板生成, 如未配置模板, 显示的通知内容可能未符合预期.',
+              },
+            ],
+          },
         },
         {
           title: {
@@ -1287,6 +1419,16 @@ class DebugCaseInfo extends TabPageBase {
               ),
             },
           ],
+          instruction: {
+            title: '通知说明',
+            showDivider: false,
+            showNumber: true,
+            list: [
+              {
+                text: '抄送通知的文本将基于配置的模板生成',
+              },
+            ],
+          },
         },
       ],
     };
@@ -1310,7 +1452,8 @@ class DebugCaseInfo extends TabPageBase {
   };
 
   renderPresetOther = () => {
-    const { metaData, listApprove } = this.state;
+    const { metaData, listApprove, currentNextProcessNotification } =
+      this.state;
 
     const { nextApproveWorkflowNode } = {
       nextApproveWorkflowNode: null,
@@ -1395,6 +1538,11 @@ class DebugCaseInfo extends TabPageBase {
           }}
         />
 
+        <WorkflowDebugCaseNextProcessNotificationPreviewDrawer
+          maskClosable
+          externalData={currentNextProcessNotification}
+        />
+
         <UpdateDebugApproverModeModal
           externalData={metaData}
           afterOK={() => {
@@ -1406,6 +1554,13 @@ class DebugCaseInfo extends TabPageBase {
           externalData={metaData}
           afterOK={() => {
             this.afterUpdateDebugUserModeModalOK();
+          }}
+        />
+
+        <UpdateDebugUserDrawer
+          externalData={metaData}
+          afterOK={() => {
+            this.afterUpdateDebugUserDrawerOK();
           }}
         />
 

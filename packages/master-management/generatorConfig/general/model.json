@@ -4840,6 +4840,13 @@
           "type": "singleData"
         },
         {
+          "title": "设置短信模板",
+          "api": "/workflow/setSmsTemplate",
+          "effect": "setSmsTemplate",
+          "service": "setSmsTemplateData",
+          "type": "singleData"
+        },
+        {
           "title": "设置流程测试审批人模式",
           "api": "/workflow/setDebugApproverMode",
           "effect": "setDebugApproverMode",
@@ -5337,6 +5344,13 @@
           "type": "singleData"
         },
         {
+          "title": "发送通知",
+          "api": "/workflowCaseNextProcessNotification/sendNotification",
+          "effect": "sendNotification",
+          "service": "sendNotificationData",
+          "type": "singleData"
+        },
+        {
           "title": "刷新缓存",
           "api": "/workflowCaseNextProcessNotification/refreshCache",
           "effect": "refreshCache",
@@ -5726,6 +5740,13 @@
           "api": "/workflowDebugCaseNextProcessNotification/get",
           "effect": "get",
           "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "发送通知",
+          "api": "/workflowDebugCaseNextProcessNotification/sendNotification",
+          "effect": "sendNotification",
+          "service": "sendNotificationData",
           "type": "singleData"
         },
         {

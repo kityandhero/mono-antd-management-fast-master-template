@@ -175,6 +175,16 @@ class BaseFlowCaseNextProcessNotificationPreviewDrawer extends BaseVerticalFlexD
                 }),
               },
               {
+                span: 2,
+                label:
+                  fieldDataFlowCaseNextProcessNotification.smsContent.label,
+                value: getValueByKey({
+                  data: metaData,
+                  key: fieldDataFlowCaseNextProcessNotification.smsContent.name,
+                  convert: convertCollection.string,
+                }),
+              },
+              {
                 span: 1,
                 label:
                   fieldDataFlowCaseNextProcessNotification.whetherSendNote

@@ -38,7 +38,10 @@ class UserSelectModalField extends BaseSelectFieldExtra {
   };
 
   renderPresetSelector = () => {
-    const { label } = this.props;
+    const { label } = {
+      label: '',
+      ...this.props,
+    };
 
     return (
       <PageListModal
@@ -49,9 +52,5 @@ class UserSelectModalField extends BaseSelectFieldExtra {
     );
   };
 }
-
-UserSelectModalField.defaultProps = {
-  ...BaseSelectFieldExtra.defaultProps,
-};
 
 export { UserSelectModalField };

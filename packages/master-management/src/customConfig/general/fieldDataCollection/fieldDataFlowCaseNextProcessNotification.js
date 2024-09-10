@@ -50,6 +50,11 @@ export const fieldDataFlowCaseNextProcessNotification = {
     name: 'content',
     helper: '',
   },
+  smsContent: {
+    label: '短信通知内容',
+    name: 'smsContent',
+    helper: '',
+  },
   whetherSend: {
     label: '是否发送',
     name: 'whetherSend',

@@ -29,7 +29,11 @@ class SelectField extends BaseSelectFieldExtra {
   };
 
   renderSelectModal = () => {
-    const { label, externalData } = this.props;
+    const { label, externalData } = {
+      label: '选择应用',
+      externalData: {},
+      ...this.props,
+    };
 
     return (
       <SelectModal
@@ -40,10 +44,5 @@ class SelectField extends BaseSelectFieldExtra {
     );
   };
 }
-
-SelectField.defaultProps = {
-  ...BaseSelectFieldExtra.defaultProps,
-  label: '选择应用',
-};
 
 export default SelectField;

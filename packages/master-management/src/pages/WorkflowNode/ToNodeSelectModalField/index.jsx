@@ -23,7 +23,13 @@ class ToNodeSelectModalField extends BaseSelectFieldExtra {
   };
 
   renderPresetSelector = () => {
-    const { label, helper, labelWidth, externalData } = this.props;
+    const { label, helper, labelWidth, externalData } = {
+      label: '',
+      helper: '',
+      labelWidth: 100,
+      externalData: {},
+      ...this.props,
+    };
 
     return (
       <ToNodeSelectModal
@@ -36,10 +42,5 @@ class ToNodeSelectModalField extends BaseSelectFieldExtra {
     );
   };
 }
-
-ToNodeSelectModalField.defaultProps = {
-  ...BaseSelectFieldExtra.defaultProps,
-  externalData: {},
-};
 
 export { ToNodeSelectModalField };

@@ -30,7 +30,10 @@ class ApplicationSelectDrawerField extends BaseSelectFieldExtra {
   };
 
   renderPresetSelector = () => {
-    const { label } = this.props;
+    const { label } = {
+      label: '选择应用',
+      ...this.props,
+    };
 
     return (
       <PageListSelectDrawer
@@ -41,10 +44,5 @@ class ApplicationSelectDrawerField extends BaseSelectFieldExtra {
     );
   };
 }
-
-ApplicationSelectDrawerField.defaultProps = {
-  ...BaseSelectFieldExtra.defaultProps,
-  label: '选择应用',
-};
 
 export { ApplicationSelectDrawerField };

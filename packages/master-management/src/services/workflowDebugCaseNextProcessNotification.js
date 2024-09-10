@@ -30,6 +30,16 @@ export async function getData(parameters) {
   });
 }
 
+export const sendNotificationDataApiAddress =
+  '/workflowDebugCaseNextProcessNotification/sendNotification';
+
+export async function sendNotificationData(parameters) {
+  return request({
+    api: sendNotificationDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const refreshCacheDataApiAddress =
   '/workflowDebugCaseNextProcessNotification/refreshCache';
 

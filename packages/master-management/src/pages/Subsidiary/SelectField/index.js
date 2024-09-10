@@ -30,7 +30,10 @@ class SubsidiarySelectField extends BaseSelectFieldExtra {
   };
 
   renderPresetSelector = () => {
-    const { label } = this.props;
+    const { label } = {
+      label: '',
+      ...this.props,
+    };
 
     return (
       <PageListDrawer
@@ -41,9 +44,5 @@ class SubsidiarySelectField extends BaseSelectFieldExtra {
     );
   };
 }
-
-SubsidiarySelectField.defaultProps = {
-  ...BaseSelectFieldExtra.defaultProps,
-};
 
 export { SubsidiarySelectField };

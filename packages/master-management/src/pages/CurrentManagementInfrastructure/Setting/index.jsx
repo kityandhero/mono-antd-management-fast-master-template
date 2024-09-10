@@ -143,7 +143,7 @@ class Setting extends DataTabContainer {
           handleData: metaData,
         },
         {
-          key: 'refreshMetaData',
+          key: 'refreshAllCache',
           text: '刷新全部基础配置缓存',
           icon: iconBuilder.redo(),
           handleButtonClick: () => {

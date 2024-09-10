@@ -16,13 +16,13 @@ import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
 
-const visibleFlag = '7509d347a3ed476a918ee23e35bd00bf';
+const visibleFlag = '0909994f6a9147b6a9ccc0e7be854cb4';
 
 @connect(({ workflow, schedulingControl }) => ({
   workflow,
   schedulingControl,
 }))
-class SetCaseNameTemplateDrawer extends BaseUpdateDrawer {
+class SetSmsTemplateDrawer extends BaseUpdateDrawer {
   static open() {
     switchControlAssist.open(visibleFlag);
   }
@@ -32,10 +32,9 @@ class SetCaseNameTemplateDrawer extends BaseUpdateDrawer {
 
     this.state = {
       ...this.state,
-      pageTitle: '设置实例名模板',
+      pageTitle: '设置短信通知模板',
       loadApiPath: modelTypeCollection.workflowTypeCollection.get,
-      submitApiPath:
-        modelTypeCollection.workflowTypeCollection.setCaseNameTemplate,
+      submitApiPath: modelTypeCollection.workflowTypeCollection.setSmsTemplate,
       dataSchemaList: [],
     };
   }
@@ -122,9 +121,9 @@ class SetCaseNameTemplateDrawer extends BaseUpdateDrawer {
     const values = {};
 
     if (metaData != null) {
-      values[fieldData.caseNameTemplate.name] = getValueByKey({
+      values[fieldData.smsTemplate.name] = getValueByKey({
         data: metaData,
-        key: fieldData.caseNameTemplate.name,
+        key: fieldData.smsTemplate.name,
         convert: convertCollection.string,
       });
     }
@@ -142,7 +141,7 @@ class SetCaseNameTemplateDrawer extends BaseUpdateDrawer {
             {
               lg: 18,
               type: cardConfig.contentItemType.textarea,
-              fieldData: fieldData.caseNameTemplate,
+              fieldData: fieldData.smsTemplate,
               require: true,
             },
           ],
@@ -189,4 +188,4 @@ class SetCaseNameTemplateDrawer extends BaseUpdateDrawer {
   };
 }
 
-export { SetCaseNameTemplateDrawer };
+export { SetSmsTemplateDrawer };

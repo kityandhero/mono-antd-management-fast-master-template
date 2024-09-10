@@ -25,7 +25,11 @@ class ToNodeSelectDrawerField extends BaseSelectFieldExtra {
   };
 
   renderPresetSelector = () => {
-    const { label, externalData } = this.props;
+    const { label, externalData } = {
+      label: '',
+      externalData: {},
+      ...this.props,
+    };
 
     return (
       <ToNodePageListSelectDrawer
@@ -37,10 +41,5 @@ class ToNodeSelectDrawerField extends BaseSelectFieldExtra {
     );
   };
 }
-
-ToNodeSelectDrawerField.defaultProps = {
-  ...BaseSelectFieldExtra.defaultProps,
-  externalData: {},
-};
 
 export { ToNodeSelectDrawerField };

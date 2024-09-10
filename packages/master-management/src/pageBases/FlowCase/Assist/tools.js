@@ -5,6 +5,7 @@ import {
   getValueByKey,
   isArray,
   isEmptyObject,
+  isFunction,
   toLowerFirst,
 } from 'easy-soft-utility';
 
@@ -116,6 +117,7 @@ export function buildColumnsNextProcessApprove({
 export function buildColumnsNextProcessNotification({
   flowCaseNextProcessNotificationIdLabel,
   flowCaseNextProcessNotificationIdName,
+  operationBuilder = null,
 }) {
   return [
     {
@@ -188,12 +190,24 @@ export function buildColumnsNextProcessNotification({
       ellipsis: true,
       width: '160px',
     },
+    ...(isFunction(operationBuilder)
+      ? [
+          {
+            title: '操作',
+            key: 'operationNotification',
+            width: '120px',
+            align: 'center',
+            render: (v, o, index) => <>{operationBuilder(v, o, index)}</>,
+          },
+        ]
+      : []),
   ];
 }
 
 export function buildColumnsCarbonCopyNotification({
   flowCaseCarbonCopyNotificationIdLabel,
   flowCaseCarbonCopyNotificationIdName,
+  operationBuilder = null,
 }) {
   return [
     {
@@ -249,6 +263,17 @@ export function buildColumnsCarbonCopyNotification({
       ellipsis: true,
       width: '160px',
     },
+    ...(isFunction(operationBuilder)
+      ? [
+          {
+            title: '操作',
+            key: 'operationNotification',
+            width: '120px',
+            align: 'center',
+            render: (v, o, index) => <>{operationBuilder(v, o, index)}</>,
+          },
+        ]
+      : []),
   ];
 }
 

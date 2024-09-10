@@ -38,7 +38,10 @@ class PositionGradeSelectModalField extends BaseSelectFieldExtra {
   };
 
   renderPresetSelector = () => {
-    const { label } = this.props;
+    const { label } = {
+      label: '',
+      ...this.props,
+    };
 
     return (
       <PageListModal
@@ -49,9 +52,5 @@ class PositionGradeSelectModalField extends BaseSelectFieldExtra {
     );
   };
 }
-
-PositionGradeSelectModalField.defaultProps = {
-  ...BaseSelectFieldExtra.defaultProps,
-};
 
 export { PositionGradeSelectModalField };

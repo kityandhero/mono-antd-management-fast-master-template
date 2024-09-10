@@ -40,6 +40,11 @@ export const fieldDataFlow = {
     name: 'caseNameTemplate',
     helper: '设置实例名模板, 示例: {flowName} 事由{reason}',
   },
+  smsTemplate: {
+    label: '短信通知模版 ',
+    name: 'smsTemplate',
+    helper: '设置短信通知模版, 示例: {flowName} 事由{reason}',
+  },
   scope: {
     label: '应用范围',
     name: 'scope',
@@ -81,23 +86,33 @@ export const fieldDataFlow = {
     helper: '',
   },
   debugUserMode: {
-    label: '调试申请人模式',
+    label: '调试发起人模式',
     name: 'debugUserMode',
     helper: '',
   },
   debugUserModeNote: {
-    label: '调试申请人模式',
+    label: '调试发起人模式',
     name: 'debugUserModeNote',
     helper: '',
   },
   debugUserId: {
-    label: '调试申请人标识',
+    label: '调试发起人标识',
     name: 'debugUserId',
     helper: '',
   },
   debugUserRealName: {
-    label: '调试申请人名称',
+    label: '调试发起人名称',
     name: 'debugUserRealName',
+    helper: '',
+  },
+  globalDebugUserId: {
+    label: '全局调试人标识',
+    name: 'globalDebugUserId',
+    helper: '',
+  },
+  globalDebugUserRealName: {
+    label: '全局调试人名称',
+    name: 'globalDebugUserRealName',
     helper: '',
   },
   whetherAllowMultibranch: {
