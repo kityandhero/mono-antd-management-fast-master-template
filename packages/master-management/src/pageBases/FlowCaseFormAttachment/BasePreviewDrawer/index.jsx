@@ -6,6 +6,7 @@ import {
   convertCollection,
   formatCollection,
   getValueByKey,
+  toLower,
   whetherNumber,
 } from 'easy-soft-utility';
 
@@ -13,6 +14,7 @@ import {
   buildCustomGrid,
   buildPlayer,
   FrameBox,
+  ImageBox,
 } from 'antd-management-fast-component';
 import { DataDrawer } from 'antd-management-fast-framework';
 
@@ -87,6 +89,12 @@ class BasePreviewDrawer extends BaseVerticalFlexDrawer {
       convert: convertCollection.number,
     });
 
+    const suffix = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCaseFormAttachment.suffix.name,
+      defaultValue: '',
+    });
+
     const url = getValueByKey({
       data: metaData,
       key: fieldDataFlowCaseFormAttachment.url.name,
@@ -113,6 +121,21 @@ class BasePreviewDrawer extends BaseVerticalFlexDrawer {
 
     if (isMedia) {
       return buildPlayer({ url: url });
+    }
+
+    if (checkInCollection(['jpeg', 'jpg', 'png', 'gif'], toLower(suffix))) {
+      return (
+        <div
+          style={{
+            // width: '100%',
+            padding: '20px',
+            height: '100%',
+            overflow: 'auto',
+          }}
+        >
+          <ImageBox fillHeight={false} showMode="contentImage" src={url} />
+        </div>
+      );
     }
 
     if (existPdf === whetherNumber.yes) {

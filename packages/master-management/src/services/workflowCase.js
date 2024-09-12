@@ -36,6 +36,15 @@ export async function getChainData(parameters) {
   });
 }
 
+export const updateBasicInfoDataApiAddress = '/workflowCase/updateBasicInfo';
+
+export async function updateBasicInfoData(parameters) {
+  return request({
+    api: updateBasicInfoDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const openCancelApproveSwitchDataApiAddress =
   '/workflowCase/openCancelApproveSwitch';
 

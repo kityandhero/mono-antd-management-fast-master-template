@@ -23,6 +23,10 @@ const { MultiPageSelectDrawer } = DataMultiPageView;
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = '8665a0a50bd34449959f28b883cbc81d';
 
+const defaultProperties = {
+  searchParams: {},
+};
+
 @connect(({ department, schedulingControl }) => ({
   department,
   schedulingControl,
@@ -51,7 +55,10 @@ class PageListDrawer extends MultiPageSelectDrawer {
 
   supplementLoadRequestParams = (o) => {
     const d = o;
-    const { searchParams } = this.props;
+    const { searchParams } = {
+      ...defaultProperties,
+      ...this.props,
+    };
 
     return { ...searchParams, ...d };
   };
@@ -162,9 +169,5 @@ class PageListDrawer extends MultiPageSelectDrawer {
     },
   ];
 }
-
-PageListDrawer.defaultProps = {
-  searchParams: {},
-};
 
 export default PageListDrawer;

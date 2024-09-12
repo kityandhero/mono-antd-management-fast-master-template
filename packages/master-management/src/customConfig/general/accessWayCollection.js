@@ -3169,6 +3169,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '99a569fc0939334883f30c4d15271526',
       permission: '51a8a28fd6224c9993ce12459c065e56',
     },
+    updateBasicInfo: {
+      title: '编辑基本信息',
+      paramsKey: 'de50f43678789592f29822a691c9b000',
+      permission: 'f950d65e12bf42c19f70d0bfecaeb6e7',
+    },
     openCancelApproveSwitch: {
       title: '开启撤销审批功能',
       paramsKey: 'e035729a5532c2ce37d84af68cc05b0a',

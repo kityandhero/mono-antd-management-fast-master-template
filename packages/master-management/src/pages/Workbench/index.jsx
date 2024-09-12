@@ -225,6 +225,8 @@ class Index extends MultiPage {
       defaultValue: '--',
     });
 
+    console.log(currentOperator);
+
     return {
       component: <PageHeaderContent avatar={avatar} name={name} />,
     };

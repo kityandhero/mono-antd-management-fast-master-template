@@ -18,6 +18,11 @@ const { SinglePageDrawer } = DataSinglePageView;
 
 const visibleFlag = '7cd0d274f58d4ad3be758d32a4d1b3d3';
 
+// const defaultProperties = {
+//   placement: 'left',
+//   width: 880,
+// };
+
 @connect(({ accessWay, schedulingControl }) => ({
   accessWay,
   schedulingControl,
@@ -99,9 +104,9 @@ class AccessWayCollectionPreviewDrawer extends SinglePageDrawer {
   };
 }
 
-AccessWayCollectionPreviewDrawer.defaultProps = {
-  placement: 'left',
-  width: 880,
-};
+// AccessWayCollectionPreviewDrawer.defaultProps = {
+//   placement: 'left',
+//   width: 880,
+// };
 
 export default AccessWayCollectionPreviewDrawer;

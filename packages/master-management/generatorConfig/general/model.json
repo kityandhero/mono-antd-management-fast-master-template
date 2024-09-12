@@ -5134,6 +5134,13 @@
           "type": "singleData"
         },
         {
+          "title": "编辑基本信息",
+          "api": "/workflowCase/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
           "title": "开启撤销审批功能",
           "api": "/workflowCase/openCancelApproveSwitch",
           "effect": "openCancelApproveSwitch",

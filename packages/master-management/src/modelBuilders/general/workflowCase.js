@@ -20,6 +20,7 @@ import {
   pageListUnderwayData,
   refreshCacheData,
   removeData,
+  updateBasicInfoData,
 } from '../../services/workflowCase';
 
 export const workflowCaseTypeCollection = {
@@ -27,6 +28,7 @@ export const workflowCaseTypeCollection = {
   pageListUnderway: 'workflowCase/pageListUnderway',
   get: 'workflowCase/get',
   getChain: 'workflowCase/getChain',
+  updateBasicInfo: 'workflowCase/updateBasicInfo',
   openCancelApproveSwitch: 'workflowCase/openCancelApproveSwitch',
   closeCancelApproveSwitch: 'workflowCase/closeCancelApproveSwitch',
   openResetAllApproveSwitch: 'workflowCase/openResetAllApproveSwitch',
@@ -134,6 +136,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(getChainData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *updateBasicInfo(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(updateBasicInfoData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

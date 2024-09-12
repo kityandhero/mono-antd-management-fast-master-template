@@ -9,6 +9,7 @@ import { iconBuilder } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
 import { buildUpdateTimeAndOperatorFieldItem } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
@@ -18,15 +19,18 @@ import { TabPageBase } from '../../TabPageBase';
   schedulingControl,
 }))
 class BasicInfo extends TabPageBase {
+  reloadHeaderOnSubmitSuccess = true;
+
   componentAuthority = accessWayCollection.workflowCase.get.permission;
 
   constructor(properties) {
     super(properties);
-
+    modelTypeCollection;
     this.state = {
       ...this.state,
-      loadApiPath: 'workflowCase/get',
-      submitApiPath: 'workflowCase/updateBasicInfo',
+      loadApiPath: modelTypeCollection.workflowCaseTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.workflowCaseTypeCollection.updateBasicInfo,
       workflowCaseId: null,
     };
   }
@@ -99,7 +103,7 @@ class BasicInfo extends TabPageBase {
           },
           items: [
             {
-              lg: 18,
+              lg: 24,
               type: cardConfig.contentItemType.input,
               fieldData: fieldData.title,
               require: true,
