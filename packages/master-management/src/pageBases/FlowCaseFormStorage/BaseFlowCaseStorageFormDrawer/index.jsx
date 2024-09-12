@@ -584,11 +584,17 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
         ellipsis: true,
         align: 'center',
       },
-
       {
         title: fieldDataFlowCaseFormStorage.calculatedValue.label,
         dataIndex: fieldDataFlowCaseFormStorage.calculatedValue.name,
         key: fieldDataFlowCaseFormStorage.calculatedValue.name,
+        ellipsis: true,
+        align: 'center',
+      },
+      {
+        title: fieldDataFlowCaseFormStorage.displayValue.label,
+        dataIndex: fieldDataFlowCaseFormStorage.displayValue.name,
+        key: fieldDataFlowCaseFormStorage.displayValue.name,
         ellipsis: true,
         align: 'center',
       },

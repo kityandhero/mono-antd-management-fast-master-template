@@ -31,9 +31,9 @@ export const fieldDataFlowCaseFormStorage = {
     helper: '键名',
   },
   value: {
-    label: '键值',
+    label: '原始值',
     name: 'value',
-    helper: '键值',
+    helper: '',
   },
   valueType: {
     label: '值类型',
@@ -43,6 +43,11 @@ export const fieldDataFlowCaseFormStorage = {
   calculatedValue: {
     label: '计算值',
     name: 'calculatedValue',
+    helper: '',
+  },
+  displayValue: {
+    label: '显示值',
+    name: 'displayValue',
     helper: '',
   },
   status: {

@@ -24,6 +24,11 @@ export function getStatusBadge(status) {
       break;
     }
 
+    case flowCaseStatusCollection.success: {
+      result = 'success';
+      break;
+    }
+
     default: {
       result = 'default';
       break;
