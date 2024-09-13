@@ -176,6 +176,11 @@ export const fieldData = {
     name: 'defaultCityTreeCityNodeVisibility',
     helper: '即是否使用默认的地区节点包裹子元素',
   },
+  flowApproveTimeWhetherDisplayTime: {
+    label: '流程审批时间是否显示时分秒',
+    name: 'flowApproveTimeWhetherDisplayTime',
+    helper: '',
+  },
   flowApplicantStatementTitleTemplate: {
     label: '申请陈述标题模板',
     name: 'flowApplicantStatementTitleTemplate',

@@ -4,6 +4,7 @@ import {
   checkStringIsNullOrWhiteSpace,
   convertCollection,
   getValueByKey,
+  whetherNumber,
 } from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
@@ -260,6 +261,43 @@ class Index extends TabPageBase {
                 },
               ],
             },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
+            text: '流程审批时间显示',
+          },
+          hasExtra: true,
+          extra: {
+            affix: true,
+            list: [
+              {
+                buildType: cardConfig.extraBuildType.refresh,
+              },
+            ],
+          },
+          items: [
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.flowApproveTimeWhetherDisplayTime,
+              editMode: keyValueEditModeCollection.whether,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              value: getValueByKey({
+                data: metaData,
+                key: fieldData.flowApproveTimeWhetherDisplayTime.name,
+                convert: convertCollection.number,
+                formatBuilder: (v) => {
+                  return v === whetherNumber.yes ? '显示' : '不显示';
+                },
+              }),
+              inputIcon: iconBuilder.swap(),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
           ],
         },
         {
