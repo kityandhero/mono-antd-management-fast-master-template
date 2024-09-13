@@ -145,7 +145,7 @@ class SetAttentionStatementDrawer extends BaseUpdateDrawer {
             }),
         time: formatDatetime({
           data: getNow(),
-          format: datetimeFormat.monthDayHourMinuteSecond,
+          format: datetimeFormat.yearMonthDay,
         }),
       },
     ];

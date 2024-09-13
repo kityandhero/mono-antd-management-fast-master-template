@@ -191,6 +191,11 @@ const fieldExtraData = {
     name: 'applicantUserSignet',
     helper: '',
   },
+  applicantTime: {
+    label: '申请人时间',
+    name: 'applicantTime',
+    helper: '',
+  },
   attentionSignSwitch: {
     label: '经办人签名开关',
     name: 'attentionSignSwitch',
@@ -209,6 +214,11 @@ const fieldExtraData = {
   attentionUserSignet: {
     label: '经办人签章',
     name: 'attentionUserSignet',
+    helper: '',
+  },
+  attentionTime: {
+    label: '经办人时间',
+    name: 'attentionTime',
     helper: '',
   },
 };

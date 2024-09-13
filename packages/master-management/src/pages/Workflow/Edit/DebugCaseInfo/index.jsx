@@ -1631,7 +1631,7 @@ class DebugCaseInfo extends TabPageBase {
             }),
         time: getValueByKey({
           data: metaData,
-          key: fieldData.lastSubmitApprovalTime.name,
+          key: fieldData.applicantTime.name,
           convert: convertCollection.string,
         }),
       },
@@ -1651,7 +1651,7 @@ class DebugCaseInfo extends TabPageBase {
             }),
         time: getValueByKey({
           data: metaData,
-          key: fieldData.lastSubmitApprovalTime.name,
+          key: fieldData.attentionTime.name,
           convert: convertCollection.string,
         }),
       },

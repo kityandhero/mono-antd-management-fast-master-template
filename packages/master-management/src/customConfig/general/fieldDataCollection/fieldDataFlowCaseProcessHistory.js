@@ -6,6 +6,11 @@ const fieldExtraData = {
     name: 'flowCaseTitle',
     helper: '',
   },
+  approveTime: {
+    label: '审批时间',
+    name: 'approveTime',
+    helper: '',
+  },
 };
 
 export const fieldDataFlowCaseProcessHistory = {

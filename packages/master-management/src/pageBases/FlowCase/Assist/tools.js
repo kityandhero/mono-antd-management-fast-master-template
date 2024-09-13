@@ -472,13 +472,13 @@ function adjustFlowCaseDataItemToState({
       approveWorkflowNodeName,
       approveUserName,
       approveUserSignet,
-      createTime,
+      approveTime,
     } = {
       approveWorkflowNodeName: '',
       note: '',
       approveUserName: '张三',
       approveUserSignet: '',
-      createTime: '',
+      approveTime: '',
       ...o,
     };
 
@@ -488,7 +488,7 @@ function adjustFlowCaseDataItemToState({
       note: note || '未填写',
       name: approveUserName,
       signet: approveUserSignet || emptySignet,
-      time: createTime,
+      time: approveTime,
     };
   });
 

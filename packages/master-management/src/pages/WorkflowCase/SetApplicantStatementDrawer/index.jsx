@@ -131,7 +131,7 @@ class SetApplicantStatementDrawer extends BaseUpdateDrawer {
         signet: emptySignet,
         time: formatDatetime({
           data: getNow(),
-          format: datetimeFormat.monthDayHourMinuteSecond,
+          format: datetimeFormat.yearMonthDay,
         }),
       },
     ];
