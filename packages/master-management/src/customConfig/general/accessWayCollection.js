@@ -2973,6 +2973,31 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'e73209fe91b885f2d08820d43cf594e8',
       permission: '01bf3d1613874dc09bd17d37030d1636',
     },
+    toggleApplicantSignSwitch: {
+      title: '切换申请签名显示开关',
+      paramsKey: '2af18b284981b502d2968170507cde62',
+      permission: 'e78121674eda4b599383873341df222a',
+    },
+    setDefaultApplicantStatement: {
+      title: '设置默认申请陈述',
+      paramsKey: 'fb4b0bbdc2518d97ad3ba3326940da6d',
+      permission: '144e144418304f24b9d81cfff15a2dba',
+    },
+    toggleAttentionSignSwitch: {
+      title: '切换经办签名显示开关',
+      paramsKey: 'efdf9ceec60f05330dd080a12ea52971',
+      permission: 'eb020733397b43cf8206d5d401d8268f',
+    },
+    setDefaultAttentionUser: {
+      title: '设置默认经办人',
+      paramsKey: '7eb0cae56a988067233c75db67b2f95a',
+      permission: 'fb277440e5cf444d807cf79e5e05dbd7',
+    },
+    setDefaultAttentionStatement: {
+      title: '设置默认经办陈述',
+      paramsKey: '3e6be944b8f509c2f028486f20af96a1',
+      permission: '6d63f0e5e1a94879b1a636155f2b5035',
+    },
     setDebugApproverMode: {
       title: '设置流程测试审批人模式',
       paramsKey: '58b6c5f2b071272fdcaa4fc3ef42d8a7',
@@ -3173,6 +3198,21 @@ export const accessWayInfrastructureCollection = {
       title: '编辑基本信息',
       paramsKey: 'de50f43678789592f29822a691c9b000',
       permission: 'f950d65e12bf42c19f70d0bfecaeb6e7',
+    },
+    setApplicantStatement: {
+      title: '设置申请陈述',
+      paramsKey: '0fcdd3ef8ff4b681c69ea50d66512607',
+      permission: '38661576890945bfa204881e16a01b8b',
+    },
+    setAttentionUser: {
+      title: '设置经办人',
+      paramsKey: '2bc378fec74668cd1a6b40e4591ad41f',
+      permission: 'c1017190fdb74dc1a1ec4dafa5ca8049',
+    },
+    setAttentionStatement: {
+      title: '设置经办陈述',
+      paramsKey: 'd7a053b2f156a0dad2482e4b14bee757',
+      permission: '7e704f58453f4b129960cf655c3fbe96',
     },
     openCancelApproveSwitch: {
       title: '开启撤销审批功能',
@@ -3407,6 +3447,21 @@ export const accessWayInfrastructureCollection = {
       title: '更新流程测试实例',
       paramsKey: '6c8e55087a124f9888f8d0a3ea2a294f',
       permission: 'c9d58aadf7874c98ba1cd98b47ebe711',
+    },
+    setApplicantStatement: {
+      title: '设置申请陈述',
+      paramsKey: '1f15745abc6c1cd35f44b9d398cb616f',
+      permission: '1de2971c657545f9b162e22bbee4affe',
+    },
+    setAttentionUser: {
+      title: '设置经办人',
+      paramsKey: 'f3bacb8d530009ad3daa4a7b6c4afc77',
+      permission: '8e1322f7d485406ab9d622729aff9eaf',
+    },
+    setAttentionStatement: {
+      title: '设置经办陈述',
+      paramsKey: 'd1fcb0d48e45434a7e55e05283ea1da7',
+      permission: 'af4e96aece934f4bb182cf6c6d5fe261',
     },
     submitForm: {
       title: '提交表单信息',

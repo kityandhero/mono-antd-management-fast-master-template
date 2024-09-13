@@ -8,6 +8,7 @@ import {
 } from 'easy-soft-utility';
 
 import {
+  dropdownExpandItemType,
   getDerivedStateFromPropertiesForUrlParameters,
   tabBarCollection,
 } from 'antd-management-fast-common';
@@ -35,6 +36,9 @@ import {
   parseUrlParametersForSetState,
 } from '../Assist/config';
 import { fieldData } from '../Common/data';
+import { SetApplicantStatementDrawer } from '../SetApplicantStatementDrawer';
+import { SetAttentionStatementDrawer } from '../SetAttentionStatementDrawer';
+import { SetAttentionUserDrawer } from '../SetAttentionUserDrawer';
 
 @connect(({ workflowCase, schedulingControl }) => ({
   workflowCase,
@@ -189,6 +193,30 @@ class Detail extends DataTabContainerSupplement {
     });
   };
 
+  showSetApplicantStatementDrawer = () => {
+    SetApplicantStatementDrawer.open();
+  };
+
+  afterSetApplicantStatementDrawerOk = () => {
+    this.reloadData({});
+  };
+
+  showSetAttentionUserDrawer = () => {
+    SetAttentionUserDrawer.open();
+  };
+
+  afterSetAttentionUserDrawerOk = () => {
+    this.reloadData({});
+  };
+
+  showSetAttentionStatementDrawer = () => {
+    SetAttentionStatementDrawer.open();
+  };
+
+  afterSetAttentionStatementDrawerOk = () => {
+    this.reloadData({});
+  };
+
   showFlowDisplayDrawer = () => {
     FlowDisplayDrawer.open();
   };
@@ -207,6 +235,39 @@ class Detail extends DataTabContainerSupplement {
 
   establishPageHeaderTitlePrefix = () => {
     return '流程实例';
+  };
+
+  establishPageHeaderTagCollectionConfig = () => {
+    const { metaData } = this.state;
+
+    if ((metaData || null) == null) {
+      return null;
+    }
+
+    const applicantSignSwitch = getValueByKey({
+      data: metaData,
+      key: fieldData.applicantSignSwitch.name,
+      convert: convertCollection.number,
+    });
+
+    const attentionSignSwitch = getValueByKey({
+      data: metaData,
+      key: fieldData.attentionSignSwitch.name,
+      convert: convertCollection.number,
+    });
+
+    return [
+      {
+        color: 'blue',
+        text: '申请人签字',
+        hidden: applicantSignSwitch !== whetherNumber.yes,
+      },
+      {
+        color: 'yellow',
+        text: '经办人签字',
+        hidden: attentionSignSwitch !== whetherNumber.yes,
+      },
+    ];
   };
 
   establishTabBarExtraContentRightConfig = () => {
@@ -371,10 +432,37 @@ class Detail extends DataTabContainerSupplement {
 
     const that = this;
 
+    const applicantSignSwitch = getValueByKey({
+      data: metaData,
+      key: fieldData.applicantSignSwitch.name,
+      convert: convertCollection.number,
+    });
+
+    const attentionSignSwitch = getValueByKey({
+      data: metaData,
+      key: fieldData.attentionSignSwitch.name,
+      convert: convertCollection.number,
+    });
+
     return {
       disabled: this.checkInProgress(),
       handleMenuClick: ({ key, handleData }) => {
         switch (key) {
+          case 'showSetApplicantStatementDrawer': {
+            that.showSetApplicantStatementDrawer(handleData);
+            break;
+          }
+
+          case 'showSetAttentionUserDrawer': {
+            that.showSetAttentionUserDrawer(handleData);
+            break;
+          }
+
+          case 'showSetAttentionStatementDrawer': {
+            that.showSetAttentionStatementDrawer(handleData);
+            break;
+          }
+
           case 'refreshCache': {
             that.refreshCache(handleData);
             break;
@@ -388,6 +476,41 @@ class Detail extends DataTabContainerSupplement {
       },
       handleData: metaData,
       items: [
+        {
+          key: 'showSetApplicantStatementDrawer',
+          icon: iconBuilder.edit(),
+          text: `申请人签名配置`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowDebugCase.setApplicantStatement
+              .permission,
+          ),
+          disabled: applicantSignSwitch !== whetherNumber.yes,
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'showSetAttentionUserDrawer',
+          icon: iconBuilder.edit(),
+          text: `经办人配置`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowDebugCase.setAttentionUser.permission,
+          ),
+          disabled: attentionSignSwitch !== whetherNumber.yes,
+        },
+        {
+          key: 'showSetAttentionStatementDrawer',
+          icon: iconBuilder.edit(),
+          text: `经办人签名配置`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowDebugCase.setAttentionStatement
+              .permission,
+          ),
+          disabled: attentionSignSwitch !== whetherNumber.yes,
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
         {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
@@ -478,6 +601,27 @@ class Detail extends DataTabContainerSupplement {
 
     return (
       <>
+        <SetApplicantStatementDrawer
+          externalData={metaData}
+          afterOK={() => {
+            this.afterSetApplicantStatementDrawerOk();
+          }}
+        />
+
+        <SetAttentionUserDrawer
+          externalData={metaData}
+          afterOK={() => {
+            this.afterSetAttentionUserDrawerOk();
+          }}
+        />
+
+        <SetAttentionStatementDrawer
+          externalData={metaData}
+          afterOK={() => {
+            this.afterSetAttentionStatementDrawerOk();
+          }}
+        />
+
         <FlowDisplayDrawer maskClosable externalData={{ workflowId }} />
 
         <WorkflowNodePageListDrawer externalData={{ workflowId }} />

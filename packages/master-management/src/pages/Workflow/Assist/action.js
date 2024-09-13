@@ -5,6 +5,48 @@ import { actionCore } from 'antd-management-fast-common';
 import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
+export async function toggleApplicantSignSwitchAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.workflowTypeCollection.toggleApplicantSignSwitch,
+    params: {
+      workflowId: getValueByKey({
+        data: handleData,
+        key: fieldData.workflowId.name,
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export async function toggleAttentionSignSwitchAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.workflowTypeCollection.toggleAttentionSignSwitch,
+    params: {
+      workflowId: getValueByKey({
+        data: handleData,
+        key: fieldData.workflowId.name,
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function setEnableAction({
   target,
   handleData,

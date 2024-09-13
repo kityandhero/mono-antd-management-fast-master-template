@@ -163,6 +163,108 @@ class Index extends TabPageBase {
         {
           title: {
             icon: iconBuilder.contacts(),
+            text: '流程申请陈述设置',
+          },
+          hasExtra: true,
+          extra: {
+            affix: true,
+            list: [
+              {
+                buildType: cardConfig.extraBuildType.refresh,
+              },
+            ],
+          },
+          items: [
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.flowApplicantStatementTitleTemplate,
+              editMode: keyValueEditModeCollection.string,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.flowApplicantStatementContentTemplate,
+              editMode: keyValueEditModeCollection.multiLineString,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+          ],
+          instruction: [
+            {
+              title: '设置说明',
+              showDivider: false,
+              showNumber: true,
+              list: [
+                {
+                  text: '此处配置流程审批文档中的申请人栏相关内容模板.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
+            text: '流程经办陈述设置',
+          },
+          hasExtra: true,
+          extra: {
+            affix: true,
+            list: [
+              {
+                buildType: cardConfig.extraBuildType.refresh,
+              },
+            ],
+          },
+          items: [
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.flowAttentionStatementTitleTemplate,
+              editMode: keyValueEditModeCollection.string,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.flowAttentionStatementContentTemplate,
+              editMode: keyValueEditModeCollection.multiLineString,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+          ],
+          instruction: [
+            {
+              title: '设置说明',
+              showDivider: false,
+              showNumber: true,
+              list: [
+                {
+                  text: '此处配置流程审批文档中的经办人栏相关内容模板.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
             text: '流程调试用户设置',
           },
           hasExtra: true,

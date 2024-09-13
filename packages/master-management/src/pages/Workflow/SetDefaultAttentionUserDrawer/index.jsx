@@ -15,13 +15,13 @@ import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
 
-const visibleFlag = '050bfa0ac3fc4ad78998334d730b6b19';
+const visibleFlag = 'de4d5907d4e34fbda67a6bd0f9eb518f';
 
 @connect(({ workflow, schedulingControl }) => ({
   workflow,
   schedulingControl,
 }))
-class UpdateDebugUserDrawer extends BaseUpdateDrawer {
+class SetDefaultAttentionUserDrawer extends BaseUpdateDrawer {
   static open() {
     switchControlAssist.open(visibleFlag);
   }
@@ -33,7 +33,8 @@ class UpdateDebugUserDrawer extends BaseUpdateDrawer {
       ...this.state,
       pageTitle: '设置流程特定测试模式提交人',
       loadApiPath: modelTypeCollection.workflowTypeCollection.get,
-      submitApiPath: modelTypeCollection.workflowTypeCollection.setDebugUserId,
+      submitApiPath:
+        modelTypeCollection.workflowTypeCollection.setDefaultAttentionUser,
       userId: '',
       userRealName: '',
     };
@@ -63,12 +64,12 @@ class UpdateDebugUserDrawer extends BaseUpdateDrawer {
       defaultValue: '',
     });
 
-    d[fieldData.debugUserId.name] = userId;
+    d[fieldData.defaultAttentionUserId.name] = userId;
 
     return d;
   };
 
-  afterCustomerSelect = (d) => {
+  afterDefaultAttentionUserSelect = (d) => {
     const userId = getValueByKey({
       data: d,
       key: fieldDataUser.userId.name,
@@ -87,7 +88,7 @@ class UpdateDebugUserDrawer extends BaseUpdateDrawer {
     });
   };
 
-  afterCustomerClearSelect = () => {
+  afterDefaultAttentionUserClearSelect = () => {
     this.setState({
       userId: '',
       realName: '',
@@ -131,26 +132,10 @@ class UpdateDebugUserDrawer extends BaseUpdateDrawer {
               list: [
                 {
                   span: 2,
-                  label: fieldData.debugUserModeNote.label,
+                  label: fieldData.attentionSignSwitchNote.label,
                   value: getValueByKey({
                     data: metaData,
-                    key: fieldData.debugUserModeNote.name,
-                  }),
-                },
-                {
-                  span: 1,
-                  label: fieldData.debugUserRealName.label,
-                  value: getValueByKey({
-                    data: metaData,
-                    key: fieldData.debugUserRealName.name,
-                  }),
-                },
-                {
-                  span: 1,
-                  label: fieldData.debugUserId.label,
-                  value: getValueByKey({
-                    data: metaData,
-                    key: fieldData.debugUserId.name,
+                    key: fieldData.attentionSignSwitchNote.name,
                   }),
                 },
               ],
@@ -173,7 +158,7 @@ class UpdateDebugUserDrawer extends BaseUpdateDrawer {
         {
           title: {
             icon: iconBuilder.contacts(),
-            text: '设置流程特定测试模式下的测试提交人',
+            text: '设置流程默认的经办人',
           },
           items: [
             {
@@ -181,12 +166,18 @@ class UpdateDebugUserDrawer extends BaseUpdateDrawer {
               type: cardConfig.contentItemType.component,
               component: (
                 <UserSelectDrawerField
-                  label={fieldData.debugUserId.label}
+                  label={fieldData.defaultAttentionUserId.label}
+                  defaultValue={
+                    getValueByKey({
+                      data: metaData,
+                      key: fieldData.defaultAttentionUserRealName.name,
+                    }) || null
+                  }
                   afterSelectSuccess={(d) => {
-                    this.afterCustomerSelect(d);
+                    this.afterDefaultAttentionUserSelect(d);
                   }}
                   afterClearSelect={() => {
-                    this.afterCustomerClearSelect();
+                    this.afterDefaultAttentionUserClearSelect();
                   }}
                 />
               ),
@@ -202,11 +193,11 @@ class UpdateDebugUserDrawer extends BaseUpdateDrawer {
       title: '操作提示',
       list: [
         {
-          text: '流程特定测试模式提交人, 需要与测试提交人模式配合使用.',
+          text: '启用经办人签名, 请确保经办人的签章已经上传.',
         },
       ],
     };
   };
 }
 
-export { UpdateDebugUserDrawer };
+export { SetDefaultAttentionUserDrawer };

@@ -11,6 +11,7 @@ import {
   isEmptyArray,
   logException,
   showSimpleErrorMessage,
+  whetherNumber,
 } from 'easy-soft-utility';
 
 import {
@@ -27,10 +28,13 @@ import { FlowProcessHistory } from 'antd-management-fast-flow';
 
 import {
   accessWayCollection,
+  emptySignet,
   fieldDataFlowCaseFormAttachment,
   fieldDataFlowFormDesign,
   flowCaseStatusCollection,
   signetStyle,
+  simpleApply,
+  simpleAttention,
 } from '../../../../customConfig';
 import {
   adjustFlowCaseDataToState,
@@ -781,11 +785,99 @@ class BasicInfo extends TabPageBase {
     const { metaData, currentAttachment, listApprove, listChainApprove } =
       this.state;
 
+    const applicantSignSwitch = getValueByKey({
+      data: metaData,
+      key: fieldData.applicantSignSwitch.name,
+      convert: convertCollection.number,
+    });
+
+    const attentionSignSwitch = getValueByKey({
+      data: metaData,
+      key: fieldData.attentionSignSwitch.name,
+      convert: convertCollection.number,
+    });
+
+    const applicantStatementTitle = getValueByKey({
+      data: metaData,
+      key: fieldData.applicantStatementTitle.name,
+      convert: convertCollection.string,
+    });
+
+    const applicantStatementContent = getValueByKey({
+      data: metaData,
+      key: fieldData.applicantStatementContent.name,
+      convert: convertCollection.string,
+    });
+
+    const applicantUserSignet = getValueByKey({
+      data: metaData,
+      key: fieldData.applicantUserSignet.name,
+      convert: convertCollection.string,
+    });
+
+    const attentionStatementTitle = getValueByKey({
+      data: metaData,
+      key: fieldData.attentionStatementTitle.name,
+      convert: convertCollection.string,
+    });
+
+    const attentionStatementContent = getValueByKey({
+      data: metaData,
+      key: fieldData.attentionStatementContent.name,
+      convert: convertCollection.string,
+    });
+
+    const attentionUserSignet = getValueByKey({
+      data: metaData,
+      key: fieldData.attentionUserSignet.name,
+      convert: convertCollection.string,
+    });
+
     const listFormStorage = getValueByKey({
       data: metaData,
       key: fieldData.listFormStorage.name,
       convert: convertCollection.array,
     });
+
+    const listApply = [
+      {
+        ...simpleApply,
+        title: applicantStatementTitle,
+        note: applicantStatementContent,
+        ...(checkStringIsNullOrWhiteSpace(applicantUserSignet)
+          ? {
+              signet: emptySignet,
+            }
+          : {
+              signet: applicantUserSignet,
+            }),
+        time: getValueByKey({
+          data: metaData,
+          key: fieldData.lastSubmitApprovalTime.name,
+          convert: convertCollection.string,
+        }),
+      },
+    ];
+
+    const listAttention = [
+      {
+        ...simpleAttention,
+        title: attentionStatementTitle,
+        note: attentionStatementContent,
+        ...(checkStringIsNullOrWhiteSpace(attentionUserSignet)
+          ? {
+              signet: emptySignet,
+            }
+          : {
+              signet: attentionUserSignet,
+            }),
+        time: getValueByKey({
+          data: metaData,
+          key: fieldData.lastSubmitApprovalTime.name,
+          convert: convertCollection.string,
+        }),
+      },
+    ];
 
     return (
       <>
@@ -816,6 +908,10 @@ class BasicInfo extends TabPageBase {
             }),
           }}
           values={listFormStorage}
+          showApply={applicantSignSwitch === whetherNumber.yes}
+          applyList={listApply}
+          showAttention={attentionSignSwitch === whetherNumber.yes}
+          attentionList={listAttention}
           approveList={listApprove}
           allApproveProcessList={listChainApprove}
         />

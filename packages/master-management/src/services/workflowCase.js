@@ -45,6 +45,35 @@ export async function updateBasicInfoData(parameters) {
   });
 }
 
+export const setApplicantStatementDataApiAddress =
+  '/workflowCase/setApplicantStatement';
+
+export async function setApplicantStatementData(parameters) {
+  return request({
+    api: setApplicantStatementDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const setAttentionUserDataApiAddress = '/workflowCase/setAttentionUser';
+
+export async function setAttentionUserData(parameters) {
+  return request({
+    api: setAttentionUserDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const setAttentionStatementDataApiAddress =
+  '/workflowCase/setAttentionStatement';
+
+export async function setAttentionStatementData(parameters) {
+  return request({
+    api: setAttentionStatementDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const openCancelApproveSwitchDataApiAddress =
   '/workflowCase/openCancelApproveSwitch';
 

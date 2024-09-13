@@ -176,6 +176,41 @@ const fieldExtraData = {
     name: 'userDepartments',
     helper: '',
   },
+  applicantSignSwitch: {
+    label: '申请人签名开关',
+    name: 'applicantSignSwitch',
+    helper: '',
+  },
+  applicantSignSwitchNote: {
+    label: '申请人签名开关',
+    name: 'applicantSignSwitchNote',
+    helper: '',
+  },
+  applicantUserSignet: {
+    label: '申请人签章',
+    name: 'applicantUserSignet',
+    helper: '',
+  },
+  attentionSignSwitch: {
+    label: '经办人签名开关',
+    name: 'attentionSignSwitch',
+    helper: '',
+  },
+  attentionSignSwitchNote: {
+    label: '经办人签名开关',
+    name: 'attentionSignSwitchNote',
+    helper: '',
+  },
+  attentionUserRealName: {
+    label: '经办人',
+    name: 'attentionUserRealName',
+    helper: '',
+  },
+  attentionUserSignet: {
+    label: '经办人签章',
+    name: 'attentionUserSignet',
+    helper: '',
+  },
 };
 
 export const fieldDataFlowCase = {
@@ -204,6 +239,31 @@ export const fieldDataFlowCase = {
     label: '短信通知模版 ',
     name: 'smsTemplate',
     helper: '设置短信通知模版, 示例: {flowName} 事由{reason}',
+  },
+  applicantStatementTitle: {
+    label: '文档申请陈述标题',
+    name: 'applicantStatementTitle',
+    helper: '',
+  },
+  applicantStatementContent: {
+    label: '文档申请陈述内容',
+    name: 'applicantStatementContent',
+    helper: '',
+  },
+  attentionUserId: {
+    label: '经办人',
+    name: 'attentionUserId',
+    helper: '',
+  },
+  attentionStatementTitle: {
+    label: '文档经办陈述标题',
+    name: 'attentionStatementTitle',
+    helper: '',
+  },
+  attentionStatementContent: {
+    label: '文档经办陈述内容',
+    name: 'attentionStatementContent',
+    helper: '',
   },
   workflowName: {
     label: '流程名称',

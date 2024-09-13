@@ -40,6 +40,8 @@ import {
   refreshCacheAction,
   setDisableAction,
   setEnableAction,
+  toggleApplicantSignSwitchAction,
+  toggleAttentionSignSwitchAction,
 } from '../Assist/action';
 import {
   checkNeedUpdateAssist,
@@ -48,6 +50,9 @@ import {
 import { fieldData } from '../Common/data';
 import { FlowDisplayDrawer } from '../FlowDisplayDrawer';
 import { SetCaseNameTemplateDrawer } from '../SetCaseNameTemplateDrawer';
+import { SetDefaultApplicantStatementDrawer } from '../SetDefaultApplicantStatementDrawer';
+import { SetDefaultAttentionStatementDrawer } from '../SetDefaultAttentionStatementDrawer';
+import { SetDefaultAttentionUserDrawer } from '../SetDefaultAttentionUserDrawer';
 import { SetSmsTemplateDrawer } from '../SetSmsTemplateDrawer';
 import { UpdateChannelModal } from '../UpdateChannelModal';
 import { UpdateMultibranchModal } from '../UpdateMultibranchModal';
@@ -214,6 +219,50 @@ class Detail extends DataTabContainerSupplement {
     }
   };
 
+  toggleApplicantSignSwitch = (r) => {
+    toggleApplicantSignSwitchAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target, remoteData }) => {
+        const { metaData } = target.state;
+
+        metaData[fieldData.applicantSignSwitch.name] = getValueByKey({
+          data: remoteData,
+          key: fieldData.applicantSignSwitch.name,
+        });
+
+        metaData[fieldData.applicantSignSwitchNote.name] = getValueByKey({
+          data: remoteData,
+          key: fieldData.applicantSignSwitchNote.name,
+        });
+
+        target.setState({ metaData });
+      },
+    });
+  };
+
+  toggleAttentionSignSwitch = (r) => {
+    toggleAttentionSignSwitchAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target, remoteData }) => {
+        const { metaData } = target.state;
+
+        metaData[fieldData.attentionSignSwitch.name] = getValueByKey({
+          data: remoteData,
+          key: fieldData.attentionSignSwitch.name,
+        });
+
+        metaData[fieldData.attentionSignSwitchNote.name] = getValueByKey({
+          data: remoteData,
+          key: fieldData.attentionSignSwitchNote.name,
+        });
+
+        target.setState({ metaData });
+      },
+    });
+  };
+
   setEnable = (r) => {
     setEnableAction({
       target: this,
@@ -270,6 +319,30 @@ class Detail extends DataTabContainerSupplement {
   };
 
   afterSetSmsTemplateDrawerOk = () => {
+    this.reloadData({});
+  };
+
+  showSetDefaultApplicantStatementDrawer = () => {
+    SetDefaultApplicantStatementDrawer.open();
+  };
+
+  afterSetDefaultApplicantStatementDrawerOk = () => {
+    this.reloadData({});
+  };
+
+  showSetDefaultAttentionUserDrawer = () => {
+    SetDefaultAttentionUserDrawer.open();
+  };
+
+  afterSetDefaultAttentionUserDrawerOk = () => {
+    this.reloadData({});
+  };
+
+  showSetDefaultAttentionStatementDrawer = () => {
+    SetDefaultAttentionStatementDrawer.open();
+  };
+
+  afterSetDefaultAttentionStatementDrawerOk = () => {
     this.reloadData({});
   };
 
@@ -331,6 +404,39 @@ class Detail extends DataTabContainerSupplement {
 
   establishPageHeaderTitlePrefix = () => {
     return '流程';
+  };
+
+  establishPageHeaderTagCollectionConfig = () => {
+    const { metaData } = this.state;
+
+    if ((metaData || null) == null) {
+      return null;
+    }
+
+    const applicantSignSwitch = getValueByKey({
+      data: metaData,
+      key: fieldData.applicantSignSwitch.name,
+      convert: convertCollection.number,
+    });
+
+    const attentionSignSwitch = getValueByKey({
+      data: metaData,
+      key: fieldData.attentionSignSwitch.name,
+      convert: convertCollection.number,
+    });
+
+    return [
+      {
+        color: 'blue',
+        text: '申请人签字',
+        hidden: applicantSignSwitch !== whetherNumber.yes,
+      },
+      {
+        color: 'yellow',
+        text: '经办人签字',
+        hidden: attentionSignSwitch !== whetherNumber.yes,
+      },
+    ];
   };
 
   establishExtraActionConfig = () => {
@@ -508,6 +614,18 @@ class Detail extends DataTabContainerSupplement {
 
     const that = this;
 
+    const applicantSignSwitch = getValueByKey({
+      data: metaData,
+      key: fieldData.applicantSignSwitch.name,
+      convert: convertCollection.number,
+    });
+
+    const attentionSignSwitch = getValueByKey({
+      data: metaData,
+      key: fieldData.attentionSignSwitch.name,
+      convert: convertCollection.number,
+    });
+
     return {
       disabled: this.checkInProgress(),
       handleMenuClick: ({ key, handleData }) => {
@@ -519,6 +637,31 @@ class Detail extends DataTabContainerSupplement {
 
           case 'showWorkflowDebugCasePageListUnderwayDrawer': {
             that.showWorkflowDebugCasePageListUnderwayDrawer(handleData);
+            break;
+          }
+
+          case 'toggleApplicantSignSwitch': {
+            that.toggleApplicantSignSwitch(handleData);
+            break;
+          }
+
+          case 'showSetDefaultApplicantStatementDrawer': {
+            that.showSetDefaultApplicantStatementDrawer(handleData);
+            break;
+          }
+
+          case 'toggleAttentionSignSwitch': {
+            that.toggleAttentionSignSwitch(handleData);
+            break;
+          }
+
+          case 'showSetDefaultAttentionUserDrawer': {
+            that.showSetDefaultAttentionUserDrawer(handleData);
+            break;
+          }
+
+          case 'showSetDefaultAttentionStatementDrawer': {
+            that.showSetDefaultAttentionStatementDrawer(handleData);
             break;
           }
 
@@ -582,6 +725,70 @@ class Detail extends DataTabContainerSupplement {
               key: fieldData.whetherAllowMultibranch.name,
               convert: convertCollection.number,
             }) === whetherNumber.yes,
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'toggleApplicantSignSwitch',
+          icon:
+            applicantSignSwitch === whetherNumber.yes
+              ? iconBuilder.pauseCircle()
+              : iconBuilder.enable(),
+          text: `${applicantSignSwitch === whetherNumber.yes ? '关闭' : '开启'}申请人签名开关`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.toggleApplicantSignSwitch.permission,
+          ),
+          confirm: true,
+          title: `即将${applicantSignSwitch === whetherNumber.yes ? '关闭' : '开启'}申请人签名开关，确定吗？`,
+        },
+        {
+          key: 'showSetDefaultApplicantStatementDrawer',
+          icon: iconBuilder.edit(),
+          text: `默认申请人签名配置`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.setDefaultApplicantStatement
+              .permission,
+          ),
+          disabled: applicantSignSwitch !== whetherNumber.yes,
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'toggleAttentionSignSwitch',
+          icon:
+            attentionSignSwitch === whetherNumber.yes
+              ? iconBuilder.pauseCircle()
+              : iconBuilder.enable(),
+          text: `${attentionSignSwitch === whetherNumber.yes ? '关闭' : '开启'}经办人签名开关`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.toggleAttentionSignSwitch.permission,
+          ),
+          confirm: true,
+          title: `即将${attentionSignSwitch === whetherNumber.yes ? '关闭' : '开启'}经办人签名开关，确定吗？`,
+        },
+        {
+          key: 'showSetDefaultAttentionUserDrawer',
+          icon: iconBuilder.edit(),
+          text: `默认经办人配置`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.setDefaultAttentionUser.permission,
+          ),
+          disabled: attentionSignSwitch !== whetherNumber.yes,
+        },
+        {
+          key: 'showSetDefaultAttentionStatementDrawer',
+          icon: iconBuilder.edit(),
+          text: `默认经办人签名配置`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.setDefaultAttentionStatement
+              .permission,
+          ),
+          disabled: attentionSignSwitch !== whetherNumber.yes,
+        },
+        {
+          type: dropdownExpandItemType.divider,
         },
         {
           key: 'openMultiEnd',
@@ -749,6 +956,27 @@ class Detail extends DataTabContainerSupplement {
           externalData={{ workflowId }}
           afterOK={() => {
             this.afterSetSmsTemplateDrawerOk();
+          }}
+        />
+
+        <SetDefaultApplicantStatementDrawer
+          externalData={{ workflowId }}
+          afterOK={() => {
+            this.afterSetDefaultApplicantStatementDrawerOk();
+          }}
+        />
+
+        <SetDefaultAttentionUserDrawer
+          externalData={{ workflowId }}
+          afterOK={() => {
+            this.afterSetDefaultAttentionUserDrawerOk();
+          }}
+        />
+
+        <SetDefaultAttentionStatementDrawer
+          externalData={{ workflowId }}
+          afterOK={() => {
+            this.afterSetDefaultAttentionStatementDrawerOk();
           }}
         />
 

@@ -176,6 +176,26 @@ export const fieldData = {
     name: 'defaultCityTreeCityNodeVisibility',
     helper: '即是否使用默认的地区节点包裹子元素',
   },
+  flowApplicantStatementTitleTemplate: {
+    label: '申请陈述标题模板',
+    name: 'flowApplicantStatementTitleTemplate',
+    helper: '',
+  },
+  flowApplicantStatementContentTemplate: {
+    label: '申请陈述内容模板',
+    name: 'flowApplicantStatementContentTemplate',
+    helper: '',
+  },
+  flowAttentionStatementTitleTemplate: {
+    label: '经办陈述标题模板',
+    name: 'flowAttentionStatementTitleTemplate',
+    helper: '',
+  },
+  flowAttentionStatementContentTemplate: {
+    label: '经办陈述内容模板',
+    name: 'flowAttentionStatementContentTemplate',
+    helper: '',
+  },
   flowDebugUserId: {
     label: '用于流程调试的用户标识',
     name: 'flowDebugUserId',

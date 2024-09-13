@@ -4847,6 +4847,41 @@
           "type": "singleData"
         },
         {
+          "title": "切换申请签名显示开关",
+          "api": "/workflow/toggleApplicantSignSwitch",
+          "effect": "toggleApplicantSignSwitch",
+          "service": "toggleApplicantSignSwitchData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置默认申请陈述",
+          "api": "/workflow/setDefaultApplicantStatement",
+          "effect": "setDefaultApplicantStatement",
+          "service": "setDefaultApplicantStatementData",
+          "type": "singleData"
+        },
+        {
+          "title": "切换经办签名显示开关",
+          "api": "/workflow/toggleAttentionSignSwitch",
+          "effect": "toggleAttentionSignSwitch",
+          "service": "toggleAttentionSignSwitchData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置默认经办人",
+          "api": "/workflow/setDefaultAttentionUser",
+          "effect": "setDefaultAttentionUser",
+          "service": "setDefaultAttentionUserData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置默认经办陈述",
+          "api": "/workflow/setDefaultAttentionStatement",
+          "effect": "setDefaultAttentionStatement",
+          "service": "setDefaultAttentionStatementData",
+          "type": "singleData"
+        },
+        {
           "title": "设置流程测试审批人模式",
           "api": "/workflow/setDebugApproverMode",
           "effect": "setDebugApproverMode",
@@ -5138,6 +5173,27 @@
           "api": "/workflowCase/updateBasicInfo",
           "effect": "updateBasicInfo",
           "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置申请陈述",
+          "api": "/workflowCase/setApplicantStatement",
+          "effect": "setApplicantStatement",
+          "service": "setApplicantStatementData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置经办人",
+          "api": "/workflowCase/setAttentionUser",
+          "effect": "setAttentionUser",
+          "service": "setAttentionUserData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置经办陈述",
+          "api": "/workflowCase/setAttentionStatement",
+          "effect": "setAttentionStatement",
+          "service": "setAttentionStatementData",
           "type": "singleData"
         },
         {
@@ -5502,6 +5558,27 @@
           "api": "/workflowDebugCase/updateBasicInfo",
           "effect": "updateBasicInfo",
           "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置申请陈述",
+          "api": "/workflowDebugCase/setApplicantStatement",
+          "effect": "setApplicantStatement",
+          "service": "setApplicantStatementData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置经办人",
+          "api": "/workflowDebugCase/setAttentionUser",
+          "effect": "setAttentionUser",
+          "service": "setAttentionUserData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置经办陈述",
+          "api": "/workflowDebugCase/setAttentionStatement",
+          "effect": "setAttentionStatement",
+          "service": "setAttentionStatementData",
           "type": "singleData"
         },
         {

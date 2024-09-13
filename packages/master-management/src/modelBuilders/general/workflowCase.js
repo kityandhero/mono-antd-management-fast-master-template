@@ -20,6 +20,9 @@ import {
   pageListUnderwayData,
   refreshCacheData,
   removeData,
+  setApplicantStatementData,
+  setAttentionStatementData,
+  setAttentionUserData,
   updateBasicInfoData,
 } from '../../services/workflowCase';
 
@@ -29,6 +32,9 @@ export const workflowCaseTypeCollection = {
   get: 'workflowCase/get',
   getChain: 'workflowCase/getChain',
   updateBasicInfo: 'workflowCase/updateBasicInfo',
+  setApplicantStatement: 'workflowCase/setApplicantStatement',
+  setAttentionUser: 'workflowCase/setAttentionUser',
+  setAttentionStatement: 'workflowCase/setAttentionStatement',
   openCancelApproveSwitch: 'workflowCase/openCancelApproveSwitch',
   closeCancelApproveSwitch: 'workflowCase/closeCancelApproveSwitch',
   openResetAllApproveSwitch: 'workflowCase/openResetAllApproveSwitch',
@@ -162,6 +168,84 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(updateBasicInfoData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setApplicantStatement(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setApplicantStatementData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setAttentionUser(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setAttentionUserData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setAttentionStatement(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setAttentionStatementData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

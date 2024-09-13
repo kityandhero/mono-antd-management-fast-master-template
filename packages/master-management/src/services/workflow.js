@@ -66,6 +66,56 @@ export async function setSmsTemplateData(parameters) {
   });
 }
 
+export const toggleApplicantSignSwitchDataApiAddress =
+  '/workflow/toggleApplicantSignSwitch';
+
+export async function toggleApplicantSignSwitchData(parameters) {
+  return request({
+    api: toggleApplicantSignSwitchDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const setDefaultApplicantStatementDataApiAddress =
+  '/workflow/setDefaultApplicantStatement';
+
+export async function setDefaultApplicantStatementData(parameters) {
+  return request({
+    api: setDefaultApplicantStatementDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const toggleAttentionSignSwitchDataApiAddress =
+  '/workflow/toggleAttentionSignSwitch';
+
+export async function toggleAttentionSignSwitchData(parameters) {
+  return request({
+    api: toggleAttentionSignSwitchDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const setDefaultAttentionUserDataApiAddress =
+  '/workflow/setDefaultAttentionUser';
+
+export async function setDefaultAttentionUserData(parameters) {
+  return request({
+    api: setDefaultAttentionUserDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const setDefaultAttentionStatementDataApiAddress =
+  '/workflow/setDefaultAttentionStatement';
+
+export async function setDefaultAttentionStatementData(parameters) {
+  return request({
+    api: setDefaultAttentionStatementDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setDebugApproverModeDataApiAddress =
   '/workflow/setDebugApproverMode';
 

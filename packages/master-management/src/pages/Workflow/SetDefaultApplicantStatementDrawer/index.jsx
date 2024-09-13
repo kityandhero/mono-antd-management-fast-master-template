@@ -1,27 +1,33 @@
 import { connect } from 'easy-soft-dva';
-import { getValueByKey } from 'easy-soft-utility';
+import {
+  convertCollection,
+  datetimeFormat,
+  formatDatetime,
+  getNow,
+  getValueByKey,
+} from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
+import { DocumentPrintDesigner } from 'antd-management-fast-design-playground';
 import {
   DataDrawer,
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { emptySignet, simpleApply } from '../../../customConfig';
 import { modelTypeCollection } from '../../../modelBuilders';
-import { fieldData as fieldDataUser } from '../../User/Common/data';
-import { UserSelectDrawerField } from '../../User/SelectDrawerField';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
 
-const visibleFlag = '050bfa0ac3fc4ad78998334d730b6b19';
+const visibleFlag = 'bf9f1bb9c4ba4f2bbd814994b67313ab';
 
 @connect(({ workflow, schedulingControl }) => ({
   workflow,
   schedulingControl,
 }))
-class UpdateDebugUserDrawer extends BaseUpdateDrawer {
+class SetDefaultApplicantStatementDrawer extends BaseUpdateDrawer {
   static open() {
     switchControlAssist.open(visibleFlag);
   }
@@ -31,11 +37,11 @@ class UpdateDebugUserDrawer extends BaseUpdateDrawer {
 
     this.state = {
       ...this.state,
-      pageTitle: '设置流程特定测试模式提交人',
+      pageTitle: '设置默认申请人标题与陈述',
       loadApiPath: modelTypeCollection.workflowTypeCollection.get,
-      submitApiPath: modelTypeCollection.workflowTypeCollection.setDebugUserId,
-      userId: '',
-      userRealName: '',
+      submitApiPath:
+        modelTypeCollection.workflowTypeCollection.setDefaultApplicantStatement,
+      width: 924,
     };
   }
 
@@ -54,7 +60,6 @@ class UpdateDebugUserDrawer extends BaseUpdateDrawer {
 
   supplementSubmitRequestParams = (o) => {
     const d = o;
-    const { userId } = this.state;
     const { externalData } = this.props;
 
     d[fieldData.workflowId.name] = getValueByKey({
@@ -63,35 +68,7 @@ class UpdateDebugUserDrawer extends BaseUpdateDrawer {
       defaultValue: '',
     });
 
-    d[fieldData.debugUserId.name] = userId;
-
     return d;
-  };
-
-  afterCustomerSelect = (d) => {
-    const userId = getValueByKey({
-      data: d,
-      key: fieldDataUser.userId.name,
-      defaultValue: '0',
-    });
-
-    const realName = getValueByKey({
-      data: d,
-      key: fieldDataUser.realName.name,
-      defaultValue: '暂无真名',
-    });
-
-    this.setState({
-      userId: userId,
-      realName: realName,
-    });
-  };
-
-  afterCustomerClearSelect = () => {
-    this.setState({
-      userId: '',
-      realName: '',
-    });
   };
 
   buildTitleSubText = () => {
@@ -104,7 +81,6 @@ class UpdateDebugUserDrawer extends BaseUpdateDrawer {
   };
 
   fillInitialValuesAfterLoad = ({
-    // eslint-disable-next-line no-unused-vars
     metaData = null,
     // eslint-disable-next-line no-unused-vars
     metaListData = [],
@@ -115,11 +91,50 @@ class UpdateDebugUserDrawer extends BaseUpdateDrawer {
   }) => {
     const values = {};
 
+    if (metaData != null) {
+      values[fieldData.defaultApplicantStatementTitle.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.defaultApplicantStatementTitle.name,
+        convert: convertCollection.string,
+      });
+
+      values[fieldData.defaultApplicantStatementContent.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.defaultApplicantStatementContent.name,
+        convert: convertCollection.string,
+      });
+    }
+
     return values;
   };
 
   establishCardCollectionConfig = () => {
     const { metaData } = this.state;
+
+    const defaultApplicantStatementTitle = getValueByKey({
+      data: metaData,
+      key: fieldData.defaultApplicantStatementTitle.name,
+      convert: convertCollection.string,
+    });
+
+    const defaultApplicantStatementContent = getValueByKey({
+      data: metaData,
+      key: fieldData.defaultApplicantStatementContent.name,
+      convert: convertCollection.string,
+    });
+
+    const listApply = [
+      {
+        ...simpleApply,
+        title: defaultApplicantStatementTitle,
+        note: defaultApplicantStatementContent,
+        signet: emptySignet,
+        time: formatDatetime({
+          data: getNow(),
+          format: datetimeFormat.monthDayHourMinuteSecond,
+        }),
+      },
+    ];
 
     return {
       list: [
@@ -131,26 +146,10 @@ class UpdateDebugUserDrawer extends BaseUpdateDrawer {
               list: [
                 {
                   span: 2,
-                  label: fieldData.debugUserModeNote.label,
+                  label: fieldData.applicantSignSwitchNote.label,
                   value: getValueByKey({
                     data: metaData,
-                    key: fieldData.debugUserModeNote.name,
-                  }),
-                },
-                {
-                  span: 1,
-                  label: fieldData.debugUserRealName.label,
-                  value: getValueByKey({
-                    data: metaData,
-                    key: fieldData.debugUserRealName.name,
-                  }),
-                },
-                {
-                  span: 1,
-                  label: fieldData.debugUserId.label,
-                  value: getValueByKey({
-                    data: metaData,
-                    key: fieldData.debugUserId.name,
+                    key: fieldData.applicantSignSwitchNote.name,
                   }),
                 },
               ],
@@ -171,23 +170,43 @@ class UpdateDebugUserDrawer extends BaseUpdateDrawer {
           ],
         },
         {
+          items: [
+            {
+              lg: 18,
+              type: cardConfig.contentItemType.input,
+              fieldData: fieldData.defaultApplicantStatementTitle,
+              require: true,
+            },
+          ],
+        },
+        {
+          items: [
+            {
+              lg: 18,
+              type: cardConfig.contentItemType.textarea,
+              fieldData: fieldData.defaultApplicantStatementContent,
+              require: true,
+            },
+          ],
+        },
+        {
           title: {
             icon: iconBuilder.contacts(),
-            text: '设置流程特定测试模式下的测试提交人',
+            text: '效果预览',
           },
           items: [
             {
-              lg: 24,
+              lg: 18,
               type: cardConfig.contentItemType.component,
               component: (
-                <UserSelectDrawerField
-                  label={fieldData.debugUserId.label}
-                  afterSelectSuccess={(d) => {
-                    this.afterCustomerSelect(d);
-                  }}
-                  afterClearSelect={() => {
-                    this.afterCustomerClearSelect();
-                  }}
+                <DocumentPrintDesigner
+                  canDesign={false}
+                  showToolbar={false}
+                  showTitle={false}
+                  showRemark={false}
+                  showApply
+                  applyList={listApply}
+                  showAttention={false}
                 />
               ),
             },
@@ -202,11 +221,14 @@ class UpdateDebugUserDrawer extends BaseUpdateDrawer {
       title: '操作提示',
       list: [
         {
-          text: '流程特定测试模式提交人, 需要与测试提交人模式配合使用.',
+          text: '此处配置的信息用于在审批文档中展示.',
+        },
+        {
+          text: '启用申请人签名, 请确保申请人的签章已经上传.',
         },
       ],
     };
   };
 }
 
-export { UpdateDebugUserDrawer };
+export { SetDefaultApplicantStatementDrawer };

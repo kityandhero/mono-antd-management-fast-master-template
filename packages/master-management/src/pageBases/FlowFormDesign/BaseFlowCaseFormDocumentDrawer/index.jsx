@@ -18,6 +18,10 @@ const { BaseVerticalFlexDrawer } = DataDrawer;
 
 const defaultProperties = {
   canDesign: false,
+  showApply: false,
+  applyList: [],
+  showAttention: false,
+  attentionList: [],
   approveList: [],
   values: [],
 };
@@ -163,6 +167,14 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
       ...this.props,
     };
 
+    const list = [];
+
+    if (canDesign) {
+      list.push({
+        text: '审批节点样例仅在设计时用于占位进行效果展示, 实际表单将呈现真实审批节点。',
+      });
+    }
+
     return {
       title: '操作提示',
       list: [
@@ -175,11 +187,7 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
         {
           text: '打印预览需要关闭设计模式。',
         },
-        canDesign
-          ? {
-              text: '审批节点样例仅在设计时用于占位进行效果展示, 实际表单将呈现真实审批节点。',
-            }
-          : null,
+        ...list,
       ],
     };
   };
@@ -191,7 +199,15 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
   };
 
   renderPresetContentContainorInnerTop = () => {
-    const { canDesign, values, approveList } = {
+    const {
+      canDesign,
+      values,
+      showApply,
+      applyList,
+      showAttention,
+      attentionList,
+      approveList,
+    } = {
       ...defaultProperties,
       ...this.props,
     };
@@ -235,6 +251,10 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
           isArray(allApproveProcessList) ? allApproveProcessList : []
         }
         signetStyle={signetStyle}
+        showApply={showApply || false}
+        applyList={isArray(applyList) ? applyList : []}
+        showAttention={showAttention || false}
+        attentionList={isArray(attentionList) ? attentionList : []}
         remarkTitle="备注"
         remarkName="remark"
         remarkList={remarkSchemaList}

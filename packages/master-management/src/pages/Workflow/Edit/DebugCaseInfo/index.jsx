@@ -27,10 +27,13 @@ import { Flow, FlowProcessHistory } from 'antd-management-fast-flow';
 
 import {
   accessWayCollection,
+  emptySignet,
   fieldDataFlowCase,
   flowCaseStatusCollection,
   flowDebugApproverModeCollection,
   flowNodeTypeCollection,
+  simpleApply,
+  simpleAttention,
 } from '../../../../customConfig';
 import { getChannelName } from '../../../../customSpecialComponents';
 import {
@@ -54,6 +57,9 @@ import { fieldData } from '../../../WorkflowDebugCase/Common/data';
 import { WorkflowDebugCasePageListLatestApproveDrawer } from '../../../WorkflowDebugCase/PageListLatestApproveDrawer';
 import { WorkflowDebugCasePageListWaitApproveDrawer } from '../../../WorkflowDebugCase/PageListWaitApproveDrawer';
 import { ProcessChainDrawer } from '../../../WorkflowDebugCase/ProcessChainDrawer';
+import { SetApplicantStatementDrawer } from '../../../WorkflowDebugCase/SetApplicantStatementDrawer';
+import { SetAttentionStatementDrawer } from '../../../WorkflowDebugCase/SetAttentionStatementDrawer';
+import { SetAttentionUserDrawer } from '../../../WorkflowDebugCase/SetAttentionUserDrawer';
 import { UpdateBasicInfoDrawer } from '../../../WorkflowDebugCase/UpdateBasicInfoDrawer';
 import { fieldData as fieldDataWorkflowDebugCaseCarbonCopyNotification } from '../../../WorkflowDebugCaseCarbonCopyNotification/Common/data';
 import { FormDrawer } from '../../../WorkflowDebugCaseFormStorage/FormDrawer';
@@ -255,6 +261,30 @@ class DebugCaseInfo extends TabPageBase {
     this.reloadData({});
   };
 
+  showSetApplicantStatementDrawer = () => {
+    SetApplicantStatementDrawer.open();
+  };
+
+  afterSetApplicantStatementDrawerOk = () => {
+    this.reloadData({});
+  };
+
+  showSetAttentionUserDrawer = () => {
+    SetAttentionUserDrawer.open();
+  };
+
+  afterSetAttentionUserDrawerOk = () => {
+    this.reloadData({});
+  };
+
+  showSetAttentionStatementDrawer = () => {
+    SetAttentionStatementDrawer.open();
+  };
+
+  afterSetAttentionStatementDrawerOk = () => {
+    this.reloadData({});
+  };
+
   showPassModal = () => {
     PassModal.open();
   };
@@ -416,6 +446,18 @@ class DebugCaseInfo extends TabPageBase {
       key: fieldData.userRealName.name,
     });
 
+    const applicantSignSwitch = getValueByKey({
+      data: metaData,
+      key: fieldData.applicantSignSwitch.name,
+      convert: convertCollection.number,
+    });
+
+    const attentionSignSwitch = getValueByKey({
+      data: metaData,
+      key: fieldData.attentionSignSwitch.name,
+      convert: convertCollection.number,
+    });
+
     const flowDebugUserRealName = getValueByKey({
       data: metaData,
       key: fieldData.flowDebugUserRealName.name,
@@ -448,6 +490,8 @@ class DebugCaseInfo extends TabPageBase {
       convert: convertCollection.number,
     });
 
+    const that = this;
+
     return {
       list: [
         {
@@ -468,7 +512,7 @@ class DebugCaseInfo extends TabPageBase {
                   accessWayCollection.workflowDebugCase.get.permission,
                 ),
                 handleClick: () => {
-                  this.showUpdateBasicInfoDrawer();
+                  that.showUpdateBasicInfoDrawer();
                 },
               },
               {
@@ -482,7 +526,7 @@ class DebugCaseInfo extends TabPageBase {
                     .permission,
                 ),
                 handleClick: () => {
-                  this.showFormDrawer();
+                  that.showFormDrawer();
                 },
               },
               {
@@ -499,7 +543,7 @@ class DebugCaseInfo extends TabPageBase {
                     .permission,
                 ),
                 handleClick: () => {
-                  this.showProcessChainDrawer();
+                  that.showProcessChainDrawer();
                 },
               },
               {
@@ -513,7 +557,7 @@ class DebugCaseInfo extends TabPageBase {
                     .permission,
                 ),
                 handleClick: () => {
-                  this.showDataSchemaDrawer();
+                  that.showDataSchemaDrawer();
                 },
               },
               {
@@ -531,7 +575,7 @@ class DebugCaseInfo extends TabPageBase {
                       .openCancelApproveSwitch.permission,
                   ) || cancelApproveSwitch === whetherNumber.yes,
                 handleClick: () => {
-                  this.openCancelApproveSwitch(metaData);
+                  that.openCancelApproveSwitch(metaData);
                 },
               },
               {
@@ -546,7 +590,7 @@ class DebugCaseInfo extends TabPageBase {
                       .closeCancelApproveSwitch.permission,
                   ) || cancelApproveSwitch === whetherNumber.no,
                 handleClick: () => {
-                  this.closeCancelApproveSwitch(metaData);
+                  that.closeCancelApproveSwitch(metaData);
                 },
               },
               {
@@ -561,7 +605,7 @@ class DebugCaseInfo extends TabPageBase {
                       .openResetAllApproveSwitch.permission,
                   ) || resetAllApproveSwitch === whetherNumber.yes,
                 handleClick: () => {
-                  this.openResetAllApproveSwitch(metaData);
+                  that.openResetAllApproveSwitch(metaData);
                 },
               },
               {
@@ -576,7 +620,7 @@ class DebugCaseInfo extends TabPageBase {
                       .closeResetAllApproveSwitch.permission,
                   ) || resetAllApproveSwitch === whetherNumber.no,
                 handleClick: () => {
-                  this.closeResetAllApproveSwitch(metaData);
+                  that.closeResetAllApproveSwitch(metaData);
                 },
               },
               {
@@ -593,7 +637,7 @@ class DebugCaseInfo extends TabPageBase {
                     accessWayCollection.workflowDebugCase.get.permission,
                   ),
                 handleClick: () => {
-                  this.showFlowDebugCaseFormDocumentDrawer();
+                  that.showFlowDebugCaseFormDocumentDrawer();
                 },
               },
               {
@@ -603,18 +647,33 @@ class DebugCaseInfo extends TabPageBase {
                 buildType: cardConfig.extraBuildType.dropdownEllipsis,
                 handleMenuClick: ({ key, handleData }) => {
                   switch (key) {
+                    case 'showSetApplicantStatementDrawer': {
+                      that.showSetApplicantStatementDrawer(handleData);
+                      break;
+                    }
+
+                    case 'showSetAttentionUserDrawer': {
+                      that.showSetAttentionUserDrawer(handleData);
+                      break;
+                    }
+
+                    case 'showSetAttentionStatementDrawer': {
+                      that.showSetAttentionStatementDrawer(handleData);
+                      break;
+                    }
+
                     case 'showUpdateDebugUserDrawer': {
-                      this.showUpdateDebugUserDrawer(handleData);
+                      that.showUpdateDebugUserDrawer(handleData);
                       break;
                     }
 
                     case 'showUpdateDebugUserModeModal': {
-                      this.showUpdateDebugUserModeModal(handleData);
+                      that.showUpdateDebugUserModeModal(handleData);
                       break;
                     }
 
                     case 'showUpdateDebugApproverModeModal': {
-                      this.showUpdateDebugApproverModeModal(handleData);
+                      that.showUpdateDebugApproverModeModal(handleData);
                       break;
                     }
 
@@ -626,6 +685,42 @@ class DebugCaseInfo extends TabPageBase {
                 },
                 handleData: metaData,
                 items: [
+                  {
+                    key: 'showSetApplicantStatementDrawer',
+                    icon: iconBuilder.edit(),
+                    text: `申请人签名配置`,
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflowDebugCase
+                        .setApplicantStatement.permission,
+                    ),
+                    disabled: applicantSignSwitch !== whetherNumber.yes,
+                  },
+                  {
+                    type: dropdownExpandItemType.divider,
+                  },
+                  {
+                    key: 'showSetAttentionUserDrawer',
+                    icon: iconBuilder.edit(),
+                    text: `经办人配置`,
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflowDebugCase.setAttentionUser
+                        .permission,
+                    ),
+                    disabled: attentionSignSwitch !== whetherNumber.yes,
+                  },
+                  {
+                    key: 'showSetAttentionStatementDrawer',
+                    icon: iconBuilder.edit(),
+                    text: `经办人签名配置`,
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflowDebugCase
+                        .setAttentionStatement.permission,
+                    ),
+                    disabled: attentionSignSwitch !== whetherNumber.yes,
+                  },
+                  {
+                    type: dropdownExpandItemType.divider,
+                  },
                   {
                     key: 'showUpdateDebugUserDrawer',
                     icon: iconBuilder.edit(),
@@ -1468,11 +1563,99 @@ class DebugCaseInfo extends TabPageBase {
       ...metaData,
     };
 
+    const applicantSignSwitch = getValueByKey({
+      data: metaData,
+      key: fieldData.applicantSignSwitch.name,
+      convert: convertCollection.number,
+    });
+
+    const attentionSignSwitch = getValueByKey({
+      data: metaData,
+      key: fieldData.attentionSignSwitch.name,
+      convert: convertCollection.number,
+    });
+
+    const applicantStatementTitle = getValueByKey({
+      data: metaData,
+      key: fieldData.applicantStatementTitle.name,
+      convert: convertCollection.string,
+    });
+
+    const applicantStatementContent = getValueByKey({
+      data: metaData,
+      key: fieldData.applicantStatementContent.name,
+      convert: convertCollection.string,
+    });
+
+    const applicantUserSignet = getValueByKey({
+      data: metaData,
+      key: fieldData.applicantUserSignet.name,
+      convert: convertCollection.string,
+    });
+
+    const attentionStatementTitle = getValueByKey({
+      data: metaData,
+      key: fieldData.attentionStatementTitle.name,
+      convert: convertCollection.string,
+    });
+
+    const attentionStatementContent = getValueByKey({
+      data: metaData,
+      key: fieldData.attentionStatementContent.name,
+      convert: convertCollection.string,
+    });
+
+    const attentionUserSignet = getValueByKey({
+      data: metaData,
+      key: fieldData.attentionUserSignet.name,
+      convert: convertCollection.string,
+    });
+
     const listFormStorage = getValueByKey({
       data: metaData,
       key: fieldData.listFormStorage.name,
       convert: convertCollection.array,
     });
+
+    const listApply = [
+      {
+        ...simpleApply,
+        title: applicantStatementTitle,
+        note: applicantStatementContent,
+        ...(checkStringIsNullOrWhiteSpace(applicantUserSignet)
+          ? {
+              signet: emptySignet,
+            }
+          : {
+              signet: applicantUserSignet,
+            }),
+        time: getValueByKey({
+          data: metaData,
+          key: fieldData.lastSubmitApprovalTime.name,
+          convert: convertCollection.string,
+        }),
+      },
+    ];
+
+    const listAttention = [
+      {
+        ...simpleAttention,
+        title: attentionStatementTitle,
+        note: attentionStatementContent,
+        ...(checkStringIsNullOrWhiteSpace(attentionUserSignet)
+          ? {
+              signet: emptySignet,
+            }
+          : {
+              signet: attentionUserSignet,
+            }),
+        time: getValueByKey({
+          data: metaData,
+          key: fieldData.lastSubmitApprovalTime.name,
+          convert: convertCollection.string,
+        }),
+      },
+    ];
 
     return (
       <>
@@ -1551,6 +1734,27 @@ class DebugCaseInfo extends TabPageBase {
           externalData={currentNextProcessNotification}
         />
 
+        <SetApplicantStatementDrawer
+          externalData={metaData}
+          afterOK={() => {
+            this.afterSetApplicantStatementDrawerOk();
+          }}
+        />
+
+        <SetAttentionUserDrawer
+          externalData={metaData}
+          afterOK={() => {
+            this.afterSetAttentionUserDrawerOk();
+          }}
+        />
+
+        <SetAttentionStatementDrawer
+          externalData={metaData}
+          afterOK={() => {
+            this.afterSetAttentionStatementDrawerOk();
+          }}
+        />
+
         <UpdateDebugApproverModeModal
           externalData={metaData}
           afterOK={() => {
@@ -1583,6 +1787,10 @@ class DebugCaseInfo extends TabPageBase {
             }),
           }}
           values={listFormStorage}
+          showApply={applicantSignSwitch === whetherNumber.yes}
+          applyList={listApply}
+          showAttention={attentionSignSwitch === whetherNumber.yes}
+          attentionList={listAttention}
           approveList={listApprove}
         />
       </>
