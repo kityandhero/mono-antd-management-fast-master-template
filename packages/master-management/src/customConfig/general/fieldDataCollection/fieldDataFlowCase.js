@@ -6,6 +6,21 @@ const fieldExtraData = {
     name: 'workflow',
     helper: '',
   },
+  userAvatar: {
+    label: '发起人头像',
+    name: 'userAvatar',
+    helper: '',
+  },
+  userRealName: {
+    label: '发起人',
+    name: 'userRealName',
+    helper: '',
+  },
+  userNickname: {
+    label: '发起人昵称',
+    name: 'userNickname',
+    helper: '',
+  },
   listFormStorage: {
     label: '表单数据列表',
     name: 'listFormStorage',
@@ -283,16 +298,6 @@ export const fieldDataFlowCase = {
   userId: {
     label: '发起人',
     name: 'userId',
-    helper: '',
-  },
-  userRealName: {
-    label: '发起人',
-    name: 'userRealName',
-    helper: '',
-  },
-  userNickname: {
-    label: '发起人昵称',
-    name: 'userNickname',
     helper: '',
   },
   cancelApproveSwitch: {
