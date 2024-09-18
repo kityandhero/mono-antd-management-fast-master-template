@@ -6,8 +6,12 @@ import {
   checkHasAuthority,
   checkStringIsNullOrWhiteSpace,
   convertCollection,
+  datetimeFormat,
+  formatDatetime,
+  getNow,
   getValueByKey,
   showSimpleInfoMessage,
+  whetherNumber,
 } from 'easy-soft-utility';
 
 import {
@@ -24,8 +28,11 @@ import {
 
 import {
   accessWayCollection,
+  emptySignet,
   listSimpleAllApproveProcess,
   listSimpleApprove,
+  simpleApply,
+  simpleAttention,
 } from '../../../../customConfig';
 import { fieldData as fieldDataWorkflowFormDesign } from '../../../WorkflowFormDesign/Common/data';
 import { DesignDrawer } from '../../../WorkflowFormDesign/DesignDrawer';
@@ -80,6 +87,98 @@ class BasicInfo extends TabPageBase {
     });
 
     setSchemaWithExternalData(designJson);
+  };
+
+  getApplicantConfig = () => {
+    const { metaData } = this.state;
+
+    const applicantSignSwitch = getValueByKey({
+      data: metaData,
+      key: fieldData.applicantSignSwitch.name,
+      convert: convertCollection.number,
+    });
+
+    const applicantStatementTitle = getValueByKey({
+      data: metaData,
+      key: fieldData.defaultApplicantStatementTitle.name,
+      convert: convertCollection.string,
+    });
+
+    const applicantStatementContent = getValueByKey({
+      data: metaData,
+      key: fieldData.defaultApplicantStatementContent.name,
+      convert: convertCollection.string,
+    });
+
+    const listApply = [
+      {
+        ...simpleApply,
+        title: applicantStatementTitle,
+        note: applicantStatementContent,
+        signet: emptySignet,
+        time: formatDatetime({
+          data: getNow(),
+          format: datetimeFormat.yearMonthDayHourMinuteSecond,
+        }),
+      },
+    ];
+
+    return {
+      showApply: applicantSignSwitch === whetherNumber.yes,
+      listApply,
+    };
+  };
+
+  getAttentionConfig = () => {
+    const { metaData } = this.state;
+
+    const attentionSignSwitch = getValueByKey({
+      data: metaData,
+      key: fieldData.attentionSignSwitch.name,
+      convert: convertCollection.number,
+    });
+
+    const attentionStatementTitle = getValueByKey({
+      data: metaData,
+      key: fieldData.defaultAttentionStatementTitle.name,
+      convert: convertCollection.string,
+    });
+
+    const attentionStatementContent = getValueByKey({
+      data: metaData,
+      key: fieldData.defaultAttentionStatementContent.name,
+      convert: convertCollection.string,
+    });
+
+    const attentionUserSignet = getValueByKey({
+      data: metaData,
+      key: fieldData.defaultAttentionUserSignet.name,
+      convert: convertCollection.string,
+    });
+
+    const listAttention = [
+      {
+        ...simpleAttention,
+        title: attentionStatementTitle,
+        note: attentionStatementContent,
+        ...(checkStringIsNullOrWhiteSpace(attentionUserSignet)
+          ? {
+              signet: emptySignet,
+            }
+          : {
+              signet: attentionUserSignet,
+            }),
+        time: formatDatetime({
+          data: getNow(),
+          format: datetimeFormat.yearMonthDayHourMinuteSecond,
+        }),
+      },
+    ];
+
+    return {
+      showAttention: attentionSignSwitch === whetherNumber.yes,
+      listAttention,
+    };
   };
 
   showDesignDrawer = () => {
@@ -350,6 +449,10 @@ class BasicInfo extends TabPageBase {
   renderPresetOther = () => {
     const { workflowId } = this.state;
 
+    const { showApply, listApply } = this.getApplicantConfig();
+
+    const { showAttention, listAttention } = this.getAttentionConfig();
+
     return (
       <>
         <DesignDrawer
@@ -365,6 +468,10 @@ class BasicInfo extends TabPageBase {
           values={[]}
           approveList={listSimpleApprove}
           allApproveProcessList={listSimpleAllApproveProcess}
+          showApply={showApply}
+          applyList={listApply}
+          showAttention={showAttention}
+          attentionList={listAttention}
           externalData={{ workflowId }}
           afterClose={() => {
             this.afterFlowCaseFormDocumentDrawerClose();

@@ -16,6 +16,61 @@ const formExtraData = {
     name: 'workflowLineList',
     helper: '',
   },
+  applicantSignSwitch: {
+    label: '申请人签名开关',
+    name: 'applicantSignSwitch',
+    helper: '',
+  },
+  applicantSignSwitchNote: {
+    label: '申请人签名开关',
+    name: 'applicantSignSwitchNote',
+    helper: '',
+  },
+  defaultApplicantStatementTitle: {
+    label: '默认文档申请陈述标题',
+    name: 'defaultApplicantStatementTitle',
+    helper: '',
+  },
+  defaultApplicantStatementContent: {
+    label: '默认文档申请陈述内容',
+    name: 'defaultApplicantStatementContent',
+    helper: '',
+  },
+  attentionSignSwitch: {
+    label: '经办人签名开关',
+    name: 'attentionSignSwitch',
+    helper: '',
+  },
+  attentionSignSwitchNote: {
+    label: '经办人签名开关',
+    name: 'attentionSignSwitchNote',
+    helper: '',
+  },
+  defaultAttentionUserId: {
+    label: '默认经办人',
+    name: 'defaultAttentionUserId',
+    helper: '',
+  },
+  defaultAttentionUserRealName: {
+    label: '默认经办人',
+    name: 'defaultAttentionUserRealName',
+    helper: '',
+  },
+  defaultAttentionUserSignet: {
+    label: '默认经办人签章',
+    name: 'defaultAttentionUserSignet',
+    helper: '',
+  },
+  defaultAttentionStatementTitle: {
+    label: '默认文档经办陈述标题',
+    name: 'defaultAttentionStatementTitle',
+    helper: '',
+  },
+  defaultAttentionStatementContent: {
+    label: '默认文档经办陈述内容',
+    name: 'defaultAttentionStatementContent',
+    helper: '',
+  },
 };
 
 export const fieldDataFlowFormDesign = {

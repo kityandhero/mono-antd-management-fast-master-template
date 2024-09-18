@@ -171,7 +171,7 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
 
     if (canDesign) {
       list.push({
-        text: '审批节点样例仅在设计时用于占位进行效果展示, 实际表单将呈现真实审批节点。',
+        text: '申请人、经办人以及审批节点样例仅在设计时用于占位进行效果展示, 实际表单将呈现真实审批节点。',
       });
     }
 

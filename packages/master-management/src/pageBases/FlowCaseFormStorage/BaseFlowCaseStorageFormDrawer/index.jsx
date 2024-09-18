@@ -30,6 +30,8 @@ import {
   flowApproveActionModeCollection,
   flowCaseStatusCollection,
   signetStyle,
+  simpleApply,
+  simpleAttention,
 } from '../../../customConfig';
 import { buildFlowCaseFormInitialValues } from '../../../utils';
 
@@ -43,9 +45,6 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
 
     this.state = {
       ...this.state,
-      pageTitle: '工作流测试实例表单',
-      loadApiPath: 'workflowDebugCase/get',
-      submitApiPath: 'workflowDebugCase/submitForm',
       width: 1024,
       workflowId: null,
       currentAttachment: null,
@@ -204,6 +203,112 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
   };
 
   doOtherAfterSaveForm = () => {};
+
+  getApplicantConfig = () => {
+    const { metaData } = this.state;
+
+    const applicantSignSwitch = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.applicantSignSwitch.name,
+      convert: convertCollection.number,
+    });
+
+    const applicantStatementTitle = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.applicantStatementTitle.name,
+      convert: convertCollection.string,
+    });
+
+    const applicantStatementContent = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.applicantStatementContent.name,
+      convert: convertCollection.string,
+    });
+
+    const applicantUserSignet = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.applicantUserSignet.name,
+      convert: convertCollection.string,
+    });
+
+    const listApply = [
+      {
+        ...simpleApply,
+        title: applicantStatementTitle,
+        note: applicantStatementContent,
+        ...(checkStringIsNullOrWhiteSpace(applicantUserSignet)
+          ? {
+              signet: emptySignet,
+            }
+          : {
+              signet: applicantUserSignet,
+            }),
+        time: getValueByKey({
+          data: metaData,
+          key: fieldDataFlowCase.applicantTime.name,
+          convert: convertCollection.string,
+        }),
+      },
+    ];
+
+    return {
+      showApply: applicantSignSwitch === whetherNumber.yes,
+      listApply,
+    };
+  };
+
+  getAttentionConfig = () => {
+    const { metaData } = this.state;
+
+    const attentionSignSwitch = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.attentionSignSwitch.name,
+      convert: convertCollection.number,
+    });
+
+    const attentionStatementTitle = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.attentionStatementTitle.name,
+      convert: convertCollection.string,
+    });
+
+    const attentionStatementContent = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.attentionStatementContent.name,
+      convert: convertCollection.string,
+    });
+
+    const attentionUserSignet = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.attentionUserSignet.name,
+      convert: convertCollection.string,
+    });
+
+    const listAttention = [
+      {
+        ...simpleAttention,
+        title: attentionStatementTitle,
+        note: attentionStatementContent,
+        ...(checkStringIsNullOrWhiteSpace(attentionUserSignet)
+          ? {
+              signet: emptySignet,
+            }
+          : {
+              signet: attentionUserSignet,
+            }),
+        time: getValueByKey({
+          data: metaData,
+          key: fieldDataFlowCase.attentionTime.name,
+          convert: convertCollection.string,
+        }),
+      },
+    ];
+
+    return {
+      showAttention: attentionSignSwitch === whetherNumber.yes,
+      listAttention,
+    };
+  };
 
   showAddAttachmentModal = () => {
     throw new Error('showAddAttachmentModal need overrode to implement');
@@ -367,6 +472,10 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
         })
       : [];
 
+    const { showApply, listApply } = this.getApplicantConfig();
+
+    const { showAttention, listAttention } = this.getAttentionConfig();
+
     return (
       <>
         <DocumentPrintDesigner
@@ -384,6 +493,10 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
           approveList={isArray(listApprove) ? listApprove : []}
           allApproveProcessList={listChainApproveAdjust}
           signetStyle={signetStyle}
+          showApply={showApply}
+          applyList={listApply}
+          showAttention={showAttention}
+          attentionList={listAttention}
           remarkTitle="备注"
           remarkName="remark"
           remarkList={remarkSchemaList}
