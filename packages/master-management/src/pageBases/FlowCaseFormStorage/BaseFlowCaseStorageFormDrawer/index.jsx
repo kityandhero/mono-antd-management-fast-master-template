@@ -60,6 +60,10 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
     };
   }
 
+  getFlowCaseId = () => {
+    throw new Error('getFlowCaseId need overrode to implement');
+  };
+
   loadChainApprove = () => {};
 
   reloadChainApprove = () => {
@@ -397,6 +401,14 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
       listAttachment,
     } = this.state;
 
+    const flowCaseId = this.getFlowCaseId();
+
+    const qRCodeImage = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.qRCodeImage.name,
+      convert: convertCollection.string,
+    });
+
     const remarkSchemaList = getValueByKey({
       data: workflowFormDesign,
       key: fieldDataFlowFormDesign.remarkSchemaList.name,
@@ -500,6 +512,11 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
           remarkTitle="备注"
           remarkName="remark"
           remarkList={remarkSchemaList}
+          showQRCode
+          showSerialNumber
+          qRCodeImage={qRCodeImage}
+          serialNumberTitle="审批流水号: "
+          serialNumberContent={flowCaseId}
         />
 
         <CenterBox>

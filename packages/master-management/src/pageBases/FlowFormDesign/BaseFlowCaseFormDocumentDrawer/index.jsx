@@ -19,6 +19,8 @@ const { BaseVerticalFlexDrawer } = DataDrawer;
 const defaultProperties = {
   canDesign: false,
   showApply: false,
+  serialNumber: '',
+  qRCodeImage: '',
   applyList: [],
   showAttention: false,
   attentionList: [],
@@ -202,6 +204,8 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
     const {
       canDesign,
       values,
+      serialNumber,
+      qRCodeImage,
       showApply,
       applyList,
       showAttention,
@@ -258,6 +262,11 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
         remarkTitle="备注"
         remarkName="remark"
         remarkList={remarkSchemaList}
+        showQRCode
+        showSerialNumber
+        serialNumberTitle="审批流水号: "
+        serialNumberContent={serialNumber}
+        qRCodeImage={qRCodeImage}
         onSave={(data) => {
           this.saveDataSchema(data);
         }}

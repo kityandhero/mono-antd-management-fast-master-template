@@ -33,6 +33,7 @@ import {
   listSimpleApprove,
   simpleApply,
   simpleAttention,
+  simpleQRCode,
 } from '../../../../customConfig';
 import { fieldData as fieldDataWorkflowFormDesign } from '../../../WorkflowFormDesign/Common/data';
 import { DesignDrawer } from '../../../WorkflowFormDesign/DesignDrawer';
@@ -472,6 +473,8 @@ class BasicInfo extends TabPageBase {
           applyList={listApply}
           showAttention={showAttention}
           attentionList={listAttention}
+          qRCodeImage={simpleQRCode}
+          serialNumberContent={'1836370789809655808'}
           externalData={{ workflowId }}
           afterClose={() => {
             this.afterFlowCaseFormDocumentDrawerClose();

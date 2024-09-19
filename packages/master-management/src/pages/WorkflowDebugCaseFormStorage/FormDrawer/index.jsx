@@ -50,6 +50,15 @@ class FormDrawer extends BaseFlowCaseStorageFormDrawer {
     };
   }
 
+  getFlowCaseId = () => {
+    const { externalData } = this.props;
+
+    return getValueByKey({
+      data: externalData,
+      key: fieldDataWorkflowDebugCase.workflowDebugCaseId.name,
+    });
+  };
+
   loadChainApprove = () => {
     const { externalData } = this.props;
 

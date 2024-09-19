@@ -636,8 +636,25 @@ class BasicInfo extends TabPageBase {
   };
 
   renderFlowCaseFormFieldDisplay = () => {
-    const { workflowFormDesign, listFormStorage, listApprove, listAttachment } =
-      this.state;
+    const {
+      metaData,
+      workflowFormDesign,
+      listFormStorage,
+      listApprove,
+      listAttachment,
+    } = this.state;
+
+    const workflowCaseId = getValueByKey({
+      data: metaData,
+      key: fieldData.workflowCaseId.name,
+      convert: convertCollection.string,
+    });
+
+    const qRCodeImage = getValueByKey({
+      data: metaData,
+      key: fieldData.qRCodeImage.name,
+      convert: convertCollection.string,
+    });
 
     const designJson = getValueByKey({
       data: workflowFormDesign,
@@ -746,6 +763,11 @@ class BasicInfo extends TabPageBase {
             applyList={listApply}
             showAttention={showAttention}
             attentionList={listAttention}
+            showQRCode
+            showSerialNumber
+            qRCodeImage={qRCodeImage}
+            serialNumberTitle="审批流水号: "
+            serialNumberContent={workflowCaseId}
           />
         )}
       </div>
@@ -761,6 +783,18 @@ class BasicInfo extends TabPageBase {
       listChainApprove,
       listAttachment,
     } = this.state;
+
+    const workflowCaseId = getValueByKey({
+      data: metaData,
+      key: fieldData.workflowCaseId.name,
+      convert: convertCollection.string,
+    });
+
+    const qRCodeImage = getValueByKey({
+      data: metaData,
+      key: fieldData.qRCodeImage.name,
+      convert: convertCollection.string,
+    });
 
     const remarkSchemaList = getValueByKey({
       data: workflowFormDesign,
@@ -865,6 +899,11 @@ class BasicInfo extends TabPageBase {
           remarkTitle="备注"
           remarkName="remark"
           remarkList={remarkSchemaList}
+          showQRCode
+          showSerialNumber
+          qRCodeImage={qRCodeImage}
+          serialNumberTitle="审批流水号: "
+          serialNumberContent={workflowCaseId}
         />
 
         <CenterBox>
@@ -906,6 +945,18 @@ class BasicInfo extends TabPageBase {
   renderPresetOther = () => {
     const { metaData, currentAttachment, listApprove, listChainApprove } =
       this.state;
+
+    const workflowCaseId = getValueByKey({
+      data: metaData,
+      key: fieldData.workflowCaseId.name,
+      convert: convertCollection.string,
+    });
+
+    const qRCodeImage = getValueByKey({
+      data: metaData,
+      key: fieldData.qRCodeImage.name,
+      convert: convertCollection.string,
+    });
 
     const listFormStorage = getValueByKey({
       data: metaData,
@@ -952,6 +1003,8 @@ class BasicInfo extends TabPageBase {
           attentionList={listAttention}
           approveList={listApprove}
           allApproveProcessList={listChainApprove}
+          qRCodeImage={qRCodeImage}
+          serialNumberContent={workflowCaseId}
         />
       </>
     );
