@@ -261,6 +261,15 @@ export function buildInputItem({
               break;
             }
 
+            case keyValueEditModeCollection.datetime: {
+              result = formatDatetime({
+                data: v,
+                format: datetimeFormat.yearMonthDayHourMinuteSecond,
+                defaultValue: '--',
+              });
+              break;
+            }
+
             default: {
               result = v;
               break;

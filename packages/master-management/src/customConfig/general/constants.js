@@ -621,8 +621,10 @@ export const keyValueEditModeCollection = {
   string: 'string',
   number: 'number',
   time: 'time',
+  datetime: 'datetime',
   whether: 'whether',
   multiLineString: 'multiLineString',
+  flowFormDisplayModeWhenApproval: 'flowFormDisplayModeWhenApproval',
 };
 
 export const keyValueItemData = {

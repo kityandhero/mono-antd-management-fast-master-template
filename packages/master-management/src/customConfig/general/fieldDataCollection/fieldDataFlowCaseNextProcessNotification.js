@@ -6,6 +6,21 @@ const fieldExtraData = {
     name: 'flowCaseTitle',
     helper: '',
   },
+  whetherClientSendNote: {
+    label: '客户端消息是否发送',
+    name: 'whetherClientSendNote',
+    helper: '',
+  },
+  whetherSmsSendNote: {
+    label: '短信是否发送',
+    name: 'whetherSmsSendNote',
+    helper: '',
+  },
+  whetherReadNote: {
+    label: '是否已读',
+    name: 'whetherReadNote',
+    helper: '',
+  },
 };
 
 export const fieldDataFlowCaseNextProcessNotification = {
@@ -50,29 +65,29 @@ export const fieldDataFlowCaseNextProcessNotification = {
     name: 'content',
     helper: '',
   },
+  clientContent: {
+    label: '客户端通知内容',
+    name: 'clientContent',
+    helper: '',
+  },
   smsContent: {
     label: '短信通知内容',
     name: 'smsContent',
     helper: '',
   },
-  whetherSend: {
-    label: '是否发送',
-    name: 'whetherSend',
+  whetherClientSend: {
+    label: '客户端消息是否发送',
+    name: 'whetherClientSend',
     helper: '',
   },
-  whetherSendNote: {
-    label: '是否发送',
-    name: 'whetherSendNote',
+  whetherSmsSend: {
+    label: '短信是否发送',
+    name: 'whetherSmsSend',
     helper: '',
   },
   whetherRead: {
     label: '是否已读',
     name: 'whetherSend',
-    helper: '',
-  },
-  whetherReadNote: {
-    label: '是否已读',
-    name: 'whetherSendNote',
     helper: '',
   },
   status: {

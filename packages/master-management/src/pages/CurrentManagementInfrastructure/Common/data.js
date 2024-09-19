@@ -221,9 +221,24 @@ export const fieldData = {
     name: 'flowDebugUserRealName',
     helper: '',
   },
+  flowApproveNotificationSmsSearchStartTime: {
+    label: '流程审批短信通知检索起始时间',
+    name: 'flowApproveNotificationSmsSearchStartTime',
+    helper: '',
+  },
   flowApproveNotificationTemplate: {
-    label: '用于流程调试的审批消息模板',
+    label: '用于流程审批的系统消息模板',
     name: 'flowApproveNotificationTemplate',
+    helper: '',
+  },
+  flowApproveNotificationClientTemplate: {
+    label: '用于流程审批的客户端通知模板',
+    name: 'flowApproveNotificationClientTemplate',
+    helper: '',
+  },
+  flowApproveNotificationSmsTemplate: {
+    label: '用于流程审批的短信通知模板',
+    name: 'flowApproveNotificationSmsTemplate',
     helper: '',
   },
   flowCarbonCopyNotificationTemplate: {

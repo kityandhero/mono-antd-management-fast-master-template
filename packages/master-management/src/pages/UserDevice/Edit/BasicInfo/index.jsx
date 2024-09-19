@@ -121,13 +121,13 @@ class BasicInfo extends TabPageBase {
         key: fieldData.identityNumber.name,
       });
 
-      values[fieldData.birthday.name] = createDayJsDatetime(
-        getValueByKey({
+      values[fieldData.birthday.name] = createDayJsDatetime({
+        datetime: getValueByKey({
           data: metaData,
           key: fieldData.birthday.name,
         }),
-        'YYYY-MM-DD',
-      );
+        format: 'YYYY-MM-DD',
+      });
     }
 
     return values;

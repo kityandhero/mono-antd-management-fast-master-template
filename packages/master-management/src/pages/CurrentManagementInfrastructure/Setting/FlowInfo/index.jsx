@@ -388,6 +388,38 @@ class Index extends TabPageBase {
         {
           title: {
             icon: iconBuilder.contacts(),
+            text: '流程短信通知检索设置',
+          },
+          items: [
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.flowApproveNotificationSmsSearchStartTime,
+              editMode: keyValueEditModeCollection.datetime,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              inputIcon: iconBuilder.clock(),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+          ],
+          instruction: [
+            {
+              title: '设置说明',
+              showDivider: false,
+              showNumber: true,
+              list: [
+                {
+                  text: '依据此处配置的时间检索即将发送的审批短信通知.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
             text: '流程通用审批消息模板',
           },
           items: [
@@ -395,7 +427,29 @@ class Index extends TabPageBase {
               firstLoadSuccess,
               handleData: metaData,
               fieldData: fieldData.flowApproveNotificationTemplate,
-              editMode: keyValueEditModeCollection.string,
+              editMode: keyValueEditModeCollection.multiLineString,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.flowApproveNotificationClientTemplate,
+              editMode: keyValueEditModeCollection.multiLineString,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.flowApproveNotificationSmsTemplate,
+              editMode: keyValueEditModeCollection.multiLineString,
               hidden: !checkHasAuthority(
                 accessWayCollection.currentManagementInfrastructure
                   .updateKeyValueInfo.permission,
@@ -410,16 +464,13 @@ class Index extends TabPageBase {
               showNumber: true,
               list: [
                 {
-                  text: '通知模板必须为如下形式："即将审批的步骤为{0}, 审批人{1}".',
+                  text: '通知模板必须为如下形式："有新的审批需要处理：{0}".',
                 },
                 {
                   text: '形如{0}的位置为将要替换的内容.',
                 },
                 {
-                  text: '位置 {0} 为节点名称.',
-                },
-                {
-                  text: '位置 {1} 为审批人名称.',
+                  text: '位置 {0} 为审批标题, 位置 {1} 为批号.',
                 },
               ],
             },

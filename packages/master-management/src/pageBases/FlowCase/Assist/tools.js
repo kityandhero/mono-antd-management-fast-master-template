@@ -135,9 +135,10 @@ export function buildColumnsNextProcessNotification({
       ellipsis: true,
     },
     {
-      title: fieldDataFlowCaseNextProcessNotification.whetherSendNote.label,
-      dataIndex: fieldDataFlowCaseNextProcessNotification.whetherSendNote.name,
-      key: fieldDataFlowCaseNextProcessNotification.whetherSendNote.name,
+      title: fieldDataFlowCaseNextProcessNotification.whetherSmsSendNote.label,
+      dataIndex:
+        fieldDataFlowCaseNextProcessNotification.whetherSmsSendNote.name,
+      key: fieldDataFlowCaseNextProcessNotification.whetherSmsSendNote.name,
       align: 'center',
       ellipsis: true,
       width: '100px',
@@ -227,9 +228,10 @@ export function buildColumnsCarbonCopyNotification({
       width: '120px',
     },
     {
-      title: fieldDataFlowCaseCarbonCopyNotification.whetherSendNote.label,
-      dataIndex: fieldDataFlowCaseCarbonCopyNotification.whetherSendNote.name,
-      key: fieldDataFlowCaseCarbonCopyNotification.whetherSendNote.name,
+      title: fieldDataFlowCaseCarbonCopyNotification.whetherSmsSendNote.label,
+      dataIndex:
+        fieldDataFlowCaseCarbonCopyNotification.whetherSmsSendNote.name,
+      key: fieldDataFlowCaseCarbonCopyNotification.whetherSmsSendNote.name,
       align: 'center',
       ellipsis: true,
       width: '100px',

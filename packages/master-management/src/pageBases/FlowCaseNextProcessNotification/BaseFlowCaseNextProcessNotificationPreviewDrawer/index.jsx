@@ -177,6 +177,17 @@ class BaseFlowCaseNextProcessNotificationPreviewDrawer extends BaseVerticalFlexD
               {
                 span: 2,
                 label:
+                  fieldDataFlowCaseNextProcessNotification.clientContent.label,
+                value: getValueByKey({
+                  data: metaData,
+                  key: fieldDataFlowCaseNextProcessNotification.clientContent
+                    .name,
+                  convert: convertCollection.string,
+                }),
+              },
+              {
+                span: 2,
+                label:
                   fieldDataFlowCaseNextProcessNotification.smsContent.label,
                 value: getValueByKey({
                   data: metaData,
@@ -185,13 +196,13 @@ class BaseFlowCaseNextProcessNotificationPreviewDrawer extends BaseVerticalFlexD
                 }),
               },
               {
-                span: 1,
+                span: 2,
                 label:
-                  fieldDataFlowCaseNextProcessNotification.whetherSendNote
+                  fieldDataFlowCaseNextProcessNotification.whetherReadNote
                     .label,
                 value: getValueByKey({
                   data: metaData,
-                  key: fieldDataFlowCaseNextProcessNotification.whetherSendNote
+                  key: fieldDataFlowCaseNextProcessNotification.whetherReadNote
                     .name,
                   convert: convertCollection.string,
                 }),
@@ -199,12 +210,24 @@ class BaseFlowCaseNextProcessNotificationPreviewDrawer extends BaseVerticalFlexD
               {
                 span: 1,
                 label:
-                  fieldDataFlowCaseNextProcessNotification.whetherSendNote
+                  fieldDataFlowCaseNextProcessNotification.whetherClientSendNote
                     .label,
                 value: getValueByKey({
                   data: metaData,
-                  key: fieldDataFlowCaseNextProcessNotification.whetherSendNote
-                    .name,
+                  key: fieldDataFlowCaseNextProcessNotification
+                    .whetherClientSendNote.name,
+                  convert: convertCollection.string,
+                }),
+              },
+              {
+                span: 1,
+                label:
+                  fieldDataFlowCaseNextProcessNotification.whetherSmsSendNote
+                    .label,
+                value: getValueByKey({
+                  data: metaData,
+                  key: fieldDataFlowCaseNextProcessNotification
+                    .whetherSmsSendNote.name,
                   convert: convertCollection.string,
                 }),
               },

@@ -1,6 +1,22 @@
 import { formNameCollection } from './fieldDataCommon';
 
-const fieldExtraData = {};
+const fieldExtraData = {
+  whetherClientSendNote: {
+    label: '客户端消息是否发送',
+    name: 'whetherClientSendNote',
+    helper: '',
+  },
+  whetherSmsSendNote: {
+    label: '短信是否发送',
+    name: 'whetherSmsSendNote',
+    helper: '',
+  },
+  whetherReadNote: {
+    label: '是否已读',
+    name: 'whetherReadNote',
+    helper: '',
+  },
+};
 
 export const fieldDataFlowCaseCarbonCopyNotification = {
   ...formNameCollection,
@@ -54,14 +70,29 @@ export const fieldDataFlowCaseCarbonCopyNotification = {
     name: 'content',
     helper: '',
   },
-  whetherSend: {
-    label: '是否发送',
-    name: 'whetherSend',
+  clientContent: {
+    label: '客户端通知内容',
+    name: 'clientContent',
     helper: '',
   },
-  whetherSendNote: {
-    label: '是否发送',
-    name: 'whetherSendNote',
+  smsContent: {
+    label: '短信通知内容',
+    name: 'smsContent',
+    helper: '',
+  },
+  whetherClientSend: {
+    label: '客户端消息是否发送',
+    name: 'whetherClientSend',
+    helper: '',
+  },
+  whetherSmsSend: {
+    label: '短信是否发送',
+    name: 'whetherSmsSend',
+    helper: '',
+  },
+  whetherRead: {
+    label: '是否已读',
+    name: 'whetherSend',
     helper: '',
   },
   status: {

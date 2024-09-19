@@ -3,6 +3,7 @@ import {
   convertCollection,
   createDayJsDatetime,
   getValueByKey,
+  logConsole,
 } from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
@@ -25,6 +26,8 @@ class UpdateKeyValueInfoModal extends BaseUpdateModal {
   static open() {
     switchControlAssist.open(visibleFlag);
   }
+
+  destroyOnClose = true;
 
   constructor(properties) {
     super(properties, visibleFlag);
@@ -122,7 +125,35 @@ class UpdateKeyValueInfoModal extends BaseUpdateModal {
                 return null;
               }
 
-              return createDayJsDatetime(v, 'YYYY-MM-DD HH:mm');
+              return createDayJsDatetime({
+                datetime: v,
+                format: 'YYYY-MM-DD HH:mm',
+              });
+            },
+          });
+
+          break;
+        }
+
+        case keyValueEditModeCollection.datetime: {
+          values.value = getValueByKey({
+            data: currentData,
+            key: targetFieldData.name,
+            convertBuilder: (v) => {
+              if ((v || null) == null) {
+                return null;
+              }
+
+              logConsole(v);
+
+              // if (!isDatetime(v)) {
+              //   return null;
+              // }
+
+              return createDayJsDatetime({
+                datetime: v,
+                format: 'YYYY-MM-DD HH:mm:ss',
+              });
             },
           });
 
@@ -160,6 +191,11 @@ class UpdateKeyValueInfoModal extends BaseUpdateModal {
 
       case keyValueEditModeCollection.time: {
         editType = cardConfig.contentItemType.timePicker;
+        break;
+      }
+
+      case keyValueEditModeCollection.datetime: {
+        editType = cardConfig.contentItemType.datePicker;
         break;
       }
 
