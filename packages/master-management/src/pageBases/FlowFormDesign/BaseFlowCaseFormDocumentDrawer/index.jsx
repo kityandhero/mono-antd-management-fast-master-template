@@ -204,7 +204,7 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
     const {
       canDesign,
       values,
-      serialNumber,
+      serialNumberContent,
       qRCodeImage,
       showApply,
       applyList,
@@ -265,7 +265,7 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
         showQRCode
         showSerialNumber
         serialNumberTitle="审批流水号: "
-        serialNumberContent={serialNumber}
+        serialNumberContent={serialNumberContent}
         qRCodeImage={qRCodeImage}
         onSave={(data) => {
           this.saveDataSchema(data);
