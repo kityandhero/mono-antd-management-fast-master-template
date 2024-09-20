@@ -24,7 +24,7 @@ import { fieldData } from '../ErrorLog/Common/data';
 import { PreviewDrawer } from '../ErrorLog/PreviewDrawer';
 
 import { PageHeaderContent } from './PageHeaderContent';
-import ShortcutPanel from './ShortcutPanel';
+import { ShortcutPanel } from './ShortcutPanel';
 
 const { MultiPage } = DataMultiPageView;
 
