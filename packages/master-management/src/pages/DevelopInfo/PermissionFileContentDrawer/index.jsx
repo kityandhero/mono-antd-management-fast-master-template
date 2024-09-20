@@ -28,7 +28,7 @@ class PermissionFileContentDrawer extends BaseVerticalFlexDrawer {
 
     this.state = {
       ...this.state,
-      pageTitle: '权限文件内容',
+      pageTitle: '前端全部权限键值配置文件',
       loadApiPath: 'accessWay/getAllPermissionFileContent',
     };
   }

@@ -3058,26 +3058,6 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'd3a42cc528ef7c42d4cfb8c1e5515f90',
       permission: '44858bcfa5994645b74d00e145de7425',
     },
-    statisticSubmitCount: {
-      title: '统计提交审批总数',
-      paramsKey: 'cea17724f70b0c5b789ef9b28f0ca003',
-      permission: 'b5d56e9fca5c48c294b27f5cb0b6efe3',
-    },
-    statisticProcessedCount: {
-      title: '统计审批已办总数',
-      paramsKey: '24cf4c6a483bd50e87777f48f8493839',
-      permission: '09ab77913be04d1c98aba18a5efc1e94',
-    },
-    statisticWaitCount: {
-      title: '统计审批待办总数',
-      paramsKey: 'a2d75e15a5fc11f8e2dc518d04694a97',
-      permission: 'f31f6aa8e52b4c22a4208d0bcdcb8339',
-    },
-    statisticCarbonCopyCount: {
-      title: '统计审批抄送未读总数',
-      paramsKey: '80368a90bad2205cc8351a956d250095',
-      permission: '144dafcae5e149c1bb1e46be3915f16d',
-    },
   },
   workflowBranchCondition: {
     pageList: {
@@ -3981,6 +3961,48 @@ export const accessWayInfrastructureCollection = {
       title: '操作日志列表',
       paramsKey: '9b9899eeb07068ee0b8a4d3a488cb60a',
       permission: 'b61489f303404e699cb761627db82c10',
+    },
+  },
+  workflowStatisticBase: {
+    statisticCaseSubmitCount: {
+      title: '统计审批实例提交总数',
+      paramsKey: 'ad8a16b91532ae46d260940a4c334c0d',
+      permission: '74c741e63d714f4a9c4c7fac8b112ada',
+    },
+    statisticDebugCaseSubmitCount: {
+      title: '统计审批测试实例提交总数',
+      paramsKey: '938d04ee9cb562093c2dd8754ca8bf78',
+      permission: '811eabeb7a0847969208375cfb859525',
+    },
+    statisticCaseLatestApproveCount: {
+      title: '统计审批实例已办总数',
+      paramsKey: 'fb35fa9f04cba0d281c9775aa12681c6',
+      permission: 'bef8b28aaf984822b0a186bac0438c2b',
+    },
+    statisticDebugCaseLatestApproveCount: {
+      title: '统计审批测试实例已办总数',
+      paramsKey: '8487cfd1e9a6003d8e7c19a1af97d857',
+      permission: 'be7e1d0dae4a4e0e8742d70ea061269a',
+    },
+    statisticCaseWaitApproveCount: {
+      title: '统计审批实例待办总数',
+      paramsKey: '6fd616616a2920c13fb8e13dc9b359a8',
+      permission: '6e1c40d3a88948e88a68a7110795c31c',
+    },
+    statisticDebugCaseWaitApproveCount: {
+      title: '统计审批测试实例待办总数',
+      paramsKey: 'b50eccd54deb1f39554e76b1a9c99d68',
+      permission: 'eb81166218f44309a10af9e1f45cd43c',
+    },
+    statisticCaseNotificationWaitReadCount: {
+      title: '统计审批实例通知未读总数',
+      paramsKey: 'a73816b2d823b84128e147ca9d2bed22',
+      permission: 'f49cd83a140a4a3a849971b8c54015c2',
+    },
+    statisticDebugCaseNotificationWaitReadCount: {
+      title: '统计审批测试实例通知未读总数',
+      paramsKey: 'bd16d2e7e16c03f7a571c21aa558539f',
+      permission: '75228fadadd54a139c3444937f89079e',
     },
   },
 };

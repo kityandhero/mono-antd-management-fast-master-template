@@ -4964,34 +4964,6 @@
           "effect": "pageListOperateLog",
           "service": "pageListOperateLogData",
           "type": "pageList"
-        },
-        {
-          "title": "统计提交审批总数",
-          "api": "/workflow/statisticSubmitCount",
-          "effect": "statisticSubmitCount",
-          "service": "statisticSubmitCountData",
-          "type": "singleData"
-        },
-        {
-          "title": "统计审批已办总数",
-          "api": "/workflow/statisticProcessedCount",
-          "effect": "statisticProcessedCount",
-          "service": "statisticProcessedCountData",
-          "type": "singleData"
-        },
-        {
-          "title": "统计审批待办总数",
-          "api": "/workflow/statisticWaitCount",
-          "effect": "statisticWaitCount",
-          "service": "statisticWaitCountData",
-          "type": "singleData"
-        },
-        {
-          "title": "统计审批抄送未读总数",
-          "api": "/workflow/statisticCarbonCopyCount",
-          "effect": "statisticCarbonCopyCount",
-          "service": "statisticCarbonCopyCountData",
-          "type": "singleData"
         }
       ],
       "cover": true,
@@ -6369,6 +6341,69 @@
       "cover": true,
       "title": "工作流公司范围生效关系管理",
       "name": "workflowRangeEffectiveSubsidiaryRelation"
+    },
+    {
+      "apis": [
+        {
+          "title": "统计审批实例提交总数",
+          "api": "/workflowStatisticBase/statisticCaseSubmitCount",
+          "effect": "statisticCaseSubmitCount",
+          "service": "statisticCaseSubmitCountData",
+          "type": "singleData"
+        },
+        {
+          "title": "统计审批测试实例提交总数",
+          "api": "/workflowStatisticBase/statisticDebugCaseSubmitCount",
+          "effect": "statisticDebugCaseSubmitCount",
+          "service": "statisticDebugCaseSubmitCountData",
+          "type": "singleData"
+        },
+        {
+          "title": "统计审批实例已办总数",
+          "api": "/workflowStatisticBase/statisticCaseLatestApproveCount",
+          "effect": "statisticCaseLatestApproveCount",
+          "service": "statisticCaseLatestApproveCountData",
+          "type": "singleData"
+        },
+        {
+          "title": "统计审批测试实例已办总数",
+          "api": "/workflowStatisticBase/statisticDebugCaseLatestApproveCount",
+          "effect": "statisticDebugCaseLatestApproveCount",
+          "service": "statisticDebugCaseLatestApproveCountData",
+          "type": "singleData"
+        },
+        {
+          "title": "统计审批实例待办总数",
+          "api": "/workflowStatisticBase/statisticCaseWaitApproveCount",
+          "effect": "statisticCaseWaitApproveCount",
+          "service": "statisticCaseWaitApproveCountData",
+          "type": "singleData"
+        },
+        {
+          "title": "统计审批测试实例待办总数",
+          "api": "/workflowStatisticBase/statisticDebugCaseWaitApproveCount",
+          "effect": "statisticDebugCaseWaitApproveCount",
+          "service": "statisticDebugCaseWaitApproveCountData",
+          "type": "singleData"
+        },
+        {
+          "title": "统计审批实例通知未读总数",
+          "api": "/workflowStatisticBase/statisticCaseNotificationWaitReadCount",
+          "effect": "statisticCaseNotificationWaitReadCount",
+          "service": "statisticCaseNotificationWaitReadCountData",
+          "type": "singleData"
+        },
+        {
+          "title": "统计审批测试实例通知未读总数",
+          "api": "/workflowStatisticBase/statisticDebugCaseNotificationWaitReadCount",
+          "effect": "statisticDebugCaseNotificationWaitReadCount",
+          "service": "statisticDebugCaseNotificationWaitReadCountData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "审批统计",
+      "name": "workflowStatisticBase"
     }
   ]
 }

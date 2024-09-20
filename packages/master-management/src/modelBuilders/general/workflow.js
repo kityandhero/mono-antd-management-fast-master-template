@@ -29,10 +29,6 @@ import {
   setDisableData,
   setEnableData,
   setSmsTemplateData,
-  statisticCarbonCopyCountData,
-  statisticProcessedCountData,
-  statisticSubmitCountData,
-  statisticWaitCountData,
   toggleApplicantSignSwitchData,
   toggleAttentionSignSwitchData,
   updateBasicInfoData,
@@ -64,10 +60,6 @@ export const workflowTypeCollection = {
   refreshCache: 'workflow/refreshCache',
   remove: 'workflow/remove',
   pageListOperateLog: 'workflow/pageListOperateLog',
-  statisticSubmitCount: 'workflow/statisticSubmitCount',
-  statisticProcessedCount: 'workflow/statisticProcessedCount',
-  statisticWaitCount: 'workflow/statisticWaitCount',
-  statisticCarbonCopyCount: 'workflow/statisticCarbonCopyCount',
 };
 
 export function buildModel() {
@@ -695,110 +687,6 @@ export function buildModel() {
         const response = yield call(pageListOperateLogData, payload);
 
         const dataAdjust = pretreatmentRemotePageListData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *statisticSubmitCount(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(statisticSubmitCountData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *statisticProcessedCount(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(statisticProcessedCountData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *statisticWaitCount(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(statisticWaitCountData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *statisticCarbonCopyCount(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(statisticCarbonCopyCountData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
           successCallback: pretreatmentSuccessCallback || null,
           failCallback: pretreatmentFailCallback || null,

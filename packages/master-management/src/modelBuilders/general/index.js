@@ -340,6 +340,10 @@ import {
   buildModel as buildWorkflowRangeEffectiveSubsidiaryRelationModel,
   workflowRangeEffectiveSubsidiaryRelationTypeCollection,
 } from './workflowRangeEffectiveSubsidiaryRelation';
+import {
+  buildModel as buildWorkflowStatisticBaseModel,
+  workflowStatisticBaseTypeCollection,
+} from './workflowStatisticBase';
 
 export const modelTypeCollection = {
   accessWayTypeCollection,
@@ -432,6 +436,7 @@ export const modelTypeCollection = {
   workflowNodeApproverTypeCollection,
   workflowRangeEffectiveExternalDepartmentRelationTypeCollection,
   workflowRangeEffectiveSubsidiaryRelationTypeCollection,
+  workflowStatisticBaseTypeCollection,
 };
 
 export function listModelBuilder() {
@@ -528,6 +533,7 @@ export function listModelBuilder() {
     buildWorkflowNodeApproverModel,
     buildWorkflowRangeEffectiveExternalDepartmentRelationModel,
     buildWorkflowRangeEffectiveSubsidiaryRelationModel,
+    buildWorkflowStatisticBaseModel,
   );
 
   return list;
