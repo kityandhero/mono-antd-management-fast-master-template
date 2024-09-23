@@ -268,6 +268,11 @@ class PageList extends MultiPage {
         },
         {
           lg: 5,
+          type: searchCardConfig.contentItemType.input,
+          fieldData: fieldData.phone,
+        },
+        {
+          lg: 4,
           type: searchCardConfig.contentItemType.component,
           component: this.buildSearchCardButtonCore(),
         },
