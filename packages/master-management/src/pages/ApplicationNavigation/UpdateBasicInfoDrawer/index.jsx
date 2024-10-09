@@ -82,6 +82,11 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
         key: fieldData.name.name,
       });
 
+      values[fieldData.uniqueMark.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.uniqueMark.name,
+      });
+
       values[fieldData.targetPath.name] = getValueByKey({
         data: metaData,
         key: fieldData.targetPath.name,
@@ -98,42 +103,18 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
     return {
       list: [
         {
-          items: [
-            {
-              lg: 24,
-              type: cardConfig.contentItemType.customGrid,
-              list: [
-                {
-                  span: 1,
-                  label: fieldData.uniqueMark.label,
-                  value: getValueByKey({
-                    data: metaData,
-                    key: fieldData.uniqueMark.name,
-                  }),
-                },
-              ],
-              props: {
-                size: 'small',
-                bordered: true,
-                column: 1,
-                emptyStyle: {
-                  color: '#cccccc',
-                },
-                emptyValue: '待完善',
-                labelStyle: {
-                  width: '80px',
-                },
-              },
-            },
-          ],
-        },
-        {
           title: {
             icon: iconBuilder.contacts(),
             text: '基本信息',
           },
           hasExtra: true,
           items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.input,
+              fieldData: fieldData.uniqueMark,
+              require: true,
+            },
             {
               lg: 24,
               type: cardConfig.contentItemType.input,

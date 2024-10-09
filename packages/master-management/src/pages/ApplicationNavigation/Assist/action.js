@@ -29,6 +29,27 @@ export async function removeNavigationItemAction({
   });
 }
 
+export async function removeAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: 'applicationNavigation/remove',
+    params: {
+      applicationNavigationId: getValueByKey({
+        data: handleData,
+        key: fieldData.applicationNavigationId.name,
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function refreshCacheAction({
   target,
   handleData,

@@ -9,6 +9,7 @@ import {
 
 import {
   cardConfig,
+  dropdownExpandItemType,
   getDerivedStateFromPropertiesForUrlParameters,
   listViewConfig,
   searchCardConfig,
@@ -25,6 +26,7 @@ import { AddBasicInfoDrawer } from '../../../../ApplicationNavigation/AddBasicIn
 import { AddNavigationItemDrawer } from '../../../../ApplicationNavigation/AddNavigationItemDrawer';
 import {
   refreshCacheAction,
+  removeAction,
   removeNavigationItemAction,
 } from '../../../../ApplicationNavigation/Assist/action';
 import { fieldData } from '../../../../ApplicationNavigation/Common/data';
@@ -97,6 +99,11 @@ class Index extends InnerMultiPage {
         break;
       }
 
+      case 'remove': {
+        this.remove(handleData);
+        break;
+      }
+
       default: {
         showSimpleErrorMessage('can not find matched key');
         break;
@@ -106,6 +113,16 @@ class Index extends InnerMultiPage {
 
   removeNavigationItem = (r) => {
     removeNavigationItemAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target }) => {
+        target.refreshDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
+  remove = (r) => {
+    removeAction({
       target: this,
       handleData: r,
       successCallback: ({ target }) => {
@@ -323,6 +340,19 @@ class Index extends InnerMultiPage {
                 ),
                 confirm: true,
                 title: '即将刷新缓存，确定吗？',
+              },
+              {
+                type: dropdownExpandItemType.divider,
+              },
+              {
+                key: 'remove',
+                icon: iconBuilder.delete(),
+                text: '删除导航',
+                hidden: !checkHasAuthority(
+                  accessWayCollection.applicationNavigation.remove.permission,
+                ),
+                confirm: true,
+                title: '将要移除整个导航，确定吗？',
               },
             ],
           },
