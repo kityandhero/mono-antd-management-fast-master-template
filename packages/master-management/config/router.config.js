@@ -35,6 +35,7 @@ import {
   userDevice,
   userLoginLog,
   userSignet,
+  userWechatApplicationInfo,
   weChatMessageRecord,
 } from './router.general.config';
 
@@ -134,7 +135,14 @@ export default [
       accessWayCollection.userDevice.pageList.permission,
       accessWayCollection.internalTester.pageList.permission,
     ],
-    routes: [user, userSignet, userDevice, userLoginLog, internalTester],
+    routes: [
+      user,
+      userSignet,
+      userDevice,
+      userWechatApplicationInfo,
+      userLoginLog,
+      internalTester,
+    ],
   },
   account,
   assistTools,

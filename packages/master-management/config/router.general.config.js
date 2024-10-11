@@ -2087,6 +2087,35 @@ export const userDevice = {
   ],
 };
 
+export const userWechatApplicationInfo = {
+  name: 'userWechatApplicationInfo',
+  icon: 'user',
+  hideChildrenInMenu: true,
+  path: '/person/userWechatApplicationInfo',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.userWechatApplicationInfo.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/person/userWechatApplicationInfo',
+      redirect: '/person/userWechatApplicationInfo/pageList',
+    },
+    {
+      path: '/person/userWechatApplicationInfo/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/person/userWechatApplicationInfo/pageList/no',
+    },
+    {
+      path: '/person/userWechatApplicationInfo/pageList/:pageKey',
+      hideInMenu: true,
+      component: './UserWechatApplicationInfo/PageList',
+    },
+  ],
+};
+
 export const internalTester = {
   name: 'internalTester',
   icon: 'reconciliation',

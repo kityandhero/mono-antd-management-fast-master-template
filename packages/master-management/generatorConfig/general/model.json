@@ -4757,6 +4757,41 @@
       "apis": [
         {
           "title": "分页列表",
+          "api": "/userWechatApplicationInfo/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/userWechatApplicationInfo/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/userWechatApplicationInfo/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/userWechatApplicationInfo/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "用户微信信息",
+      "name": "userWechatApplicationInfo"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
           "api": "/weChatMessageRecord/pageList",
           "effect": "pageList",
           "service": "pageListData",

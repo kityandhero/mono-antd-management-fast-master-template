@@ -393,6 +393,11 @@ export const menuZhCNGeneral = {
   'menu.person.userDevice.edit.operateLog': '操作日志',
   'menu.person.userDevice.edit.operateLog.pageList': '日志列表',
 
+  'menu.person.userWechatApplicationInfo': '用户微信信息',
+  'menu.person.userWechatApplicationInfo-mini': '用户微信',
+  'menu.person.userWechatApplicationInfo.pageList': '用户微信信息列表',
+  'menu.person.userWechatApplicationInfo.pageList-mini': '列表',
+
   'menu.person.internalTester': '内测用户',
   'menu.person.internalTester-mini': '内测',
   'menu.person.internalTester.add': '新增内测用户',

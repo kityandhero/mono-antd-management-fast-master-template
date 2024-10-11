@@ -2910,6 +2910,28 @@ export const accessWayInfrastructureCollection = {
       permission: '37a10641feb542b5bcf3cf0b66c25bb3',
     },
   },
+  userWechatApplicationInfo: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '7f47fd944d508349b73e4d9bc5e8c0f1',
+      permission: '5687a275fb7c4519aac1ced7fc43b4bc',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '6cbb677d68432efa7c031d1b36d76ca3',
+      permission: '5b4627fe39834c68bd3e3e3399c4ad5f',
+    },
+    remove: {
+      title: '移除',
+      paramsKey: 'b137730c6d31437995f5ea9dc3ef5a6b',
+      permission: 'c09fa60c450f497bbcdbd4dec39c338a',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '8340d748f334c5122b9171935a2d1515',
+      permission: 'bde60c7d1f2242829b14f9625fd4e31e',
+    },
+  },
   weChatMessageRecord: {
     pageList: {
       title: '分页列表',
