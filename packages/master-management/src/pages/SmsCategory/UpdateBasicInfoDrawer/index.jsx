@@ -82,6 +82,26 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
         key: fieldData.template.name,
       });
 
+      values[fieldData.firstParamMaxLength.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.firstParamMaxLength.name,
+      });
+
+      values[fieldData.secondParamMaxLength.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.secondParamMaxLength.name,
+      });
+
+      values[fieldData.threeParamMaxLength.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.threeParamMaxLength.name,
+      });
+
+      values[fieldData.fourParamMaxLength.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.fourParamMaxLength.name,
+      });
+
       values[fieldData.description.name] = getValueByKey({
         data: metaData,
         key: fieldData.description.name,
@@ -109,14 +129,14 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
           },
           items: [
             {
-              lg: 12,
+              lg: 24,
               type: cardConfig.contentItemType.input,
               fieldData: fieldData.name,
               require: true,
               hidden: flag > 0,
             },
             {
-              lg: 12,
+              lg: 24,
               type: cardConfig.contentItemType.onlyShowInput,
               fieldData: fieldData.name,
               value: getValueByKey({
@@ -129,6 +149,42 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
               lg: 24,
               type: cardConfig.contentItemType.textarea,
               fieldData: fieldData.template,
+            },
+            {
+              lg: 12,
+              type: cardConfig.contentItemType.inputNumber,
+              fieldData: fieldData.firstParamMaxLength,
+              require: false,
+            },
+            {
+              lg: 12,
+              type: cardConfig.contentItemType.inputNumber,
+              fieldData: fieldData.secondParamMaxLength,
+              require: false,
+            },
+            {
+              lg: 12,
+              type: cardConfig.contentItemType.inputNumber,
+              fieldData: fieldData.threeParamMaxLength,
+              require: false,
+            },
+            {
+              lg: 12,
+              type: cardConfig.contentItemType.inputNumber,
+              fieldData: fieldData.fourParamMaxLength,
+              require: false,
+            },
+          ],
+          instruction: [
+            {
+              title: '功能说明',
+              showDivider: false,
+              showNumber: true,
+              list: [
+                {
+                  text: '参数最大长度最大值为100, 当设置为0时, 表示不限制长度.',
+                },
+              ],
             },
           ],
         },

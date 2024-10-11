@@ -19,9 +19,9 @@ export async function removeAction({
         key: fieldData.userId.name,
         defaultValue: '',
       }),
-      subsidiaryId: getValueByKey({
+      applicationId: getValueByKey({
         data: handleData,
-        key: fieldData.subsidiaryId.name,
+        key: fieldData.applicationId.name,
         defaultValue: '',
       }),
     },

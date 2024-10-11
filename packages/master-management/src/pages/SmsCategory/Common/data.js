@@ -32,6 +32,26 @@ export const fieldData = {
     name: 'template',
     helper: '',
   },
+  firstParamMaxLength: {
+    label: '第一个参数最大长度',
+    name: 'firstParamMaxLength',
+    helper: '',
+  },
+  secondParamMaxLength: {
+    label: '第二个参数最大长度',
+    name: 'secondParamMaxLength',
+    helper: '',
+  },
+  threeParamMaxLength: {
+    label: '第三个参数最大长度',
+    name: 'threeParamMaxLength',
+    helper: '',
+  },
+  fourParamMaxLength: {
+    label: '第四个参数最大长度',
+    name: 'fourParamMaxLength',
+    helper: '',
+  },
   statusNote: {
     label: '状态',
     name: 'statusNote',

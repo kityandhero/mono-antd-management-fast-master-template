@@ -64,7 +64,7 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
           },
           items: [
             {
-              lg: 12,
+              lg: 24,
               type: cardConfig.contentItemType.input,
               fieldData: fieldData.name,
               require: true,
@@ -73,6 +73,42 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
               lg: 24,
               type: cardConfig.contentItemType.textarea,
               fieldData: fieldData.template,
+            },
+            {
+              lg: 12,
+              type: cardConfig.contentItemType.inputNumber,
+              fieldData: fieldData.firstParamMaxLength,
+              require: false,
+            },
+            {
+              lg: 12,
+              type: cardConfig.contentItemType.inputNumber,
+              fieldData: fieldData.secondParamMaxLength,
+              require: false,
+            },
+            {
+              lg: 12,
+              type: cardConfig.contentItemType.inputNumber,
+              fieldData: fieldData.threeParamMaxLength,
+              require: false,
+            },
+            {
+              lg: 12,
+              type: cardConfig.contentItemType.inputNumber,
+              fieldData: fieldData.fourParamMaxLength,
+              require: false,
+            },
+          ],
+          instruction: [
+            {
+              title: '功能说明',
+              showDivider: false,
+              showNumber: true,
+              list: [
+                {
+                  text: '参数最大长度最大值为100, 当设置为0时, 表示不限制长度.',
+                },
+              ],
             },
           ],
         },
