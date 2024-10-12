@@ -55,6 +55,11 @@ export const fieldDataFlowCaseNextProcessProgress = {
     name: 'nextWorkflowNodeType',
     helper: '',
   },
+  approveBatchNumber: {
+    label: '审批批次号',
+    name: 'approveBatchNumber',
+    helper: '',
+  },
   status: {
     label: '状态',
     name: 'status',

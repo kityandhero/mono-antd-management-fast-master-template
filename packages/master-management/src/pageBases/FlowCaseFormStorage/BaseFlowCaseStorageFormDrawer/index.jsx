@@ -104,6 +104,13 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
   };
 
   doOtherAfterLoadSuccess = ({ metaData }) => {
+    const approveBatchNumber = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.approveBatchNumber.name,
+      defaultValue: 0,
+      convert: convertCollection.number,
+    });
+
     const listFormStorage = getValueByKey({
       data: metaData,
       key: fieldDataFlowCase.listFormStorage.name,
@@ -138,13 +145,18 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
     });
 
     const listApprove = filter(listProcessHistory, (one) => {
-      const { approveActionMode } = {
+      const {
+        approveActionMode,
+        approveBatchNumber: processHistoryApproveBatchNumber,
+      } = {
         approveActionMode: 0,
+        approveBatchNumber: 0,
         ...one,
       };
 
       return (
-        approveActionMode === flowApproveActionModeCollection.manualControl
+        approveActionMode === flowApproveActionModeCollection.manualControl &&
+        processHistoryApproveBatchNumber === approveBatchNumber
       );
     }).map((o) => {
       const {

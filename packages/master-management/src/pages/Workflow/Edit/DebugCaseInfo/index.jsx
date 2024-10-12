@@ -980,11 +980,22 @@ class DebugCaseInfo extends TabPageBase {
                   }),
                 },
                 {
-                  span: 4,
+                  span: 3,
                   label: fieldData.smsTemplate.label,
                   value: getValueByKey({
                     data: metaData,
                     key: fieldData.smsTemplate.name,
+                  }),
+                },
+                {
+                  span: 1,
+                  label: fieldData.approveBatchNumber.label,
+                  value: getValueByKey({
+                    data: metaData,
+                    key: fieldData.approveBatchNumber.name,
+                    convert: convertCollection.number,
+                    formatBuilder: (value) =>
+                      `[SBN-${value}]【第${value + 1}次审批】`,
                   }),
                 },
                 {
