@@ -259,6 +259,9 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
         applyList={isArray(applyList) ? applyList : []}
         showAttention={showAttention || false}
         attentionList={isArray(attentionList) ? attentionList : []}
+        showRemark={
+          !(!isArray(remarkSchemaList) || isEmptyArray(remarkSchemaList))
+        }
         remarkTitle="备注"
         remarkName="remark"
         remarkList={remarkSchemaList}

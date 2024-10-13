@@ -896,6 +896,9 @@ class BasicInfo extends TabPageBase {
           applyList={listApply}
           showAttention={showAttention}
           attentionList={listAttention}
+          showRemark={
+            !(!isArray(remarkSchemaList) || isEmptyArray(remarkSchemaList))
+          }
           remarkTitle="备注"
           remarkName="remark"
           remarkList={remarkSchemaList}

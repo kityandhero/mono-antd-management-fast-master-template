@@ -40,7 +40,6 @@ Scripts provided in `package.json`. It's safe to modify or add additional script
 npm start
 ```
 
-
 Wait for execution to complete, Open your browser to browse the website http://localhost:8810, The simulated login account and password is `admin/admin`
 
 You can add the required interface according to the template page as needed.

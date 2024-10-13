@@ -521,6 +521,9 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
           applyList={listApply}
           showAttention={showAttention}
           attentionList={listAttention}
+          showRemark={
+            !(!isArray(remarkSchemaList) || isEmptyArray(remarkSchemaList))
+          }
           remarkTitle="备注"
           remarkName="remark"
           remarkList={remarkSchemaList}
