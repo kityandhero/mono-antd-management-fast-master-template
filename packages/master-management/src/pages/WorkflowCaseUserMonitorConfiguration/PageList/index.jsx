@@ -197,6 +197,17 @@ class PageList extends MultiPage {
     },
   ];
 
+  establishHelpConfig = () => {
+    return {
+      title: '操作提示',
+      list: [
+        {
+          text: '用户归属的主企业默认包含在监控企业内, 此配置的是可以额外监控的企业的工作流审批。',
+        },
+      ],
+    };
+  };
+
   renderPresetOther = () => {
     return (
       <>
