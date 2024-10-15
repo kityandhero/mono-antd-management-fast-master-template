@@ -34,8 +34,8 @@ export function getFlowCaseStatusBadge(status) {
   let result = 'default';
 
   switch (status) {
-    case flowCaseStatusCollection.created: {
-      result = 'default';
+    case flowCaseStatusCollection.submitApproval: {
+      result = 'processing';
       break;
     }
 
@@ -45,6 +45,11 @@ export function getFlowCaseStatusBadge(status) {
     }
 
     case flowCaseStatusCollection.refuse: {
+      result = 'warning';
+      break;
+    }
+
+    case flowCaseStatusCollection.forcedEnd: {
       result = 'warning';
       break;
     }
