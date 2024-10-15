@@ -1,9 +1,13 @@
 import { connect } from 'easy-soft-dva';
+import { checkHasAuthority } from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 
-import { keyValueEditModeCollection } from '../../../../customConfig';
+import {
+  accessWayCollection,
+  keyValueEditModeCollection,
+} from '../../../../customConfig';
 import { buildInputItem } from '../../../../utils';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
@@ -83,6 +87,43 @@ class Index extends TabPageBase {
               handleData: metaData,
               fieldData: fieldData.masterManagementTokenExpirationTime,
               editMode: keyValueEditModeCollection.number,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.userManagementTokenExpirationTime,
+              editMode: keyValueEditModeCollection.number,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.userApplicationTokenExpirationTime,
+              editMode: keyValueEditModeCollection.number,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.userWechatApplicationTokenExpirationTime,
+              editMode: keyValueEditModeCollection.number,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
           ],

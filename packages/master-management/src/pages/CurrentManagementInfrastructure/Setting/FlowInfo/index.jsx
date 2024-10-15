@@ -303,6 +303,43 @@ class Index extends TabPageBase {
         {
           title: {
             icon: iconBuilder.contacts(),
+            text: '流程隐藏配置',
+          },
+          hasExtra: true,
+          extra: {
+            affix: true,
+            list: [
+              {
+                buildType: cardConfig.extraBuildType.refresh,
+              },
+            ],
+          },
+          items: [
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.flowCaseCanHideWhenRejected,
+              editMode: keyValueEditModeCollection.whether,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              value: getValueByKey({
+                data: metaData,
+                key: fieldData.flowCaseCanHideWhenRejected.name,
+                convert: convertCollection.number,
+                formatBuilder: (v) => {
+                  return v === whetherNumber.yes ? '允许' : '禁止';
+                },
+              }),
+              inputIcon: iconBuilder.swap(),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
             text: '流程调试用户设置',
           },
           hasExtra: true,

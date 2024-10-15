@@ -246,19 +246,29 @@ export const fieldData = {
     name: 'flowCarbonCopyNotificationTemplate',
     helper: '',
   },
+  flowCaseCanHideWhenRejected: {
+    label: '流程实例被拒绝后能否做被隐藏操作',
+    name: 'flowCaseCanHideWhenRejected',
+    helper: '',
+  },
   masterManagementTokenExpirationTime: {
     label: '主控系统登录凭据有效期 (分钟)',
     name: 'masterManagementTokenExpirationTime',
     helper: '',
   },
-  officeAutomationManagementTokenExpirationTime: {
-    label: 'OA系统登录凭据有效期 (分钟)',
-    name: 'officeAutomationManagementTokenExpirationTime',
+  userManagementTokenExpirationTime: {
+    label: '用户客户端系统登录凭据有效期 (分钟)',
+    name: 'userManagementTokenExpirationTime',
     helper: '',
   },
-  officeAutomationApplicationTokenExpirationTime: {
-    label: 'OA客户端登录凭据有效期 (分钟)',
-    name: 'officeAutomationApplicationTokenExpirationTime',
+  userApplicationTokenExpirationTime: {
+    label: '用户应用端系统登录凭据有效期 (分钟)',
+    name: 'userApplicationTokenExpirationTime',
+    helper: '',
+  },
+  userWechatApplicationTokenExpirationTime: {
+    label: '用户小程序端系统登录凭据有效期 (分钟)',
+    name: 'userWechatApplicationTokenExpirationTime',
     helper: '',
   },
   messageQueueMode: {
