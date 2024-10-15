@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { connect } from 'easy-soft-dva';
 import {
   buildRandomHexColor,
@@ -14,7 +12,6 @@ import {
   columnFacadeMode,
   dropdownExpandItemType,
   getDerivedStateFromPropertiesForUrlParameters,
-  listViewConfig,
   searchCardConfig,
   unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
@@ -25,9 +22,8 @@ import { accessWayCollection } from '../../../customConfig';
 import {
   getGeneralDiscourseStatusName,
   getGeneralDiscourseTypeName,
-  renderSearchGeneralDiscourseTypeSelect,
 } from '../../../customSpecialComponents';
-import AddBasicInfoDrawer from '../AddBasicInfoDrawer';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   refreshCacheAction,
   removeAction,
@@ -37,12 +33,11 @@ import {
 import { parseUrlParametersForSetState } from '../Assist/config';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData, statusCollection } from '../Common/data';
-import UpdateBasicInfoDrawer from '../UpdateBasicInfoDrawer';
 
 const { MultiPage } = DataMultiPageView;
 
-@connect(({ generalDiscourse, schedulingControl }) => ({
-  generalDiscourse,
+@connect(({ userGeneralDiscourse, schedulingControl }) => ({
+  userGeneralDiscourse,
   schedulingControl,
 }))
 class PageList extends MultiPage {
@@ -51,9 +46,10 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      paramsKey: accessWayCollection.generalDiscourse.pageList.paramsKey,
+      paramsKey: accessWayCollection.userGeneralDiscourse.pageList.paramsKey,
       pageTitle: '常用语列表',
-      loadApiPath: 'generalDiscourse/pageList',
+      loadApiPath:
+        modelTypeCollection.userGeneralDiscourseTypeCollection.pageList,
       currentRecord: null,
     };
   }
@@ -97,18 +93,18 @@ class PageList extends MultiPage {
   };
 
   handleItemStatus = ({ target, handleData, remoteData }) => {
-    const generalDiscourseId = getValueByKey({
+    const userGeneralDiscourseId = getValueByKey({
       data: handleData,
-      key: fieldData.generalDiscourseId.name,
+      key: fieldData.userGeneralDiscourseId.name,
     });
 
     handleItem({
       target,
-      value: generalDiscourseId,
+      value: userGeneralDiscourseId,
       compareValueHandler: (o) => {
         const v = getValueByKey({
           data: o,
-          key: fieldData.generalDiscourseId.name,
+          key: fieldData.userGeneralDiscourseId.name,
         });
 
         return v;
@@ -163,42 +159,6 @@ class PageList extends MultiPage {
     });
   };
 
-  showAddBasicInfoDrawer = () => {
-    AddBasicInfoDrawer.open();
-  };
-
-  afterAddBasicInfoDrawerOk = ({
-    // eslint-disable-next-line no-unused-vars
-    singleData,
-    // eslint-disable-next-line no-unused-vars
-    listData,
-    // eslint-disable-next-line no-unused-vars
-    extraData,
-    // eslint-disable-next-line no-unused-vars
-    responseOriginalData,
-    // eslint-disable-next-line no-unused-vars
-    submitData,
-    // eslint-disable-next-line no-unused-vars
-    subjoinData,
-  }) => {
-    this.refreshDataWithReloadAnimalPrompt({});
-  };
-
-  showUpdateBasicInfoDrawer = (record) => {
-    this.setState(
-      {
-        currentRecord: record,
-      },
-      () => {
-        UpdateBasicInfoDrawer.open();
-      },
-    );
-  };
-
-  afterUpdateBasicInfoDrawerOk = () => {
-    this.refreshDataWithReloadAnimalPrompt({ delay: 500 });
-  };
-
   fillSearchCardInitialValues = () => {
     const values = {};
 
@@ -212,8 +172,13 @@ class PageList extends MultiPage {
       list: [
         {
           lg: 6,
-          type: searchCardConfig.contentItemType.component,
-          component: renderSearchGeneralDiscourseTypeSelect({}),
+          type: searchCardConfig.contentItemType.input,
+          fieldData: fieldData.realName,
+        },
+        {
+          lg: 6,
+          type: searchCardConfig.contentItemType.input,
+          fieldData: fieldData.phone,
         },
         {
           lg: 6,
@@ -222,19 +187,6 @@ class PageList extends MultiPage {
         },
       ],
     };
-  };
-
-  establishDataContainerExtraActionCollectionConfig = () => {
-    return [
-      {
-        buildType:
-          listViewConfig.dataContainerExtraActionBuildType.generalButton,
-        type: 'primary',
-        icon: iconBuilder.plus(),
-        text: '新增常用语',
-        handleClick: this.showAddBasicInfoDrawer,
-      },
-    ];
   };
 
   establishListItemDropdownConfig = (record) => {
@@ -343,7 +295,7 @@ class PageList extends MultiPage {
       },
     },
     {
-      dataTarget: fieldData.generalDiscourseId,
+      dataTarget: fieldData.userGeneralDiscourseId,
       width: 120,
       showRichFacade: true,
       canCopy: true,
@@ -356,21 +308,6 @@ class PageList extends MultiPage {
       emptyValue: '--',
     },
   ];
-
-  renderPresetOther = () => {
-    const { currentRecord } = this.state;
-
-    return (
-      <>
-        <AddBasicInfoDrawer afterOK={this.afterAddBasicInfoDrawerOk} />
-
-        <UpdateBasicInfoDrawer
-          externalData={currentRecord}
-          afterOK={this.afterUpdateBasicInfoDrawerOk}
-        />
-      </>
-    );
-  };
 }
 
 export default PageList;

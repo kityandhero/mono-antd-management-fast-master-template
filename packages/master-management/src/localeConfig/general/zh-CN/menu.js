@@ -250,6 +250,12 @@ export const menuZhCNGeneral = {
   'menu.flow.workflowCaseNextProcessApprove.pageList': '实例审批预告列表',
   'menu.flow.workflowCaseNextProcessApprove.pageList-mini': '列表',
 
+  'menu.flow.workflowCaseUserMonitorConfiguration': '流程实例用户监控',
+  'menu.flow.workflowCaseUserMonitorConfiguration-mini': '流程用户监控',
+  'menu.flow.workflowCaseUserMonitorConfiguration.pageList':
+    '流程实例用户监控配置列表',
+  'menu.flow.workflowCaseUserMonitorConfiguration.pageList-mini': '列表',
+
   'menu.permission': '权限相关',
   'menu.permission-mini': '权限',
 
@@ -392,6 +398,11 @@ export const menuZhCNGeneral = {
   'menu.person.userDevice.edit.basicInfo': '基本信息',
   'menu.person.userDevice.edit.operateLog': '操作日志',
   'menu.person.userDevice.edit.operateLog.pageList': '日志列表',
+
+  'menu.person.userGeneralDiscourse': '用户常用语',
+  'menu.person.userGeneralDiscourse-mini': '用户常用语',
+  'menu.person.userGeneralDiscourse.pageList': '用户常用语列表',
+  'menu.person.userGeneralDiscourse.pageList-mini': '列表',
 
   'menu.person.userWechatApplicationInfo': '用户微信信息',
   'menu.person.userWechatApplicationInfo-mini': '用户微信',

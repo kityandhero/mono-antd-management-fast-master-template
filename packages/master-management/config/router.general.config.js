@@ -1763,6 +1763,35 @@ export const flow = {
         },
       ],
     },
+    {
+      name: 'workflowCaseUserMonitorConfiguration',
+      icon: 'bars',
+      hideChildrenInMenu: true,
+      path: '/flow/workflowCaseUserMonitorConfiguration',
+      access: 'checkAccess',
+      authority: [
+        accessWayCollection.super.permission,
+        accessWayCollection.workflowCaseUserMonitorConfiguration.pageList
+          .permission,
+      ],
+      routes: [
+        {
+          path: '/flow/workflowCaseUserMonitorConfiguration',
+          redirect: '/flow/workflowCaseUserMonitorConfiguration/pageList',
+        },
+        {
+          path: '/flow/workflowCaseUserMonitorConfiguration/pageList',
+          name: 'pageList',
+          icon: 'bars',
+          redirect: '/flow/workflowCaseUserMonitorConfiguration/pageList/no',
+        },
+        {
+          path: '/flow/workflowCaseUserMonitorConfiguration/pageList/:pageKey',
+          hideInMenu: true,
+          component: './WorkflowCaseUserMonitorConfiguration/PageList',
+        },
+      ],
+    },
   ],
 };
 
@@ -2112,6 +2141,35 @@ export const userWechatApplicationInfo = {
       path: '/person/userWechatApplicationInfo/pageList/:pageKey',
       hideInMenu: true,
       component: './UserWechatApplicationInfo/PageList',
+    },
+  ],
+};
+
+export const userGeneralDiscourse = {
+  name: 'userGeneralDiscourse',
+  icon: 'user',
+  hideChildrenInMenu: true,
+  path: '/person/userGeneralDiscourse',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.userGeneralDiscourse.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/person/userGeneralDiscourse',
+      redirect: '/person/userGeneralDiscourse/pageList',
+    },
+    {
+      path: '/person/userGeneralDiscourse/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/person/userGeneralDiscourse/pageList/no',
+    },
+    {
+      path: '/person/userGeneralDiscourse/pageList/:pageKey',
+      hideInMenu: true,
+      component: './UserGeneralDiscourse/PageList',
     },
   ],
 };

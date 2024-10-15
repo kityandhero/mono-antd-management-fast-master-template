@@ -74,6 +74,15 @@ export async function setAttentionStatementData(parameters) {
   });
 }
 
+export const hideDataApiAddress = '/workflowCase/hide';
+
+export async function hideData(parameters) {
+  return request({
+    api: hideDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const openCancelApproveSwitchDataApiAddress =
   '/workflowCase/openCancelApproveSwitch';
 

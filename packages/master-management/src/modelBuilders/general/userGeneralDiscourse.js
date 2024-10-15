@@ -1,5 +1,7 @@
 import {
   getTacitlyState,
+  pretreatmentRemoteListData,
+  pretreatmentRemotePageListData,
   pretreatmentRemoteSingleData,
   reducerCollection,
   reducerDefaultParameters,
@@ -7,44 +9,41 @@ import {
 } from 'easy-soft-utility';
 
 import {
-  statisticCaseLatestApproveCountData,
-  statisticCaseNotificationWaitReadCountData,
-  statisticCaseSubmitCountData,
-  statisticCaseWaitApproveCountData,
-  statisticDebugCaseLatestApproveCountData,
-  statisticDebugCaseNotificationWaitReadCountData,
-  statisticDebugCaseSubmitCountData,
-  statisticDebugCaseWaitApproveCountData,
-} from '../../services/workflowStatisticBase';
+  addBasicInfoData,
+  getData,
+  pageListData,
+  pageListOperateLogData,
+  refreshCacheData,
+  removeData,
+  setDisableData,
+  setEnableData,
+  singleListData,
+  updateBasicInfoData,
+} from '../../services/userGeneralDiscourse';
 
-export const workflowStatisticBaseTypeCollection = {
-  statisticCaseSubmitCount: 'workflowStatisticBase/statisticCaseSubmitCount',
-  statisticDebugCaseSubmitCount:
-    'workflowStatisticBase/statisticDebugCaseSubmitCount',
-  statisticCaseLatestApproveCount:
-    'workflowStatisticBase/statisticCaseLatestApproveCount',
-  statisticDebugCaseLatestApproveCount:
-    'workflowStatisticBase/statisticDebugCaseLatestApproveCount',
-  statisticCaseWaitApproveCount:
-    'workflowStatisticBase/statisticCaseWaitApproveCount',
-  statisticDebugCaseWaitApproveCount:
-    'workflowStatisticBase/statisticDebugCaseWaitApproveCount',
-  statisticCaseNotificationWaitReadCount:
-    'workflowStatisticBase/statisticCaseNotificationWaitReadCount',
-  statisticDebugCaseNotificationWaitReadCount:
-    'workflowStatisticBase/statisticDebugCaseNotificationWaitReadCount',
+export const userGeneralDiscourseTypeCollection = {
+  pageList: 'userGeneralDiscourse/pageList',
+  singleList: 'userGeneralDiscourse/singleList',
+  get: 'userGeneralDiscourse/get',
+  addBasicInfo: 'userGeneralDiscourse/addBasicInfo',
+  updateBasicInfo: 'userGeneralDiscourse/updateBasicInfo',
+  setEnable: 'userGeneralDiscourse/setEnable',
+  setDisable: 'userGeneralDiscourse/setDisable',
+  remove: 'userGeneralDiscourse/remove',
+  refreshCache: 'userGeneralDiscourse/refreshCache',
+  pageListOperateLog: 'userGeneralDiscourse/pageListOperateLog',
 };
 
 export function buildModel() {
   return {
-    namespace: 'workflowStatisticBase',
+    namespace: 'userGeneralDiscourse',
 
     state: {
       ...getTacitlyState(),
     },
 
     effects: {
-      *statisticCaseSubmitCount(
+      *pageList(
         {
           payload,
           alias,
@@ -53,7 +52,59 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(statisticCaseSubmitCountData, payload);
+        const response = yield call(pageListData, payload);
+
+        const dataAdjust = pretreatmentRemotePageListData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *singleList(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(singleListData, payload);
+
+        const dataAdjust = pretreatmentRemoteListData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *get(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(getData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -70,7 +121,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *statisticDebugCaseSubmitCount(
+      *addBasicInfo(
         {
           payload,
           alias,
@@ -79,7 +130,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(statisticDebugCaseSubmitCountData, payload);
+        const response = yield call(addBasicInfoData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -96,7 +147,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *statisticCaseLatestApproveCount(
+      *updateBasicInfo(
         {
           payload,
           alias,
@@ -105,10 +156,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(
-          statisticCaseLatestApproveCountData,
-          payload,
-        );
+        const response = yield call(updateBasicInfoData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -125,7 +173,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *statisticDebugCaseLatestApproveCount(
+      *setEnable(
         {
           payload,
           alias,
@@ -134,10 +182,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(
-          statisticDebugCaseLatestApproveCountData,
-          payload,
-        );
+        const response = yield call(setEnableData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -154,7 +199,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *statisticCaseWaitApproveCount(
+      *setDisable(
         {
           payload,
           alias,
@@ -163,7 +208,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(statisticCaseWaitApproveCountData, payload);
+        const response = yield call(setDisableData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -180,7 +225,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *statisticDebugCaseWaitApproveCount(
+      *remove(
         {
           payload,
           alias,
@@ -189,10 +234,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(
-          statisticDebugCaseWaitApproveCountData,
-          payload,
-        );
+        const response = yield call(removeData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -209,7 +251,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *statisticCaseNotificationWaitReadCount(
+      *refreshCache(
         {
           payload,
           alias,
@@ -218,10 +260,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(
-          statisticCaseNotificationWaitReadCountData,
-          payload,
-        );
+        const response = yield call(refreshCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -238,7 +277,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *statisticDebugCaseNotificationWaitReadCount(
+      *pageListOperateLog(
         {
           payload,
           alias,
@@ -247,12 +286,9 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(
-          statisticDebugCaseNotificationWaitReadCountData,
-          payload,
-        );
+        const response = yield call(pageListOperateLogData, payload);
 
-        const dataAdjust = pretreatmentRemoteSingleData({
+        const dataAdjust = pretreatmentRemotePageListData({
           source: response,
           successCallback: pretreatmentSuccessCallback || null,
           failCallback: pretreatmentFailCallback || null,

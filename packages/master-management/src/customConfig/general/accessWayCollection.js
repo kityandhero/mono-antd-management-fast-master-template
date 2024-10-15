@@ -2846,6 +2846,58 @@ export const accessWayInfrastructureCollection = {
       permission: '52e7551e1a4e4a6e963be6a186346bcc',
     },
   },
+  userGeneralDiscourse: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '73fef17d364099c0c7a3ff7ba626b39b',
+      permission: '224a84bcf7a24a798d5cf507cd6e96e0',
+    },
+    singleList: {
+      title: '单页列表',
+      paramsKey: '4155364a2ed04a5f162eba3a96f7b613',
+      permission: '8de5acdaecdc4d988adbf6a41f9413af',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '31922e8a426118a28c33d510ca4369b5',
+      permission: 'c74e23c54c174465b68b9aff95cfa09f',
+    },
+    addBasicInfo: {
+      title: '新增',
+      paramsKey: '40f201a2c2cf694373c42a14a62e6568',
+      permission: 'bb0c6ab7ae364962b5851d3049f2582a',
+    },
+    updateBasicInfo: {
+      title: '更新基本信息',
+      paramsKey: 'b88641f7718ace2712605be4bbfd3d14',
+      permission: '0d7e9ec123d24664a7cb212e77126f44',
+    },
+    setEnable: {
+      title: '启用',
+      paramsKey: 'a9a88484dafa18e4a14dc7b49c23aaa9',
+      permission: 'b972a09e71e64a68812942918ea729d6',
+    },
+    setDisable: {
+      title: '禁用',
+      paramsKey: 'b3364efd31f47f7e785e215dc4f66deb',
+      permission: '1e0bd53536cf439d97e2afb0fb2e326d',
+    },
+    remove: {
+      title: '移除',
+      paramsKey: '093177bb258ba9eac274b581bd4920a9',
+      permission: '1ef5414fc5494d948d46fa64c802f839',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '7f047787deb66c0bd7827de076638d72',
+      permission: 'fd7f88effec849f784385e35ccb31125',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: 'caf5614f0e069e5c2ace3f0162c2aeb0',
+      permission: '40475b7d96d74c838111b0babf15c7fa',
+    },
+  },
   userLoginLog: {
     pageList: {
       title: '分页列表',
@@ -2890,7 +2942,7 @@ export const accessWayInfrastructureCollection = {
       permission: '0499d1603bfc4e088721ffa8cf6159c2',
     },
     addBasicInfo: {
-      title: '新增信息',
+      title: '新增',
       paramsKey: '069a4866a7a14dffec9755f20f807702',
       permission: '75a5b7b91b1545cb841dfeb2108de99f',
     },
@@ -2900,7 +2952,7 @@ export const accessWayInfrastructureCollection = {
       permission: 'f6ba69fb9e104b2abc09885802faca3f',
     },
     remove: {
-      title: '移除绑定',
+      title: '移除',
       paramsKey: '54c5e020f6764ba595003ee3cec6300b',
       permission: 'a65f3c9362414ca48ae595e7637254f5',
     },
@@ -3216,6 +3268,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'd7a053b2f156a0dad2482e4b14bee757',
       permission: '7e704f58453f4b129960cf655c3fbe96',
     },
+    hide: {
+      title: '隐藏',
+      paramsKey: 'fdf8689db1f4f8f52d247a7725c46eb7',
+      permission: '1956fed7c80749ee9fb8cb0195506b0b',
+    },
     openCancelApproveSwitch: {
       title: '开启撤销审批功能',
       paramsKey: 'e035729a5532c2ce37d84af68cc05b0a',
@@ -3407,6 +3464,33 @@ export const accessWayInfrastructureCollection = {
       title: '操作日志列表',
       paramsKey: 'b0d17f9ef68764a3350947cdd407eeec',
       permission: 'dbb83d88fca5473dbc2fffc4930f57cb',
+    },
+  },
+  workflowCaseUserMonitorConfiguration: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '896aaaceda48017e3e77c5a419f149b2',
+      permission: 'e648cf5202b345c3ad00b69817b86e9f',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '7c368ca412da70d9ee9639b70590173b',
+      permission: 'b4d1db21d6ee49caa741f098164b3eca',
+    },
+    addBasicInfo: {
+      title: '新增信息',
+      paramsKey: 'b2a2e22773961c57e381d3f9a14070cf',
+      permission: '455cb8c42e3248f2bc164d40eb91b1b3',
+    },
+    remove: {
+      title: '移除',
+      paramsKey: 'b46d01936737f1e5d922d04e7a3d3c5d',
+      permission: '58e952c468f640d88a6517eef90f9486',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: 'f0eb6fdf0cdfb8401bc530302ad54379',
+      permission: 'fa88d861eb694f2596b2dea6ceca9a7c',
     },
   },
   workflowDebugCase: {
@@ -3983,48 +4067,6 @@ export const accessWayInfrastructureCollection = {
       title: '操作日志列表',
       paramsKey: '9b9899eeb07068ee0b8a4d3a488cb60a',
       permission: 'b61489f303404e699cb761627db82c10',
-    },
-  },
-  workflowStatisticBase: {
-    statisticCaseSubmitCount: {
-      title: '统计审批实例提交总数',
-      paramsKey: 'ad8a16b91532ae46d260940a4c334c0d',
-      permission: '74c741e63d714f4a9c4c7fac8b112ada',
-    },
-    statisticDebugCaseSubmitCount: {
-      title: '统计审批测试实例提交总数',
-      paramsKey: '938d04ee9cb562093c2dd8754ca8bf78',
-      permission: '811eabeb7a0847969208375cfb859525',
-    },
-    statisticCaseLatestApproveCount: {
-      title: '统计审批实例已办总数',
-      paramsKey: 'fb35fa9f04cba0d281c9775aa12681c6',
-      permission: 'bef8b28aaf984822b0a186bac0438c2b',
-    },
-    statisticDebugCaseLatestApproveCount: {
-      title: '统计审批测试实例已办总数',
-      paramsKey: '8487cfd1e9a6003d8e7c19a1af97d857',
-      permission: 'be7e1d0dae4a4e0e8742d70ea061269a',
-    },
-    statisticCaseWaitApproveCount: {
-      title: '统计审批实例待办总数',
-      paramsKey: '6fd616616a2920c13fb8e13dc9b359a8',
-      permission: '6e1c40d3a88948e88a68a7110795c31c',
-    },
-    statisticDebugCaseWaitApproveCount: {
-      title: '统计审批测试实例待办总数',
-      paramsKey: 'b50eccd54deb1f39554e76b1a9c99d68',
-      permission: 'eb81166218f44309a10af9e1f45cd43c',
-    },
-    statisticCaseNotificationWaitReadCount: {
-      title: '统计审批实例通知未读总数',
-      paramsKey: 'a73816b2d823b84128e147ca9d2bed22',
-      permission: 'f49cd83a140a4a3a849971b8c54015c2',
-    },
-    statisticDebugCaseNotificationWaitReadCount: {
-      title: '统计审批测试实例通知未读总数',
-      paramsKey: 'bd16d2e7e16c03f7a571c21aa558539f',
-      permission: '75228fadadd54a139c3444937f89079e',
     },
   },
 };

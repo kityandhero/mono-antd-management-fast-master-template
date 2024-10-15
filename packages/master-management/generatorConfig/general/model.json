@@ -4659,6 +4659,83 @@
       "apis": [
         {
           "title": "分页列表",
+          "api": "/userGeneralDiscourse/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/userGeneralDiscourse/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/userGeneralDiscourse/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新增",
+          "api": "/userGeneralDiscourse/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新基本信息",
+          "api": "/userGeneralDiscourse/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "启用",
+          "api": "/userGeneralDiscourse/setEnable",
+          "effect": "setEnable",
+          "service": "setEnableData",
+          "type": "singleData"
+        },
+        {
+          "title": "禁用",
+          "api": "/userGeneralDiscourse/setDisable",
+          "effect": "setDisable",
+          "service": "setDisableData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/userGeneralDiscourse/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/userGeneralDiscourse/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/userGeneralDiscourse/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "用户常用语管理",
+      "name": "userGeneralDiscourse"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
           "api": "/userLoginLog/pageList",
           "effect": "pageList",
           "service": "pageListData",
@@ -4721,7 +4798,7 @@
           "type": "singleData"
         },
         {
-          "title": "新增信息",
+          "title": "新增",
           "api": "/userSubsidiaryInfo/addBasicInfo",
           "effect": "addBasicInfo",
           "service": "addBasicInfoData",
@@ -4735,7 +4812,7 @@
           "type": "singleData"
         },
         {
-          "title": "移除绑定",
+          "title": "移除",
           "api": "/userSubsidiaryInfo/remove",
           "effect": "remove",
           "service": "removeData",
@@ -5204,6 +5281,13 @@
           "type": "singleData"
         },
         {
+          "title": "隐藏",
+          "api": "/workflowCase/hide",
+          "effect": "hide",
+          "service": "hideData",
+          "type": "singleData"
+        },
+        {
           "title": "开启撤销审批功能",
           "api": "/workflowCase/openCancelApproveSwitch",
           "effect": "openCancelApproveSwitch",
@@ -5508,6 +5592,48 @@
       "cover": true,
       "title": "工作流实例审批历史管理",
       "name": "workflowCaseProcessHistory"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/workflowCaseUserMonitorConfiguration/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/workflowCaseUserMonitorConfiguration/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新增信息",
+          "api": "/workflowCaseUserMonitorConfiguration/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/workflowCaseUserMonitorConfiguration/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/workflowCaseUserMonitorConfiguration/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "工作流实例用户监控配置",
+      "name": "workflowCaseUserMonitorConfiguration"
     },
     {
       "apis": [
@@ -6376,69 +6502,6 @@
       "cover": true,
       "title": "工作流公司范围生效关系管理",
       "name": "workflowRangeEffectiveSubsidiaryRelation"
-    },
-    {
-      "apis": [
-        {
-          "title": "统计审批实例提交总数",
-          "api": "/workflowStatisticBase/statisticCaseSubmitCount",
-          "effect": "statisticCaseSubmitCount",
-          "service": "statisticCaseSubmitCountData",
-          "type": "singleData"
-        },
-        {
-          "title": "统计审批测试实例提交总数",
-          "api": "/workflowStatisticBase/statisticDebugCaseSubmitCount",
-          "effect": "statisticDebugCaseSubmitCount",
-          "service": "statisticDebugCaseSubmitCountData",
-          "type": "singleData"
-        },
-        {
-          "title": "统计审批实例已办总数",
-          "api": "/workflowStatisticBase/statisticCaseLatestApproveCount",
-          "effect": "statisticCaseLatestApproveCount",
-          "service": "statisticCaseLatestApproveCountData",
-          "type": "singleData"
-        },
-        {
-          "title": "统计审批测试实例已办总数",
-          "api": "/workflowStatisticBase/statisticDebugCaseLatestApproveCount",
-          "effect": "statisticDebugCaseLatestApproveCount",
-          "service": "statisticDebugCaseLatestApproveCountData",
-          "type": "singleData"
-        },
-        {
-          "title": "统计审批实例待办总数",
-          "api": "/workflowStatisticBase/statisticCaseWaitApproveCount",
-          "effect": "statisticCaseWaitApproveCount",
-          "service": "statisticCaseWaitApproveCountData",
-          "type": "singleData"
-        },
-        {
-          "title": "统计审批测试实例待办总数",
-          "api": "/workflowStatisticBase/statisticDebugCaseWaitApproveCount",
-          "effect": "statisticDebugCaseWaitApproveCount",
-          "service": "statisticDebugCaseWaitApproveCountData",
-          "type": "singleData"
-        },
-        {
-          "title": "统计审批实例通知未读总数",
-          "api": "/workflowStatisticBase/statisticCaseNotificationWaitReadCount",
-          "effect": "statisticCaseNotificationWaitReadCount",
-          "service": "statisticCaseNotificationWaitReadCountData",
-          "type": "singleData"
-        },
-        {
-          "title": "统计审批测试实例通知未读总数",
-          "api": "/workflowStatisticBase/statisticDebugCaseNotificationWaitReadCount",
-          "effect": "statisticDebugCaseNotificationWaitReadCount",
-          "service": "statisticDebugCaseNotificationWaitReadCountData",
-          "type": "singleData"
-        }
-      ],
-      "cover": true,
-      "title": "审批统计",
-      "name": "workflowStatisticBase"
     }
   ]
 }

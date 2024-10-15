@@ -237,6 +237,10 @@ import {
   userDeviceTypeCollection,
 } from './userDevice';
 import {
+  buildModel as buildUserGeneralDiscourseModel,
+  userGeneralDiscourseTypeCollection,
+} from './userGeneralDiscourse';
+import {
   buildModel as buildUserLoginLogModel,
   userLoginLogTypeCollection,
 } from './userLoginLog';
@@ -293,6 +297,10 @@ import {
   workflowCaseProcessHistoryTypeCollection,
 } from './workflowCaseProcessHistory';
 import {
+  buildModel as buildWorkflowCaseUserMonitorConfigurationModel,
+  workflowCaseUserMonitorConfigurationTypeCollection,
+} from './workflowCaseUserMonitorConfiguration';
+import {
   buildModel as buildWorkflowDebugCaseModel,
   workflowDebugCaseTypeCollection,
 } from './workflowDebugCase';
@@ -344,10 +352,6 @@ import {
   buildModel as buildWorkflowRangeEffectiveSubsidiaryRelationModel,
   workflowRangeEffectiveSubsidiaryRelationTypeCollection,
 } from './workflowRangeEffectiveSubsidiaryRelation';
-import {
-  buildModel as buildWorkflowStatisticBaseModel,
-  workflowStatisticBaseTypeCollection,
-} from './workflowStatisticBase';
 
 export const modelTypeCollection = {
   accessWayTypeCollection,
@@ -414,6 +418,7 @@ export const modelTypeCollection = {
   userTypeCollection,
   userDepartmentInfoTypeCollection,
   userDeviceTypeCollection,
+  userGeneralDiscourseTypeCollection,
   userLoginLogTypeCollection,
   userSubsidiaryInfoTypeCollection,
   userWechatApplicationInfoTypeCollection,
@@ -428,6 +433,7 @@ export const modelTypeCollection = {
   workflowCaseNextProcessNotificationTypeCollection,
   workflowCaseNextProcessProgressTypeCollection,
   workflowCaseProcessHistoryTypeCollection,
+  workflowCaseUserMonitorConfigurationTypeCollection,
   workflowDebugCaseTypeCollection,
   workflowDebugCaseFormAttachmentTypeCollection,
   workflowDebugCaseFormStorageTypeCollection,
@@ -441,7 +447,6 @@ export const modelTypeCollection = {
   workflowNodeApproverTypeCollection,
   workflowRangeEffectiveExternalDepartmentRelationTypeCollection,
   workflowRangeEffectiveSubsidiaryRelationTypeCollection,
-  workflowStatisticBaseTypeCollection,
 };
 
 export function listModelBuilder() {
@@ -512,6 +517,7 @@ export function listModelBuilder() {
     buildUserModel,
     buildUserDepartmentInfoModel,
     buildUserDeviceModel,
+    buildUserGeneralDiscourseModel,
     buildUserLoginLogModel,
     buildUserSubsidiaryInfoModel,
     buildUserWechatApplicationInfoModel,
@@ -526,6 +532,7 @@ export function listModelBuilder() {
     buildWorkflowCaseNextProcessNotificationModel,
     buildWorkflowCaseNextProcessProgressModel,
     buildWorkflowCaseProcessHistoryModel,
+    buildWorkflowCaseUserMonitorConfigurationModel,
     buildWorkflowDebugCaseModel,
     buildWorkflowDebugCaseFormAttachmentModel,
     buildWorkflowDebugCaseFormStorageModel,
@@ -539,7 +546,6 @@ export function listModelBuilder() {
     buildWorkflowNodeApproverModel,
     buildWorkflowRangeEffectiveExternalDepartmentRelationModel,
     buildWorkflowRangeEffectiveSubsidiaryRelationModel,
-    buildWorkflowStatisticBaseModel,
   );
 
   return list;
