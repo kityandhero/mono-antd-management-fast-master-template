@@ -45,6 +45,15 @@ export async function updateBasicInfoData(parameters) {
   });
 }
 
+export const setSubsidiaryIdDataApiAddress = '/workflowCase/setSubsidiaryId';
+
+export async function setSubsidiaryIdData(parameters) {
+  return request({
+    api: setSubsidiaryIdDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setApplicantStatementDataApiAddress =
   '/workflowCase/setApplicantStatement';
 
@@ -132,20 +141,20 @@ export async function forceEndData(parameters) {
   });
 }
 
-export const removeDataApiAddress = '/workflowCase/remove';
-
-export async function removeData(parameters) {
-  return request({
-    api: removeDataApiAddress,
-    params: parameters,
-  });
-}
-
 export const refreshCacheDataApiAddress = '/workflowCase/refreshCache';
 
 export async function refreshCacheData(parameters) {
   return request({
     api: refreshCacheDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const repairSubsidiaryDataApiAddress = '/workflowCase/repairSubsidiary';
+
+export async function repairSubsidiaryData(parameters) {
+  return request({
+    api: repairSubsidiaryDataApiAddress,
     params: parameters,
   });
 }

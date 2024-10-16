@@ -136,14 +136,35 @@ export async function forceEndAction({
   });
 }
 
-export async function removeAction({
+export async function hideAction({
   target,
   handleData,
   successCallback,
   successMessage,
 }) {
   actionCore({
-    api: modelTypeCollection.workflowCaseTypeCollection.remove,
+    api: modelTypeCollection.workflowCaseTypeCollection.hide,
+    params: {
+      workflowCaseId: getValueByKey({
+        data: handleData,
+        key: fieldData.workflowCaseId.name,
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export async function repairSubsidiaryAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.workflowCaseTypeCollection.repairSubsidiary,
     params: {
       workflowCaseId: getValueByKey({
         data: handleData,

@@ -13,6 +13,7 @@ import {
 import {
   columnFacadeMode,
   dropdownExpandItemType,
+  extraBuildType,
   searchCardConfig,
   unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
@@ -30,12 +31,13 @@ import {
   renderSearchFlowScopeSelect,
   renderSearchFlowStatusSelect,
 } from '../../../customSpecialComponents';
+import { getFlowCaseStatusBadge } from '../../../pageBases';
 import {
   forceEndAction,
+  hideAction,
   refreshCacheAction,
-  removeAction,
+  repairSubsidiaryAction,
 } from '../Assist/action';
-import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
 const { MultiPage } = DataMultiPageView;
@@ -96,7 +98,7 @@ class PageList extends MultiPage {
       }
 
       case 'remove': {
-        this.remove(handleData);
+        this.hide(handleData);
 
         break;
       }
@@ -124,8 +126,8 @@ class PageList extends MultiPage {
     });
   };
 
-  remove = (r) => {
-    removeAction({
+  hide = (r) => {
+    hideAction({
       target: this,
       handleData: r,
       successCallback: ({ target }) => {
@@ -141,6 +143,16 @@ class PageList extends MultiPage {
     });
   };
 
+  repairSubsidiary = (r) => {
+    repairSubsidiaryAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target }) => {
+        target.reloadDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
   goToEdit = (item) => {
     const workflowCaseId = getValueByKey({
       data: item,
@@ -150,6 +162,28 @@ class PageList extends MultiPage {
     this.goToPath(
       `/flow/workflowCase/edit/load/${workflowCaseId}/key/basicInfo`,
     );
+  };
+
+  establishExtraActionConfig = () => {
+    return {
+      list: [
+        {
+          buildType: extraBuildType.generalExtraButton,
+          icon: iconBuilder.edit(),
+          text: '修复归属企业数据',
+          size: 'small',
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowCase.repairSubsidiary.permission,
+          ),
+          handleClick: () => {
+            this.repairSubsidiary();
+          },
+          confirm: true,
+          title:
+            '即将修复流程中的归属企业数, 该操作应仅在需修复时候执行，操作较为耗时，确定吗？',
+        },
+      ],
+    };
   };
 
   fillSearchCardInitialValues = () => {
@@ -237,11 +271,11 @@ class PageList extends MultiPage {
           type: dropdownExpandItemType.divider,
         },
         {
-          key: 'remove',
+          key: 'hide',
           icon: iconBuilder.delete(),
           text: '移除审批',
           disabled: !checkHasAuthority(
-            accessWayCollection.workflowCase.remove.permission,
+            accessWayCollection.workflowCase.hide.permission,
           ),
           confirm: true,
           title: '将要移除目标审批，确定吗？',
@@ -280,6 +314,12 @@ class PageList extends MultiPage {
       emptyValue: '--',
     },
     {
+      dataTarget: fieldData.subsidiaryShortName,
+      width: 140,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
       dataTarget: fieldData.channel,
       width: 120,
       showRichFacade: true,
@@ -305,7 +345,7 @@ class PageList extends MultiPage {
       facadeMode: columnFacadeMode.badge,
       facadeConfigBuilder: (value) => {
         return {
-          status: getStatusBadge(value),
+          status: getFlowCaseStatusBadge(value),
           text: getFlowCaseStatusName({
             value: value,
           }),

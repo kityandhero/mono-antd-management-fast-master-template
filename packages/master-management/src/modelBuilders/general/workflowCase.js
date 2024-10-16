@@ -20,10 +20,11 @@ import {
   pageListOperateLogData,
   pageListUnderwayData,
   refreshCacheData,
-  removeData,
+  repairSubsidiaryData,
   setApplicantStatementData,
   setAttentionStatementData,
   setAttentionUserData,
+  setSubsidiaryIdData,
   updateBasicInfoData,
 } from '../../services/workflowCase';
 
@@ -33,6 +34,7 @@ export const workflowCaseTypeCollection = {
   get: 'workflowCase/get',
   getChain: 'workflowCase/getChain',
   updateBasicInfo: 'workflowCase/updateBasicInfo',
+  setSubsidiaryId: 'workflowCase/setSubsidiaryId',
   setApplicantStatement: 'workflowCase/setApplicantStatement',
   setAttentionUser: 'workflowCase/setAttentionUser',
   setAttentionStatement: 'workflowCase/setAttentionStatement',
@@ -42,8 +44,8 @@ export const workflowCaseTypeCollection = {
   openResetAllApproveSwitch: 'workflowCase/openResetAllApproveSwitch',
   closeResetAllApproveSwitch: 'workflowCase/closeResetAllApproveSwitch',
   forceEnd: 'workflowCase/forceEnd',
-  remove: 'workflowCase/remove',
   refreshCache: 'workflowCase/refreshCache',
+  repairSubsidiary: 'workflowCase/repairSubsidiary',
   pageListOperateLog: 'workflowCase/pageListOperateLog',
 };
 
@@ -170,6 +172,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(updateBasicInfoData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setSubsidiaryId(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setSubsidiaryIdData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -420,7 +448,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *remove(
+      *refreshCache(
         {
           payload,
           alias,
@@ -429,7 +457,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(removeData, payload);
+        const response = yield call(refreshCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -446,7 +474,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *refreshCache(
+      *repairSubsidiary(
         {
           payload,
           alias,
@@ -455,7 +483,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(refreshCacheData, payload);
+        const response = yield call(repairSubsidiaryData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

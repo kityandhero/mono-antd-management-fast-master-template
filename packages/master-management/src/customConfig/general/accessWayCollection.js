@@ -3253,6 +3253,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'de50f43678789592f29822a691c9b000',
       permission: 'f950d65e12bf42c19f70d0bfecaeb6e7',
     },
+    setSubsidiaryId: {
+      title: '设置所属企业',
+      paramsKey: 'f0fe1e5d06fcb3225e9773dd56f36497',
+      permission: '051e41c011364c02a1d19082f8f73b87',
+    },
     setApplicantStatement: {
       title: '设置申请陈述',
       paramsKey: '0fcdd3ef8ff4b681c69ea50d66512607',
@@ -3298,13 +3303,13 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '2e4e08dea61b6cf6be094eb4c48230e0',
       permission: '836d2d7b58d742fbbe696932269bd760',
     },
-    remove: {
-      title: '移除',
-      paramsKey: '2162c9d3e6a877d2963311ad49b9a10a',
-      permission: '90ef7cc045b640169f415f657a1583d4',
-    },
     refreshCache: {
       title: '刷新缓存',
+      paramsKey: '95a9f7321de9e416b034e149c484c8a3',
+      permission: '3f7d2a7c8efd4b5dbcc8616e35a2dd27',
+    },
+    repairSubsidiary: {
+      title: '修复实例的归属企业信息',
       paramsKey: '95a9f7321de9e416b034e149c484c8a3',
       permission: '3f7d2a7c8efd4b5dbcc8616e35a2dd27',
     },

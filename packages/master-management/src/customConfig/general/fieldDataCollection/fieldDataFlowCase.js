@@ -21,6 +21,21 @@ const fieldExtraData = {
     name: 'userNickname',
     helper: '',
   },
+  subsidiaryShortName: {
+    label: '所属企业',
+    name: 'subsidiaryShortName',
+    helper: '',
+  },
+  subsidiaryFullName: {
+    label: '所属企业全称',
+    name: 'subsidiaryFullName',
+    helper: '',
+  },
+  subsidiaryLogo: {
+    label: '企业Logo',
+    name: 'subsidiaryLogo',
+    helper: '',
+  },
   listFormStorage: {
     label: '表单数据列表',
     name: 'listFormStorage',
@@ -303,6 +318,11 @@ export const fieldDataFlowCase = {
   userId: {
     label: '发起人',
     name: 'userId',
+    helper: '',
+  },
+  subsidiaryId: {
+    label: '公司标识',
+    name: 'subsidiaryId',
     helper: '',
   },
   cancelApproveSwitch: {

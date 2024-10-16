@@ -5260,6 +5260,13 @@
           "type": "singleData"
         },
         {
+          "title": "设置所属企业",
+          "api": "/workflowCase/setSubsidiaryId",
+          "effect": "setSubsidiaryId",
+          "service": "setSubsidiaryIdData",
+          "type": "singleData"
+        },
+        {
           "title": "设置申请陈述",
           "api": "/workflowCase/setApplicantStatement",
           "effect": "setApplicantStatement",
@@ -5323,17 +5330,17 @@
           "type": "singleData"
         },
         {
-          "title": "移除",
-          "api": "/workflowCase/remove",
-          "effect": "remove",
-          "service": "removeData",
-          "type": "singleData"
-        },
-        {
           "title": "刷新缓存",
           "api": "/workflowCase/refreshCache",
           "effect": "refreshCache",
           "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "修复实例的归属企业信息",
+          "api": "/workflowCase/repairSubsidiary",
+          "effect": "repairSubsidiary",
+          "service": "repairSubsidiaryData",
           "type": "singleData"
         },
         {
