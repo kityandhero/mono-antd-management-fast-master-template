@@ -97,7 +97,7 @@ class PageList extends MultiPage {
         break;
       }
 
-      case 'remove': {
+      case 'hide': {
         this.hide(handleData);
 
         break;
