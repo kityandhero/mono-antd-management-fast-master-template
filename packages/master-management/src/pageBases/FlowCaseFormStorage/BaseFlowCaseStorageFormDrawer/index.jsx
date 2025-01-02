@@ -433,8 +433,13 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
       defaultValue: {},
     });
 
-    const { general, items: itemsSource } = {
+    const {
+      general,
+      title,
+      items: itemsSource,
+    } = {
       general: {},
+      title: {},
       items: [],
       ...documentSchema,
     };
@@ -512,8 +517,10 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
           values={isArray(listFormStorage) ? listFormStorage : []}
           schema={{
             general: general || {},
+            title: title || {},
             items,
           }}
+          formItems={listDataSchema}
           approveList={isArray(listApprove) ? listApprove : []}
           allApproveProcessList={listChainApproveAdjust}
           signetStyle={signetStyle}

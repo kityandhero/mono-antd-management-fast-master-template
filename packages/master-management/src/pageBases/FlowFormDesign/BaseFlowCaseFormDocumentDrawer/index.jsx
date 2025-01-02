@@ -1,5 +1,4 @@
 import {
-  checkStringIsNullOrWhiteSpace,
   convertCollection,
   getValueByKey,
   isArray,
@@ -92,39 +91,7 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
       logException(error);
     }
 
-    let items = [];
-
-    if (
-      isArray(itemsSource) &&
-      !isEmptyArray(itemsSource) &&
-      isArray(listDataSchema)
-    ) {
-      for (const o of listDataSchema) {
-        const { name } = { name: '', ...o };
-
-        if (checkStringIsNullOrWhiteSpace(name)) {
-          continue;
-        }
-
-        let config = {};
-
-        for (const one of itemsSource) {
-          const { name: nameOne } = { name: '', ...one };
-
-          if (nameOne === name) {
-            config = one;
-
-            break;
-          }
-        }
-
-        items.push({ ...config, ...o });
-      }
-    } else {
-      items = listDataSchema;
-    }
-
-    return items;
+    return { items: itemsSource, formItems: listDataSchema };
   };
 
   saveDataSchema = (data) => {
@@ -135,13 +102,15 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
       key: fieldDataFlowFormDesign.workflowFormDesignId.name,
     });
 
-    const { general, items } = {
+    const { general, title, items } = {
       general: {},
+      title: {},
       items: [],
       ...data,
     };
 
     delete general['general'];
+    delete general['title'];
     delete general['items'];
 
     const o = {};
@@ -151,6 +120,8 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
 
     o[fieldDataFlowFormDesign.documentGeneralSchema.name] =
       JSON.stringify(general);
+
+    o[fieldDataFlowFormDesign.documentTitleSchema.name] = JSON.stringify(title);
 
     o[fieldDataFlowFormDesign.documentItemSchema.name] = JSON.stringify(items);
 
@@ -229,12 +200,13 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
       defaultValue: {},
     });
 
-    const { general } = {
+    const { general, title } = {
       general: {},
+      title: {},
       ...documentSchema,
     };
 
-    const items = this.getItems();
+    const { items, formItems } = this.getItems();
 
     const allApproveProcessList = this.getAllApproveProcessList();
 
@@ -248,8 +220,10 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
         values={isArray(values) ? values : []}
         schema={{
           general: general || {},
+          title: title || {},
           items,
         }}
+        formItems={formItems}
         approveList={isArray(approveList) ? approveList : []}
         allApproveProcessList={
           isArray(allApproveProcessList) ? allApproveProcessList : []
@@ -290,12 +264,13 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
       defaultValue: {},
     });
 
-    const { general } = {
+    const { general, title } = {
       general: {},
+      title: {},
       ...documentSchema,
     };
 
-    const items = this.getItems();
+    const { items, formItems } = this.getItems();
 
     const remarkSchemaList = getValueByKey({
       data: metaData,
@@ -306,8 +281,10 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
     const data = {
       documentSchema: {
         general,
+        title,
         items,
       },
+      formItems,
       values: isArray(values) ? values : [],
       remarkSchemaList,
     };

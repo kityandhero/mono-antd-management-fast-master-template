@@ -808,8 +808,13 @@ class BasicInfo extends TabPageBase {
       defaultValue: {},
     });
 
-    const { general, items: itemsSource } = {
+    const {
+      general,
+      title,
+      items: itemsSource,
+    } = {
       general: {},
+      title: {},
       items: [],
       ...documentSchema,
     };
@@ -887,8 +892,10 @@ class BasicInfo extends TabPageBase {
           values={isArray(listFormStorage) ? listFormStorage : []}
           schema={{
             general: general || {},
+            title: title || {},
             items,
           }}
+          formItems={listDataSchema}
           approveList={isArray(listApprove) ? listApprove : []}
           allApproveProcessList={listChainApproveAdjust}
           signetStyle={signetStyle}
