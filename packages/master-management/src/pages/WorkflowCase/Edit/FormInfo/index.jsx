@@ -885,7 +885,6 @@ class BasicInfo extends TabPageBase {
         <DocumentPrintDesigner
           canDesign={false}
           showToolbar={false}
-          showIndependentPrint
           title={getValueByKey({
             data: metaData,
             key: fieldData.workflowName.name,
