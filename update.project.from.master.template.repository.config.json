@@ -78,6 +78,7 @@
     "src/pages/UserLoginLog/",
     "src/pages/UserQuestionnaire/",
     "src/pages/UserSubsidiaryInfo/",
+    "src/pages/UserWechatApplicationInfo/",
     "src/pages/WeChatMessageRecord/",
     "src/pages/Workflow/",
     "src/pages/WorkflowBranchCondition/",
