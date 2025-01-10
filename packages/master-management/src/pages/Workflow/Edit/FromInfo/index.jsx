@@ -31,8 +31,6 @@ import {
 import {
   accessWayCollection,
   emptySignet,
-  listSimpleAllApproveProcess,
-  listSimpleApprove,
   simpleApply,
   simpleAttention,
   simpleQRCode,
@@ -490,12 +488,11 @@ class BasicInfo extends TabPageBase {
           maskClosable
           canDesign
           values={[]}
-          approveList={listSimpleApprove}
-          allApproveProcessList={listSimpleAllApproveProcess}
           showApply={showApply}
           applyList={listApply}
           showAttention={showAttention}
           attentionList={listAttention}
+          approveList={[]}
           qRCodeImage={simpleQRCode}
           serialNumberContent={'1836370789809655808'}
           externalData={{ workflowId }}

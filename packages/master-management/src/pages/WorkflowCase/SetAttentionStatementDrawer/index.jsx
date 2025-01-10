@@ -223,8 +223,6 @@ class SetAttentionStatementDrawer extends BaseUpdateDrawer {
                 <DocumentPrintDesigner
                   canDesign={false}
                   showToolbar={false}
-                  showTitle={false}
-                  showRemark={false}
                   showApply={false}
                   showAttention
                   attentionList={listAttention}

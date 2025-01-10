@@ -1837,8 +1837,6 @@ class DebugCaseInfo extends TabPageBase {
           showAttention={showAttention}
           attentionList={listAttention}
           approveList={listApprove}
-          showQRCode
-          showSerialNumber
           qRCodeImage={qRCodeImage}
           serialNumberContent={workflowDebugCaseId}
         />

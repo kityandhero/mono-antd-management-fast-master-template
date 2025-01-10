@@ -20,8 +20,14 @@ import {
 } from 'antd-management-fast-common';
 import { CenterBox, iconBuilder } from 'antd-management-fast-component';
 import {
+  CellApply,
+  CellApproval,
+  CellAttention,
+  CellText,
   DocumentPrintDesigner,
   FileViewer,
+  nodeApply,
+  nodeAttention,
   SchemaDisplayer,
 } from 'antd-management-fast-design-playground';
 import { FlowProcessHistory } from 'antd-management-fast-flow';
@@ -33,8 +39,6 @@ import {
   fieldDataFlowFormDesign,
   flowCaseStatusCollection,
   signetStyle,
-  simpleApply,
-  simpleAttention,
 } from '../../../../customConfig';
 import {
   adjustFlowCaseDataToState,
@@ -233,7 +237,7 @@ class BasicInfo extends TabPageBase {
 
     const listApply = [
       {
-        ...simpleApply,
+        ...nodeApply,
         title: applicantStatementTitle,
         note: applicantStatementContent,
         ...(checkStringIsNullOrWhiteSpace(applicantUserSignet)
@@ -286,7 +290,7 @@ class BasicInfo extends TabPageBase {
 
     const listAttention = [
       {
-        ...simpleAttention,
+        ...nodeAttention,
         title: attentionStatementTitle,
         note: attentionStatementContent,
         ...(checkStringIsNullOrWhiteSpace(attentionUserSignet)
@@ -636,25 +640,8 @@ class BasicInfo extends TabPageBase {
   };
 
   renderFlowCaseFormFieldDisplay = () => {
-    const {
-      metaData,
-      workflowFormDesign,
-      listFormStorage,
-      listApprove,
-      listAttachment,
-    } = this.state;
-
-    const workflowCaseId = getValueByKey({
-      data: metaData,
-      key: fieldData.workflowCaseId.name,
-      convert: convertCollection.string,
-    });
-
-    const qRCodeImage = getValueByKey({
-      data: metaData,
-      key: fieldData.qRCodeImage.name,
-      convert: convertCollection.string,
-    });
+    const { workflowFormDesign, listFormStorage, listApprove, listAttachment } =
+      this.state;
 
     const designJson = getValueByKey({
       data: workflowFormDesign,
@@ -752,23 +739,92 @@ class BasicInfo extends TabPageBase {
         )}
 
         {!isArray(listApprove) || isEmptyArray(listApprove) ? null : (
-          <DocumentPrintDesigner
-            showToolbar={false}
-            canDesign={false}
-            showTitle={false}
-            showRemark={false}
-            approveList={listApprove}
-            signetStyle={signetStyle}
-            showApply={showApply}
-            applyList={listApply}
-            showAttention={showAttention}
-            attentionList={listAttention}
-            showQRCode
-            showSerialNumber
-            qRCodeImage={qRCodeImage}
-            serialNumberTitle="审批流水号: "
-            serialNumberContent={workflowCaseId}
-          />
+          <CenterBox>
+            <table
+              style={{
+                width: '800px',
+                borderColor: '#000',
+                borderWidth: '1px',
+                borderStyle: 'solid',
+              }}
+              border={'1px'}
+            >
+              <tbody>
+                {showApply
+                  ? listApply.map((o, index) => {
+                      const { title, note, signet, time } = o;
+
+                      return (
+                        <tr key={`tr_${index}`}>
+                          <CellText
+                            width={160}
+                            textAlign="center"
+                            content={title}
+                          />
+
+                          <CellApply
+                            signetStyle={{ border: '1px solid #000' }}
+                            content={{
+                              note,
+                              signet,
+                              time,
+                            }}
+                          />
+                        </tr>
+                      );
+                    })
+                  : null}
+
+                {showAttention
+                  ? listAttention.map((o, index) => {
+                      const { title, note, signet, time } = o;
+
+                      return (
+                        <tr key={`tr_${index}`}>
+                          <CellText
+                            width={160}
+                            textAlign="center"
+                            content={title}
+                          />
+
+                          <CellAttention
+                            signetStyle={{ border: '1px solid #000' }}
+                            content={{
+                              note,
+                              signet,
+                              time,
+                            }}
+                          />
+                        </tr>
+                      );
+                    })
+                  : null}
+
+                {listApprove.map((o, index) => {
+                  const { title, note, signet, time } = o;
+
+                  return (
+                    <tr key={`tr_${index}`}>
+                      <CellText
+                        width={160}
+                        textAlign="center"
+                        content={title}
+                      />
+
+                      <CellApproval
+                        signetStyle={signetStyle}
+                        content={{
+                          note,
+                          signet,
+                          time,
+                        }}
+                      />
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </CenterBox>
         )}
       </div>
     );
@@ -906,11 +962,7 @@ class BasicInfo extends TabPageBase {
           showRemark={
             !(!isArray(remarkSchemaList) || isEmptyArray(remarkSchemaList))
           }
-          remarkTitle="备注"
-          remarkName="remark"
           remarkList={remarkSchemaList}
-          showQRCode
-          showSerialNumber
           qRCodeImage={qRCodeImage}
           serialNumberTitle="审批流水号: "
           serialNumberContent={workflowCaseId}

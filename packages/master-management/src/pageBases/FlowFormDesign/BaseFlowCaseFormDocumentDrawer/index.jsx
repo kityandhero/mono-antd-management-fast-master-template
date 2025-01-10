@@ -61,6 +61,10 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
     return d;
   };
 
+  getApproveList = () => {
+    throw new Error('getApproveList need overrode to implement');
+  };
+
   getAllApproveProcessList = () => {
     throw new Error('getAllApproveProcessList need overrode to implement');
   };
@@ -242,11 +246,7 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
         showRemark={
           !(!isArray(remarkSchemaList) || isEmptyArray(remarkSchemaList))
         }
-        remarkTitle="备注"
-        remarkName="remark"
         remarkList={remarkSchemaList}
-        showQRCode
-        showSerialNumber
         serialNumberTitle="审批流水号: "
         serialNumberContent={serialNumberContent}
         qRCodeImage={qRCodeImage}
