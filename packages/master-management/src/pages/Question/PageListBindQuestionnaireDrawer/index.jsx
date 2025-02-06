@@ -10,6 +10,7 @@ import {
 
 import {
   columnFacadeMode,
+  listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
@@ -20,7 +21,6 @@ import {
 
 import { accessWayCollection } from '../../../customConfig';
 import {
-  getBusinessModeName,
   getQuestionStatusName,
   getQuestionTypeName,
 } from '../../../customSpecialComponents';
@@ -97,7 +97,7 @@ class PageListBindQuestionnaireDrawer extends MultiPageDrawer {
         {
           lg: 16,
           type: searchCardConfig.contentItemType.input,
-          fieldData: fieldData.shortName,
+          fieldData: fieldData.title,
         },
         {
           lg: 8,
@@ -106,6 +106,25 @@ class PageListBindQuestionnaireDrawer extends MultiPageDrawer {
         },
       ],
     };
+  };
+
+  establishDataContainerExtraActionCollectionConfig = () => {
+    return [
+      {
+        buildType: listViewConfig.dataContainerExtraActionBuildType.iconInfo,
+        icon: iconBuilder.infoCircle(),
+        text: '此处仅列出启用状态的问题',
+        textStyle: {
+          color: '#666',
+        },
+        iconStyle: {
+          color: '#666',
+        },
+      },
+      {
+        buildType: listViewConfig.dataContainerExtraActionBuildType.divider,
+      },
+    ];
   };
 
   establishListItemDropdownConfig = (record) => {
@@ -125,12 +144,6 @@ class PageListBindQuestionnaireDrawer extends MultiPageDrawer {
   };
 
   getColumnWrapper = () => [
-    {
-      dataTarget: fieldData.image,
-      width: 60,
-      showRichFacade: true,
-      facadeMode: columnFacadeMode.image,
-    },
     {
       dataTarget: fieldData.title,
       align: 'left',
@@ -175,28 +188,16 @@ class PageListBindQuestionnaireDrawer extends MultiPageDrawer {
       },
     },
     {
+      dataTarget: fieldData.image,
+      width: 60,
+      showRichFacade: true,
+      facadeMode: columnFacadeMode.image,
+    },
+    {
       dataTarget: fieldData.tagName,
       width: 100,
       showRichFacade: true,
       emptyValue: '--',
-    },
-    {
-      dataTarget: fieldData.businessMode,
-      width: 140,
-      showRichFacade: true,
-      emptyValue: '--',
-      facadeConfigBuilder: (value) => {
-        return {
-          color: buildRandomHexColor({
-            seed: toNumber(value) * 4 + 32,
-          }),
-        };
-      },
-      formatValue: (value) => {
-        return getBusinessModeName({
-          value: value,
-        });
-      },
     },
     {
       dataTarget: fieldData.status,

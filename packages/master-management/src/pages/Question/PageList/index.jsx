@@ -23,10 +23,8 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
 import {
-  getBusinessModeName,
   getQuestionStatusName,
   getQuestionTypeName,
-  renderSearchBusinessModeSelect,
   renderSearchQuestionStatusSelect,
   renderSearchQuestionTypeSelect,
 } from '../../../customSpecialComponents';
@@ -294,7 +292,6 @@ class PageList extends MultiPage {
     const values = {};
 
     values[fieldData.type.name] = unlimitedWithStringFlag.flag;
-    values[fieldData.businessMode.name] = unlimitedWithStringFlag.flag;
     values[fieldData.status.name] = unlimitedWithStringFlag.flag;
 
     return values;
@@ -311,16 +308,6 @@ class PageList extends MultiPage {
           fieldData: fieldData.title,
         },
         {
-          lg: 6,
-          type: searchCardConfig.contentItemType.customSelect,
-          component: renderSearchQuestionTypeSelect({}),
-        },
-        {
-          lg: 6,
-          type: searchCardConfig.contentItemType.customSelect,
-          component: renderSearchBusinessModeSelect({}),
-        },
-        {
           lg: 12,
           type: cardConfig.contentItemType.treeSelect,
           fieldData: fieldData.tagIdCollection,
@@ -331,6 +318,7 @@ class PageList extends MultiPage {
           },
           listData: tagTreeData,
           addonAfter: buildButton({
+            title: '点击刷新标签列表',
             text: '',
             icon: iconBuilder.reload(),
             handleClick: () => {
@@ -350,6 +338,11 @@ class PageList extends MultiPage {
               tagIdCollection: value,
             });
           },
+        },
+        {
+          lg: 6,
+          type: searchCardConfig.contentItemType.customSelect,
+          component: renderSearchQuestionTypeSelect({}),
         },
         {
           lg: 6,
@@ -529,24 +522,6 @@ class PageList extends MultiPage {
       },
       formatValue: (value) => {
         return getQuestionTypeName({
-          value: value,
-        });
-      },
-    },
-    {
-      dataTarget: fieldData.businessMode,
-      width: 140,
-      showRichFacade: true,
-      emptyValue: '--',
-      facadeConfigBuilder: (value) => {
-        return {
-          color: buildRandomHexColor({
-            seed: toNumber(value) * 4 + 32,
-          }),
-        };
-      },
-      formatValue: (value) => {
-        return getBusinessModeName({
           value: value,
         });
       },
