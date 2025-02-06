@@ -11,10 +11,12 @@ import {
 } from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
+import { ColorText } from 'antd-management-fast-component';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
 import { fieldData as fieldDataQuestionItem } from '../../QuestionItem/Common/data';
 import { practiceAction } from '../Assist/action';
+import { getTypeName } from '../Assist/tools';
 import { fieldData, typeCollection } from '../Common/data';
 
 const { Paragraph } = Typography;
@@ -44,12 +46,31 @@ class PracticeDrawer extends BaseUpdateModal {
       pageTitle: '测试题目',
       loadApiPath: 'question/get',
       submitApiPath: 'question/practice',
+      /**
+       * 题目测验是否已完成
+       */
       practiceComplete: false,
+      /**
+       * 题目测验结果
+       */
       practiceResult: false,
     };
   }
 
+  /**
+   * 显示前执行值初始化
+   */
   executeAfterDoOtherWhenChangeVisibleToShow = () => {
+    this.setState({
+      practiceComplete: false,
+      practiceResult: false,
+    });
+  };
+
+  /**
+   * 窗体关闭后执行值的初始化
+   */
+  executeAfterDoOtherWhenChangeVisibleToHide = () => {
     this.setState({
       practiceComplete: false,
       practiceResult: false,
@@ -296,7 +317,7 @@ class PracticeDrawer extends BaseUpdateModal {
                       data: metaData,
                       key: fieldData.title.name,
                       formatBuilder: (v) => {
-                        return `【题目】${v ?? ''}`;
+                        return `【${getTypeName(type)}】${v ?? ''}`;
                       },
                     })}
                   </Paragraph>
@@ -322,7 +343,7 @@ class PracticeDrawer extends BaseUpdateModal {
               type: cardConfig.contentItemType.divider,
               innerProps: {
                 style: {
-                  margin: '20px 0',
+                  margin: '24px 0 24px 0',
                 },
               },
             },
@@ -334,13 +355,27 @@ class PracticeDrawer extends BaseUpdateModal {
             },
             {
               lg: 24,
-              type: cardConfig.contentItemType.onlyShowTextByFlexText,
+              type: cardConfig.contentItemType.divider,
               hidden: !practiceComplete,
-              value: `【答案解析】${getValueByKey({
+              text: (
+                <ColorText text="答案解析" textStyle={{ fontSize: '14px' }} />
+              ),
+              innerProps: {
+                orientation: 'left',
+                style: {
+                  margin: '10px 0',
+                },
+              },
+            },
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.onlyShowText,
+              hidden: !practiceComplete,
+              value: getValueByKey({
                 data: metaData,
                 key: fieldData.answer.name,
                 convert: convertCollection.string,
-              })}`,
+              }),
             },
             {
               lg: 24,
@@ -348,7 +383,7 @@ class PracticeDrawer extends BaseUpdateModal {
               hidden: !practiceComplete,
               innerProps: {
                 style: {
-                  margin: '20px 0',
+                  margin: '0 0 24px 0',
                 },
               },
             },

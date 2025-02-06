@@ -479,12 +479,6 @@ class PageList extends MultiPage {
 
   getColumnWrapper = () => [
     {
-      dataTarget: fieldData.image,
-      width: 60,
-      showRichFacade: true,
-      facadeMode: columnFacadeMode.image,
-    },
-    {
       dataTarget: fieldData.title,
       align: 'left',
       showRichFacade: true,
@@ -510,8 +504,14 @@ class PageList extends MultiPage {
       },
     },
     {
+      dataTarget: fieldData.image,
+      width: 60,
+      showRichFacade: true,
+      facadeMode: columnFacadeMode.image,
+    },
+    {
       dataTarget: fieldData.tagName,
-      width: 100,
+      width: 180,
       showRichFacade: true,
       emptyValue: '--',
     },

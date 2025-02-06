@@ -316,43 +316,39 @@ class Edit extends DataTabContainerSupplement {
       return { list };
     }
 
+    list.push({
+      buildType: extraBuildType.generalExtraButton,
+      icon: iconBuilder.bug(),
+      text: '测试题目',
+      hidden: !checkHasAuthority(
+        accessWayCollection.question.practice.permission,
+      ),
+      handleClick: () => {
+        this.showPracticeDrawer();
+      },
+    });
+
     const type = getValueByKey({
       data: metaData,
       key: fieldData.type.name,
       convert: convertCollection.number,
     });
 
-    if (type !== typeCollection.judgment) {
-      return { list };
+    if (type === typeCollection.judgment) {
+      list.push({
+        buildType: extraBuildType.generalExtraButton,
+        icon: iconBuilder.edit(),
+        text: '设置判断结果',
+        hidden: !checkHasAuthority(
+          accessWayCollection.question.updateWhetherCorrect.permission,
+        ),
+        handleClick: () => {
+          this.showChangeWhetherCorrectModal();
+        },
+      });
     }
 
-    return {
-      list: [
-        {
-          buildType: extraBuildType.generalExtraButton,
-          icon: iconBuilder.bug(),
-          text: '测试题目',
-          hidden: !checkHasAuthority(
-            accessWayCollection.question.practice.permission,
-          ),
-          handleClick: () => {
-            this.showPracticeDrawer();
-          },
-        },
-
-        {
-          buildType: extraBuildType.generalExtraButton,
-          icon: iconBuilder.edit(),
-          text: '设置判断结果',
-          hidden: !checkHasAuthority(
-            accessWayCollection.question.updateWhetherCorrect.permission,
-          ),
-          handleClick: () => {
-            this.showChangeWhetherCorrectModal();
-          },
-        },
-      ],
-    };
+    return { list };
   };
 
   establishExtraActionGroupConfig = () => {

@@ -343,8 +343,8 @@ export const menuZhCNGeneral = {
   'menu.survey.question.edit.operateLog': '操作日志',
   'menu.survey.question.edit.operateLog.pageList': '日志列表',
 
-  'menu.survey.questionItem': '问题库项管理',
-  'menu.survey.questionItem-mini': '问题库项',
+  'menu.survey.questionItem': '问题项管理',
+  'menu.survey.questionItem-mini': '问题项',
   'menu.survey.questionItem.pageList': '分页列表',
   'menu.survey.questionItem.pageList-mini': '列表',
 
