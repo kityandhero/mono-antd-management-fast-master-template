@@ -444,19 +444,6 @@ class PageList extends MultiPage {
           type: dropdownExpandItemType.divider,
         },
         {
-          key: 'remove',
-          icon: iconBuilder.delete(),
-          text: '移除数据',
-          hidden: !checkHasAuthority(
-            accessWayCollection.question.remove.permission,
-          ),
-          confirm: true,
-          title: '将要移除数据，确定吗？',
-        },
-        {
-          type: dropdownExpandItemType.divider,
-        },
-        {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
           text: '刷新缓存',
@@ -465,6 +452,19 @@ class PageList extends MultiPage {
           ),
           confirm: true,
           title: '即将刷新缓存，确定吗？',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'remove',
+          icon: iconBuilder.delete(),
+          text: '移除数据',
+          hidden: !checkHasAuthority(
+            accessWayCollection.question.remove.permission,
+          ),
+          confirm: true,
+          title: '将要移除数据，确定吗？',
         },
       ],
     };

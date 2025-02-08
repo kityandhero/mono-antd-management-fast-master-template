@@ -2,15 +2,12 @@ import { connect } from 'easy-soft-dva';
 import {
   buildRandomHexColor,
   checkHasAuthority,
-  convertCollection,
   getValueByKey,
   toNumber,
-  whetherNumber,
 } from 'easy-soft-utility';
 
 import {
   columnFacadeMode,
-  listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
@@ -27,7 +24,7 @@ import {
 import { bindRelationAction } from '../../QuestionnaireQuestion/Assist/action';
 import { fieldData as fieldDataQuestionnaireQuestion } from '../../QuestionnaireQuestion/Common/data';
 import { getStatusBadge } from '../Assist/tools';
-import { fieldData, typeCollection } from '../Common/data';
+import { fieldData } from '../Common/data';
 
 const { MultiPageDrawer } = DataMultiPageView;
 
@@ -63,6 +60,19 @@ class PageListBindQuestionnaireDrawer extends MultiPageDrawer {
   static getDerivedStateFromProps(nextProperties, previousState) {
     return super.getDerivedStateFromProps(nextProperties, previousState);
   }
+
+  supplementLoadRequestParams = (o) => {
+    const d = { ...o };
+    const { externalData } = this.state;
+
+    d[fieldDataQuestionnaireQuestion.questionnaireId.name] = getValueByKey({
+      data: externalData,
+      key: fieldDataQuestionnaireQuestion.questionnaireId.name,
+      defaultValue: '',
+    });
+
+    return d;
+  };
 
   bind = (item) => {
     const { externalData } = this.props;
@@ -108,23 +118,14 @@ class PageListBindQuestionnaireDrawer extends MultiPageDrawer {
     };
   };
 
-  establishDataContainerExtraActionCollectionConfig = () => {
-    return [
-      {
-        buildType: listViewConfig.dataContainerExtraActionBuildType.iconInfo,
-        icon: iconBuilder.infoCircle(),
-        text: '此处仅列出启用状态的问题',
-        textStyle: {
-          color: '#666',
-        },
-        iconStyle: {
-          color: '#666',
-        },
-      },
-      {
-        buildType: listViewConfig.dataContainerExtraActionBuildType.divider,
-      },
-    ];
+  establishPresetAboveTableAlertMessage = () => {
+    return '此处仅列出不在问卷中的且位于启用状态的备选问题。';
+  };
+
+  establishPresetAboveTableAlertContainerStyle = () => {
+    return {
+      paddingBottom: '12px',
+    };
   };
 
   establishListItemDropdownConfig = (record) => {
@@ -149,25 +150,6 @@ class PageListBindQuestionnaireDrawer extends MultiPageDrawer {
       align: 'left',
       showRichFacade: true,
       emptyValue: '--',
-      formatValue: (value, record) => {
-        const type = getValueByKey({
-          data: record,
-          key: fieldData.type.name,
-          convert: convertCollection.number,
-        });
-
-        if (type !== typeCollection.judgment) {
-          return value;
-        }
-
-        const whetherCorrect = getValueByKey({
-          data: record,
-          key: fieldData.whetherCorrect.name,
-          convert: convertCollection.number,
-        });
-
-        return `（${whetherCorrect === whetherNumber.yes ? '✔' : '✖'}）${value}`;
-      },
     },
     {
       dataTarget: fieldData.type,
