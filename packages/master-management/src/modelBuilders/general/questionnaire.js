@@ -11,6 +11,7 @@ import {
   addBasicInfoData,
   addMediaItemData,
   getData,
+  getExaminationPaperData,
   getMediaItemData,
   pageListData,
   pageListOperateLogData,
@@ -41,6 +42,7 @@ import {
 export const questionnaireTypeCollection = {
   pageList: 'questionnaire/pageList',
   get: 'questionnaire/get',
+  getExaminationPaper: 'questionnaire/getExaminationPaper',
   addBasicInfo: 'questionnaire/addBasicInfo',
   updateBasicInfo: 'questionnaire/updateBasicInfo',
   updateContentInfo: 'questionnaire/updateContentInfo',
@@ -114,6 +116,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(getData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *getExaminationPaper(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(getExaminationPaperData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

@@ -33,7 +33,7 @@ import {
 } from '../Assist/config';
 import { ChangeWhetherCorrectModal } from '../ChangeWhetherCorrectModal';
 import { fieldData, statusCollection, typeCollection } from '../Common/data';
-import { PracticeDrawer } from '../PracticeDrawer';
+import { PracticeModal } from '../PracticeModal';
 
 @connect(({ question, schedulingControl }) => ({
   question,
@@ -213,8 +213,8 @@ class Edit extends DataTabContainerSupplement {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
-  showPracticeDrawer = () => {
-    PracticeDrawer.open();
+  showPracticeModal = () => {
+    PracticeModal.open();
   };
 
   establishPageHeaderAvatarConfig = () => {
@@ -324,7 +324,7 @@ class Edit extends DataTabContainerSupplement {
         accessWayCollection.question.practice.permission,
       ),
       handleClick: () => {
-        this.showPracticeDrawer();
+        this.showPracticeModal();
       },
     });
 
@@ -538,7 +538,7 @@ class Edit extends DataTabContainerSupplement {
           afterOK={this.afterChangeWhetherCorrectModalOk}
         />
 
-        <PracticeDrawer externalData={metaData} />
+        <PracticeModal externalData={metaData} />
       </>
     );
   };

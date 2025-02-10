@@ -16,7 +16,7 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../../../customConfig';
 import { PageListBindQuestionnaireDrawer } from '../../../../Question/PageListBindQuestionnaireDrawer';
-import { PracticeDrawer } from '../../../../Question/PracticeDrawer';
+import { PracticeModal } from '../../../../Question/PracticeModal';
 import { unbindRelationAction } from '../../../../QuestionnaireQuestion/Assist/action';
 import { fieldData as fieldDataQuestionnaireQuestion } from '../../../../QuestionnaireQuestion/Common/data';
 import {
@@ -116,9 +116,9 @@ class PageList extends InnerMultiPage {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
-  showPracticeDrawer = (item) => {
+  showPracticeModal = (item) => {
     this.setState({ currentRecord: item }, () => {
-      PracticeDrawer.open();
+      PracticeModal.open();
     });
   };
 
@@ -144,7 +144,7 @@ class PageList extends InnerMultiPage {
         accessWayCollection.question.practice.permission,
       ),
       handleButtonClick: ({ handleData }) => {
-        this.showPracticeDrawer(handleData);
+        this.showPracticeModal(handleData);
       },
       handleData: item,
       handleMenuClick: ({ key, handleData }) => {
@@ -215,7 +215,7 @@ class PageList extends InnerMultiPage {
           afterClose={this.afterPageListBindQuestionnaireDrawerClose}
         />
 
-        <PracticeDrawer externalData={currentRecord} />
+        <PracticeModal externalData={currentRecord} />
       </>
     );
   };

@@ -3125,6 +3125,13 @@
           "type": "singleData"
         },
         {
+          "title": "获取构建的试卷",
+          "api": "/questionnaire/getExaminationPaper",
+          "effect": "getExaminationPaper",
+          "service": "getExaminationPaperData",
+          "type": "singleData"
+        },
+        {
           "title": "新建",
           "api": "/questionnaire/addBasicInfo",
           "effect": "addBasicInfo",
@@ -3332,6 +3339,13 @@
           "api": "/questionnaireQuestion/bindRelation",
           "effect": "bindRelation",
           "service": "bindRelationData",
+          "type": "singleData"
+        },
+        {
+          "title": "批量绑定关系",
+          "api": "/questionnaireQuestion/bindBatchRelation",
+          "effect": "bindBatchRelation",
+          "service": "bindBatchRelationData",
           "type": "singleData"
         },
         {

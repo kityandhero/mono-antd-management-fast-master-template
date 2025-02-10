@@ -27,6 +27,16 @@ export async function bindRelationData(parameters) {
   });
 }
 
+export const bindBatchRelationDataApiAddress =
+  '/questionnaireQuestion/bindBatchRelation';
+
+export async function bindBatchRelationData(parameters) {
+  return request({
+    api: bindBatchRelationDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const unbindRelationDataApiAddress =
   '/questionnaireQuestion/unbindRelation';
 

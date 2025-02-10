@@ -1911,6 +1911,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '152ed34a90d4b4070b80ca178f5fd85a',
       permission: '99183a2af4e14ffbbeae6bcda7fbe544',
     },
+    getExaminationPaper: {
+      title: '获取构建的试卷',
+      paramsKey: 'c3534af5144646fd22edf4605fe59d2e',
+      permission: '677d4140a6514acc9cfa40506f08a25d',
+    },
     addBasicInfo: {
       title: '新建',
       paramsKey: 'a39059b5ea5361ffd73ae7d610990c24',
@@ -2032,6 +2037,11 @@ export const accessWayInfrastructureCollection = {
       title: '绑定关系',
       paramsKey: '0f9d7be726abde6cfcfd3966e0a818e7',
       permission: '52e3b58b476b4a8684bf0073ce1d0bf8',
+    },
+    bindBatchRelation: {
+      title: '批量绑定关系',
+      paramsKey: '02d2bf4e3f9f50e8fd3a907f1b567a89',
+      permission: '5ff57edf54834128b56c6e8f2a7bb039',
     },
     unbindRelation: {
       title: '解绑关系',

@@ -8,6 +8,7 @@ import {
 } from 'easy-soft-utility';
 
 import {
+  bindBatchRelationData,
   bindRelationData,
   getData,
   pageListData,
@@ -21,6 +22,7 @@ export const questionnaireQuestionTypeCollection = {
   pageList: 'questionnaireQuestion/pageList',
   get: 'questionnaireQuestion/get',
   bindRelation: 'questionnaireQuestion/bindRelation',
+  bindBatchRelation: 'questionnaireQuestion/bindBatchRelation',
   unbindRelation: 'questionnaireQuestion/unbindRelation',
   setBindSort: 'questionnaireQuestion/setBindSort',
   setBindScore: 'questionnaireQuestion/setBindScore',
@@ -98,6 +100,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(bindRelationData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *bindBatchRelation(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(bindBatchRelationData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

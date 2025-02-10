@@ -39,7 +39,7 @@ import {
 import { getStatusBadge } from '../Assist/tools';
 import { ChangeWhetherCorrectModal } from '../ChangeWhetherCorrectModal';
 import { fieldData, statusCollection, typeCollection } from '../Common/data';
-import { PracticeDrawer } from '../PracticeDrawer';
+import { PracticeModal } from '../PracticeModal';
 import { UpdateAnswerDrawer } from '../UpdateAnswerDrawer';
 
 const { MultiPage } = DataMultiPageView;
@@ -112,8 +112,8 @@ class PageList extends MultiPage {
         break;
       }
 
-      case 'showPracticeDrawer': {
-        this.showPracticeDrawer(handleData);
+      case 'showPracticeModal': {
+        this.showPracticeModal(handleData);
         break;
       }
 
@@ -259,9 +259,9 @@ class PageList extends MultiPage {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
-  showPracticeDrawer = (item) => {
+  showPracticeModal = (item) => {
     this.setState({ currentRecord: item }, () => {
-      PracticeDrawer.open();
+      PracticeModal.open();
     });
   };
 
@@ -385,7 +385,7 @@ class PageList extends MultiPage {
       },
       items: [
         {
-          key: 'showPracticeDrawer',
+          key: 'showPracticeModal',
           icon: iconBuilder.bug(),
           text: '测试题目',
           hidden: !checkHasAuthority(
@@ -572,7 +572,7 @@ class PageList extends MultiPage {
           afterOK={this.afterUpdateAnswerDrawerOk}
         />
 
-        <PracticeDrawer externalData={currentRecord} />
+        <PracticeModal externalData={currentRecord} />
       </>
     );
   };

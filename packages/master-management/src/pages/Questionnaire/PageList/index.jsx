@@ -53,6 +53,7 @@ import {
   questionCreateModeCollection,
   statusCollection,
 } from '../Common/data';
+import { ExaminationPaperPreviewDrawer } from '../ExaminationPaperPreviewDrawer';
 
 const { MultiPage } = DataMultiPageView;
 const {
@@ -927,6 +928,8 @@ class PageList extends MultiPage {
           externalData={currentRecord}
           afterOK={this.afterChangeSortModalOk}
         />
+
+        <ExaminationPaperPreviewDrawer externalData={currentRecord} />
       </>
     );
   };

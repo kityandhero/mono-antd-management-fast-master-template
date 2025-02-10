@@ -29,7 +29,7 @@ const visibleFlag = '1cd0bc39bdcb4418895622c3860436e1';
   question,
   schedulingControl,
 }))
-class PracticeDrawer extends BaseUpdateModal {
+class PracticeModal extends BaseUpdateModal {
   showFooter = false;
 
   selectValue = '';
@@ -223,7 +223,7 @@ class PracticeDrawer extends BaseUpdateModal {
       </Radio.Group>
     );
 
-    const radioGroupComponent = (
+    const singleSelectComponent = (
       <Radio.Group name={questionId} onChange={this.onSingleSelectChange}>
         <Space direction="vertical">
           {listItem.map((o, index) => {
@@ -263,7 +263,7 @@ class PracticeDrawer extends BaseUpdateModal {
       </Radio.Group>
     );
 
-    const checkboxGroupComponent = (
+    const multoSelectComponent = (
       <Checkbox.Group name={questionId} onChange={this.onMultiSelectChange}>
         <Space direction="vertical">
           {listItem.map((o, index) => {
@@ -328,11 +328,11 @@ class PracticeDrawer extends BaseUpdateModal {
                       : null}
 
                     {type === typeCollection.singleSelect
-                      ? radioGroupComponent
+                      ? singleSelectComponent
                       : null}
 
                     {type === typeCollection.multiSelect
-                      ? checkboxGroupComponent
+                      ? multoSelectComponent
                       : null}
                   </div>
                 </>
@@ -408,4 +408,4 @@ class PracticeDrawer extends BaseUpdateModal {
   };
 }
 
-export { PracticeDrawer };
+export { PracticeModal };
