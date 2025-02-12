@@ -16,22 +16,22 @@ import {
   setBindScoreData,
   setBindSortData,
   unbindRelationData,
-} from '../../services/questionnaireQuestion';
+} from '../../services/questionnaireQuestionRelation';
 
-export const questionnaireQuestionTypeCollection = {
-  pageList: 'questionnaireQuestion/pageList',
-  get: 'questionnaireQuestion/get',
-  bindRelation: 'questionnaireQuestion/bindRelation',
-  bindBatchRelation: 'questionnaireQuestion/bindBatchRelation',
-  unbindRelation: 'questionnaireQuestion/unbindRelation',
-  setBindSort: 'questionnaireQuestion/setBindSort',
-  setBindScore: 'questionnaireQuestion/setBindScore',
-  refreshCache: 'questionnaireQuestion/refreshCache',
+export const questionnaireQuestionRelationTypeCollection = {
+  pageList: 'questionnaireQuestionRelation/pageList',
+  get: 'questionnaireQuestionRelation/get',
+  bindRelation: 'questionnaireQuestionRelation/bindRelation',
+  bindBatchRelation: 'questionnaireQuestionRelation/bindBatchRelation',
+  unbindRelation: 'questionnaireQuestionRelation/unbindRelation',
+  setBindSort: 'questionnaireQuestionRelation/setBindSort',
+  setBindScore: 'questionnaireQuestionRelation/setBindScore',
+  refreshCache: 'questionnaireQuestionRelation/refreshCache',
 };
 
 export function buildModel() {
   return {
-    namespace: 'questionnaireQuestion',
+    namespace: 'questionnaireQuestionRelation',
 
     state: {
       ...getTacitlyState(),

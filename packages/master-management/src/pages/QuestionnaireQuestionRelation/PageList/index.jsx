@@ -18,13 +18,13 @@ import { fieldData } from '../Common/data';
 
 const { MultiPage } = DataMultiPageView;
 
-@connect(({ questionnaireQuestion, schedulingControl }) => ({
-  questionnaireQuestion,
+@connect(({ questionnaireQuestionRelation, schedulingControl }) => ({
+  questionnaireQuestionRelation,
   schedulingControl,
 }))
 class PageList extends MultiPage {
   componentAuthority =
-    accessWayCollection.questionnaireQuestion.pageList.permission;
+    accessWayCollection.questionnaireQuestionRelation.pageList.permission;
 
   constructor(properties) {
     super(properties);
@@ -32,8 +32,9 @@ class PageList extends MultiPage {
     this.state = {
       ...this.state,
       pageTitle: '列表',
-      paramsKey: accessWayCollection.questionnaireQuestion.pageList.paramsKey,
-      loadApiPath: 'questionnaireQuestion/pageList',
+      paramsKey:
+        accessWayCollection.questionnaireQuestionRelation.pageList.paramsKey,
+      loadApiPath: 'questionnaireQuestionRelation/pageList',
       currentRecord: null,
     };
   }
@@ -60,14 +61,14 @@ class PageList extends MultiPage {
   };
 
   goToEdit = (record) => {
-    const questionnaireQuestionId = getValueByKey({
+    const questionnaireQuestionRelationId = getValueByKey({
       data: record,
-      key: fieldData.questionnaireQuestionId.name,
+      key: fieldData.questionnaireQuestionRelationId.name,
       defaultValue: '',
     });
 
     this.goToPath(
-      `/questionnaireQuestion/edit/load/${questionnaireQuestionId}/key/basicInfo`,
+      `/questionnaireQuestionRelation/edit/load/${questionnaireQuestionRelationId}/key/basicInfo`,
     );
   };
 
@@ -94,7 +95,7 @@ class PageList extends MultiPage {
       text: '修改',
       icon: iconBuilder.edit(),
       disabled: !checkHasAuthority(
-        accessWayCollection.questionnaireQuestion.get.permission,
+        accessWayCollection.questionnaireQuestionRelation.get.permission,
       ),
       handleButtonClick: ({ handleData }) => {
         this.goToEdit(handleData);
@@ -109,7 +110,8 @@ class PageList extends MultiPage {
           icon: iconBuilder.reload(),
           text: '刷新缓存',
           hidden: !checkHasAuthority(
-            accessWayCollection.questionnaireQuestion.refreshCache.permission,
+            accessWayCollection.questionnaireQuestionRelation.refreshCache
+              .permission,
           ),
           confirm: true,
           title: '即将刷新缓存，确定吗？',
@@ -127,7 +129,7 @@ class PageList extends MultiPage {
       emptyValue: '--',
     },
     {
-      dataTarget: fieldData.questionnaireQuestionId,
+      dataTarget: fieldData.questionnaireQuestionRelationId,
       width: 120,
       showRichFacade: true,
       canCopy: true,

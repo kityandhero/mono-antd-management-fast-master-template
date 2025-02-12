@@ -25,9 +25,9 @@
       "coverFile": false
     },
     {
-      "folder": "QuestionnaireQuestion/ChangeSortModal",
-      "model": "questionnaireQuestion",
-      "key": "questionnaireQuestionId",
+      "folder": "QuestionnaireQuestionRelation/ChangeSortModal",
+      "model": "questionnaireQuestionRelation",
+      "key": "questionnaireQuestionRelationId",
       "visibleFlag": "25bf7881798541118e85d29e10e08d86",
       "fileName": "index.jsx",
       "coverFile": false

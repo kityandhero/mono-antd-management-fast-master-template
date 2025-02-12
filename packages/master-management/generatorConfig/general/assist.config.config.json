@@ -43,9 +43,9 @@
       "coverFile": false
     },
     {
-      "folder": "QuestionnaireQuestion/Assist",
-      "model": "questionnaireQuestion",
-      "key": "questionnaireQuestionId",
+      "folder": "QuestionnaireQuestionRelation/Assist",
+      "model": "questionnaireQuestionRelation",
+      "key": "questionnaireQuestionRelationId",
       "fileName": "config.js",
       "coverFile": false
     },

@@ -43,9 +43,9 @@
       "coverFile": false
     },
     {
-      "folder": "QuestionnaireQuestion/PageList",
-      "model": "questionnaireQuestion",
-      "key": "questionnaireQuestionId",
+      "folder": "QuestionnaireQuestionRelation/PageList",
+      "model": "questionnaireQuestionRelation",
+      "key": "questionnaireQuestionRelationId",
       "fileName": "index.jsx",
       "coverFile": false
     },

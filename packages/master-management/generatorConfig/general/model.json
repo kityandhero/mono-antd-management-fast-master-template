@@ -3322,56 +3322,56 @@
       "apis": [
         {
           "title": "分页列表",
-          "api": "/questionnaireQuestion/pageList",
+          "api": "/questionnaireQuestionRelation/pageList",
           "effect": "pageList",
           "service": "pageListData",
           "type": "pageList"
         },
         {
           "title": "获取详情",
-          "api": "/questionnaireQuestion/get",
+          "api": "/questionnaireQuestionRelation/get",
           "effect": "get",
           "service": "getData",
           "type": "singleData"
         },
         {
           "title": "绑定关系",
-          "api": "/questionnaireQuestion/bindRelation",
+          "api": "/questionnaireQuestionRelation/bindRelation",
           "effect": "bindRelation",
           "service": "bindRelationData",
           "type": "singleData"
         },
         {
           "title": "批量绑定关系",
-          "api": "/questionnaireQuestion/bindBatchRelation",
+          "api": "/questionnaireQuestionRelation/bindBatchRelation",
           "effect": "bindBatchRelation",
           "service": "bindBatchRelationData",
           "type": "singleData"
         },
         {
           "title": "解绑关系",
-          "api": "/questionnaireQuestion/unbindRelation",
+          "api": "/questionnaireQuestionRelation/unbindRelation",
           "effect": "unbindRelation",
           "service": "unbindRelationData",
           "type": "singleData"
         },
         {
           "title": "设置顺序",
-          "api": "/questionnaireQuestion/setBindSort",
+          "api": "/questionnaireQuestionRelation/setBindSort",
           "effect": "setBindSort",
           "service": "setBindSortData",
           "type": "singleData"
         },
         {
           "title": "设置积分",
-          "api": "/questionnaireQuestion/setBindScore",
+          "api": "/questionnaireQuestionRelation/setBindScore",
           "effect": "setBindScore",
           "service": "setBindScoreData",
           "type": "singleData"
         },
         {
           "title": "刷新数据",
-          "api": "/questionnaireQuestion/refreshCache",
+          "api": "/questionnaireQuestionRelation/refreshCache",
           "effect": "refreshCache",
           "service": "refreshCacheData",
           "type": "singleData"
@@ -3379,7 +3379,7 @@
       ],
       "cover": true,
       "title": "调查问卷与问题绑定",
-      "name": "questionnaireQuestion"
+      "name": "questionnaireQuestionRelation"
     },
     {
       "apis": [

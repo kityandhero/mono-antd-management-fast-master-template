@@ -2022,7 +2022,7 @@ export const accessWayInfrastructureCollection = {
       permission: '32ba22e77b65473a9ab9a49cc71d1299',
     },
   },
-  questionnaireQuestion: {
+  questionnaireQuestionRelation: {
     pageList: {
       title: '分页列表',
       paramsKey: '5fa46afe73b783f9fea5f400c16fb0a7',

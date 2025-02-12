@@ -1,4 +1,4 @@
-import { Checkbox, Radio, Space, Typography } from 'antd';
+import { Card, Checkbox, Divider, Radio, Space, Typography } from 'antd';
 import { Fragment } from 'react';
 
 import { connect } from 'easy-soft-dva';
@@ -25,7 +25,7 @@ const { BaseVerticalFlexDrawer } = DataDrawer;
 
 const visibleFlag = '0948d12e25a349b6a63cb59784f94777';
 
-function buildJudgmentQuestion(o) {
+function buildJudgmentQuestion(o, index) {
   const questionId = getValueByKey({
     data: o,
     key: fieldDataQuestion.questionId.name,
@@ -39,6 +39,9 @@ function buildJudgmentQuestion(o) {
         {getValueByKey({
           data: o,
           key: fieldData.title.name,
+          formatBuilder: (v) => {
+            return `${index + 1}：${v ?? ''}`;
+          },
         })}
       </Paragraph>
 
@@ -65,7 +68,7 @@ function buildJudgmentQuestion(o) {
   );
 }
 
-function buildSingleSelectQuestion(o) {
+function buildSingleSelectQuestion(o, index) {
   const questionId = getValueByKey({
     data: o,
     key: fieldDataQuestion.questionId.name,
@@ -85,6 +88,9 @@ function buildSingleSelectQuestion(o) {
         {getValueByKey({
           data: o,
           key: fieldData.title.name,
+          formatBuilder: (v) => {
+            return `${index + 1}：${v ?? ''}`;
+          },
         })}
       </Paragraph>
 
@@ -114,7 +120,7 @@ function buildSingleSelectQuestion(o) {
   );
 }
 
-function buildMultiSelectQuestion(o) {
+function buildMultiSelectQuestion(o, index) {
   const questionId = getValueByKey({
     data: o,
     key: fieldDataQuestion.questionId.name,
@@ -134,6 +140,9 @@ function buildMultiSelectQuestion(o) {
         {getValueByKey({
           data: o,
           key: fieldData.title.name,
+          formatBuilder: (v) => {
+            return `${index + 1}：${v ?? ''}`;
+          },
         })}
       </Paragraph>
 
@@ -202,10 +211,7 @@ class ExaminationPaperPreviewDrawer extends BaseVerticalFlexDrawer {
       title: '操作提示',
       list: [
         {
-          text: '此处显示的短信发送详情。',
-        },
-        {
-          text: '发送失败的短信不会重新发送。',
+          text: '此处显示的是试卷预览效果。',
         },
       ],
     };
@@ -238,6 +244,10 @@ class ExaminationPaperPreviewDrawer extends BaseVerticalFlexDrawer {
       convert: convertCollection.array,
     });
 
+    const hasQuestionJudgment = listQuestionJudgment.length > 0;
+    const hasQuestionSingleSelect = listQuestionSingleSelect.length > 0;
+    const hasQuestionMultiSelect = listQuestionMultiSelect.length > 0;
+
     return (
       <ScrollFacadeBox
         style={{
@@ -251,33 +261,86 @@ class ExaminationPaperPreviewDrawer extends BaseVerticalFlexDrawer {
           style={{
             paddingTop: '16px',
             paddingBottom: '16px',
-            paddingLeft: '10px',
-            paddingRight: '10px',
+            paddingLeft: '14px',
+            paddingRight: '14px',
           }}
         >
-          {listQuestionSingleSelect.map((o, index) => {
-            return (
-              <Fragment key={`question_singleSelect_${index}`}>
-                {buildSingleSelectQuestion(o)}
-              </Fragment>
-            );
-          })}
+          <Space direction="vertical" style={{ width: '100%' }}>
+            {hasQuestionSingleSelect ? (
+              <Card title="单选题" size="small">
+                <Space
+                  direction="vertical"
+                  style={{ width: '100%' }}
+                  split={
+                    <Divider
+                      style={{
+                        marginTop: '6px',
+                        marginBottom: '6px',
+                      }}
+                    />
+                  }
+                >
+                  {listQuestionSingleSelect.map((o, index) => {
+                    return (
+                      <div key={`question_singleSelect_${index}`}>
+                        {buildSingleSelectQuestion(o, index)}
+                      </div>
+                    );
+                  })}
+                </Space>
+              </Card>
+            ) : null}
 
-          {listQuestionMultiSelect.map((o, index) => {
-            return (
-              <Fragment key={`question_multiSelect_${index}`}>
-                {buildMultiSelectQuestion(o)}
-              </Fragment>
-            );
-          })}
+            {hasQuestionMultiSelect ? (
+              <Card title="多选题" size="small">
+                <Space
+                  direction="vertical"
+                  style={{ width: '100%' }}
+                  split={
+                    <Divider
+                      style={{
+                        marginTop: '6px',
+                        marginBottom: '6px',
+                      }}
+                    />
+                  }
+                >
+                  {listQuestionMultiSelect.map((o, index) => {
+                    return (
+                      <div key={`question_multiSelect_${index}`}>
+                        {buildMultiSelectQuestion(o, index)}
+                      </div>
+                    );
+                  })}
+                </Space>
+              </Card>
+            ) : null}
 
-          {listQuestionJudgment.map((o, index) => {
-            return (
-              <Fragment key={`question_judgment_${index}`}>
-                {buildJudgmentQuestion(o)}
-              </Fragment>
-            );
-          })}
+            {hasQuestionJudgment ? (
+              <Card title="判断题" size="small">
+                <Space
+                  direction="vertical"
+                  style={{ width: '100%' }}
+                  split={
+                    <Divider
+                      style={{
+                        marginTop: '6px',
+                        marginBottom: '6px',
+                      }}
+                    />
+                  }
+                >
+                  {listQuestionJudgment.map((o, index) => {
+                    return (
+                      <div key={`question_judgment_${index}`}>
+                        {buildJudgmentQuestion(o, index)}
+                      </div>
+                    );
+                  })}
+                </Space>
+              </Card>
+            ) : null}
+          </Space>
         </div>
       </ScrollFacadeBox>
     );

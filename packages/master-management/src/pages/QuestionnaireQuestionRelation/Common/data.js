@@ -20,9 +20,9 @@ const fieldExtraData = {
 
 export const fieldData = {
   ...formNameCollection,
-  questionnaireQuestionId: {
+  questionnaireQuestionRelationId: {
     label: '主键标识',
-    name: 'questionnaireQuestionId',
+    name: 'questionnaireQuestionRelationId',
     helper: '',
   },
   questionnaireId: {

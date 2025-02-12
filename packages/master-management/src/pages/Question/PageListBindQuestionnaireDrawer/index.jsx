@@ -21,8 +21,8 @@ import {
   getQuestionStatusName,
   getQuestionTypeName,
 } from '../../../customSpecialComponents';
-import { bindRelationAction } from '../../QuestionnaireQuestion/Assist/action';
-import { fieldData as fieldDataQuestionnaireQuestion } from '../../QuestionnaireQuestion/Common/data';
+import { bindRelationAction } from '../../QuestionnaireQuestionRelation/Assist/action';
+import { fieldData as fieldDataQuestionnaireQuestion } from '../../QuestionnaireQuestionRelation/Common/data';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
@@ -134,7 +134,8 @@ class PageListBindQuestionnaireDrawer extends MultiPageDrawer {
       icon: iconBuilder.select(),
       text: '绑定',
       disabled: !checkHasAuthority(
-        accessWayCollection.questionnaireQuestion.bindRelation.permission,
+        accessWayCollection.questionnaireQuestionRelation.bindRelation
+          .permission,
       ),
       handleButtonClick: () => {
         this.bind(record);

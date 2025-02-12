@@ -1,6 +1,6 @@
 import { request } from 'easy-soft-utility';
 
-export const pageListDataApiAddress = '/questionnaireQuestion/pageList';
+export const pageListDataApiAddress = '/questionnaireQuestionRelation/pageList';
 
 export async function pageListData(parameters) {
   return request({
@@ -9,7 +9,7 @@ export async function pageListData(parameters) {
   });
 }
 
-export const getDataApiAddress = '/questionnaireQuestion/get';
+export const getDataApiAddress = '/questionnaireQuestionRelation/get';
 
 export async function getData(parameters) {
   return request({
@@ -18,7 +18,8 @@ export async function getData(parameters) {
   });
 }
 
-export const bindRelationDataApiAddress = '/questionnaireQuestion/bindRelation';
+export const bindRelationDataApiAddress =
+  '/questionnaireQuestionRelation/bindRelation';
 
 export async function bindRelationData(parameters) {
   return request({
@@ -28,7 +29,7 @@ export async function bindRelationData(parameters) {
 }
 
 export const bindBatchRelationDataApiAddress =
-  '/questionnaireQuestion/bindBatchRelation';
+  '/questionnaireQuestionRelation/bindBatchRelation';
 
 export async function bindBatchRelationData(parameters) {
   return request({
@@ -38,7 +39,7 @@ export async function bindBatchRelationData(parameters) {
 }
 
 export const unbindRelationDataApiAddress =
-  '/questionnaireQuestion/unbindRelation';
+  '/questionnaireQuestionRelation/unbindRelation';
 
 export async function unbindRelationData(parameters) {
   return request({
@@ -47,7 +48,8 @@ export async function unbindRelationData(parameters) {
   });
 }
 
-export const setBindSortDataApiAddress = '/questionnaireQuestion/setBindSort';
+export const setBindSortDataApiAddress =
+  '/questionnaireQuestionRelation/setBindSort';
 
 export async function setBindSortData(parameters) {
   return request({
@@ -56,7 +58,8 @@ export async function setBindSortData(parameters) {
   });
 }
 
-export const setBindScoreDataApiAddress = '/questionnaireQuestion/setBindScore';
+export const setBindScoreDataApiAddress =
+  '/questionnaireQuestionRelation/setBindScore';
 
 export async function setBindScoreData(parameters) {
   return request({
@@ -65,7 +68,8 @@ export async function setBindScoreData(parameters) {
   });
 }
 
-export const refreshCacheDataApiAddress = '/questionnaireQuestion/refreshCache';
+export const refreshCacheDataApiAddress =
+  '/questionnaireQuestionRelation/refreshCache';
 
 export async function refreshCacheData(parameters) {
   return request({

@@ -11,7 +11,7 @@ export async function bindRelationAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'questionnaireQuestion/bindRelation',
+    api: 'questionnaireQuestionRelation/bindRelation',
     params: {
       questionnaireId: getValueByKey({
         data: handleData,
@@ -36,7 +36,7 @@ export async function unbindRelationAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'questionnaireQuestion/unbindRelation',
+    api: 'questionnaireQuestionRelation/unbindRelation',
     params: {
       questionnaireId: getValueByKey({
         data: handleData,
@@ -61,11 +61,11 @@ export async function refreshCacheAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'questionnaireQuestion/refreshCache',
+    api: 'questionnaireQuestionRelation/refreshCache',
     params: {
-      questionnaireQuestionId: getValueByKey({
+      questionnaireQuestionRelationId: getValueByKey({
         data: handleData,
-        key: fieldData.questionnaireQuestionId.name,
+        key: fieldData.questionnaireQuestionRelationId.name,
       }),
     },
     target,

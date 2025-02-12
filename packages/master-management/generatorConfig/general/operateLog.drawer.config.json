@@ -22,9 +22,9 @@
       "coverFile": true
     },
     {
-      "folder": "QuestionnaireQuestion/OperateLogDrawer",
-      "model": "questionnaireQuestion",
-      "key": "questionnaireQuestionId",
+      "folder": "QuestionnaireQuestionRelation/OperateLogDrawer",
+      "model": "questionnaireQuestionRelation",
+      "key": "questionnaireQuestionRelationId",
       "visibleFlag": "0d4d853d21b44dd092fb58fe6d3d24d1",
       "coverFile": true
     },

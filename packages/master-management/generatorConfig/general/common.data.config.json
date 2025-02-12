@@ -50,9 +50,9 @@
       "coverFile": false
     },
     {
-      "folder": "QuestionnaireQuestion/Common",
-      "model": "questionnaireQuestion",
-      "key": "questionnaireQuestionId",
+      "folder": "QuestionnaireQuestionRelation/Common",
+      "model": "questionnaireQuestionRelation",
+      "key": "questionnaireQuestionRelationId",
       "fileName": "data.js",
       "coverFile": false
     },

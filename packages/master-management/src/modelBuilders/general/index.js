@@ -181,9 +181,9 @@ import {
   questionnaireTypeCollection,
 } from './questionnaire';
 import {
-  buildModel as buildQuestionnaireQuestionModel,
-  questionnaireQuestionTypeCollection,
-} from './questionnaireQuestion';
+  buildModel as buildQuestionnaireQuestionRelationModel,
+  questionnaireQuestionRelationTypeCollection,
+} from './questionnaireQuestionRelation';
 import {
   buildModel as buildQuestionTagRelationModel,
   questionTagRelationTypeCollection,
@@ -401,7 +401,7 @@ export const modelTypeCollection = {
   questionTypeCollection,
   questionItemTypeCollection,
   questionnaireTypeCollection,
-  questionnaireQuestionTypeCollection,
+  questionnaireQuestionRelationTypeCollection,
   questionTagRelationTypeCollection,
   queueInfoTypeCollection,
   sectionTypeCollection,
@@ -500,7 +500,7 @@ export function listModelBuilder() {
     buildQuestionModel,
     buildQuestionItemModel,
     buildQuestionnaireModel,
-    buildQuestionnaireQuestionModel,
+    buildQuestionnaireQuestionRelationModel,
     buildQuestionTagRelationModel,
     buildQueueInfoModel,
     buildSectionModel,

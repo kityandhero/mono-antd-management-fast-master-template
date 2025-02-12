@@ -58,7 +58,7 @@
     "src/pages/QuestionItem/",
     "src/pages/QuestionTagRelation/",
     "src/pages/Questionnaire/",
-    "src/pages/QuestionnaireQuestion/",
+    "src/pages/QuestionnaireQuestionRelation/",
     "src/pages/QueueInfo/",
     "src/pages/Result/",
     "src/pages/Section/",

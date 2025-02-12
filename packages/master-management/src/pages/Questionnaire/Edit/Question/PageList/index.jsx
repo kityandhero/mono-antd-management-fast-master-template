@@ -17,8 +17,8 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 import { accessWayCollection } from '../../../../../customConfig';
 import { PageListBindQuestionnaireDrawer } from '../../../../Question/PageListBindQuestionnaireDrawer';
 import { PracticeModal } from '../../../../Question/PracticeModal';
-import { unbindRelationAction } from '../../../../QuestionnaireQuestion/Assist/action';
-import { fieldData as fieldDataQuestionnaireQuestion } from '../../../../QuestionnaireQuestion/Common/data';
+import { unbindRelationAction } from '../../../../QuestionnaireQuestionRelation/Assist/action';
+import { fieldData as fieldDataQuestionnaireQuestion } from '../../../../QuestionnaireQuestionRelation/Common/data';
 import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
@@ -26,8 +26,8 @@ import {
 
 const { InnerMultiPage } = DataMultiPageView;
 
-@connect(({ questionnaireQuestion, question, schedulingControl }) => ({
-  questionnaireQuestion,
+@connect(({ questionnaireQuestionRelation, question, schedulingControl }) => ({
+  questionnaireQuestionRelation,
   question,
   schedulingControl,
 }))
@@ -37,7 +37,7 @@ class PageList extends InnerMultiPage {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'questionnaireQuestion/pageList',
+      loadApiPath: 'questionnaireQuestionRelation/pageList',
       dateRangeFieldName: '绑定时间',
       questionnaireId: null,
       currentRecord: null,
@@ -156,7 +156,8 @@ class PageList extends InnerMultiPage {
           icon: iconBuilder.reload(),
           text: '刷新缓存',
           hidden: !checkHasAuthority(
-            accessWayCollection.questionnaireQuestion.refreshCache.permission,
+            accessWayCollection.questionnaireQuestionRelation.refreshCache
+              .permission,
           ),
           confirm: true,
           title: '即将刷新缓存，确定吗？',
@@ -169,7 +170,8 @@ class PageList extends InnerMultiPage {
           icon: iconBuilder.delete(),
           text: '解绑',
           hidden: !checkHasAuthority(
-            accessWayCollection.questionnaireQuestion.unbindRelation.permission,
+            accessWayCollection.questionnaireQuestionRelation.unbindRelation
+              .permission,
           ),
           confirm: true,
           title: '即将解绑关系 (即从问卷中移除该问题)，确定吗？',
@@ -192,7 +194,8 @@ class PageList extends InnerMultiPage {
       emptyValue: '--',
     },
     {
-      dataTarget: fieldDataQuestionnaireQuestion.questionnaireQuestionId,
+      dataTarget:
+        fieldDataQuestionnaireQuestion.questionnaireQuestionRelationId,
       width: 120,
       showRichFacade: true,
       canCopy: true,
