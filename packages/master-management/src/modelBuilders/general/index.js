@@ -63,6 +63,18 @@ import {
   currentManagementInfrastructureTypeCollection,
 } from './currentManagementInfrastructure';
 import {
+  buildModel as buildCustomerModel,
+  customerTypeCollection,
+} from './customer';
+import {
+  buildModel as buildCustomerLoginLogModel,
+  customerLoginLogTypeCollection,
+} from './customerLoginLog';
+import {
+  buildModel as buildCustomerWechatApplicationInfoModel,
+  customerWechatApplicationInfoTypeCollection,
+} from './customerWechatApplicationInfo';
+import {
   buildModel as buildDepartmentModel,
   departmentTypeCollection,
 } from './department';
@@ -222,6 +234,22 @@ import {
   buildModel as buildSubsidiaryModel,
   subsidiaryTypeCollection,
 } from './subsidiary';
+import {
+  buildModel as buildSubsidiaryComplaintCategoryModel,
+  subsidiaryComplaintCategoryTypeCollection,
+} from './subsidiaryComplaintCategory';
+import {
+  buildModel as buildSubsidiaryComplaintMessageModel,
+  subsidiaryComplaintMessageTypeCollection,
+} from './subsidiaryComplaintMessage';
+import {
+  buildModel as buildSubsidiaryFeedbackMessageModel,
+  subsidiaryFeedbackMessageTypeCollection,
+} from './subsidiaryFeedbackMessage';
+import {
+  buildModel as buildSubsidiaryReportMessageModel,
+  subsidiaryReportMessageTypeCollection,
+} from './subsidiaryReportMessage';
 import { buildModel as buildTagModel, tagTypeCollection } from './tag';
 import {
   buildModel as buildUploadHistoryModel,
@@ -370,6 +398,9 @@ export const modelTypeCollection = {
   cloudStorageTypeCollection,
   currentAccountTypeCollection,
   currentManagementInfrastructureTypeCollection,
+  customerTypeCollection,
+  customerLoginLogTypeCollection,
+  customerWechatApplicationInfoTypeCollection,
   departmentTypeCollection,
   editorTypeCollection,
   emailSenderAgentTypeCollection,
@@ -413,6 +444,10 @@ export const modelTypeCollection = {
   sqlEntityTypeCollection,
   sqlLogTypeCollection,
   subsidiaryTypeCollection,
+  subsidiaryComplaintCategoryTypeCollection,
+  subsidiaryComplaintMessageTypeCollection,
+  subsidiaryFeedbackMessageTypeCollection,
+  subsidiaryReportMessageTypeCollection,
   tagTypeCollection,
   uploadHistoryTypeCollection,
   userTypeCollection,
@@ -469,6 +504,9 @@ export function listModelBuilder() {
     buildCloudStorageModel,
     buildCurrentAccountModel,
     buildCurrentManagementInfrastructureModel,
+    buildCustomerModel,
+    buildCustomerLoginLogModel,
+    buildCustomerWechatApplicationInfoModel,
     buildDepartmentModel,
     buildEditorModel,
     buildEmailSenderAgentModel,
@@ -512,6 +550,10 @@ export function listModelBuilder() {
     buildSqlEntityModel,
     buildSqlLogModel,
     buildSubsidiaryModel,
+    buildSubsidiaryComplaintCategoryModel,
+    buildSubsidiaryComplaintMessageModel,
+    buildSubsidiaryFeedbackMessageModel,
+    buildSubsidiaryReportMessageModel,
     buildTagModel,
     buildUploadHistoryModel,
     buildUserModel,

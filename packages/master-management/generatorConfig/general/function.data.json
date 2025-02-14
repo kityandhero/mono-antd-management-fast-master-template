@@ -21,6 +21,26 @@
       "name": "type"
     },
     {
+      "functionSegment": "CustomerStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "CustomerLoginStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "CustomerLoginLogStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "CustomerWechatApplicationInfoStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
       "functionSegment": "Channel",
       "label": "适用渠道",
       "name": "channel"
@@ -334,6 +354,31 @@
       "functionSegment": "SmsLogAggregate",
       "label": "汇总状态",
       "name": "aggregate"
+    },
+    {
+      "functionSegment": "SubsidiaryComplaintCategoryFlag",
+      "label": "类别标记",
+      "name": "subsidiaryComplaintCategoryFlag"
+    },
+    {
+      "functionSegment": "SubsidiaryComplaintCategoryStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "SubsidiaryComplaintMessageStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "SubsidiaryFeedbackMessageStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "SubsidiaryReportMessageStatus",
+      "label": "状态",
+      "name": "status"
     },
     {
       "functionSegment": "HostServiceChangeType",

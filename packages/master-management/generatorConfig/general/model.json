@@ -122,7 +122,7 @@
     {
       "apis": [
         {
-          "title": "地区列表",
+          "title": "分页列表",
           "api": "/administrativeDivision/pageList",
           "effect": "pageList",
           "service": "pageListData",
@@ -1322,6 +1322,146 @@
       "cover": true,
       "title": "当前系统基础配置",
       "name": "currentManagementInfrastructure"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/customer/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/customer/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为启用",
+          "api": "/customer/setEnable",
+          "effect": "setEnable",
+          "service": "setEnableData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为禁用",
+          "api": "/customer/setDisable",
+          "effect": "setDisable",
+          "service": "setDisableData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/customer/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/customer/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        },
+        {
+          "title": "",
+          "api": "/customer/uploadImage",
+          "effect": "uploadImage",
+          "service": "uploadImageData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "顾客信息",
+      "name": "customer"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/customerLoginLog/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/customerLoginLog/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/customerLoginLog/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/customerLoginLog/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/customerLoginLog/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/customerLoginLog/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "顾客登录日志管理",
+      "name": "customerLoginLog"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/customerWechatApplicationInfo/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/customerWechatApplicationInfo/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/customerWechatApplicationInfo/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/customerWechatApplicationInfo/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "顾客微信信息",
+      "name": "customerWechatApplicationInfo"
     },
     {
       "apis": [
@@ -3867,7 +4007,7 @@
           "type": "singleData"
         },
         {
-          "title": "移除角色",
+          "title": "移除",
           "api": "/smsCategory/remove",
           "effect": "remove",
           "service": "removeData",
@@ -4143,6 +4283,174 @@
       "cover": true,
       "title": "公司管理",
       "name": "subsidiary"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/subsidiaryComplaintCategory/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/subsidiaryComplaintCategory/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        },
+        {
+          "title": "单页树型列表",
+          "api": "/subsidiaryComplaintCategory/singleTreeList",
+          "effect": "singleTreeList",
+          "service": "singleTreeListData",
+          "type": "singleList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/subsidiaryComplaintCategory/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新建分类",
+          "api": "/subsidiaryComplaintCategory/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "编辑信息",
+          "api": "/subsidiaryComplaintCategory/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为启用",
+          "api": "/subsidiaryComplaintCategory/setEnable",
+          "effect": "setEnable",
+          "service": "setEnableData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为停用",
+          "api": "/subsidiaryComplaintCategory/setDisable",
+          "effect": "setDisable",
+          "service": "setDisableData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/subsidiaryComplaintCategory/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除单页树型列表缓存",
+          "api": "/subsidiaryComplaintCategory/removeSingleTreeListCache",
+          "effect": "removeSingleTreeListCache",
+          "service": "removeSingleTreeListCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/subsidiaryComplaintCategory/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "短信类别管理",
+      "name": "subsidiaryComplaintCategory"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/subsidiaryComplaintMessage/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/subsidiaryComplaintMessage/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "回复信息",
+          "api": "/subsidiaryComplaintMessage/repay",
+          "effect": "repay",
+          "service": "repayData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "企业投诉信息管理",
+      "name": "subsidiaryComplaintMessage"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/subsidiaryFeedbackMessage/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/subsidiaryFeedbackMessage/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "回复信息",
+          "api": "/subsidiaryFeedbackMessage/repay",
+          "effect": "repay",
+          "service": "repayData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "企业留言信息管理",
+      "name": "subsidiaryFeedbackMessage"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/subsidiaryReportMessage/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/subsidiaryReportMessage/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "回复信息",
+          "api": "/subsidiaryReportMessage/repay",
+          "effect": "repay",
+          "service": "repayData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "企业举报信息管理",
+      "name": "subsidiaryReportMessage"
     },
     {
       "apis": [
