@@ -135,12 +135,12 @@ export const accessWayInfrastructureCollection = {
   },
   application: {
     pageList: {
-      title: '应用列表',
+      title: '分页列表',
       paramsKey: 'bfa2378a8a696de5cb4cfbd77f4c9419',
       permission: 'a6910d0b30554237b2b8ad9360b130c2',
     },
     singleList: {
-      title: '已开通应用单列表',
+      title: '已开通应用单页列表',
       paramsKey: '5d4634180ec68e95fa9789fe14869765',
       permission: 'e27eec63fa6442348f7f77ded7d2ca79',
     },
@@ -220,32 +220,32 @@ export const accessWayInfrastructureCollection = {
       permission: 'fbdee7b5a12b4a9bbb05def91c2ffb38',
     },
     uploadCertificate: {
-      title: '上传证书文件',
+      title: '上传证书',
       paramsKey: 'f4c09f7c57614d7c75f797f71b6e2107',
       permission: 'f773d5f89364490b9c24bff581fc56d1',
     },
     getCustomGlobalData: {
-      title: '获取自定义数据',
+      title: '获取全局自定义数据',
       paramsKey: 'f0b2fc4097a5bc772971b110fbb7a9f7',
       permission: 'd0a630333be5455d9d5787a046b3f100',
     },
     getCustomGlobalDataItem: {
-      title: '获取自定义数据项',
+      title: '获取全局自定义数据项',
       paramsKey: '91d518387881edc256f1cc4d7aa5db9e',
       permission: '107765a5fe9a4cf2998fa58296c13dbd',
     },
     addCustomGlobalDataItem: {
-      title: '增加自定义数据项',
+      title: '增加全局自定义数据项',
       paramsKey: 'e8346993e4a6dd16bb25edfa58480c5b',
       permission: '9c2eec3d909f4e4f9518063f3aa5bb3b',
     },
     updateCustomGlobalDataItem: {
-      title: '更新自定义数据项',
+      title: '更新全局自定义数据项',
       paramsKey: '745a0ebc34ba928b875d2971439f2d95',
       permission: 'bfcb4eaf2b9e43fab8955e94cc766d53',
     },
     removeCustomGlobalDataItem: {
-      title: '移除自定义数据项',
+      title: '移除全局自定义数据项',
       paramsKey: 'f819319ae946f0dbd5a1a3a60880e807',
       permission: 'e2197a6426f1450a82d75a3eb004573d',
     },
@@ -2653,6 +2653,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'f5582508326b6a46ab0b3e14d99dae68',
       permission: '022d3a46101c4cc998237c8b837d8da5',
     },
+    updateSort: {
+      title: '设置排序值',
+      paramsKey: 'bb6aa4442d2526f69a3be860d9d33f0b',
+      permission: 'def18ac451144f9b84d25640195548a1',
+    },
     setEnable: {
       title: '设为启用',
       paramsKey: 'a6fb4eee9185c4cc8adc8e0ecf3a001e',
@@ -2690,10 +2695,20 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '017480de268290368cc2700f23bb4a67',
       permission: '509ae966481b432b9770f27cbaacdf62',
     },
+    toggleConfirm: {
+      title: '切换是否确认信息为真',
+      paramsKey: '702a92320604af5d3b63a62aa6630952',
+      permission: '91a2389859a247cfb097b2c7025e8ff3',
+    },
     repay: {
       title: '回复信息',
       paramsKey: 'a2132598b5577ef725b4385b62114420',
       permission: '84d3164bea0f48168b16d66dc0845c3c',
+    },
+    remove: {
+      title: '移除信息',
+      paramsKey: '68d71d214e71de9773475abf72ee28f3',
+      permission: 'd437a8de9f6f479996895f9e07d42895',
     },
   },
   subsidiaryFeedbackMessage: {
@@ -2707,10 +2722,20 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '51757d5961368e582afeeba4d8a28f3f',
       permission: '395e6a4f841b4b79816c91a9361dea9a',
     },
+    toggleConfirm: {
+      title: '切换是否确认信息为真',
+      paramsKey: 'c1f5debd360b81acafeb9c4da6f24663',
+      permission: 'a491444159d540968205f490b42d2a71',
+    },
     repay: {
       title: '回复信息',
       paramsKey: '5deb1eef2fc7f6064db30700d92e83cc',
       permission: '5af3e5ccb409466faa7ab21dfe3f8a37',
+    },
+    remove: {
+      title: '移除信息',
+      paramsKey: 'c518992fe93ab2c480bac5a481048499',
+      permission: '75103e6eb88c4d3ab5d1b317aa773855',
     },
   },
   subsidiaryReportMessage: {
@@ -2724,10 +2749,20 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'c1281aa730921b038ddb21cc486b4211',
       permission: 'c8ac72b832c84b99941ec40253abc685',
     },
+    toggleConfirm: {
+      title: '切换是否确认信息为真',
+      paramsKey: '7a372a92d87cd8a77be15a7ea6aadc2e',
+      permission: 'b64d591d00444825942f37f57fb52bcc',
+    },
     repay: {
       title: '回复信息',
       paramsKey: '5d47ae804b6c29678b2482e53ab3ada4',
       permission: 'cf767aa0c8114f75aeabb7353f3b0533',
+    },
+    remove: {
+      title: '移除信息',
+      paramsKey: '394e263d3ecf725b3db5f224132058da',
+      permission: '11fa6ae304954e2ea848f115d6ff73a7',
     },
   },
   tag: {

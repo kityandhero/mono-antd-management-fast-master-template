@@ -102,6 +102,29 @@ export const menuZhCNGeneral = {
   'menu.sms.smsCategoryStatistic.pageList': '统计列表',
   'menu.sms.smsCategoryStatistic.pageList-mini': '统计表',
 
+  'menu.subsidiaryMessages': '企业反馈',
+  'menu.subsidiaryMessages-mini': '反馈',
+
+  'menu.subsidiaryMessages.subsidiaryComplaintCategory': '投诉类别',
+  'menu.subsidiaryMessages.subsidiaryComplaintCategory-mini': '投诉类别',
+  'menu.subsidiaryMessages.subsidiaryComplaintCategory.pageList': '类别列表',
+  'menu.subsidiaryMessages.subsidiaryComplaintCategory.pageList-mini': '列表',
+
+  'menu.subsidiaryMessages.subsidiaryComplaintMessage': '投诉信息',
+  'menu.subsidiaryMessages.subsidiaryComplaintMessage-mini': '投诉信息',
+  'menu.subsidiaryMessages.subsidiaryComplaintMessage.pageList': '信息列表',
+  'menu.subsidiaryMessages.subsidiaryComplaintMessage.pageList-mini': '列表',
+
+  'menu.subsidiaryMessages.subsidiaryFeedbackMessage': '留言信息',
+  'menu.subsidiaryMessages.subsidiaryFeedbackMessage-mini': '留言',
+  'menu.subsidiaryMessages.subsidiaryFeedbackMessage.pageList': '信息列表',
+  'menu.subsidiaryMessages.subsidiaryFeedbackMessage.pageList-mini': '列表',
+
+  'menu.subsidiaryMessages.subsidiaryReportMessage': '举报信息',
+  'menu.subsidiaryMessages.subsidiaryReportMessage-mini': '举报',
+  'menu.subsidiaryMessages.subsidiaryReportMessage.pageList': '信息列表',
+  'menu.subsidiaryMessages.subsidiaryReportMessage.pageList-mini': '列表',
+
   'menu.services': '系统服务',
   'menu.services-mini': '服务',
 
@@ -358,6 +381,30 @@ export const menuZhCNGeneral = {
   'menu.survey.questionnaire.edit.question.pageList': '问题列表',
   'menu.survey.questionnaire.edit.operateLog': '操作日志',
   'menu.survey.questionnaire.edit.operateLog.pageList': '日志列表',
+
+  'menu.customers': '顾客管理',
+  'menu.customers-mini': '顾客',
+
+  'menu.customers.customer': '顾客信息',
+  'menu.customers.customer-mini': '顾客',
+  'menu.customers.customer.pageList': '顾客列表',
+  'menu.customers.customer.pageList-mini': '列表',
+  'menu.customers.customer.pageListSignet': '签章列表',
+  'menu.customers.customer.pageListSignet-mini': '签章',
+  'menu.customers.customer.edit': '顾客详情',
+  'menu.customers.customer.edit.basicInfo': '基本信息',
+  'menu.customers.customer.edit.operateLog': '操作日志',
+  'menu.customers.customer.edit.operateLog.pageList': '日志列表',
+
+  'menu.customers.customerLoginLog': '登录记录',
+  'menu.customers.customerLoginLog-mini': '登录',
+  'menu.customers.customerLoginLog.pageList': '登录列表',
+  'menu.customers.customerLoginLog.pageList-mini': '列表',
+
+  'menu.customers.customerWechatApplicationInfo': '顾客微信信息',
+  'menu.customers.customerWechatApplicationInfo-mini': '顾客微信',
+  'menu.customers.customerWechatApplicationInfo.pageList': '顾客微信信息列表',
+  'menu.customers.customerWechatApplicationInfo.pageList-mini': '列表',
 
   'menu.person': '用户相关',
   'menu.person-mini': '用户',

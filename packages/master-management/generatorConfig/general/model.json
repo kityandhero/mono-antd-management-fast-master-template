@@ -220,14 +220,14 @@
     {
       "apis": [
         {
-          "title": "应用列表",
+          "title": "分页列表",
           "api": "/application/pageList",
           "effect": "pageList",
           "service": "pageListData",
           "type": "pageList"
         },
         {
-          "title": "已开通应用单列表",
+          "title": "已开通应用单页列表",
           "api": "/application/singleList",
           "effect": "singleList",
           "service": "singleListData",
@@ -367,42 +367,42 @@
           "type": "singleData"
         },
         {
-          "title": "上传证书文件",
+          "title": "上传证书",
           "api": "/application/uploadCertificate",
           "effect": "uploadCertificate",
           "service": "uploadCertificateData",
           "type": "singleData"
         },
         {
-          "title": "获取自定义数据",
+          "title": "获取全局自定义数据",
           "api": "/application/getCustomGlobalData",
           "effect": "getCustomGlobalData",
           "service": "getCustomGlobalDataData",
           "type": "singleData"
         },
         {
-          "title": "获取自定义数据项",
+          "title": "获取全局自定义数据项",
           "api": "/application/getCustomGlobalDataItem",
           "effect": "getCustomGlobalDataItem",
           "service": "getCustomGlobalDataItemData",
           "type": "singleData"
         },
         {
-          "title": "增加自定义数据项",
+          "title": "增加全局自定义数据项",
           "api": "/application/addCustomGlobalDataItem",
           "effect": "addCustomGlobalDataItem",
           "service": "addCustomGlobalDataItemData",
           "type": "singleData"
         },
         {
-          "title": "更新自定义数据项",
+          "title": "更新全局自定义数据项",
           "api": "/application/updateCustomGlobalDataItem",
           "effect": "updateCustomGlobalDataItem",
           "service": "updateCustomGlobalDataItemData",
           "type": "singleData"
         },
         {
-          "title": "移除自定义数据项",
+          "title": "移除全局自定义数据项",
           "api": "/application/removeCustomGlobalDataItem",
           "effect": "removeCustomGlobalDataItem",
           "service": "removeCustomGlobalDataItemData",
@@ -4329,6 +4329,13 @@
           "type": "singleData"
         },
         {
+          "title": "设置排序值",
+          "api": "/subsidiaryComplaintCategory/updateSort",
+          "effect": "updateSort",
+          "service": "updateSortData",
+          "type": "singleData"
+        },
+        {
           "title": "设为启用",
           "api": "/subsidiaryComplaintCategory/setEnable",
           "effect": "setEnable",
@@ -4385,10 +4392,24 @@
           "type": "singleData"
         },
         {
+          "title": "切换是否确认信息为真",
+          "api": "/subsidiaryComplaintMessage/toggleConfirm",
+          "effect": "toggleConfirm",
+          "service": "toggleConfirmData",
+          "type": "singleData"
+        },
+        {
           "title": "回复信息",
           "api": "/subsidiaryComplaintMessage/repay",
           "effect": "repay",
           "service": "repayData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除信息",
+          "api": "/subsidiaryComplaintMessage/remove",
+          "effect": "remove",
+          "service": "removeData",
           "type": "singleData"
         }
       ],
@@ -4413,10 +4434,24 @@
           "type": "singleData"
         },
         {
+          "title": "切换是否确认信息为真",
+          "api": "/subsidiaryFeedbackMessage/toggleConfirm",
+          "effect": "toggleConfirm",
+          "service": "toggleConfirmData",
+          "type": "singleData"
+        },
+        {
           "title": "回复信息",
           "api": "/subsidiaryFeedbackMessage/repay",
           "effect": "repay",
           "service": "repayData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除信息",
+          "api": "/subsidiaryFeedbackMessage/remove",
+          "effect": "remove",
+          "service": "removeData",
           "type": "singleData"
         }
       ],
@@ -4441,10 +4476,24 @@
           "type": "singleData"
         },
         {
+          "title": "切换是否确认信息为真",
+          "api": "/subsidiaryReportMessage/toggleConfirm",
+          "effect": "toggleConfirm",
+          "service": "toggleConfirmData",
+          "type": "singleData"
+        },
+        {
           "title": "回复信息",
           "api": "/subsidiaryReportMessage/repay",
           "effect": "repay",
           "service": "repayData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除信息",
+          "api": "/subsidiaryReportMessage/remove",
+          "effect": "remove",
+          "service": "removeData",
           "type": "singleData"
         }
       ],

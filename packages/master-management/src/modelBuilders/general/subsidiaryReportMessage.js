@@ -10,13 +10,17 @@ import {
 import {
   getData,
   pageListData,
+  removeData,
   repayData,
+  toggleConfirmData,
 } from '../../services/subsidiaryReportMessage';
 
 export const subsidiaryReportMessageTypeCollection = {
   pageList: 'subsidiaryReportMessage/pageList',
   get: 'subsidiaryReportMessage/get',
+  toggleConfirm: 'subsidiaryReportMessage/toggleConfirm',
   repay: 'subsidiaryReportMessage/repay',
+  remove: 'subsidiaryReportMessage/remove',
 };
 
 export function buildModel() {
@@ -80,6 +84,32 @@ export function buildModel() {
 
         return dataAdjust;
       },
+      *toggleConfirm(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(toggleConfirmData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
       *repay(
         {
           payload,
@@ -90,6 +120,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(repayData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *remove(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(removeData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

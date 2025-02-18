@@ -1,6 +1,14 @@
 {
   "list": [
     {
+      "folder": "SubsidiaryComplaintCategory/ChangeSortModal",
+      "model": "subsidiaryComplaintCategory",
+      "key": "subsidiaryComplaintCategoryId",
+      "visibleFlag": "2c5c8cd35c5c4184bd52f8bb32b8ce67",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "Position/ChangeSortModal",
       "model": "position",
       "key": "positionId",

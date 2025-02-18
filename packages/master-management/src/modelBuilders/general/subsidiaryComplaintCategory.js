@@ -20,6 +20,7 @@ import {
   singleListData,
   singleTreeListData,
   updateBasicInfoData,
+  updateSortData,
 } from '../../services/subsidiaryComplaintCategory';
 
 export const subsidiaryComplaintCategoryTypeCollection = {
@@ -29,6 +30,7 @@ export const subsidiaryComplaintCategoryTypeCollection = {
   get: 'subsidiaryComplaintCategory/get',
   addBasicInfo: 'subsidiaryComplaintCategory/addBasicInfo',
   updateBasicInfo: 'subsidiaryComplaintCategory/updateBasicInfo',
+  updateSort: 'subsidiaryComplaintCategory/updateSort',
   setEnable: 'subsidiaryComplaintCategory/setEnable',
   setDisable: 'subsidiaryComplaintCategory/setDisable',
   remove: 'subsidiaryComplaintCategory/remove',
@@ -186,6 +188,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(updateBasicInfoData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *updateSort(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(updateSortData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

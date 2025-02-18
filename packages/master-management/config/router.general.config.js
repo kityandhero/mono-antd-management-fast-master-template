@@ -980,6 +980,116 @@ export const emailSenderAgent = {
   ],
 };
 
+export const subsidiaryMessages = {
+  name: 'subsidiaryMessages',
+  icon: 'read',
+  path: '/subsidiaryMessages',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.subsidiaryComplaintCategory.pageList.permission,
+    accessWayCollection.subsidiaryComplaintMessage.pageList.permission,
+    accessWayCollection.subsidiaryFeedbackMessage.pageList.permission,
+    accessWayCollection.subsidiaryReportMessage.pageList.permission,
+  ],
+  routes: [
+    {
+      name: 'subsidiaryComplaintCategory',
+      icon: 'bars',
+      hideChildrenInMenu: true,
+      path: '/subsidiaryMessages/subsidiaryComplaintCategory',
+      access: 'checkAccess',
+      authority: [
+        accessWayCollection.super.permission,
+        accessWayCollection.subsidiaryComplaintCategory.pageList.permission,
+      ],
+      routes: [
+        {
+          path: '/subsidiaryMessages/subsidiaryComplaintCategory',
+          redirect:
+            '/subsidiaryMessages/subsidiaryComplaintCategory/pageList/no',
+        },
+        {
+          path: '/subsidiaryMessages/subsidiaryComplaintCategory/pageList/:pageKey',
+          name: 'pageList',
+          hideInMenu: true,
+          component: './SubsidiaryComplaintCategory/PageList',
+        },
+      ],
+    },
+    {
+      name: 'subsidiaryComplaintMessage',
+      icon: 'bars',
+      hideChildrenInMenu: true,
+      path: '/subsidiaryMessages/subsidiaryComplaintMessage',
+      access: 'checkAccess',
+      authority: [
+        accessWayCollection.super.permission,
+        accessWayCollection.subsidiaryComplaintMessage.pageList.permission,
+      ],
+      routes: [
+        {
+          path: '/subsidiaryMessages/subsidiaryComplaintMessage',
+          redirect:
+            '/subsidiaryMessages/subsidiaryComplaintMessage/pageList/no',
+        },
+        {
+          path: '/subsidiaryMessages/subsidiaryComplaintMessage/pageList/:pageKey',
+          name: 'pageList',
+          hideInMenu: true,
+          component: './SubsidiaryComplaintMessage/PageList',
+        },
+      ],
+    },
+    {
+      name: 'subsidiaryFeedbackMessage',
+      icon: 'bars',
+      path: '/subsidiaryMessages/subsidiaryFeedbackMessage',
+      hideChildrenInMenu: true,
+      access: 'checkAccess',
+      authority: [
+        accessWayCollection.super.permission,
+        accessWayCollection.subsidiaryFeedbackMessage.pageList.permission,
+      ],
+      routes: [
+        {
+          path: '/subsidiaryMessages/subsidiaryFeedbackMessage',
+          redirect: '/subsidiaryMessages/subsidiaryFeedbackMessage/pageList/no',
+        },
+        {
+          path: '/subsidiaryMessages/subsidiaryFeedbackMessage/pageList/:pageKey',
+          name: 'pageList',
+          hideInMenu: true,
+          component: './SubsidiaryFeedbackMessage/PageList',
+        },
+      ],
+    },
+    {
+      name: 'subsidiaryReportMessage',
+      icon: 'bars',
+      hideChildrenInMenu: true,
+      path: '/subsidiaryMessages/subsidiaryReportMessage',
+      access: 'checkAccess',
+      authority: [
+        accessWayCollection.super.permission,
+        accessWayCollection.subsidiaryReportMessage.pageList.permission,
+      ],
+      routes: [
+        {
+          path: '/subsidiaryMessages/subsidiaryReportMessage',
+          redirect: '/subsidiaryMessages/subsidiaryReportMessage/pageList/no',
+        },
+        {
+          path: '/subsidiaryMessages/subsidiaryReportMessage/pageList/:pageKey',
+          name: 'pageList',
+          hideInMenu: true,
+          component: './SubsidiaryReportMessage/PageList',
+        },
+      ],
+    },
+  ],
+};
+
 export const question = {
   name: 'question',
   icon: 'reconciliation',
@@ -1894,6 +2004,121 @@ export const presetRole = {
           ],
         },
       ],
+    },
+  ],
+};
+
+export const customer = {
+  name: 'customer',
+  icon: 'user',
+  hideChildrenInMenu: true,
+  path: '/customers/customer',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.customer.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/customers/customer',
+      redirect: '/customers/customer/pageList',
+    },
+    {
+      path: '/customers/customer/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/customers/customer/pageList/no',
+    },
+    {
+      path: '/customers/customer/pageList/:pageKey',
+      hideInMenu: true,
+      component: './Customer/PageList',
+    },
+    {
+      path: '/customers/customer/edit/:op/:id/:pageKey',
+      name: 'edit',
+      hideInMenu: true,
+      component: './Customer/Edit',
+      routes: [
+        {
+          path: '/customers/customer/edit/:op/:id/:pageKey/basicInfo',
+          name: 'basicInfo',
+          component: './Customer/Edit/BasicInfo',
+        },
+        {
+          path: '/customers/customer/edit/:op/:id/:pageKey/operateLog',
+          name: 'operateLog',
+          routes: [
+            {
+              path: '/customers/customer/edit/:op/:id/:pageKey/operateLog',
+              redirect:
+                '/customers/customer/edit/:op/:id/:pageKey/operateLog/pageList',
+            },
+            {
+              path: '/customers/customer/edit/:op/:id/:pageKey/operateLog/pageList',
+              component: './Customer/Edit/OperateLog/PageList',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+export const customerLoginLog = {
+  name: 'customerLoginLog',
+  icon: 'user',
+  hideChildrenInMenu: true,
+  path: '/customers/customerLoginLog',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.customerLoginLog.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/customers/customerLoginLog',
+      redirect: '/customers/customerLoginLog/pageList',
+    },
+    {
+      path: '/customers/customerLoginLog/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/customers/customerLoginLog/pageList/no',
+    },
+    {
+      path: '/customers/customerLoginLog/pageList/:pageKey',
+      hideInMenu: true,
+      component: './CustomerLoginLog/PageList',
+    },
+  ],
+};
+
+export const customerWechatApplicationInfo = {
+  name: 'customerWechatApplicationInfo',
+  icon: 'user',
+  hideChildrenInMenu: true,
+  path: '/customers/customerWechatApplicationInfo',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.customerWechatApplicationInfo.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/customers/customerWechatApplicationInfo',
+      redirect: '/customers/customerWechatApplicationInfo/pageList',
+    },
+    {
+      path: '/customers/customerWechatApplicationInfo/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/customers/customerWechatApplicationInfo/pageList/no',
+    },
+    {
+      path: '/customers/customerWechatApplicationInfo/pageList/:pageKey',
+      hideInMenu: true,
+      component: './CustomerWechatApplicationInfo/PageList',
     },
   ],
 };

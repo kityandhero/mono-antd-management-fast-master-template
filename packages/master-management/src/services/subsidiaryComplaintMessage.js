@@ -18,11 +18,30 @@ export async function getData(parameters) {
   });
 }
 
+export const toggleConfirmDataApiAddress =
+  '/subsidiaryComplaintMessage/toggleConfirm';
+
+export async function toggleConfirmData(parameters) {
+  return request({
+    api: toggleConfirmDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const repayDataApiAddress = '/subsidiaryComplaintMessage/repay';
 
 export async function repayData(parameters) {
   return request({
     api: repayDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const removeDataApiAddress = '/subsidiaryComplaintMessage/remove';
+
+export async function removeData(parameters) {
+  return request({
+    api: removeDataApiAddress,
     params: parameters,
   });
 }

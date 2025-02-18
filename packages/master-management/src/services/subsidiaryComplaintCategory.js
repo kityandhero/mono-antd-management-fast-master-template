@@ -58,6 +58,16 @@ export async function updateBasicInfoData(parameters) {
   });
 }
 
+export const updateSortDataApiAddress =
+  '/subsidiaryComplaintCategory/updateSort';
+
+export async function updateSortData(parameters) {
+  return request({
+    api: updateSortDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setEnableDataApiAddress = '/subsidiaryComplaintCategory/setEnable';
 
 export async function setEnableData(parameters) {
