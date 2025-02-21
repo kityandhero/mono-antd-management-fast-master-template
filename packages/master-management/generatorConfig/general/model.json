@@ -248,6 +248,13 @@
           "type": "singleData"
         },
         {
+          "title": "获取微信小程序AccessToken",
+          "api": "/application/getWechatApplicationAccessToken",
+          "effect": "getWechatApplicationAccessToken",
+          "service": "getWechatApplicationAccessTokenData",
+          "type": "singleData"
+        },
+        {
           "title": "更新信息",
           "api": "/application/updateBasicInfo",
           "effect": "updateBasicInfo",

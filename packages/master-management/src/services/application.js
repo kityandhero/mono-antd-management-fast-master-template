@@ -36,6 +36,16 @@ export async function getConfigureData(parameters) {
   });
 }
 
+export const getWechatApplicationAccessTokenDataApiAddress =
+  '/application/getWechatApplicationAccessToken';
+
+export async function getWechatApplicationAccessTokenData(parameters) {
+  return request({
+    api: getWechatApplicationAccessTokenDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const updateBasicInfoDataApiAddress = '/application/updateBasicInfo';
 
 export async function updateBasicInfoData(parameters) {

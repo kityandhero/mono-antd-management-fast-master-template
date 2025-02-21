@@ -14,6 +14,7 @@ import {
   getCustomGlobalDataData,
   getCustomGlobalDataItemData,
   getData,
+  getWechatApplicationAccessTokenData,
   pageListData,
   pageListOperateLogData,
   refreshCacheData,
@@ -44,6 +45,8 @@ export const applicationTypeCollection = {
   singleList: 'application/singleList',
   get: 'application/get',
   getConfigure: 'application/getConfigure',
+  getWechatApplicationAccessToken:
+    'application/getWechatApplicationAccessToken',
   updateBasicInfo: 'application/updateBasicInfo',
   updateWeChatApplicationInfo: 'application/updateWeChatApplicationInfo',
   updateWeChatPayCertificateInfo: 'application/updateWeChatPayCertificateInfo',
@@ -168,6 +171,35 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(getConfigureData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *getWechatApplicationAccessToken(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(
+          getWechatApplicationAccessTokenData,
+          payload,
+        );
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

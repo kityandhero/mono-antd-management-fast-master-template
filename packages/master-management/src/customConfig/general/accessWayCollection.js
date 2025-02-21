@@ -154,6 +154,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '53711e183688daea190f0058c31c81ac',
       permission: '6e7a3c9b3ab44b82a70daf1fc59d3c82',
     },
+    getWechatApplicationAccessToken: {
+      title: '获取微信小程序AccessToken',
+      paramsKey: 'dd91f4a9477780584ef64747f6a51c91',
+      permission: '3ba89ab944fa41e2abf10982f33f4107',
+    },
     updateBasicInfo: {
       title: '更新信息',
       paramsKey: '5ae6d61379b817cb192c9258787355c4',
