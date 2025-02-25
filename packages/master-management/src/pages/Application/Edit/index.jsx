@@ -1,11 +1,16 @@
 import { connect } from 'easy-soft-dva';
 import {
+  checkHasAuthority,
   convertCollection,
   getValueByKey,
   showSimpleErrorMessage,
+  whetherNumber,
 } from 'easy-soft-utility';
 
-import { getDerivedStateFromPropertiesForUrlParameters } from 'antd-management-fast-common';
+import {
+  dropdownExpandItemType,
+  getDerivedStateFromPropertiesForUrlParameters,
+} from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../customConfig';
@@ -18,6 +23,7 @@ import {
   refreshCacheAction,
   setStartAction,
   setStopAction,
+  toggleCustomerAutomaticRegistrationAction,
 } from '../Assist/action';
 import {
   checkNeedUpdateAssist,
@@ -140,6 +146,24 @@ class Edit extends DataTabContainerSupplement {
         data: metaData,
         key: fieldData.name.name,
       }),
+    });
+  };
+
+  toggleCustomerAutomaticRegistration = (r) => {
+    toggleCustomerAutomaticRegistrationAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target, remoteData }) => {
+        const { metaData } = target.state;
+
+        metaData[fieldData.whetherCustomerAutomaticRegistration.name] =
+          getValueByKey({
+            data: remoteData,
+            key: fieldData.whetherCustomerAutomaticRegistration.name,
+          });
+
+        target.setState({ metaData });
+      },
     });
   };
 
@@ -323,14 +347,26 @@ class Edit extends DataTabContainerSupplement {
 
     const that = this;
 
+    const whetherCustomerAutomaticRegistration = getValueByKey({
+      data: metaData,
+      key: fieldData.whetherCustomerAutomaticRegistration.name,
+      convert: convertCollection.number,
+    });
+
     return {
       disabled: this.checkInProgress(),
       handleMenuClick: ({ key, handleData }) => {
         switch (key) {
+          case 'toggleCustomerAutomaticRegistration': {
+            that.toggleCustomerAutomaticRegistration(handleData);
+            break;
+          }
+
           case 'testSendWechatTemplateMessage': {
             that.showTestSendWechatTemplateMessageModal(handleData);
             break;
           }
+
           case 'testSendWechatUniformMessage': {
             that.showTestSendWechatUniformMessageModal(handleData);
             break;
@@ -355,6 +391,23 @@ class Edit extends DataTabContainerSupplement {
       handleData: metaData,
       items: [
         {
+          key: 'toggleCustomerAutomaticRegistration',
+          icon: iconBuilder.swap(),
+          text:
+            whetherCustomerAutomaticRegistration === whetherNumber.yes
+              ? '禁止顾客自动注册'
+              : '允许顾客自动注册',
+          hidden: !checkHasAuthority(
+            accessWayCollection.application.toggleCustomerAutomaticRegistration
+              .permission,
+          ),
+          confirm: true,
+          title: `即将${whetherCustomerAutomaticRegistration === whetherNumber.yes ? '禁止顾客自动注册' : '允许顾客自动注册'}，确定吗？`,
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'testSendWechatTemplateMessage',
           icon: iconBuilder.message(),
           text: '测试微信公众号模板消息',
@@ -368,6 +421,9 @@ class Edit extends DataTabContainerSupplement {
           key: 'testSendSmsCaptcha',
           icon: iconBuilder.message(),
           text: '测试短信验证码消息',
+        },
+        {
+          type: dropdownExpandItemType.divider,
         },
         {
           key: 'refreshCache',
@@ -424,6 +480,17 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.applicationSourceName.name,
+        }),
+      },
+      {
+        label: fieldData.whetherCustomerAutomaticRegistration.label,
+        value: getValueByKey({
+          data: metaData,
+          key: fieldData.whetherCustomerAutomaticRegistration.name,
+          convert: convertCollection.number,
+          formatBuilder: (v) => {
+            return v === whetherNumber.yes ? '是' : '否';
+          },
         }),
       },
       {

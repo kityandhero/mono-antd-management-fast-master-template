@@ -184,6 +184,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'e89344ab356d4a847f23a7a64b4e7482',
       permission: 'f03bebe7d5104993bbb5eab95a30d1bd',
     },
+    toggleCustomerAutomaticRegistration: {
+      title: '切换顾客是否自动注册',
+      paramsKey: 'fca74d406b484597d9cc3a682a5cc221',
+      permission: '9c3aba65e44b45e18245cd5447436255',
+    },
     setStart: {
       title: '开始运营',
       paramsKey: '45dab4a3fb732790f9730a9fd843b589',

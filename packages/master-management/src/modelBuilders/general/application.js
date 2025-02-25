@@ -27,6 +27,7 @@ import {
   testSendSmsCaptchaData,
   testSendWechatTemplateMessageData,
   testSendWechatUniformMessageData,
+  toggleCustomerAutomaticRegistrationData,
   updateBasicInfoData,
   updateCustomGlobalDataItemData,
   updateKeyValueInfoData,
@@ -53,6 +54,8 @@ export const applicationTypeCollection = {
   updateKeyValueInfo: 'application/updateKeyValueInfo',
   updateMessageChannelApplicationInfo:
     'application/updateMessageChannelApplicationInfo',
+  toggleCustomerAutomaticRegistration:
+    'application/toggleCustomerAutomaticRegistration',
   setStart: 'application/setStart',
   setStop: 'application/setStop',
   setOwn: 'application/setOwn',
@@ -334,6 +337,35 @@ export function buildModel() {
       ) {
         const response = yield call(
           updateMessageChannelApplicationInfoData,
+          payload,
+        );
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *toggleCustomerAutomaticRegistration(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(
+          toggleCustomerAutomaticRegistrationData,
           payload,
         );
 

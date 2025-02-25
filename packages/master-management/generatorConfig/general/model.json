@@ -290,6 +290,13 @@
           "type": "singleData"
         },
         {
+          "title": "切换顾客是否自动注册",
+          "api": "/application/toggleCustomerAutomaticRegistration",
+          "effect": "toggleCustomerAutomaticRegistration",
+          "service": "toggleCustomerAutomaticRegistrationData",
+          "type": "singleData"
+        },
+        {
           "title": "开始运营",
           "api": "/application/setStart",
           "effect": "setStart",

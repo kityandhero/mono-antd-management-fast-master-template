@@ -95,6 +95,16 @@ export async function updateMessageChannelApplicationInfoData(parameters) {
   });
 }
 
+export const toggleCustomerAutomaticRegistrationDataApiAddress =
+  '/application/toggleCustomerAutomaticRegistration';
+
+export async function toggleCustomerAutomaticRegistrationData(parameters) {
+  return request({
+    api: toggleCustomerAutomaticRegistrationDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setStartDataApiAddress = '/application/setStart';
 
 export async function setStartData(parameters) {

@@ -38,6 +38,28 @@ export async function updateKeyValueAction({
   });
 }
 
+export function toggleCustomerAutomaticRegistrationAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.applicationTypeCollection
+      .toggleCustomerAutomaticRegistration,
+    params: {
+      applicationId: getValueByKey({
+        data: handleData,
+        key: fieldData.applicationId.name,
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function setStartAction({
   target,
   handleData,

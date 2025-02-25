@@ -144,6 +144,11 @@ export const fieldData = {
     helper:
       '需要通过其他应用进行消息发送时进行配置，需要指定的应用符合发送消息条件',
   },
+  whetherCustomerAutomaticRegistration: {
+    label: '顾客是否自动注册',
+    name: 'whetherCustomerAutomaticRegistration',
+    helper: '',
+  },
   status: {
     label: '应用状态',
     name: 'status',
