@@ -24,6 +24,8 @@ const { MultiPage } = DataMultiPageView;
   schedulingControl,
 }))
 class PageList extends MultiPage {
+  columnOperateWidth = 146;
+
   componentAuthority =
     accessWayCollection.customerWechatApplicationInfo.pageList.permission;
 

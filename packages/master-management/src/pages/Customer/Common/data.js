@@ -35,6 +35,11 @@ export const fieldData = {
     name: 'phone',
     helper: '',
   },
+  whetherPhoneVerify: {
+    label: '手机号码是否验证',
+    name: 'whetherPhoneVerify',
+    helper: '',
+  },
   email: {
     label: '电子邮件',
     name: 'email',

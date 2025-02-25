@@ -3,6 +3,8 @@ import {
   checkHasAuthority,
   getValueByKey,
   showSimpleErrorMessage,
+  toNumber,
+  whetherNumber,
 } from 'easy-soft-utility';
 
 import {
@@ -10,10 +12,13 @@ import {
   dropdownExpandItemType,
   searchCardConfig,
 } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
+import {
+  iconBuilder,
+  iconModeCollection,
+} from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
-import { accessWayCollection } from '../../../customConfig';
+import { accessWayCollection, colorCollection } from '../../../customConfig';
 import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshCacheAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
@@ -129,25 +134,54 @@ class PageList extends MultiPage {
       dataTarget: fieldData.phone,
       width: 120,
       showRichFacade: true,
-      canCopy: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.whetherPhoneVerify,
+      width: 140,
+      showRichFacade: true,
+      emptyValue: '--',
+      render: (value) => (
+        <>
+          {toNumber(value) === whetherNumber.yes
+            ? iconBuilder.checkCircle(
+                {
+                  twoToneColor:
+                    value === 1
+                      ? colorCollection.yesColor
+                      : colorCollection.noColor,
+                },
+                iconModeCollection.twoTone,
+              )
+            : iconBuilder.closeCircle(
+                {
+                  twoToneColor:
+                    value === 1
+                      ? colorCollection.yesColor
+                      : colorCollection.noColor,
+                },
+                iconModeCollection.twoTone,
+              )}
+        </>
+      ),
     },
     {
       dataTarget: fieldData.realName,
       width: 120,
       showRichFacade: true,
-      canCopy: true,
+      emptyValue: '--',
     },
     {
       dataTarget: fieldData.nickname,
       width: 120,
       showRichFacade: true,
-      canCopy: true,
+      emptyValue: '--',
     },
     {
       dataTarget: fieldData.phone,
       width: 120,
       showRichFacade: true,
-      canCopy: true,
+      emptyValue: '--',
     },
     {
       dataTarget: fieldData.customerId,
