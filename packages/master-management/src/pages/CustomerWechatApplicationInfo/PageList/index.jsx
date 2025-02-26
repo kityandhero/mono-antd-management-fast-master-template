@@ -152,6 +152,18 @@ class PageList extends MultiPage {
       emptyValue: '--',
     },
     {
+      dataTarget: fieldData.openId,
+      width: 260,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.unionId,
+      width: 120,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
       dataTarget: fieldData.applicationName,
       showRichFacade: true,
       emptyValue: '--',
