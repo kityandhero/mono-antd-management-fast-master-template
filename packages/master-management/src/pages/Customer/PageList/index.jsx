@@ -125,6 +125,12 @@ class PageList extends MultiPage {
 
   getColumnWrapper = () => [
     {
+      dataTarget: fieldData.avatar,
+      width: 60,
+      showRichFacade: true,
+      facadeMode: columnFacadeMode.image,
+    },
+    {
       dataTarget: fieldData.friendlyName,
       align: 'left',
       showRichFacade: true,
