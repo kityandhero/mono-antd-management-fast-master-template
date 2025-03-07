@@ -29,6 +29,7 @@ import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
 } from '../Assist/config';
+import { BuildUnlimitedWechatMicroApplicationQrCodeDrawer } from '../BuildUnlimitedWechatMicroApplicationQrCodeDrawer';
 import { fieldData, statusCollection } from '../Common/data';
 import { TestSendSmsCaptchaModal } from '../TestSendSmsCaptchaModal';
 import { TestSendWechatTemplateMessageModal } from '../TestSendWechatTemplateMessageModal';
@@ -245,6 +246,17 @@ class Edit extends DataTabContainerSupplement {
     );
   };
 
+  showBuildUnlimitedWechatMicroApplicationQrCodeDrawer = (record) => {
+    this.setState(
+      {
+        currentRecord: record,
+      },
+      () => {
+        BuildUnlimitedWechatMicroApplicationQrCodeDrawer.open();
+      },
+    );
+  };
+
   establishPageHeaderAvatarConfig = () => {
     return { icon: iconBuilder.fork() };
   };
@@ -377,6 +389,13 @@ class Edit extends DataTabContainerSupplement {
             break;
           }
 
+          case 'buildUnlimitedWechatMicroApplicationQrCodeDrawer': {
+            that.showBuildUnlimitedWechatMicroApplicationQrCodeDrawer(
+              handleData,
+            );
+            break;
+          }
+
           case 'refreshCache': {
             that.refreshCache(handleData);
             break;
@@ -425,6 +444,15 @@ class Edit extends DataTabContainerSupplement {
         {
           type: dropdownExpandItemType.divider,
         },
+        {
+          key: 'buildUnlimitedWechatMicroApplicationQrCodeDrawer',
+          icon: iconBuilder.qrCode(),
+          text: '构建小程序码',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+
         {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
@@ -517,6 +545,10 @@ class Edit extends DataTabContainerSupplement {
         <TestSendWechatUniformMessageModal externalData={metaData} />
 
         <TestSendSmsCaptchaModal externalData={metaData} />
+
+        <BuildUnlimitedWechatMicroApplicationQrCodeDrawer
+          externalData={metaData}
+        />
       </>
     );
   };

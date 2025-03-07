@@ -1,5 +1,23 @@
 import { formNameCollection } from '../../../customConfig';
 
+const fieldExtraData = {
+  page: {
+    label: '微信小程序码路径',
+    name: 'page',
+    helper: '',
+  },
+  scene: {
+    label: '微信小程序码参数',
+    name: 'scene',
+    helper: '小程序场景值, 为空白的情况下, 默认使用时间戳代替',
+  },
+  wechatMicroApplicationQrCode: {
+    label: '微信小程序二维码',
+    name: 'wechatMicroApplicationQrCode',
+    helper: '',
+  },
+};
+
 export const fieldData = {
   ...formNameCollection,
   applicationId: {
@@ -392,6 +410,7 @@ export const fieldData = {
     name: 'articleNotificationRemark',
     helper: '文章通知消息的备注',
   },
+  ...fieldExtraData,
 };
 
 /**

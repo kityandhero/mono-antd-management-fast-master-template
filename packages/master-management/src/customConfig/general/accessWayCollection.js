@@ -159,6 +159,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'dd91f4a9477780584ef64747f6a51c91',
       permission: '3ba89ab944fa41e2abf10982f33f4107',
     },
+    getUnlimitedWechatMicroApplicationQrCode: {
+      title: '获取不限制的小程序码',
+      paramsKey: '3f186a4862eeb63f17d886d3e995f142',
+      permission: '503da8d2492e4e2f94e9bba46505aad4',
+    },
     updateBasicInfo: {
       title: '更新信息',
       paramsKey: '5ae6d61379b817cb192c9258787355c4',

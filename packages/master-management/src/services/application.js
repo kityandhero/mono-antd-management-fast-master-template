@@ -46,6 +46,16 @@ export async function getWechatApplicationAccessTokenData(parameters) {
   });
 }
 
+export const getUnlimitedWechatMicroApplicationQrCodeDataApiAddress =
+  '/application/getUnlimitedWechatMicroApplicationQrCode';
+
+export async function getUnlimitedWechatMicroApplicationQrCodeData(parameters) {
+  return request({
+    api: getUnlimitedWechatMicroApplicationQrCodeDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const updateBasicInfoDataApiAddress = '/application/updateBasicInfo';
 
 export async function updateBasicInfoData(parameters) {

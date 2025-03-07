@@ -255,6 +255,13 @@
           "type": "singleData"
         },
         {
+          "title": "获取不限制的小程序码",
+          "api": "/application/getUnlimitedWechatMicroApplicationQrCode",
+          "effect": "getUnlimitedWechatMicroApplicationQrCode",
+          "service": "getUnlimitedWechatMicroApplicationQrCodeData",
+          "type": "singleData"
+        },
+        {
           "title": "更新信息",
           "api": "/application/updateBasicInfo",
           "effect": "updateBasicInfo",

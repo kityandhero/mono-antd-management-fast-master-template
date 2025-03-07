@@ -205,6 +205,23 @@ export async function testSendWechatMessageAction({
   });
 }
 
+export async function getUnlimitedWechatMicroApplicationQrCodeAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.applicationTypeCollection
+      .getUnlimitedWechatMicroApplicationQrCode,
+    params: handleData,
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function removeCustomGlobalDataItemAction({
   target,
   handleData,

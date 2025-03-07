@@ -14,6 +14,7 @@ import {
   getCustomGlobalDataData,
   getCustomGlobalDataItemData,
   getData,
+  getUnlimitedWechatMicroApplicationQrCodeData,
   getWechatApplicationAccessTokenData,
   pageListData,
   pageListOperateLogData,
@@ -48,6 +49,8 @@ export const applicationTypeCollection = {
   getConfigure: 'application/getConfigure',
   getWechatApplicationAccessToken:
     'application/getWechatApplicationAccessToken',
+  getUnlimitedWechatMicroApplicationQrCode:
+    'application/getUnlimitedWechatMicroApplicationQrCode',
   updateBasicInfo: 'application/updateBasicInfo',
   updateWeChatApplicationInfo: 'application/updateWeChatApplicationInfo',
   updateWeChatPayCertificateInfo: 'application/updateWeChatPayCertificateInfo',
@@ -201,6 +204,35 @@ export function buildModel() {
       ) {
         const response = yield call(
           getWechatApplicationAccessTokenData,
+          payload,
+        );
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *getUnlimitedWechatMicroApplicationQrCode(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(
+          getUnlimitedWechatMicroApplicationQrCodeData,
           payload,
         );
 
