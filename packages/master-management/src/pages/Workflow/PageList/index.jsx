@@ -24,6 +24,7 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 import {
   accessWayCollection,
   flowStatusCollection,
+  simpleQRCode,
 } from '../../../customConfig';
 import {
   getBusinessModeName,
@@ -35,6 +36,7 @@ import {
   renderSearchFlowScopeSelect,
   renderSearchFlowStatusSelect,
 } from '../../../customSpecialComponents';
+import { FlowCaseFormExampleDocumentDrawer } from '../../WorkflowFormDesign/FlowCaseFormExampleDocumentDrawer';
 import { AddOfficeAutomationArticleAuditDrawer } from '../AddOfficeAutomationArticleAuditDrawer';
 import { AddOfficeAutomationProcessApprovalDrawer } from '../AddOfficeAutomationProcessApprovalDrawer';
 import {
@@ -43,7 +45,11 @@ import {
   setDisableAction,
   setEnableAction,
 } from '../Assist/action';
-import { getStatusBadge } from '../Assist/tools';
+import {
+  getSimpleApplicantConfig,
+  getSimpleAttentionConfig,
+  getStatusBadge,
+} from '../Assist/tools';
 import { fieldData } from '../Common/data';
 import { CreateDuplicateModal } from '../CreateDuplicateModal';
 import { UpdateChannelModal } from '../UpdateChannelModal';
@@ -67,6 +73,10 @@ class PageList extends MultiPage {
       loadApiPath: 'workflow/pageList',
       dateRangeFieldName: '创建时间',
       currentRecord: null,
+      currentRecordShowApply: false,
+      currentRecordListApply: [],
+      currentRecordShowAttention: false,
+      currentRecordListAttention: [],
     };
   }
 
@@ -104,13 +114,13 @@ class PageList extends MultiPage {
         break;
       }
 
-      case 'updateSort': {
-        this.showChangeSortModal(handleData);
+      case 'showCreateDuplicateModal': {
+        this.showCreateDuplicateModal(handleData);
         break;
       }
 
-      case 'showCreateDuplicateModal': {
-        this.showCreateDuplicateModal(handleData);
+      case 'showFlowCaseFormExampleDocumentDrawer': {
+        this.showFlowCaseFormExampleDocumentDrawer(handleData);
         break;
       }
 
@@ -235,6 +245,24 @@ class PageList extends MultiPage {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
+  showFlowCaseFormExampleDocumentDrawer = (o) => {
+    const { showApply, listApply } = getSimpleApplicantConfig(o);
+    const { showAttention, listAttention } = getSimpleAttentionConfig(o);
+
+    this.setState(
+      {
+        currentRecord: o,
+        currentRecordShowApply: showApply,
+        currentRecordListApply: listApply,
+        currentRecordShowAttention: showAttention,
+        currentRecordListAttention: listAttention,
+      },
+      () => {
+        FlowCaseFormExampleDocumentDrawer.open();
+      },
+    );
+  };
+
   goToEdit = (item) => {
     const workflowId = getValueByKey({
       data: item,
@@ -342,6 +370,17 @@ class PageList extends MultiPage {
             accessWayCollection.workflow.createDuplicate.permission,
           ),
           text: '复制流程',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'showFlowCaseFormExampleDocumentDrawer',
+          icon: iconBuilder.printer(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.get.permission,
+          ),
+          text: '查看打印样例',
         },
         {
           type: dropdownExpandItemType.divider,
@@ -501,7 +540,13 @@ class PageList extends MultiPage {
   ];
 
   renderPresetOther = () => {
-    const { currentRecord } = this.state;
+    const {
+      currentRecord,
+      currentRecordShowApply,
+      currentRecordListApply,
+      currentRecordShowAttention,
+      currentRecordListAttention,
+    } = this.state;
 
     return (
       <>
@@ -525,6 +570,20 @@ class PageList extends MultiPage {
           afterOK={() => {
             this.afterCreateDuplicateModalOk();
           }}
+        />
+
+        <FlowCaseFormExampleDocumentDrawer
+          maskClosable
+          canDesign={false}
+          values={[]}
+          showApply={currentRecordShowApply}
+          applyList={currentRecordListApply}
+          showAttention={currentRecordShowAttention}
+          attentionList={currentRecordListAttention}
+          approveList={[]}
+          qRCodeImage={simpleQRCode}
+          serialNumberContent={'1836370789809655808'}
+          externalData={currentRecord}
         />
       </>
     );
