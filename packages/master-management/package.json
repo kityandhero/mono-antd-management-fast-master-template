@@ -1,6 +1,6 @@
 {
   "name": "master-management",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "",
   "scripts": {
     "prebuild": "npm run x:create-model-functionSpecialComponent",
