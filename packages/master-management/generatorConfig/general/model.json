@@ -5372,6 +5372,13 @@
           "type": "singleData"
         },
         {
+          "title": "切换移动端是否可以发起审批",
+          "api": "/workflow/toggleAvailableOnMobileSwitch",
+          "effect": "toggleAvailableOnMobileSwitch",
+          "service": "toggleAvailableOnMobileSwitchData",
+          "type": "singleData"
+        },
+        {
           "title": "设置默认经办人",
           "api": "/workflow/setDefaultAttentionUser",
           "effect": "setDefaultAttentionUser",

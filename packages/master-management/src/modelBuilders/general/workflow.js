@@ -31,6 +31,7 @@ import {
   setSmsTemplateData,
   toggleApplicantSignSwitchData,
   toggleAttentionSignSwitchData,
+  toggleAvailableOnMobileSwitchData,
   updateBasicInfoData,
 } from '../../services/workflow';
 
@@ -46,6 +47,7 @@ export const workflowTypeCollection = {
   toggleApplicantSignSwitch: 'workflow/toggleApplicantSignSwitch',
   setDefaultApplicantStatement: 'workflow/setDefaultApplicantStatement',
   toggleAttentionSignSwitch: 'workflow/toggleAttentionSignSwitch',
+  toggleAvailableOnMobileSwitch: 'workflow/toggleAvailableOnMobileSwitch',
   setDefaultAttentionUser: 'workflow/setDefaultAttentionUser',
   setDefaultAttentionStatement: 'workflow/setDefaultAttentionStatement',
   setDebugApproverMode: 'workflow/setDebugApproverMode',
@@ -321,6 +323,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(toggleAttentionSignSwitchData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *toggleAvailableOnMobileSwitch(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(toggleAvailableOnMobileSwitchData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

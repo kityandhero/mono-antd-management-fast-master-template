@@ -3306,6 +3306,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'efdf9ceec60f05330dd080a12ea52971',
       permission: 'eb020733397b43cf8206d5d401d8268f',
     },
+    toggleAvailableOnMobileSwitch: {
+      title: '切换移动端是否可以发起审批',
+      paramsKey: '0f39443cb7141a7a8d90386e01e9eed9',
+      permission: '4ee565f47f144fcaadee2cdc67ec37ca',
+    },
     setDefaultAttentionUser: {
       title: '设置默认经办人',
       paramsKey: '7eb0cae56a988067233c75db67b2f95a',

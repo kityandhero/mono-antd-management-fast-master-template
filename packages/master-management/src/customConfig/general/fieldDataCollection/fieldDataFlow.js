@@ -190,6 +190,16 @@ export const fieldDataFlow = {
     name: 'whetherAllowMultiEndNote',
     helper: '',
   },
+  availableOnMobileSwitch: {
+    label: '移动端可用开关',
+    name: 'availableOnMobileSwitch',
+    helper: '',
+  },
+  availableOnMobileSwitchNote: {
+    label: '移动端可用开关',
+    name: 'availableOnMobileSwitchNote',
+    helper: '',
+  },
   creatorUserId: {
     label: '是否创建人用户标识',
     name: 'creatorUserId',
