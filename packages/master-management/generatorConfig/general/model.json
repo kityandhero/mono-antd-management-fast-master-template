@@ -4266,6 +4266,27 @@
           "type": "singleData"
         },
         {
+          "title": "切换举报开关",
+          "api": "/subsidiary/toggleComplaintSwitch",
+          "effect": "toggleComplaintSwitch",
+          "service": "toggleComplaintSwitchData",
+          "type": "singleData"
+        },
+        {
+          "title": "切换投诉开关",
+          "api": "/subsidiary/toggleReportSwitch",
+          "effect": "toggleReportSwitch",
+          "service": "toggleReportSwitchData",
+          "type": "singleData"
+        },
+        {
+          "title": "切换留言开关",
+          "api": "/subsidiary/toggleFeedbackSwitch",
+          "effect": "toggleFeedbackSwitch",
+          "service": "toggleFeedbackSwitchData",
+          "type": "singleData"
+        },
+        {
           "title": "设为启用",
           "api": "/subsidiary/setEnable",
           "effect": "setEnable",

@@ -2621,6 +2621,21 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'adf708e81b6bd4366f716ec0b99b8b62',
       permission: '8a8249fde2f5420489cefaa69e442970',
     },
+    toggleComplaintSwitch: {
+      title: '切换举报开关',
+      paramsKey: 'f7cd1bc7ce399482e37dc2feac254866',
+      permission: 'cd327a76ea7b4fc788ae6b9b78751df8',
+    },
+    toggleReportSwitch: {
+      title: '切换投诉开关',
+      paramsKey: 'b726720fcdb7a3412d0bbf76f76dfc28',
+      permission: '51768dc3cdc8411ca9d1784b1f0ccbc2',
+    },
+    toggleFeedbackSwitch: {
+      title: '切换留言开关',
+      paramsKey: 'f0cec33cdb642cbab335143eaf81c024',
+      permission: '2e8962506cc943818f697877b4cefb4f',
+    },
     setEnable: {
       title: '设为启用',
       paramsKey: 'ba8893586e1200f2cb559cfa969e4844',

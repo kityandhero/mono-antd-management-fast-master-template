@@ -10,6 +10,7 @@ import {
 import {
   columnFacadeMode,
   dropdownExpandItemType,
+  listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
 import {
@@ -20,6 +21,7 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
 import { modelTypeCollection } from '../../../modelBuilders';
+import { PageListOpenFeedbackDrawer } from '../../Subsidiary/PageListOpenFeedbackDrawer';
 import { refreshCacheAction, removeAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
@@ -41,7 +43,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      pageTitle: '列表',
+      pageTitle: '企业留言信息',
       paramsKey:
         accessWayCollection.subsidiaryFeedbackMessage.pageList.paramsKey,
       loadApiPath:
@@ -86,6 +88,10 @@ class PageList extends MultiPage {
     });
   };
 
+  showPageListOpenFeedbackDrawer = () => {
+    PageListOpenFeedbackDrawer.open();
+  };
+
   goToEdit = (record) => {
     const subsidiaryFeedbackMessageId = getValueByKey({
       data: record,
@@ -98,11 +104,24 @@ class PageList extends MultiPage {
     );
   };
 
+  establishDataContainerExtraActionCollectionConfig = () => {
+    return [
+      {
+        buildType:
+          listViewConfig.dataContainerExtraActionBuildType.generalExtraButton,
+        type: 'default',
+        icon: iconBuilder.unorderedList(),
+        text: '已开启留言功能的企业列表',
+        handleClick: this.showPageListOpenFeedbackDrawer,
+      },
+    ];
+  };
+
   establishSearchCardConfig = () => {
     return {
       list: [
         {
-          lg: 6,
+          lg: 12,
           type: searchCardConfig.contentItemType.input,
           fieldData: fieldData.title,
         },
@@ -231,6 +250,10 @@ class PageList extends MultiPage {
       facadeMode: columnFacadeMode.datetime,
     },
   ];
+
+  renderPresetOther = () => {
+    return <PageListOpenFeedbackDrawer />;
+  };
 }
 
 export default PageList;

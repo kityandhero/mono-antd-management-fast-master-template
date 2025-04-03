@@ -10,6 +10,7 @@ import {
 import {
   columnFacadeMode,
   dropdownExpandItemType,
+  listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
 import {
@@ -20,6 +21,7 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
 import { modelTypeCollection } from '../../../modelBuilders';
+import { PageListOpenComplaintDrawer } from '../../Subsidiary/PageListOpenComplaintDrawer';
 import { refreshCacheAction, removeAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
@@ -41,7 +43,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      pageTitle: '列表',
+      pageTitle: '企业投诉信息列表',
       paramsKey:
         accessWayCollection.subsidiaryComplaintMessage.pageList.paramsKey,
       loadApiPath:
@@ -86,6 +88,10 @@ class PageList extends MultiPage {
     });
   };
 
+  showPageListOpenComplaintDrawer = () => {
+    PageListOpenComplaintDrawer.open();
+  };
+
   goToEdit = (record) => {
     const subsidiaryComplaintMessageId = getValueByKey({
       data: record,
@@ -102,7 +108,7 @@ class PageList extends MultiPage {
     return {
       list: [
         {
-          lg: 6,
+          lg: 12,
           type: searchCardConfig.contentItemType.input,
           fieldData: fieldData.title,
         },
@@ -113,6 +119,19 @@ class PageList extends MultiPage {
         },
       ],
     };
+  };
+
+  establishDataContainerExtraActionCollectionConfig = () => {
+    return [
+      {
+        buildType:
+          listViewConfig.dataContainerExtraActionBuildType.generalExtraButton,
+        type: 'default',
+        icon: iconBuilder.unorderedList(),
+        text: '已开启投诉功能的企业列表',
+        handleClick: this.showPageListOpenComplaintDrawer,
+      },
+    ];
   };
 
   establishListItemDropdownConfig = (item) => {
@@ -231,6 +250,10 @@ class PageList extends MultiPage {
       facadeMode: columnFacadeMode.datetime,
     },
   ];
+
+  renderPresetOther = () => {
+    return <PageListOpenComplaintDrawer />;
+  };
 }
 
 export default PageList;

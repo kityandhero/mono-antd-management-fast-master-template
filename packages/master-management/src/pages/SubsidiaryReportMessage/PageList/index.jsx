@@ -10,6 +10,7 @@ import {
 import {
   columnFacadeMode,
   dropdownExpandItemType,
+  listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
 import {
@@ -20,6 +21,7 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
 import { modelTypeCollection } from '../../../modelBuilders';
+import { PageListOpenReportDrawer } from '../../Subsidiary/PageListOpenReportDrawer';
 import { refreshCacheAction, removeAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
@@ -41,7 +43,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      pageTitle: '列表',
+      pageTitle: '企业举报信息列表',
       paramsKey: accessWayCollection.subsidiaryReportMessage.pageList.paramsKey,
       loadApiPath:
         modelTypeCollection.subsidiaryReportMessageTypeCollection.pageList,
@@ -85,6 +87,10 @@ class PageList extends MultiPage {
     });
   };
 
+  showPageListOpenReportDrawer = () => {
+    PageListOpenReportDrawer.open();
+  };
+
   goToEdit = (record) => {
     const subsidiaryReportMessageId = getValueByKey({
       data: record,
@@ -101,7 +107,7 @@ class PageList extends MultiPage {
     return {
       list: [
         {
-          lg: 6,
+          lg: 12,
           type: searchCardConfig.contentItemType.input,
           fieldData: fieldData.title,
         },
@@ -112,6 +118,19 @@ class PageList extends MultiPage {
         },
       ],
     };
+  };
+
+  establishDataContainerExtraActionCollectionConfig = () => {
+    return [
+      {
+        buildType:
+          listViewConfig.dataContainerExtraActionBuildType.generalExtraButton,
+        type: 'default',
+        icon: iconBuilder.unorderedList(),
+        text: '已开启投诉功能的企业列表',
+        handleClick: this.showPageListOpenReportDrawer,
+      },
+    ];
   };
 
   establishListItemDropdownConfig = (item) => {
@@ -229,6 +248,10 @@ class PageList extends MultiPage {
       facadeMode: columnFacadeMode.datetime,
     },
   ];
+
+  renderPresetOther = () => {
+    return <PageListOpenReportDrawer />;
+  };
 }
 
 export default PageList;
