@@ -2,6 +2,7 @@ import { connect } from 'easy-soft-dva';
 import {
   buildRandomHexColor,
   checkHasAuthority,
+  convertCollection,
   getValueByKey,
   showSimpleErrorMessage,
   toNumber,
@@ -13,10 +14,7 @@ import {
   listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
-import {
-  FunctionSupplement,
-  iconBuilder,
-} from 'antd-management-fast-component';
+import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
@@ -26,9 +24,6 @@ import { refreshCacheAction, removeAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
 const { MultiPage } = DataMultiPageView;
-const {
-  Whether: { getWhetherName },
-} = FunctionSupplement;
 
 @connect(({ subsidiaryFeedbackMessage, schedulingControl }) => ({
   subsidiaryFeedbackMessage,
@@ -206,17 +201,18 @@ class PageList extends MultiPage {
       width: 80,
       showRichFacade: true,
       emptyValue: '--',
-      facadeConfigBuilder: (value) => {
+      facadeConfigBuilder: (value, o) => {
+        const whetherConfirm = getValueByKey({
+          data: o,
+          key: fieldData.whetherConfirm.name,
+          convert: convertCollection.number,
+        });
+
         return {
           color: buildRandomHexColor({
-            seed: toNumber(value) * 25 + 47,
+            seed: toNumber(whetherConfirm) * 25 + 47,
           }),
         };
-      },
-      formatValue: (value) => {
-        return getWhetherName({
-          value: value,
-        });
       },
     },
     {
@@ -224,17 +220,18 @@ class PageList extends MultiPage {
       width: 80,
       showRichFacade: true,
       emptyValue: '--',
-      facadeConfigBuilder: (value) => {
+      facadeConfigBuilder: (value, o) => {
+        const whetherReply = getValueByKey({
+          data: o,
+          key: fieldData.whetherReply.name,
+          convert: convertCollection.number,
+        });
+
         return {
           color: buildRandomHexColor({
-            seed: toNumber(value) * 25 + 47,
+            seed: toNumber(whetherReply) * 25 + 47,
           }),
         };
-      },
-      formatValue: (value) => {
-        return getWhetherName({
-          value: value,
-        });
       },
     },
     {

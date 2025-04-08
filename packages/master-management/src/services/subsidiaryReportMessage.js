@@ -45,3 +45,13 @@ export async function removeData(parameters) {
     params: parameters,
   });
 }
+
+export const refreshCacheDataApiAddress =
+  '/subsidiaryReportMessage/refreshCache';
+
+export async function refreshCacheData(parameters) {
+  return request({
+    api: refreshCacheDataApiAddress,
+    params: parameters,
+  });
+}

@@ -4453,6 +4453,13 @@
           "effect": "remove",
           "service": "removeData",
           "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/subsidiaryComplaintMessage/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
         }
       ],
       "cover": true,
@@ -4495,6 +4502,13 @@
           "effect": "remove",
           "service": "removeData",
           "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/subsidiaryFeedbackMessage/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
         }
       ],
       "cover": true,
@@ -4536,6 +4550,13 @@
           "api": "/subsidiaryReportMessage/remove",
           "effect": "remove",
           "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/subsidiaryReportMessage/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
           "type": "singleData"
         }
       ],

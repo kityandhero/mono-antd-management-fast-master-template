@@ -2740,6 +2740,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '68d71d214e71de9773475abf72ee28f3',
       permission: 'd437a8de9f6f479996895f9e07d42895',
     },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '0e44d6802e95553363449e3d90d6ae6b',
+      permission: '6276fdccd3024fc6a787b567363dd5a0',
+    },
   },
   subsidiaryFeedbackMessage: {
     pageList: {
@@ -2767,6 +2772,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'c518992fe93ab2c480bac5a481048499',
       permission: '75103e6eb88c4d3ab5d1b317aa773855',
     },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: 'fabc5251635c529ab5efd65788153149',
+      permission: '766f263a32db480d8ac04483a6d6269a',
+    },
   },
   subsidiaryReportMessage: {
     pageList: {
@@ -2793,6 +2803,11 @@ export const accessWayInfrastructureCollection = {
       title: '移除信息',
       paramsKey: '394e263d3ecf725b3db5f224132058da',
       permission: '11fa6ae304954e2ea848f115d6ff73a7',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: 'df7167e17572343da38a6f05c175b7ce',
+      permission: '86d84806ab424f5694c05e417e71a9eb',
     },
   },
   tag: {

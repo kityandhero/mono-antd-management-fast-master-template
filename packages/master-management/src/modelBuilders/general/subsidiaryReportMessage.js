@@ -10,6 +10,7 @@ import {
 import {
   getData,
   pageListData,
+  refreshCacheData,
   removeData,
   repayData,
   toggleConfirmData,
@@ -21,6 +22,7 @@ export const subsidiaryReportMessageTypeCollection = {
   toggleConfirm: 'subsidiaryReportMessage/toggleConfirm',
   repay: 'subsidiaryReportMessage/repay',
   remove: 'subsidiaryReportMessage/remove',
+  refreshCache: 'subsidiaryReportMessage/refreshCache',
 };
 
 export function buildModel() {
@@ -146,6 +148,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(removeData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *refreshCache(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(refreshCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
