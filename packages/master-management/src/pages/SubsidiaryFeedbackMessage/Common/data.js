@@ -12,8 +12,8 @@ const fieldExtraData = {
     helper: '',
   },
   customerNickname: {
-    label: '纯昵称',
-    name: '纯昵称',
+    label: '昵称',
+    name: 'customerNickname',
     helper: '',
   },
   customerRealName: {
@@ -22,12 +22,12 @@ const fieldExtraData = {
     helper: '',
   },
   customerFriendlyName: {
-    label: '昵称',
-    name: '昵称',
+    label: '称呼',
+    name: 'customerFriendlyName',
     helper: '',
   },
   whetherConfirmNote: {
-    label: '是否确认',
+    label: '是否核实',
     name: 'whetherConfirmNote',
     helper: '',
   },
@@ -66,7 +66,7 @@ export const fieldData = {
     helper: '',
   },
   whetherConfirm: {
-    label: '是否确认',
+    label: '是否核实',
     name: 'whetherConfirm',
     helper: '',
   },

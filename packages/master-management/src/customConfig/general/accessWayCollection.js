@@ -2726,7 +2726,7 @@ export const accessWayInfrastructureCollection = {
       permission: '509ae966481b432b9770f27cbaacdf62',
     },
     toggleConfirm: {
-      title: '切换是否确认信息为真',
+      title: '切换是否核实信息为真',
       paramsKey: '702a92320604af5d3b63a62aa6630952',
       permission: '91a2389859a247cfb097b2c7025e8ff3',
     },
@@ -2758,7 +2758,7 @@ export const accessWayInfrastructureCollection = {
       permission: '395e6a4f841b4b79816c91a9361dea9a',
     },
     toggleConfirm: {
-      title: '切换是否确认信息为真',
+      title: '切换是否核实信息为真',
       paramsKey: 'c1f5debd360b81acafeb9c4da6f24663',
       permission: 'a491444159d540968205f490b42d2a71',
     },
@@ -2790,7 +2790,7 @@ export const accessWayInfrastructureCollection = {
       permission: 'c8ac72b832c84b99941ec40253abc685',
     },
     toggleConfirm: {
-      title: '切换是否确认信息为真',
+      title: '切换是否核实信息为真',
       paramsKey: '7a372a92d87cd8a77be15a7ea6aadc2e',
       permission: 'b64d591d00444825942f37f57fb52bcc',
     },

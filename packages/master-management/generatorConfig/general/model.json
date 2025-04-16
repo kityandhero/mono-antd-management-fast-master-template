@@ -4434,7 +4434,7 @@
           "type": "singleData"
         },
         {
-          "title": "切换是否确认信息为真",
+          "title": "切换是否核实信息为真",
           "api": "/subsidiaryComplaintMessage/toggleConfirm",
           "effect": "toggleConfirm",
           "service": "toggleConfirmData",
@@ -4483,7 +4483,7 @@
           "type": "singleData"
         },
         {
-          "title": "切换是否确认信息为真",
+          "title": "切换是否核实信息为真",
           "api": "/subsidiaryFeedbackMessage/toggleConfirm",
           "effect": "toggleConfirm",
           "service": "toggleConfirmData",
@@ -4532,7 +4532,7 @@
           "type": "singleData"
         },
         {
-          "title": "切换是否确认信息为真",
+          "title": "切换是否核实信息为真",
           "api": "/subsidiaryReportMessage/toggleConfirm",
           "effect": "toggleConfirm",
           "service": "toggleConfirmData",

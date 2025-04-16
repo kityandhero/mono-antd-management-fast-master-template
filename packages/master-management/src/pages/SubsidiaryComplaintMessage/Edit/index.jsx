@@ -17,12 +17,16 @@ import {
   getSubsidiaryComplaintMessageStatusName,
 } from '../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../modelBuilders';
-import { refreshCacheAction, toggleConfirmAction } from '../Assist/action';
+import {
+  refreshCacheAction,
+  removeAction,
+  toggleConfirmAction,
+} from '../Assist/action';
 import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
 } from '../Assist/config';
-import { fieldData, statusCollection } from '../Common/data';
+import { fieldData } from '../Common/data';
 
 @connect(({ subsidiaryComplaintMessage, schedulingControl }) => ({
   subsidiaryComplaintMessage,
@@ -48,7 +52,7 @@ class Edit extends DataTabContainerSupplement {
       pageTitle: '',
       loadApiPath:
         modelTypeCollection.subsidiaryComplaintMessageTypeCollection.get,
-      backPath: `/subsidiaryComplaintMessage/pageList/key`,
+      backPath: `/subsidiaryMessages/subsidiaryComplaintMessage/pageList/key`,
       subsidiaryComplaintMessageId: null,
     };
   }
@@ -129,6 +133,16 @@ class Edit extends DataTabContainerSupplement {
     });
   };
 
+  remove = (r) => {
+    removeAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target }) => {
+        target.refreshDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
   refreshCache = (r) => {
     refreshCacheAction({
       target: this,
@@ -151,46 +165,22 @@ class Edit extends DataTabContainerSupplement {
       return null;
     }
 
-    const status = getValueByKey({
-      data: metaData,
-      key: fieldData.status.name,
-      convert: convertCollection.number,
-    });
-
     const that = this;
 
     return {
       buttons: [
         {
-          key: 'setOnline',
-          text: '设为上线',
-          icon: iconBuilder.checkCircle(),
-          handleButtonClick: ({ handleData }) => {
-            that.setOnline(handleData);
-          },
-          hidden: !checkHasAuthority(
-            accessWayCollection.subsidiaryComplaintMessage.setOnline.permission,
-          ),
-          disabled: status === statusCollection.online,
+          key: 'remove',
+          icon: iconBuilder.delete(),
+          text: '删除日志',
           confirm: true,
-          title: '即将设为上线，确定启用吗？',
-          handleData: metaData,
-        },
-        {
-          key: 'setOffline',
-          text: '设为下线',
-          icon: iconBuilder.download(),
+          title: '即将删除日志，确定吗？',
+          hidden: !checkHasAuthority(
+            accessWayCollection.subsidiaryComplaintMessage.remove.permission,
+          ),
           handleButtonClick: ({ handleData }) => {
             that.setOffline(handleData);
           },
-          hidden: !checkHasAuthority(
-            accessWayCollection.subsidiaryComplaintMessage.setOffline
-              .permission,
-          ),
-          disabled: status === statusCollection.offline,
-          confirm: true,
-          title: '即将设为下线，确定启用吗？',
-          handleData: metaData,
         },
       ],
     };

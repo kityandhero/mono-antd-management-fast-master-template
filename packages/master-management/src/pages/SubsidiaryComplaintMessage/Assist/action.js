@@ -15,7 +15,7 @@ export function toggleConfirmAction({
     api: modelTypeCollection.subsidiaryComplaintMessageTypeCollection
       .toggleConfirm,
     params: {
-      sectionId: getValueByKey({
+      subsidiaryComplaintMessageId: getValueByKey({
         data: handleData,
         key: fieldData.subsidiaryComplaintMessageId.name,
       }),

@@ -1039,6 +1039,35 @@ export const subsidiaryMessages = {
           hideInMenu: true,
           component: './SubsidiaryComplaintMessage/PageList',
         },
+        {
+          path: '/subsidiaryMessages/subsidiaryComplaintMessage/edit/:op/:id/:pageKey',
+          name: 'edit',
+          hideInMenu: true,
+          component: './SubsidiaryComplaintMessage/Edit',
+          routes: [
+            {
+              path: '/subsidiaryMessages/subsidiaryComplaintMessage/edit/:op/:id/:pageKey/basicInfo',
+              name: 'basicInfo',
+              component: './SubsidiaryComplaintMessage/Edit/BasicInfo',
+            },
+            {
+              path: '/subsidiaryMessages/subsidiaryComplaintMessage/edit/:op/:id/:pageKey/operateLog',
+              name: 'operateLog',
+              routes: [
+                {
+                  path: '/subsidiaryMessages/subsidiaryComplaintMessage/edit/:op/:id/:pageKey/operateLog',
+                  redirect:
+                    '/subsidiaryMessages/subsidiaryComplaintMessage/edit/:op/:id/:pageKey/operateLog/pageList',
+                },
+                {
+                  path: '/subsidiaryMessages/subsidiaryComplaintMessage/edit/:op/:id/:pageKey/operateLog/pageList',
+                  component:
+                    './SubsidiaryComplaintMessage/Edit/OperateLog/PageList',
+                },
+              ],
+            },
+          ],
+        },
       ],
     },
     {
@@ -1062,6 +1091,35 @@ export const subsidiaryMessages = {
           hideInMenu: true,
           component: './SubsidiaryFeedbackMessage/PageList',
         },
+        {
+          path: '/subsidiaryMessages/subsidiaryFeedbackMessage/edit/:op/:id/:pageKey',
+          name: 'edit',
+          hideInMenu: true,
+          component: './SubsidiaryFeedbackMessage/Edit',
+          routes: [
+            {
+              path: '/subsidiaryMessages/subsidiaryFeedbackMessage/edit/:op/:id/:pageKey/basicInfo',
+              name: 'basicInfo',
+              component: './SubsidiaryFeedbackMessage/Edit/BasicInfo',
+            },
+            {
+              path: '/subsidiaryMessages/subsidiaryFeedbackMessage/edit/:op/:id/:pageKey/operateLog',
+              name: 'operateLog',
+              routes: [
+                {
+                  path: '/subsidiaryMessages/subsidiaryFeedbackMessage/edit/:op/:id/:pageKey/operateLog',
+                  redirect:
+                    '/subsidiaryMessages/subsidiaryFeedbackMessage/edit/:op/:id/:pageKey/operateLog/pageList',
+                },
+                {
+                  path: '/subsidiaryMessages/subsidiaryFeedbackMessage/edit/:op/:id/:pageKey/operateLog/pageList',
+                  component:
+                    './SubsidiaryFeedbackMessage/Edit/OperateLog/PageList',
+                },
+              ],
+            },
+          ],
+        },
       ],
     },
     {
@@ -1084,6 +1142,35 @@ export const subsidiaryMessages = {
           name: 'pageList',
           hideInMenu: true,
           component: './SubsidiaryReportMessage/PageList',
+        },
+        {
+          path: '/subsidiaryMessages/subsidiaryReportMessage/edit/:op/:id/:pageKey',
+          name: 'edit',
+          hideInMenu: true,
+          component: './SubsidiaryReportMessage/Edit',
+          routes: [
+            {
+              path: '/subsidiaryMessages/subsidiaryReportMessage/edit/:op/:id/:pageKey/basicInfo',
+              name: 'basicInfo',
+              component: './SubsidiaryReportMessage/Edit/BasicInfo',
+            },
+            {
+              path: '/subsidiaryMessages/subsidiaryReportMessage/edit/:op/:id/:pageKey/operateLog',
+              name: 'operateLog',
+              routes: [
+                {
+                  path: '/subsidiaryMessages/subsidiaryReportMessage/edit/:op/:id/:pageKey/operateLog',
+                  redirect:
+                    '/subsidiaryMessages/subsidiaryReportMessage/edit/:op/:id/:pageKey/operateLog/pageList',
+                },
+                {
+                  path: '/subsidiaryMessages/subsidiaryReportMessage/edit/:op/:id/:pageKey/operateLog/pageList',
+                  component:
+                    './SubsidiaryReportMessage/Edit/OperateLog/PageList',
+                },
+              ],
+            },
+          ],
         },
       ],
     },

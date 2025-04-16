@@ -6,6 +6,7 @@ import {
   getValueByKey,
   showSimpleErrorMessage,
   toNumber,
+  whetherNumber,
 } from 'easy-soft-utility';
 
 import {
@@ -14,13 +15,21 @@ import {
   listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
+import {
+  iconBuilder,
+  iconModeCollection,
+} from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
-import { accessWayCollection } from '../../../customConfig';
+import { accessWayCollection, colorCollection } from '../../../customConfig';
 import { modelTypeCollection } from '../../../modelBuilders';
 import { PageListOpenReportDrawer } from '../../Subsidiary/PageListOpenReportDrawer';
-import { refreshCacheAction, removeAction } from '../Assist/action';
+import {
+  refreshCacheAction,
+  removeAction,
+  toggleConfirmAction,
+} from '../Assist/action';
+import { handleItemWhetherConfirm } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
 const { MultiPage } = DataMultiPageView;
@@ -48,6 +57,11 @@ class PageList extends MultiPage {
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
+      case 'toggleConfirm': {
+        this.toggleConfirm(handleData);
+        break;
+      }
+
       case 'refreshCache': {
         this.refreshCache(handleData);
         break;
@@ -65,17 +79,27 @@ class PageList extends MultiPage {
     }
   };
 
-  refreshCache = (record) => {
-    refreshCacheAction({
+  toggleConfirm = (o) => {
+    toggleConfirmAction({
       target: this,
-      handleData: record,
+      handleData: o,
+      successCallback: ({ target, handleData, remoteData }) => {
+        handleItemWhetherConfirm({ target, handleData, remoteData });
+      },
     });
   };
 
-  remove = (r) => {
+  refreshCache = (o) => {
+    refreshCacheAction({
+      target: this,
+      handleData: o,
+    });
+  };
+
+  remove = (o) => {
     removeAction({
       target: this,
-      handleData: r,
+      handleData: o,
       successCallback: ({ target }) => {
         target.refreshDataWithReloadAnimalPrompt({});
       },
@@ -94,7 +118,7 @@ class PageList extends MultiPage {
     });
 
     this.goToPath(
-      `/subsidiaryReportMessage/edit/load/${subsidiaryReportMessageId}/key/basicInfo`,
+      `/subsidiaryMessages/subsidiaryReportMessage/edit/load/${subsidiaryReportMessageId}/key/basicInfo`,
     );
   };
 
@@ -129,6 +153,14 @@ class PageList extends MultiPage {
   };
 
   establishListItemDropdownConfig = (item) => {
+    const whetherConfirm = getValueByKey({
+      data: item,
+      key: fieldData.whetherConfirm.name,
+      convert: convertCollection.number,
+    });
+
+    const that = this;
+
     return {
       size: 'small',
       text: '修改',
@@ -137,13 +169,36 @@ class PageList extends MultiPage {
         accessWayCollection.subsidiaryReportMessage.get.permission,
       ),
       handleButtonClick: ({ handleData }) => {
-        this.goToEdit(handleData);
+        that.goToEdit(handleData);
       },
       handleData: item,
       handleMenuClick: ({ key, handleData }) => {
-        this.handleMenuClick({ key, handleData });
+        that.handleMenuClick({ key, handleData });
       },
       items: [
+        {
+          key: 'toggleConfirm',
+          text: whetherConfirm === whetherNumber.yes ? '取消核实' : '核实信息',
+          icon:
+            whetherConfirm === whetherNumber.yes
+              ? iconBuilder.closeCircle(
+                  {
+                    twoToneColor: colorCollection.noColor,
+                  },
+                  iconModeCollection.twoTone,
+                )
+              : iconBuilder.checkCircle(
+                  {
+                    twoToneColor: colorCollection.yesColor,
+                  },
+                  iconModeCollection.twoTone,
+                ),
+          confirm: true,
+          title: `即将${whetherConfirm ? '取消核实' : '核实信息'}，确定吗？`,
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
         {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
@@ -162,7 +217,7 @@ class PageList extends MultiPage {
           icon: iconBuilder.delete(),
           text: '移除',
           confirm: true,
-          title: '即将移除常用语，确定吗？',
+          title: '即将此消息，确定吗？',
         },
       ],
     };
@@ -245,6 +300,17 @@ class PageList extends MultiPage {
       facadeMode: columnFacadeMode.datetime,
     },
   ];
+
+  establishHelpConfig = () => {
+    return {
+      title: '操作提示',
+      list: [
+        {
+          text: '简要说明:请及时操作核实功能， 未核实的信息事实参考性可能有所欠缺。',
+        },
+      ],
+    };
+  };
 
   renderPresetOther = () => {
     return <PageListOpenReportDrawer />;

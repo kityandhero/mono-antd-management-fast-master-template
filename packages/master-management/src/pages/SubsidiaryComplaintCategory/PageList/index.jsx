@@ -201,7 +201,7 @@ class PageList extends MultiPage {
     });
 
     this.goToPath(
-      `/subsidiaryComplaintCategory/edit/load/${subsidiaryComplaintCategoryId}/key/basicInfo`,
+      `/subsidiaryMessages/subsidiaryComplaintCategory/edit/load/${subsidiaryComplaintCategoryId}/key/basicInfo`,
     );
   };
 

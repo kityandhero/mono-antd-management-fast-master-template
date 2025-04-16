@@ -48,7 +48,7 @@ class Edit extends DataTabContainerSupplement {
       pageTitle: '',
       loadApiPath:
         modelTypeCollection.subsidiaryFeedbackMessageTypeCollection.get,
-      backPath: `/subsidiaryFeedbackMessage/pageList/key`,
+      backPath: `/subsidiaryMessages/subsidiaryFeedbackMessage/pageList/key`,
       subsidiaryFeedbackMessageId: null,
     };
   }
