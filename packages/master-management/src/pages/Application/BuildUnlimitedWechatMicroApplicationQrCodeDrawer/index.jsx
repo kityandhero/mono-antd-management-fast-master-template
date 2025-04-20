@@ -1,8 +1,11 @@
 import { connect } from 'easy-soft-dva';
-import { getValueByKey, logConsole } from 'easy-soft-utility';
+import { getValueByKey, whetherString } from 'easy-soft-utility';
 
 import { cardConfig, extraBuildType } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
+import {
+  convertOptionOrRadioData,
+  iconBuilder,
+} from 'antd-management-fast-component';
 import {
   DataDrawer,
   switchControlAssist,
@@ -28,6 +31,14 @@ class BuildUnlimitedWechatMicroApplicationQrCodeDrawer extends BaseNeedlessLoadD
   componentAuthority =
     accessWayCollection.application.getUnlimitedWechatMicroApplicationQrCode
       .permission;
+
+  wechatMicroApplicationQrCodePage = '';
+
+  wechatMicroApplicationQrCodeScene = '';
+
+  wechatMicroApplicationQrCodeCheckPath = whetherString.yes;
+
+  wechatMicroApplicationQrCodeEnvVersion = '';
 
   static open() {
     switchControlAssist.open(visibleFlag);
@@ -55,10 +66,16 @@ class BuildUnlimitedWechatMicroApplicationQrCodeDrawer extends BaseNeedlessLoadD
     return d;
   };
 
-  getUnlimitedWechatMicroApplicationQrCode = (record) => {
+  getUnlimitedWechatMicroApplicationQrCode = (o) => {
     getUnlimitedWechatMicroApplicationQrCodeAction({
       target: this,
-      handleData: record,
+      handleData: {
+        ...o,
+        page: this.wechatMicroApplicationQrCodePage,
+        scene: this.wechatMicroApplicationQrCodeScene,
+        envVersion: this.wechatMicroApplicationQrCodeEnvVersion,
+        checkPath: this.wechatMicroApplicationQrCodeCheckPath,
+      },
       successCallback: ({ target, remoteData }) => {
         const wechatMicroApplicationQrCode = getValueByKey({
           data: remoteData,
@@ -70,6 +87,24 @@ class BuildUnlimitedWechatMicroApplicationQrCodeDrawer extends BaseNeedlessLoadD
         });
       },
     });
+  };
+
+  onPageChange = (v) => {
+    this.wechatMicroApplicationQrCodePage = v;
+  };
+
+  onSceneChange = (v) => {
+    this.wechatMicroApplicationQrCodeScene = v;
+  };
+
+  // eslint-disable-next-line no-unused-vars
+  onEnvVersionChange = (v, option) => {
+    this.wechatMicroApplicationQrCodeEnvVersion = v;
+  };
+
+  // eslint-disable-next-line no-unused-vars
+  onCheckPathChange = (v, option) => {
+    this.wechatMicroApplicationQrCodeCheckPath = v;
   };
 
   establishExtraActionConfig = () => {
@@ -99,10 +134,19 @@ class BuildUnlimitedWechatMicroApplicationQrCodeDrawer extends BaseNeedlessLoadD
     };
   };
 
+  fillDefaultInitialValues = () => {
+    const initialValues = {};
+
+    initialValues[fieldData.envVersion.name] = 'release';
+    initialValues[fieldData.checkPath.name] = whetherString.yes;
+
+    return initialValues;
+  };
+
   establishCardCollectionConfig = () => {
     const { imageBase64 } = this.state;
 
-    logConsole({ imageBase64 });
+    const that = this;
 
     return {
       list: [
@@ -113,12 +157,70 @@ class BuildUnlimitedWechatMicroApplicationQrCodeDrawer extends BaseNeedlessLoadD
               type: cardConfig.contentItemType.input,
               fieldData: fieldData.page,
               require: false,
+              innerProps: {
+                onChange: (event) => {
+                  const {
+                    target: { value: v },
+                  } = event;
+
+                  that.onPageChange(v);
+                },
+              },
             },
             {
               lg: 24,
               type: cardConfig.contentItemType.input,
               fieldData: fieldData.scene,
               require: false,
+              innerProps: {
+                onChange: (event) => {
+                  const {
+                    target: { value: v },
+                  } = event;
+
+                  that.onSceneChange(v);
+                },
+              },
+            },
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.select,
+              fieldData: fieldData.envVersion,
+              listData: [
+                {
+                  value: 'release',
+                  label: '正式版',
+                },
+                {
+                  value: 'trial',
+                  label: '体验版',
+                },
+                {
+                  value: 'develop',
+                  label: '开发版',
+                },
+              ],
+              dataConvert: convertOptionOrRadioData,
+              require: true,
+              onChange: this.onEnvVersionChange,
+            },
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.select,
+              fieldData: fieldData.checkPath,
+              listData: [
+                {
+                  value: whetherString.yes,
+                  label: '校验',
+                },
+                {
+                  value: whetherString.no,
+                  label: '不校验',
+                },
+              ],
+              dataConvert: convertOptionOrRadioData,
+              require: true,
+              onChange: this.onCheckPathChange,
             },
           ],
         },

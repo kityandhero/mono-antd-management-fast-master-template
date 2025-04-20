@@ -9,7 +9,19 @@ const fieldExtraData = {
   scene: {
     label: '微信小程序码参数',
     name: 'scene',
-    helper: '小程序场景值, 为空白的情况下, 默认使用时间戳代替',
+    helper:
+      "小程序场景值, 为空白的情况下, 默认使用时间戳代替, =号请用~代替, 多参数请用_分隔, [最大32个可见字符, 只支持数字, 大小写英文以及部分特殊字符：!#$&'()*+,/:;=?@-._~，其它字符请自行编码为合法字符（因不支持%，中文无法使用 urlencode 处理，请使用其他编码方式）]",
+  },
+  checkPath: {
+    label: '校验路径存在性',
+    name: 'checkPath',
+    helper: '微信小程序码生成时是否校验路径存在性',
+  },
+  envVersion: {
+    label: '微信小程序码版本',
+    name: 'envVersion',
+    helper:
+      '要打开的小程序版本。正式版为 "release"，体验版为 "trial"，开发版为 "develop"',
   },
   wechatMicroApplicationQrCode: {
     label: '微信小程序二维码',
