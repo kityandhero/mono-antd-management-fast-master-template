@@ -36,6 +36,11 @@ const fieldExtraData = {
     name: 'whetherReplyNote',
     helper: '',
   },
+  listAttachment: {
+    label: '附件列表',
+    name: 'listAttachment',
+    helper: '',
+  },
 };
 
 export const fieldData = {

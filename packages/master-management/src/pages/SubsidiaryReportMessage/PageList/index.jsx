@@ -163,7 +163,7 @@ class PageList extends MultiPage {
 
     return {
       size: 'small',
-      text: '修改',
+      text: '查阅',
       icon: iconBuilder.edit(),
       disabled: !checkHasAuthority(
         accessWayCollection.subsidiaryReportMessage.get.permission,

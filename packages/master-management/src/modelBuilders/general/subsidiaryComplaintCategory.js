@@ -12,6 +12,7 @@ import {
   addBasicInfoData,
   getData,
   pageListData,
+  pageListOperateLogData,
   refreshCacheData,
   removeData,
   removeSingleTreeListCacheData,
@@ -37,6 +38,7 @@ export const subsidiaryComplaintCategoryTypeCollection = {
   removeSingleTreeListCache:
     'subsidiaryComplaintCategory/removeSingleTreeListCache',
   refreshCache: 'subsidiaryComplaintCategory/refreshCache',
+  pageListOperateLog: 'subsidiaryComplaintCategory/pageListOperateLog',
 };
 
 export function buildModel() {
@@ -346,6 +348,32 @@ export function buildModel() {
         const response = yield call(refreshCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *pageListOperateLog(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(pageListOperateLogData, payload);
+
+        const dataAdjust = pretreatmentRemotePageListData({
           source: response,
           successCallback: pretreatmentSuccessCallback || null,
           failCallback: pretreatmentFailCallback || null,

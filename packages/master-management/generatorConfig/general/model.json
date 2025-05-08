@@ -4411,6 +4411,13 @@
           "effect": "refreshCache",
           "service": "refreshCacheData",
           "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/subsidiaryComplaintCategory/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
         }
       ],
       "cover": true,
@@ -4434,7 +4441,7 @@
           "type": "singleData"
         },
         {
-          "title": "切换是否核实信息为真",
+          "title": "切换是否核实信息",
           "api": "/subsidiaryComplaintMessage/toggleConfirm",
           "effect": "toggleConfirm",
           "service": "toggleConfirmData",
@@ -4460,6 +4467,13 @@
           "effect": "refreshCache",
           "service": "refreshCacheData",
           "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/subsidiaryComplaintMessage/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
         }
       ],
       "cover": true,
@@ -4483,7 +4497,7 @@
           "type": "singleData"
         },
         {
-          "title": "切换是否核实信息为真",
+          "title": "切换是否核实信息",
           "api": "/subsidiaryFeedbackMessage/toggleConfirm",
           "effect": "toggleConfirm",
           "service": "toggleConfirmData",
@@ -4509,6 +4523,13 @@
           "effect": "refreshCache",
           "service": "refreshCacheData",
           "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/subsidiaryFeedbackMessage/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
         }
       ],
       "cover": true,
@@ -4532,7 +4553,7 @@
           "type": "singleData"
         },
         {
-          "title": "切换是否核实信息为真",
+          "title": "切换是否核实信息",
           "api": "/subsidiaryReportMessage/toggleConfirm",
           "effect": "toggleConfirm",
           "service": "toggleConfirmData",
@@ -4558,6 +4579,13 @@
           "effect": "refreshCache",
           "service": "refreshCacheData",
           "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/subsidiaryReportMessage/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
         }
       ],
       "cover": true,

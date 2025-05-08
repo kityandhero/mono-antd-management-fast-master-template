@@ -3,14 +3,17 @@ import {
   checkHasAuthority,
   convertCollection,
   getValueByKey,
-  handleItem,
   showSimpleErrorMessage,
+  whetherNumber,
 } from 'easy-soft-utility';
 
 import { getDerivedStateFromPropertiesForUrlParameters } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
+import {
+  iconBuilder,
+  iconModeCollection,
+} from 'antd-management-fast-component';
 
-import { accessWayCollection } from '../../../customConfig';
+import { accessWayCollection, colorCollection } from '../../../customConfig';
 import {
   DataTabContainerSupplement,
   getChannelName,
@@ -22,7 +25,7 @@ import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
 } from '../Assist/config';
-import { fieldData, statusCollection } from '../Common/data';
+import { fieldData } from '../Common/data';
 
 @connect(({ subsidiaryFeedbackMessage, schedulingControl }) => ({
   subsidiaryFeedbackMessage,
@@ -96,34 +99,8 @@ class Edit extends DataTabContainerSupplement {
     toggleConfirmAction({
       target: this,
       handleData: record,
-      successCallback: ({ target, remoteData }) => {
-        const id = getValueByKey({
-          data: remoteData,
-          key: fieldData.subsidiaryFeedbackMessageId.name,
-        });
-
-        handleItem({
-          target,
-          value: id,
-          compareValueHandler: (o) => {
-            const v = getValueByKey({
-              data: o,
-              key: fieldData.subsidiaryFeedbackMessageId.name,
-            });
-
-            return v;
-          },
-          handler: (d) => {
-            const o = d;
-
-            o[fieldData.whetherConfirm.name] = getValueByKey({
-              data: remoteData,
-              key: fieldData.whetherConfirm.name,
-            });
-
-            return d;
-          },
-        });
+      successCallback: ({ target }) => {
+        target.refreshData({});
       },
     });
   };
@@ -143,6 +120,49 @@ class Edit extends DataTabContainerSupplement {
     return '标题';
   };
 
+  establishPageHeaderTagCollectionConfig = () => {
+    const { metaData } = this.state;
+
+    if ((metaData || null) == null) {
+      return null;
+    }
+
+    const whetherConfirm = getValueByKey({
+      data: metaData,
+      key: fieldData.whetherConfirm.name,
+      convert: convertCollection.number,
+    });
+
+    const whetherReply = getValueByKey({
+      data: metaData,
+      key: fieldData.whetherReply.name,
+      convert: convertCollection.number,
+    });
+
+    return [
+      {
+        color: 'green',
+        text: '已核实',
+        hidden: whetherConfirm !== whetherNumber.yes,
+      },
+      {
+        color: 'red',
+        text: '待核实',
+        hidden: whetherConfirm !== whetherNumber.no,
+      },
+      {
+        color: 'green',
+        text: '已回复',
+        hidden: whetherReply !== whetherNumber.yes,
+      },
+      {
+        color: 'red',
+        text: '待回复',
+        hidden: whetherReply !== whetherNumber.no,
+      },
+    ];
+  };
+
   establishExtraActionGroupConfig = () => {
     const { metaData } = this.state;
 
@@ -150,9 +170,9 @@ class Edit extends DataTabContainerSupplement {
       return null;
     }
 
-    const status = getValueByKey({
+    const whetherConfirm = getValueByKey({
       data: metaData,
-      key: fieldData.status.name,
+      key: fieldData.whetherConfirm.name,
       convert: convertCollection.number,
     });
 
@@ -161,34 +181,32 @@ class Edit extends DataTabContainerSupplement {
     return {
       buttons: [
         {
-          key: 'setOnline',
-          text: '设为上线',
-          icon: iconBuilder.checkCircle(),
+          key: 'toggleConfirm',
+          text: whetherConfirm === whetherNumber.yes ? '取消核实' : '核实信息',
+          icon:
+            whetherConfirm === whetherNumber.yes
+              ? iconBuilder.closeCircle(
+                  {
+                    twoToneColor: colorCollection.noColor,
+                  },
+                  iconModeCollection.twoTone,
+                )
+              : iconBuilder.checkCircle(
+                  {
+                    twoToneColor: colorCollection.yesColor,
+                  },
+                  iconModeCollection.twoTone,
+                ),
+          handleData: metaData,
+          confirm: true,
+          title: `即将${whetherConfirm ? '取消核实' : '核实信息'}，确定吗？`,
           handleButtonClick: ({ handleData }) => {
-            that.setOnline(handleData);
+            that.toggleConfirm(handleData);
           },
           hidden: !checkHasAuthority(
-            accessWayCollection.subsidiaryFeedbackMessage.setOnline.permission,
+            accessWayCollection.subsidiaryFeedbackMessage.toggleConfirm
+              .permission,
           ),
-          disabled: status === statusCollection.online,
-          confirm: true,
-          title: '即将设为上线，确定启用吗？',
-          handleData: metaData,
-        },
-        {
-          key: 'setOffline',
-          text: '设为下线',
-          icon: iconBuilder.download(),
-          handleButtonClick: ({ handleData }) => {
-            that.setOffline(handleData);
-          },
-          hidden: !checkHasAuthority(
-            accessWayCollection.subsidiaryFeedbackMessage.setOffline.permission,
-          ),
-          disabled: status === statusCollection.offline,
-          confirm: true,
-          title: '即将设为下线，确定启用吗？',
-          handleData: metaData,
         },
       ],
     };

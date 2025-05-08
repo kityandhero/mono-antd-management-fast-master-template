@@ -2713,6 +2713,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '15a4faa9e6b6ad84c375ee8a284eccb6',
       permission: 'e1ee0da99c6a4a2aa941f8513d0a16cb',
     },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: '54332204898708659c1d33e1c5bc9447',
+      permission: '5bffe179db1c4bc0892affd4276dfffe',
+    },
   },
   subsidiaryComplaintMessage: {
     pageList: {
@@ -2726,7 +2731,7 @@ export const accessWayInfrastructureCollection = {
       permission: '509ae966481b432b9770f27cbaacdf62',
     },
     toggleConfirm: {
-      title: '切换是否核实信息为真',
+      title: '切换是否核实信息',
       paramsKey: '702a92320604af5d3b63a62aa6630952',
       permission: '91a2389859a247cfb097b2c7025e8ff3',
     },
@@ -2745,6 +2750,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '0e44d6802e95553363449e3d90d6ae6b',
       permission: '6276fdccd3024fc6a787b567363dd5a0',
     },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: '7ad0edcb4f310b39c620489d7eeaddfa',
+      permission: '368e6e0e38c9412ba694f4d9c311ec3f',
+    },
   },
   subsidiaryFeedbackMessage: {
     pageList: {
@@ -2758,7 +2768,7 @@ export const accessWayInfrastructureCollection = {
       permission: '395e6a4f841b4b79816c91a9361dea9a',
     },
     toggleConfirm: {
-      title: '切换是否核实信息为真',
+      title: '切换是否核实信息',
       paramsKey: 'c1f5debd360b81acafeb9c4da6f24663',
       permission: 'a491444159d540968205f490b42d2a71',
     },
@@ -2777,6 +2787,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'fabc5251635c529ab5efd65788153149',
       permission: '766f263a32db480d8ac04483a6d6269a',
     },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: '32d40297cfdaf17f80f32d1b8508cc52',
+      permission: 'bfd60d5b89624f40be230a271608fc84',
+    },
   },
   subsidiaryReportMessage: {
     pageList: {
@@ -2790,7 +2805,7 @@ export const accessWayInfrastructureCollection = {
       permission: 'c8ac72b832c84b99941ec40253abc685',
     },
     toggleConfirm: {
-      title: '切换是否核实信息为真',
+      title: '切换是否核实信息',
       paramsKey: '7a372a92d87cd8a77be15a7ea6aadc2e',
       permission: 'b64d591d00444825942f37f57fb52bcc',
     },
@@ -2808,6 +2823,11 @@ export const accessWayInfrastructureCollection = {
       title: '刷新缓存',
       paramsKey: 'df7167e17572343da38a6f05c175b7ce',
       permission: '86d84806ab424f5694c05e417e71a9eb',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: 'b9f1dcff5dce0c846b08dba494ad01a0',
+      permission: '93d64334847545b98df1dbad1027cdb7',
     },
   },
   tag: {

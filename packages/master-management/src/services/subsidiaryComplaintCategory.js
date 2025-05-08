@@ -115,3 +115,13 @@ export async function refreshCacheData(parameters) {
     params: parameters,
   });
 }
+
+export const pageListOperateLogDataApiAddress =
+  '/subsidiaryComplaintCategory/pageListOperateLog';
+
+export async function pageListOperateLogData(parameters) {
+  return request({
+    api: pageListOperateLogDataApiAddress,
+    params: parameters,
+  });
+}

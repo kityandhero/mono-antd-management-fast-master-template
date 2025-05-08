@@ -3,14 +3,17 @@ import {
   checkHasAuthority,
   convertCollection,
   getValueByKey,
-  handleItem,
   showSimpleErrorMessage,
+  whetherNumber,
 } from 'easy-soft-utility';
 
 import { getDerivedStateFromPropertiesForUrlParameters } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
+import {
+  iconBuilder,
+  iconModeCollection,
+} from 'antd-management-fast-component';
 
-import { accessWayCollection } from '../../../customConfig';
+import { accessWayCollection, colorCollection } from '../../../customConfig';
 import {
   DataTabContainerSupplement,
   getChannelName,
@@ -101,34 +104,8 @@ class Edit extends DataTabContainerSupplement {
     toggleConfirmAction({
       target: this,
       handleData: record,
-      successCallback: ({ target, remoteData }) => {
-        const id = getValueByKey({
-          data: remoteData,
-          key: fieldData.subsidiaryComplaintMessageId.name,
-        });
-
-        handleItem({
-          target,
-          value: id,
-          compareValueHandler: (o) => {
-            const v = getValueByKey({
-              data: o,
-              key: fieldData.subsidiaryComplaintMessageId.name,
-            });
-
-            return v;
-          },
-          handler: (d) => {
-            const o = d;
-
-            o[fieldData.whetherConfirm.name] = getValueByKey({
-              data: remoteData,
-              key: fieldData.whetherConfirm.name,
-            });
-
-            return d;
-          },
-        });
+      successCallback: ({ target }) => {
+        target.refreshData({});
       },
     });
   };
@@ -158,6 +135,49 @@ class Edit extends DataTabContainerSupplement {
     return '标题';
   };
 
+  establishPageHeaderTagCollectionConfig = () => {
+    const { metaData } = this.state;
+
+    if ((metaData || null) == null) {
+      return null;
+    }
+
+    const whetherConfirm = getValueByKey({
+      data: metaData,
+      key: fieldData.whetherConfirm.name,
+      convert: convertCollection.number,
+    });
+
+    const whetherReply = getValueByKey({
+      data: metaData,
+      key: fieldData.whetherReply.name,
+      convert: convertCollection.number,
+    });
+
+    return [
+      {
+        color: 'green',
+        text: '已核实',
+        hidden: whetherConfirm !== whetherNumber.yes,
+      },
+      {
+        color: 'red',
+        text: '待核实',
+        hidden: whetherConfirm !== whetherNumber.no,
+      },
+      {
+        color: 'green',
+        text: '已回复',
+        hidden: whetherReply !== whetherNumber.yes,
+      },
+      {
+        color: 'red',
+        text: '待回复',
+        hidden: whetherReply !== whetherNumber.no,
+      },
+    ];
+  };
+
   establishExtraActionGroupConfig = () => {
     const { metaData } = this.state;
 
@@ -165,22 +185,43 @@ class Edit extends DataTabContainerSupplement {
       return null;
     }
 
+    const whetherConfirm = getValueByKey({
+      data: metaData,
+      key: fieldData.whetherConfirm.name,
+      convert: convertCollection.number,
+    });
+
     const that = this;
 
     return {
       buttons: [
         {
-          key: 'remove',
-          icon: iconBuilder.delete(),
-          text: '删除日志',
+          key: 'toggleConfirm',
+          text: whetherConfirm === whetherNumber.yes ? '取消核实' : '核实信息',
+          icon:
+            whetherConfirm === whetherNumber.yes
+              ? iconBuilder.closeCircle(
+                  {
+                    twoToneColor: colorCollection.noColor,
+                  },
+                  iconModeCollection.twoTone,
+                )
+              : iconBuilder.checkCircle(
+                  {
+                    twoToneColor: colorCollection.yesColor,
+                  },
+                  iconModeCollection.twoTone,
+                ),
+          handleData: metaData,
           confirm: true,
-          title: '即将删除日志，确定吗？',
-          hidden: !checkHasAuthority(
-            accessWayCollection.subsidiaryComplaintMessage.remove.permission,
-          ),
+          title: `即将${whetherConfirm ? '取消核实' : '核实信息'}，确定吗？`,
           handleButtonClick: ({ handleData }) => {
-            that.setOffline(handleData);
+            that.toggleConfirm(handleData);
           },
+          hidden: !checkHasAuthority(
+            accessWayCollection.subsidiaryFeedbackMessage.toggleConfirm
+              .permission,
+          ),
         },
       ],
     };

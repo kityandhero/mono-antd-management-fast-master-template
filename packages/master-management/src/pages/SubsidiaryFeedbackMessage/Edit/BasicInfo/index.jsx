@@ -1,5 +1,5 @@
 import { connect } from 'easy-soft-dva';
-import { getValueByKey } from 'easy-soft-utility';
+import { convertCollection, getValueByKey } from 'easy-soft-utility';
 
 import {
   cardConfig,
@@ -76,14 +76,19 @@ class Index extends TabPageBase {
     const values = {};
 
     if (metaData != null) {
-      values[fieldData.name.name] = getValueByKey({
+      values[fieldData.title.name] = getValueByKey({
         data: metaData,
-        key: fieldData.name.name,
+        key: fieldData.title.name,
       });
 
       values[fieldData.description.name] = getValueByKey({
         data: metaData,
         key: fieldData.description.name,
+      });
+
+      values[fieldData.replyContent.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.replyContent.name,
       });
     }
 
@@ -92,6 +97,20 @@ class Index extends TabPageBase {
 
   establishCardCollectionConfig = () => {
     const { metaData } = this.state;
+
+    const listAttachment = getValueByKey({
+      data: metaData,
+      key: fieldData.listAttachment.name,
+      convert: convertCollection.array,
+    });
+
+    const imageList = listAttachment.map((item) => {
+      const { url } = {
+        url: '',
+        ...item,
+      };
+      return url;
+    });
 
     return {
       list: [
@@ -107,16 +126,13 @@ class Index extends TabPageBase {
               {
                 buildType: cardConfig.extraBuildType.refresh,
               },
-              {
-                buildType: cardConfig.extraBuildType.save,
-              },
             ],
           },
           items: [
             {
-              lg: 6,
+              lg: 24,
               type: cardConfig.contentItemType.input,
-              fieldData: fieldData.name,
+              fieldData: fieldData.title,
               require: true,
             },
           ],
@@ -131,6 +147,24 @@ class Index extends TabPageBase {
               lg: 24,
               type: cardConfig.contentItemType.textarea,
               fieldData: fieldData.description,
+            },
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.imageListShow,
+              imageList,
+            },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
+            text: '回复内容',
+          },
+          items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.textarea,
+              fieldData: fieldData.replyContent,
             },
           ],
         },
