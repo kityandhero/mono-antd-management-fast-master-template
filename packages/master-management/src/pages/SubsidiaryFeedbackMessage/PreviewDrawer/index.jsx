@@ -8,6 +8,7 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { buildUpdateTimeAndOperatorFieldItem } from '../../../customSpecialComponents';
 import { fieldData } from '../Common/data';
 
 const { BaseLoadDrawer } = DataDrawer;
@@ -124,7 +125,7 @@ class PreviewDrawer extends BaseLoadDrawer {
         {
           title: {
             icon: iconBuilder.contacts(),
-            text: '回复内容',
+            text: '留言人信息',
           },
           items: [
             {
@@ -134,10 +135,26 @@ class PreviewDrawer extends BaseLoadDrawer {
                 list: [
                   {
                     span: 2,
-                    label: fieldData.replyContent.label,
+                    label: fieldData.customerFriendlyName.label,
                     value: getValueByKey({
                       data: metaData,
-                      key: fieldData.replyContent.name,
+                      key: fieldData.customerFriendlyName.name,
+                    }),
+                  },
+                  {
+                    span: 1,
+                    label: fieldData.customerId.label,
+                    value: getValueByKey({
+                      data: metaData,
+                      key: fieldData.customerId.name,
+                    }),
+                  },
+                  {
+                    span: 1,
+                    label: fieldData.customerPhone.label,
+                    value: getValueByKey({
+                      data: metaData,
+                      key: fieldData.customerPhone.name,
                     }),
                   },
                 ],
@@ -157,6 +174,80 @@ class PreviewDrawer extends BaseLoadDrawer {
             },
           ],
         },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
+            text: '回复内容',
+          },
+          items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.component,
+              component: buildCustomGrid({
+                list: [
+                  {
+                    span: 2,
+                    label: fieldData.replyContent.label,
+                    value: getValueByKey({
+                      data: metaData,
+                      key: fieldData.replyContent.name,
+                    }),
+                  },
+                  {
+                    span: 2,
+                    label: fieldData.replyTime.label,
+                    value: getValueByKey({
+                      data: metaData,
+                      key: fieldData.replyTime.name,
+                    }),
+                  },
+                ],
+                props: {
+                  bordered: true,
+                  column: 2,
+                  size: 'small',
+                  labelStyle: {
+                    width: '100px',
+                  },
+                  emptyValue: '暂无',
+                  emptyStyle: {
+                    color: '#ccc',
+                  },
+                },
+              }),
+            },
+          ],
+        },
+        buildUpdateTimeAndOperatorFieldItem({
+          data: metaData,
+          line: 2,
+          additionalDataConfig: [
+            {
+              span: 1,
+              fieldData: fieldData.subsidiaryFeedbackMessageId,
+            },
+            {
+              span: 1,
+              fieldData: fieldData.subsidiaryShortName,
+            },
+            {
+              span: 1,
+              fieldData: fieldData.whetherConfirmNote,
+            },
+            {
+              span: 1,
+              fieldData: fieldData.whetherReplyNote,
+            },
+            {
+              span: 1,
+              fieldData: fieldData.channelNote,
+            },
+            {
+              span: 1,
+              fieldData: fieldData.statusNote,
+            },
+          ],
+        }),
       ],
     };
   };

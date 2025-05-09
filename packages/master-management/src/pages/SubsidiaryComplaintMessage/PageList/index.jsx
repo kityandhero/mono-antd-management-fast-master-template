@@ -257,6 +257,12 @@ class PageList extends MultiPage {
       emptyValue: '--',
     },
     {
+      dataTarget: fieldData.subsidiaryComplaintCategoryName,
+      width: 140,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
       dataTarget: fieldData.subsidiaryShortName,
       width: 200,
       showRichFacade: true,
