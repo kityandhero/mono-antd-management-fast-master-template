@@ -1,6 +1,5 @@
 import { connect } from 'easy-soft-dva';
 import {
-  checkHasAuthority,
   convertCollection,
   getValueByKey,
   showSimpleErrorMessage,
@@ -8,12 +7,8 @@ import {
 } from 'easy-soft-utility';
 
 import { getDerivedStateFromPropertiesForUrlParameters } from 'antd-management-fast-common';
-import {
-  iconBuilder,
-  iconModeCollection,
-} from 'antd-management-fast-component';
+import { iconBuilder } from 'antd-management-fast-component';
 
-import { accessWayCollection, colorCollection } from '../../../customConfig';
 import {
   DataTabContainerSupplement,
   getChannelName,
@@ -176,55 +171,6 @@ class Edit extends DataTabContainerSupplement {
         hidden: whetherReply !== whetherNumber.no,
       },
     ];
-  };
-
-  establishExtraActionGroupConfig = () => {
-    const { metaData } = this.state;
-
-    if (metaData == null) {
-      return null;
-    }
-
-    const whetherConfirm = getValueByKey({
-      data: metaData,
-      key: fieldData.whetherConfirm.name,
-      convert: convertCollection.number,
-    });
-
-    const that = this;
-
-    return {
-      buttons: [
-        {
-          key: 'toggleConfirm',
-          text: whetherConfirm === whetherNumber.yes ? '取消核实' : '核实信息',
-          icon:
-            whetherConfirm === whetherNumber.yes
-              ? iconBuilder.closeCircle(
-                  {
-                    twoToneColor: colorCollection.noColor,
-                  },
-                  iconModeCollection.twoTone,
-                )
-              : iconBuilder.checkCircle(
-                  {
-                    twoToneColor: colorCollection.yesColor,
-                  },
-                  iconModeCollection.twoTone,
-                ),
-          handleData: metaData,
-          confirm: true,
-          title: `即将${whetherConfirm ? '取消核实' : '核实信息'}，确定吗？`,
-          handleButtonClick: ({ handleData }) => {
-            that.toggleConfirm(handleData);
-          },
-          hidden: !checkHasAuthority(
-            accessWayCollection.subsidiaryFeedbackMessage.toggleConfirm
-              .permission,
-          ),
-        },
-      ],
-    };
   };
 
   establishExtraActionEllipsisConfig = () => {

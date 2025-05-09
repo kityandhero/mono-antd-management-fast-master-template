@@ -114,7 +114,7 @@ export const menuZhCNGeneral = {
   'menu.subsidiaryMessages.subsidiaryComplaintMessage-mini': '投诉信息',
   'menu.subsidiaryMessages.subsidiaryComplaintMessage.pageList': '信息列表',
   'menu.subsidiaryMessages.subsidiaryComplaintMessage.pageList-mini': '列表',
-  'menu.subsidiaryMessages.subsidiaryComplaintMessage.edit': '行政区划详情',
+  'menu.subsidiaryMessages.subsidiaryComplaintMessage.edit': '投诉详情',
   'menu.subsidiaryMessages.subsidiaryComplaintMessage.edit.basicInfo':
     '基本信息',
   'menu.subsidiaryMessages.subsidiaryComplaintMessage.edit.operateLog':
@@ -126,7 +126,7 @@ export const menuZhCNGeneral = {
   'menu.subsidiaryMessages.subsidiaryFeedbackMessage-mini': '留言',
   'menu.subsidiaryMessages.subsidiaryFeedbackMessage.pageList': '信息列表',
   'menu.subsidiaryMessages.subsidiaryFeedbackMessage.pageList-mini': '列表',
-  'menu.subsidiaryMessages.subsidiaryFeedbackMessage.edit': '行政区划详情',
+  'menu.subsidiaryMessages.subsidiaryFeedbackMessage.edit': '留言详情',
   'menu.subsidiaryMessages.subsidiaryFeedbackMessage.edit.basicInfo':
     '基本信息',
   'menu.subsidiaryMessages.subsidiaryFeedbackMessage.edit.operateLog':
@@ -138,7 +138,7 @@ export const menuZhCNGeneral = {
   'menu.subsidiaryMessages.subsidiaryReportMessage-mini': '举报',
   'menu.subsidiaryMessages.subsidiaryReportMessage.pageList': '信息列表',
   'menu.subsidiaryMessages.subsidiaryReportMessage.pageList-mini': '列表',
-  'menu.subsidiaryMessages.subsidiaryReportMessage.edit': '行政区划详情',
+  'menu.subsidiaryMessages.subsidiaryReportMessage.edit': '举报详情',
   'menu.subsidiaryMessages.subsidiaryReportMessage.edit.basicInfo': '基本信息',
   'menu.subsidiaryMessages.subsidiaryReportMessage.edit.operateLog': '操作日志',
   'menu.subsidiaryMessages.subsidiaryReportMessage.edit.operateLog.pageList':

@@ -6,7 +6,6 @@ import {
   getValueByKey,
   showSimpleErrorMessage,
   toNumber,
-  whetherNumber,
 } from 'easy-soft-utility';
 
 import {
@@ -15,22 +14,16 @@ import {
   listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
-import {
-  iconBuilder,
-  iconModeCollection,
-} from 'antd-management-fast-component';
+import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
-import { accessWayCollection, colorCollection } from '../../../customConfig';
+import { accessWayCollection } from '../../../customConfig';
 import { modelTypeCollection } from '../../../modelBuilders';
 import { PageListOpenReportDrawer } from '../../Subsidiary/PageListOpenReportDrawer';
-import {
-  refreshCacheAction,
-  removeAction,
-  toggleConfirmAction,
-} from '../Assist/action';
-import { handleItemWhetherConfirm } from '../Assist/tools';
+import { refreshCacheAction, removeAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
+import { OperateLogDrawer } from '../OperateLogDrawer';
+import { PreviewDrawer } from '../PreviewDrawer';
 
 const { MultiPage } = DataMultiPageView;
 
@@ -57,8 +50,18 @@ class PageList extends MultiPage {
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
-      case 'toggleConfirm': {
-        this.toggleConfirm(handleData);
+      case 'goToEdit': {
+        this.goToEdit(handleData);
+        break;
+      }
+
+      case 'showPreviewDrawer': {
+        this.showPreviewDrawer(handleData);
+        break;
+      }
+
+      case 'showOperateLog': {
+        this.showOperateLogDrawer(handleData);
         break;
       }
 
@@ -77,16 +80,6 @@ class PageList extends MultiPage {
         break;
       }
     }
-  };
-
-  toggleConfirm = (o) => {
-    toggleConfirmAction({
-      target: this,
-      handleData: o,
-      successCallback: ({ target, handleData, remoteData }) => {
-        handleItemWhetherConfirm({ target, handleData, remoteData });
-      },
-    });
   };
 
   refreshCache = (o) => {
@@ -108,6 +101,28 @@ class PageList extends MultiPage {
 
   showPageListOpenReportDrawer = () => {
     PageListOpenReportDrawer.open();
+  };
+
+  showOperateLogDrawer = (item) => {
+    this.setState(
+      {
+        currentRecord: item,
+      },
+      () => {
+        OperateLogDrawer.open();
+      },
+    );
+  };
+
+  showPreviewDrawer = (item) => {
+    this.setState(
+      {
+        currentRecord: item,
+      },
+      () => {
+        PreviewDrawer.open();
+      },
+    );
   };
 
   goToEdit = (record) => {
@@ -153,12 +168,6 @@ class PageList extends MultiPage {
   };
 
   establishListItemDropdownConfig = (item) => {
-    const whetherConfirm = getValueByKey({
-      data: item,
-      key: fieldData.whetherConfirm.name,
-      convert: convertCollection.number,
-    });
-
     const that = this;
 
     return {
@@ -169,7 +178,7 @@ class PageList extends MultiPage {
         accessWayCollection.subsidiaryReportMessage.get.permission,
       ),
       handleButtonClick: ({ handleData }) => {
-        that.goToEdit(handleData);
+        that.showPreviewDrawer(handleData);
       },
       handleData: item,
       handleMenuClick: ({ key, handleData }) => {
@@ -177,24 +186,24 @@ class PageList extends MultiPage {
       },
       items: [
         {
-          key: 'toggleConfirm',
-          text: whetherConfirm === whetherNumber.yes ? '取消核实' : '核实信息',
-          icon:
-            whetherConfirm === whetherNumber.yes
-              ? iconBuilder.closeCircle(
-                  {
-                    twoToneColor: colorCollection.noColor,
-                  },
-                  iconModeCollection.twoTone,
-                )
-              : iconBuilder.checkCircle(
-                  {
-                    twoToneColor: colorCollection.yesColor,
-                  },
-                  iconModeCollection.twoTone,
-                ),
-          confirm: true,
-          title: `即将${whetherConfirm ? '取消核实' : '核实信息'}，确定吗？`,
+          key: 'goToEdit',
+          icon: iconBuilder.edit(),
+          text: '查看详情',
+          hidden: !checkHasAuthority(
+            accessWayCollection.subsidiaryReportMessage.get.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'showOperateLog',
+          icon: iconBuilder.read(),
+          text: '操作日志',
+          hidden: !checkHasAuthority(
+            accessWayCollection.subsidiaryReportMessage.pageListOperateLog
+              .permission,
+          ),
         },
         {
           type: dropdownExpandItemType.divider,
@@ -216,6 +225,9 @@ class PageList extends MultiPage {
           key: 'remove',
           icon: iconBuilder.delete(),
           text: '移除',
+          hidden: !checkHasAuthority(
+            accessWayCollection.subsidiaryReportMessage.remove.permission,
+          ),
           confirm: true,
           title: '即将此消息，确定吗？',
         },
@@ -226,7 +238,6 @@ class PageList extends MultiPage {
   getColumnWrapper = () => [
     {
       dataTarget: fieldData.title,
-      width: 320,
       align: 'left',
       showRichFacade: true,
       emptyValue: '--',
@@ -313,7 +324,17 @@ class PageList extends MultiPage {
   };
 
   renderPresetOther = () => {
-    return <PageListOpenReportDrawer />;
+    const { currentRecord } = this.state;
+
+    return (
+      <>
+        <PageListOpenReportDrawer />
+
+        <PreviewDrawer externalData={currentRecord} maskClosable />
+
+        <OperateLogDrawer externalData={currentRecord} maskClosable />
+      </>
+    );
   };
 }
 
