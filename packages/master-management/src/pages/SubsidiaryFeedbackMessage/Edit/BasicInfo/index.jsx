@@ -5,7 +5,7 @@ import {
   cardConfig,
   getDerivedStateFromPropertiesForUrlParameters,
 } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
+import { buildCustomGrid, iconBuilder } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
 import { buildUpdateTimeAndOperatorFieldItem } from '../../../../customSpecialComponents';
@@ -131,22 +131,49 @@ class Index extends TabPageBase {
           items: [
             {
               lg: 24,
-              type: cardConfig.contentItemType.input,
-              fieldData: fieldData.title,
-              require: true,
+              type: cardConfig.contentItemType.component,
+              component: buildCustomGrid({
+                list: [
+                  {
+                    span: 2,
+                    label: fieldData.title.label,
+                    value: getValueByKey({
+                      data: metaData,
+                      key: fieldData.title.name,
+                    }),
+                  },
+                  {
+                    span: 2,
+                    label: fieldData.description.label,
+                    value: getValueByKey({
+                      data: metaData,
+                      key: fieldData.description.name,
+                    }),
+                  },
+                ],
+                props: {
+                  bordered: true,
+                  column: 2,
+                  size: 'small',
+                  labelStyle: {
+                    width: '100px',
+                  },
+                  emptyValue: '暂无',
+                  emptyStyle: {
+                    color: '#ccc',
+                  },
+                },
+              }),
             },
-          ],
-        },
-        {
-          title: {
-            icon: iconBuilder.contacts(),
-            text: '简介 - 描述 - 备注',
-          },
-          items: [
             {
               lg: 24,
-              type: cardConfig.contentItemType.textarea,
-              fieldData: fieldData.description,
+              type: cardConfig.contentItemType.divider,
+              text: '附件列表',
+              innerProps: {
+                style: {
+                  margin: '16px 0 16px 0',
+                },
+              },
             },
             {
               lg: 24,
@@ -163,12 +190,38 @@ class Index extends TabPageBase {
           items: [
             {
               lg: 24,
-              type: cardConfig.contentItemType.textarea,
-              fieldData: fieldData.replyContent,
+              type: cardConfig.contentItemType.component,
+              component: buildCustomGrid({
+                list: [
+                  {
+                    span: 2,
+                    label: fieldData.replyContent.label,
+                    value: getValueByKey({
+                      data: metaData,
+                      key: fieldData.replyContent.name,
+                    }),
+                  },
+                ],
+                props: {
+                  bordered: true,
+                  column: 2,
+                  size: 'small',
+                  labelStyle: {
+                    width: '100px',
+                  },
+                  emptyValue: '暂无',
+                  emptyStyle: {
+                    color: '#ccc',
+                  },
+                },
+              }),
             },
           ],
         },
-        buildUpdateTimeAndOperatorFieldItem({ data: metaData, line: 1 }),
+        buildUpdateTimeAndOperatorFieldItem({
+          data: metaData,
+          line: 1,
+        }),
       ],
     };
   };

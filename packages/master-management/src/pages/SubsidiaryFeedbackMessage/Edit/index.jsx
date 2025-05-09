@@ -147,17 +147,17 @@ class Edit extends DataTabContainerSupplement {
       },
       {
         color: 'red',
-        text: '待核实',
+        text: '尚未核实',
         hidden: whetherConfirm !== whetherNumber.no,
       },
       {
-        color: 'green',
+        color: 'orange',
         text: '已回复',
         hidden: whetherReply !== whetherNumber.yes,
       },
       {
-        color: 'red',
-        text: '待回复',
+        color: 'yellow',
+        text: '尚未回复',
         hidden: whetherReply !== whetherNumber.no,
       },
     ];
@@ -280,6 +280,22 @@ class Edit extends DataTabContainerSupplement {
           key: fieldData.subsidiaryFeedbackMessageId.name,
         }),
         canCopy: true,
+      },
+      {
+        label: fieldData.whetherConfirmNote.label,
+        value: getValueByKey({
+          data: metaData,
+          key: fieldData.whetherConfirmNote.name,
+          convert: convertCollection.string,
+        }),
+      },
+      {
+        label: fieldData.whetherReplyNote.label,
+        value: getValueByKey({
+          data: metaData,
+          key: fieldData.whetherReplyNote.name,
+          convert: convertCollection.string,
+        }),
       },
       {
         label: fieldData.channel.label,
