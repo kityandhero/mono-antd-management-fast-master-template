@@ -75,6 +75,7 @@ class BuildUnlimitedWechatMicroApplicationQrCodeDrawer extends BaseNeedlessLoadD
         scene: this.wechatMicroApplicationQrCodeScene,
         envVersion: this.wechatMicroApplicationQrCodeEnvVersion,
         checkPath: this.wechatMicroApplicationQrCodeCheckPath,
+        width: this.wechatMicroApplicationQrCodeSize,
       },
       successCallback: ({ target, remoteData }) => {
         const wechatMicroApplicationQrCode = getValueByKey({
@@ -105,6 +106,10 @@ class BuildUnlimitedWechatMicroApplicationQrCodeDrawer extends BaseNeedlessLoadD
   // eslint-disable-next-line no-unused-vars
   onCheckPathChange = (v, option) => {
     this.wechatMicroApplicationQrCodeCheckPath = v;
+  };
+
+  onSizeChange = (v) => {
+    this.wechatMicroApplicationQrCodeSize = v;
   };
 
   establishExtraActionConfig = () => {
@@ -139,6 +144,7 @@ class BuildUnlimitedWechatMicroApplicationQrCodeDrawer extends BaseNeedlessLoadD
 
     initialValues[fieldData.envVersion.name] = 'release';
     initialValues[fieldData.checkPath.name] = whetherString.yes;
+    initialValues[fieldData.qrCodeSize.name] = 430;
 
     return initialValues;
   };
@@ -221,6 +227,17 @@ class BuildUnlimitedWechatMicroApplicationQrCodeDrawer extends BaseNeedlessLoadD
               dataConvert: convertOptionOrRadioData,
               require: true,
               onChange: this.onCheckPathChange,
+            },
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.inputNumber,
+              fieldData: fieldData.qrCodeSize,
+              require: false,
+              innerProps: {
+                onChange: (v) => {
+                  that.onSizeChange(v);
+                },
+              },
             },
           ],
         },
