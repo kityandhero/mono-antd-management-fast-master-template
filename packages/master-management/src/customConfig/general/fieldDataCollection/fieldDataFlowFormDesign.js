@@ -90,6 +90,11 @@ export const fieldDataFlowFormDesign = {
     name: 'workflowName',
     helper: '',
   },
+  workflowTitle: {
+    label: '表单标题',
+    name: 'workflowTitle',
+    helper: '',
+  },
   designSchema: {
     label: '表单配置',
     name: 'designSchema',

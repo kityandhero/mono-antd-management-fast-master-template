@@ -512,7 +512,7 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
           showToolbar={false}
           title={getValueByKey({
             data: metaData,
-            key: fieldDataFlowCase.workflowName.name,
+            key: fieldDataFlowCase.workflowTitle.name,
           })}
           values={isArray(listFormStorage) ? listFormStorage : []}
           schema={{

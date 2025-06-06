@@ -46,8 +46,13 @@ export const fieldDataFlow = {
     helper: '',
   },
   name: {
-    label: '名称',
+    label: '流程名称',
     name: 'name',
+    helper: '',
+  },
+  title: {
+    label: '表单标题',
+    name: 'title',
     helper: '',
   },
   description: {

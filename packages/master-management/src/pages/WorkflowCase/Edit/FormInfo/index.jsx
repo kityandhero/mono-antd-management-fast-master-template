@@ -943,7 +943,7 @@ class BasicInfo extends TabPageBase {
           showToolbar={false}
           title={getValueByKey({
             data: metaData,
-            key: fieldData.workflowName.name,
+            key: fieldData.workflowTitle.name,
           })}
           values={isArray(listFormStorage) ? listFormStorage : []}
           schema={{

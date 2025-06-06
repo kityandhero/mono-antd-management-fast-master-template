@@ -225,7 +225,7 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
         showIndependentPrint={showIndependentPrint}
         title={getValueByKey({
           data: metaData,
-          key: fieldDataFlowFormDesign.workflowName.name,
+          key: fieldDataFlowFormDesign.workflowTitle.name,
         })}
         values={isArray(values) ? values : []}
         schema={{
