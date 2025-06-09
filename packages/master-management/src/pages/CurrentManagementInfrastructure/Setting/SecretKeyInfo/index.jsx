@@ -4,10 +4,15 @@ import { checkHasAuthority, getValueByKey } from 'easy-soft-utility';
 import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 
-import { accessWayCollection } from '../../../../customConfig';
+import {
+  accessWayCollection,
+  keyValueEditModeCollection,
+} from '../../../../customConfig';
+import { buildInputItem } from '../../../../utils';
 import { testSecretKeyAction } from '../../Assist/action';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
+import { UpdateKeyValueInfoModal } from '../../UpdateKeyValueInfoModal';
 
 @connect(({ currentManagementInfrastructure, schedulingControl }) => ({
   currentManagementInfrastructure,
@@ -24,6 +29,25 @@ class Index extends TabPageBase {
       logo: '',
     };
   }
+
+  showUpdateKeyValueInfoModal = ({
+    fieldData: targetFieldData,
+    editMode = keyValueEditModeCollection.string,
+  }) => {
+    this.setState(
+      {
+        targetFieldData,
+        keyValueEditMode: editMode,
+      },
+      () => {
+        UpdateKeyValueInfoModal.open();
+      },
+    );
+  };
+
+  afterUpdateKeyValueInfoModalOk = () => {
+    this.reloadData({});
+  };
 
   testSecretKey = () => {
     const { metaData } = this.state;
@@ -62,7 +86,7 @@ class Index extends TabPageBase {
   };
 
   establishCardCollectionConfig = () => {
-    const { firstLoadSuccess } = this.state;
+    const { firstLoadSuccess, metaData } = this.state;
 
     return {
       list: [
@@ -92,26 +116,48 @@ class Index extends TabPageBase {
               {
                 buildType: cardConfig.extraBuildType.refresh,
               },
-              {
-                buildType: cardConfig.extraBuildType.save,
-              },
             ],
           },
           items: [
-            {
+            buildInputItem({
               lg: 24,
-              type: cardConfig.contentItemType.textarea,
+              firstLoadSuccess,
+              handleData: metaData,
               fieldData: fieldData.privateKey,
-            },
-            {
+              editMode: keyValueEditModeCollection.multiLineString,
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
               lg: 24,
-              type: cardConfig.contentItemType.textarea,
+              firstLoadSuccess,
+              handleData: metaData,
               fieldData: fieldData.publicKey,
-            },
+              editMode: keyValueEditModeCollection.multiLineString,
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
           ],
         },
       ],
     };
+  };
+
+  renderPresetOther = () => {
+    const { keyValueEditMode, metaData, targetFieldData } = this.state;
+
+    return (
+      <>
+        <UpdateKeyValueInfoModal
+          externalData={{
+            currentData: metaData,
+            fieldData: targetFieldData,
+          }}
+          editMode={keyValueEditMode || keyValueEditModeCollection.string}
+          afterOK={() => {
+            this.afterUpdateKeyValueInfoModalOk();
+          }}
+        />
+      </>
+    );
   };
 }
 

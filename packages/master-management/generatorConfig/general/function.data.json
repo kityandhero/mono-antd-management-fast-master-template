@@ -624,6 +624,11 @@
       "functionSegment": "PositionGradeStatus",
       "label": "状态",
       "name": "status"
+    },
+    {
+      "functionSegment": "ShortMessagingServiceProvider",
+      "label": "短信提供商",
+      "name": "shortMessagingServiceProvider"
     }
   ]
 }

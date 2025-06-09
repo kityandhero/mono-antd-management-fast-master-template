@@ -5,7 +5,9 @@ import React from 'react';
 
 import { getModelRemoteData } from 'easy-soft-dva';
 import {
+  checkInCollection,
   checkStringIsNullOrWhiteSpace,
+  convertCollection,
   datetimeFormat,
   formatDatetime,
   getValueByKey,
@@ -187,6 +189,7 @@ export function buildInputDisplay({
 }
 
 export function buildInputItem({
+  lg = 24,
   firstLoadSuccess,
   handleData,
   fieldData: f,
@@ -236,49 +239,147 @@ export function buildInputItem({
     });
   }
 
+  if (
+    checkInCollection(
+      [keyValueEditModeCollection.time, keyValueEditModeCollection.datetime],
+      editMode,
+    )
+  ) {
+    return {
+      lg,
+      type: cardConfig.contentItemType.onlyShowInput,
+      icon: inputIcon || iconBuilder.read(),
+      fieldData: appendFiledHelper({
+        data: handleData,
+        fieldData: f,
+      }),
+      value:
+        value ||
+        getValueByKey({
+          data: handleData,
+          key: f.name,
+          convertBuilder: (v) => {
+            let result = v;
+
+            switch (editMode) {
+              case keyValueEditModeCollection.time: {
+                result = formatDatetime({
+                  data: v,
+                  format: datetimeFormat.hourMinute,
+                  defaultValue: '--',
+                });
+                break;
+              }
+
+              case keyValueEditModeCollection.datetime: {
+                result = formatDatetime({
+                  data: v,
+                  format: datetimeFormat.yearMonthDayHourMinuteSecond,
+                  defaultValue: '--',
+                });
+                break;
+              }
+
+              default: {
+                result = v;
+                break;
+              }
+            }
+
+            return result;
+          },
+        }),
+      hidden,
+      actionBar: {
+        addonAfter: (
+          <Space split={<Divider type="vertical" />}>
+            {buildButton({
+              style: {
+                border: '0px solid #d9d9d9',
+                backgroundColor: '#fafafa',
+                height: '30px',
+                paddingLeft: '0',
+                paddingRight: '0',
+              },
+              icon: icon,
+              text: text,
+              disabled: !firstLoadSuccess,
+              handleClick: () => {
+                handleClickSimple({
+                  fieldData: appendFiledHelper({
+                    data: handleData,
+                    fieldData: f,
+                  }),
+                  editMode,
+                });
+              },
+            })}
+
+            {extraButton}
+          </Space>
+        ),
+      },
+    };
+  }
+
+  if (
+    checkInCollection([keyValueEditModeCollection.multiLineString], editMode)
+  ) {
+    return {
+      lg,
+      type: cardConfig.contentItemType.onlyShowTextarea,
+      icon: inputIcon || iconBuilder.read(),
+      fieldData: appendFiledHelper({
+        data: handleData,
+        fieldData: f,
+      }),
+      value:
+        value ||
+        getValueByKey({
+          data: handleData,
+          key: f.name,
+          convert: convertCollection.string,
+        }),
+      hidden,
+      actionBar: (
+        <Space split={<Divider type="vertical" />}>
+          {buildButton({
+            style: {
+              border: '0px solid #d9d9d9',
+              backgroundColor: '#fafafa',
+              height: '30px',
+              paddingLeft: '0',
+              paddingRight: '0',
+            },
+            icon: icon,
+            text: text,
+            disabled: !firstLoadSuccess,
+            handleClick: () => {
+              handleClickSimple({
+                fieldData: appendFiledHelper({
+                  data: handleData,
+                  fieldData: f,
+                }),
+                editMode,
+              });
+            },
+          })}
+
+          {extraButton}
+        </Space>
+      ),
+    };
+  }
+
   return {
-    lg: 24,
+    lg,
     type: cardConfig.contentItemType.onlyShowInput,
     icon: inputIcon || iconBuilder.read(),
     fieldData: appendFiledHelper({
       data: handleData,
       fieldData: f,
     }),
-    value:
-      value ||
-      getValueByKey({
-        data: handleData,
-        key: f.name,
-        convertBuilder: (v) => {
-          let result = v;
-          switch (editMode) {
-            case keyValueEditModeCollection.time: {
-              result = formatDatetime({
-                data: v,
-                format: datetimeFormat.hourMinute,
-                defaultValue: '--',
-              });
-              break;
-            }
-
-            case keyValueEditModeCollection.datetime: {
-              result = formatDatetime({
-                data: v,
-                format: datetimeFormat.yearMonthDayHourMinuteSecond,
-                defaultValue: '--',
-              });
-              break;
-            }
-
-            default: {
-              result = v;
-              break;
-            }
-          }
-
-          return result;
-        },
-      }),
+    value: '未适配构建, 请检查',
     hidden,
     innerProps: {
       addonAfter: (

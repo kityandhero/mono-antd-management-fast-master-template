@@ -481,19 +481,49 @@ export const fieldData = {
   },
   sms: {
     label: '短信',
-    shortMessagingServiceKey: {
-      label: '短信平台Key',
-      name: 'shortMessagingServiceKey',
+    shortMessagingServiceEffective: {
+      label: '生效的短信服务供应商',
+      name: 'shortMessagingServiceEffective',
       helper: '',
     },
-    shortMessagingServiceSignature: {
-      label: '短信签名',
-      name: 'shortMessagingServiceSignature',
+    shortMessagingServiceEffectiveNote: {
+      label: '生效的短信服务供应商',
+      name: 'shortMessagingServiceEffectiveNote',
       helper: '',
     },
-    shortMessagingServiceVerificationCodeTemplate: {
-      label: '验证码短信模板',
-      name: 'shortMessagingServiceVerificationCodeTemplate',
+    shortMessagingServiceEffectiveTag: {
+      label: '生效的短信服务供应商',
+      name: 'shortMessagingServiceEffectiveTag',
+      helper: '',
+    },
+    shortMessagingServiceYunPianKey: {
+      label: '云片短信平台Key',
+      name: 'shortMessagingServiceYunPianKey',
+      helper: '',
+    },
+    shortMessagingServiceYunPianSignature: {
+      label: '云片短信签名',
+      name: 'shortMessagingServiceYunPianSignature',
+      helper: '',
+    },
+    shortMessagingServiceAliYunSignature: {
+      label: '阿里云短信签名',
+      name: 'shortMessagingServiceAliYunSignature',
+      helper: '',
+    },
+    shortMessagingServiceAliYunAccessKeyId: {
+      label: '阿里云短信平台KeyId',
+      name: 'shortMessagingServiceAliYunAccessKeyId',
+      helper: '',
+    },
+    shortMessagingServiceAliYunAccessKeySecret: {
+      label: '阿里云短信平台KeySecret',
+      name: 'shortMessagingServiceAliYunAccessKeySecret',
+      helper: '',
+    },
+    shortMessagingServiceAliYunEndpoint: {
+      label: '阿里云短信平台Endpoint',
+      name: 'shortMessagingServiceAliYunEndpoint',
       helper: '',
     },
   },

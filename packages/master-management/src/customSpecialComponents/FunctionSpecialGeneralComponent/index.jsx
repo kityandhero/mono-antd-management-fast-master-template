@@ -97,6 +97,7 @@ export * from './QuestionTagRelationStatus';
 export * from './QuestionType';
 export * from './SectionRenderType';
 export * from './SectionStatus';
+export * from './ShortMessagingServiceProvider';
 export * from './SmsCategoryFlag';
 export * from './SmsCategoryStatus';
 export * from './SmsLogAggregate';
