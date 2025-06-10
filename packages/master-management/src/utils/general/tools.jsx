@@ -16,6 +16,9 @@ import {
   isEmptyArray,
   isEmptyObject,
   isNull,
+  toNumber,
+  toString,
+  whetherString,
 } from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
@@ -198,6 +201,8 @@ export function buildInputItem({
   icon = iconBuilder.form(),
   text = '更改配置',
   value = '',
+  whetherYesAlias = '开启',
+  whetherNoAlias = '关闭',
   editMode = keyValueEditModeCollection.string,
   // eslint-disable-next-line no-unused-vars
   handleClick: handleClickSimple = ({ fieldData, editMode }) => {},
@@ -241,7 +246,13 @@ export function buildInputItem({
 
   if (
     checkInCollection(
-      [keyValueEditModeCollection.time, keyValueEditModeCollection.datetime],
+      [
+        keyValueEditModeCollection.string,
+        keyValueEditModeCollection.number,
+        keyValueEditModeCollection.whether,
+        keyValueEditModeCollection.time,
+        keyValueEditModeCollection.datetime,
+      ],
       editMode,
     )
   ) {
@@ -262,6 +273,24 @@ export function buildInputItem({
             let result = v;
 
             switch (editMode) {
+              case keyValueEditModeCollection.string: {
+                result = v;
+                break;
+              }
+
+              case keyValueEditModeCollection.number: {
+                result = toNumber(v);
+                break;
+              }
+
+              case keyValueEditModeCollection.whether: {
+                result =
+                  toString(v) === whetherString.yes
+                    ? whetherYesAlias || '开启'
+                    : whetherNoAlias || '关闭';
+                break;
+              }
+
               case keyValueEditModeCollection.time: {
                 result = formatDatetime({
                   data: v,
@@ -290,7 +319,7 @@ export function buildInputItem({
           },
         }),
       hidden,
-      actionBar: {
+      innerProps: {
         addonAfter: (
           <Space split={<Divider type="vertical" />}>
             {buildButton({

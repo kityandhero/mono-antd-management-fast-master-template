@@ -25,17 +25,17 @@ export const fieldDataDefaultImage = {
 
 export const fieldDataHardDiskPartition = {
   freeSpace: {
-    label: '空余大小[GB]',
+    label: '空余大小【GB】',
     name: 'freeSpace',
     helper: '',
   },
   useSpace: {
-    label: '使用空间[GB]',
+    label: '已用空间【GB】',
     name: 'useSpace',
     helper: '',
   },
   totalSpace: {
-    label: '使用空间[GB]',
+    label: '总共空间【GB】',
     name: 'totalSpace',
     helper: '',
   },

@@ -193,7 +193,7 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
                 },
                 emptyValue: '待完善',
                 labelStyle: {
-                  width: '90px',
+                  width: '102px',
                 },
               },
             },
@@ -249,14 +249,6 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
               hidden: !checkHasAuthority(
                 accessWayCollection.section.updateKeyValueInfo.permission,
               ),
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.diskSpaceMonitoringSwitch.name,
-                convert: convertCollection.number,
-                formatBuilder: (v) => {
-                  return v === whetherNumber.yes ? '开启' : '关闭';
-                },
-              }),
               inputIcon: iconBuilder.swap(),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),

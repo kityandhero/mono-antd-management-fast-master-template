@@ -1,4 +1,5 @@
 import { connect } from 'easy-soft-dva';
+import { getValueByKey } from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
@@ -53,6 +54,13 @@ class Index extends TabPageBase {
     metaOriginalData = null,
   }) => {
     const values = {};
+
+    if (metaData != null) {
+      values[fieldData.tinymceScriptSrc.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.tinymceScriptSrc.name,
+      });
+    }
 
     return values;
   };
