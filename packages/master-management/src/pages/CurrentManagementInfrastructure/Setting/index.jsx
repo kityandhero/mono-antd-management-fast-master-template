@@ -8,6 +8,7 @@ import {
   refreshMetaData,
 } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshAllCacheAction } from '../../KeyValueInfrastructure/Assist/action';
 import { fieldData } from '../Common/data';
 
@@ -73,7 +74,8 @@ class Setting extends DataTabContainer {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'currentManagementInfrastructure/get',
+      loadApiPath:
+        modelTypeCollection.currentManagementInfrastructureTypeCollection.get,
     };
   }
 

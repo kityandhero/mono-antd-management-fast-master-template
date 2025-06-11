@@ -39,16 +39,6 @@ export async function updateFileStorageInfoData(parameters) {
   });
 }
 
-export const updateSmsInfoDataApiAddress =
-  '/currentManagementInfrastructure/updateSmsInfo';
-
-export async function updateSmsInfoData(parameters) {
-  return request({
-    api: updateSmsInfoDataApiAddress,
-    params: parameters,
-  });
-}
-
 export const updateFlowDebugUserIdDataApiAddress =
   '/currentManagementInfrastructure/updateFlowDebugUserId';
 
@@ -129,12 +119,22 @@ export async function testDiskSpaceMonitoringConfigData(parameters) {
   });
 }
 
-export const testDiskSpaceMonitoringEmailDataApiAddress =
-  '/currentManagementInfrastructure/testDiskSpaceMonitoringEmail';
+export const testDiskSpaceMonitoringAlarmEmailDataApiAddress =
+  '/currentManagementInfrastructure/testDiskSpaceMonitoringAlarmEmail';
 
-export async function testDiskSpaceMonitoringEmailData(parameters) {
+export async function testDiskSpaceMonitoringAlarmEmailData(parameters) {
   return request({
-    api: testDiskSpaceMonitoringEmailDataApiAddress,
+    api: testDiskSpaceMonitoringAlarmEmailDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const testDiskSpaceMonitoringDetectionEmailDataApiAddress =
+  '/currentManagementInfrastructure/testDiskSpaceMonitoringDetectionEmail';
+
+export async function testDiskSpaceMonitoringDetectionEmailData(parameters) {
+  return request({
+    api: testDiskSpaceMonitoringDetectionEmailDataApiAddress,
     params: parameters,
   });
 }

@@ -11,8 +11,9 @@ import {
   getData,
   pageListDefaultImageData,
   refreshFrontEndApplicationConfigData,
+  testDiskSpaceMonitoringAlarmEmailData,
   testDiskSpaceMonitoringConfigData,
-  testDiskSpaceMonitoringEmailData,
+  testDiskSpaceMonitoringDetectionEmailData,
   testSecretKeyData,
   toggleQiniuAudioSwitchData,
   toggleQiniuFileSwitchData,
@@ -23,7 +24,6 @@ import {
   updateFlowDebugUserIdData,
   updateKeyValueInfoData,
   updateSecretKeyInfoData,
-  updateSmsInfoData,
   uploadImageData,
 } from '../../services/currentManagementInfrastructure';
 
@@ -33,7 +33,6 @@ export const currentManagementInfrastructureTypeCollection = {
   updateBasicInfo: 'currentManagementInfrastructure/updateBasicInfo',
   updateFileStorageInfo:
     'currentManagementInfrastructure/updateFileStorageInfo',
-  updateSmsInfo: 'currentManagementInfrastructure/updateSmsInfo',
   updateFlowDebugUserId:
     'currentManagementInfrastructure/updateFlowDebugUserId',
   updateSecretKeyInfo: 'currentManagementInfrastructure/updateSecretKeyInfo',
@@ -48,8 +47,10 @@ export const currentManagementInfrastructureTypeCollection = {
     'currentManagementInfrastructure/toggleQiniuFileSwitch',
   testDiskSpaceMonitoringConfig:
     'currentManagementInfrastructure/testDiskSpaceMonitoringConfig',
-  testDiskSpaceMonitoringEmail:
-    'currentManagementInfrastructure/testDiskSpaceMonitoringEmail',
+  testDiskSpaceMonitoringAlarmEmail:
+    'currentManagementInfrastructure/testDiskSpaceMonitoringAlarmEmail',
+  testDiskSpaceMonitoringDetectionEmail:
+    'currentManagementInfrastructure/testDiskSpaceMonitoringDetectionEmail',
   testSecretKey: 'currentManagementInfrastructure/testSecretKey',
   refreshFrontEndApplicationConfig:
     'currentManagementInfrastructure/refreshFrontEndApplicationConfig',
@@ -153,32 +154,6 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(updateFileStorageInfoData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *updateSmsInfo(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(updateSmsInfoData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -403,7 +378,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *testDiskSpaceMonitoringEmail(
+      *testDiskSpaceMonitoringAlarmEmail(
         {
           payload,
           alias,
@@ -412,7 +387,39 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(testDiskSpaceMonitoringEmailData, payload);
+        const response = yield call(
+          testDiskSpaceMonitoringAlarmEmailData,
+          payload,
+        );
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *testDiskSpaceMonitoringDetectionEmail(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(
+          testDiskSpaceMonitoringDetectionEmailData,
+          payload,
+        );
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

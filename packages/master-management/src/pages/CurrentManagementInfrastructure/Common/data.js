@@ -339,72 +339,125 @@ export const fieldData = {
   diskSpaceMonitoringDriveLetter: {
     label: '磁盘空间监控盘符',
     name: 'diskSpaceMonitoringDriveLetter',
-    helper: '多盘符请用 ”,“ 符号分隔, 例如”E,F“.',
+    helper: '多盘符请用 ”,“ 符号分隔, 例如”E,F“, 注意使用英文逗号',
   },
-  diskSpaceMonitoringThreshold: {
-    label: '磁盘空间报警阈值[GB]',
-    name: 'diskSpaceMonitoringThreshold',
-    helper: '',
+  diskSpaceMonitoringAlarmThreshold: {
+    label: '磁盘空间预警阈值[GB]',
+    name: 'diskSpaceMonitoringAlarmThreshold',
+    helper: '键盘可用空间小于该阈值时发送预警信息',
   },
-  diskSpaceMonitoringSmsNotificationTemplate: {
-    label: '磁盘空间报警短信消息模板',
-    name: 'diskSpaceMonitoringSmsNotificationTemplate',
-    helper: '',
+  diskSpaceMonitoringAlarmSmsNotificationTemplate: {
+    label: '磁盘空间预警短信消息模板',
+    name: 'diskSpaceMonitoringAlarmSmsNotificationTemplate',
+    helper:
+      '消息模板示例: “磁盘可用空间紧张, {0}”, 占位符将替换为具体的磁盘信息, 若最终短信字数过多, 可能分为多条发送',
   },
-  diskSpaceMonitoringPhone: {
-    label: '磁盘空间报接收短信手机号码',
-    name: 'diskSpaceMonitoringPhone',
-    helper: '',
+  diskSpaceMonitoringAlarmPhone: {
+    label: '磁盘空间预警收短信手机号码',
+    name: 'diskSpaceMonitoringAlarmPhone',
+    helper: '配置接收预警信息的人员手机号码',
   },
-  diskSpaceMonitoringEmailNotificationTemplate: {
-    label: '磁盘空间报警邮件消息模板',
-    name: 'diskSpaceMonitoringEmailNotificationTemplate',
-    helper: '',
+  diskSpaceMonitoringAlarmEmailNotificationTemplate: {
+    label: '磁盘空间预警邮件消息模板',
+    name: 'diskSpaceMonitoringAlarmEmailNotificationTemplate',
+    helper:
+      '消息模板示例: “磁盘可用空间紧张, {0}”, 占位符将替换为具体的磁盘信息',
   },
-  diskSpaceMonitoringFromEmailName: {
-    label: '磁盘空间报警发送源邮箱邮件名',
-    name: 'diskSpaceMonitoringFromEmailName',
-    helper: '',
+  diskSpaceMonitoringAlarmFromEmailName: {
+    label: '磁盘空间预警发送源邮箱邮件名',
+    name: 'diskSpaceMonitoringAlarmFromEmailName',
+    helper: '要发送的邮件的名称',
   },
-  diskSpaceMonitoringFromEmailAddress: {
-    label: '磁盘空间报警发送源邮箱地址',
-    name: 'diskSpaceMonitoringFromEmailAddress',
-    helper: '',
+  diskSpaceMonitoringAlarmFromEmailAddress: {
+    label: '磁盘空间预警发送源邮箱地址',
+    name: 'diskSpaceMonitoringAlarmFromEmailAddress',
+    helper: '发送人的邮箱地址',
   },
-  diskSpaceMonitoringToEmailName: {
-    label: '磁盘空间报警发送给的邮箱邮件名',
-    name: 'diskSpaceMonitoringToEmailName',
-    helper: '',
+  diskSpaceMonitoringAlarmToEmailName: {
+    label: '磁盘空间预警发送给的邮箱邮件名',
+    name: 'diskSpaceMonitoringAlarmToEmailName',
+    helper: '接收人接收到的邮件的名称',
   },
-  diskSpaceMonitoringToEmailAddress: {
-    label: '磁盘空间报警发送给的邮箱地址',
-    name: 'diskSpaceMonitoringToEmailAddress',
-    helper: '',
+  diskSpaceMonitoringAlarmToEmailAddress: {
+    label: '磁盘空间预警发送给的邮箱地址',
+    name: 'diskSpaceMonitoringAlarmToEmailAddress',
+    helper: '接收邮件的邮箱地址',
   },
-  diskSpaceMonitoringEmailSmtpServerHost: {
-    label: '磁盘空间报警邮箱Smtp域名',
-    name: 'diskSpaceMonitoringEmailSmtpServerHost',
-    helper: '',
+  diskSpaceMonitoringAlarmEmailSmtpServerHost: {
+    label: '磁盘空间预警邮箱Smtp域名',
+    name: 'diskSpaceMonitoringAlarmEmailSmtpServerHost',
+    helper: '例如若使用smtp.qq.com, 使用SSL, 端口号465, 其他邮箱请查阅资料',
   },
-  diskSpaceMonitoringEmailSmtpServerPort: {
-    label: '磁盘空间报警邮箱Smtp端口',
-    name: 'diskSpaceMonitoringEmailSmtpServerPort',
-    helper: '',
+  diskSpaceMonitoringAlarmEmailSmtpServerPort: {
+    label: '磁盘空间预警邮箱Smtp端口',
+    name: 'diskSpaceMonitoringAlarmEmailSmtpServerPort',
+    helper: '例如若使用smtp.qq.com, 使用SSL, 端口号465, 其他邮箱请查阅资料',
   },
-  diskSpaceMonitoringEmailSmtpServerUseSsl: {
-    label: '磁盘空间报警邮箱Smtp是否使用SSL',
-    name: 'diskSpaceMonitoringEmailSmtpServerUseSsl',
-    helper: '',
+  diskSpaceMonitoringAlarmEmailSmtpServerUseSsl: {
+    label: '磁盘空间预警邮箱Smtp是否使用SSL',
+    name: 'diskSpaceMonitoringAlarmEmailSmtpServerUseSsl',
+    helper: '例如若使用smtp.qq.com, 使用SSL, 端口号465, 其他邮箱请查阅资料',
   },
-  diskSpaceMonitoringEmailSmtpServerAccount: {
-    label: '磁盘空间报警邮箱Smtp账户',
-    name: 'diskSpaceMonitoringEmailSmtpServerAccount',
-    helper: '',
+  diskSpaceMonitoringAlarmEmailSmtpServerAccount: {
+    label: '磁盘空间预警邮箱Smtp账户',
+    name: 'diskSpaceMonitoringAlarmEmailSmtpServerAccount',
+    helper: '发送邮件使用的邮箱账户',
   },
-  diskSpaceMonitoringEmailSmtpServerPassword: {
-    label: '磁盘空间报警邮箱Smtp密码',
-    name: 'diskSpaceMonitoringEmailSmtpServerPassword',
-    helper: '',
+  diskSpaceMonitoringAlarmEmailSmtpServerPassword: {
+    label: '磁盘空间预警邮箱Smtp密码',
+    name: 'diskSpaceMonitoringAlarmEmailSmtpServerPassword',
+    helper: '一般为授权码,例如QQ邮箱是设置里开启服务的时候给的授权码',
+  },
+  diskSpaceMonitoringDetectionEmailNotificationTemplate: {
+    label: '磁盘空间检测邮件消息模板',
+    name: 'diskSpaceMonitoringDetectionEmailNotificationTemplate',
+    helper:
+      '消息模板示例: “磁盘可用空间信息, {0}”, 占位符将替换为具体的磁盘信息',
+  },
+  diskSpaceMonitoringDetectionFromEmailName: {
+    label: '磁盘空间检测发送源邮箱邮件名',
+    name: 'diskSpaceMonitoringDetectionFromEmailName',
+    helper: '要发送的邮件的名称',
+  },
+  diskSpaceMonitoringDetectionFromEmailAddress: {
+    label: '磁盘空间检测发送源邮箱地址',
+    name: 'diskSpaceMonitoringDetectionFromEmailAddress',
+    helper: '发送人的邮箱地址',
+  },
+  diskSpaceMonitoringDetectionToEmailName: {
+    label: '磁盘空间检测发送给的邮箱邮件名',
+    name: 'diskSpaceMonitoringDetectionToEmailName',
+    helper: '接收人接收到的邮件的名称',
+  },
+  diskSpaceMonitoringDetectionToEmailAddress: {
+    label: '磁盘空间检测发送给的邮箱地址',
+    name: 'diskSpaceMonitoringDetectionToEmailAddress',
+    helper: '接收邮件的邮箱地址',
+  },
+  diskSpaceMonitoringDetectionEmailSmtpServerHost: {
+    label: '磁盘空间检测邮箱Smtp域名',
+    name: 'diskSpaceMonitoringDetectionEmailSmtpServerHost',
+    helper: '例如若使用smtp.qq.com, 使用SSL, 端口号465, 其他邮箱请查阅资料',
+  },
+  diskSpaceMonitoringDetectionEmailSmtpServerPort: {
+    label: '磁盘空间检测邮箱Smtp端口',
+    name: 'diskSpaceMonitoringDetectionEmailSmtpServerPort',
+    helper: '例如若使用smtp.qq.com, 使用SSL, 端口号465, 其他邮箱请查阅资料',
+  },
+  diskSpaceMonitoringDetectionEmailSmtpServerUseSsl: {
+    label: '磁盘空间检测邮箱Smtp是否使用SSL',
+    name: 'diskSpaceMonitoringDetectionEmailSmtpServerUseSsl',
+    helper: '例如若使用smtp.qq.com, 使用SSL, 端口号465, 其他邮箱请查阅资料',
+  },
+  diskSpaceMonitoringDetectionEmailSmtpServerAccount: {
+    label: '磁盘空间检测邮箱Smtp账户',
+    name: 'diskSpaceMonitoringDetectionEmailSmtpServerAccount',
+    helper: '发送邮件使用的邮箱账户',
+  },
+  diskSpaceMonitoringDetectionEmailSmtpServerPassword: {
+    label: '磁盘空间检测邮箱Smtp密码',
+    name: 'diskSpaceMonitoringDetectionEmailSmtpServerPassword',
+    helper: '一般为授权码,例如QQ邮箱是设置里开启服务的时候给的授权码',
   },
   scoreAlias: {
     label: '积分别名',

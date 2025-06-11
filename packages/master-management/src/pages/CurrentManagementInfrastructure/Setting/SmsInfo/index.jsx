@@ -6,6 +6,7 @@ import { iconBuilder } from 'antd-management-fast-component';
 
 import { keyValueEditModeCollection } from '../../../../customConfig';
 import { getShortMessagingServiceProviderName } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { buildInputItem } from '../../../../utils';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
@@ -22,9 +23,8 @@ class Index extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'currentManagementInfrastructure/get',
-      submitApiPath: 'currentManagementInfrastructure/updateSmsInfo',
-      logo: '',
+      loadApiPath:
+        modelTypeCollection.currentManagementInfrastructureTypeCollection.get,
     };
   }
 
@@ -124,9 +124,6 @@ class Index extends TabPageBase {
             list: [
               {
                 buildType: cardConfig.extraBuildType.refresh,
-              },
-              {
-                buildType: cardConfig.extraBuildType.save,
               },
             ],
           },

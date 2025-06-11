@@ -14,17 +14,18 @@ import {
   accessWayCollection,
   keyValueEditModeCollection,
 } from '../../../../customConfig';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { buildInputItem } from '../../../../utils';
 import {
+  testDiskSpaceMonitoringAlarmEmailAction,
   testDiskSpaceMonitoringConfigAction,
-  testDiskSpaceMonitoringEmailAction,
 } from '../../Assist/action';
 import { fieldData, fieldDataHardDiskPartition } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
 import { UpdateKeyValueInfoModal } from '../../UpdateKeyValueInfoModal';
 
-@connect(({ section, schedulingControl }) => ({
-  section,
+@connect(({ currentManagementInfrastructure, schedulingControl }) => ({
+  currentManagementInfrastructure,
   schedulingControl,
 }))
 class DiskSpaceMonitoringInfo extends TabPageBase {
@@ -35,7 +36,8 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'currentManagementInfrastructure/get',
+      loadApiPath:
+        modelTypeCollection.currentManagementInfrastructureTypeCollection.get,
       diskSpaceMonitoringSwitch: 0,
     };
   }
@@ -73,7 +75,7 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
   testDiskSpaceMonitoringEmail = () => {
     const { metaData } = this.state;
 
-    testDiskSpaceMonitoringEmailAction({
+    testDiskSpaceMonitoringAlarmEmailAction({
       target: this,
       handleData: metaData,
     });
@@ -202,11 +204,11 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
         {
           title: {
             icon: iconBuilder.contacts(),
-            text: '磁盘空间不足提醒开关',
+            text: '磁盘空间监控配置',
           },
           hasExtra: true,
           extra: {
-            affix: true,
+            affix: false,
             list: [
               {
                 buildType: cardConfig.extraBuildType.generalExtraButton,
@@ -218,24 +220,9 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
                       .testDiskSpaceMonitoringConfig.permission,
                   ),
                 icon: iconBuilder.swap(),
-                text: '测试基础配置',
+                text: '测试配置',
                 handleClick: () => {
                   this.testDiskSpaceMonitoringConfig();
-                },
-              },
-              {
-                buildType: cardConfig.extraBuildType.generalExtraButton,
-                disabled: !firstLoadSuccess,
-                hidden:
-                  diskSpaceMonitoringSwitch === whetherNumber.no ||
-                  !checkHasAuthority(
-                    accessWayCollection.currentManagementInfrastructure
-                      .testDiskSpaceMonitoringEmail.permission,
-                  ),
-                icon: iconBuilder.swap(),
-                text: '测试邮件发送',
-                handleClick: () => {
-                  this.testDiskSpaceMonitoringEmail();
                 },
               },
             ],
@@ -247,7 +234,8 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
               fieldData: fieldData.diskSpaceMonitoringSwitch,
               editMode: keyValueEditModeCollection.whether,
               hidden: !checkHasAuthority(
-                accessWayCollection.section.updateKeyValueInfo.permission,
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
               ),
               inputIcon: iconBuilder.swap(),
               handleClick: this.showUpdateKeyValueInfoModal,
@@ -260,30 +248,51 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
               hidden:
                 diskSpaceMonitoringSwitch === whetherNumber.no ||
                 !checkHasAuthority(
-                  accessWayCollection.section.updateKeyValueInfo.permission,
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
                 ),
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.diskSpaceMonitoringDriveLetter.name,
-                convert: convertCollection.string,
-              }),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
+            text: '磁盘空间预警配置',
+          },
+          hasExtra: true,
+          extra: {
+            affix: false,
+            list: [
+              {
+                buildType: cardConfig.extraBuildType.generalExtraButton,
+                disabled: !firstLoadSuccess,
+                hidden:
+                  diskSpaceMonitoringSwitch === whetherNumber.no ||
+                  !checkHasAuthority(
+                    accessWayCollection.currentManagementInfrastructure
+                      .testDiskSpaceMonitoringAlarmEmail.permission,
+                  ),
+                icon: iconBuilder.swap(),
+                text: '测试预警邮件发送',
+                handleClick: () => {
+                  this.testDiskSpaceMonitoringEmail();
+                },
+              },
+            ],
+          },
+          items: [
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
-              fieldData: fieldData.diskSpaceMonitoringThreshold,
+              fieldData: fieldData.diskSpaceMonitoringAlarmThreshold,
               editMode: keyValueEditModeCollection.number,
               hidden:
                 diskSpaceMonitoringSwitch === whetherNumber.no ||
                 !checkHasAuthority(
-                  accessWayCollection.section.updateKeyValueInfo.permission,
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
                 ),
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.diskSpaceMonitoringThreshold.name,
-                convert: convertCollection.string,
-              }),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
             {
@@ -295,35 +304,28 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
-              fieldData: fieldData.diskSpaceMonitoringSmsNotificationTemplate,
+              fieldData:
+                fieldData.diskSpaceMonitoringAlarmSmsNotificationTemplate,
               editMode: keyValueEditModeCollection.multiLineString,
               hidden:
                 diskSpaceMonitoringSwitch === whetherNumber.no ||
                 !checkHasAuthority(
-                  accessWayCollection.section.updateKeyValueInfo.permission,
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
                 ),
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.diskSpaceMonitoringSmsNotificationTemplate.name,
-                convert: convertCollection.string,
-              }),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
-              fieldData: fieldData.diskSpaceMonitoringPhone,
+              fieldData: fieldData.diskSpaceMonitoringAlarmPhone,
               editMode: keyValueEditModeCollection.string,
               hidden:
                 diskSpaceMonitoringSwitch === whetherNumber.no ||
                 !checkHasAuthority(
-                  accessWayCollection.section.updateKeyValueInfo.permission,
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
                 ),
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.diskSpaceMonitoringPhone.name,
-                convert: convertCollection.string,
-              }),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
             {
@@ -335,174 +337,304 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
-              fieldData: fieldData.diskSpaceMonitoringEmailNotificationTemplate,
+              fieldData:
+                fieldData.diskSpaceMonitoringAlarmEmailNotificationTemplate,
               editMode: keyValueEditModeCollection.multiLineString,
               hidden:
                 diskSpaceMonitoringSwitch === whetherNumber.no ||
                 !checkHasAuthority(
-                  accessWayCollection.section.updateKeyValueInfo.permission,
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
                 ),
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.diskSpaceMonitoringEmailNotificationTemplate
-                  .name,
-                convert: convertCollection.string,
-              }),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
-              fieldData: fieldData.diskSpaceMonitoringFromEmailName,
+              fieldData: fieldData.diskSpaceMonitoringAlarmFromEmailName,
               editMode: keyValueEditModeCollection.string,
               hidden:
                 diskSpaceMonitoringSwitch === whetherNumber.no ||
                 !checkHasAuthority(
-                  accessWayCollection.section.updateKeyValueInfo.permission,
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
                 ),
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.diskSpaceMonitoringFromEmailName.name,
-                convert: convertCollection.string,
-              }),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
-              fieldData: fieldData.diskSpaceMonitoringFromEmailAddress,
+              fieldData: fieldData.diskSpaceMonitoringAlarmFromEmailAddress,
               editMode: keyValueEditModeCollection.string,
               hidden:
                 diskSpaceMonitoringSwitch === whetherNumber.no ||
                 !checkHasAuthority(
-                  accessWayCollection.section.updateKeyValueInfo.permission,
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
                 ),
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.diskSpaceMonitoringFromEmailAddress.name,
-                convert: convertCollection.string,
-              }),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
-              fieldData: fieldData.diskSpaceMonitoringToEmailName,
+              fieldData: fieldData.diskSpaceMonitoringAlarmToEmailName,
               editMode: keyValueEditModeCollection.string,
               hidden:
                 diskSpaceMonitoringSwitch === whetherNumber.no ||
                 !checkHasAuthority(
-                  accessWayCollection.section.updateKeyValueInfo.permission,
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
                 ),
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.diskSpaceMonitoringToEmailName.name,
-                convert: convertCollection.string,
-              }),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
-              fieldData: fieldData.diskSpaceMonitoringToEmailAddress,
+              fieldData: fieldData.diskSpaceMonitoringAlarmToEmailAddress,
               editMode: keyValueEditModeCollection.string,
               hidden:
                 diskSpaceMonitoringSwitch === whetherNumber.no ||
                 !checkHasAuthority(
-                  accessWayCollection.section.updateKeyValueInfo.permission,
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
                 ),
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.diskSpaceMonitoringToEmailAddress.name,
-                convert: convertCollection.string,
-              }),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
-              fieldData: fieldData.diskSpaceMonitoringEmailSmtpServerHost,
+              fieldData: fieldData.diskSpaceMonitoringAlarmEmailSmtpServerHost,
               editMode: keyValueEditModeCollection.string,
               hidden:
                 diskSpaceMonitoringSwitch === whetherNumber.no ||
                 !checkHasAuthority(
-                  accessWayCollection.section.updateKeyValueInfo.permission,
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
                 ),
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.diskSpaceMonitoringEmailSmtpServerHost.name,
-              }),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
-              fieldData: fieldData.diskSpaceMonitoringEmailSmtpServerPort,
+              fieldData: fieldData.diskSpaceMonitoringAlarmEmailSmtpServerPort,
               editMode: keyValueEditModeCollection.number,
               hidden:
                 diskSpaceMonitoringSwitch === whetherNumber.no ||
                 !checkHasAuthority(
-                  accessWayCollection.section.updateKeyValueInfo.permission,
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
                 ),
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.diskSpaceMonitoringEmailSmtpServerPort.name,
-                convert: convertCollection.string,
-              }),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
-              fieldData: fieldData.diskSpaceMonitoringEmailSmtpServerUseSsl,
+              fieldData:
+                fieldData.diskSpaceMonitoringAlarmEmailSmtpServerUseSsl,
               editMode: keyValueEditModeCollection.whether,
               hidden:
                 diskSpaceMonitoringSwitch === whetherNumber.no ||
                 !checkHasAuthority(
-                  accessWayCollection.section.updateKeyValueInfo.permission,
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
                 ),
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.diskSpaceMonitoringEmailSmtpServerUseSsl.name,
-                convert: convertCollection.number,
-                formatBuilder: (v) => {
-                  return v === whetherNumber.yes ? '使用' : '不使用';
+              whetherYesAlias: '使用',
+              whetherNoAlias: '不使用',
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData:
+                fieldData.diskSpaceMonitoringAlarmEmailSmtpServerAccount,
+              editMode: keyValueEditModeCollection.string,
+              hidden:
+                diskSpaceMonitoringSwitch === whetherNumber.no ||
+                !checkHasAuthority(
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
+                ),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData:
+                fieldData.diskSpaceMonitoringAlarmEmailSmtpServerPassword,
+              editMode: keyValueEditModeCollection.string,
+              hidden:
+                diskSpaceMonitoringSwitch === whetherNumber.no ||
+                !checkHasAuthority(
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
+                ),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
+            text: '磁盘空间检测配置',
+          },
+          hasExtra: true,
+          extra: {
+            affix: false,
+            list: [
+              {
+                buildType: cardConfig.extraBuildType.generalExtraButton,
+                disabled: !firstLoadSuccess,
+                hidden:
+                  diskSpaceMonitoringSwitch === whetherNumber.no ||
+                  !checkHasAuthority(
+                    accessWayCollection.currentManagementInfrastructure
+                      .testDiskSpaceMonitoringDetectionEmail.permission,
+                  ),
+                icon: iconBuilder.swap(),
+                text: '测试检测邮件发送',
+                handleClick: () => {
+                  this.testDiskSpaceMonitoringEmail();
                 },
-              }),
+              },
+            ],
+          },
+          items: [
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData:
+                fieldData.diskSpaceMonitoringDetectionEmailNotificationTemplate,
+              editMode: keyValueEditModeCollection.multiLineString,
+              hidden:
+                diskSpaceMonitoringSwitch === whetherNumber.no ||
+                !checkHasAuthority(
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
+                ),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
-              fieldData: fieldData.diskSpaceMonitoringEmailSmtpServerAccount,
+              fieldData: fieldData.diskSpaceMonitoringDetectionFromEmailName,
               editMode: keyValueEditModeCollection.string,
               hidden:
                 diskSpaceMonitoringSwitch === whetherNumber.no ||
                 !checkHasAuthority(
-                  accessWayCollection.section.updateKeyValueInfo.permission,
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
                 ),
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.diskSpaceMonitoringEmailSmtpServerAccount.name,
-                convert: convertCollection.string,
-              }),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
-              fieldData: fieldData.diskSpaceMonitoringEmailSmtpServerPassword,
+              fieldData: fieldData.diskSpaceMonitoringDetectionFromEmailAddress,
               editMode: keyValueEditModeCollection.string,
               hidden:
                 diskSpaceMonitoringSwitch === whetherNumber.no ||
                 !checkHasAuthority(
-                  accessWayCollection.section.updateKeyValueInfo.permission,
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
                 ),
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.diskSpaceMonitoringEmailSmtpServerPassword.name,
-                convert: convertCollection.string,
-              }),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.diskSpaceMonitoringDetectionToEmailName,
+              editMode: keyValueEditModeCollection.string,
+              hidden:
+                diskSpaceMonitoringSwitch === whetherNumber.no ||
+                !checkHasAuthority(
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
+                ),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.diskSpaceMonitoringDetectionToEmailAddress,
+              editMode: keyValueEditModeCollection.string,
+              hidden:
+                diskSpaceMonitoringSwitch === whetherNumber.no ||
+                !checkHasAuthority(
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
+                ),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData:
+                fieldData.diskSpaceMonitoringDetectionEmailSmtpServerHost,
+              editMode: keyValueEditModeCollection.string,
+              hidden:
+                diskSpaceMonitoringSwitch === whetherNumber.no ||
+                !checkHasAuthority(
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
+                ),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData:
+                fieldData.diskSpaceMonitoringDetectionEmailSmtpServerPort,
+              editMode: keyValueEditModeCollection.number,
+              hidden:
+                diskSpaceMonitoringSwitch === whetherNumber.no ||
+                !checkHasAuthority(
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
+                ),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData:
+                fieldData.diskSpaceMonitoringDetectionEmailSmtpServerUseSsl,
+              editMode: keyValueEditModeCollection.whether,
+              hidden:
+                diskSpaceMonitoringSwitch === whetherNumber.no ||
+                !checkHasAuthority(
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
+                ),
+              whetherYesAlias: '使用',
+              whetherNoAlias: '不使用',
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData:
+                fieldData.diskSpaceMonitoringDetectionEmailSmtpServerAccount,
+              editMode: keyValueEditModeCollection.string,
+              hidden:
+                diskSpaceMonitoringSwitch === whetherNumber.no ||
+                !checkHasAuthority(
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
+                ),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData:
+                fieldData.diskSpaceMonitoringDetectionEmailSmtpServerPassword,
+              editMode: keyValueEditModeCollection.string,
+              hidden:
+                diskSpaceMonitoringSwitch === whetherNumber.no ||
+                !checkHasAuthority(
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
+                ),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
           ],

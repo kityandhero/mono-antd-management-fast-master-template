@@ -1249,13 +1249,6 @@
           "type": "singleData"
         },
         {
-          "title": "设置短信发动信息",
-          "api": "/currentManagementInfrastructure/updateSmsInfo",
-          "effect": "updateSmsInfo",
-          "service": "updateSmsInfoData",
-          "type": "singleData"
-        },
-        {
           "title": "设置流程调试用户标识",
           "api": "/currentManagementInfrastructure/updateFlowDebugUserId",
           "effect": "updateFlowDebugUserId",
@@ -1312,10 +1305,17 @@
           "type": "singleData"
         },
         {
-          "title": "测试磁盘监控配置",
-          "api": "/currentManagementInfrastructure/testDiskSpaceMonitoringEmail",
-          "effect": "testDiskSpaceMonitoringEmail",
-          "service": "testDiskSpaceMonitoringEmailData",
+          "title": "测试磁盘监控报警邮件发送",
+          "api": "/currentManagementInfrastructure/testDiskSpaceMonitoringAlarmEmail",
+          "effect": "testDiskSpaceMonitoringAlarmEmail",
+          "service": "testDiskSpaceMonitoringAlarmEmailData",
+          "type": "singleData"
+        },
+        {
+          "title": "测试磁盘监控检测邮件发送",
+          "api": "/currentManagementInfrastructure/testDiskSpaceMonitoringDetectionEmail",
+          "effect": "testDiskSpaceMonitoringDetectionEmail",
+          "service": "testDiskSpaceMonitoringDetectionEmailData",
           "type": "singleData"
         },
         {

@@ -15,6 +15,7 @@ import {
   keyValueEditModeCollection,
 } from '../../../../customConfig';
 import { getFlowFormDisplayModeName } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { buildInputItem } from '../../../../utils';
 import { fieldData as fieldDataUser } from '../../../User/Common/data';
 import { PageListSelectActionDrawer } from '../../../User/PageListSelectActionDrawer';
@@ -33,8 +34,11 @@ class Index extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'currentManagementInfrastructure/get',
-      submitApiPath: 'currentManagementInfrastructure/updateDebugUserId',
+      loadApiPath:
+        modelTypeCollection.currentManagementInfrastructureTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.currentManagementInfrastructureTypeCollection
+          .updateFlowDebugUserId,
       userId: '',
     };
   }

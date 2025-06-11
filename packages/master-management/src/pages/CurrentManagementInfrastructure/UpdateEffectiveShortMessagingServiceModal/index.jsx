@@ -5,6 +5,7 @@ import { cardConfig } from 'antd-management-fast-common';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
 import { renderFormShortMessagingServiceProviderSelect } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
@@ -26,8 +27,11 @@ class UpdateEffectiveShortMessagingServiceModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '配置生效的短信服务供应商',
-      loadApiPath: 'currentManagementInfrastructure/get',
-      submitApiPath: 'currentManagementInfrastructure/updateKeyValueInfo',
+      loadApiPath:
+        modelTypeCollection.currentManagementInfrastructureTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.currentManagementInfrastructureTypeCollection
+          .updateKeyValueInfo,
       shortMessagingServiceEffective: '',
     };
   }

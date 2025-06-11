@@ -753,11 +753,6 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'fe39c7ad35a866c8e367d5d5f4209bd6',
       permission: '1e0471103f5a41dea0d9d20a924b55c9',
     },
-    updateSmsInfo: {
-      title: '设置短信发动信息',
-      paramsKey: '40700d504269efc1762a1239fb94bdf8',
-      permission: '8ed7d6f518af430e8e281ced2eca2ecd',
-    },
     updateFlowDebugUserId: {
       title: '设置流程调试用户标识',
       paramsKey: 'd738f282db02d6f9d7c56d5d7a92036d',
@@ -798,10 +793,15 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '734d73efba87723ed36542e161599f03',
       permission: '9da8cba4ea3d47039ff8f1e9edfc5f80',
     },
-    testDiskSpaceMonitoringEmail: {
-      title: '测试磁盘监控配置',
+    testDiskSpaceMonitoringAlarmEmail: {
+      title: '测试磁盘监控报警邮件发送',
       paramsKey: '4913a9ac8997f429bc7efa6af328408c',
       permission: '61ef3526b378472192f59d734b300db3',
+    },
+    testDiskSpaceMonitoringDetectionEmail: {
+      title: '测试磁盘监控检测邮件发送',
+      paramsKey: '00f151624a0afaf5e8a131360cfcea82',
+      permission: '2076587fca1942b3be3d549e504e97b3',
     },
     testSecretKey: {
       title: '测试系统密钥',
