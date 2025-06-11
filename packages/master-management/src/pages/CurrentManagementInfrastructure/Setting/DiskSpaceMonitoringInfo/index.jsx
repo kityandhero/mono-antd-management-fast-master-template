@@ -19,6 +19,7 @@ import { buildInputItem } from '../../../../utils';
 import {
   testDiskSpaceMonitoringAlarmEmailAction,
   testDiskSpaceMonitoringConfigAction,
+  testDiskSpaceMonitoringDetectionEmailAction,
 } from '../../Assist/action';
 import { fieldData, fieldDataHardDiskPartition } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
@@ -72,10 +73,19 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
     });
   };
 
-  testDiskSpaceMonitoringEmail = () => {
+  testDiskSpaceMonitoringAlarmEmail = () => {
     const { metaData } = this.state;
 
     testDiskSpaceMonitoringAlarmEmailAction({
+      target: this,
+      handleData: metaData,
+    });
+  };
+
+  testDiskSpaceMonitoringDetectionEmail = () => {
+    const { metaData } = this.state;
+
+    testDiskSpaceMonitoringDetectionEmailAction({
       target: this,
       handleData: metaData,
     });
@@ -260,10 +270,25 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
             icon: iconBuilder.contacts(),
             text: '磁盘空间预警配置',
           },
+          hidden: diskSpaceMonitoringSwitch === whetherNumber.no,
           hasExtra: true,
           extra: {
             affix: false,
             list: [
+              {
+                buildType: cardConfig.extraBuildType.iconInfo,
+                icon: iconBuilder.infoCircle(),
+                text: '每次检测磁盘空间时，磁盘可用空间达到预警值的时候进行发送',
+                textStyle: {
+                  color: '#666',
+                },
+                iconStyle: {
+                  color: '#666',
+                },
+              },
+              {
+                buildType: cardConfig.extraBuildType.divider,
+              },
               {
                 buildType: cardConfig.extraBuildType.generalExtraButton,
                 disabled: !firstLoadSuccess,
@@ -276,7 +301,7 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
                 icon: iconBuilder.swap(),
                 text: '测试预警邮件发送',
                 handleClick: () => {
-                  this.testDiskSpaceMonitoringEmail();
+                  this.testDiskSpaceMonitoringAlarmEmail();
                 },
               },
             ],
@@ -298,7 +323,7 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
             {
               lg: 24,
               type: cardConfig.contentItemType.divider,
-              text: '提醒短信',
+              text: '预警短信',
               hidden: diskSpaceMonitoringSwitch === whetherNumber.no,
             },
             buildInputItem({
@@ -331,7 +356,7 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
             {
               lg: 24,
               type: cardConfig.contentItemType.divider,
-              text: '提醒邮箱',
+              text: '预警邮箱',
               hidden: diskSpaceMonitoringSwitch === whetherNumber.no,
             },
             buildInputItem({
@@ -477,10 +502,25 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
             icon: iconBuilder.contacts(),
             text: '磁盘空间检测配置',
           },
+          hidden: diskSpaceMonitoringSwitch === whetherNumber.no,
           hasExtra: true,
           extra: {
             affix: false,
             list: [
+              {
+                buildType: cardConfig.extraBuildType.iconInfo,
+                icon: iconBuilder.infoCircle(),
+                text: '每次检测磁盘空间的时候进行发送',
+                textStyle: {
+                  color: '#666',
+                },
+                iconStyle: {
+                  color: '#666',
+                },
+              },
+              {
+                buildType: cardConfig.extraBuildType.divider,
+              },
               {
                 buildType: cardConfig.extraBuildType.generalExtraButton,
                 disabled: !firstLoadSuccess,
@@ -493,7 +533,7 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
                 icon: iconBuilder.swap(),
                 text: '测试检测邮件发送',
                 handleClick: () => {
-                  this.testDiskSpaceMonitoringEmail();
+                  this.testDiskSpaceMonitoringDetectionEmail();
                 },
               },
             ],
