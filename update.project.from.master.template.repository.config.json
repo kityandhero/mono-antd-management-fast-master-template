@@ -10,6 +10,7 @@
     "src/customSpecialComponents/BaseUpdateRoleModal/",
     "src/customSpecialComponents/DataTabContainerSupplement/",
     "src/customSpecialComponents/UpdateModuleModalBase/",
+    "src/customSpecialComponents/BaseUpdateKeyValueInfoModal/",
     "src/pageBases/",
     "src/pages/AccessWay/",
     "src/pages/AdministrativeDivision/",
