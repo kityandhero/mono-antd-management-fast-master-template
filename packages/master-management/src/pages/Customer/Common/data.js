@@ -6,6 +6,11 @@ const fieldExtraData = {
     name: 'friendlyName',
     helper: '',
   },
+  whetherPhoneVerifyNote: {
+    label: '手机号码是否验证',
+    name: 'whetherPhoneVerifyNote',
+    helper: '',
+  },
 };
 
 export const fieldData = {

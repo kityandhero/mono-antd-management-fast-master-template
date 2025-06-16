@@ -83,6 +83,7 @@ export * from './MessageQueueToStoreMode';
 export * from './operationLogStatusList';
 export * from './OptionPoolCategory';
 export * from './OptionPoolStatus';
+export * from './PhoneVerifyMode';
 export * from './PositionGradeStatus';
 export * from './PositionStatus';
 export * from './PresetRoleStatus';

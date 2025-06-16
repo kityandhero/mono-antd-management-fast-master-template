@@ -27,6 +27,15 @@ export async function setEnableData(parameters) {
   });
 }
 
+export const togglePhoneVerifyDataApiAddress = '/customer/togglePhoneVerify';
+
+export async function togglePhoneVerifyData(parameters) {
+  return request({
+    api: togglePhoneVerifyDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setDisableDataApiAddress = '/customer/setDisable';
 
 export async function setDisableData(parameters) {

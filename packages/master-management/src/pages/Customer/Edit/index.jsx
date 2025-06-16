@@ -6,10 +6,16 @@ import {
   showSimpleErrorMessage,
 } from 'easy-soft-utility';
 
-import { getDerivedStateFromPropertiesForUrlParameters } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
+import {
+  dropdownExpandItemType,
+  getDerivedStateFromPropertiesForUrlParameters,
+} from 'antd-management-fast-common';
+import {
+  iconBuilder,
+  iconModeCollection,
+} from 'antd-management-fast-component';
 
-import { accessWayCollection } from '../../../customConfig';
+import { accessWayCollection, colorCollection } from '../../../customConfig';
 import {
   DataTabContainerSupplement,
   getChannelName,
@@ -20,6 +26,7 @@ import {
   refreshCacheAction,
   setDisableAction,
   setEnableAction,
+  togglePhoneVerifyAction,
 } from '../Assist/action';
 import {
   checkNeedUpdateAssist,
@@ -50,7 +57,7 @@ class Edit extends DataTabContainerSupplement {
       ...this.state,
       pageTitle: '',
       loadApiPath: modelTypeCollection.customerTypeCollection.get,
-      backPath: `/customer/pageList/key`,
+      backPath: `/frontEndUser/customer/pageList/key`,
       customerId: null,
     };
   }
@@ -89,8 +96,25 @@ class Edit extends DataTabContainerSupplement {
     this.setState({
       pageTitle: getValueByKey({
         data: metaData,
-        key: fieldData.title.name,
+        key: fieldData.friendlyName.name,
       }),
+    });
+  };
+
+  togglePhoneVerify = (o) => {
+    togglePhoneVerifyAction({
+      target: this,
+      handleData: o,
+      successCallback: ({ target, remoteData }) => {
+        const { metaData } = target.state;
+
+        metaData[fieldData.whetherPhoneVerify.name] = getValueByKey({
+          data: remoteData,
+          key: fieldData.whetherPhoneVerify.name,
+        });
+
+        target.setState({ metaData });
+      },
     });
   };
 
@@ -140,7 +164,7 @@ class Edit extends DataTabContainerSupplement {
   };
 
   establishPageHeaderTitlePrefix = () => {
-    return '标题';
+    return '顾客名';
   };
 
   establishExtraActionGroupConfig = () => {
@@ -162,30 +186,30 @@ class Edit extends DataTabContainerSupplement {
       buttons: [
         {
           key: 'setEnable',
-          text: '设为上线',
-          icon: iconBuilder.checkCircle(),
+          text: '设为启用',
+          icon: iconBuilder.playCircle(),
           handleButtonClick: ({ handleData }) => {
             that.setEnable(handleData);
           },
           hidden: !checkHasAuthority(
             accessWayCollection.customer.setEnable.permission,
           ),
-          disabled: status === statusCollection.online,
+          disabled: status === statusCollection.enable,
           confirm: true,
           title: '即将设为上线，确定启用吗？',
           handleData: metaData,
         },
         {
           key: 'setDisable',
-          text: '设为下线',
-          icon: iconBuilder.download(),
+          text: '设为禁用',
+          icon: iconBuilder.pauseCircle(),
           handleButtonClick: ({ handleData }) => {
             that.setDisable(handleData);
           },
           hidden: !checkHasAuthority(
             accessWayCollection.customer.setDisable.permission,
           ),
-          disabled: status === statusCollection.offline,
+          disabled: status === statusCollection.disable,
           confirm: true,
           title: '即将设为下线，确定启用吗？',
           handleData: metaData,
@@ -203,10 +227,21 @@ class Edit extends DataTabContainerSupplement {
 
     const that = this;
 
+    const whetherPhoneVerify = getValueByKey({
+      data: metaData,
+      key: fieldData.whetherPhoneVerify.name,
+      convert: convertCollection.number,
+    });
+
     return {
       disabled: this.checkInProgress(),
       handleMenuClick: ({ key, handleData }) => {
         switch (key) {
+          case 'togglePhoneVerify': {
+            that.togglePhoneVerify(handleData);
+            break;
+          }
+
           case 'refreshCache': {
             that.refreshCache(handleData);
             break;
@@ -220,6 +255,28 @@ class Edit extends DataTabContainerSupplement {
       },
       handleData: metaData,
       items: [
+        {
+          key: 'togglePhoneVerify',
+          text: whetherPhoneVerify ? '取消认证' : '设为认证',
+          icon: whetherPhoneVerify
+            ? iconBuilder.closeCircle(
+                {
+                  twoToneColor: colorCollection.noColor,
+                },
+                iconModeCollection.twoTone,
+              )
+            : iconBuilder.checkCircle(
+                {
+                  twoToneColor: colorCollection.yesColor,
+                },
+                iconModeCollection.twoTone,
+              ),
+          confirm: true,
+          title: `即将${whetherPhoneVerify ? '取消认证' : '设为认证'}，确定吗？`,
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
         {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
@@ -262,6 +319,45 @@ class Edit extends DataTabContainerSupplement {
           key: fieldData.customerId.name,
         }),
         canCopy: true,
+      },
+      {
+        label: fieldData.realName.label,
+        value: getValueByKey({
+          data: metaData,
+          key: fieldData.realName.name,
+          defaultValue: '未设置',
+        }),
+      },
+      {
+        label: fieldData.nickname.label,
+        value: getValueByKey({
+          data: metaData,
+          key: fieldData.nickname.name,
+          defaultValue: '未设置',
+        }),
+      },
+      {
+        label: fieldData.phone.label,
+        value: getValueByKey({
+          data: metaData,
+          key: fieldData.phone.name,
+          defaultValue: '未设置',
+        }),
+      },
+      {
+        label: fieldData.whetherPhoneVerifyNote.label,
+        value: getValueByKey({
+          data: metaData,
+          key: fieldData.whetherPhoneVerifyNote.name,
+        }),
+      },
+      {
+        label: fieldData.email.label,
+        value: getValueByKey({
+          data: metaData,
+          key: fieldData.email.name,
+          defaultValue: '未设置',
+        }),
       },
       {
         label: fieldData.channel.label,

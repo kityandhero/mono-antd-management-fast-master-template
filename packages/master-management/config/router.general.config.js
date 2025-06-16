@@ -2099,7 +2099,7 @@ export const customer = {
   name: 'customer',
   icon: 'user',
   hideChildrenInMenu: true,
-  path: '/customers/customer',
+  path: '/frontEndUser/customer',
   access: 'checkAccess',
   authority: [
     accessWayCollection.super.permission,
@@ -2107,42 +2107,42 @@ export const customer = {
   ],
   routes: [
     {
-      path: '/customers/customer',
-      redirect: '/customers/customer/pageList',
+      path: '/frontEndUser/customer',
+      redirect: '/frontEndUser/customer/pageList',
     },
     {
-      path: '/customers/customer/pageList',
+      path: '/frontEndUser/customer/pageList',
       name: 'pageList',
       icon: 'bars',
-      redirect: '/customers/customer/pageList/no',
+      redirect: '/frontEndUser/customer/pageList/no',
     },
     {
-      path: '/customers/customer/pageList/:pageKey',
+      path: '/frontEndUser/customer/pageList/:pageKey',
       hideInMenu: true,
       component: './Customer/PageList',
     },
     {
-      path: '/customers/customer/edit/:op/:id/:pageKey',
+      path: '/frontEndUser/customer/edit/:op/:id/:pageKey',
       name: 'edit',
       hideInMenu: true,
       component: './Customer/Edit',
       routes: [
         {
-          path: '/customers/customer/edit/:op/:id/:pageKey/basicInfo',
+          path: '/frontEndUser/customer/edit/:op/:id/:pageKey/basicInfo',
           name: 'basicInfo',
           component: './Customer/Edit/BasicInfo',
         },
         {
-          path: '/customers/customer/edit/:op/:id/:pageKey/operateLog',
+          path: '/frontEndUser/customer/edit/:op/:id/:pageKey/operateLog',
           name: 'operateLog',
           routes: [
             {
-              path: '/customers/customer/edit/:op/:id/:pageKey/operateLog',
+              path: '/frontEndUser/customer/edit/:op/:id/:pageKey/operateLog',
               redirect:
-                '/customers/customer/edit/:op/:id/:pageKey/operateLog/pageList',
+                '/frontEndUser/customer/edit/:op/:id/:pageKey/operateLog/pageList',
             },
             {
-              path: '/customers/customer/edit/:op/:id/:pageKey/operateLog/pageList',
+              path: '/frontEndUser/customer/edit/:op/:id/:pageKey/operateLog/pageList',
               component: './Customer/Edit/OperateLog/PageList',
             },
           ],
@@ -2156,7 +2156,7 @@ export const customerLoginLog = {
   name: 'customerLoginLog',
   icon: 'user',
   hideChildrenInMenu: true,
-  path: '/customers/customerLoginLog',
+  path: '/frontEndUser/customerLoginLog',
   access: 'checkAccess',
   authority: [
     accessWayCollection.super.permission,
@@ -2164,17 +2164,17 @@ export const customerLoginLog = {
   ],
   routes: [
     {
-      path: '/customers/customerLoginLog',
-      redirect: '/customers/customerLoginLog/pageList',
+      path: '/frontEndUser/customerLoginLog',
+      redirect: '/frontEndUser/customerLoginLog/pageList',
     },
     {
-      path: '/customers/customerLoginLog/pageList',
+      path: '/frontEndUser/customerLoginLog/pageList',
       name: 'pageList',
       icon: 'bars',
-      redirect: '/customers/customerLoginLog/pageList/no',
+      redirect: '/frontEndUser/customerLoginLog/pageList/no',
     },
     {
-      path: '/customers/customerLoginLog/pageList/:pageKey',
+      path: '/frontEndUser/customerLoginLog/pageList/:pageKey',
       hideInMenu: true,
       component: './CustomerLoginLog/PageList',
     },
@@ -2185,7 +2185,7 @@ export const customerWechatApplicationInfo = {
   name: 'customerWechatApplicationInfo',
   icon: 'user',
   hideChildrenInMenu: true,
-  path: '/customers/customerWechatApplicationInfo',
+  path: '/frontEndUser/customerWechatApplicationInfo',
   access: 'checkAccess',
   authority: [
     accessWayCollection.super.permission,
@@ -2193,17 +2193,17 @@ export const customerWechatApplicationInfo = {
   ],
   routes: [
     {
-      path: '/customers/customerWechatApplicationInfo',
-      redirect: '/customers/customerWechatApplicationInfo/pageList',
+      path: '/frontEndUser/customerWechatApplicationInfo',
+      redirect: '/frontEndUser/customerWechatApplicationInfo/pageList',
     },
     {
-      path: '/customers/customerWechatApplicationInfo/pageList',
+      path: '/frontEndUser/customerWechatApplicationInfo/pageList',
       name: 'pageList',
       icon: 'bars',
-      redirect: '/customers/customerWechatApplicationInfo/pageList/no',
+      redirect: '/frontEndUser/customerWechatApplicationInfo/pageList/no',
     },
     {
-      path: '/customers/customerWechatApplicationInfo/pageList/:pageKey',
+      path: '/frontEndUser/customerWechatApplicationInfo/pageList/:pageKey',
       hideInMenu: true,
       component: './CustomerWechatApplicationInfo/PageList',
     },

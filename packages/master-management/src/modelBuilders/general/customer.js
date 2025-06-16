@@ -14,6 +14,7 @@ import {
   refreshCacheData,
   setDisableData,
   setEnableData,
+  togglePhoneVerifyData,
   uploadImageData,
 } from '../../services/customer';
 
@@ -21,6 +22,7 @@ export const customerTypeCollection = {
   pageList: 'customer/pageList',
   get: 'customer/get',
   setEnable: 'customer/setEnable',
+  togglePhoneVerify: 'customer/togglePhoneVerify',
   setDisable: 'customer/setDisable',
   refreshCache: 'customer/refreshCache',
   pageListOperateLog: 'customer/pageListOperateLog',
@@ -98,6 +100,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(setEnableData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *togglePhoneVerify(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(togglePhoneVerifyData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

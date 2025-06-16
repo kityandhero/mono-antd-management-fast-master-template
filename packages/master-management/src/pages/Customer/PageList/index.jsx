@@ -2,6 +2,7 @@ import { connect } from 'easy-soft-dva';
 import {
   checkHasAuthority,
   getValueByKey,
+  handleItem,
   showSimpleErrorMessage,
   toNumber,
   whetherNumber,
@@ -20,7 +21,7 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection, colorCollection } from '../../../customConfig';
 import { modelTypeCollection } from '../../../modelBuilders';
-import { refreshCacheAction } from '../Assist/action';
+import { refreshCacheAction, togglePhoneVerifyAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
 const { MultiPage } = DataMultiPageView;
@@ -37,7 +38,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      pageTitle: '列表',
+      pageTitle: '顾客列表',
       paramsKey: accessWayCollection.customer.pageList.paramsKey,
       loadApiPath: modelTypeCollection.customerTypeCollection.pageList,
       currentRecord: null,
@@ -46,6 +47,11 @@ class PageList extends MultiPage {
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
+      case 'togglePhoneVerify': {
+        this.togglePhoneVerify(handleData);
+        break;
+      }
+
       case 'refreshCache': {
         this.refreshCache(handleData);
         break;
@@ -56,6 +62,45 @@ class PageList extends MultiPage {
         break;
       }
     }
+  };
+
+  togglePhoneVerify = (record) => {
+    togglePhoneVerifyAction({
+      target: this,
+      handleData: record,
+      successCallback: ({ target, remoteData }) => {
+        const id = getValueByKey({
+          data: remoteData,
+          key: fieldData.customerId.name,
+        });
+
+        handleItem({
+          target,
+          value: id,
+          compareValueHandler: (o) => {
+            return getValueByKey({
+              data: o,
+              key: fieldData.customerId.name,
+            });
+          },
+          handler: (d) => {
+            const o = d;
+
+            o[fieldData.whetherPhoneVerify.name] = getValueByKey({
+              data: remoteData,
+              key: fieldData.whetherPhoneVerify.name,
+            });
+
+            o[fieldData.whetherPhoneVerifyNote.name] = getValueByKey({
+              data: remoteData,
+              key: fieldData.whetherPhoneVerifyNote.name,
+            });
+
+            return d;
+          },
+        });
+      },
+    });
   };
 
   refreshCache = (record) => {
@@ -72,7 +117,9 @@ class PageList extends MultiPage {
       defaultValue: '',
     });
 
-    this.goToPath(`/customer/edit/load/${customerId}/key/basicInfo`);
+    this.goToPath(
+      `/frontEndUser/customer/edit/load/${customerId}/key/basicInfo`,
+    );
   };
 
   establishSearchCardConfig = () => {
@@ -81,7 +128,12 @@ class PageList extends MultiPage {
         {
           lg: 6,
           type: searchCardConfig.contentItemType.input,
-          fieldData: fieldData.title,
+          fieldData: fieldData.nickname,
+        },
+        {
+          lg: 6,
+          type: searchCardConfig.contentItemType.input,
+          fieldData: fieldData.realName,
         },
         {
           lg: 6,
@@ -106,6 +158,16 @@ class PageList extends MultiPage {
         this.handleMenuClick({ key, handleData });
       },
       items: [
+        {
+          key: 'togglePhoneVerify',
+          icon: iconBuilder.swap(),
+          text: '切换手机认证',
+          hidden: !checkHasAuthority(
+            accessWayCollection.customer.togglePhoneVerify.permission,
+          ),
+          confirm: true,
+          title: '将要切换手机认证状态，确定吗？',
+        },
         {
           type: dropdownExpandItemType.divider,
         },
@@ -184,12 +246,6 @@ class PageList extends MultiPage {
       emptyValue: '--',
     },
     {
-      dataTarget: fieldData.phone,
-      width: 120,
-      showRichFacade: true,
-      emptyValue: '--',
-    },
-    {
       dataTarget: fieldData.customerId,
       width: 120,
       showRichFacade: true,
@@ -202,6 +258,17 @@ class PageList extends MultiPage {
       facadeMode: columnFacadeMode.datetime,
     },
   ];
+
+  establishHelpConfig = () => {
+    return {
+      title: '简要说明',
+      list: [
+        {
+          text: '友好姓名是根据姓名、昵称以及Id等的数据完备情况择优显示.',
+        },
+      ],
+    };
+  };
 }
 
 export default PageList;

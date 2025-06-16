@@ -835,6 +835,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '41be02cf1f19a24ad0b669d7da87ed3b',
       permission: '538cb2e360bf4165b9095171050dbbfc',
     },
+    togglePhoneVerify: {
+      title: '切换手机号认证状态',
+      paramsKey: 'a0675567b60389a885f342531b7ad92f',
+      permission: 'bee3344f596a499b9901f69d1b87d14f',
+    },
     setDisable: {
       title: '设为禁用',
       paramsKey: 'c2ef47d763687160e7b9fd96193328f6',

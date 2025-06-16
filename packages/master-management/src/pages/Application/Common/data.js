@@ -427,6 +427,16 @@ export const fieldData = {
     name: 'articleNotificationRemark',
     helper: '文章通知消息的备注',
   },
+  phoneVerifyMode: {
+    label: '手机号码校验模式',
+    name: 'phoneVerifyMode',
+    helper: '验证手机号码有效性的途径',
+  },
+  phoneVerifyModeTag: {
+    label: '手机号码校验模式',
+    name: 'phoneVerifyModeTag',
+    helper: '验证手机号码有效性的途径',
+  },
   ...fieldExtraData,
 };
 

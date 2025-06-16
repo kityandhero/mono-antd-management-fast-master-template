@@ -1368,6 +1368,13 @@
           "type": "singleData"
         },
         {
+          "title": "切换手机号认证状态",
+          "api": "/customer/togglePhoneVerify",
+          "effect": "togglePhoneVerify",
+          "service": "togglePhoneVerifyData",
+          "type": "singleData"
+        },
+        {
           "title": "设为禁用",
           "api": "/customer/setDisable",
           "effect": "setDisable",

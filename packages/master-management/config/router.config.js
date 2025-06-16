@@ -153,9 +153,9 @@ export default [
     ],
   },
   {
-    name: 'customers',
+    name: 'frontEndUser',
     icon: 'team',
-    path: '/customers',
+    path: '/frontEndUser',
     access: 'checkAccess',
     authority: [
       accessWayCollection.super.permission,

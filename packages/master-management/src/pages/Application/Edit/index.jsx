@@ -19,6 +19,7 @@ import {
   getApplicationSourceStatusName,
   getApplicationTypeName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   refreshCacheAction,
   setStartAction,
@@ -35,6 +36,7 @@ import { TestSendSmsCaptchaModal } from '../TestSendSmsCaptchaModal';
 import { TestSendWechatTemplateMessageModal } from '../TestSendWechatTemplateMessageModal';
 import { TestSendWechatUniformMessageModal } from '../TestSendWechatUniformMessageModal';
 import { UpdateMessageChannelApplicationInfoModal } from '../UpdateMessageChannelApplicationInfoModal';
+import { UpdatePhoneVerifyModeModal } from '../UpdatePhoneVerifyModeModal';
 
 @connect(({ application, schedulingControl }) => ({
   application,
@@ -104,7 +106,7 @@ class Edit extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'application/get',
+      loadApiPath: modelTypeCollection.applicationTypeCollection.get,
       backPath: `/app/application/pageList/key`,
       applicationId: null,
     };
@@ -213,48 +215,24 @@ class Edit extends DataTabContainerSupplement {
     UpdateMessageChannelApplicationInfoModal.open();
   };
 
-  showTestSendWechatTemplateMessageModal = (record) => {
-    this.setState(
-      {
-        currentRecord: record,
-      },
-      () => {
-        TestSendWechatTemplateMessageModal.open();
-      },
-    );
+  showTestSendWechatTemplateMessageModal = () => {
+    TestSendWechatTemplateMessageModal.open();
   };
 
-  showTestSendWechatUniformMessageModal = (record) => {
-    this.setState(
-      {
-        currentRecord: record,
-      },
-      () => {
-        TestSendWechatUniformMessageModal.open();
-      },
-    );
+  showTestSendWechatUniformMessageModal = () => {
+    TestSendWechatUniformMessageModal.open();
   };
 
-  showTestSendSmsCaptchaModal = (record) => {
-    this.setState(
-      {
-        currentRecord: record,
-      },
-      () => {
-        TestSendSmsCaptchaModal.open();
-      },
-    );
+  showTestSendSmsCaptchaModal = () => {
+    TestSendSmsCaptchaModal.open();
   };
 
-  showBuildUnlimitedWechatMicroApplicationQrCodeDrawer = (record) => {
-    this.setState(
-      {
-        currentRecord: record,
-      },
-      () => {
-        BuildUnlimitedWechatMicroApplicationQrCodeDrawer.open();
-      },
-    );
+  showBuildUnlimitedWechatMicroApplicationQrCodeDrawer = () => {
+    BuildUnlimitedWechatMicroApplicationQrCodeDrawer.open();
+  };
+
+  showUpdatePhoneVerifyModeModal = () => {
+    UpdatePhoneVerifyModeModal.open();
   };
 
   establishPageHeaderAvatarConfig = () => {
@@ -396,6 +374,11 @@ class Edit extends DataTabContainerSupplement {
             break;
           }
 
+          case 'updatePhoneVerifyMode': {
+            that.showUpdatePhoneVerifyModeModal(handleData);
+            break;
+          }
+
           case 'refreshCache': {
             that.refreshCache(handleData);
             break;
@@ -409,6 +392,14 @@ class Edit extends DataTabContainerSupplement {
       },
       handleData: metaData,
       items: [
+        {
+          key: 'updatePhoneVerifyMode',
+          icon: iconBuilder.phone(),
+          text: '配置手机号码验证方式',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
         {
           key: 'toggleCustomerAutomaticRegistration',
           icon: iconBuilder.swap(),
@@ -549,6 +540,8 @@ class Edit extends DataTabContainerSupplement {
         <BuildUnlimitedWechatMicroApplicationQrCodeDrawer
           externalData={metaData}
         />
+
+        <UpdatePhoneVerifyModeModal externalData={metaData} />
       </>
     );
   };

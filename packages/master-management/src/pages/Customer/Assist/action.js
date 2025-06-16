@@ -5,6 +5,27 @@ import { actionCore } from 'antd-management-fast-common';
 import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
+export function togglePhoneVerifyAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage = null,
+}) {
+  actionCore({
+    api: modelTypeCollection.customerTypeCollection.togglePhoneVerify,
+    params: {
+      customerId: getValueByKey({
+        data: handleData,
+        key: fieldData.customerId.name,
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export function setEnableAction({
   target,
   handleData,
