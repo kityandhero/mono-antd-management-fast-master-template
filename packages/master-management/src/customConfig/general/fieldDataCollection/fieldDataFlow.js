@@ -36,6 +36,11 @@ const formExtraData = {
     name: 'defaultAttentionUserSignet',
     helper: '',
   },
+  effectiveRangeDescription: {
+    label: '生效对象',
+    name: 'effectiveRangeDescription',
+    helper: '',
+  },
 };
 
 export const fieldDataFlow = {

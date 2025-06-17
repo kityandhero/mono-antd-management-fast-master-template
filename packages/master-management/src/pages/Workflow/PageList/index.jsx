@@ -31,7 +31,6 @@ import {
   getBusinessModeName,
   getChannelName,
   getFlowEffectiveRangeName,
-  getFlowScopeName,
   getFlowStatusName,
   renderSearchBusinessModeSelect,
   renderSearchFlowScopeSelect,
@@ -70,6 +69,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
+      tableScrollX: 1800,
       pageTitle: '流程列表',
       paramsKey: accessWayCollection.workflow.pageList.paramsKey,
       loadApiPath: 'workflow/pageList',
@@ -531,23 +531,29 @@ class PageList extends MultiPage {
         });
       },
     },
+    // {
+    //   dataTarget: fieldData.scope,
+    //   width: 120,
+    //   showRichFacade: true,
+    //   emptyValue: '--',
+    //   facadeConfigBuilder: (value) => {
+    //     return {
+    //       color: buildRandomHexColor({
+    //         seed: toNumber(value) + 44,
+    //       }),
+    //     };
+    //   },
+    //   formatValue: (value) => {
+    //     return getFlowScopeName({
+    //       value: value,
+    //     });
+    //   },
+    // },
     {
-      dataTarget: fieldData.scope,
-      width: 120,
+      dataTarget: fieldData.effectiveRangeDescription,
+      width: 240,
       showRichFacade: true,
       emptyValue: '--',
-      facadeConfigBuilder: (value) => {
-        return {
-          color: buildRandomHexColor({
-            seed: toNumber(value) + 44,
-          }),
-        };
-      },
-      formatValue: (value) => {
-        return getFlowScopeName({
-          value: value,
-        });
-      },
     },
     {
       dataTarget: fieldData.effectiveRange,
@@ -604,12 +610,12 @@ class PageList extends MultiPage {
         });
       },
     },
-    {
-      dataTarget: fieldData.creatorUserRealName,
-      width: 120,
-      showRichFacade: true,
-      emptyValue: '--',
-    },
+    // {
+    //   dataTarget: fieldData.creatorUserRealName,
+    //   width: 120,
+    //   showRichFacade: true,
+    //   emptyValue: '--',
+    // },
     {
       dataTarget: fieldData.status,
       width: 120,
