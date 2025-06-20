@@ -251,6 +251,11 @@ const fieldExtraData = {
     name: 'attentionTime',
     helper: '',
   },
+  archiveUrl: {
+    label: '归档文件地址',
+    name: 'archiveUrl',
+    helper: '',
+  },
 };
 
 export const fieldDataFlowCase = {
@@ -399,6 +404,16 @@ export const fieldDataFlowCase = {
     label: '审批批次号',
     name: 'approveBatchNumber',
     helper: '',
+  },
+  whetherArchive: {
+    label: '是否归档',
+    name: 'whetherArchive',
+    helper: '流程实例是否已经归档',
+  },
+  whetherArchiveNote: {
+    label: '是否归档',
+    name: 'whetherArchiveNote',
+    helper: '流程实例是否已经归档',
   },
   status: {
     label: '状态',

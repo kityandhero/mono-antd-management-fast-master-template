@@ -3,7 +3,7 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { switchControlAssist } from 'antd-management-fast-framework';
 
-import { BasePreviewDrawer } from '../../../pageBases';
+import { BaseAttachmentPreviewDrawer } from '../../../pageBases';
 import { fieldData } from '../Common/data';
 
 const visibleFlag = '1862037d2beb46af92d85d33e379acd6';
@@ -12,7 +12,7 @@ const visibleFlag = '1862037d2beb46af92d85d33e379acd6';
   workflowCaseFormAttachment,
   schedulingControl,
 }))
-class PreviewDrawer extends BasePreviewDrawer {
+class AttachmentPreviewDrawer extends BaseAttachmentPreviewDrawer {
   static open() {
     switchControlAssist.open(visibleFlag);
   }
@@ -49,4 +49,4 @@ class PreviewDrawer extends BasePreviewDrawer {
   };
 }
 
-export { PreviewDrawer };
+export { AttachmentPreviewDrawer };

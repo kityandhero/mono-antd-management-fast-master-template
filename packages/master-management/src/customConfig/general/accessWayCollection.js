@@ -3607,6 +3607,16 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '2e4e08dea61b6cf6be094eb4c48230e0',
       permission: '836d2d7b58d742fbbe696932269bd760',
     },
+    archive: {
+      title: '归档',
+      paramsKey: 'be75cdb8533b5ceccc099d89c480e831',
+      permission: 'a3c745e1ad7e4dc0a43af090b354b1db',
+    },
+    cancelArchive: {
+      title: '取消归档',
+      paramsKey: '833ab758ba47ea5c0eb3a3af4acf30bb',
+      permission: '5a738618da9f4db0a344a785468664a2',
+    },
     refreshCache: {
       title: '刷新缓存',
       paramsKey: '95a9f7321de9e416b034e149c484c8a3',
@@ -3892,6 +3902,16 @@ export const accessWayInfrastructureCollection = {
       title: '强制结束（即该次审批作废）',
       paramsKey: 'e03974f34b4431ec3c98e48dded243ed',
       permission: '960eeeeaee2f429b977aec1ecfd94d64',
+    },
+    archive: {
+      title: '归档',
+      paramsKey: '1bcaaa7cf4ef32063f0c37887602a863',
+      permission: '196483e8351340eba56b9e73b964db0b',
+    },
+    cancelArchive: {
+      title: '取消归档',
+      paramsKey: '78699f801bc1fdf3ad2a8c2e92ba1d2c',
+      permission: 'b4bff96dcf49413bb43706c45bcb6f1f',
     },
     refreshCache: {
       title: '刷新缓存',

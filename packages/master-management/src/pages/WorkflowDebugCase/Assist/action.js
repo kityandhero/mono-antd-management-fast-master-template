@@ -185,6 +185,50 @@ export async function forceEndAction({
   });
 }
 
+export async function archiveAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.workflowDebugCaseTypeCollection.archive,
+    params: {
+      workflowDebugCaseId: getValueByKey({
+        data: handleData,
+        key: fieldData.workflowDebugCaseId.name,
+        defaultValue: '',
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export async function cancelArchiveAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.workflowDebugCaseTypeCollection.cancelArchive,
+    params: {
+      workflowDebugCaseId: getValueByKey({
+        data: handleData,
+        key: fieldData.workflowDebugCaseId.name,
+        defaultValue: '',
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function refreshCacheAction({
   target,
   handleData,

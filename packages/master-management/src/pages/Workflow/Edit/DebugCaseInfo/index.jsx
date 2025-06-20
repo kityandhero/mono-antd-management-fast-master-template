@@ -25,6 +25,7 @@ import {
 import { buildDropdown, iconBuilder } from 'antd-management-fast-component';
 import { Flow, FlowProcessHistory } from 'antd-management-fast-flow';
 
+import { FilePreviewDrawer } from '../../../../components';
 import {
   accessWayCollection,
   emptySignet,
@@ -46,6 +47,8 @@ import {
   convertProcessHistoryNextData,
 } from '../../../../pageBases';
 import {
+  archiveAction,
+  cancelArchiveAction,
   closeCancelApproveSwitchAction,
   closeResetAllApproveSwitchAction,
   forceEndAction,
@@ -210,6 +213,26 @@ class DebugCaseInfo extends TabPageBase {
 
   forceEnd = (o) => {
     forceEndAction({
+      target: this,
+      handleData: o,
+      successCallback: ({ target }) => {
+        target.reloadData({});
+      },
+    });
+  };
+
+  archive = (o) => {
+    archiveAction({
+      target: this,
+      handleData: o,
+      successCallback: ({ target }) => {
+        target.reloadData({});
+      },
+    });
+  };
+
+  cancelArchive = (o) => {
+    cancelArchiveAction({
       target: this,
       handleData: o,
       successCallback: ({ target }) => {
@@ -477,6 +500,10 @@ class DebugCaseInfo extends TabPageBase {
     });
   };
 
+  showArchiveDocumentDrawer = () => {
+    FilePreviewDrawer.open();
+  };
+
   fillInitialValuesAfterLoad = ({
     metaData = null,
     // eslint-disable-next-line no-unused-vars
@@ -588,6 +615,19 @@ class DebugCaseInfo extends TabPageBase {
       data: metaData,
       key: fieldData.debugApproverMode.name,
       convert: convertCollection.number,
+    });
+
+    const whetherArchive = getValueByKey({
+      data: metaData,
+      key: fieldData.whetherArchive.name,
+      convert: convertCollection.number,
+    });
+
+    const archiveUrl = getValueByKey({
+      data: metaData,
+      key: fieldData.archiveUrl.name,
+      convert: convertCollection.string,
+      defaultValue: '',
     });
 
     const status = getValueByKey({
@@ -735,8 +775,8 @@ class DebugCaseInfo extends TabPageBase {
               {
                 buildType: cardConfig.extraBuildType.generalExtraButton,
                 type: 'default',
-                icon: iconBuilder.read(),
-                text: '表单打印',
+                icon: iconBuilder.printer(),
+                text: '打印',
                 disabled:
                   !firstLoadSuccess ||
                   !checkHasAuthority(
@@ -780,6 +820,21 @@ class DebugCaseInfo extends TabPageBase {
 
                     case 'showUpdateDebugApproverModeModal': {
                       that.showUpdateDebugApproverModeModal(handleData);
+                      break;
+                    }
+
+                    case 'archive': {
+                      that.archive(handleData);
+                      break;
+                    }
+
+                    case 'cancelArchive': {
+                      that.cancelArchive(handleData);
+                      break;
+                    }
+
+                    case 'previewArchive': {
+                      that.showArchiveDocumentDrawer(handleData);
                       break;
                     }
 
@@ -855,6 +910,42 @@ class DebugCaseInfo extends TabPageBase {
                         .permission,
                     ),
                   },
+                  {
+                    type: dropdownExpandItemType.divider,
+                  },
+                  {
+                    key: 'archive',
+                    icon: iconBuilder.file(),
+                    text: '实例归档',
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflowCase.archive.permission,
+                    ),
+                    disabled: whetherArchive === whetherNumber.yes,
+                    confirm: true,
+                    title: '将要进行归档操作，确定吗？',
+                  },
+                  {
+                    key: 'cancelArchive',
+                    icon: iconBuilder.file(),
+                    text: '取消实例归档',
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflowCase.cancelArchive.permission,
+                    ),
+                    disabled: whetherArchive !== whetherNumber.yes,
+                    confirm: true,
+                    title: '将要进行取消归档操作，确定吗？',
+                  },
+                  {
+                    key: 'previewArchive',
+                    icon: iconBuilder.read(),
+                    text: '预览归档文件',
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflowCase.archive.permission,
+                    ),
+                    disabled:
+                      whetherArchive !== whetherNumber.yes ||
+                      checkStringIsNullOrWhiteSpace(archiveUrl),
+                  },
                 ],
               },
               {
@@ -895,11 +986,19 @@ class DebugCaseInfo extends TabPageBase {
                   }),
                 },
                 {
-                  span: 3,
+                  span: 2,
                   label: fieldData.description.label,
                   value: getValueByKey({
                     data: metaData,
                     key: fieldData.description.name,
+                  }),
+                },
+                {
+                  span: 1,
+                  label: fieldData.whetherArchiveNote.label,
+                  value: getValueByKey({
+                    data: metaData,
+                    key: fieldData.whetherArchiveNote.name,
                   }),
                 },
                 {
@@ -912,6 +1011,14 @@ class DebugCaseInfo extends TabPageBase {
                       convert: convertCollection.string,
                     }),
                     defaultValue: '暂无',
+                  }),
+                },
+                {
+                  span: 4,
+                  label: fieldData.archiveUrl.label,
+                  value: getValueByKey({
+                    data: metaData,
+                    key: fieldData.archiveUrl.name,
                   }),
                 },
                 {
@@ -1698,6 +1805,13 @@ class DebugCaseInfo extends TabPageBase {
       convert: convertCollection.array,
     });
 
+    const archiveUrl = getValueByKey({
+      data: metaData,
+      key: fieldData.archiveUrl.name,
+      convert: convertCollection.string,
+      defaultValue: '',
+    });
+
     const { showApply, listApply } = this.getApplicantConfig();
 
     const { showAttention, listAttention } = this.getAttentionConfig();
@@ -1840,6 +1954,8 @@ class DebugCaseInfo extends TabPageBase {
           qRCodeImage={qRCodeImage}
           serialNumberContent={workflowDebugCaseId}
         />
+
+        <FilePreviewDrawer url={archiveUrl} suffix="pdf" maskClosable />
       </>
     );
   };

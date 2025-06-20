@@ -178,6 +178,50 @@ export async function repairSubsidiaryAction({
   });
 }
 
+export async function archiveAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.workflowCaseTypeCollection.archive,
+    params: {
+      workflowDebugCaseId: getValueByKey({
+        data: handleData,
+        key: fieldData.workflowCaseId.name,
+        defaultValue: '',
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export async function cancelArchiveAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.workflowCaseTypeCollection.cancelArchive,
+    params: {
+      workflowDebugCaseId: getValueByKey({
+        data: handleData,
+        key: fieldData.workflowCaseId.name,
+        defaultValue: '',
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function refreshCacheAction({
   target,
   handleData,

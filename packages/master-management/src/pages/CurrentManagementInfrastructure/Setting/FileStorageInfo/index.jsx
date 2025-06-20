@@ -304,6 +304,22 @@ class Index extends TabPageBase {
       },
     });
 
+    const workflowStorage = getValueByKey({
+      data: metaData,
+      key: fieldData.workflowStorage.name,
+      formatBuilder: (v) => {
+        return `${generalStorage}${v}/`;
+      },
+    });
+
+    const workflowDebugStorage = getValueByKey({
+      data: metaData,
+      key: fieldData.workflowDebugStorage.name,
+      formatBuilder: (v) => {
+        return `${generalStorage}${v}/`;
+      },
+    });
+
     return {
       list: [
         {
@@ -404,6 +420,18 @@ class Index extends TabPageBase {
               type: cardConfig.contentItemType.onlyShowInput,
               fieldData: fieldData.fileStorage,
               value: fileStorage,
+            },
+            {
+              lg: 6,
+              type: cardConfig.contentItemType.onlyShowInput,
+              fieldData: fieldData.workflowStorage,
+              value: workflowStorage,
+            },
+            {
+              lg: 6,
+              type: cardConfig.contentItemType.onlyShowInput,
+              fieldData: fieldData.workflowDebugStorage,
+              value: workflowDebugStorage,
             },
           ],
         },

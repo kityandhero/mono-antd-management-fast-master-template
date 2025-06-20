@@ -174,6 +174,24 @@ export async function forceEndData(parameters) {
   });
 }
 
+export const archiveDataApiAddress = '/workflowDebugCase/archive';
+
+export async function archiveData(parameters) {
+  return request({
+    api: archiveDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const cancelArchiveDataApiAddress = '/workflowDebugCase/cancelArchive';
+
+export async function cancelArchiveData(parameters) {
+  return request({
+    api: cancelArchiveDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const refreshCacheDataApiAddress = '/workflowDebugCase/refreshCache';
 
 export async function refreshCacheData(parameters) {

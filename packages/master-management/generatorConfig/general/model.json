@@ -5806,6 +5806,20 @@
           "type": "singleData"
         },
         {
+          "title": "归档",
+          "api": "/workflowCase/archive",
+          "effect": "archive",
+          "service": "archiveData",
+          "type": "singleData"
+        },
+        {
+          "title": "取消归档",
+          "api": "/workflowCase/cancelArchive",
+          "effect": "cancelArchive",
+          "service": "cancelArchiveData",
+          "type": "singleData"
+        },
+        {
           "title": "刷新缓存",
           "api": "/workflowCase/refreshCache",
           "effect": "refreshCache",
@@ -6244,6 +6258,20 @@
           "api": "/workflowDebugCase/forceEnd",
           "effect": "forceEnd",
           "service": "forceEndData",
+          "type": "singleData"
+        },
+        {
+          "title": "归档",
+          "api": "/workflowDebugCase/archive",
+          "effect": "archive",
+          "service": "archiveData",
+          "type": "singleData"
+        },
+        {
+          "title": "取消归档",
+          "api": "/workflowDebugCase/cancelArchive",
+          "effect": "cancelArchive",
+          "service": "cancelArchiveData",
           "type": "singleData"
         },
         {

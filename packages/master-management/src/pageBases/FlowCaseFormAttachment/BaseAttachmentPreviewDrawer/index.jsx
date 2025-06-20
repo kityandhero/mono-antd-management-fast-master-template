@@ -26,7 +26,7 @@ import { getFlowCaseFormAttachmentStatusName } from '../../../customSpecialCompo
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
-class BasePreviewDrawer extends BaseVerticalFlexDrawer {
+class BaseAttachmentPreviewDrawer extends BaseVerticalFlexDrawer {
   resetDataAfterLoad = false;
 
   frameRef = React.createRef();
@@ -284,4 +284,4 @@ class BasePreviewDrawer extends BaseVerticalFlexDrawer {
   };
 }
 
-export { BasePreviewDrawer };
+export { BaseAttachmentPreviewDrawer };
