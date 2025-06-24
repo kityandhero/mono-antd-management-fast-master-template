@@ -5,6 +5,7 @@
   "syncFolders": [
     "generatorConfig/general/",
     "generatorTemplate/",
+    "src/components/FilePreviewDrawer/",
     "src/components/PageLoading/",
     "src/customConfig/general/",
     "src/customSpecialComponents/BaseUpdateKeyValueInfoModal/",
