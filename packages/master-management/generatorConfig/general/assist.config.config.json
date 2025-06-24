@@ -50,6 +50,20 @@
       "coverFile": false
     },
     {
+      "folder": "ApplicationUserFeedback/Assist",
+      "model": "applicationUserFeedback",
+      "key": "applicationUserFeedbackId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
+      "folder": "ApplicationCustomerFeedback/Assist",
+      "model": "applicationCustomerFeedback",
+      "key": "applicationCustomerFeedbackId",
+      "fileName": "config.js",
+      "coverFile": false
+    },
+    {
       "folder": "Position/Assist",
       "model": "position",
       "key": "positionId",

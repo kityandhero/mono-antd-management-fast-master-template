@@ -1,6 +1,7 @@
 export * from './AdministrativeDivisionLevel';
 export * from './AdministrativeDivisionStatus';
 export * from './ApplicationCertificateType';
+export * from './ApplicationCustomerFeedbackStatus';
 export * from './ApplicationMerchantType';
 export * from './ApplicationNavigationAccessibility';
 export * from './ApplicationNavigationOperationType';
@@ -10,6 +11,7 @@ export * from './ApplicationSourceStatus';
 export * from './ApplicationSourceType';
 export * from './ApplicationStatus';
 export * from './ApplicationType';
+export * from './ApplicationUserFeedbackStatus';
 export * from './ApplicationVersionStatus';
 export * from './BusinessMode';
 export * from './BusinessSetStatus';

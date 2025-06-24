@@ -36,6 +36,20 @@
       "coverFile": true
     },
     {
+      "folder": "ApplicationUserFeedback/OperateLogDrawer",
+      "model": "applicationUserFeedback",
+      "key": "applicationUserFeedbackId",
+      "visibleFlag": "1cfc18c4bfaf4065811ca4e75978cbe1",
+      "coverFile": true
+    },
+    {
+      "folder": "ApplicationCustomerFeedback/OperateLogDrawer",
+      "model": "applicationCustomerFeedback",
+      "key": "applicationCustomerFeedbackId",
+      "visibleFlag": "acef031cbb904d18b940be64e7122a41",
+      "coverFile": true
+    },
+    {
       "folder": "Position/OperateLogDrawer",
       "model": "position",
       "key": "positionId",

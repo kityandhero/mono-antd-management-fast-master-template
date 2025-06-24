@@ -5,6 +5,7 @@ import {
   accessWay,
   account,
   administrativeDivision,
+  applicationFeedback,
   apps,
   assistTools,
   businessSet,
@@ -117,6 +118,7 @@ export default [
   survey,
   organization,
   subsidiaryMessages,
+  applicationFeedback,
   flow,
   {
     name: 'permission',

@@ -43,6 +43,20 @@
       "coverFile": false
     },
     {
+      "folder": "ApplicationUserFeedback/PageList",
+      "model": "applicationUserFeedback",
+      "key": "applicationUserFeedbackId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "ApplicationCustomerFeedback/PageList",
+      "model": "applicationCustomerFeedback",
+      "key": "applicationCustomerFeedbackId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "SubsidiaryReportMessage/PageList",
       "model": "subsidiaryReportMessage",
       "key": "subsidiaryReportMessageId",

@@ -144,6 +144,32 @@ export const menuZhCNGeneral = {
   'menu.subsidiaryMessages.subsidiaryReportMessage.edit.operateLog.pageList':
     '日志列表',
 
+  'menu.applicationFeedback': '应用反馈',
+  'menu.applicationFeedback-mini': '反馈',
+
+  'menu.applicationFeedback.applicationUserFeedback': '用户反馈',
+  'menu.applicationFeedback.applicationUserFeedback-mini': '用户',
+  'menu.applicationFeedback.applicationUserFeedback.pageList': '反馈列表',
+  'menu.applicationFeedback.applicationUserFeedback.pageList-mini': '列表',
+  'menu.applicationFeedback.applicationUserFeedback.edit': '反馈详情',
+  'menu.applicationFeedback.applicationUserFeedback.edit.basicInfo': '基本信息',
+  'menu.applicationFeedback.applicationUserFeedback.edit.operateLog':
+    '操作日志',
+  'menu.applicationFeedback.applicationUserFeedback.edit.operateLog.pageList':
+    '日志列表',
+
+  'menu.applicationFeedback.applicationCustomerFeedback': '顾客反馈',
+  'menu.applicationFeedback.applicationCustomerFeedback-mini': '顾客',
+  'menu.applicationFeedback.applicationCustomerFeedback.pageList': '反馈列表',
+  'menu.applicationFeedback.applicationCustomerFeedback.pageList-mini': '列表',
+  'menu.applicationFeedback.applicationCustomerFeedback.edit': '反馈详情',
+  'menu.applicationFeedback.applicationCustomerFeedback.edit.basicInfo':
+    '基本信息',
+  'menu.applicationFeedback.applicationCustomerFeedback.edit.operateLog':
+    '操作日志',
+  'menu.applicationFeedback.applicationCustomerFeedback.edit.operateLog.pageList':
+    '日志列表',
+
   'menu.services': '系统服务',
   'menu.services-mini': '服务',
 

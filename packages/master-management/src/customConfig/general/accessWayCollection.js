@@ -270,6 +270,38 @@ export const accessWayInfrastructureCollection = {
       permission: 'ce4be1a642c64abe885975759fa3c796',
     },
   },
+  applicationCustomerFeedback: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: 'daecee51604a6ac816d75d44ce614d83',
+      permission: 'c5f3fe79c5dd435f93d9058282cefbae',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '140c97dfb07c2d4213e79721cf30ef34',
+      permission: 'f9229300f6ca44cebbc009bce1359eb5',
+    },
+    repay: {
+      title: '回复信息',
+      paramsKey: 'd2ae9480a6f40e817c635dd8afaba99c',
+      permission: '5af22def2bd740719f3ca9774a86bc44',
+    },
+    remove: {
+      title: '移除信息',
+      paramsKey: '6d24de638af60756d8a6aa3f9720c8b2',
+      permission: '4e06b5b27f3f4ead85cd87dd5405a772',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '8abcbb887e1e713e627aed9883edb00d',
+      permission: '2cf63e3dc7d345f9a1f001b22526dfd2',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: '82ff3f4a7e5a0edab5c5930858b6f585',
+      permission: '45cb1138bd7c497193c729e13199deee',
+    },
+  },
   applicationNavigation: {
     pageList: {
       title: '导航配置列表',
@@ -387,6 +419,38 @@ export const accessWayInfrastructureCollection = {
       title: '操作日志列表',
       paramsKey: '246f040f2f1c4a048a808e5189a2395a',
       permission: '34e2756badde440abd929d35f40642fd',
+    },
+  },
+  applicationUserFeedback: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '4c39b993728d4c92e0bb4dfbe10c718d',
+      permission: '39e59df9e5c94ac4921c6d74027eae66',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: 'd4ea03db5b27bcade6ec0905a271935a',
+      permission: '4ade536a30c947e5b729fad30908b37a',
+    },
+    repay: {
+      title: '回复信息',
+      paramsKey: '6fe036c653adcd1e780d4fedeba75b21',
+      permission: '8f661aa72c7a4e23abd3ff18a2ea49b0',
+    },
+    remove: {
+      title: '移除信息',
+      paramsKey: '314cd99425aac2fffd4a99895cc33901',
+      permission: '6b6f37bc63434a49a6a0b56830f902a2',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: 'c5e54e8e2787c823142f43a427bbf0e6',
+      permission: 'f48a60a2c9a64f52b8936cc489e904cc',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: '42e673128c04ca610bcf46cbb3ecc02b',
+      permission: 'a07f8eda3e5c4511a696c9112b6f226b',
     },
   },
   applicationVersion: {

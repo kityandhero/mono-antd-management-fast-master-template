@@ -1,5 +1,9 @@
 import { connect } from 'easy-soft-dva';
-import { convertCollection, getValueByKey } from 'easy-soft-utility';
+import {
+  checkStringIsNullOrWhiteSpace,
+  convertCollection,
+  getValueByKey,
+} from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
 import { buildCustomGrid, iconBuilder } from 'antd-management-fast-component';
@@ -64,6 +68,22 @@ class PreviewDrawer extends BaseLoadDrawer {
       };
       return url;
     });
+
+    const replyContent = getValueByKey({
+      data: metaData,
+      key: fieldData.replyContent.name,
+      defaultValue: '',
+    });
+
+    let replyTime = getValueByKey({
+      data: metaData,
+      key: fieldData.replyTime.name,
+      defaultValue: '',
+    });
+
+    if (checkStringIsNullOrWhiteSpace(replyContent)) {
+      replyTime = '';
+    }
 
     return {
       list: [
@@ -188,18 +208,12 @@ class PreviewDrawer extends BaseLoadDrawer {
                   {
                     span: 2,
                     label: fieldData.replyContent.label,
-                    value: getValueByKey({
-                      data: metaData,
-                      key: fieldData.replyContent.name,
-                    }),
+                    value: replyContent,
                   },
                   {
                     span: 2,
                     label: fieldData.replyTime.label,
-                    value: getValueByKey({
-                      data: metaData,
-                      key: fieldData.replyTime.name,
-                    }),
+                    value: replyTime,
                   },
                 ],
                 props: {

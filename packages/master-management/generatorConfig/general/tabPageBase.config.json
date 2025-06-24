@@ -43,6 +43,20 @@
       "coverFile": false
     },
     {
+      "folder": "ApplicationUserFeedback/TabPageBase",
+      "model": "applicationUserFeedback",
+      "key": "applicationUserFeedbackId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "ApplicationCustomerFeedback/TabPageBase",
+      "model": "applicationCustomerFeedback",
+      "key": "applicationCustomerFeedbackId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "Question/TabPageBase",
       "model": "question",
       "key": "questionId",

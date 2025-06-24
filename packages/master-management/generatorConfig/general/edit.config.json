@@ -49,6 +49,22 @@
       "coverFile": false
     },
     {
+      "folder": "ApplicationUserFeedback/Edit",
+      "name": "ApplicationUserFeedback",
+      "model": "applicationUserFeedback",
+      "key": "applicationUserFeedbackId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "ApplicationCustomerFeedback/Edit",
+      "name": "ApplicationCustomerFeedback",
+      "model": "applicationCustomerFeedback",
+      "key": "applicationCustomerFeedbackId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "Question/Edit",
       "name": "Question",
       "model": "question",

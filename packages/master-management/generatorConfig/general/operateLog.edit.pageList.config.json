@@ -37,6 +37,18 @@
       "coverFile": true
     },
     {
+      "folder": "ApplicationUserFeedback/Edit/OperateLog/PageList",
+      "model": "applicationUserFeedback",
+      "key": "applicationUserFeedbackId",
+      "coverFile": true
+    },
+    {
+      "folder": "ApplicationCustomerFeedback/Edit/OperateLog/PageList",
+      "model": "applicationCustomerFeedback",
+      "key": "applicationCustomerFeedbackId",
+      "coverFile": true
+    },
+    {
       "folder": "Question/Edit/OperateLog/PageList",
       "model": "question",
       "key": "questionId",

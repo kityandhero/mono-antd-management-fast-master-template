@@ -634,6 +634,16 @@
       "functionSegment": "PhoneVerifyMode",
       "label": "手机号码校验模式",
       "name": "phoneVerifyMode"
+    },
+    {
+      "functionSegment": "ApplicationUserFeedbackStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "ApplicationCustomerFeedbackStatus",
+      "label": "状态",
+      "name": "status"
     }
   ]
 }

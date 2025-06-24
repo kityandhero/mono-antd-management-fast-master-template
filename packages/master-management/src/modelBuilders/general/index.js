@@ -11,6 +11,10 @@ import {
   buildModel as buildApplicationModel,
 } from './application';
 import {
+  applicationCustomerFeedbackTypeCollection,
+  buildModel as buildApplicationCustomerFeedbackModel,
+} from './applicationCustomerFeedback';
+import {
   applicationNavigationTypeCollection,
   buildModel as buildApplicationNavigationModel,
 } from './applicationNavigation';
@@ -18,6 +22,10 @@ import {
   applicationSourceTypeCollection,
   buildModel as buildApplicationSourceModel,
 } from './applicationSource';
+import {
+  applicationUserFeedbackTypeCollection,
+  buildModel as buildApplicationUserFeedbackModel,
+} from './applicationUserFeedback';
 import {
   applicationVersionTypeCollection,
   buildModel as buildApplicationVersionModel,
@@ -385,8 +393,10 @@ export const modelTypeCollection = {
   accessWayTypeCollection,
   administrativeDivisionTypeCollection,
   applicationTypeCollection,
+  applicationCustomerFeedbackTypeCollection,
   applicationNavigationTypeCollection,
   applicationSourceTypeCollection,
+  applicationUserFeedbackTypeCollection,
   applicationVersionTypeCollection,
   articleNotificationApplicationTypeCollection,
   businessSetTypeCollection,
@@ -491,8 +501,10 @@ export function listModelBuilder() {
     buildAccessWayModel,
     buildAdministrativeDivisionModel,
     buildApplicationModel,
+    buildApplicationCustomerFeedbackModel,
     buildApplicationNavigationModel,
     buildApplicationSourceModel,
+    buildApplicationUserFeedbackModel,
     buildApplicationVersionModel,
     buildArticleNotificationApplicationModel,
     buildBusinessSetModel,

@@ -2820,6 +2820,134 @@ export const assistTools = {
   ],
 };
 
+const applicationUserFeedback = {
+  name: 'applicationUserFeedback',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/applicationFeedback/applicationUserFeedback',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.applicationUserFeedback.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/applicationFeedback/applicationUserFeedback',
+      redirect: '/applicationFeedback/applicationUserFeedback/pageList',
+    },
+    {
+      path: '/applicationFeedback/applicationUserFeedback/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/applicationFeedback/applicationUserFeedback/pageList/no',
+    },
+    {
+      path: '/applicationFeedback/applicationUserFeedback/pageList/:pageKey',
+      hideInMenu: true,
+      component: './ApplicationUserFeedback/PageList',
+    },
+    {
+      path: '/applicationFeedback/applicationUserFeedback/edit/:op/:id/:pageKey',
+      name: 'edit',
+      hideInMenu: true,
+      component: './ApplicationUserFeedback/Edit',
+      routes: [
+        {
+          path: '/applicationFeedback/applicationUserFeedback/edit/:op/:id/:pageKey/basicInfo',
+          name: 'basicInfo',
+          component: './ApplicationUserFeedback/Edit/BasicInfo',
+        },
+        {
+          path: '/applicationFeedback/applicationUserFeedback/edit/:op/:id/:pageKey/operateLog',
+          name: 'operateLog',
+          routes: [
+            {
+              path: '/applicationFeedback/applicationUserFeedback/edit/:op/:id/:pageKey/operateLog',
+              redirect:
+                '/applicationFeedback/applicationUserFeedback/edit/:op/:id/:pageKey/operateLog/pageList',
+            },
+            {
+              path: '/applicationFeedback/applicationUserFeedback/edit/:op/:id/:pageKey/operateLog/pageList',
+              component: './ApplicationUserFeedback/Edit/OperateLog/PageList',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+const applicationCustomerFeedback = {
+  name: 'applicationCustomerFeedback',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/applicationFeedback/applicationCustomerFeedback',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.applicationCustomerFeedback.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/applicationFeedback/applicationCustomerFeedback',
+      redirect: '/applicationFeedback/applicationCustomerFeedback/pageList',
+    },
+    {
+      path: '/applicationFeedback/applicationCustomerFeedback/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/applicationFeedback/applicationCustomerFeedback/pageList/no',
+    },
+    {
+      path: '/applicationFeedback/applicationCustomerFeedback/pageList/:pageKey',
+      hideInMenu: true,
+      component: './ApplicationCustomerFeedback/PageList',
+    },
+    {
+      path: '/applicationFeedback/applicationCustomerFeedback/edit/:op/:id/:pageKey',
+      name: 'edit',
+      hideInMenu: true,
+      component: './ApplicationCustomerFeedback/Edit',
+      routes: [
+        {
+          path: '/applicationFeedback/applicationCustomerFeedback/edit/:op/:id/:pageKey/basicInfo',
+          name: 'basicInfo',
+          component: './ApplicationCustomerFeedback/Edit/BasicInfo',
+        },
+        {
+          path: '/applicationFeedback/applicationCustomerFeedback/edit/:op/:id/:pageKey/operateLog',
+          name: 'operateLog',
+          routes: [
+            {
+              path: '/applicationFeedback/applicationCustomerFeedback/edit/:op/:id/:pageKey/operateLog',
+              redirect:
+                '/applicationFeedback/applicationCustomerFeedback/edit/:op/:id/:pageKey/operateLog/pageList',
+            },
+            {
+              path: '/applicationFeedback/applicationCustomerFeedback/edit/:op/:id/:pageKey/operateLog/pageList',
+              component:
+                './ApplicationCustomerFeedback/Edit/OperateLog/PageList',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+export const applicationFeedback = {
+  name: 'applicationFeedback',
+  icon: 'reconciliation',
+  path: '/applicationFeedback',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.applicationUserFeedback.pageList.permission,
+    accessWayCollection.applicationCustomerFeedback.pageList.permission,
+  ],
+  routes: [applicationUserFeedback, applicationCustomerFeedback],
+};
+
 const keyValueInfrastructure = {
   name: 'keyValueInfrastructure',
   icon: 'reconciliation',

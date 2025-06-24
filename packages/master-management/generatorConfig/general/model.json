@@ -444,6 +444,55 @@
     {
       "apis": [
         {
+          "title": "分页列表",
+          "api": "/applicationCustomerFeedback/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/applicationCustomerFeedback/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "回复信息",
+          "api": "/applicationCustomerFeedback/repay",
+          "effect": "repay",
+          "service": "repayData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除信息",
+          "api": "/applicationCustomerFeedback/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/applicationCustomerFeedback/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/applicationCustomerFeedback/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "应用顾客留言信息管理",
+      "name": "applicationCustomerFeedback"
+    },
+    {
+      "apis": [
+        {
           "title": "导航配置列表",
           "api": "/applicationNavigation/pageList",
           "effect": "pageList",
@@ -629,6 +678,55 @@
       "cover": true,
       "title": "平台应用源",
       "name": "applicationSource"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/applicationUserFeedback/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/applicationUserFeedback/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "回复信息",
+          "api": "/applicationUserFeedback/repay",
+          "effect": "repay",
+          "service": "repayData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除信息",
+          "api": "/applicationUserFeedback/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/applicationUserFeedback/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/applicationUserFeedback/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "应用用户留言信息管理",
+      "name": "applicationUserFeedback"
     },
     {
       "apis": [

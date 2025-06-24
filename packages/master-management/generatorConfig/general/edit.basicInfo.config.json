@@ -43,6 +43,20 @@
       "coverFile": false
     },
     {
+      "folder": "ApplicationUserFeedback/Edit/BasicInfo",
+      "model": "applicationUserFeedback",
+      "key": "applicationUserFeedbackId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "ApplicationCustomerFeedback/Edit/BasicInfo",
+      "model": "applicationCustomerFeedback",
+      "key": "applicationCustomerFeedbackId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "Question/Edit/BasicInfo",
       "model": "question",
       "key": "questionId",
