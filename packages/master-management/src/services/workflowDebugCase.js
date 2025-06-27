@@ -77,6 +77,16 @@ export async function updateBasicInfoData(parameters) {
   });
 }
 
+export const toggleEmergencyDataApiAddress =
+  '/workflowDebugCase/toggleEmergency';
+
+export async function toggleEmergencyData(parameters) {
+  return request({
+    api: toggleEmergencyDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setApplicantStatementDataApiAddress =
   '/workflowDebugCase/setApplicantStatement';
 

@@ -5834,6 +5834,13 @@
           "type": "singleData"
         },
         {
+          "title": "切换是否紧急",
+          "api": "/workflowCase/toggleEmergency",
+          "effect": "toggleEmergency",
+          "service": "toggleEmergencyData",
+          "type": "singleData"
+        },
+        {
           "title": "设置所属企业",
           "api": "/workflowCase/setSubsidiaryId",
           "effect": "setSubsidiaryId",
@@ -6286,6 +6293,13 @@
           "api": "/workflowDebugCase/updateBasicInfo",
           "effect": "updateBasicInfo",
           "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "切换是否紧急",
+          "api": "/workflowDebugCase/toggleEmergency",
+          "effect": "toggleEmergency",
+          "service": "toggleEmergencyData",
           "type": "singleData"
         },
         {

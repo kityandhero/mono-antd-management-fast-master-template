@@ -1,5 +1,6 @@
 import {
   checkInCollection,
+  checkStringIsNullOrWhiteSpace,
   convertCollection,
   filter,
   getValueByKey,
@@ -9,7 +10,7 @@ import {
   toLowerFirst,
 } from 'easy-soft-utility';
 
-import { iconBuilder } from 'antd-management-fast-component';
+import { ColorText, iconBuilder } from 'antd-management-fast-component';
 import { adjustEdge, adjustNode } from 'antd-management-fast-flow';
 
 import {
@@ -28,7 +29,10 @@ import {
   flowLineTypeCollection,
   flowNodeTypeCollection,
 } from '../../../customConfig';
-import { getChannelName } from '../../../customSpecialComponents';
+import {
+  getChannelName,
+  getFlowNodeApproveModeName,
+} from '../../../customSpecialComponents';
 
 export function getFlowCaseStatusBadge(status) {
   let result = 'default';
@@ -569,6 +573,42 @@ function adjustFlowCaseDataItemToState({
         data: {
           data: o,
           isNext: nextApproveWorkflowNodeId === workflowNodeId,
+          footerBuilder: (data) => {
+            const approverMode = getValueByKey({
+              data: data,
+              key: fieldDataFlowNode.approveMode.name,
+              convert: convertCollection.number,
+              defaultValue: '',
+            });
+
+            const approverModeName = getFlowNodeApproveModeName({
+              value: approverMode,
+            });
+
+            if (checkStringIsNullOrWhiteSpace(approverModeName)) {
+              return null;
+            }
+
+            return (
+              <ColorText
+                textPrefix="审批方式"
+                text={approverModeName}
+                color="#999"
+                style={{
+                  fontSize: 10,
+                }}
+                textPrefixStyle={{
+                  color: '#999',
+                }}
+                separator="："
+                separatorStyle={{
+                  paddingLeft: '2px',
+                  paddingRight: '0px',
+                  color: '#999',
+                }}
+              />
+            );
+          },
         },
       });
 

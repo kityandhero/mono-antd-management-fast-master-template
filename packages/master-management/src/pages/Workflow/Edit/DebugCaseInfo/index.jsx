@@ -55,6 +55,7 @@ import {
   openCancelApproveSwitchAction,
   openResetAllApproveSwitchAction,
   submitApprovalAction,
+  toggleEmergencyAction,
 } from '../../../WorkflowDebugCase/Assist/action';
 import { fieldData } from '../../../WorkflowDebugCase/Common/data';
 import { WorkflowDebugCasePageListLatestApproveDrawer } from '../../../WorkflowDebugCase/PageListLatestApproveDrawer';
@@ -215,6 +216,16 @@ class DebugCaseInfo extends TabPageBase {
     forceEndAction({
       target: this,
       handleData: o,
+      successCallback: ({ target }) => {
+        target.reloadData({});
+      },
+    });
+  };
+
+  toggleEmergency = (r) => {
+    toggleEmergencyAction({
+      target: this,
+      handleData: r,
       successCallback: ({ target }) => {
         target.reloadData({});
       },
@@ -823,6 +834,11 @@ class DebugCaseInfo extends TabPageBase {
                       break;
                     }
 
+                    case 'toggleEmergency': {
+                      that.toggleEmergency(handleData);
+                      break;
+                    }
+
                     case 'archive': {
                       that.archive(handleData);
                       break;
@@ -914,11 +930,30 @@ class DebugCaseInfo extends TabPageBase {
                     type: dropdownExpandItemType.divider,
                   },
                   {
+                    key: 'toggleEmergency',
+                    icon: iconBuilder.swap(),
+                    text: '切换紧急',
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflowDebugCase.toggleEmergency
+                        .permission,
+                    ),
+                    disabled: !checkInCollection(
+                      [flowCaseStatusCollection.created],
+                      status,
+                    ),
+                    confirm: true,
+                    title:
+                      '将要切换紧急状态（位于紧急状态下的审批，会向审批人发送审批通知），确定吗？',
+                  },
+                  {
+                    type: dropdownExpandItemType.divider,
+                  },
+                  {
                     key: 'archive',
                     icon: iconBuilder.file(),
                     text: '实例归档',
                     hidden: !checkHasAuthority(
-                      accessWayCollection.workflowCase.archive.permission,
+                      accessWayCollection.workflowDebugCase.archive.permission,
                     ),
                     disabled: whetherArchive === whetherNumber.yes,
                     confirm: true,
@@ -929,7 +964,8 @@ class DebugCaseInfo extends TabPageBase {
                     icon: iconBuilder.file(),
                     text: '取消实例归档',
                     hidden: !checkHasAuthority(
-                      accessWayCollection.workflowCase.cancelArchive.permission,
+                      accessWayCollection.workflowDebugCase.cancelArchive
+                        .permission,
                     ),
                     disabled: whetherArchive !== whetherNumber.yes,
                     confirm: true,
@@ -940,7 +976,7 @@ class DebugCaseInfo extends TabPageBase {
                     icon: iconBuilder.read(),
                     text: '预览归档文件',
                     hidden: !checkHasAuthority(
-                      accessWayCollection.workflowCase.archive.permission,
+                      accessWayCollection.workflowDebugCase.archive.permission,
                     ),
                     disabled:
                       whetherArchive !== whetherNumber.yes ||
@@ -1022,9 +1058,17 @@ class DebugCaseInfo extends TabPageBase {
                   }),
                 },
                 {
-                  span: 3,
+                  span: 2,
                   label: fieldData.userRealName.label,
                   value: `${userRealName ?? ''}${checkStringIsNullOrWhiteSpace(userId) ? '' : toString(userId) === zeroString ? '' : ` [${userId}]`}`,
+                },
+                {
+                  span: 1,
+                  label: fieldData.whetherEmergencyNote.label,
+                  value: getValueByKey({
+                    data: metaData,
+                    key: fieldData.whetherEmergencyNote.name,
+                  }),
                 },
                 {
                   span: 1,

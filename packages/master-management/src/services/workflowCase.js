@@ -45,6 +45,15 @@ export async function updateBasicInfoData(parameters) {
   });
 }
 
+export const toggleEmergencyDataApiAddress = '/workflowCase/toggleEmergency';
+
+export async function toggleEmergencyData(parameters) {
+  return request({
+    api: toggleEmergencyDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setSubsidiaryIdDataApiAddress = '/workflowCase/setSubsidiaryId';
 
 export async function setSubsidiaryIdData(parameters) {

@@ -256,6 +256,11 @@ const fieldExtraData = {
     name: 'archiveUrl',
     helper: '',
   },
+  whetherEmergencyNote: {
+    label: '是否紧急',
+    name: 'whetherEmergencyNote',
+    helper: '',
+  },
 };
 
 export const fieldDataFlowCase = {
@@ -403,6 +408,11 @@ export const fieldDataFlowCase = {
   approveBatchNumber: {
     label: '审批批次号',
     name: 'approveBatchNumber',
+    helper: '',
+  },
+  whetherEmergency: {
+    label: '是否紧急',
+    name: 'whetherEmergency',
     helper: '',
   },
   whetherArchive: {

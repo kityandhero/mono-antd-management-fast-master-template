@@ -29,6 +29,7 @@ import {
   setAttentionUserData,
   submitApprovalData,
   submitFormData,
+  toggleEmergencyData,
   updateBasicInfoData,
 } from '../../services/workflowDebugCase';
 
@@ -41,6 +42,7 @@ export const workflowDebugCaseTypeCollection = {
   getByWorkflow: 'workflowDebugCase/getByWorkflow',
   getChainByWorkflow: 'workflowDebugCase/getChainByWorkflow',
   updateBasicInfo: 'workflowDebugCase/updateBasicInfo',
+  toggleEmergency: 'workflowDebugCase/toggleEmergency',
   setApplicantStatement: 'workflowDebugCase/setApplicantStatement',
   setAttentionUser: 'workflowDebugCase/setAttentionUser',
   setAttentionStatement: 'workflowDebugCase/setAttentionStatement',
@@ -258,6 +260,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(updateBasicInfoData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *toggleEmergency(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(toggleEmergencyData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

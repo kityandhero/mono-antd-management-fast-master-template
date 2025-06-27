@@ -3621,6 +3621,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'de50f43678789592f29822a691c9b000',
       permission: 'f950d65e12bf42c19f70d0bfecaeb6e7',
     },
+    toggleEmergency: {
+      title: '切换是否紧急',
+      paramsKey: '33b6022eb40fa20d2d3a0a8583514c9b',
+      permission: 'fce7744cbc044272bb8a22819f0c09f5',
+    },
     setSubsidiaryId: {
       title: '设置所属企业',
       paramsKey: 'f0fe1e5d06fcb3225e9773dd56f36497',
@@ -3916,6 +3921,11 @@ export const accessWayInfrastructureCollection = {
       title: '更新流程测试实例',
       paramsKey: '6c8e55087a124f9888f8d0a3ea2a294f',
       permission: 'c9d58aadf7874c98ba1cd98b47ebe711',
+    },
+    toggleEmergency: {
+      title: '切换是否紧急',
+      paramsKey: '744fff785448eed95e08ad1e7f37570b',
+      permission: '8048102ee683436f90a2da9419e9d858',
     },
     setApplicantStatement: {
       title: '设置申请陈述',

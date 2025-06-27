@@ -37,6 +37,7 @@ import {
   hideAction,
   refreshCacheAction,
   repairSubsidiaryAction,
+  toggleEmergencyAction,
 } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
@@ -97,6 +98,12 @@ class PageList extends MultiPage {
         break;
       }
 
+      case 'toggleEmergency': {
+        this.toggleEmergency(handleData);
+
+        break;
+      }
+
       case 'hide': {
         this.hide(handleData);
 
@@ -122,6 +129,16 @@ class PageList extends MultiPage {
       handleData: r,
       successCallback: ({ target, handleData, remoteData }) => {
         target.handleItemStatus({ target, handleData, remoteData });
+      },
+    });
+  };
+
+  toggleEmergency = (r) => {
+    toggleEmergencyAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target }) => {
+        target.reloadData({});
       },
     });
   };
@@ -271,6 +288,24 @@ class PageList extends MultiPage {
           type: dropdownExpandItemType.divider,
         },
         {
+          key: 'toggleEmergency',
+          icon: iconBuilder.swap(),
+          text: '切换紧急',
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowCase.toggleEmergency.permission,
+          ),
+          disabled: !checkInCollection(
+            [flowCaseStatusCollection.created],
+            status,
+          ),
+          confirm: true,
+          title:
+            '将要切换紧急状态（位于紧急状态下的审批，会向审批人发送审批通知），确定吗？',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'hide',
           icon: iconBuilder.delete(),
           text: '移除审批',
@@ -318,6 +353,25 @@ class PageList extends MultiPage {
       width: 140,
       showRichFacade: true,
       emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.whetherEmergencyNote,
+      width: 80,
+      showRichFacade: true,
+      emptyValue: '--',
+      facadeConfigBuilder: (value, o) => {
+        const whetherEmergency = getValueByKey({
+          data: o,
+          key: fieldData.whetherEmergency.name,
+          convert: convertCollection.number,
+        });
+
+        return {
+          color: buildRandomHexColor({
+            seed: toNumber(whetherEmergency) * 25 + 47,
+          }),
+        };
+      },
     },
     {
       dataTarget: fieldData.channel,

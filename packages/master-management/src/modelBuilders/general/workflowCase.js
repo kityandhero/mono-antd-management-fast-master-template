@@ -27,6 +27,7 @@ import {
   setAttentionStatementData,
   setAttentionUserData,
   setSubsidiaryIdData,
+  toggleEmergencyData,
   updateBasicInfoData,
 } from '../../services/workflowCase';
 
@@ -36,6 +37,7 @@ export const workflowCaseTypeCollection = {
   get: 'workflowCase/get',
   getChain: 'workflowCase/getChain',
   updateBasicInfo: 'workflowCase/updateBasicInfo',
+  toggleEmergency: 'workflowCase/toggleEmergency',
   setSubsidiaryId: 'workflowCase/setSubsidiaryId',
   setApplicantStatement: 'workflowCase/setApplicantStatement',
   setAttentionUser: 'workflowCase/setAttentionUser',
@@ -176,6 +178,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(updateBasicInfoData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *toggleEmergency(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(toggleEmergencyData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
