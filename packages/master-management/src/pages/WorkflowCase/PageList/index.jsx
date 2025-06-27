@@ -217,27 +217,32 @@ class PageList extends MultiPage {
     return {
       list: [
         {
-          lg: 5,
+          lg: 12,
           type: searchCardConfig.contentItemType.input,
           fieldData: fieldData.title,
         },
         {
-          lg: 5,
+          lg: 6,
           type: searchCardConfig.contentItemType.customSelect,
           component: renderSearchFlowScopeSelect({}),
         },
         {
-          lg: 5,
+          lg: 6,
           type: searchCardConfig.contentItemType.customSelect,
           component: renderSearchBusinessModeSelect({}),
         },
         {
-          lg: 5,
+          lg: 6,
+          type: searchCardConfig.contentItemType.whetherSelect,
+          fieldData: fieldData.whetherEmergency,
+        },
+        {
+          lg: 6,
           type: searchCardConfig.contentItemType.customSelect,
           component: renderSearchFlowStatusSelect({}),
         },
         {
-          lg: 4,
+          lg: 6,
           type: searchCardConfig.contentItemType.component,
           component: this.buildSearchCardButtonCore(),
         },

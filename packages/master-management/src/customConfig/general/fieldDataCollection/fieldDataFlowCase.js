@@ -251,6 +251,11 @@ const fieldExtraData = {
     name: 'attentionTime',
     helper: '',
   },
+  whetherArchiveNote: {
+    label: '是否归档',
+    name: 'whetherArchiveNote',
+    helper: '流程实例是否已经归档',
+  },
   archiveUrl: {
     label: '归档文件地址',
     name: 'archiveUrl',
@@ -418,11 +423,6 @@ export const fieldDataFlowCase = {
   whetherArchive: {
     label: '是否归档',
     name: 'whetherArchive',
-    helper: '流程实例是否已经归档',
-  },
-  whetherArchiveNote: {
-    label: '是否归档',
-    name: 'whetherArchiveNote',
     helper: '流程实例是否已经归档',
   },
   status: {
