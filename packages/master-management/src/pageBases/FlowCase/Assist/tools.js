@@ -8,6 +8,7 @@ import {
   isEmptyObject,
   isFunction,
   toLowerFirst,
+  toString,
 } from 'easy-soft-utility';
 
 import { ColorText, iconBuilder } from 'antd-management-fast-component';
@@ -428,7 +429,7 @@ export function convertProcessHistoryNextData(o) {
   };
 }
 
-export function adjustFlowCaseDataToState(o) {
+export function adjustFlowCaseDataToState(o, options) {
   const { workflow } = {
     workflow: {
       workflowNodeList: [],
@@ -451,10 +452,18 @@ export function adjustFlowCaseDataToState(o) {
     defaultValue: [],
   });
 
+  const { approveBatchNumber, whetherFilterBatchNumber } = {
+    approveBatchNumber: 0,
+    whetherFilterBatchNumber: false,
+    ...options,
+  };
+
   const { nodeList, edgeList, listApprove } = adjustFlowCaseDataItemToState({
     workflow,
     nextApproveWorkflowNodeId,
     listProcessHistory,
+    approveBatchNumber,
+    whetherFilterBatchNumber,
   });
 
   return {
@@ -469,12 +478,26 @@ function adjustFlowCaseDataItemToState({
   workflow,
   nextApproveWorkflowNodeId,
   listProcessHistory,
+  approveBatchNumber = 0,
+  whetherFilterBatchNumber = false,
 }) {
   const listApprove = filter(listProcessHistory, (one) => {
-    const { approveActionMode } = {
+    const {
+      approveActionMode,
+      approveBatchNumber: processHistoryApproveBatchNumber,
+    } = {
       approveActionMode: 0,
+      approveBatchNumber: 0,
       ...one,
     };
+
+    if (whetherFilterBatchNumber) {
+      return (
+        approveActionMode === flowApproveActionModeCollection.manualControl &&
+        toString(processHistoryApproveBatchNumber) ===
+          toString(approveBatchNumber)
+      );
+    }
 
     return approveActionMode === flowApproveActionModeCollection.manualControl;
   }).map((o) => {

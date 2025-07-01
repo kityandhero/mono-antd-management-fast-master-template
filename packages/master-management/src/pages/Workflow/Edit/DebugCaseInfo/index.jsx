@@ -140,7 +140,10 @@ class DebugCaseInfo extends TabPageBase {
 
   doOtherAfterLoadSuccess = ({ metaData }) => {
     const { nodeList, edgeList, listApprove, listProcessHistory } =
-      adjustFlowCaseDataToState(metaData);
+      adjustFlowCaseDataToState(metaData, {
+        approveBatchNumber: 0,
+        whetherFilterBatchNumber: false,
+      });
 
     this.setState({
       nodeList: [...nodeList],

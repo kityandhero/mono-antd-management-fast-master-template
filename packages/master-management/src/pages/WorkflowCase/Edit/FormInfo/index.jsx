@@ -83,6 +83,8 @@ class BasicInfo extends TabPageBase {
       workflowCaseId: null,
       currentAttachment: null,
       workflowFormDesign: null,
+      nodeList: [],
+      edgeList: [],
       listChainApprove: [],
       listFormStorage: [],
       listProcessHistory: [],
@@ -150,6 +152,13 @@ class BasicInfo extends TabPageBase {
     // eslint-disable-next-line no-unused-vars
     metaOriginalData = null,
   }) => {
+    const approveBatchNumber = getValueByKey({
+      data: metaData,
+      key: fieldData.approveBatchNumber.name,
+      defaultValue: 0,
+      convert: convertCollection.number,
+    });
+
     const listFormStorage = getValueByKey({
       data: metaData,
       key: fieldData.listFormStorage.name,
@@ -177,7 +186,10 @@ class BasicInfo extends TabPageBase {
     });
 
     const { nodeList, edgeList, listApprove, listProcessHistory } =
-      adjustFlowCaseDataToState(metaData);
+      adjustFlowCaseDataToState(metaData, {
+        approveBatchNumber,
+        whetherFilterBatchNumber: true,
+      });
 
     this.setState({
       nodeList: [...nodeList],
