@@ -32,6 +32,7 @@ import {
   fieldDataFlowCase,
   flowCaseStatusCollection,
   flowDebugApproverModeCollection,
+  flowDebugUserModeCollection,
   flowNodeTypeCollection,
   simpleApply,
   simpleAttention,
@@ -91,7 +92,6 @@ import { fieldData as fieldDataWorkflowNode } from '../../../WorkflowNode/Common
 import { WorkflowNodeDetailDrawer } from '../../../WorkflowNode/DetailDrawer';
 import { fieldData as fieldDataWorkflowNodeApprover } from '../../../WorkflowNodeApprover/Common/data';
 import { parseUrlParametersForSetState } from '../../Assist/config';
-import { flowDebugUserModeCollection } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
 import { UpdateDebugApproverModeModal } from '../../UpdateDebugApproverModeModal';
 import { UpdateDebugUserDrawer } from '../../UpdateDebugUserDrawer';
