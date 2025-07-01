@@ -9,8 +9,11 @@ import {
 
 import {
   getData,
+  getExecuteDebugInfoData,
   pageListDefaultImageData,
   refreshFrontEndApplicationConfigData,
+  startExecuteDebugData,
+  stopExecuteDebugData,
   testDiskSpaceMonitoringAlarmEmailData,
   testDiskSpaceMonitoringConfigData,
   testDiskSpaceMonitoringDetectionEmailData,
@@ -21,6 +24,7 @@ import {
   toggleQiniuVideoSwitchData,
   updateBasicInfoData,
   updateFileStorageInfoData,
+  updateFlowDebugSubsidiaryIdData,
   updateFlowDebugUserIdData,
   updateKeyValueInfoData,
   updateSecretKeyInfoData,
@@ -35,6 +39,8 @@ export const currentManagementInfrastructureTypeCollection = {
     'currentManagementInfrastructure/updateFileStorageInfo',
   updateFlowDebugUserId:
     'currentManagementInfrastructure/updateFlowDebugUserId',
+  updateFlowDebugSubsidiaryId:
+    'currentManagementInfrastructure/updateFlowDebugSubsidiaryId',
   updateSecretKeyInfo: 'currentManagementInfrastructure/updateSecretKeyInfo',
   updateKeyValueInfo: 'currentManagementInfrastructure/updateKeyValueInfo',
   toggleQiniuImageSwitch:
@@ -55,6 +61,9 @@ export const currentManagementInfrastructureTypeCollection = {
   refreshFrontEndApplicationConfig:
     'currentManagementInfrastructure/refreshFrontEndApplicationConfig',
   uploadImage: 'currentManagementInfrastructure/uploadImage',
+  getExecuteDebugInfo: 'currentManagementInfrastructure/getExecuteDebugInfo',
+  startExecuteDebug: 'currentManagementInfrastructure/startExecuteDebug',
+  stopExecuteDebug: 'currentManagementInfrastructure/stopExecuteDebug',
 };
 
 export function buildModel() {
@@ -180,6 +189,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(updateFlowDebugUserIdData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *updateFlowDebugSubsidiaryId(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(updateFlowDebugSubsidiaryIdData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -501,6 +536,84 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(uploadImageData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *getExecuteDebugInfo(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(getExecuteDebugInfoData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *startExecuteDebug(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(startExecuteDebugData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *stopExecuteDebug(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(stopExecuteDebugData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

@@ -27,6 +27,8 @@ import {
   setApplicantStatementData,
   setAttentionStatementData,
   setAttentionUserData,
+  setSubsidiaryIdData,
+  setUserIdData,
   submitApprovalData,
   submitFormData,
   toggleEmergencyData,
@@ -43,6 +45,8 @@ export const workflowDebugCaseTypeCollection = {
   getChainByWorkflow: 'workflowDebugCase/getChainByWorkflow',
   updateBasicInfo: 'workflowDebugCase/updateBasicInfo',
   toggleEmergency: 'workflowDebugCase/toggleEmergency',
+  setSubsidiaryId: 'workflowDebugCase/setSubsidiaryId',
+  setUserId: 'workflowDebugCase/setUserId',
   setApplicantStatement: 'workflowDebugCase/setApplicantStatement',
   setAttentionUser: 'workflowDebugCase/setAttentionUser',
   setAttentionStatement: 'workflowDebugCase/setAttentionStatement',
@@ -286,6 +290,58 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(toggleEmergencyData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setSubsidiaryId(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setSubsidiaryIdData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setUserId(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setUserIdData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

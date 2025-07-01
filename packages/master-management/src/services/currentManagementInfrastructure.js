@@ -49,6 +49,16 @@ export async function updateFlowDebugUserIdData(parameters) {
   });
 }
 
+export const updateFlowDebugSubsidiaryIdDataApiAddress =
+  '/currentManagementInfrastructure/updateFlowDebugSubsidiaryId';
+
+export async function updateFlowDebugSubsidiaryIdData(parameters) {
+  return request({
+    api: updateFlowDebugSubsidiaryIdDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const updateSecretKeyInfoDataApiAddress =
   '/currentManagementInfrastructure/updateSecretKeyInfo';
 
@@ -165,6 +175,36 @@ export const uploadImageDataApiAddress =
 export async function uploadImageData(parameters) {
   return request({
     api: uploadImageDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const getExecuteDebugInfoDataApiAddress =
+  '/currentManagementInfrastructure/getExecuteDebugInfo';
+
+export async function getExecuteDebugInfoData(parameters) {
+  return request({
+    api: getExecuteDebugInfoDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const startExecuteDebugDataApiAddress =
+  '/currentManagementInfrastructure/startExecuteDebug';
+
+export async function startExecuteDebugData(parameters) {
+  return request({
+    api: startExecuteDebugDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const stopExecuteDebugDataApiAddress =
+  '/currentManagementInfrastructure/stopExecuteDebug';
+
+export async function stopExecuteDebugData(parameters) {
+  return request({
+    api: stopExecuteDebugDataApiAddress,
     params: parameters,
   });
 }

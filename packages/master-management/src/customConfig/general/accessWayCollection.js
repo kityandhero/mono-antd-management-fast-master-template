@@ -822,6 +822,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'd738f282db02d6f9d7c56d5d7a92036d',
       permission: '51007e4409124e449bcf6b3ee1ab35bf',
     },
+    updateFlowDebugSubsidiaryId: {
+      title: '设置流程调试企业标识',
+      paramsKey: 'ba6bc3e16086fbc5254e2ecefc557617',
+      permission: 'd02e83151a994205a5ae5c682e778b15',
+    },
     updateSecretKeyInfo: {
       title: '设置系统密钥',
       paramsKey: '72c56e9b4f7accd15ad31eb22d1dc4ca',
@@ -3926,6 +3931,16 @@ export const accessWayInfrastructureCollection = {
       title: '切换是否紧急',
       paramsKey: '744fff785448eed95e08ad1e7f37570b',
       permission: '8048102ee683436f90a2da9419e9d858',
+    },
+    setSubsidiaryId: {
+      title: '设置所属企业',
+      paramsKey: 'ee1d6ed8cd3c4d765d8061a173f1d750',
+      permission: '6b8883d29a4148a5befe90650fdaef87',
+    },
+    setUserId: {
+      title: '设置提交人',
+      paramsKey: '71b32e0818a62ab6583d306082f74e11',
+      permission: '1834098de7464bb98f845a31bdb93206',
     },
     setApplicantStatement: {
       title: '设置申请陈述',

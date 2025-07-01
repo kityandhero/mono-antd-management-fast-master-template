@@ -1,7 +1,11 @@
 import { connect } from 'easy-soft-dva';
 import { getValueByKey, isFunction } from 'easy-soft-utility';
 
-import { listViewConfig, searchCardConfig } from 'antd-management-fast-common';
+import {
+  defaultEmptyImage,
+  listViewConfig,
+  searchCardConfig,
+} from 'antd-management-fast-common';
 import {
   buildListViewItemInnerWithDropdownButton,
   iconBuilder,
@@ -18,16 +22,16 @@ import { fieldData } from '../Common/data';
 const { MultiPageDrawer } = DataMultiPageView;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
-const visibleFlag = 'cf24e8f5c883418fbfac13a44cdbc500';
+const visibleFlag = '730280e05112435abb8146ede7f540ad';
 
-@connect(({ user, schedulingControl }) => ({
-  user,
+@connect(({ subsidiary, schedulingControl }) => ({
+  subsidiary,
   schedulingControl,
 }))
-class PageListUserSelectActionDrawer extends MultiPageDrawer {
+class PageListSubsidiarySelectActionDrawer extends MultiPageDrawer {
   reloadWhenShow = true;
 
-  componentAuthority = accessWayCollection.user.pageList.permission;
+  componentAuthority = accessWayCollection.subsidiary.pageList.permission;
 
   static open() {
     switchControlAssist.open(visibleFlag);
@@ -42,8 +46,8 @@ class PageListUserSelectActionDrawer extends MultiPageDrawer {
 
     this.state = {
       ...this.state,
-      pageTitle: '请选择用户操作',
-      loadApiPath: modelTypeCollection.userTypeCollection.pageList,
+      pageTitle: '请选择企业操作',
+      loadApiPath: modelTypeCollection.subsidiaryTypeCollection.pageList,
       listViewMode: listViewConfig.viewMode.list,
     };
   }
@@ -53,7 +57,7 @@ class PageListUserSelectActionDrawer extends MultiPageDrawer {
   }
 
   onSelect = (selectData) => {
-    PageListUserSelectActionDrawer.close();
+    PageListSubsidiarySelectActionDrawer.close();
 
     const { afterSelect } = this.props;
 
@@ -76,12 +80,12 @@ class PageListUserSelectActionDrawer extends MultiPageDrawer {
         {
           lg: 8,
           type: searchCardConfig.contentItemType.input,
-          fieldData: fieldData.realName,
+          fieldData: fieldData.subsidiaryId,
         },
         {
           lg: 8,
           type: searchCardConfig.contentItemType.input,
-          fieldData: fieldData.phone,
+          fieldData: fieldData.shortName,
         },
         {
           lg: 8,
@@ -95,37 +99,44 @@ class PageListUserSelectActionDrawer extends MultiPageDrawer {
   // eslint-disable-next-line no-unused-vars
   renderPresetListViewItemInner = (item, index) => {
     return buildListViewItemInnerWithDropdownButton({
+      image: getValueByKey({
+        data: item,
+        key: fieldData.logo.name,
+        defaultValue: defaultEmptyImage,
+      }),
       title: {
-        label: fieldData.loginName.label,
+        label: fieldData.shortName.label,
         text: getValueByKey({
           data: item,
-          key: fieldData.loginName.name,
+          key: fieldData.shortName.name,
         }),
       },
       descriptionList: [
         {
-          label: fieldData.realName.label,
+          label: fieldData.fullName.label,
           text: getValueByKey({
             data: item,
-            key: fieldData.realName.name,
-          }),
-          color: '#999999',
-        },
-        {
-          label: fieldData.phone.label,
-          text: getValueByKey({
-            data: item,
-            key: fieldData.phone.name,
+            key: fieldData.fullName.name,
           }),
           color: '#999999',
         },
       ],
       actionList: [
         {
-          label: fieldData.userId.label,
+          label: fieldData.subsidiaryId.label,
           text: getValueByKey({
             data: item,
-            key: fieldData.userId.name,
+            key: fieldData.subsidiaryId.name,
+          }),
+          canCopy: true,
+          color: '#999999',
+        },
+        {
+          label: fieldData.code.label,
+          text: getValueByKey({
+            data: item,
+            key: fieldData.code.name,
+            defaultValue: '暂无',
           }),
           canCopy: true,
           color: '#999999',
@@ -156,4 +167,4 @@ class PageListUserSelectActionDrawer extends MultiPageDrawer {
   };
 }
 
-export { PageListUserSelectActionDrawer };
+export { PageListSubsidiarySelectActionDrawer };

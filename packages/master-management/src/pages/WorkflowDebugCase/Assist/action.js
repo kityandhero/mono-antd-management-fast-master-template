@@ -49,6 +49,33 @@ export async function addBasicInfoAction({
   });
 }
 
+export async function setSubsidiaryIdAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.workflowDebugCaseTypeCollection.setSubsidiaryId,
+    params: {
+      workflowDebugCaseId: getValueByKey({
+        data: handleData,
+        key: fieldData.workflowDebugCaseId.name,
+        defaultValue: '',
+      }),
+      subsidiaryId: getValueByKey({
+        data: handleData,
+        key: fieldData.subsidiaryId.name,
+        defaultValue: '',
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function submitApprovalAction({
   target,
   handleData,

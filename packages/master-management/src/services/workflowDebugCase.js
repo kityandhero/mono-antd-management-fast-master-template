@@ -87,6 +87,25 @@ export async function toggleEmergencyData(parameters) {
   });
 }
 
+export const setSubsidiaryIdDataApiAddress =
+  '/workflowDebugCase/setSubsidiaryId';
+
+export async function setSubsidiaryIdData(parameters) {
+  return request({
+    api: setSubsidiaryIdDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const setUserIdDataApiAddress = '/workflowDebugCase/setUserId';
+
+export async function setUserIdData(parameters) {
+  return request({
+    api: setUserIdDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setApplicantStatementDataApiAddress =
   '/workflowDebugCase/setApplicantStatement';
 

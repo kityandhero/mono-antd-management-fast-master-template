@@ -48,6 +48,25 @@ export async function updateFlowDebugUserIdAction({
   });
 }
 
+export async function updateFlowDebugSubsidiaryIdAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+  failCallback = null,
+}) {
+  actionCore({
+    api: modelTypeCollection.currentManagementInfrastructureTypeCollection
+      .updateFlowDebugSubsidiaryId,
+    params: handleData,
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+    failCallback,
+  });
+}
+
 export async function toggleQiniuImageSwitchAction({
   target,
   handleData,
@@ -191,6 +210,44 @@ export async function testDiskSpaceMonitoringDetectionEmailAction({
   actionCore({
     api: modelTypeCollection.currentManagementInfrastructureTypeCollection
       .testDiskSpaceMonitoringDetectionEmail,
+    params: {},
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+    failCallback,
+  });
+}
+
+export async function startExecuteDebugAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+  failCallback = null,
+}) {
+  actionCore({
+    api: modelTypeCollection.currentManagementInfrastructureTypeCollection
+      .startExecuteDebug,
+    params: {},
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+    failCallback,
+  });
+}
+
+export async function stopExecuteDebugAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+  failCallback = null,
+}) {
+  actionCore({
+    api: modelTypeCollection.currentManagementInfrastructureTypeCollection
+      .stopExecuteDebug,
     params: {},
     target,
     handleData,

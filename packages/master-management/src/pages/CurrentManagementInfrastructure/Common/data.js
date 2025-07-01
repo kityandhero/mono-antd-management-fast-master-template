@@ -57,6 +57,16 @@ const fieldExtraData = {
     name: 'listHardDiskPartition',
     helper: '',
   },
+  executeCounter: {
+    label: '执行调试计数器',
+    name: 'executeCounter',
+    helper: '',
+  },
+  executeQueueCount: {
+    label: '执行调试队列总数',
+    name: 'executeQueueCount',
+    helper: '',
+  },
 };
 
 export const fieldData = {
@@ -216,6 +226,11 @@ export const fieldData = {
     name: 'flowDebugUserId',
     helper: '',
   },
+  flowDebugSubsidiaryId: {
+    label: '用于流程调试的企业标识',
+    name: 'flowDebugSubsidiaryId',
+    helper: '',
+  },
   flowDebugApproverMode: {
     label: '用于流程调试的审批人模式',
     name: 'flowDebugApproverMode',
@@ -229,6 +244,16 @@ export const fieldData = {
   flowDebugUserRealName: {
     label: '用于流程调试的用户姓名',
     name: 'flowDebugUserRealName',
+    helper: '',
+  },
+  flowDebugSubsidiaryShortName: {
+    label: '用于流程调试的企业简称',
+    name: 'flowDebugSubsidiaryShortName',
+    helper: '',
+  },
+  flowDebugSubsidiaryFullName: {
+    label: '用于流程调试的企业全称',
+    name: 'flowDebugSubsidiaryFullName',
     helper: '',
   },
   flowApproveNotificationSmsSearchStartTime: {

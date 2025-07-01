@@ -46,6 +46,7 @@ import {
   convertProcessHistoryItemData,
   convertProcessHistoryNextData,
 } from '../../../../pageBases';
+import { PageListSubsidiarySelectActionDrawer } from '../../../Subsidiary/PageListSelectActionDrawer';
 import {
   archiveAction,
   cancelArchiveAction,
@@ -54,6 +55,7 @@ import {
   forceEndAction,
   openCancelApproveSwitchAction,
   openResetAllApproveSwitchAction,
+  setSubsidiaryIdAction,
   submitApprovalAction,
   toggleEmergencyAction,
 } from '../../../WorkflowDebugCase/Assist/action';
@@ -89,6 +91,7 @@ import { fieldData as fieldDataWorkflowNode } from '../../../WorkflowNode/Common
 import { WorkflowNodeDetailDrawer } from '../../../WorkflowNode/DetailDrawer';
 import { fieldData as fieldDataWorkflowNodeApprover } from '../../../WorkflowNodeApprover/Common/data';
 import { parseUrlParametersForSetState } from '../../Assist/config';
+import { flowDebugUserModeCollection } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
 import { UpdateDebugApproverModeModal } from '../../UpdateDebugApproverModeModal';
 import { UpdateDebugUserDrawer } from '../../UpdateDebugUserDrawer';
@@ -281,6 +284,29 @@ class DebugCaseInfo extends TabPageBase {
     sendNextProcessNotificationAction({
       target: this,
       handleData: o,
+      successCallback: ({ target }) => {
+        target.reloadData({});
+      },
+    });
+  };
+
+  setSubsidiaryId = (o) => {
+    const { metaData } = this.state;
+
+    setSubsidiaryIdAction({
+      target: this,
+      handleData: {
+        workflowDebugCaseId: getValueByKey({
+          data: metaData,
+          key: fieldData.workflowDebugCaseId.name,
+          convert: convertCollection.string,
+        }),
+        subsidiaryId: getValueByKey({
+          data: o,
+          key: fieldData.subsidiaryId.name,
+          convert: convertCollection.string,
+        }),
+      },
       successCallback: ({ target }) => {
         target.reloadData({});
       },
@@ -515,6 +541,10 @@ class DebugCaseInfo extends TabPageBase {
     FilePreviewDrawer.open();
   };
 
+  showPageListSubsidiarySelectActionDrawer = () => {
+    PageListSubsidiarySelectActionDrawer.open();
+  };
+
   fillInitialValuesAfterLoad = ({
     metaData = null,
     // eslint-disable-next-line no-unused-vars
@@ -620,6 +650,12 @@ class DebugCaseInfo extends TabPageBase {
     const flowDebugApproverUserId = getValueByKey({
       data: metaData,
       key: fieldData.flowDebugApproverUserId.name,
+    });
+
+    const debugUserMode = getValueByKey({
+      data: metaData,
+      key: fieldData.debugUserMode.name,
+      convert: convertCollection.number,
     });
 
     const debugApproverMode = getValueByKey({
@@ -804,6 +840,11 @@ class DebugCaseInfo extends TabPageBase {
                 buildType: cardConfig.extraBuildType.dropdownEllipsis,
                 handleMenuClick: ({ key, handleData }) => {
                   switch (key) {
+                    case 'showPageListSubsidiarySelectActionDrawer': {
+                      that.showPageListSubsidiarySelectActionDrawer(handleData);
+                      break;
+                    }
+
                     case 'showSetApplicantStatementDrawer': {
                       that.showSetApplicantStatementDrawer(handleData);
                       break;
@@ -863,6 +904,18 @@ class DebugCaseInfo extends TabPageBase {
                 handleData: metaData,
                 items: [
                   {
+                    key: 'showPageListSubsidiarySelectActionDrawer',
+                    icon: iconBuilder.edit(),
+                    text: `设置实例归属企业`,
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflowDebugCase.setSubsidiaryId
+                        .permission,
+                    ),
+                  },
+                  {
+                    type: dropdownExpandItemType.divider,
+                  },
+                  {
                     key: 'showSetApplicantStatementDrawer',
                     icon: iconBuilder.edit(),
                     text: `申请人签名配置`,
@@ -905,6 +958,9 @@ class DebugCaseInfo extends TabPageBase {
                     hidden: !checkHasAuthority(
                       accessWayCollection.workflow.setDebugUserId.permission,
                     ),
+                    disabled:
+                      debugUserMode ===
+                      flowDebugUserModeCollection.globalDebugUser,
                   },
                   {
                     key: 'showUpdateDebugUserModeModal',
@@ -955,7 +1011,9 @@ class DebugCaseInfo extends TabPageBase {
                     hidden: !checkHasAuthority(
                       accessWayCollection.workflowDebugCase.archive.permission,
                     ),
-                    disabled: whetherArchive === whetherNumber.yes,
+                    disabled:
+                      status !== flowCaseStatusCollection.success ||
+                      whetherArchive === whetherNumber.yes,
                     confirm: true,
                     title: '将要进行归档操作，确定吗？',
                   },
@@ -967,7 +1025,9 @@ class DebugCaseInfo extends TabPageBase {
                       accessWayCollection.workflowDebugCase.cancelArchive
                         .permission,
                     ),
-                    disabled: whetherArchive !== whetherNumber.yes,
+                    disabled:
+                      status !== flowCaseStatusCollection.success ||
+                      whetherArchive !== whetherNumber.yes,
                     confirm: true,
                     title: '将要进行取消归档操作，确定吗？',
                   },
@@ -1092,6 +1152,14 @@ class DebugCaseInfo extends TabPageBase {
                   value: getValueByKey({
                     data: metaData,
                     key: fieldData.userSubsidiaries.name,
+                  }),
+                },
+                {
+                  span: 4,
+                  label: fieldData.subsidiaryShortName.label,
+                  value: getValueByKey({
+                    data: metaData,
+                    key: fieldData.subsidiaryShortName.name,
                   }),
                 },
               ],
@@ -1976,6 +2044,12 @@ class DebugCaseInfo extends TabPageBase {
           externalData={metaData}
           afterOK={() => {
             this.afterUpdateDebugUserDrawerOK();
+          }}
+        />
+
+        <PageListSubsidiarySelectActionDrawer
+          afterSelect={(selectData) => {
+            this.setSubsidiaryId(selectData);
           }}
         />
 

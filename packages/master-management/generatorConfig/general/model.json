@@ -1354,6 +1354,13 @@
           "type": "singleData"
         },
         {
+          "title": "设置流程调试企业标识",
+          "api": "/currentManagementInfrastructure/updateFlowDebugSubsidiaryId",
+          "effect": "updateFlowDebugSubsidiaryId",
+          "service": "updateFlowDebugSubsidiaryIdData",
+          "type": "singleData"
+        },
+        {
           "title": "设置系统密钥",
           "api": "/currentManagementInfrastructure/updateSecretKeyInfo",
           "effect": "updateSecretKeyInfo",
@@ -1435,6 +1442,27 @@
           "api": "/currentManagementInfrastructure/uploadImage",
           "effect": "uploadImage",
           "service": "uploadImageData",
+          "type": "singleData"
+        },
+        {
+          "title": "获取执行调试信息",
+          "api": "/currentManagementInfrastructure/getExecuteDebugInfo",
+          "effect": "getExecuteDebugInfo",
+          "service": "getExecuteDebugInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "开始执行调试",
+          "api": "/currentManagementInfrastructure/startExecuteDebug",
+          "effect": "startExecuteDebug",
+          "service": "startExecuteDebugData",
+          "type": "singleData"
+        },
+        {
+          "title": "停止执行调试",
+          "api": "/currentManagementInfrastructure/stopExecuteDebug",
+          "effect": "stopExecuteDebug",
+          "service": "stopExecuteDebugData",
           "type": "singleData"
         }
       ],
@@ -6300,6 +6328,20 @@
           "api": "/workflowDebugCase/toggleEmergency",
           "effect": "toggleEmergency",
           "service": "toggleEmergencyData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置所属企业",
+          "api": "/workflowDebugCase/setSubsidiaryId",
+          "effect": "setSubsidiaryId",
+          "service": "setSubsidiaryIdData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置提交人",
+          "api": "/workflowDebugCase/setUserId",
+          "effect": "setUserId",
+          "service": "setUserIdData",
           "type": "singleData"
         },
         {

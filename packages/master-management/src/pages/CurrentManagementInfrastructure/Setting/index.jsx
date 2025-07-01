@@ -1,16 +1,30 @@
 import { connect } from 'easy-soft-dva';
-import { getValueByKey, showSimpleSuccessMessage } from 'easy-soft-utility';
+import {
+  checkHasAuthority,
+  getValueByKey,
+  showSimpleErrorMessage,
+  showSimpleSuccessMessage,
+} from 'easy-soft-utility';
 
-import { defaultEmptyImage } from 'antd-management-fast-common';
+import {
+  defaultEmptyImage,
+  dropdownExpandItemType,
+} from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import {
   DataTabContainer,
   refreshMetaData,
 } from 'antd-management-fast-framework';
 
+import { accessWayCollection } from '../../../customConfig';
 import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshAllCacheAction } from '../../KeyValueInfrastructure/Assist/action';
+import {
+  startExecuteDebugAction,
+  stopExecuteDebugAction,
+} from '../Assist/action';
 import { fieldData } from '../Common/data';
+import { ExecuteDebugPreviewDrawer } from '../ExecuteDebugPreviewDrawer';
 
 @connect(({ currentManagementInfrastructure, schedulingControl }) => ({
   currentManagementInfrastructure,
@@ -106,6 +120,24 @@ class Setting extends DataTabContainer {
     });
   };
 
+  startExecuteDebug = (r) => {
+    startExecuteDebugAction({
+      target: this,
+      handleData: r,
+    });
+  };
+
+  stopExecuteDebug = (r) => {
+    stopExecuteDebugAction({
+      target: this,
+      handleData: r,
+    });
+  };
+
+  showExecuteDebugPreviewDrawer = () => {
+    ExecuteDebugPreviewDrawer.open();
+  };
+
   establishPageHeaderAvatarConfig = () => {
     const { metaData } = this.state;
 
@@ -155,6 +187,79 @@ class Setting extends DataTabContainer {
         },
       ],
     };
+  };
+
+  establishExtraActionEllipsisConfig = () => {
+    const { metaData } = this.state;
+
+    if ((metaData || null) == null) {
+      return null;
+    }
+
+    const that = this;
+
+    return {
+      disabled: this.checkInProgress(),
+      handleMenuClick: ({ key, handleData }) => {
+        switch (key) {
+          case 'startExecuteDebug': {
+            that.startExecuteDebug(handleData);
+            break;
+          }
+
+          case 'stopExecuteDebug': {
+            that.stopExecuteDebug(handleData);
+            break;
+          }
+
+          case 'showExecuteDebugPreviewDrawer': {
+            that.showExecuteDebugPreviewDrawer(handleData);
+            break;
+          }
+
+          default: {
+            showSimpleErrorMessage('can not find matched key');
+            break;
+          }
+        }
+      },
+      handleData: metaData,
+      items: [
+        {
+          key: 'startExecuteDebug',
+          icon: iconBuilder.playCircle(),
+          text: '开始执行调试',
+          hidden: !checkHasAuthority(accessWayCollection.super.permission),
+          confirm: true,
+          title: '即将开始执行调试，确定吗？',
+        },
+        {
+          key: 'stopExecuteDebug',
+          icon: iconBuilder.pauseCircle(),
+          text: '停止执行调试',
+          hidden: !checkHasAuthority(accessWayCollection.super.permission),
+          confirm: true,
+          title: '即将停止执行调试，确定吗？',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'showExecuteDebugPreviewDrawer',
+          icon: iconBuilder.read(),
+          text: '执行调试信息',
+          hidden: !checkHasAuthority(accessWayCollection.super.permission),
+        },
+      ],
+    };
+  };
+
+  renderPresetOther = () => {
+    return (
+      <>
+        <ExecuteDebugPreviewDrawer maskClosable />
+      </>
+    );
   };
 }
 
