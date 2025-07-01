@@ -314,6 +314,37 @@ class BasicInfo extends TabPageBase {
     };
   };
 
+  getItems = () => {
+    const { workflowFormDesign } = this.state;
+
+    const documentSchema = getValueByKey({
+      data: workflowFormDesign,
+      key: fieldDataFlowFormDesign.documentSchema.name,
+      defaultValue: {},
+    });
+
+    const { items: itemsSource } = {
+      items: [],
+      ...documentSchema,
+    };
+
+    const dataSchema = getValueByKey({
+      data: workflowFormDesign,
+      key: fieldDataFlowFormDesign.dataSchema.name,
+      defaultValue: '[]',
+    });
+
+    let listDataSchema = [];
+
+    try {
+      listDataSchema = JSON.parse(dataSchema);
+    } catch (error) {
+      logException(error);
+    }
+
+    return { items: itemsSource, formItems: listDataSchema };
+  };
+
   showWorkflowCaseFormAttachmentPreviewDrawer = (item) => {
     this.setState(
       {
@@ -864,62 +895,11 @@ class BasicInfo extends TabPageBase {
       defaultValue: {},
     });
 
-    const {
-      general,
-      title,
-      items: itemsSource,
-    } = {
+    const { general, title } = {
       general: {},
       title: {},
-      items: [],
       ...documentSchema,
     };
-
-    const dataSchema = getValueByKey({
-      data: workflowFormDesign,
-      key: fieldDataFlowFormDesign.dataSchema.name,
-      defaultValue: '[]',
-    });
-
-    let listDataSchema = [];
-
-    try {
-      listDataSchema = JSON.parse(dataSchema);
-    } catch (error) {
-      logException(error);
-    }
-
-    let items = [];
-
-    if (
-      isArray(itemsSource) &&
-      !isEmptyArray(itemsSource) &&
-      isArray(listDataSchema)
-    ) {
-      for (const o of listDataSchema) {
-        const { name } = { name: '', ...o };
-
-        if (checkStringIsNullOrWhiteSpace(name)) {
-          continue;
-        }
-
-        let config = {};
-
-        for (const one of itemsSource) {
-          const { name: nameOne } = { name: '', ...one };
-
-          if (nameOne === name) {
-            config = one;
-
-            break;
-          }
-        }
-
-        items.push({ ...config, ...o });
-      }
-    } else {
-      items = listDataSchema;
-    }
 
     const listChainApproveAdjust = isArray(listChainApprove)
       ? listChainApprove.map((o) => {
@@ -936,6 +916,8 @@ class BasicInfo extends TabPageBase {
 
     const { showAttention, listAttention } = this.getAttentionConfig();
 
+    const { items, formItems } = this.getItems();
+
     return (
       <>
         <DocumentPrintDesigner
@@ -951,7 +933,7 @@ class BasicInfo extends TabPageBase {
             title: title || {},
             items,
           }}
-          formItems={listDataSchema}
+          formItems={formItems}
           approveList={isArray(listApprove) ? listApprove : []}
           allApproveProcessList={listChainApproveAdjust}
           signetStyle={signetStyle}
