@@ -1,3 +1,5 @@
+import { Tooltip } from 'antd';
+
 import { connect } from 'easy-soft-dva';
 import {
   buildRandomHexColor,
@@ -8,6 +10,7 @@ import {
   handleItem,
   showSimpleErrorMessage,
   toNumber,
+  whetherNumber,
 } from 'easy-soft-utility';
 
 import {
@@ -17,7 +20,7 @@ import {
   searchCardConfig,
   unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
+import { ColorText, iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import {
@@ -55,6 +58,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
+      tableScrollX: 1720,
       pageTitle: '流程实例列表',
       paramsKey: accessWayCollection.workflowCase.pageList.paramsKey,
       loadApiPath: 'workflowCase/pageList',
@@ -336,10 +340,45 @@ class PageList extends MultiPage {
 
   getColumnWrapper = () => [
     {
+      dataTarget: { ...fieldData.workflowCaseId, label: '项目流水号' },
+      width: 120,
+      showRichFacade: true,
+      canCopy: true,
+    },
+    {
       dataTarget: fieldData.title,
       align: 'left',
       showRichFacade: true,
       emptyValue: '--',
+      render: (value, record) => {
+        const whetherEmergency = getValueByKey({
+          data: record,
+          key: fieldData.whetherEmergency.name,
+          convert: convertCollection.number,
+        });
+
+        const valuePart =
+          whetherEmergency === whetherNumber.yes ? (
+            <ColorText
+              textPrefix="[紧急]"
+              textPrefixStyle={{
+                color: 'red',
+                paddingRight: '6px',
+              }}
+              separator=""
+              text={value}
+              multiLine
+            />
+          ) : (
+            <ColorText text={value} multiLine />
+          );
+
+        return (
+          <Tooltip placement="topLeft" title={value}>
+            <div>{valuePart}</div>
+          </Tooltip>
+        );
+      },
     },
     {
       dataTarget: fieldData.workflowName,
@@ -410,12 +449,6 @@ class PageList extends MultiPage {
           }),
         };
       },
-    },
-    {
-      dataTarget: fieldData.workflowCaseId,
-      width: 120,
-      showRichFacade: true,
-      canCopy: true,
     },
     {
       dataTarget: fieldData.createTime,
