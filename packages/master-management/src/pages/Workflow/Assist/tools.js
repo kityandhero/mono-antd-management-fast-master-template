@@ -9,11 +9,11 @@ import {
 } from 'easy-soft-utility';
 
 import {
-  emptySignet,
-  flowStatusCollection,
-  simpleApply,
-  simpleAttention,
-} from '../../../customConfig';
+  nodeApply,
+  nodeAttention,
+} from 'antd-management-fast-design-playground';
+
+import { emptySignet, flowStatusCollection } from '../../../customConfig';
 import { fieldData } from '../Common/data';
 
 export function getStatusBadge(status) {
@@ -60,7 +60,7 @@ export function getSimpleApplicantConfig(o) {
 
   const listApply = [
     {
-      ...simpleApply,
+      ...nodeApply,
       title: applicantStatementTitle,
       note: applicantStatementContent,
       signet: emptySignet,
@@ -104,7 +104,7 @@ export function getSimpleAttentionConfig(o) {
 
   const listAttention = [
     {
-      ...simpleAttention,
+      ...nodeAttention,
       title: attentionStatementTitle,
       note: attentionStatementContent,
       ...(checkStringIsNullOrWhiteSpace(attentionUserSignet)

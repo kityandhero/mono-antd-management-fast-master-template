@@ -10,13 +10,16 @@ import {
 
 import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
-import { DocumentPrintDesigner } from 'antd-management-fast-design-playground';
+import {
+  DocumentPrintDesigner,
+  nodeAttention,
+} from 'antd-management-fast-design-playground';
 import {
   DataDrawer,
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
-import { emptySignet, simpleAttention } from '../../../customConfig';
+import { emptySignet } from '../../../customConfig';
 import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
@@ -132,7 +135,7 @@ class SetDefaultAttentionStatementDrawer extends BaseUpdateDrawer {
 
     const listAttention = [
       {
-        ...simpleAttention,
+        ...nodeAttention,
         title: defaultAttentionStatementTitle,
         note: defaultAttentionStatementContent,
         ...(checkStringIsNullOrWhiteSpace(defaultAttentionUserSignet)

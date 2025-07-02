@@ -44,8 +44,6 @@ import {
   flowCaseStatusCollection,
   flowNodeTypeCollection,
   signetStyle,
-  simpleApply,
-  simpleAttention,
 } from '../../../customConfig';
 import { BaseFlowCaseFormInfoDrawer } from '../../../pageBases';
 import { buildFlowCaseFormInitialValues } from '../../../utils';

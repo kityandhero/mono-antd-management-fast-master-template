@@ -17,6 +17,8 @@ import { CenterBox, iconBuilder } from 'antd-management-fast-component';
 import {
   DocumentPrintDesigner,
   FileViewer,
+  nodeApply,
+  nodeAttention,
   SchemaDisplayer,
 } from 'antd-management-fast-design-playground';
 import { DataDrawer } from 'antd-management-fast-framework';
@@ -30,8 +32,6 @@ import {
   flowApproveActionModeCollection,
   flowCaseStatusCollection,
   signetStyle,
-  simpleApply,
-  simpleAttention,
 } from '../../../customConfig';
 import { buildFlowCaseFormInitialValues } from '../../../utils';
 
@@ -249,7 +249,7 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
 
     const listApply = [
       {
-        ...simpleApply,
+        ...nodeApply,
         title: applicantStatementTitle,
         note: applicantStatementContent,
         ...(checkStringIsNullOrWhiteSpace(applicantUserSignet)
@@ -302,7 +302,7 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
 
     const listAttention = [
       {
-        ...simpleAttention,
+        ...nodeAttention,
         title: attentionStatementTitle,
         note: attentionStatementContent,
         ...(checkStringIsNullOrWhiteSpace(attentionUserSignet)

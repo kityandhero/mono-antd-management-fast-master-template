@@ -32,6 +32,8 @@ import {
 import {
   DocumentPrintDesigner,
   FileViewer,
+  nodeApply,
+  nodeAttention,
   SchemaDisplayer,
 } from 'antd-management-fast-design-playground';
 import { FlowProcessHistory } from 'antd-management-fast-flow';
@@ -49,8 +51,6 @@ import {
   flowCaseStatusCollection,
   flowNodeTypeCollection,
   signetStyle,
-  simpleApply,
-  simpleAttention,
 } from '../../../customConfig';
 import { buildFlowCaseFormInitialValues } from '../../../utils';
 
@@ -395,7 +395,7 @@ class BaseFlowCaseFormInfoDrawer extends BaseUpdateDrawer {
 
     const listApply = [
       {
-        ...simpleApply,
+        ...nodeApply,
         title: applicantStatementTitle,
         note: applicantStatementContent,
         ...(checkStringIsNullOrWhiteSpace(applicantUserSignet)
@@ -448,7 +448,7 @@ class BaseFlowCaseFormInfoDrawer extends BaseUpdateDrawer {
 
     const listAttention = [
       {
-        ...simpleAttention,
+        ...nodeAttention,
         title: attentionStatementTitle,
         note: attentionStatementContent,
         ...(checkStringIsNullOrWhiteSpace(attentionUserSignet)

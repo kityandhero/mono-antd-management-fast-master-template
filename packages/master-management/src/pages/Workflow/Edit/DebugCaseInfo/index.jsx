@@ -23,6 +23,10 @@ import {
   getDerivedStateFromPropertiesForUrlParameters,
 } from 'antd-management-fast-common';
 import { buildDropdown, iconBuilder } from 'antd-management-fast-component';
+import {
+  nodeApply,
+  nodeAttention,
+} from 'antd-management-fast-design-playground';
 import { Flow, FlowProcessHistory } from 'antd-management-fast-flow';
 
 import { FilePreviewDrawer } from '../../../../components';
@@ -34,8 +38,6 @@ import {
   flowDebugApproverModeCollection,
   flowDebugUserModeCollection,
   flowNodeTypeCollection,
-  simpleApply,
-  simpleAttention,
 } from '../../../../customConfig';
 import { getChannelName } from '../../../../customSpecialComponents';
 import {
@@ -345,7 +347,7 @@ class DebugCaseInfo extends TabPageBase {
 
     const listApply = [
       {
-        ...simpleApply,
+        ...nodeApply,
         title: applicantStatementTitle,
         note: applicantStatementContent,
         ...(checkStringIsNullOrWhiteSpace(applicantUserSignet)
@@ -398,7 +400,7 @@ class DebugCaseInfo extends TabPageBase {
 
     const listAttention = [
       {
-        ...simpleAttention,
+        ...nodeAttention,
         title: attentionStatementTitle,
         note: attentionStatementContent,
         ...(checkStringIsNullOrWhiteSpace(attentionUserSignet)

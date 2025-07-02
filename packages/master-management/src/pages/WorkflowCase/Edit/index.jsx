@@ -248,6 +248,15 @@ class Detail extends DataTabContainerSupplement {
     WorkflowLinePageListDrawer.open();
   };
 
+  goToWorkflow = (item) => {
+    const workflowId = getValueByKey({
+      data: item,
+      key: fieldData.workflowId.name,
+    });
+
+    this.goToPath(`/flow/workflow/edit/load/${workflowId}/key/basicInfo`);
+  };
+
   establishPageHeaderTitlePrefix = () => {
     return '流程实例';
   };
@@ -489,6 +498,11 @@ class Detail extends DataTabContainerSupplement {
             break;
           }
 
+          case 'goToWorkflow': {
+            that.goToWorkflow(handleData);
+            break;
+          }
+
           case 'refreshCache': {
             that.refreshCache(handleData);
             break;
@@ -551,6 +565,19 @@ class Detail extends DataTabContainerSupplement {
           confirm: true,
           title:
             '将要切换紧急状态（位于紧急状态下的审批，会向审批人发送审批通知），确定吗？',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'goToWorkflow',
+          icon: iconBuilder.read(),
+          text: '查看流程配置',
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.get.permission,
+          ),
+          confirm: true,
+          title: '即将跳转流程配置进行查看，确定吗？',
         },
         {
           type: dropdownExpandItemType.divider,

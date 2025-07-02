@@ -9,6 +9,7 @@ import {
   getValueByKey,
   isArray,
   isEmptyArray,
+  logConsole,
   logException,
   showSimpleErrorMessage,
   whetherNumber,
@@ -68,7 +69,7 @@ import { TabPageBase } from '../../TabPageBase';
   workflowCase,
   schedulingControl,
 }))
-class BasicInfo extends TabPageBase {
+class FormInfo extends TabPageBase {
   useFormWrapper = false;
 
   componentAuthority = accessWayCollection.workflowCase.get.permission;
@@ -190,6 +191,10 @@ class BasicInfo extends TabPageBase {
         approveBatchNumber,
         whetherFilterBatchNumber: true,
       });
+
+    logConsole({
+      listProcessHistory,
+    });
 
     this.setState({
       nodeList: [...nodeList],
@@ -355,6 +360,23 @@ class BasicInfo extends TabPageBase {
     }
 
     return { items: itemsSource, formItems: listDataSchema };
+  };
+
+  getAllApproveProcessList = () => {
+    const { listChainApprove } = this.state;
+
+    const listChainApproveAdjust = isArray(listChainApprove)
+      ? listChainApprove.map((o) => {
+          const { name } = { name: '', ...o };
+
+          return {
+            title: name,
+            ...o,
+          };
+        })
+      : [];
+
+    return listChainApproveAdjust;
   };
 
   showWorkflowCaseFormAttachmentPreviewDrawer = (item) => {
@@ -879,7 +901,6 @@ class BasicInfo extends TabPageBase {
       workflowFormDesign,
       listFormStorage,
       listApprove,
-      listChainApprove,
       listAttachment,
     } = this.state;
 
@@ -913,22 +934,19 @@ class BasicInfo extends TabPageBase {
       ...documentSchema,
     };
 
-    const listChainApproveAdjust = isArray(listChainApprove)
-      ? listChainApprove.map((o) => {
-          const { name } = { name: '', ...o };
-
-          return {
-            title: name,
-            ...o,
-          };
-        })
-      : [];
-
     const { showApply, listApply } = this.getApplicantConfig();
 
     const { showAttention, listAttention } = this.getAttentionConfig();
 
+    const allApproveProcessList = this.getAllApproveProcessList();
+
     const { items, formItems } = this.getItems();
+
+    logConsole({
+      items,
+      listApply,
+      listAttention,
+    });
 
     return (
       <>
@@ -947,7 +965,7 @@ class BasicInfo extends TabPageBase {
           }}
           formItems={formItems}
           approveList={isArray(listApprove) ? listApprove : []}
-          allApproveProcessList={listChainApproveAdjust}
+          allApproveProcessList={allApproveProcessList}
           signetStyle={signetStyle}
           showApply={showApply}
           applyList={listApply}
@@ -1069,4 +1087,4 @@ class BasicInfo extends TabPageBase {
   };
 }
 
-export default BasicInfo;
+export default FormInfo;
