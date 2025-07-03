@@ -7,7 +7,10 @@ import {
 } from 'easy-soft-utility';
 
 import { SyntaxHighlighter } from 'antd-management-fast-component';
-import { DocumentPrintDesigner } from 'antd-management-fast-design-playground';
+import {
+  DocumentPrintDesigner,
+  filterDocumentPrintDesignerItemConfig,
+} from 'antd-management-fast-design-playground';
 import { DataDrawer } from 'antd-management-fast-framework';
 
 import { fieldDataFlowFormDesign, signetStyle } from '../../../customConfig';
@@ -42,6 +45,13 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
       overlayButtonCloseText: '关闭数据',
     };
   }
+
+  getProperties = () => {
+    return {
+      ...defaultProperties,
+      ...this.props,
+    };
+  };
 
   supplementLoadRequestParams = (o) => {
     return {
@@ -141,10 +151,7 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
   };
 
   establishHelpConfig = () => {
-    const { canDesign } = {
-      ...defaultProperties,
-      ...this.props,
-    };
+    const { canDesign } = this.getProperties();
 
     const list = [];
 
@@ -190,10 +197,7 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
       showAttention,
       attentionList,
       approveList,
-    } = {
-      ...defaultProperties,
-      ...this.props,
-    };
+    } = this.getProperties();
     const { metaData } = this.state;
 
     const remarkSchemaList = getValueByKey({
@@ -240,9 +244,9 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
         }
         signetStyle={signetStyle}
         showApply={showApply || false}
-        applyList={isArray(applyList) ? applyList : []}
+        applyList={isArray(applyList) ? [...applyList] : []}
         showAttention={showAttention || false}
-        attentionList={isArray(attentionList) ? attentionList : []}
+        attentionList={isArray(attentionList) ? [...attentionList] : []}
         showRemark={
           !(!isArray(remarkSchemaList) || isEmptyArray(remarkSchemaList))
         }
@@ -258,10 +262,7 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
   };
 
   renderOverlayContent = () => {
-    const { values } = {
-      ...defaultProperties,
-      ...this.props,
-    };
+    const { values } = this.getProperties();
     const { metaData } = this.state;
 
     const documentSchema = getValueByKey({
@@ -288,7 +289,9 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
       documentSchema: {
         general,
         title,
-        items,
+        items: isArray(items)
+          ? items.map((o) => filterDocumentPrintDesignerItemConfig(o))
+          : [],
       },
       formItems,
       values: isArray(values) ? values : [],

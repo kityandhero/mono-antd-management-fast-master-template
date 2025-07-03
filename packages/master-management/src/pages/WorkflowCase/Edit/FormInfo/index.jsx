@@ -9,7 +9,6 @@ import {
   getValueByKey,
   isArray,
   isEmptyArray,
-  logConsole,
   logException,
   showSimpleErrorMessage,
   whetherNumber,
@@ -71,6 +70,8 @@ import { TabPageBase } from '../../TabPageBase';
 }))
 class FormInfo extends TabPageBase {
   useFormWrapper = false;
+
+  templateCounter = 0;
 
   componentAuthority = accessWayCollection.workflowCase.get.permission;
 
@@ -191,10 +192,6 @@ class FormInfo extends TabPageBase {
         approveBatchNumber,
         whetherFilterBatchNumber: true,
       });
-
-    logConsole({
-      listProcessHistory,
-    });
 
     this.setState({
       nodeList: [...nodeList],
@@ -942,12 +939,6 @@ class FormInfo extends TabPageBase {
 
     const { items, formItems } = this.getItems();
 
-    logConsole({
-      items,
-      listApply,
-      listAttention,
-    });
-
     return (
       <>
         <DocumentPrintDesigner
@@ -970,7 +961,7 @@ class FormInfo extends TabPageBase {
           showApply={showApply}
           applyList={listApply}
           showAttention={showAttention}
-          attentionList={listAttention}
+          attentionList={[...listAttention]}
           showRemark={
             !(!isArray(remarkSchemaList) || isEmptyArray(remarkSchemaList))
           }

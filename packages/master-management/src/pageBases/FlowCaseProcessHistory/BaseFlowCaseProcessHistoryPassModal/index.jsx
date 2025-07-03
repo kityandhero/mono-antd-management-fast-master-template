@@ -9,7 +9,6 @@ import {
   getValueByKey,
   isArray,
   isEmptyArray,
-  logConsole,
   toString,
   zeroString,
 } from 'easy-soft-utility';
@@ -268,10 +267,6 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
       data: externalData,
       key: fieldDataFlowCase.debugApproverMode.name,
       convert: convertCollection.number,
-    });
-
-    logConsole({
-      debugApproverMode,
     });
 
     return {

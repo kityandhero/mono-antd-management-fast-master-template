@@ -58,12 +58,24 @@ export function getSimpleApplicantConfig(o) {
     convert: convertCollection.string,
   });
 
+  const globalDebugUserSignet = getValueByKey({
+    data: o,
+    key: fieldData.globalDebugUserSignet.name,
+    convert: convertCollection.string,
+  });
+
   const listApply = [
     {
       ...nodeApply,
       title: applicantStatementTitle,
       note: applicantStatementContent,
-      signet: emptySignet,
+      ...(checkStringIsNullOrWhiteSpace(globalDebugUserSignet)
+        ? {
+            signet: emptySignet,
+          }
+        : {
+            signet: globalDebugUserSignet,
+          }),
       time: formatDatetime({
         data: getNow(),
         format: datetimeFormat.yearMonthDayHourMinuteSecond,

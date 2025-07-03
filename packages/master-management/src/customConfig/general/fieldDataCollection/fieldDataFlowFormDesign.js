@@ -71,6 +71,21 @@ const formExtraData = {
     name: 'defaultAttentionStatementContent',
     helper: '',
   },
+  globalDebugUserId: {
+    label: '全局调试人标识',
+    name: 'globalDebugUserId',
+    helper: '',
+  },
+  globalDebugUserRealName: {
+    label: '全局调试人名称',
+    name: 'globalDebugUserRealName',
+    helper: '',
+  },
+  globalDebugUserSignet: {
+    label: '全局调试人签名',
+    name: 'globalDebugUserSignet',
+    helper: '',
+  },
 };
 
 export const fieldDataFlowFormDesign = {

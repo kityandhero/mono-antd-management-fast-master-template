@@ -8,7 +8,6 @@ import {
   getValueByKey,
   isArray,
   isEmptyArray,
-  logConsole,
   showSimpleErrorMessage,
   toNumber,
   whetherNumber,
@@ -52,8 +51,6 @@ function checkCorrectExist(list) {
   if (!isArray(list) || isEmptyArray(list)) {
     return false;
   }
-
-  logConsole({ list });
 
   return list
     .map((o) => {

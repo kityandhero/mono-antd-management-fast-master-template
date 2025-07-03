@@ -180,6 +180,11 @@ export const fieldDataFlow = {
     name: 'globalDebugUserRealName',
     helper: '',
   },
+  globalDebugUserSignet: {
+    label: '全局调试人签名',
+    name: 'globalDebugUserSignet',
+    helper: '',
+  },
   whetherAllowMultibranch: {
     label: '允许多路分支',
     name: 'whetherAllowMultibranch',

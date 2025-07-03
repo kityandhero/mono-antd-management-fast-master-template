@@ -36,7 +36,6 @@ import {
   fieldDataFlowCase,
   flowCaseStatusCollection,
   flowDebugApproverModeCollection,
-  flowDebugUserModeCollection,
   flowNodeTypeCollection,
 } from '../../../../customConfig';
 import { getChannelName } from '../../../../customSpecialComponents';
@@ -657,12 +656,6 @@ class DebugCaseInfo extends TabPageBase {
       key: fieldData.flowDebugApproverUserId.name,
     });
 
-    const debugUserMode = getValueByKey({
-      data: metaData,
-      key: fieldData.debugUserMode.name,
-      convert: convertCollection.number,
-    });
-
     const debugApproverMode = getValueByKey({
       data: metaData,
       key: fieldData.debugApproverMode.name,
@@ -963,9 +956,6 @@ class DebugCaseInfo extends TabPageBase {
                     hidden: !checkHasAuthority(
                       accessWayCollection.workflow.setDebugUserId.permission,
                     ),
-                    disabled:
-                      debugUserMode ===
-                      flowDebugUserModeCollection.globalDebugUser,
                   },
                   {
                     key: 'showUpdateDebugUserModeModal',
