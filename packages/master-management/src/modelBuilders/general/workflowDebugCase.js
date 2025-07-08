@@ -28,11 +28,12 @@ import {
   setAttentionStatementData,
   setAttentionUserData,
   setSubsidiaryIdData,
-  setUserIdData,
+  singleListNextNodeApproverData,
   submitApprovalData,
   submitFormData,
   toggleEmergencyData,
   updateBasicInfoData,
+  verifyCodeData,
 } from '../../services/workflowDebugCase';
 
 export const workflowDebugCaseTypeCollection = {
@@ -40,13 +41,14 @@ export const workflowDebugCaseTypeCollection = {
   pageListUnderway: 'workflowDebugCase/pageListUnderway',
   pageListLatestApprove: 'workflowDebugCase/pageListLatestApprove',
   pageListWaitApprove: 'workflowDebugCase/pageListWaitApprove',
+  singleListNextNodeApprover: 'workflowDebugCase/singleListNextNodeApprover',
   get: 'workflowDebugCase/get',
+  verifyCode: 'workflowDebugCase/verifyCode',
   getByWorkflow: 'workflowDebugCase/getByWorkflow',
   getChainByWorkflow: 'workflowDebugCase/getChainByWorkflow',
   updateBasicInfo: 'workflowDebugCase/updateBasicInfo',
   toggleEmergency: 'workflowDebugCase/toggleEmergency',
   setSubsidiaryId: 'workflowDebugCase/setSubsidiaryId',
-  setUserId: 'workflowDebugCase/setUserId',
   setApplicantStatement: 'workflowDebugCase/setApplicantStatement',
   setAttentionUser: 'workflowDebugCase/setAttentionUser',
   setAttentionStatement: 'workflowDebugCase/setAttentionStatement',
@@ -176,6 +178,32 @@ export function buildModel() {
 
         return dataAdjust;
       },
+      *singleListNextNodeApprover(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(singleListNextNodeApproverData, payload);
+
+        const dataAdjust = pretreatmentRemotePageListData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
       *get(
         {
           payload,
@@ -186,6 +214,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(getData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *verifyCode(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(verifyCodeData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -316,32 +370,6 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(setSubsidiaryIdData, payload);
-
-        const dataAdjust = pretreatmentRemoteSingleData({
-          source: response,
-          successCallback: pretreatmentSuccessCallback || null,
-          failCallback: pretreatmentFailCallback || null,
-        });
-
-        yield put({
-          type: reducerNameCollection.reducerRemoteData,
-          payload: dataAdjust,
-          alias,
-          ...reducerDefaultParameters,
-        });
-
-        return dataAdjust;
-      },
-      *setUserId(
-        {
-          payload,
-          alias,
-          pretreatmentSuccessCallback,
-          pretreatmentFailCallback,
-        },
-        { call, put },
-      ) {
-        const response = yield call(setUserIdData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

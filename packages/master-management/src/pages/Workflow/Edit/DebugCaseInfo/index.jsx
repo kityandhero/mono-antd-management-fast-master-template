@@ -68,6 +68,7 @@ import { ProcessChainDrawer } from '../../../WorkflowDebugCase/ProcessChainDrawe
 import { SetApplicantStatementDrawer } from '../../../WorkflowDebugCase/SetApplicantStatementDrawer';
 import { SetAttentionStatementDrawer } from '../../../WorkflowDebugCase/SetAttentionStatementDrawer';
 import { SetAttentionUserDrawer } from '../../../WorkflowDebugCase/SetAttentionUserDrawer';
+import { SubmitApprovalModal } from '../../../WorkflowDebugCase/SubmitApprovalModal';
 import { UpdateBasicInfoDrawer } from '../../../WorkflowDebugCase/UpdateBasicInfoDrawer';
 import { fieldData as fieldDataWorkflowDebugCaseCarbonCopyNotification } from '../../../WorkflowDebugCaseCarbonCopyNotification/Common/data';
 import { FormDrawer } from '../../../WorkflowDebugCaseFormStorage/FormDrawer';
@@ -452,6 +453,14 @@ class DebugCaseInfo extends TabPageBase {
   };
 
   afterSetAttentionStatementDrawerOk = () => {
+    this.reloadData({});
+  };
+
+  showSubmitApprovalModal = () => {
+    SubmitApprovalModal.open();
+  };
+
+  afterSubmitApprovalModalOK = () => {
     this.reloadData({});
   };
 
@@ -1343,7 +1352,7 @@ class DebugCaseInfo extends TabPageBase {
                     .permission,
                 ),
                 handleClick: () => {
-                  this.submitApproval(metaData);
+                  this.showSubmitApprovalModal(metaData);
                 },
               },
               {
@@ -1929,6 +1938,13 @@ class DebugCaseInfo extends TabPageBase {
           externalData={metaData}
           afterOK={() => {
             this.afterUpdateBasicInfoDrawerOk();
+          }}
+        />
+
+        <SubmitApprovalModal
+          externalData={metaData}
+          afterOK={() => {
+            this.afterSubmitApprovalModalOK();
           }}
         />
 

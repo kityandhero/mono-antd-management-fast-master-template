@@ -289,6 +289,10 @@ import {
   userWechatApplicationInfoTypeCollection,
 } from './userWechatApplicationInfo';
 import {
+  buildModel as buildUserWorkflowConfigureModel,
+  userWorkflowConfigureTypeCollection,
+} from './userWorkflowConfigure';
+import {
   buildModel as buildWeChatMessageRecordModel,
   weChatMessageRecordTypeCollection,
 } from './weChatMessageRecord';
@@ -467,6 +471,7 @@ export const modelTypeCollection = {
   userLoginLogTypeCollection,
   userSubsidiaryInfoTypeCollection,
   userWechatApplicationInfoTypeCollection,
+  userWorkflowConfigureTypeCollection,
   weChatMessageRecordTypeCollection,
   workflowTypeCollection,
   workflowBranchConditionTypeCollection,
@@ -575,6 +580,7 @@ export function listModelBuilder() {
     buildUserLoginLogModel,
     buildUserSubsidiaryInfoModel,
     buildUserWechatApplicationInfoModel,
+    buildUserWorkflowConfigureModel,
     buildWeChatMessageRecordModel,
     buildWorkflowModel,
     buildWorkflowBranchConditionModel,

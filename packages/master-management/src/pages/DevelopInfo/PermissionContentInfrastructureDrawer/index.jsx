@@ -26,7 +26,7 @@ class PermissionContentInfrastructureDrawer extends BaseVerticalFlexDrawer {
 
     this.state = {
       ...this.state,
-      pageTitle: '前端业务权限键值配置文件',
+      pageTitle: '前端基础权限键值配置文件',
       loadApiPath: 'accessWay/getInfrastructurePermissionFileContent',
     };
   }

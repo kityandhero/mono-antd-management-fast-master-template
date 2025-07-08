@@ -24,23 +24,17 @@ import {
   renderFormFlowBranchConditionItemTargetComparisonModeSelect,
   renderFormFlowBranchConditionItemTargetTypeSelect,
 } from '../../../customSpecialComponents';
-import { BaseFlowCaseProcessHistoryPassModal } from '../../../pageBases';
-import { fieldData as fieldDataWorkflowDebugCase } from '../../WorkflowDebugCase/Common/data';
+import { modelTypeCollection } from '../../../modelBuilders';
+import { BaseFlowCaseSubmitApprovalModal } from '../../../pageBases';
+import { fieldData as fieldDataWorkflowDebugCase } from '../Common/data';
 
-const visibleFlag = '77c60f0f5b5d4f18b2d59b9e7d0bd523';
+const visibleFlag = '661bfdcd62084d10b754bf0c83cb639f';
 
-@connect(
-  ({
-    workflowDebugCaseProcessHistory,
-    generalDiscourse,
-    schedulingControl,
-  }) => ({
-    workflowDebugCaseProcessHistory,
-    generalDiscourse,
-    schedulingControl,
-  }),
-)
-class PassModal extends BaseFlowCaseProcessHistoryPassModal {
+@connect(({ workflowDebugCase, schedulingControl }) => ({
+  workflowDebugCase,
+  schedulingControl,
+}))
+class SubmitApprovalModal extends BaseFlowCaseSubmitApprovalModal {
   static open() {
     switchControlAssist.open(visibleFlag);
   }
@@ -50,8 +44,9 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'workflowDebugCase/get',
-      submitApiPath: 'workflowDebugCaseProcessHistory/pass',
+      loadApiPath: modelTypeCollection.workflowDebugCaseTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.workflowDebugCaseTypeCollection.submitApproval,
     };
   }
 
@@ -75,4 +70,4 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
   };
 }
 
-export { PassModal };
+export { SubmitApprovalModal };

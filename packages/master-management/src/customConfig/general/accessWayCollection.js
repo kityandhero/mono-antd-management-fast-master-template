@@ -3352,6 +3352,38 @@ export const accessWayInfrastructureCollection = {
       permission: 'bde60c7d1f2242829b14f9625fd4e31e',
     },
   },
+  userWorkflowConfigure: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '940df46092341815728c65ebe23e2031',
+      permission: 'd48dba987d924cf69227f7774d5c6380',
+    },
+    singleList: {
+      title: '单页列表',
+      paramsKey: '459c38009bd4084111f43cc4a2a4020a',
+      permission: '3127cce1cd114d21b162d9c8d478c612',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: 'b209f22ec423b32d4bad54e93bdfcacd',
+      permission: '8b10f76d2a6b48168521f4286734c840',
+    },
+    setMobileApproveViewMode: {
+      title: '设置移动端审批视图模式',
+      paramsKey: 'b103a8f7a8f7b0ec71718923c64f0100',
+      permission: 'c0ea9ef87c1e48eca771962dc872977a',
+    },
+    toggleAllowScanCodeVerification: {
+      title: '切换是否允许扫码校验',
+      paramsKey: 'e598965c8656ee515b6a637661283b82',
+      permission: '28adc22bc8fd4b29828b798233cb529a',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '65016f26d22c1b33028d2197288b9e9c',
+      permission: 'e0c99b07e8ee439293a83f26c0041257',
+    },
+  },
   weChatMessageRecord: {
     pageList: {
       title: '分页列表',
@@ -3610,6 +3642,11 @@ export const accessWayInfrastructureCollection = {
       title: '进行中的流程分页列表',
       paramsKey: 'fcf983a37243370bdf03327e18ba9f06',
       permission: '9760b2c308f64bd289bac683f0bd63be',
+    },
+    singleListNextNodeApprover: {
+      title: '当前即将审批节点的下一节点审批人列表',
+      paramsKey: 'fc64a15191155bda835a4c02dea6eb50',
+      permission: '51b766a5d9564a1fabef4f3ca49e61a1',
     },
     get: {
       title: '获取详情',
@@ -3907,6 +3944,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '3382857504f7ae2e35dbf1ef81236042',
       permission: '8dd811e1067a4b9e9da15c111054b225',
     },
+    singleListNextNodeApprover: {
+      title: '当前即将审批节点的下一节点审批人列表',
+      paramsKey: '3ea983b829f7a734069c86f45ecb9ebf',
+      permission: '3609765c48814c3fb0325f9213e3e6fc',
+    },
     get: {
       title: '获取详情',
       paramsKey: '34a65b67d647b471e1a043bed2e19b4a',
@@ -3936,11 +3978,6 @@ export const accessWayInfrastructureCollection = {
       title: '设置所属企业',
       paramsKey: 'ee1d6ed8cd3c4d765d8061a173f1d750',
       permission: '6b8883d29a4148a5befe90650fdaef87',
-    },
-    setUserId: {
-      title: '设置提交人',
-      paramsKey: '71b32e0818a62ab6583d306082f74e11',
-      permission: '1834098de7464bb98f845a31bdb93206',
     },
     setApplicantStatement: {
       title: '设置申请陈述',

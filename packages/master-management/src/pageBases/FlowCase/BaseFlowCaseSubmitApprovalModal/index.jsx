@@ -61,17 +61,9 @@ function dataFormFieldGeneralDiscourseConvert(o, index) {
   };
 }
 
-const approveUserName = '2fcc037383244eeb81d6c71053a79601';
+const nextNodeApproverUserName = '34a4fdf96438429dbb84f0af08e65bc6';
 
-const nextNodeApproverUserName = '17158fea9dbc42d4abbe967cdc099ba1';
-
-const generalDiscourseName = '991d90f0881b4e14909c7e8f270e593f';
-
-class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
-  approveUserId = '';
-
-  approveUserRealName = '';
-
+class BaseFlowCaseSubmitApprovalModal extends BaseUpdateModal {
   nextWorkflowNodeApproverUserId = '';
 
   nextWorkflowNodeApproverUserRealName = '';
@@ -81,18 +73,14 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
 
     this.state = {
       ...this.state,
-      pageTitle: '同意审批',
+      pageTitle: '提交审批',
       loadApiPath: '',
       submitApiPath: '',
-      generalDiscourseList: [],
-      approverList: [],
       nextNodeApproverList: [],
     };
   }
 
   executeAfterDoOtherWhenChangeVisibleToShow = () => {
-    this.loadGeneralDiscourseList();
-    this.loadApproverList();
     this.reloadNextNodeApproverList();
   };
 
@@ -124,11 +112,7 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
     const d = { ...o };
     const { externalData } = this.props;
 
-    d[fieldDataFlowCaseProcessHistory.flowCaseId.name] =
-      this.getFlowCaseId(externalData);
-
-    d[fieldDataFlowCaseProcessHistory.approveUserId.name] =
-      this.approveUserId ?? '';
+    d[this.getFlowCaseIdName()] = this.getFlowCaseId(externalData);
 
     const nextWorkflowNodeApproverUserIdCollection =
       checkStringIsNullOrWhiteSpace(this.nextWorkflowNodeApproverUserId ?? '')
@@ -138,100 +122,9 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
     d.nextWorkflowNodeApproverUserIdCollection =
       nextWorkflowNodeApproverUserIdCollection.join(',');
 
-    delete d[approveUserName];
     delete d[nextNodeApproverUserName];
-    delete d[generalDiscourseName];
 
     return d;
-  };
-
-  loadGeneralDiscourseList = () => {
-    const { externalData } = this.props;
-
-    singleListAction({
-      target: this,
-      handleData: {
-        type: typeCollection.workflow,
-      },
-      successCallback: ({ target, remoteListData }) => {
-        target.setState({
-          generalDiscourseList: remoteListData,
-        });
-      },
-    });
-  };
-
-  reloadGeneralDiscourseList = () => {
-    this.loadGeneralDiscourseList();
-  };
-
-  loadApproverList = () => {
-    const { externalData } = this.props;
-
-    const debugApproverMode = getValueByKey({
-      data: externalData,
-      key: fieldDataFlowCase.debugApproverMode.name,
-      convert: convertCollection.number,
-    });
-
-    if (debugApproverMode === flowDebugApproverModeCollection.debugUser) {
-      this.approveUserId = getValueByKey({
-        data: externalData,
-        key: fieldDataFlowCase.flowDebugUserId.name,
-        convert: convertCollection.string,
-      });
-
-      this.approveUserRealName = getValueByKey({
-        data: externalData,
-        key: fieldDataFlowCase.flowDebugUserRealName.name,
-        convert: convertCollection.string,
-      });
-    }
-
-    singleListApproverAction({
-      target: this,
-      handleData: {
-        workflowNodeId: getValueByKey({
-          data: externalData,
-          key: fieldDataFlowCase.nextApproveWorkflowNodeId.name,
-          defaultValue: '',
-        }),
-      },
-      successCallback: ({ target, remoteListData }) => {
-        if (
-          debugApproverMode ===
-            flowDebugApproverModeCollection.flowConfiguration &&
-          isArray(remoteListData) &&
-          !isEmptyArray(remoteListData) &&
-          remoteListData.length === 1
-        ) {
-          const firstData = remoteListData[0];
-
-          const userId = getValueByKey({
-            data: firstData,
-            key: fieldDataWorkflowNodeApprover.userId.name,
-            convert: convertCollection.string,
-          });
-
-          const userRealName = getValueByKey({
-            data: firstData,
-            key: fieldDataWorkflowNodeApprover.userRealName.name,
-            convert: convertCollection.string,
-          });
-
-          target.approveUserId = userId;
-          target.approveUserRealName = userRealName;
-        }
-
-        target.setState({
-          approverList: [...remoteListData],
-        });
-      },
-    });
-  };
-
-  reloadApproverList = () => {
-    this.loadApproverList();
   };
 
   loadNextNodeApproverList = () => {
@@ -310,14 +203,9 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
       const data = {};
 
       data[fieldDataFlowCaseProcessHistory.note.name] = content;
-      data[generalDiscourseName] = null;
 
       this.setFormFieldsValue(data);
     }
-  };
-
-  onApproverChange = (v, option) => {
-    this.approveUserId = v;
   };
 
   onNextNodeApproverChange = (v, option) => {
@@ -359,12 +247,7 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
   };
 
   establishCardCollectionConfig = () => {
-    const {
-      externalData,
-      generalDiscourseList,
-      approverList,
-      nextNodeApproverList,
-    } = this.state;
+    const { externalData, nextNodeApproverList } = this.state;
 
     const debugApproverMode = getValueByKey({
       data: externalData,
@@ -380,55 +263,6 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
             text: '基本信息',
           },
           items: [
-            {
-              lg: 24,
-              type: cardConfig.contentItemType.onlyShowInput,
-              fieldData: {
-                label: '当前审批人',
-                name: approveUserName,
-                helper: '',
-              },
-              value: this.approveUserRealName,
-              hidden:
-                (debugApproverMode ===
-                  flowDebugApproverModeCollection.flowConfiguration &&
-                  approverList.length !== 1) ||
-                !checkHasAuthority(
-                  accessWayCollection.workflowNodeApprover.singleList
-                    .permission,
-                ),
-              require: true,
-            },
-            {
-              lg: 24,
-              type: cardConfig.contentItemType.select,
-              fieldData: {
-                label: '当前审批人',
-                name: approveUserName,
-                helper: '',
-              },
-              listData: approverList,
-              dataConvert: dataFormFieldApproverConvert,
-              onChange: this.onApproverChange,
-              addonAfter: buildButton({
-                text: '',
-                icon: iconBuilder.reload(),
-                handleClick: () => {
-                  this.reloadApproverList();
-                },
-              }),
-              hidden:
-                debugApproverMode ===
-                  flowDebugApproverModeCollection.debugUser ||
-                (debugApproverMode ===
-                  flowDebugApproverModeCollection.flowConfiguration &&
-                  approverList.length === 1) ||
-                !checkHasAuthority(
-                  accessWayCollection.workflowNodeApprover.singleList
-                    .permission,
-                ),
-              require: true,
-            },
             {
               lg: 24,
               type: cardConfig.contentItemType.onlyShowInput,
@@ -471,37 +305,8 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
                   flowDebugApproverModeCollection.debugUser ||
                 (debugApproverMode ===
                   flowDebugApproverModeCollection.flowConfiguration &&
-                  nextNodeApproverList.length <= 1) ||
+                  nextNodeApproverList.length === 1) ||
                 !this.checkHasSingleListNextNodeApproverAuthority(),
-              require: true,
-            },
-            {
-              lg: 24,
-              type: cardConfig.contentItemType.select,
-              fieldData: {
-                label: '快捷常用语',
-                name: generalDiscourseName,
-                helper: '',
-              },
-              listData: generalDiscourseList,
-              dataConvert: dataFormFieldGeneralDiscourseConvert,
-              onChange: this.onGeneralDiscourseChange,
-              addonAfter: buildButton({
-                text: '',
-                icon: iconBuilder.reload(),
-                handleClick: () => {
-                  this.reloadGeneralDiscourseList();
-                },
-              }),
-              hidden: !checkHasAuthority(
-                accessWayCollection.generalDiscourse.singleList.permission,
-              ),
-              require: false,
-            },
-            {
-              lg: 24,
-              type: cardConfig.contentItemType.textarea,
-              fieldData: fieldDataFlowCaseProcessHistory.note,
               require: true,
             },
           ],
@@ -509,23 +314,6 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
       ],
     };
   };
-
-  establishHelpConfig = () => {
-    return {
-      title: '操作提示',
-      list: [
-        {
-          text: '审批人为当前审批节点的操作人。',
-        },
-        {
-          text: '下步审批人为指定的当前审批节点下一节点的审批人',
-        },
-        {
-          text: '选择常用语可以快速填充审批意见。',
-        },
-      ],
-    };
-  };
 }
 
-export { BaseFlowCaseProcessHistoryPassModal };
+export { BaseFlowCaseSubmitApprovalModal };

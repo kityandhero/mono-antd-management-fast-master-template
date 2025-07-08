@@ -5464,6 +5464,55 @@
       "apis": [
         {
           "title": "分页列表",
+          "api": "/userWorkflowConfigure/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/userWorkflowConfigure/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/userWorkflowConfigure/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置移动端审批视图模式",
+          "api": "/userWorkflowConfigure/setMobileApproveViewMode",
+          "effect": "setMobileApproveViewMode",
+          "service": "setMobileApproveViewModeData",
+          "type": "singleData"
+        },
+        {
+          "title": "切换是否允许扫码校验",
+          "api": "/userWorkflowConfigure/toggleAllowScanCodeVerification",
+          "effect": "toggleAllowScanCodeVerification",
+          "service": "toggleAllowScanCodeVerificationData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/userWorkflowConfigure/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "用户工作流配置管理",
+      "name": "userWorkflowConfigure"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
           "api": "/weChatMessageRecord/pageList",
           "effect": "pageList",
           "service": "pageListData",
@@ -5841,10 +5890,24 @@
           "type": "pageList"
         },
         {
+          "title": "当前即将审批节点的下一节点审批人列表",
+          "api": "/workflowCase/singleListNextNodeApprover",
+          "effect": "singleListNextNodeApprover",
+          "service": "singleListNextNodeApproverData",
+          "type": "pageList"
+        },
+        {
           "title": "获取详情",
           "api": "/workflowCase/get",
           "effect": "get",
           "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "扫码校验",
+          "api": "/workflowCase/verifyCode",
+          "effect": "verifyCode",
+          "service": "verifyCodeData",
           "type": "singleData"
         },
         {
@@ -6296,10 +6359,24 @@
           "type": "pageList"
         },
         {
+          "title": "当前即将审批节点的下一节点审批人列表",
+          "api": "/workflowDebugCase/singleListNextNodeApprover",
+          "effect": "singleListNextNodeApprover",
+          "service": "singleListNextNodeApproverData",
+          "type": "pageList"
+        },
+        {
           "title": "获取详情",
           "api": "/workflowDebugCase/get",
           "effect": "get",
           "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "扫码校验",
+          "api": "/workflowDebugCase/verifyCode",
+          "effect": "verifyCode",
+          "service": "verifyCodeData",
           "type": "singleData"
         },
         {
@@ -6335,13 +6412,6 @@
           "api": "/workflowDebugCase/setSubsidiaryId",
           "effect": "setSubsidiaryId",
           "service": "setSubsidiaryIdData",
-          "type": "singleData"
-        },
-        {
-          "title": "设置提交人",
-          "api": "/workflowDebugCase/setUserId",
-          "effect": "setUserId",
-          "service": "setUserIdData",
           "type": "singleData"
         },
         {

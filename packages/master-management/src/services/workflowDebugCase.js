@@ -39,11 +39,30 @@ export async function pageListWaitApproveData(parameters) {
   });
 }
 
+export const singleListNextNodeApproverDataApiAddress =
+  '/workflowDebugCase/singleListNextNodeApprover';
+
+export async function singleListNextNodeApproverData(parameters) {
+  return request({
+    api: singleListNextNodeApproverDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const getDataApiAddress = '/workflowDebugCase/get';
 
 export async function getData(parameters) {
   return request({
     api: getDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const verifyCodeDataApiAddress = '/workflowDebugCase/verifyCode';
+
+export async function verifyCodeData(parameters) {
+  return request({
+    api: verifyCodeDataApiAddress,
     params: parameters,
   });
 }
@@ -93,15 +112,6 @@ export const setSubsidiaryIdDataApiAddress =
 export async function setSubsidiaryIdData(parameters) {
   return request({
     api: setSubsidiaryIdDataApiAddress,
-    params: parameters,
-  });
-}
-
-export const setUserIdDataApiAddress = '/workflowDebugCase/setUserId';
-
-export async function setUserIdData(parameters) {
-  return request({
-    api: setUserIdDataApiAddress,
     params: parameters,
   });
 }

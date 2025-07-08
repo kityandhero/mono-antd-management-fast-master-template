@@ -18,11 +18,30 @@ export async function pageListUnderwayData(parameters) {
   });
 }
 
+export const singleListNextNodeApproverDataApiAddress =
+  '/workflowCase/singleListNextNodeApprover';
+
+export async function singleListNextNodeApproverData(parameters) {
+  return request({
+    api: singleListNextNodeApproverDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const getDataApiAddress = '/workflowCase/get';
 
 export async function getData(parameters) {
   return request({
     api: getDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const verifyCodeDataApiAddress = '/workflowCase/verifyCode';
+
+export async function verifyCodeData(parameters) {
+  return request({
+    api: verifyCodeDataApiAddress,
     params: parameters,
   });
 }
