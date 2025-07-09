@@ -37,7 +37,7 @@ export const flowDebugApproverModeCollection = {
    * 全局测试账户
    * value : 0
    */
-  debugUser: 0,
+  globalDebugUser: 0,
 
   /**
    * 流程配置账户

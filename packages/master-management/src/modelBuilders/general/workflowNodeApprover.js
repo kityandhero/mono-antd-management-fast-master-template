@@ -16,12 +16,15 @@ import {
   pageListOperateLogData,
   refreshCacheData,
   removeData,
+  singleListApproverUserWithNodeAndFlowCaseData,
   singleListData,
 } from '../../services/workflowNodeApprover';
 
 export const workflowNodeApproverTypeCollection = {
   pageList: 'workflowNodeApprover/pageList',
   singleList: 'workflowNodeApprover/singleList',
+  singleListApproverUserWithNodeAndFlowCase:
+    'workflowNodeApprover/singleListApproverUserWithNodeAndFlowCase',
   get: 'workflowNodeApprover/get',
   addApproverBasicInfo: 'workflowNodeApprover/addApproverBasicInfo',
   addPositionGradeBasicInfo: 'workflowNodeApprover/addPositionGradeBasicInfo',
@@ -75,6 +78,35 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(singleListData, payload);
+
+        const dataAdjust = pretreatmentRemoteListData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *singleListApproverUserWithNodeAndFlowCase(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(
+          singleListApproverUserWithNodeAndFlowCaseData,
+          payload,
+        );
 
         const dataAdjust = pretreatmentRemoteListData({
           source: response,

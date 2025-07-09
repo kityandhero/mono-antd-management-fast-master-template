@@ -31,18 +31,18 @@ import {
 } from '../../../customSpecialComponents';
 import { singleListAction } from '../../../pages/GeneralDiscourse/Assist/action';
 import { typeCollection } from '../../../pages/GeneralDiscourse/Common/data';
+import { fieldData as fieldDataUser } from '../../../pages/User/Common/data';
 import { singleListNextNodeApproverAction } from '../../../pages/WorkflowDebugCase/Assist/action';
-import { singleListAction as singleListApproverAction } from '../../../pages/WorkflowNodeApprover/Assist/action';
-import { fieldData as fieldDataWorkflowNodeApprover } from '../../../pages/WorkflowNodeApprover/Common/data';
+import { singleListApproverUserWithNodeAndFlowCaseAction } from '../../../pages/WorkflowNodeApprover/Assist/action';
 
 const { BaseUpdateModal } = DataModal;
 
 // eslint-disable-next-line no-unused-vars
 function dataFormFieldApproverConvert(o, index) {
-  const { userRealName, userId } = o;
+  const { friendlyName, userId } = o;
 
   return {
-    label: userRealName,
+    label: friendlyName,
     value: userId,
     disabled: false,
     ...o,
@@ -86,13 +86,13 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
       submitApiPath: '',
       generalDiscourseList: [],
       approverList: [],
-      nextNodeApproverList: [],
+      nextNodeApproverUserList: [],
     };
   }
 
   executeAfterDoOtherWhenChangeVisibleToShow = () => {
     this.loadGeneralDiscourseList();
-    this.loadApproverList();
+    this.loadApproverUserWithNodeAndFlowCaseList();
     this.reloadNextNodeApproverList();
   };
 
@@ -165,7 +165,7 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
     this.loadGeneralDiscourseList();
   };
 
-  loadApproverList = () => {
+  loadApproverUserWithNodeAndFlowCaseList = () => {
     const { externalData } = this.props;
 
     const debugApproverMode = getValueByKey({
@@ -174,7 +174,7 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
       convert: convertCollection.number,
     });
 
-    if (debugApproverMode === flowDebugApproverModeCollection.debugUser) {
+    if (debugApproverMode === flowDebugApproverModeCollection.globalDebugUser) {
       this.approveUserId = getValueByKey({
         data: externalData,
         key: fieldDataFlowCase.flowDebugUserId.name,
@@ -188,12 +188,17 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
       });
     }
 
-    singleListApproverAction({
+    singleListApproverUserWithNodeAndFlowCaseAction({
       target: this,
       handleData: {
         workflowNodeId: getValueByKey({
           data: externalData,
           key: fieldDataFlowCase.nextApproveWorkflowNodeId.name,
+          defaultValue: '',
+        }),
+        flowCaseUserId: getValueByKey({
+          data: externalData,
+          key: fieldDataFlowCase.userId.name,
           defaultValue: '',
         }),
       },
@@ -209,18 +214,18 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
 
           const userId = getValueByKey({
             data: firstData,
-            key: fieldDataWorkflowNodeApprover.userId.name,
+            key: fieldDataUser.userId.name,
             convert: convertCollection.string,
           });
 
-          const userRealName = getValueByKey({
+          const friendlyName = getValueByKey({
             data: firstData,
-            key: fieldDataWorkflowNodeApprover.userRealName.name,
+            key: fieldDataUser.friendlyName.name,
             convert: convertCollection.string,
           });
 
           target.approveUserId = userId;
-          target.approveUserRealName = userRealName;
+          target.approveUserRealName = friendlyName;
         }
 
         target.setState({
@@ -230,8 +235,8 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
     });
   };
 
-  reloadApproverList = () => {
-    this.loadApproverList();
+  reloadApproverUserWithNodeAndFlowCaseList = () => {
+    this.loadApproverUserWithNodeAndFlowCaseList();
   };
 
   loadNextNodeApproverList = () => {
@@ -243,7 +248,7 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
       convert: convertCollection.number,
     });
 
-    if (debugApproverMode === flowDebugApproverModeCollection.debugUser) {
+    if (debugApproverMode === flowDebugApproverModeCollection.globalDebugUser) {
       this.nextWorkflowNodeApproverUserId = getValueByKey({
         data: externalData,
         key: fieldDataFlowCase.flowDebugUserId.name,
@@ -278,22 +283,22 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
 
           const userId = getValueByKey({
             data: firstData,
-            key: fieldDataWorkflowNodeApprover.userId.name,
+            key: fieldDataUser.userId.name,
             convert: convertCollection.string,
           });
 
-          const userRealName = getValueByKey({
+          const friendlyName = getValueByKey({
             data: firstData,
-            key: fieldDataWorkflowNodeApprover.userRealName.name,
+            key: fieldDataUser.friendlyName.name,
             convert: convertCollection.string,
           });
 
           target.nextWorkflowNodeApproverUserId = userId;
-          target.nextWorkflowNodeApproverUserRealName = userRealName;
+          target.nextWorkflowNodeApproverUserRealName = friendlyName;
         }
 
         target.setState({
-          nextNodeApproverList: [...remoteListData],
+          nextNodeApproverUserList: [...remoteListData],
         });
       },
     });
@@ -363,7 +368,7 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
       externalData,
       generalDiscourseList,
       approverList,
-      nextNodeApproverList,
+      nextNodeApproverUserList,
     } = this.state;
 
     const debugApproverMode = getValueByKey({
@@ -414,12 +419,12 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
                 text: '',
                 icon: iconBuilder.reload(),
                 handleClick: () => {
-                  this.reloadApproverList();
+                  this.reloadApproverUserWithNodeAndFlowCaseList();
                 },
               }),
               hidden:
                 debugApproverMode ===
-                  flowDebugApproverModeCollection.debugUser ||
+                  flowDebugApproverModeCollection.globalDebugUser ||
                 (debugApproverMode ===
                   flowDebugApproverModeCollection.flowConfiguration &&
                   approverList.length === 1) ||
@@ -441,7 +446,7 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
               hidden:
                 (debugApproverMode ===
                   flowDebugApproverModeCollection.flowConfiguration &&
-                  nextNodeApproverList.length !== 1) ||
+                  nextNodeApproverUserList.length !== 1) ||
                 !checkHasAuthority(
                   accessWayCollection.workflowNodeApprover.singleList
                     .permission,
@@ -456,7 +461,7 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
                 name: nextNodeApproverUserName,
                 helper: '',
               },
-              listData: nextNodeApproverList,
+              listData: nextNodeApproverUserList,
               dataConvert: dataFormFieldApproverConvert,
               onChange: this.onNextNodeApproverChange,
               addonAfter: buildButton({
@@ -468,10 +473,10 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
               }),
               hidden:
                 debugApproverMode ===
-                  flowDebugApproverModeCollection.debugUser ||
+                  flowDebugApproverModeCollection.globalDebugUser ||
                 (debugApproverMode ===
                   flowDebugApproverModeCollection.flowConfiguration &&
-                  nextNodeApproverList.length <= 1) ||
+                  nextNodeApproverUserList.length <= 1) ||
                 !this.checkHasSingleListNextNodeApproverAuthority(),
               require: true,
             },
@@ -519,6 +524,9 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
         },
         {
           text: '下步审批人为指定的当前审批节点下一节点的审批人',
+        },
+        {
+          text: '测试环境当前审批人选择列表将加载节点配置的全部审批人, 若选择了上一审批中未指定的审批人, 则审批会发生错误, 受限于交互，此情况为特意设置，目的是为了检测选择了不应选择的当前审批人的状况',
         },
         {
           text: '选择常用语可以快速填充审批意见。',

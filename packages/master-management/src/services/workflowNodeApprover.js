@@ -18,6 +18,18 @@ export async function singleListData(parameters) {
   });
 }
 
+export const singleListApproverUserWithNodeAndFlowCaseDataApiAddress =
+  '/workflowNodeApprover/singleListApproverUserWithNodeAndFlowCase';
+
+export async function singleListApproverUserWithNodeAndFlowCaseData(
+  parameters,
+) {
+  return request({
+    api: singleListApproverUserWithNodeAndFlowCaseDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const getDataApiAddress = '/workflowNodeApprover/get';
 
 export async function getData(parameters) {

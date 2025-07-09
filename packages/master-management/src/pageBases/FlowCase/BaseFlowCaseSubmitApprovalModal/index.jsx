@@ -31,18 +31,17 @@ import {
 } from '../../../customSpecialComponents';
 import { singleListAction } from '../../../pages/GeneralDiscourse/Assist/action';
 import { typeCollection } from '../../../pages/GeneralDiscourse/Common/data';
+import { fieldData as fieldDataUser } from '../../../pages/User/Common/data';
 import { singleListNextNodeApproverAction } from '../../../pages/WorkflowDebugCase/Assist/action';
-import { singleListAction as singleListApproverAction } from '../../../pages/WorkflowNodeApprover/Assist/action';
-import { fieldData as fieldDataWorkflowNodeApprover } from '../../../pages/WorkflowNodeApprover/Common/data';
 
 const { BaseUpdateModal } = DataModal;
 
 // eslint-disable-next-line no-unused-vars
 function dataFormFieldApproverConvert(o, index) {
-  const { userRealName, userId } = o;
+  const { friendlyName, userId } = o;
 
   return {
-    label: userRealName,
+    label: friendlyName,
     value: userId,
     disabled: false,
     ...o,
@@ -76,7 +75,7 @@ class BaseFlowCaseSubmitApprovalModal extends BaseUpdateModal {
       pageTitle: '提交审批',
       loadApiPath: '',
       submitApiPath: '',
-      nextNodeApproverList: [],
+      nextNodeApproverUserList: [],
     };
   }
 
@@ -136,7 +135,7 @@ class BaseFlowCaseSubmitApprovalModal extends BaseUpdateModal {
       convert: convertCollection.number,
     });
 
-    if (debugApproverMode === flowDebugApproverModeCollection.debugUser) {
+    if (debugApproverMode === flowDebugApproverModeCollection.globalDebugUser) {
       this.nextWorkflowNodeApproverUserId = getValueByKey({
         data: externalData,
         key: fieldDataFlowCase.flowDebugUserId.name,
@@ -171,22 +170,22 @@ class BaseFlowCaseSubmitApprovalModal extends BaseUpdateModal {
 
           const userId = getValueByKey({
             data: firstData,
-            key: fieldDataWorkflowNodeApprover.userId.name,
+            key: fieldDataUser.userId.name,
             convert: convertCollection.string,
           });
 
-          const userRealName = getValueByKey({
+          const friendlyName = getValueByKey({
             data: firstData,
-            key: fieldDataWorkflowNodeApprover.userRealName.name,
+            key: fieldDataUser.friendlyName.name,
             convert: convertCollection.string,
           });
 
           target.nextWorkflowNodeApproverUserId = userId;
-          target.nextWorkflowNodeApproverUserRealName = userRealName;
+          target.nextWorkflowNodeApproverUserRealName = friendlyName;
         }
 
         target.setState({
-          nextNodeApproverList: [...remoteListData],
+          nextNodeApproverUserList: [...remoteListData],
         });
       },
     });
@@ -247,7 +246,7 @@ class BaseFlowCaseSubmitApprovalModal extends BaseUpdateModal {
   };
 
   establishCardCollectionConfig = () => {
-    const { externalData, nextNodeApproverList } = this.state;
+    const { externalData, nextNodeApproverUserList } = this.state;
 
     const debugApproverMode = getValueByKey({
       data: externalData,
@@ -275,7 +274,7 @@ class BaseFlowCaseSubmitApprovalModal extends BaseUpdateModal {
               hidden:
                 (debugApproverMode ===
                   flowDebugApproverModeCollection.flowConfiguration &&
-                  nextNodeApproverList.length !== 1) ||
+                  nextNodeApproverUserList.length !== 1) ||
                 !checkHasAuthority(
                   accessWayCollection.workflowNodeApprover.singleList
                     .permission,
@@ -290,7 +289,7 @@ class BaseFlowCaseSubmitApprovalModal extends BaseUpdateModal {
                 name: nextNodeApproverUserName,
                 helper: '',
               },
-              listData: nextNodeApproverList,
+              listData: nextNodeApproverUserList,
               dataConvert: dataFormFieldApproverConvert,
               onChange: this.onNextNodeApproverChange,
               addonAfter: buildButton({
@@ -302,10 +301,10 @@ class BaseFlowCaseSubmitApprovalModal extends BaseUpdateModal {
               }),
               hidden:
                 debugApproverMode ===
-                  flowDebugApproverModeCollection.debugUser ||
+                  flowDebugApproverModeCollection.globalDebugUser ||
                 (debugApproverMode ===
                   flowDebugApproverModeCollection.flowConfiguration &&
-                  nextNodeApproverList.length === 1) ||
+                  nextNodeApproverUserList.length === 1) ||
                 !this.checkHasSingleListNextNodeApproverAuthority(),
               require: true,
             },

@@ -7066,6 +7066,13 @@
           "type": "singleList"
         },
         {
+          "title": "指定节点审批人用户单页列表",
+          "api": "/workflowNodeApprover/singleListApproverUserWithNodeAndFlowCase",
+          "effect": "singleListApproverUserWithNodeAndFlowCase",
+          "service": "singleListApproverUserWithNodeAndFlowCaseData",
+          "type": "singleList"
+        },
+        {
           "title": "获取详情",
           "api": "/workflowNodeApprover/get",
           "effect": "get",

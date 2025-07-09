@@ -38,7 +38,7 @@ class BaseFlowCasePageListUnderwayDrawer extends MultiPageDrawer {
       ...this.state,
       pageTitle: '',
       loadApiPath: '',
-      tableScrollX: 1400,
+      tableScrollX: 1600,
     };
   }
 
@@ -174,6 +174,12 @@ class BaseFlowCasePageListUnderwayDrawer extends MultiPageDrawer {
     },
     {
       dataTarget: fieldDataFlowCase.userRealName,
+      width: 140,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldDataFlowCase.subsidiaryShortName,
       width: 140,
       showRichFacade: true,
       emptyValue: '--',

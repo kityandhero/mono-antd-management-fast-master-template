@@ -1,6 +1,11 @@
 import { formNameCollection } from '../../../customConfig';
 
 const fieldExtraData = {
+  friendlyName: {
+    label: '友好名称',
+    name: 'friendlyName',
+    helper: '',
+  },
   passwordVerify: {
     label: '校验密码',
     name: 'passwordVerify',

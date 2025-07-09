@@ -4409,6 +4409,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '8923597a181e4cce48b77fbd9ab38cfb',
       permission: '146049ae1cc94d71883e9f771bb3f2b8',
     },
+    singleListApproverUserWithNodeAndFlowCase: {
+      title: '指定节点审批人用户单页列表',
+      paramsKey: '3c361485d704947f594e0fa52dafe5cd',
+      permission: '34d758b83b2846e187739b8e9023cc1e',
+    },
     get: {
       title: '获取详情',
       paramsKey: 'ba35f2917dd593c923763d8b3eabeb52',
