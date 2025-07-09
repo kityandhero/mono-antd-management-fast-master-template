@@ -1,4 +1,4 @@
-import { Empty, Table } from 'antd';
+import { Empty, Table, Watermark } from 'antd';
 
 import {
   checkInCollection,
@@ -452,6 +452,13 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
       convert: convertCollection.string,
     });
 
+    const watermarkText = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.watermarkText.name,
+      convert: convertCollection.string,
+      defaultValue: '',
+    });
+
     const remarkSchemaList = getValueByKey({
       data: workflowFormDesign,
       key: fieldDataFlowFormDesign.remarkSchemaList.name,
@@ -489,74 +496,76 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
 
     return (
       <>
-        <DocumentPrintDesigner
-          canDesign={false}
-          showToolbar={false}
-          title={getValueByKey({
-            data: metaData,
-            key: fieldDataFlowCase.workflowTitle.name,
-          })}
-          values={isArray(listFormStorage) ? listFormStorage : []}
-          schema={{
-            general: general || {},
-            title: title || {},
-            items,
-          }}
-          formItems={formItems}
-          approveList={isArray(listApprove) ? listApprove : []}
-          allApproveProcessList={listChainApproveAdjust}
-          signetStyle={signetStyle}
-          showApply={showApply}
-          applyList={listApply}
-          showAttention={showAttention}
-          attentionList={listAttention}
-          showRemark={
-            !(!isArray(remarkSchemaList) || isEmptyArray(remarkSchemaList))
-          }
-          remarkList={remarkSchemaList}
-          qRCodeImage={qRCodeImage}
-          serialNumberTitle="审批流水号: "
-          serialNumberContent={flowCaseId}
-        />
-
-        <CenterBox>
-          <div
-            style={{
-              paddingTop: '10px',
-              paddingLeft: '60px',
-              paddingRight: '60px',
-              width: '920px',
+        <Watermark content={watermarkText} inherit={false}>
+          <DocumentPrintDesigner
+            canDesign={false}
+            showToolbar={false}
+            title={getValueByKey({
+              data: metaData,
+              key: fieldDataFlowCase.workflowTitle.name,
+            })}
+            values={isArray(listFormStorage) ? listFormStorage : []}
+            schema={{
+              general: general || {},
+              title: title || {},
+              items,
             }}
-          >
-            <FileViewer
-              canUpload
-              canRemove
-              list={listAttachment}
-              dataTransfer={(o) => {
-                return {
-                  ...o,
-                  name: getValueByKey({
-                    data: o,
-                    key: fieldDataFlowCaseFormAttachment.alias.name,
-                  }),
-                  url: getValueByKey({
-                    data: o,
-                    key: fieldDataFlowCaseFormAttachment.url.name,
-                  }),
-                };
+            formItems={formItems}
+            approveList={isArray(listApprove) ? listApprove : []}
+            allApproveProcessList={listChainApproveAdjust}
+            signetStyle={signetStyle}
+            showApply={showApply}
+            applyList={listApply}
+            showAttention={showAttention}
+            attentionList={listAttention}
+            showRemark={
+              !(!isArray(remarkSchemaList) || isEmptyArray(remarkSchemaList))
+            }
+            remarkList={remarkSchemaList}
+            qRCodeImage={qRCodeImage}
+            serialNumberTitle="审批流水号: "
+            serialNumberContent={flowCaseId}
+          />
+
+          <CenterBox>
+            <div
+              style={{
+                paddingTop: '10px',
+                paddingLeft: '60px',
+                paddingRight: '60px',
+                width: '920px',
               }}
-              onUploadButtonClick={() => {
-                this.showAddAttachmentModal();
-              }}
-              onItemClick={(o) => {
-                this.showFlowCaseFormAttachmentPreviewDrawer(o);
-              }}
-              onRemove={(o) => {
-                this.removeAttachment(o);
-              }}
-            />
-          </div>
-        </CenterBox>
+            >
+              <FileViewer
+                canUpload
+                canRemove
+                list={listAttachment}
+                dataTransfer={(o) => {
+                  return {
+                    ...o,
+                    name: getValueByKey({
+                      data: o,
+                      key: fieldDataFlowCaseFormAttachment.alias.name,
+                    }),
+                    url: getValueByKey({
+                      data: o,
+                      key: fieldDataFlowCaseFormAttachment.url.name,
+                    }),
+                  };
+                }}
+                onUploadButtonClick={() => {
+                  this.showAddAttachmentModal();
+                }}
+                onItemClick={(o) => {
+                  this.showFlowCaseFormAttachmentPreviewDrawer(o);
+                }}
+                onRemove={(o) => {
+                  this.removeAttachment(o);
+                }}
+              />
+            </div>
+          </CenterBox>
+        </Watermark>
       </>
     );
   };

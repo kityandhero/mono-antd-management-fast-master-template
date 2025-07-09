@@ -286,6 +286,11 @@ export const fieldData = {
     name: 'flowCaseCanHideWhenRejected',
     helper: '',
   },
+  flowCaseWatermarkText: {
+    label: '流程实例通用水印背景文字',
+    name: 'flowCaseWatermarkText',
+    helper: '',
+  },
   masterManagementTokenExpirationTime: {
     label: '主控系统登录凭据有效期 (分钟)',
     name: 'masterManagementTokenExpirationTime',

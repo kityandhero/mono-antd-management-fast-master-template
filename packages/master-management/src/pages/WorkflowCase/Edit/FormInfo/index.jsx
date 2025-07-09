@@ -1,4 +1,4 @@
-import { Divider, Empty, Table } from 'antd';
+import { Divider, Empty, Table, Watermark } from 'antd';
 
 import { connect } from 'easy-soft-dva';
 import {
@@ -913,6 +913,13 @@ class FormInfo extends TabPageBase {
       convert: convertCollection.string,
     });
 
+    const watermarkText = getValueByKey({
+      data: metaData,
+      key: fieldData.watermarkText.name,
+      convert: convertCollection.string,
+      defaultValue: '',
+    });
+
     const remarkSchemaList = getValueByKey({
       data: workflowFormDesign,
       key: fieldDataFlowFormDesign.remarkSchemaList.name,
@@ -940,7 +947,7 @@ class FormInfo extends TabPageBase {
     const { items, formItems } = this.getItems();
 
     return (
-      <>
+      <Watermark content={watermarkText ?? ''} inherit={false}>
         <DocumentPrintDesigner
           canDesign={false}
           showToolbar={false}
@@ -1003,7 +1010,7 @@ class FormInfo extends TabPageBase {
             />
           </div>
         </CenterBox>
-      </>
+      </Watermark>
     );
   };
 
@@ -1021,6 +1028,13 @@ class FormInfo extends TabPageBase {
       data: metaData,
       key: fieldData.qRCodeImage.name,
       convert: convertCollection.string,
+    });
+
+    const watermarkText = getValueByKey({
+      data: metaData,
+      key: fieldData.watermarkText.name,
+      convert: convertCollection.string,
+      defaultValue: '',
     });
 
     const listFormStorage = getValueByKey({
@@ -1072,6 +1086,7 @@ class FormInfo extends TabPageBase {
           allApproveProcessList={listChainApprove}
           qRCodeImage={qRCodeImage}
           serialNumberContent={workflowCaseId}
+          watermarkText={watermarkText ?? ''}
         />
       </>
     );

@@ -1,3 +1,5 @@
+import { Watermark } from 'antd';
+
 import {
   convertCollection,
   getValueByKey,
@@ -30,6 +32,7 @@ const defaultProperties = {
   attentionList: [],
   approveList: [],
   values: [],
+  watermarkText: '',
 };
 
 class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
@@ -197,6 +200,7 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
       showAttention,
       attentionList,
       approveList,
+      watermarkText,
     } = this.getProperties();
     const { metaData } = this.state;
 
@@ -223,41 +227,43 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
     const allApproveProcessList = this.getAllApproveProcessList();
 
     return (
-      <DocumentPrintDesigner
-        canDesign={canDesign}
-        showToolbar={showToolbar}
-        showIndependentPrint={showIndependentPrint}
-        title={getValueByKey({
-          data: metaData,
-          key: fieldDataFlowFormDesign.workflowTitle.name,
-        })}
-        values={isArray(values) ? values : []}
-        schema={{
-          general: general || {},
-          title: title || {},
-          items,
-        }}
-        formItems={formItems}
-        approveList={isArray(approveList) ? approveList : []}
-        allApproveProcessList={
-          isArray(allApproveProcessList) ? allApproveProcessList : []
-        }
-        signetStyle={signetStyle}
-        showApply={showApply || false}
-        applyList={isArray(applyList) ? [...applyList] : []}
-        showAttention={showAttention || false}
-        attentionList={isArray(attentionList) ? [...attentionList] : []}
-        showRemark={
-          !(!isArray(remarkSchemaList) || isEmptyArray(remarkSchemaList))
-        }
-        remarkList={remarkSchemaList}
-        serialNumberTitle="审批流水号: "
-        serialNumberContent={serialNumberContent}
-        qRCodeImage={qRCodeImage}
-        onSave={(data) => {
-          this.saveDataSchema(data);
-        }}
-      />
+      <Watermark content={watermarkText ?? ''} inherit={false}>
+        <DocumentPrintDesigner
+          canDesign={canDesign}
+          showToolbar={showToolbar}
+          showIndependentPrint={showIndependentPrint}
+          title={getValueByKey({
+            data: metaData,
+            key: fieldDataFlowFormDesign.workflowTitle.name,
+          })}
+          values={isArray(values) ? values : []}
+          schema={{
+            general: general || {},
+            title: title || {},
+            items,
+          }}
+          formItems={formItems}
+          approveList={isArray(approveList) ? approveList : []}
+          allApproveProcessList={
+            isArray(allApproveProcessList) ? allApproveProcessList : []
+          }
+          signetStyle={signetStyle}
+          showApply={showApply || false}
+          applyList={isArray(applyList) ? [...applyList] : []}
+          showAttention={showAttention || false}
+          attentionList={isArray(attentionList) ? [...attentionList] : []}
+          showRemark={
+            !(!isArray(remarkSchemaList) || isEmptyArray(remarkSchemaList))
+          }
+          remarkList={remarkSchemaList}
+          serialNumberTitle="审批流水号: "
+          serialNumberContent={serialNumberContent}
+          qRCodeImage={qRCodeImage}
+          onSave={(data) => {
+            this.saveDataSchema(data);
+          }}
+        />
+      </Watermark>
     );
   };
 

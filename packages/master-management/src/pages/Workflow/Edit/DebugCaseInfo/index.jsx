@@ -1918,6 +1918,12 @@ class DebugCaseInfo extends TabPageBase {
       convert: convertCollection.string,
     });
 
+    const watermarkText = getValueByKey({
+      data: metaData,
+      key: fieldData.watermarkText.name,
+      convert: convertCollection.string,
+    });
+
     const listFormStorage = getValueByKey({
       data: metaData,
       key: fieldData.listFormStorage.name,
@@ -2085,6 +2091,7 @@ class DebugCaseInfo extends TabPageBase {
           approveList={listApprove}
           qRCodeImage={qRCodeImage}
           serialNumberContent={workflowDebugCaseId}
+          watermarkText={watermarkText ?? ''}
         />
 
         <FilePreviewDrawer url={archiveUrl} suffix="pdf" maskClosable />

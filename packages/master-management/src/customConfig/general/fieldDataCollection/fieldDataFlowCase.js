@@ -266,6 +266,11 @@ const fieldExtraData = {
     name: 'whetherEmergencyNote',
     helper: '',
   },
+  watermarkText: {
+    label: '文字水印',
+    name: 'watermarkText',
+    helper: '',
+  },
 };
 
 export const fieldDataFlowCase = {

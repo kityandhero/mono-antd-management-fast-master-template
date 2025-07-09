@@ -391,6 +391,24 @@ class Index extends TabPageBase {
               inputIcon: iconBuilder.read(),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.flowCaseWatermarkText,
+              editMode: keyValueEditModeCollection.flowCaseWatermarkText,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              value: getValueByKey({
+                data: metaData,
+                key: fieldData.flowCaseWatermarkText.name,
+                convert: convertCollection.string,
+                defaultValue: '',
+              }),
+              inputIcon: iconBuilder.read(),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
           ],
           instruction: [
             {
