@@ -58,7 +58,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      tableScrollX: 1720,
+      tableScrollX: 1880,
       pageTitle: '流程实例列表',
       paramsKey: accessWayCollection.workflowCase.pageList.paramsKey,
       loadApiPath: 'workflowCase/pageList',
@@ -449,6 +449,12 @@ class PageList extends MultiPage {
           }),
         };
       },
+    },
+    {
+      dataTarget: fieldData.lastSubmitApprovalTime,
+      width: 160,
+      showRichFacade: true,
+      facadeMode: columnFacadeMode.datetime,
     },
     {
       dataTarget: fieldData.createTime,

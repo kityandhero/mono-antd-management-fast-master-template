@@ -8,6 +8,7 @@ import {
 } from 'antd-management-fast-framework';
 
 import { buildNowTimeFieldItem } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseAddDrawer } = DataDrawer;
@@ -27,7 +28,7 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
 
     this.state = {
       ...this.state,
-      submitApiPath: 'user/addBasicInfo',
+      submitApiPath: modelTypeCollection.userTypeCollection.addBasicInfo,
     };
   }
 

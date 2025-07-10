@@ -36,33 +36,9 @@ import { singleListNextNodeApproverAction } from '../../../pages/WorkflowDebugCa
 
 const { BaseUpdateModal } = DataModal;
 
-// eslint-disable-next-line no-unused-vars
-function dataFormFieldApproverConvert(o, index) {
-  const { friendlyName, userId } = o;
-
-  return {
-    label: friendlyName,
-    value: userId,
-    disabled: false,
-    ...o,
-  };
-}
-
-// eslint-disable-next-line no-unused-vars
-function dataFormFieldGeneralDiscourseConvert(o, index) {
-  const { content, generalDiscourseId } = o;
-
-  return {
-    label: content,
-    value: generalDiscourseId,
-    disabled: false,
-    ...o,
-  };
-}
-
-const nextNodeApproverUserName = '34a4fdf96438429dbb84f0af08e65bc6';
-
 class BaseFlowCaseSubmitApprovalModal extends BaseUpdateModal {
+  nextNodeApproverUserName = '34a4fdf96438429dbb84f0af08e65bc6';
+
   nextWorkflowNodeApproverUserId = '';
 
   nextWorkflowNodeApproverUserRealName = '';
@@ -121,74 +97,15 @@ class BaseFlowCaseSubmitApprovalModal extends BaseUpdateModal {
     d.nextWorkflowNodeApproverUserIdCollection =
       nextWorkflowNodeApproverUserIdCollection.join(',');
 
-    delete d[nextNodeApproverUserName];
+    delete d[this.nextNodeApproverUserName];
 
     return d;
   };
 
   loadNextNodeApproverList = () => {
-    const { externalData } = this.props;
-
-    const debugApproverMode = getValueByKey({
-      data: externalData,
-      key: fieldDataFlowCase.debugApproverMode.name,
-      convert: convertCollection.number,
-    });
-
-    if (debugApproverMode === flowDebugApproverModeCollection.globalDebugUser) {
-      this.nextWorkflowNodeApproverUserId = getValueByKey({
-        data: externalData,
-        key: fieldDataFlowCase.flowDebugUserId.name,
-        convert: convertCollection.string,
-      });
-
-      this.nextWorkflowNodeApproverUserRealName = getValueByKey({
-        data: externalData,
-        key: fieldDataFlowCase.flowDebugUserRealName.name,
-        convert: convertCollection.string,
-      });
-    }
-
-    const d = {};
-
-    d[this.getFlowCaseIdName()] = this.getFlowCaseId(externalData);
-
-    singleListNextNodeApproverAction({
-      target: this,
-      handleData: {
-        ...d,
-      },
-      successCallback: ({ target, remoteListData }) => {
-        if (
-          debugApproverMode ===
-            flowDebugApproverModeCollection.flowConfiguration &&
-          isArray(remoteListData) &&
-          !isEmptyArray(remoteListData) &&
-          remoteListData.length === 1
-        ) {
-          const firstData = remoteListData[0];
-
-          const userId = getValueByKey({
-            data: firstData,
-            key: fieldDataUser.userId.name,
-            convert: convertCollection.string,
-          });
-
-          const friendlyName = getValueByKey({
-            data: firstData,
-            key: fieldDataUser.friendlyName.name,
-            convert: convertCollection.string,
-          });
-
-          target.nextWorkflowNodeApproverUserId = userId;
-          target.nextWorkflowNodeApproverUserRealName = friendlyName;
-        }
-
-        target.setState({
-          nextNodeApproverUserList: [...remoteListData],
-        });
-      },
-    });
+    throw new Error(
+      'loadNextNodeApproverList need overrode to implement, need return boolean',
+    );
   };
 
   reloadNextNodeApproverList = () => {
@@ -243,75 +160,6 @@ class BaseFlowCaseSubmitApprovalModal extends BaseUpdateModal {
     const values = {};
 
     return values;
-  };
-
-  establishCardCollectionConfig = () => {
-    const { externalData, nextNodeApproverUserList } = this.state;
-
-    const debugApproverMode = getValueByKey({
-      data: externalData,
-      key: fieldDataFlowCase.debugApproverMode.name,
-      convert: convertCollection.number,
-    });
-
-    return {
-      list: [
-        {
-          title: {
-            icon: iconBuilder.contacts(),
-            text: '基本信息',
-          },
-          items: [
-            {
-              lg: 24,
-              type: cardConfig.contentItemType.onlyShowInput,
-              fieldData: {
-                label: '下步审批人',
-                name: nextNodeApproverUserName,
-                helper: '',
-              },
-              value: this.nextWorkflowNodeApproverUserRealName,
-              hidden:
-                (debugApproverMode ===
-                  flowDebugApproverModeCollection.flowConfiguration &&
-                  nextNodeApproverUserList.length !== 1) ||
-                !checkHasAuthority(
-                  accessWayCollection.workflowNodeApprover.singleList
-                    .permission,
-                ),
-              require: true,
-            },
-            {
-              lg: 24,
-              type: cardConfig.contentItemType.select,
-              fieldData: {
-                label: '下步审批人',
-                name: nextNodeApproverUserName,
-                helper: '',
-              },
-              listData: nextNodeApproverUserList,
-              dataConvert: dataFormFieldApproverConvert,
-              onChange: this.onNextNodeApproverChange,
-              addonAfter: buildButton({
-                text: '',
-                icon: iconBuilder.reload(),
-                handleClick: () => {
-                  this.reloadNextNodeApproverList();
-                },
-              }),
-              hidden:
-                debugApproverMode ===
-                  flowDebugApproverModeCollection.globalDebugUser ||
-                (debugApproverMode ===
-                  flowDebugApproverModeCollection.flowConfiguration &&
-                  nextNodeApproverUserList.length === 1) ||
-                !this.checkHasSingleListNextNodeApproverAuthority(),
-              require: true,
-            },
-          ],
-        },
-      ],
-    };
   };
 }
 
