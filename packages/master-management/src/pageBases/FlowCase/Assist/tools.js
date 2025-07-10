@@ -50,7 +50,7 @@ export function getFlowCaseStatusBadge(status) {
     }
 
     case flowCaseStatusCollection.refuse: {
-      result = 'warning';
+      result = 'error';
       break;
     }
 
