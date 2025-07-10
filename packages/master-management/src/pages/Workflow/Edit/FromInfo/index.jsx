@@ -16,7 +16,11 @@ import {
   cardConfig,
   getDerivedStateFromPropertiesForUrlParameters,
 } from 'antd-management-fast-common';
-import { buildButton, iconBuilder } from 'antd-management-fast-component';
+import {
+  buildButton,
+  ColorText,
+  iconBuilder,
+} from 'antd-management-fast-component';
 import {
   DataDisplayer,
   FileViewer,
@@ -306,6 +310,16 @@ class BasicInfo extends TabPageBase {
                               key: 'link',
                             }),
                           };
+                        }}
+                        nameRender={(v) => {
+                          return (
+                            <ColorText
+                              textPrefix={v}
+                              separator=""
+                              text={'【已加密】'}
+                              color={'green'}
+                            />
+                          );
                         }}
                         onUploadButtonClick={() => {
                           showSimpleInfoMessage('示例: 点击上传按钮');

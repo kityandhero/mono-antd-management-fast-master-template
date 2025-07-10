@@ -18,7 +18,11 @@ import {
   cardConfig,
   getDerivedStateFromPropertiesForUrlParameters,
 } from 'antd-management-fast-common';
-import { CenterBox, iconBuilder } from 'antd-management-fast-component';
+import {
+  CenterBox,
+  ColorText,
+  iconBuilder,
+} from 'antd-management-fast-component';
 import {
   CellApply,
   CellApproval,
@@ -782,6 +786,16 @@ class FormInfo extends TabPageBase {
                   }),
                 };
               }}
+              nameRender={(v) => {
+                return (
+                  <ColorText
+                    textPrefix={v}
+                    separator=""
+                    text={'【已加密】'}
+                    color={'green'}
+                  />
+                );
+              }}
               onItemClick={(o) => {
                 this.showWorkflowCaseFormAttachmentPreviewDrawer(o);
               }}
@@ -990,6 +1004,10 @@ class FormInfo extends TabPageBase {
             <FileViewer
               showSubmit={false}
               showSubmitDivider={false}
+              canDownload={false}
+              canCopyUrl={false}
+              canPreview={false}
+              previewButtonText="无权限"
               list={listAttachment}
               dataTransfer={(o) => {
                 return {
@@ -1004,9 +1022,19 @@ class FormInfo extends TabPageBase {
                   }),
                 };
               }}
-              onItemClick={(o) => {
-                this.showWorkflowCaseFormAttachmentPreviewDrawer(o);
+              nameRender={(v) => {
+                return (
+                  <ColorText
+                    textPrefix={v}
+                    separator=""
+                    text={'【已加密】'}
+                    color={'green'}
+                  />
+                );
               }}
+              // onItemClick={(o) => {
+              //   this.showWorkflowCaseFormAttachmentPreviewDrawer(o);
+              // }}
             />
           </div>
         </CenterBox>

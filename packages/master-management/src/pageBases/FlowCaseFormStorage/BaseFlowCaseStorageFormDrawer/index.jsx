@@ -13,7 +13,11 @@ import {
 } from 'easy-soft-utility';
 
 import { extraBuildType } from 'antd-management-fast-common';
-import { CenterBox, iconBuilder } from 'antd-management-fast-component';
+import {
+  CenterBox,
+  ColorText,
+  iconBuilder,
+} from 'antd-management-fast-component';
 import {
   DocumentPrintDesigner,
   FileViewer,
@@ -553,6 +557,16 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
                     }),
                   };
                 }}
+                nameRender={(v) => {
+                  return (
+                    <ColorText
+                      textPrefix={v}
+                      separator=""
+                      text={'【已加密】'}
+                      color={'green'}
+                    />
+                  );
+                }}
                 onUploadButtonClick={() => {
                   this.showAddAttachmentModal();
                 }}
@@ -648,6 +662,16 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
                     key: fieldDataFlowCaseFormAttachment.url.name,
                   }),
                 };
+              }}
+              nameRender={(v) => {
+                return (
+                  <ColorText
+                    textPrefix={v}
+                    separator=""
+                    text={'【已加密】'}
+                    color={'green'}
+                  />
+                );
               }}
               onUploadButtonClick={() => {
                 this.showAddAttachmentModal();

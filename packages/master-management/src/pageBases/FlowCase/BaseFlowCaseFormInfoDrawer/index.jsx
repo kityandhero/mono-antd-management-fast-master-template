@@ -930,8 +930,6 @@ class BaseFlowCaseFormInfoDrawer extends BaseUpdateDrawer {
                   };
                 }}
                 nameRender={(v) => {
-                  console.log(11_212_121);
-
                   return (
                     <ColorText
                       textPrefix={v}
@@ -1142,8 +1140,6 @@ class BaseFlowCaseFormInfoDrawer extends BaseUpdateDrawer {
                 };
               }}
               nameRender={(v) => {
-                console.log(11_212_121);
-
                 return (
                   <ColorText
                     textPrefix={v}
