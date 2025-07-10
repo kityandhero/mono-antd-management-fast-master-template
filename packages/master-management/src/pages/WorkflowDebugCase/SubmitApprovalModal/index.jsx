@@ -182,10 +182,7 @@ class SubmitApprovalModal extends BaseFlowCaseSubmitApprovalModal {
                 (debugApproverMode ===
                   flowDebugApproverModeCollection.flowConfiguration &&
                   nextNodeApproverUserList.length !== 1) ||
-                !checkHasAuthority(
-                  accessWayCollection.workflowNodeApprover.singleList
-                    .permission,
-                ),
+                !this.checkHasSingleListNextNodeApproverAuthority(),
               require: true,
             },
             {
