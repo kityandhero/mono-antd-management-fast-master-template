@@ -156,6 +156,10 @@ class BaseFlowCaseProcessHistoryRefuseModal extends BaseUpdateModal {
     return values;
   };
 
+  establishCustomExtraViewConfig = () => {
+    return [];
+  };
+
   establishCardCollectionConfig = () => {
     const { generalDiscourseList } = this.state;
 
@@ -167,6 +171,7 @@ class BaseFlowCaseProcessHistoryRefuseModal extends BaseUpdateModal {
             text: '基本信息',
           },
           items: [
+            ...this.establishCustomExtraViewConfig(),
             {
               lg: 24,
               type: cardConfig.contentItemType.select,

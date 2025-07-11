@@ -72,7 +72,6 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
 
   executeAfterDoOtherWhenChangeVisibleToShow = () => {
     this.loadGeneralDiscourseList();
-    this.loadApproverUserWithNodeAndFlowCaseList();
     this.reloadNextNodeApproverList();
   };
 
@@ -118,16 +117,6 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
 
   reloadGeneralDiscourseList = () => {
     this.loadGeneralDiscourseList();
-  };
-
-  loadApproverUserWithNodeAndFlowCaseList = () => {
-    throw new Error(
-      'loadApproverUserWithNodeAndFlowCaseList need overrode to implement, need return boolean',
-    );
-  };
-
-  reloadApproverUserWithNodeAndFlowCaseList = () => {
-    this.loadApproverUserWithNodeAndFlowCaseList();
   };
 
   loadNextNodeApproverList = () => {

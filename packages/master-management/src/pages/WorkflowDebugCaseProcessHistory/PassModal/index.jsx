@@ -85,6 +85,12 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
     };
   }
 
+  executeAfterDoOtherWhenChangeVisibleToShow = () => {
+    this.loadGeneralDiscourseList();
+    this.loadApproverUserWithNodeAndFlowCaseList();
+    this.reloadNextNodeApproverList();
+  };
+
   getFlowCaseId = (o) => {
     return getValueByKey({
       data: o,
@@ -237,6 +243,10 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
         });
       },
     });
+  };
+
+  reloadApproverUserWithNodeAndFlowCaseList = () => {
+    this.loadApproverUserWithNodeAndFlowCaseList();
   };
 
   supplementSubmitRequestParams = (o) => {
