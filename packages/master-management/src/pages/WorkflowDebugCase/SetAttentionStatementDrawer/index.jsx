@@ -19,7 +19,7 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
-import { emptySignet } from '../../../customConfig';
+import { emptySignet, signetStyle } from '../../../customConfig';
 import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
@@ -230,6 +230,7 @@ class SetAttentionStatementDrawer extends BaseUpdateDrawer {
                   showApply={false}
                   showAttention
                   attentionList={listAttention}
+                  signetStyle={signetStyle}
                 />
               ),
             },

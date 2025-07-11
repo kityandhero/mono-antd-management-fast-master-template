@@ -840,7 +840,7 @@ class FormInfo extends TabPageBase {
                           />
 
                           <CellApply
-                            signetStyle={{ border: '1px solid #000' }}
+                            signetStyle={signetStyle}
                             content={{
                               note,
                               signet,
@@ -865,7 +865,7 @@ class FormInfo extends TabPageBase {
                           />
 
                           <CellAttention
-                            signetStyle={{ border: '1px solid #000' }}
+                            signetStyle={signetStyle}
                             content={{
                               note,
                               signet,
