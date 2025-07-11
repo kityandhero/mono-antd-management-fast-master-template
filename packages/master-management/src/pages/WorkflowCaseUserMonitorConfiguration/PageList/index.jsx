@@ -157,13 +157,13 @@ class PageList extends MultiPage {
         {
           key: 'remove',
           icon: iconBuilder.delete(),
-          text: '移除流程',
+          text: '移除流程监控配置',
           hidden: !checkHasAuthority(
             accessWayCollection.workflowCaseUserMonitorConfiguration.remove
               .permission,
           ),
           confirm: true,
-          title: '将要移除配置，确定吗？',
+          title: '将要移除流程监控配置，确定吗？',
         },
       ],
     };

@@ -9,6 +9,7 @@ import {
   checkStringIsNullOrWhiteSpace,
   convertCollection,
   datetimeFormat,
+  filter,
   formatDatetime,
   getValueByKey,
   hasKey,
@@ -16,6 +17,7 @@ import {
   isEmptyArray,
   isEmptyObject,
   isNull,
+  toLower,
   toNumber,
   toString,
   whetherString,
@@ -620,10 +622,51 @@ export function buildFlowCaseFormInitialValues(
 ) {
   const data = {};
 
-  if (isArray(listFormStorage) && !isEmptyArray(listFormStorage)) {
-    for (const o of listFormStorage) {
+  let listFormStorageAdjust = listFormStorage.map((o) => {
+    const { name } = { name: '', ...o };
+
+    const dataSchemaListFilter = filter(dataSchemaList, (one) => {
+      const { name: nameOne } = {
+        name: '',
+        ...one,
+      };
+
+      return name === nameOne;
+    });
+
+    let dataSchemaType = '';
+
+    if (dataSchemaListFilter.length > 0) {
+      let first = dataSchemaListFilter[0];
+
+      const { type } = {
+        type: '',
+        ...first,
+      };
+
+      dataSchemaType = type ?? '';
+    }
+
+    return {
+      dataSchemaType,
+      ...o,
+    };
+  });
+
+  if (isArray(listFormStorageAdjust) && !isEmptyArray(listFormStorageAdjust)) {
+    for (const o of listFormStorageAdjust) {
+      const { dataSchemaType } = {
+        dataSchemaType: '',
+        ...o,
+      };
+
       try {
-        data[o.name] = JSON.parse(o.value);
+        data[o.name] = checkInCollection(
+          ['string', 'number'],
+          toLower(dataSchemaType),
+        )
+          ? o.value
+          : JSON.parse(o.value);
       } catch {
         data[o.name] = o.value;
       }

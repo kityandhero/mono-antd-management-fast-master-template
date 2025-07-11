@@ -77,9 +77,10 @@ class PageList extends MultiPage {
       target,
       value: id,
       compareValueHandler: (o) => {
-        const { workflowId: v } = o;
-
-        return v;
+        return getValueByKey({
+          data: o,
+          key: fieldData.workflowCaseId.name,
+        });
       },
       handler: (d) => {
         const o = d;
