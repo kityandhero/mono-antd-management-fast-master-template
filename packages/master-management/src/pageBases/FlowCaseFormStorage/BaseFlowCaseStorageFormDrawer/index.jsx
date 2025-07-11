@@ -38,6 +38,7 @@ import {
   signetStyle,
 } from '../../../customConfig';
 import { buildFlowCaseFormInitialValues } from '../../../utils';
+import { SealRefuse } from '../../FlowCase/Assist';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
@@ -456,12 +457,39 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
       convert: convertCollection.string,
     });
 
-    const watermarkText = getValueByKey({
+    const watermarkVisibility = getValueByKey({
       data: metaData,
-      key: fieldDataFlowCase.watermarkText.name,
-      convert: convertCollection.string,
-      defaultValue: '',
+      key: fieldDataFlowCase.watermarkVisibility.name,
+      convert: convertCollection.number,
+      defaultValue: whetherNumber.no,
     });
+
+    const watermarkText =
+      watermarkVisibility === whetherNumber.yes
+        ? getValueByKey({
+            data: metaData,
+            key: fieldDataFlowCase.watermarkText.name,
+            convert: convertCollection.string,
+            defaultValue: '',
+          })
+        : '';
+
+    const sealRefuseVisibility = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.sealRefuseVisibility.name,
+      convert: convertCollection.number,
+      defaultValue: whetherNumber.no,
+    });
+
+    const sealRefuseImage =
+      sealRefuseVisibility === whetherNumber.yes
+        ? getValueByKey({
+            data: metaData,
+            key: fieldDataFlowCase.sealRefuseImage.name,
+            convert: convertCollection.string,
+            defaultValue: '',
+          })
+        : '';
 
     const remarkSchemaList = getValueByKey({
       data: workflowFormDesign,
@@ -501,6 +529,12 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
     return (
       <>
         <Watermark content={watermarkText} inherit={false}>
+          <SealRefuse
+            hidden={sealRefuseVisibility !== whetherNumber.yes}
+            right="160px"
+            image={sealRefuseImage}
+          />
+
           <DocumentPrintDesigner
             canDesign={false}
             showToolbar={false}

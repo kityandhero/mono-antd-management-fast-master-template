@@ -52,6 +52,7 @@ import {
   buildColumnsNextProcessNotification,
   convertProcessHistoryItemData,
   convertProcessHistoryNextData,
+  SealRefuse,
 } from '../../../../pageBases';
 import { buildFlowCaseFormInitialValues } from '../../../../utils';
 import { fieldData as fieldDataWorkflowCaseCarbonCopyNotification } from '../../../WorkflowCaseCarbonCopyNotification/Common/data';
@@ -927,12 +928,39 @@ class FormInfo extends TabPageBase {
       convert: convertCollection.string,
     });
 
-    const watermarkText = getValueByKey({
+    const watermarkVisibility = getValueByKey({
       data: metaData,
-      key: fieldData.watermarkText.name,
-      convert: convertCollection.string,
-      defaultValue: '',
+      key: fieldData.watermarkVisibility.name,
+      convert: convertCollection.number,
+      defaultValue: whetherNumber.no,
     });
+
+    const watermarkText =
+      watermarkVisibility === whetherNumber.yes
+        ? getValueByKey({
+            data: metaData,
+            key: fieldData.watermarkText.name,
+            convert: convertCollection.string,
+            defaultValue: '',
+          })
+        : '';
+
+    const sealRefuseVisibility = getValueByKey({
+      data: metaData,
+      key: fieldData.sealRefuseVisibility.name,
+      convert: convertCollection.number,
+      defaultValue: whetherNumber.no,
+    });
+
+    const sealRefuseImage =
+      sealRefuseVisibility === whetherNumber.yes
+        ? getValueByKey({
+            data: metaData,
+            key: fieldData.sealRefuseImage.name,
+            convert: convertCollection.string,
+            defaultValue: '',
+          })
+        : '';
 
     const remarkSchemaList = getValueByKey({
       data: workflowFormDesign,
@@ -962,6 +990,11 @@ class FormInfo extends TabPageBase {
 
     return (
       <Watermark content={watermarkText ?? ''} inherit={false}>
+        <SealRefuse
+          hidden={sealRefuseVisibility !== whetherNumber.yes}
+          image={sealRefuseImage}
+        />
+
         <DocumentPrintDesigner
           canDesign={false}
           showToolbar={false}
@@ -1058,12 +1091,39 @@ class FormInfo extends TabPageBase {
       convert: convertCollection.string,
     });
 
-    const watermarkText = getValueByKey({
+    const watermarkVisibility = getValueByKey({
       data: metaData,
-      key: fieldData.watermarkText.name,
-      convert: convertCollection.string,
-      defaultValue: '',
+      key: fieldData.watermarkVisibility.name,
+      convert: convertCollection.number,
+      defaultValue: whetherNumber.no,
     });
+
+    const watermarkText =
+      watermarkVisibility === whetherNumber.yes
+        ? getValueByKey({
+            data: metaData,
+            key: fieldData.watermarkText.name,
+            convert: convertCollection.string,
+            defaultValue: '',
+          })
+        : '';
+
+    const sealRefuseVisibility = getValueByKey({
+      data: metaData,
+      key: fieldData.sealRefuseVisibility.name,
+      convert: convertCollection.number,
+      defaultValue: whetherNumber.no,
+    });
+
+    const sealRefuseImage =
+      sealRefuseVisibility === whetherNumber.yes
+        ? getValueByKey({
+            data: metaData,
+            key: fieldData.sealRefuseImage.name,
+            convert: convertCollection.string,
+            defaultValue: '',
+          })
+        : '';
 
     const listFormStorage = getValueByKey({
       data: metaData,
@@ -1114,7 +1174,10 @@ class FormInfo extends TabPageBase {
           allApproveProcessList={listChainApprove}
           qRCodeImage={qRCodeImage}
           serialNumberContent={workflowCaseId}
+          watermarkVisibility={watermarkVisibility}
           watermarkText={watermarkText ?? ''}
+          sealRefuseVisibility={sealRefuseVisibility}
+          sealRefuseImage={sealRefuseImage ?? ''}
         />
       </>
     );

@@ -11,7 +11,11 @@ import {
   toString,
 } from 'easy-soft-utility';
 
-import { ColorText, iconBuilder } from 'antd-management-fast-component';
+import {
+  ColorText,
+  iconBuilder,
+  ImageBox,
+} from 'antd-management-fast-component';
 import { adjustEdge, adjustNode } from 'antd-management-fast-flow';
 
 import {
@@ -707,4 +711,36 @@ function adjustFlowCaseDataItemToState({
     edgeList,
     listApprove,
   };
+}
+
+export function SealRefuse({
+  hidden = false,
+  image = '',
+  top = '180px',
+  right = '260px',
+}) {
+  if (hidden) {
+    return null;
+  }
+
+  if (checkStringIsNullOrWhiteSpace(image || '')) {
+    return null;
+  }
+
+  return (
+    <div style={{ position: 'relative', width: '100%', height: '0px' }}>
+      <div
+        style={{
+          position: 'absolute',
+          top: top ?? '180px',
+          right: right ?? '260px',
+          width: '140px',
+          zIndex: '10',
+          transform: 'rotate(45deg)',
+        }}
+      >
+        <ImageBox showMode="contentImage" src={image} />
+      </div>
+    </div>
+  );
 }

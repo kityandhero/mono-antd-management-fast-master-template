@@ -286,6 +286,22 @@ export const fieldData = {
     name: 'flowCaseCanHideWhenRejected',
     helper: '',
   },
+  flowCaseRefuseSealVisibility: {
+    label: '流程实例拒绝印章是否显示',
+    name: 'flowCaseRefuseSealVisibility',
+    helper:
+      '控制流程实例拒绝印章是否显示的开关, 需要前端做相应支持, 印章图片请在默认图中配置',
+  },
+  flowCaseRefuseSealImage: {
+    label: '流程实例拒绝印章图片',
+    name: 'flowCaseRefuseSealImage',
+    helper: '',
+  },
+  flowCaseWatermarkVisibility: {
+    label: '流程实例水印背景是否显示',
+    name: 'flowCaseWatermarkVisibility',
+    helper: '控制流程实例水印背景是否显示的开关, 需要前端做相应支持',
+  },
   flowCaseWatermarkText: {
     label: '流程实例通用水印背景文字',
     name: 'flowCaseWatermarkText',

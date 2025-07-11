@@ -394,6 +394,26 @@ class Index extends TabPageBase {
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
+              fieldData: fieldData.flowCaseWatermarkVisibility,
+              editMode: keyValueEditModeCollection.whether,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              value: getValueByKey({
+                data: metaData,
+                key: fieldData.flowCaseWatermarkVisibility.name,
+                convert: convertCollection.number,
+                formatBuilder: (v) => {
+                  return v === whetherNumber.yes ? '显示' : '不显示';
+                },
+              }),
+              inputIcon: iconBuilder.swap(),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
               fieldData: fieldData.flowCaseWatermarkText,
               editMode: keyValueEditModeCollection.flowCaseWatermarkText,
               hidden: !checkHasAuthority(
@@ -407,6 +427,26 @@ class Index extends TabPageBase {
                 defaultValue: '',
               }),
               inputIcon: iconBuilder.read(),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.flowCaseRefuseSealVisibility,
+              editMode: keyValueEditModeCollection.whether,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              value: getValueByKey({
+                data: metaData,
+                key: fieldData.flowCaseRefuseSealVisibility.name,
+                convert: convertCollection.number,
+                formatBuilder: (v) => {
+                  return v === whetherNumber.yes ? '显示' : '不显示';
+                },
+              }),
+              inputIcon: iconBuilder.swap(),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
           ],

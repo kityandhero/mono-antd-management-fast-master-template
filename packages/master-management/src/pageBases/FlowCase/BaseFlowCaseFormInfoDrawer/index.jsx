@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Divider, Empty, Space } from 'antd';
+import { Divider, Empty, Space, Watermark } from 'antd';
 
 import {
   checkHasAuthority,
@@ -53,6 +53,7 @@ import {
   signetStyle,
 } from '../../../customConfig';
 import { buildFlowCaseFormInitialValues } from '../../../utils';
+import { SealRefuse } from '../Assist';
 
 const { BaseUpdateDrawer } = DataDrawer;
 
@@ -1025,6 +1026,40 @@ class BaseFlowCaseFormInfoDrawer extends BaseUpdateDrawer {
       convert: convertCollection.string,
     });
 
+    const watermarkVisibility = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.watermarkVisibility.name,
+      convert: convertCollection.number,
+      defaultValue: whetherNumber.no,
+    });
+
+    const watermarkText =
+      watermarkVisibility === whetherNumber.yes
+        ? getValueByKey({
+            data: metaData,
+            key: fieldDataFlowCase.watermarkText.name,
+            convert: convertCollection.string,
+            defaultValue: '',
+          })
+        : '';
+
+    const sealRefuseVisibility = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.sealRefuseVisibility.name,
+      convert: convertCollection.number,
+      defaultValue: whetherNumber.no,
+    });
+
+    const sealRefuseImage =
+      sealRefuseVisibility === whetherNumber.yes
+        ? getValueByKey({
+            data: metaData,
+            key: fieldDataFlowCase.sealRefuseImage.name,
+            convert: convertCollection.string,
+            defaultValue: '',
+          })
+        : '';
+
     const { latestApproveWorkflowNodeType, workflowFormDesign } = {
       latestApproveWorkflowNodeType: 0,
       workflowFormDesign: {},
@@ -1085,7 +1120,12 @@ class BaseFlowCaseFormInfoDrawer extends BaseUpdateDrawer {
     const { items, formItems } = this.getItems();
 
     return (
-      <>
+      <Watermark content={watermarkText} inherit={false}>
+        <SealRefuse
+          hidden={sealRefuseVisibility !== whetherNumber.yes}
+          image={sealRefuseImage}
+        />
+
         <DocumentPrintDesigner
           canDesign={false}
           showToolbar={false}
@@ -1181,7 +1221,7 @@ class BaseFlowCaseFormInfoDrawer extends BaseUpdateDrawer {
             </div>
           </CenterBox>
         ) : null}
-      </>
+      </Watermark>
     );
   };
 }

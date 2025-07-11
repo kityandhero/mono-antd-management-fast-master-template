@@ -266,9 +266,24 @@ const fieldExtraData = {
     name: 'whetherEmergencyNote',
     helper: '',
   },
+  watermarkVisibility: {
+    label: '背景水印可见性',
+    name: 'watermarkVisibility',
+    helper: '',
+  },
   watermarkText: {
     label: '文字水印',
     name: 'watermarkText',
+    helper: '',
+  },
+  sealRefuseVisibility: {
+    label: '拒绝印章可见性',
+    name: 'sealRefuseVisibility',
+    helper: '',
+  },
+  sealRefuseImage: {
+    label: '拒绝印章图片',
+    name: 'sealRefuseImage',
     helper: '',
   },
 };

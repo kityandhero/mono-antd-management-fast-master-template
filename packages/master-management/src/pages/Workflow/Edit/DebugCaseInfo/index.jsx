@@ -1918,11 +1918,39 @@ class DebugCaseInfo extends TabPageBase {
       convert: convertCollection.string,
     });
 
-    const watermarkText = getValueByKey({
+    const watermarkVisibility = getValueByKey({
       data: metaData,
-      key: fieldData.watermarkText.name,
-      convert: convertCollection.string,
+      key: fieldDataFlowCase.watermarkVisibility.name,
+      convert: convertCollection.number,
+      defaultValue: whetherNumber.no,
     });
+
+    const watermarkText =
+      watermarkVisibility === whetherNumber.yes
+        ? getValueByKey({
+            data: metaData,
+            key: fieldDataFlowCase.watermarkText.name,
+            convert: convertCollection.string,
+            defaultValue: '',
+          })
+        : '';
+
+    const sealRefuseVisibility = getValueByKey({
+      data: metaData,
+      key: fieldData.sealRefuseVisibility.name,
+      convert: convertCollection.number,
+      defaultValue: whetherNumber.no,
+    });
+
+    const sealRefuseImage =
+      sealRefuseVisibility === whetherNumber.yes
+        ? getValueByKey({
+            data: metaData,
+            key: fieldData.sealRefuseImage.name,
+            convert: convertCollection.string,
+            defaultValue: '',
+          })
+        : '';
 
     const listFormStorage = getValueByKey({
       data: metaData,
@@ -2091,7 +2119,10 @@ class DebugCaseInfo extends TabPageBase {
           approveList={listApprove}
           qRCodeImage={qRCodeImage}
           serialNumberContent={workflowDebugCaseId}
+          watermarkVisibility={watermarkVisibility}
           watermarkText={watermarkText ?? ''}
+          sealRefuseVisibility={sealRefuseVisibility}
+          sealRefuseImage={sealRefuseImage ?? ''}
         />
 
         <FilePreviewDrawer url={archiveUrl} suffix="pdf" maskClosable />
