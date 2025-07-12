@@ -451,6 +451,12 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
 
     const flowCaseId = this.getFlowCaseId();
 
+    const status = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.status.name,
+      convert: convertCollection.number,
+    });
+
     const qRCodeImage = getValueByKey({
       data: metaData,
       key: fieldDataFlowCase.qRCodeImage.name,
@@ -529,11 +535,12 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
     return (
       <>
         <Watermark content={watermarkText} inherit={false}>
-          <SealRefuse
-            hidden={sealRefuseVisibility !== whetherNumber.yes}
-            right="160px"
-            image={sealRefuseImage}
-          />
+          {status === flowCaseStatusCollection.refuse ? (
+            <SealRefuse
+              hidden={sealRefuseVisibility !== whetherNumber.yes}
+              image={sealRefuseImage}
+            />
+          ) : null}
 
           <DocumentPrintDesigner
             canDesign={false}

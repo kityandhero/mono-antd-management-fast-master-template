@@ -990,10 +990,12 @@ class FormInfo extends TabPageBase {
 
     return (
       <Watermark content={watermarkText ?? ''} inherit={false}>
-        <SealRefuse
-          hidden={sealRefuseVisibility !== whetherNumber.yes}
-          image={sealRefuseImage}
-        />
+        {status === flowCaseStatusCollection.refuse ? (
+          <SealRefuse
+            hidden={sealRefuseVisibility !== whetherNumber.yes}
+            image={sealRefuseImage}
+          />
+        ) : null}
 
         <DocumentPrintDesigner
           canDesign={false}

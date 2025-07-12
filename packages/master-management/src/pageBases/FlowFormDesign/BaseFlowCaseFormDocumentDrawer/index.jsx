@@ -16,7 +16,11 @@ import {
 } from 'antd-management-fast-design-playground';
 import { DataDrawer } from 'antd-management-fast-framework';
 
-import { fieldDataFlowFormDesign, signetStyle } from '../../../customConfig';
+import {
+  fieldDataFlowFormDesign,
+  flowCaseStatusCollection,
+  signetStyle,
+} from '../../../customConfig';
 import { SealRefuse } from '../../FlowCase';
 import { updateDocumentSchemaAction } from '../Assist/action';
 
@@ -242,10 +246,12 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
 
     return (
       <Watermark content={watermarkTextAdjust ?? ''} inherit={false}>
-        <SealRefuse
-          hidden={sealRefuseImageAdjust !== whetherNumber.yes}
-          image={sealRefuseImageAdjust}
-        />
+        {status === flowCaseStatusCollection.refuse ? (
+          <SealRefuse
+            hidden={sealRefuseImageAdjust !== whetherNumber.yes}
+            image={sealRefuseImageAdjust}
+          />
+        ) : null}
 
         <DocumentPrintDesigner
           canDesign={canDesign}
