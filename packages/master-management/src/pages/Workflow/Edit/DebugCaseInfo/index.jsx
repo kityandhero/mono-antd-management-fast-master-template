@@ -1293,11 +1293,23 @@ class DebugCaseInfo extends TabPageBase {
                 },
                 {
                   span: 1,
-                  label: fieldData.flowDebugApproverUserRealName.label,
+                  label: fieldData.flowDebugApproverUserId.label,
                   value: flowDebugApproverUserId,
                   hidden:
                     debugApproverMode ===
                     flowDebugApproverModeCollection.flowConfiguration,
+                },
+                {
+                  span: 4,
+                  label: fieldData.debugSimulateActualEffect.label,
+                  value:
+                    getValueByKey({
+                      data: metaData,
+                      key: fieldData.debugSimulateActualEffect.name,
+                      convert: convertCollection.number,
+                    }) == whetherNumber.yes
+                      ? '真实拟真'
+                      : '有限拟真',
                 },
               ],
               props: {
