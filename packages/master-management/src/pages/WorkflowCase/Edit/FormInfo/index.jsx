@@ -928,6 +928,12 @@ class FormInfo extends TabPageBase {
       convert: convertCollection.string,
     });
 
+    const status = getValueByKey({
+      data: metaData,
+      key: fieldData.status.name,
+      convert: convertCollection.number,
+    });
+
     const watermarkVisibility = getValueByKey({
       data: metaData,
       key: fieldData.watermarkVisibility.name,
@@ -1110,23 +1116,6 @@ class FormInfo extends TabPageBase {
           })
         : '';
 
-    const sealRefuseVisibility = getValueByKey({
-      data: metaData,
-      key: fieldData.sealRefuseVisibility.name,
-      convert: convertCollection.number,
-      defaultValue: whetherNumber.no,
-    });
-
-    const sealRefuseImage =
-      sealRefuseVisibility === whetherNumber.yes
-        ? getValueByKey({
-            data: metaData,
-            key: fieldData.sealRefuseImage.name,
-            convert: convertCollection.string,
-            defaultValue: '',
-          })
-        : '';
-
     const listFormStorage = getValueByKey({
       data: metaData,
       key: fieldData.listFormStorage.name,
@@ -1178,8 +1167,6 @@ class FormInfo extends TabPageBase {
           serialNumberContent={workflowCaseId}
           watermarkVisibility={watermarkVisibility}
           watermarkText={watermarkText ?? ''}
-          sealRefuseVisibility={sealRefuseVisibility}
-          sealRefuseImage={sealRefuseImage ?? ''}
         />
       </>
     );

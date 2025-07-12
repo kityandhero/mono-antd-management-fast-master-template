@@ -1337,6 +1337,9 @@ class DebugCaseInfo extends TabPageBase {
               {
                 text: '为了确保测试的情况覆盖程度, 请尽量配置 "调试发起人模式" 为 "流程特定测试提交人", 同时配置 "调试审批人模式" 为 "流程配置审批账户".',
               },
+              {
+                text: '"调试发起人模式" 为 "流程特定测试提交人", 同时配置 "调试审批人模式" 为 "流程配置审批账户" 时, 将采用 "真实拟真" 模式完全模拟实际的审批流程, 有助于最大程度排除配置错误.',
+              },
             ],
           },
         },
@@ -1947,23 +1950,6 @@ class DebugCaseInfo extends TabPageBase {
           })
         : '';
 
-    const sealRefuseVisibility = getValueByKey({
-      data: metaData,
-      key: fieldData.sealRefuseVisibility.name,
-      convert: convertCollection.number,
-      defaultValue: whetherNumber.no,
-    });
-
-    const sealRefuseImage =
-      sealRefuseVisibility === whetherNumber.yes
-        ? getValueByKey({
-            data: metaData,
-            key: fieldData.sealRefuseImage.name,
-            convert: convertCollection.string,
-            defaultValue: '',
-          })
-        : '';
-
     const listFormStorage = getValueByKey({
       data: metaData,
       key: fieldData.listFormStorage.name,
@@ -2133,8 +2119,6 @@ class DebugCaseInfo extends TabPageBase {
           serialNumberContent={workflowDebugCaseId}
           watermarkVisibility={watermarkVisibility}
           watermarkText={watermarkText ?? ''}
-          sealRefuseVisibility={sealRefuseVisibility}
-          sealRefuseImage={sealRefuseImage ?? ''}
         />
 
         <FilePreviewDrawer url={archiveUrl} suffix="pdf" maskClosable />

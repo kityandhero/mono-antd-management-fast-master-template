@@ -538,6 +538,7 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
           {status === flowCaseStatusCollection.refuse ? (
             <SealRefuse
               hidden={sealRefuseVisibility !== whetherNumber.yes}
+              right="160px"
               image={sealRefuseImage}
             />
           ) : null}

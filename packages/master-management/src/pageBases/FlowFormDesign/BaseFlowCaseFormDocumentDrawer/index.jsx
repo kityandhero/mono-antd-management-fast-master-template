@@ -16,12 +16,7 @@ import {
 } from 'antd-management-fast-design-playground';
 import { DataDrawer } from 'antd-management-fast-framework';
 
-import {
-  fieldDataFlowFormDesign,
-  flowCaseStatusCollection,
-  signetStyle,
-} from '../../../customConfig';
-import { SealRefuse } from '../../FlowCase';
+import { fieldDataFlowFormDesign, signetStyle } from '../../../customConfig';
 import { updateDocumentSchemaAction } from '../Assist/action';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
@@ -40,8 +35,6 @@ const defaultProperties = {
   values: [],
   watermarkVisibility: false,
   watermarkText: '',
-  sealRefuseVisibility: false,
-  sealRefuseImage: '',
 };
 
 class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
@@ -211,16 +204,11 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
       approveList,
       watermarkVisibility,
       watermarkText,
-      sealRefuseVisibility,
-      sealRefuseImage,
     } = this.getProperties();
     const { metaData } = this.state;
 
     const watermarkTextAdjust =
       watermarkVisibility === whetherNumber.yes ? watermarkText : '';
-
-    const sealRefuseImageAdjust =
-      sealRefuseVisibility === whetherNumber.yes ? sealRefuseImage : '';
 
     const remarkSchemaList = getValueByKey({
       data: metaData,
@@ -246,13 +234,6 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
 
     return (
       <Watermark content={watermarkTextAdjust ?? ''} inherit={false}>
-        {status === flowCaseStatusCollection.refuse ? (
-          <SealRefuse
-            hidden={sealRefuseImageAdjust !== whetherNumber.yes}
-            image={sealRefuseImageAdjust}
-          />
-        ) : null}
-
         <DocumentPrintDesigner
           canDesign={canDesign}
           showToolbar={showToolbar}
