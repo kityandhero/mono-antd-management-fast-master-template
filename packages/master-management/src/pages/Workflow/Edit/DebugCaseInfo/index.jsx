@@ -1658,7 +1658,7 @@ class DebugCaseInfo extends TabPageBase {
         {
           title: {
             icon: iconBuilder.contacts(),
-            text: '审批人最后操作列表',
+            text: '审批/抄送最后操作列表',
           },
           items: [
             {

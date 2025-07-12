@@ -19,6 +19,16 @@ export const fieldDataFlowCaseLatestApprove = {
     name: 'flowCaseId',
     helper: '',
   },
+  viewableUserId: {
+    label: '审批人/抄送人用户标识',
+    name: 'viewableUserId',
+    helper: '',
+  },
+  viewableUserRealName: {
+    label: '审批人/抄送人',
+    name: 'viewableUserRealName',
+    helper: '',
+  },
   approveUserId: {
     label: '审批人用户标识',
     name: 'approveUserId',
@@ -50,18 +60,28 @@ export const fieldDataFlowCaseLatestApprove = {
     helper: '',
   },
   approveActionMode: {
-    label: '审批动作模式',
+    label: '动作模式',
     name: 'approveActionMode',
     helper: '',
   },
   approveActionModeNote: {
-    label: '审批动作模式',
+    label: '动作模式',
     name: 'approveActionModeNote',
     helper: '',
   },
   approveBatchNumber: {
     label: '审批批次号',
     name: 'approveBatchNumber',
+    helper: '',
+  },
+  type: {
+    label: '类型',
+    name: 'type',
+    helper: '',
+  },
+  typeNote: {
+    label: '类型',
+    name: 'typeNote',
     helper: '',
   },
   status: {
