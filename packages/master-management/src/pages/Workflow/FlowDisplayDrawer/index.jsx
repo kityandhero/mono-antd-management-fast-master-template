@@ -20,6 +20,7 @@ import {
   flowNodeTypeCollection,
 } from '../../../customConfig';
 import { getFlowNodeApproveModeName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData as fieldDataWorkflowLine } from '../../WorkflowLine/Common/data';
 import { fieldData as fieldDataWorkflowNode } from '../../WorkflowNode/Common/data';
 import { fieldData as fieldDataWorkflowNodeApprover } from '../../WorkflowNodeApprover/Common/data';
@@ -45,7 +46,7 @@ class FlowDisplayDrawer extends BaseVerticalFlexDrawer {
       ...this.state,
       width: '1200',
       pageTitle: '工作流图例展示',
-      loadApiPath: 'workflow/get',
+      loadApiPath: modelTypeCollection.workflowTypeCollection.get,
     };
   }
 
@@ -247,6 +248,16 @@ class FlowDisplayDrawer extends BaseVerticalFlexDrawer {
     this.setState({
       nodeList: [...nodeList],
       edgeList: [...edgeList],
+    });
+  };
+
+  buildTitleSubText = () => {
+    const { metaData } = this.state;
+
+    return getValueByKey({
+      data: metaData,
+      key: fieldData.title.name,
+      defaultValue: '',
     });
   };
 

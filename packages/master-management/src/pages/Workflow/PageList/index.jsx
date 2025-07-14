@@ -53,6 +53,7 @@ import {
 } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 import { CreateDuplicateModal } from '../CreateDuplicateModal';
+import { FlowDisplayDrawer } from '../FlowDisplayDrawer';
 import { UpdateChannelModal } from '../UpdateChannelModal';
 
 const { MultiPage } = DataMultiPageView;
@@ -155,6 +156,11 @@ class PageList extends MultiPage {
 
       case 'showFlowCaseFormExampleDocumentDrawer': {
         this.showFlowCaseFormExampleDocumentDrawer(handleData);
+        break;
+      }
+
+      case 'showFlowDisplayDrawer': {
+        this.showFlowDisplayDrawer(handleData);
         break;
       }
 
@@ -302,6 +308,12 @@ class PageList extends MultiPage {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
+  showFlowDisplayDrawer = (o) => {
+    this.setState({ currentRecord: o }, () => {
+      FlowDisplayDrawer.open();
+    });
+  };
+
   showFlowCaseFormExampleDocumentDrawer = (o) => {
     const { showApply, listApply } = getSimpleApplicantConfig(o);
     const { showAttention, listAttention } = getSimpleAttentionConfig(o);
@@ -444,6 +456,17 @@ class PageList extends MultiPage {
             accessWayCollection.workflow.get.permission,
           ),
           text: '查看打印样例',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'showFlowDisplayDrawer',
+          icon: iconBuilder.apartment(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.get.permission,
+          ),
+          text: '查看流程图例',
         },
         {
           type: dropdownExpandItemType.divider,
@@ -677,6 +700,8 @@ class PageList extends MultiPage {
             this.afterCreateDuplicateModalOk();
           }}
         />
+
+        <FlowDisplayDrawer maskClosable externalData={currentRecord} />
 
         <FlowCaseFormExampleDocumentDrawer
           maskClosable

@@ -35,6 +35,7 @@ import {
   renderSearchFlowStatusSelect,
 } from '../../../customSpecialComponents';
 import { getFlowCaseStatusBadge } from '../../../pageBases';
+import { FlowDisplayDrawer } from '../../Workflow/FlowDisplayDrawer';
 import {
   forceEndAction,
   hideAction,
@@ -97,6 +98,11 @@ class PageList extends MultiPage {
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
+      case 'showFlowDisplayDrawer': {
+        this.showFlowDisplayDrawer(handleData);
+        break;
+      }
+
       case 'forceEnd': {
         this.forceEnd(handleData);
 
@@ -172,6 +178,12 @@ class PageList extends MultiPage {
       successCallback: ({ target }) => {
         target.reloadDataWithReloadAnimalPrompt({});
       },
+    });
+  };
+
+  showFlowDisplayDrawer = (o) => {
+    this.setState({ currentRecord: o }, () => {
+      FlowDisplayDrawer.open();
     });
   };
 
@@ -277,6 +289,17 @@ class PageList extends MultiPage {
         this.handleMenuClick({ key, handleData });
       },
       items: [
+        {
+          key: 'showFlowDisplayDrawer',
+          icon: iconBuilder.apartment(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.get.permission,
+          ),
+          text: '查看流程图例',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
         {
           key: 'forceEnd',
           icon: iconBuilder.stop(),
@@ -464,6 +487,16 @@ class PageList extends MultiPage {
       facadeMode: columnFacadeMode.datetime,
     },
   ];
+
+  renderPresetOther = () => {
+    const { currentRecord } = this.state;
+
+    return (
+      <>
+        <FlowDisplayDrawer maskClosable externalData={currentRecord} />
+      </>
+    );
+  };
 }
 
 export default PageList;
