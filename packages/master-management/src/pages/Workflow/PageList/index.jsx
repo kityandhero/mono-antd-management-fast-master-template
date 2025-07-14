@@ -466,7 +466,7 @@ class PageList extends MultiPage {
           hidden: !checkHasAuthority(
             accessWayCollection.workflow.get.permission,
           ),
-          text: '查看流程图例',
+          text: '查看流程图',
         },
         {
           type: dropdownExpandItemType.divider,
