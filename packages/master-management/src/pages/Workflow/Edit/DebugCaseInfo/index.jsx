@@ -1688,6 +1688,16 @@ class DebugCaseInfo extends TabPageBase {
               ),
             },
           ],
+          instruction: {
+            title: '数据说明',
+            showDivider: false,
+            showNumber: true,
+            list: [
+              {
+                text: '若存在同一人多个节点的多次操作, 则仅保存最后一次的操作, 由此可能引起该列表的数据项不完备，请注意',
+              },
+            ],
+          },
         },
         {
           title: {

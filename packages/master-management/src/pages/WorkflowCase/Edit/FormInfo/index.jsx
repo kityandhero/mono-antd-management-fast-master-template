@@ -16,6 +16,7 @@ import {
 
 import {
   cardConfig,
+  emptyImage,
   getDerivedStateFromPropertiesForUrlParameters,
 } from 'antd-management-fast-common';
 import {
@@ -999,7 +1000,7 @@ class FormInfo extends TabPageBase {
         {status === flowCaseStatusCollection.refuse ? (
           <SealRefuse
             hidden={sealRefuseVisibility !== whetherNumber.yes}
-            image={sealRefuseImage}
+            image={sealRefuseImage ?? emptyImage}
           />
         ) : null}
 

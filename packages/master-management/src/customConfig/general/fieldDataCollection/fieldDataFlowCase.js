@@ -276,6 +276,11 @@ const fieldExtraData = {
     name: 'watermarkText',
     helper: '',
   },
+  watermarkTextImage: {
+    label: '文字水印图片',
+    name: 'watermarkTextImage',
+    helper: '',
+  },
   sealRefuseVisibility: {
     label: '拒绝印章可见性',
     name: 'sealRefuseVisibility',

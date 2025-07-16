@@ -286,15 +286,14 @@ export const fieldData = {
     name: 'flowCaseCanHideWhenRejected',
     helper: '',
   },
-  flowCaseRefuseSealVisibility: {
+  flowCaseSealRefuseVisibility: {
     label: '流程实例拒绝印章是否显示',
-    name: 'flowCaseRefuseSealVisibility',
-    helper:
-      '控制流程实例拒绝印章是否显示的开关, 需要前端做相应支持, 印章图片请在默认图中配置',
+    name: 'flowCaseSealRefuseVisibility',
+    helper: '控制流程实例拒绝印章是否显示的开关, 需要前端做相应支持',
   },
-  flowCaseRefuseSealImage: {
+  flowCaseSealRefuseImage: {
     label: '流程实例拒绝印章图片',
-    name: 'flowCaseRefuseSealImage',
+    name: 'flowCaseSealRefuseImage',
     helper: '',
   },
   flowCaseWatermarkVisibility: {
@@ -305,6 +304,11 @@ export const fieldData = {
   flowCaseWatermarkText: {
     label: '流程实例通用水印背景文字',
     name: 'flowCaseWatermarkText',
+    helper: '',
+  },
+  flowCaseWatermarkTextImage: {
+    label: '流程实例通用水印背景文字图片',
+    name: 'flowCaseWatermarkTextImage',
     helper: '',
   },
   masterManagementTokenExpirationTime: {

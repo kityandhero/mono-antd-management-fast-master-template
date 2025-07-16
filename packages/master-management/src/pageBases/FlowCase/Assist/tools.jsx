@@ -299,6 +299,14 @@ export function buildColumnsCaseLatestApprove({
 }) {
   return [
     {
+      title: fieldDataFlowCaseLatestApprove.viewableUserRealName.label,
+      dataIndex: fieldDataFlowCaseLatestApprove.viewableUserRealName.name,
+      key: fieldDataFlowCaseLatestApprove.viewableUserRealName.name,
+      align: 'center',
+      ellipsis: true,
+      width: '160px',
+    },
+    {
       title: fieldDataFlowCaseLatestApprove.workflowNodeName.label,
       dataIndex: fieldDataFlowCaseLatestApprove.workflowNodeName.name,
       key: fieldDataFlowCaseLatestApprove.workflowNodeName.name,
@@ -329,14 +337,6 @@ export function buildColumnsCaseLatestApprove({
       render: (text) => {
         return text || '--';
       },
-    },
-    {
-      title: fieldDataFlowCaseLatestApprove.viewableUserRealName.label,
-      dataIndex: fieldDataFlowCaseLatestApprove.viewableUserRealName.name,
-      key: fieldDataFlowCaseLatestApprove.viewableUserRealName.name,
-      align: 'center',
-      ellipsis: true,
-      width: '160px',
     },
     {
       title: fieldDataFlowCaseNextProcessNotification.channel.label,

@@ -12,7 +12,7 @@ import {
   whetherNumber,
 } from 'easy-soft-utility';
 
-import { extraBuildType } from 'antd-management-fast-common';
+import { emptyImage, extraBuildType } from 'antd-management-fast-common';
 import {
   CenterBox,
   ColorText,
@@ -539,7 +539,7 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
             <SealRefuse
               hidden={sealRefuseVisibility !== whetherNumber.yes}
               right="160px"
-              image={sealRefuseImage}
+              image={sealRefuseImage ?? emptyImage}
             />
           ) : null}
 

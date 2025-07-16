@@ -3,11 +3,13 @@ import {
   checkHasAuthority,
   checkStringIsNullOrWhiteSpace,
   convertCollection,
+  getNow,
+  getTimeStamp,
   getValueByKey,
   whetherNumber,
 } from 'easy-soft-utility';
 
-import { cardConfig } from 'antd-management-fast-common';
+import { cardConfig, emptyImage } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 
 import {
@@ -142,6 +144,18 @@ class Index extends TabPageBase {
 
   establishCardCollectionConfig = () => {
     const { firstLoadSuccess, metaData } = this.state;
+
+    const flowCaseSealRefuseImage = getValueByKey({
+      data: metaData,
+      key: fieldData.flowCaseSealRefuseImage.name,
+      convert: convertCollection.string,
+    });
+
+    const flowCaseWatermarkTextImage = getValueByKey({
+      data: metaData,
+      key: fieldData.flowCaseWatermarkTextImage.name,
+      convert: convertCollection.string,
+    });
 
     const flowDebugUserId = getValueByKey({
       data: metaData,
@@ -374,8 +388,7 @@ class Index extends TabPageBase {
               firstLoadSuccess,
               handleData: metaData,
               fieldData: fieldData.flowFormDisplayModeWhenApproval,
-              editMode:
-                keyValueEditModeCollection.flowFormDisplayModeWhenApproval,
+              editMode: keyValueEditModeCollection.number,
               hidden: !checkHasAuthority(
                 accessWayCollection.currentManagementInfrastructure
                   .updateKeyValueInfo.permission,
@@ -391,6 +404,104 @@ class Index extends TabPageBase {
               inputIcon: iconBuilder.read(),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
+          ],
+          instruction: [
+            {
+              title: '设置说明',
+              showDivider: false,
+              showNumber: true,
+              list: [
+                {
+                  text: '表单模式为只读表单.',
+                },
+                {
+                  text: '文档模式为模拟现实中的审批表格, 审批人批阅时较为直观.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
+            text: '流程表单驳回签章配置',
+          },
+          fullLine: false,
+          width: 'auto',
+          items: [
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.flowCaseSealRefuseVisibility,
+              editMode: keyValueEditModeCollection.whether,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              value: getValueByKey({
+                data: metaData,
+                key: fieldData.flowCaseSealRefuseVisibility.name,
+                convert: convertCollection.number,
+                formatBuilder: (v) => {
+                  return v === whetherNumber.yes ? '显示' : '不显示';
+                },
+              }),
+              inputIcon: iconBuilder.swap(),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+          ],
+          instruction: [
+            {
+              title: '设置说明',
+              showDivider: false,
+              showNumber: true,
+              list: [
+                {
+                  text: '印章图片请在默认图中配置.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.picture(),
+            text: '驳回签章预览',
+          },
+          fullLine: false,
+          width: '226px',
+          items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.imageShow,
+              fieldData: fieldData.flowCaseSealRefuseImage,
+              image: checkStringIsNullOrWhiteSpace(flowCaseSealRefuseImage)
+                ? emptyImage
+                : `${flowCaseSealRefuseImage}?time=${getTimeStamp(getNow())}`,
+              imageBoxProps: {
+                imageBoxStyle: {
+                  boxShadow: '0 1px 4px #ccc, 0 0 40px #ccc inset',
+                  padding: '4px',
+                },
+                fillHeight: false,
+              },
+              imageBoxContainorStyle: {
+                width: '160px',
+              },
+            },
+          ],
+        },
+        {
+          // {}可以打断行布局, 起到换行效果
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
+            text: '流程表单水印配置',
+          },
+          fullLine: false,
+          width: 'auto',
+          items: [
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
@@ -429,40 +540,33 @@ class Index extends TabPageBase {
               inputIcon: iconBuilder.read(),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
-            buildInputItem({
-              firstLoadSuccess,
-              handleData: metaData,
-              fieldData: fieldData.flowCaseRefuseSealVisibility,
-              editMode: keyValueEditModeCollection.whether,
-              hidden: !checkHasAuthority(
-                accessWayCollection.currentManagementInfrastructure
-                  .updateKeyValueInfo.permission,
-              ),
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.flowCaseRefuseSealVisibility.name,
-                convert: convertCollection.number,
-                formatBuilder: (v) => {
-                  return v === whetherNumber.yes ? '显示' : '不显示';
-                },
-              }),
-              inputIcon: iconBuilder.swap(),
-              handleClick: this.showUpdateKeyValueInfoModal,
-            }),
           ],
-          instruction: [
+        },
+        {
+          title: {
+            icon: iconBuilder.picture(),
+            text: '文字水印预览',
+          },
+          fullLine: false,
+          width: '226px',
+          items: [
             {
-              title: '设置说明',
-              showDivider: false,
-              showNumber: true,
-              list: [
-                {
-                  text: '表单模式为只读表单.',
+              lg: 24,
+              type: cardConfig.contentItemType.imageShow,
+              fieldData: fieldData.wechatMicroApplicationQrCode,
+              image: checkStringIsNullOrWhiteSpace(flowCaseWatermarkTextImage)
+                ? emptyImage
+                : `${flowCaseWatermarkTextImage}?time=${getTimeStamp(getNow())}`,
+              imageBoxProps: {
+                imageBoxStyle: {
+                  boxShadow: '0 1px 4px #ccc, 0 0 40px #ccc inset',
+                  padding: '4px',
                 },
-                {
-                  text: '文档模式为模拟现实中的审批表格, 审批人批阅时较为直观.',
-                },
-              ],
+                fillHeight: false,
+              },
+              imageBoxContainorStyle: {
+                width: '160px',
+              },
             },
           ],
         },

@@ -19,6 +19,7 @@ import {
 import {
   cardConfig,
   drawerConfig,
+  emptyImage,
   extraBuildType,
 } from 'antd-management-fast-common';
 import {
@@ -1124,7 +1125,7 @@ class BaseFlowCaseFormInfoDrawer extends BaseUpdateDrawer {
         {status === flowCaseStatusCollection.refuse ? (
           <SealRefuse
             hidden={sealRefuseVisibility !== whetherNumber.yes}
-            image={sealRefuseImage}
+            image={sealRefuseImage ?? emptyImage}
           />
         ) : null}
 
