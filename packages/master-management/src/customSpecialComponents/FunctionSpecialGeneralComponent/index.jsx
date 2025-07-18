@@ -49,6 +49,7 @@ export * from './FlowCaseNextProcessNotificationStatus';
 export * from './FlowCaseNextProcessProgressStatus';
 export * from './FlowCaseProcessHistoryStatus';
 export * from './FlowCaseStatus';
+export * from './FlowCaseWatermarkMode';
 export * from './FlowDebugApproverMode';
 export * from './FlowDebugUserMode';
 export * from './FlowEffectiveRange';

@@ -16,7 +16,10 @@ import {
   accessWayCollection,
   keyValueEditModeCollection,
 } from '../../../../customConfig';
-import { getFlowFormDisplayModeName } from '../../../../customSpecialComponents';
+import {
+  getFlowCaseWatermarkModeName,
+  getFlowFormDisplayModeName,
+} from '../../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { buildInputItem } from '../../../../utils';
 import { fieldData as fieldDataSubsidiary } from '../../../Subsidiary/Common/data';
@@ -29,6 +32,7 @@ import {
 } from '../../Assist/action';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
+import { UpdateFlowCaseWatermarkModeModal } from '../../UpdateFlowCaseWatermarkModeModal';
 import { UpdateKeyValueInfoModal } from '../../UpdateKeyValueInfoModal';
 
 @connect(({ currentManagementInfrastructure, schedulingControl }) => ({
@@ -117,6 +121,14 @@ class Index extends TabPageBase {
   };
 
   afterUpdateKeyValueInfoModalOk = () => {
+    this.reloadData({});
+  };
+
+  showUpdateFlowCaseWatermarkModeModal = () => {
+    UpdateFlowCaseWatermarkModeModal.open();
+  };
+
+  afterUUpdateFlowCaseWatermarkModeModalOk = () => {
     this.reloadData({});
   };
 
@@ -525,8 +537,22 @@ class Index extends TabPageBase {
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
+              fieldData: fieldData.flowCaseEffectiveWatermarkMode,
+              editMode: keyValueEditModeCollection.string,
+              value: getFlowCaseWatermarkModeName({
+                value: getValueByKey({
+                  data: metaData,
+                  key: fieldData.flowCaseEffectiveWatermarkMode.name,
+                  convert: convertCollection.string,
+                }),
+              }),
+              handleClick: this.showUpdateFlowCaseWatermarkModeModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
               fieldData: fieldData.flowCaseWatermarkText,
-              editMode: keyValueEditModeCollection.flowCaseWatermarkText,
+              editMode: keyValueEditModeCollection.string,
               hidden: !checkHasAuthority(
                 accessWayCollection.currentManagementInfrastructure
                   .updateKeyValueInfo.permission,
@@ -545,10 +571,10 @@ class Index extends TabPageBase {
         {
           title: {
             icon: iconBuilder.picture(),
-            text: '文字水印预览',
+            text: '通用文字水印预览',
           },
           fullLine: false,
-          width: '226px',
+          width: '356px',
           items: [
             {
               lg: 24,
@@ -565,7 +591,7 @@ class Index extends TabPageBase {
                 fillHeight: false,
               },
               imageBoxContainorStyle: {
-                width: '160px',
+                width: '290px',
               },
             },
           ],
@@ -733,6 +759,17 @@ class Index extends TabPageBase {
           editMode={keyValueEditMode || keyValueEditModeCollection.string}
           afterOK={() => {
             this.afterUpdateKeyValueInfoModalOk();
+          }}
+        />
+
+        <UpdateFlowCaseWatermarkModeModal
+          externalData={{
+            currentData: metaData,
+            fieldData: targetFieldData,
+          }}
+          editMode={keyValueEditMode || keyValueEditModeCollection.string}
+          afterClose={() => {
+            this.afterUUpdateFlowCaseWatermarkModeModalOk();
           }}
         />
       </>

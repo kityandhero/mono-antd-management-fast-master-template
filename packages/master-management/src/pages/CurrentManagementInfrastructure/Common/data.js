@@ -301,6 +301,21 @@ export const fieldData = {
     name: 'flowCaseWatermarkVisibility',
     helper: '控制流程实例水印背景是否显示的开关, 需要前端做相应支持',
   },
+  flowCaseEffectiveWatermarkMode: {
+    label: '流程实例水印背景模式',
+    name: 'flowCaseEffectiveWatermarkMode',
+    helper: '流程实例水印背景模式, 前端根据所选择的模式显示水印',
+  },
+  flowCaseEffectiveWatermarkModeNote: {
+    label: '流程实例水印背景模式',
+    name: 'flowCaseEffectiveWatermarkModeNote',
+    helper: '流程实例水印背景模式, 前端根据所选择的模式显示水印',
+  },
+  flowCaseEffectiveWatermarkModeTag: {
+    label: '流程实例水印背景模式',
+    name: 'flowCaseEffectiveWatermarkModeTag',
+    helper: '流程实例水印背景模式, 前端根据所选择的模式显示水印',
+  },
   flowCaseWatermarkText: {
     label: '流程实例通用水印背景文字',
     name: 'flowCaseWatermarkText',

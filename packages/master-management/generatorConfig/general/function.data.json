@@ -296,6 +296,11 @@
       "name": "resetAllApproveSwitch"
     },
     {
+      "functionSegment": "FlowCaseWatermarkMode",
+      "label": "流程表单水印模式",
+      "name": "watermarkMode"
+    },
+    {
       "functionSegment": "FlowCaseFormStorageStatus",
       "label": "状态",
       "name": "status"
