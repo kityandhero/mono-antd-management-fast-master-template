@@ -400,7 +400,8 @@ class Index extends TabPageBase {
               firstLoadSuccess,
               handleData: metaData,
               fieldData: fieldData.flowFormDisplayModeWhenApproval,
-              editMode: keyValueEditModeCollection.number,
+              editMode:
+                keyValueEditModeCollection.flowFormDisplayModeWhenApproval,
               hidden: !checkHasAuthority(
                 accessWayCollection.currentManagementInfrastructure
                   .updateKeyValueInfo.permission,

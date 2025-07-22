@@ -254,6 +254,7 @@ export function buildInputItem({
         keyValueEditModeCollection.whether,
         keyValueEditModeCollection.time,
         keyValueEditModeCollection.datetime,
+        keyValueEditModeCollection.flowFormDisplayModeWhenApproval,
       ],
       editMode,
     )
