@@ -1,5 +1,13 @@
 import { formNameCollection } from '../../../customConfig';
 
+const fieldExtraData = {
+  name: {
+    label: '名称',
+    name: 'name',
+    helper: '',
+  },
+};
+
 export const fieldData = {
   ...formNameCollection,
   masterManagerLoginLogId: {
@@ -27,4 +35,5 @@ export const fieldData = {
     name: 'location',
     helper: '',
   },
+  ...fieldExtraData,
 };

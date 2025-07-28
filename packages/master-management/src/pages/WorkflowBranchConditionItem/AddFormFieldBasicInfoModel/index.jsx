@@ -53,6 +53,7 @@ class AddFormFieldBasicInfoModel extends BaseAddModal {
 
     this.state = {
       ...this.state,
+      width: 720,
       pageTitle: '新增表单字段判断条件',
       submitApiPath: 'workflowBranchConditionItem/addFormFieldBasicInfo',
       dataSchemaList: [],

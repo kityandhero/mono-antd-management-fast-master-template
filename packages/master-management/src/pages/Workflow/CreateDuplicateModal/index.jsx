@@ -1,5 +1,9 @@
 import { connect } from 'easy-soft-dva';
-import { convertCollection, getValueByKey } from 'easy-soft-utility';
+import {
+  convertCollection,
+  getValueByKey,
+  whetherString,
+} from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
@@ -10,6 +14,19 @@ import { fieldData } from '../Common/data';
 const { BaseAddModal } = DataModal;
 
 const visibleFlag = '6a3c083f15b44547b6e0d853c64eb2f0';
+
+const fieldDataExtra = {
+  whetherCopyApprovalUser: {
+    label: '复制节点审批人',
+    name: 'whetherCopyApprovalUser',
+    helper: '',
+  },
+  whetherCopyRangeEffectiveRelation: {
+    label: '复制适用关系',
+    name: 'whetherCopyRangeEffectiveRelation',
+    helper: '',
+  },
+};
 
 @connect(({ workflow, schedulingControl }) => ({
   workflow,
@@ -55,7 +72,7 @@ class CreateDuplicateModal extends BaseAddModal {
     // eslint-disable-next-line no-unused-vars
     submitData,
   ) => {
-    return `数据通道值更新成功。`;
+    return `工作流复制成功。`;
   };
 
   establishFormAdditionalConfig = () => {
@@ -67,6 +84,17 @@ class CreateDuplicateModal extends BaseAddModal {
         flex: 'auto',
       },
     };
+  };
+
+  fillDefaultInitialValues = () => {
+    const initialValues = {};
+
+    initialValues[fieldDataExtra.whetherCopyApprovalUser.name] =
+      whetherString.no;
+    initialValues[fieldDataExtra.whetherCopyRangeEffectiveRelation.name] =
+      whetherString.no;
+
+    return initialValues;
   };
 
   establishCardCollectionConfig = () => {
@@ -90,6 +118,18 @@ class CreateDuplicateModal extends BaseAddModal {
               lg: 24,
               type: cardConfig.contentItemType.input,
               fieldData: fieldData.duplicateName,
+              require: true,
+            },
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.whetherRadio,
+              fieldData: fieldDataExtra.whetherCopyApprovalUser,
+              require: true,
+            },
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.whetherRadio,
+              fieldData: fieldDataExtra.whetherCopyRangeEffectiveRelation,
               require: true,
             },
           ],

@@ -349,6 +349,38 @@ class Index extends TabPageBase {
         {
           title: {
             icon: iconBuilder.contacts(),
+            text: '流程抄送配置',
+          },
+          items: [
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData:
+                fieldData.flowCaseCarbonCopyWhetherOnlyVisibleOnApprovalSuccess,
+              editMode: keyValueEditModeCollection.whether,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              value: getValueByKey({
+                data: metaData,
+                key: fieldData
+                  .flowCaseCarbonCopyWhetherOnlyVisibleOnApprovalSuccess.name,
+                convert: convertCollection.number,
+                formatBuilder: (v) => {
+                  return v === whetherNumber.yes
+                    ? '仅限审批成功后可见'
+                    : '审批时或审批成功后可见';
+                },
+              }),
+              inputIcon: iconBuilder.swap(),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
             text: '流程调试设置',
           },
           items: [

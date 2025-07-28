@@ -30,12 +30,12 @@ export const fieldData = {
     helper: '',
   },
   userId: {
-    label: '审批人标识',
+    label: '审批/抄送人标识',
     name: 'userId',
     helper: '',
   },
   userRealName: {
-    label: '审批人',
+    label: '审批/抄送人',
     name: 'userRealName',
     helper: '',
   },

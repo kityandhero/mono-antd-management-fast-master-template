@@ -53,6 +53,7 @@ class UpdateBasicInfoModel extends BaseUpdateModal {
 
     this.state = {
       ...this.state,
+      width: 720,
       pageTitle: '更新表单字段判断条件',
       loadApiPath: 'workflowBranchConditionItem/get',
       submitApiPath: 'workflowBranchConditionItem/updateBasicInfo',

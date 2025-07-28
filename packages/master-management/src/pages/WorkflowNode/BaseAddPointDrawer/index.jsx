@@ -8,12 +8,7 @@ import {
   flowNodeApproveModeCollection,
   flowNodeApproverModeCollection,
 } from '../../../customConfig';
-import {
-  buildNowTimeFieldItem,
-  getFlowNodeApproveModeName,
-  renderFormFlowNodeApproveModeSelect,
-  renderFormFlowNodeApproverModeSelect,
-} from '../../../customSpecialComponents';
+import { buildNowTimeFieldItem } from '../../../customSpecialComponents';
 import { fieldData } from '../Common/data';
 
 const { BaseAddDrawer } = DataDrawer;
@@ -24,7 +19,6 @@ class BaseAddPointDrawer extends BaseAddDrawer {
 
     this.state = {
       ...this.state,
-      approveModeSelectable: true,
     };
   }
 
@@ -53,29 +47,9 @@ class BaseAddPointDrawer extends BaseAddDrawer {
     return d;
   };
 
-  // eslint-disable-next-line no-unused-vars
-  onApproverModeChange = (v, option) => {
-    const data = {};
-
-    if (toString(v) !== toString(flowNodeApproverModeCollection.designated)) {
-      data[fieldData.approveMode.name] = toString(
-        flowNodeApproveModeCollection.oneOfApproval,
-      );
-    }
-
-    this.setFormFieldsValue(data);
-
-    this.setState({
-      approveModeSelectable:
-        toString(v) === toString(flowNodeApproverModeCollection.designated),
-    });
-  };
+  establishCustomExtraViewConfig = () => [];
 
   establishCardCollectionConfig = () => {
-    const { approveModeSelectable } = this.state;
-
-    const that = this;
-
     return {
       list: [
         {
@@ -90,32 +64,7 @@ class BaseAddPointDrawer extends BaseAddDrawer {
               fieldData: fieldData.name,
               require: true,
             },
-            {
-              lg: 12,
-              type: cardConfig.contentItemType.component,
-              component: renderFormFlowNodeApproverModeSelect({
-                adjustListData: that.adjustApproverModeListData,
-                onChange: this.onApproverModeChange,
-              }),
-              require: true,
-            },
-            {
-              lg: 12,
-              type: cardConfig.contentItemType.component,
-              component: renderFormFlowNodeApproveModeSelect({}),
-              require: true,
-              hidden: !approveModeSelectable,
-            },
-            {
-              lg: 24,
-              type: cardConfig.contentItemType.onlyShowInput,
-              fieldData: fieldData.approveMode,
-              value: getFlowNodeApproveModeName({
-                value: toString(flowNodeApproveModeCollection.oneOfApproval),
-              }),
-              require: true,
-              hidden: approveModeSelectable,
-            },
+            ...this.establishCustomExtraViewConfig(),
           ],
         },
         {

@@ -101,11 +101,12 @@ class PageListBindUserDrawer extends MultiPageDrawer {
       size: 'small',
       icon: iconBuilder.select(),
       text: '设置归属',
+      handleData: record,
       disabled: !checkHasAuthority(
         accessWayCollection.userSubsidiaryInfo.addBasicInfo.permission,
       ),
-      handleButtonClick: () => {
-        this.bind(record);
+      handleButtonClick: ({ handleData }) => {
+        this.bind(handleData);
       },
       confirm: true,
       title: '立即设置归属公司，确定吗？',

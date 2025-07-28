@@ -106,11 +106,12 @@ class PageListBindUserDrawer extends MultiPageDrawer {
       size: 'small',
       icon: iconBuilder.select(),
       text: '设置所属',
+      handleData: record,
       disabled: !checkHasAuthority(
         accessWayCollection.userDepartmentInfo.addBasicInfo.permission,
       ),
-      handleButtonClick: () => {
-        this.bind(record);
+      handleButtonClick: ({ handleData }) => {
+        this.bind(handleData);
       },
       confirm: true,
       title: '立即设置所属部门，确定吗？',

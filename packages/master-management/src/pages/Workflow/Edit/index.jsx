@@ -49,6 +49,7 @@ import {
   parseUrlParametersForSetState,
 } from '../Assist/config';
 import { fieldData } from '../Common/data';
+import { CreateDuplicateModal } from '../CreateDuplicateModal';
 import { FlowDisplayDrawer } from '../FlowDisplayDrawer';
 import { SetCaseNameTemplateDrawer } from '../SetCaseNameTemplateDrawer';
 import { SetDefaultApplicantStatementDrawer } from '../SetDefaultApplicantStatementDrawer';
@@ -429,6 +430,32 @@ class Detail extends DataTabContainerSupplement {
     WorkflowDebugCasePageListUnderwayDrawer.open();
   };
 
+  showCreateDuplicateModal = () => {
+    CreateDuplicateModal.open();
+  };
+
+  afterCreateDuplicateModalOk = ({
+    // eslint-disable-next-line no-unused-vars
+    singleData = null,
+    // eslint-disable-next-line no-unused-vars
+    listData = [],
+    // eslint-disable-next-line no-unused-vars
+    extraData = null,
+    // eslint-disable-next-line no-unused-vars
+    responseOriginalData = null,
+    // eslint-disable-next-line no-unused-vars
+    submitData = null,
+  }) => {
+    const workflowId = getValueByKey({
+      data: singleData,
+      key: fieldData.workflowId.name,
+    });
+
+    this.redirectToPath(`/flow/workflow/edit/load/${workflowId}/key/basicInfo`);
+
+    window.location.reload();
+  };
+
   establishPageHeaderTitlePrefix = () => {
     return '流程';
   };
@@ -729,6 +756,11 @@ class Detail extends DataTabContainerSupplement {
             break;
           }
 
+          case 'showCreateDuplicateModal': {
+            that.showCreateDuplicateModal(handleData);
+            break;
+          }
+
           case 'refreshCache': {
             that.refreshCache(handleData);
             break;
@@ -885,6 +917,17 @@ class Detail extends DataTabContainerSupplement {
           type: dropdownExpandItemType.divider,
         },
         {
+          key: 'showCreateDuplicateModal',
+          icon: iconBuilder.copy(),
+          text: '复制流程',
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.createDuplicate.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
           text: '刷新缓存',
@@ -1007,7 +1050,7 @@ class Detail extends DataTabContainerSupplement {
   };
 
   renderPresetOther = () => {
-    const { workflowId } = this.state;
+    const { firstLoadSuccess, workflowId, metaData } = this.state;
 
     return (
       <>
@@ -1102,6 +1145,14 @@ class Detail extends DataTabContainerSupplement {
         <WorkflowDebugCasePageListUnderwayDrawer
           maskClosable
           externalData={{ workflowId }}
+        />
+
+        <CreateDuplicateModal
+          externalData={metaData}
+          hidden={!firstLoadSuccess}
+          afterOK={(o) => {
+            this.afterCreateDuplicateModalOk(o);
+          }}
         />
       </>
     );

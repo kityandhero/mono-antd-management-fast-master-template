@@ -47,6 +47,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
+      tableScrollX: 1728,
       pageTitle: '用户列表',
       paramsKey: accessWayCollection.user.pageList.paramsKey,
       loadApiPath: 'user/pageList',
@@ -238,6 +239,7 @@ class PageList extends MultiPage {
     });
 
     return buildTagList({
+      wrap: true,
       list,
     });
   };
@@ -425,7 +427,7 @@ class PageList extends MultiPage {
     },
     {
       dataTarget: fieldData.authorityCollection,
-      align: 'center',
+      align: 'left',
       render: (value) => {
         return (
           <>

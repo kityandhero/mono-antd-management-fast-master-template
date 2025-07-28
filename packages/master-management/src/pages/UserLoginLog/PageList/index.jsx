@@ -69,14 +69,13 @@ class PageList extends MultiPage {
       emptyValue: '--',
     },
     {
-      dataTarget: fieldData.userId,
-      width: 120,
+      dataTarget: fieldData.friendlyName,
+      width: 180,
       showRichFacade: true,
-      canCopy: true,
+      emptyValue: '--',
     },
     {
       dataTarget: fieldData.location,
-      width: 120,
       showRichFacade: true,
       emptyValue: '--',
     },
@@ -85,6 +84,12 @@ class PageList extends MultiPage {
       width: 120,
       showRichFacade: true,
       emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.userId,
+      width: 120,
+      showRichFacade: true,
+      canCopy: true,
     },
     {
       dataTarget: fieldData.channel,

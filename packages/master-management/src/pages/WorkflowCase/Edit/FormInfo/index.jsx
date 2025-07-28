@@ -1049,7 +1049,7 @@ class FormInfo extends TabPageBase {
               canDownload={false}
               canCopyUrl={false}
               canPreview={false}
-              previewButtonText="无权限"
+              previewButtonText="无密钥"
               list={listAttachment}
               dataTransfer={(o) => {
                 return {

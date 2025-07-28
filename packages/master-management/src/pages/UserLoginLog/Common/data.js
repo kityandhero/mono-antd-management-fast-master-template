@@ -1,5 +1,13 @@
 import { formNameCollection } from '../../../customConfig';
 
+const fieldExtraData = {
+  friendlyName: {
+    label: '友好名称',
+    name: 'friendlyName',
+    helper: '',
+  },
+};
+
 export const fieldData = {
   ...formNameCollection,
   userLoginLogId: {
@@ -27,4 +35,5 @@ export const fieldData = {
     name: 'location',
     helper: '',
   },
+  ...fieldExtraData,
 };

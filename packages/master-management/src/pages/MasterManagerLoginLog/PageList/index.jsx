@@ -70,6 +70,12 @@ class PageList extends MultiPage {
       emptyValue: '--',
     },
     {
+      dataTarget: fieldData.name,
+      width: 180,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
       dataTarget: fieldData.location,
       showRichFacade: true,
       emptyValue: '--',

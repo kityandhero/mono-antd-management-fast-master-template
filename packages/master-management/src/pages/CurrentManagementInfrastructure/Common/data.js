@@ -286,6 +286,11 @@ export const fieldData = {
     name: 'flowCaseCanHideWhenRejected',
     helper: '',
   },
+  flowCaseCarbonCopyWhetherOnlyVisibleOnApprovalSuccess: {
+    label: '流程实例抄送信息是否仅限审批成功后可见',
+    name: 'flowCaseCarbonCopyWhetherOnlyVisibleOnApprovalSuccess',
+    helper: '',
+  },
   flowCaseSealRefuseVisibility: {
     label: '流程实例拒绝印章是否显示',
     name: 'flowCaseSealRefuseVisibility',

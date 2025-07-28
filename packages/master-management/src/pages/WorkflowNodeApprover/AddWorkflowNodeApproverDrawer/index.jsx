@@ -35,7 +35,7 @@ class AddWorkflowNodeApproverDrawer extends BaseAddDrawer {
 
     this.state = {
       ...this.state,
-      pageTitle: '新增节点审批人',
+      pageTitle: '新增节点审批人/抄送人',
       submitApiPath:
         modelTypeCollection.workflowNodeApproverTypeCollection
           .addApproverBasicInfo,
@@ -124,7 +124,7 @@ class AddWorkflowNodeApproverDrawer extends BaseAddDrawer {
         {
           title: {
             icon: iconBuilder.contacts(),
-            text: '审核人员',
+            text: '审核/抄送人员',
           },
           items: [
             {
@@ -141,6 +141,21 @@ class AddWorkflowNodeApproverDrawer extends BaseAddDrawer {
                   }}
                 />
               ),
+            },
+          ],
+          instruction: [
+            {
+              title: '设置说明',
+              showDivider: false,
+              showNumber: true,
+              list: [
+                {
+                  text: '若节点为审批节点, 则此处添加的为审批人.',
+                },
+                {
+                  text: '若节点为抄送节点, 则此处添加的为抄送人.',
+                },
+              ],
             },
           ],
         },
