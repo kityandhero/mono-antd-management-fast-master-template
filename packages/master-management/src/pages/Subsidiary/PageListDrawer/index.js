@@ -1,18 +1,23 @@
 import { connect } from 'easy-soft-dva';
-import { getValueByKey } from 'easy-soft-utility';
+import { convertCollection, getValueByKey } from 'easy-soft-utility';
 
 import {
   defaultEmptyImage,
   listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
-import { buildListViewItemInner } from 'antd-management-fast-component';
+import {
+  buildListViewItemExtra,
+  ColorText,
+} from 'antd-management-fast-component';
 import {
   DataMultiPageView,
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { getSubsidiaryStatusName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { MultiPageSelectDrawer } = DataMultiPageView;
@@ -38,7 +43,7 @@ class PageListDrawer extends MultiPageSelectDrawer {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'subsidiary/pageList',
+      loadApiPath: modelTypeCollection.subsidiaryTypeCollection.pageList,
       listViewMode: listViewConfig.viewMode.list,
     };
   }
@@ -48,7 +53,11 @@ class PageListDrawer extends MultiPageSelectDrawer {
   }
 
   getPageName = () => {
-    return '请选择上级公司';
+    return '请选择企业';
+  };
+
+  establishListViewItemLayout = () => {
+    return 'vertical';
   };
 
   establishSearchCardConfig = () => {
@@ -74,18 +83,19 @@ class PageListDrawer extends MultiPageSelectDrawer {
   };
 
   // eslint-disable-next-line no-unused-vars
-  renderPresetListViewItemInner = (item, index) => {
-    return buildListViewItemInner({
-      image: getValueByKey({
-        data: item,
-        key: fieldData.logo.name,
-        defaultValue: defaultEmptyImage,
-      }),
+  establishPresetListViewItemInnerConfig = (item, index) => {
+    const status = getValueByKey({
+      data: item,
+      key: fieldData.status.name,
+      convert: convertCollection.number,
+    });
+
+    return {
       title: {
         label: fieldData.shortName.label,
         text: getValueByKey({
           data: item,
-          key: fieldData.subsidiaryId.name,
+          key: fieldData.shortName.name,
         }),
       },
       descriptionList: [
@@ -96,6 +106,20 @@ class PageListDrawer extends MultiPageSelectDrawer {
             key: fieldData.fullName.name,
           }),
           color: '#999999',
+          extra: (
+            <ColorText
+              textPrefix={fieldData.status.label}
+              text={getSubsidiaryStatusName({
+                value: status,
+              })}
+              randomColor
+              randomSeed={status}
+              separatorStyle={{
+                paddingRight: '4px',
+              }}
+              seedOffset={18}
+            />
+          ),
         },
       ],
       actionList: [
@@ -115,7 +139,23 @@ class PageListDrawer extends MultiPageSelectDrawer {
             key: fieldData.code.name,
             defaultValue: '暂无',
           }),
-          canCopy: true,
+          color: '#999999',
+        },
+        {
+          label: fieldData.parentShortName.label,
+          text: getValueByKey({
+            data: item,
+            key: fieldData.parentShortName.name,
+            defaultValue: '暂无',
+          }),
+          color: '#999999',
+        },
+        {
+          label: fieldData.sort.label,
+          text: getValueByKey({
+            data: item,
+            key: fieldData.sort.name,
+          }),
           color: '#999999',
         },
         {
@@ -127,6 +167,17 @@ class PageListDrawer extends MultiPageSelectDrawer {
           color: '#999999',
         },
       ],
+    };
+  };
+
+  renderPresetListViewItemExtra = (record, index) => {
+    return buildListViewItemExtra({
+      index,
+      imageUrl: getValueByKey({
+        data: record,
+        key: fieldData.logo.name,
+        defaultValue: defaultEmptyImage,
+      }),
     });
   };
 }

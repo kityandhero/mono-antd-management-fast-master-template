@@ -41,6 +41,11 @@ const formExtraData = {
     name: 'effectiveRangeDescription',
     helper: '',
   },
+  subsidiaryId: {
+    label: '适用企业',
+    name: 'subsidiaryId',
+    helper: '',
+  },
 };
 
 export const fieldDataFlow = {

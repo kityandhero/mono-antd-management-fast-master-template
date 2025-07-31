@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'easy-soft-dva';
-import { buildFieldDescription, replaceWithKeep } from 'easy-soft-utility';
+import { buildFieldDescription } from 'easy-soft-utility';
 
 import { FieldExtra } from 'antd-management-fast-component';
 
@@ -17,12 +17,13 @@ const {
 }))
 class SubsidiarySelectDrawerField extends BaseSelectFieldExtra {
   selectValueText = (data) => {
-    const { nickname, userId } = {
-      nickname: '',
+    const { fullName, shortName } = {
+      shortName: '',
+      fullName: '',
       ...data,
     };
 
-    return nickname || replaceWithKeep(userId, '***', 2, 6);
+    return shortName || fullName;
   };
 
   openSelector = () => {

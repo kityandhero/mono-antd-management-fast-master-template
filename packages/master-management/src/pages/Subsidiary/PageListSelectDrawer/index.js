@@ -6,7 +6,6 @@ import {
   listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
-import { buildListViewItemInner } from 'antd-management-fast-component';
 import {
   DataMultiPageView,
   switchControlAssist,
@@ -49,7 +48,11 @@ class PageListSelectDrawer extends MultiPageSelectDrawer {
   }
 
   getPageName = () => {
-    return '请选择上级公司';
+    return '请选择公司';
+  };
+
+  establishListViewItemLayout = () => {
+    return 'vertical';
   };
 
   renderPresetTitleIcon = () => null;
@@ -77,8 +80,8 @@ class PageListSelectDrawer extends MultiPageSelectDrawer {
   };
 
   // eslint-disable-next-line no-unused-vars
-  renderPresetListViewItemInner = (item, index) => {
-    return buildListViewItemInner({
+  establishPresetListViewItemInnerConfig = (item, index) => {
+    return {
       image: getValueByKey({
         data: item,
         key: fieldData.logo.name,
@@ -130,7 +133,7 @@ class PageListSelectDrawer extends MultiPageSelectDrawer {
           color: '#999999',
         },
       ],
-    });
+    };
   };
 }
 

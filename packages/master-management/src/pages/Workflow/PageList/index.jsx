@@ -33,9 +33,12 @@ import {
   getFlowEffectiveRangeName,
   getFlowStatusName,
   renderSearchBusinessModeSelect,
+  renderSearchFlowEffectiveRangeSelect,
   renderSearchFlowScopeSelect,
   renderSearchFlowStatusSelect,
 } from '../../../customSpecialComponents';
+import { fieldData as fieldDataSubsidiary } from '../../Subsidiary/Common/data';
+import { SubsidiarySelectDrawerField } from '../../Subsidiary/SelectDrawerField';
 import { FlowCaseFormExampleDocumentDrawer } from '../../WorkflowFormDesign/FlowCaseFormExampleDocumentDrawer';
 import { AddOfficeAutomationArticleAuditDrawer } from '../AddOfficeAutomationArticleAuditDrawer';
 import { AddOfficeAutomationProcessApprovalDrawer } from '../AddOfficeAutomationProcessApprovalDrawer';
@@ -80,8 +83,26 @@ class PageList extends MultiPage {
       currentRecordListApply: [],
       currentRecordShowAttention: false,
       currentRecordListAttention: [],
+      subsidiaryId: '',
+      subsidiaryShortName: '',
     };
   }
+
+  supplementLoadRequestParams = (o) => {
+    const d = { ...o };
+    const { subsidiaryId } = this.state;
+
+    d[fieldData.subsidiaryId.name] = subsidiaryId ?? '';
+
+    return d;
+  };
+
+  handleSearchResetState = () => {
+    return {
+      subsidiaryId: '',
+      subsidiaryShortName: '',
+    };
+  };
 
   handleItemStatus = ({ target, handleData, remoteData }) => {
     const workflowId = getValueByKey({
@@ -332,6 +353,30 @@ class PageList extends MultiPage {
     );
   };
 
+  afterSubsidiarySelect = (o) => {
+    const subsidiaryId = getValueByKey({
+      data: o,
+      key: fieldDataSubsidiary.subsidiaryId.name,
+    });
+
+    const shortName = getValueByKey({
+      data: o,
+      key: fieldDataSubsidiary.shortName.name,
+    });
+
+    this.setState({
+      subsidiaryId: subsidiaryId,
+      subsidiaryShortName: shortName,
+    });
+  };
+
+  afterSubsidiaryClearSelect = () => {
+    this.setState({
+      subsidiaryId: '',
+      subsidiaryShortName: '',
+    });
+  };
+
   goToEdit = (item) => {
     const workflowId = getValueByKey({
       data: item,
@@ -346,24 +391,25 @@ class PageList extends MultiPage {
 
     values[fieldData.scope.name] = unlimitedWithStringFlag.flag;
     values[fieldData.businessMode.name] = unlimitedWithStringFlag.flag;
+    values[fieldData.availableOnMobileSwitch.name] =
+      unlimitedWithStringFlag.flag;
+    values[fieldData.effectiveRange.name] = unlimitedWithStringFlag.flag;
     values[fieldData.status.name] = unlimitedWithStringFlag.flag;
 
     return values;
   };
 
   establishSearchCardConfig = () => {
+    const { subsidiaryShortName } = this.state;
+
     return {
       list: [
         {
-          lg: 5,
+          lg: 9,
           type: searchCardConfig.contentItemType.input,
           fieldData: fieldData.name,
         },
-        {
-          lg: 5,
-          type: searchCardConfig.contentItemType.customSelect,
-          component: renderSearchFlowScopeSelect({}),
-        },
+
         {
           lg: 5,
           type: searchCardConfig.contentItemType.customSelect,
@@ -371,8 +417,40 @@ class PageList extends MultiPage {
         },
         {
           lg: 5,
+          type: searchCardConfig.contentItemType.whetherSelect,
+          fieldData: fieldData.availableOnMobileSwitch,
+        },
+        {
+          lg: 5,
           type: searchCardConfig.contentItemType.customSelect,
           component: renderSearchFlowStatusSelect({}),
+        },
+        {
+          lg: 5,
+          type: searchCardConfig.contentItemType.customSelect,
+          component: renderSearchFlowScopeSelect({}),
+        },
+        {
+          lg: 4,
+          type: searchCardConfig.contentItemType.customSelect,
+          component: renderSearchFlowEffectiveRangeSelect({}),
+        },
+        {
+          lg: 10,
+          type: searchCardConfig.contentItemType.component,
+          component: (
+            <SubsidiarySelectDrawerField
+              label={fieldData.subsidiaryId.label}
+              helper={fieldData.subsidiaryId.helper}
+              defaultValue={subsidiaryShortName || null}
+              afterSelectSuccess={(d) => {
+                this.afterSubsidiarySelect(d);
+              }}
+              afterClearSelect={() => {
+                this.afterSubsidiaryClearSelect();
+              }}
+            />
+          ),
         },
         {
           lg: 4,
