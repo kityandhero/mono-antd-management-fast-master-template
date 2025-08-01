@@ -1,9 +1,7 @@
+import { format } from 'sql-formatter';
+
 import { connect } from 'easy-soft-dva';
-import {
-  convertCollection,
-  formatCollection,
-  getValueByKey,
-} from 'easy-soft-utility';
+import { formatCollection, getValueByKey, logConsole } from 'easy-soft-utility';
 
 import {
   cardConfig,
@@ -41,6 +39,7 @@ class PreviewDrawer extends BaseLoadDrawer {
       ...this.state,
       pageTitle: '异常摘要信息',
       loadApiPath: modelTypeCollection.sqlLogTypeCollection.get,
+      commandString: '',
     };
   }
 
@@ -56,6 +55,41 @@ class PreviewDrawer extends BaseLoadDrawer {
     return d;
   };
 
+  doOtherAfterLoadSuccess = ({
+    metaData,
+    // eslint-disable-next-line no-unused-vars
+    metaListData,
+    // eslint-disable-next-line no-unused-vars
+    metaExtra,
+    // eslint-disable-next-line no-unused-vars
+    metaOriginalData,
+  }) => {
+    const commandString = getValueByKey({
+      data: metaData,
+      key: fieldData.commandString.name,
+      defaultValue: '',
+    });
+
+    const commandStringFormat = format(commandString, {
+      language: 'transactsql',
+      tabWidth: 2,
+      keywordCase: 'upper',
+      linesBetweenQueries: 2,
+    });
+
+    logConsole(
+      {
+        commandString,
+        commandStringFormat,
+      },
+      'doOtherAfterLoadSuccess',
+    );
+
+    this.setState({
+      commandString: commandStringFormat,
+    });
+  };
+
   establishExtraActionConfig = () => {
     const that = this;
 
@@ -67,16 +101,9 @@ class PreviewDrawer extends BaseLoadDrawer {
           text: '复制命令',
           disabled: this.checkInProgress(),
           handleClick: () => {
-            const { metaData } = that.state;
+            const { commandString } = that.state;
 
-            copyToClipboard(
-              getValueByKey({
-                data: metaData,
-                key: fieldData.commandString.name,
-                convert: convertCollection.string,
-              }),
-              false,
-            );
+            copyToClipboard(commandString, false);
           },
         },
       ],
@@ -84,7 +111,7 @@ class PreviewDrawer extends BaseLoadDrawer {
   };
 
   establishCardCollectionConfig = () => {
-    const { metaData } = this.state;
+    const { metaData, commandString } = this.state;
 
     return {
       list: [
@@ -98,11 +125,7 @@ class PreviewDrawer extends BaseLoadDrawer {
               lg: 24,
               type: cardConfig.contentItemType.syntaxHighlighterView,
               fieldData: fieldData.commandString,
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.commandString.name,
-                defaultValue: '',
-              }),
+              value: commandString,
               language: 'sql',
               innerProps: {
                 wrapLines: false,
