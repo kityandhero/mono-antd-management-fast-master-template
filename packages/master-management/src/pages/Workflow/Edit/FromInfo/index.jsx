@@ -29,6 +29,7 @@ import {
 } from 'antd-management-fast-design-playground';
 
 import { accessWayCollection, simpleQRCode } from '../../../../customConfig';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { fieldData as fieldDataWorkflowFormDesign } from '../../../WorkflowFormDesign/Common/data';
 import { DesignDrawer } from '../../../WorkflowFormDesign/DesignDrawer';
 import { FlowCaseFormDocumentDrawer } from '../../../WorkflowFormDesign/FlowCaseFormDocumentDrawer';
@@ -55,8 +56,10 @@ class BasicInfo extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'workflowFormDesign/getByWorkflow',
-      submitApiPath: 'workflowFormDesign/updateBasicInfo',
+      loadApiPath:
+        modelTypeCollection.workflowFormDesignTypeCollection.getByWorkflow,
+      submitApiPath:
+        modelTypeCollection.workflowFormDesignTypeCollection.updateBasicInfo,
       workflowId: null,
     };
   }
@@ -149,16 +152,8 @@ class BasicInfo extends TabPageBase {
   }) => {
     const values = {};
 
+    // eslint-disable-next-line no-empty
     if (metaData != null) {
-      values[fieldData.name.name] = getValueByKey({
-        data: metaData,
-        key: fieldData.name.name,
-      });
-
-      values[fieldData.description.name] = getValueByKey({
-        data: metaData,
-        key: fieldData.description.name,
-      });
     }
 
     return values;
