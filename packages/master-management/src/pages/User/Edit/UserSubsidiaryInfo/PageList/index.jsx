@@ -21,6 +21,7 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../../../customConfig';
 import { getUserSubsidiaryInfoStatusName } from '../../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../../modelBuilders';
 import { PageListBindUserDrawer } from '../../../../Subsidiary/PageListBindUserDrawer';
 import {
   refreshCacheAction,
@@ -54,7 +55,8 @@ class PageList extends InnerMultiPage {
       ...this.state,
       pageTitle: '用户公司关系列表',
       paramsKey: accessWayCollection.userSubsidiaryInfo.pageList.paramsKey,
-      loadApiPath: 'userSubsidiaryInfo/pageList',
+      loadApiPath:
+        modelTypeCollection.userSubsidiaryInfoTypeCollection.pageList,
       dateRangeFieldName: '创建时间',
       userId: null,
     };
