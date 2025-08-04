@@ -15,6 +15,7 @@ import {
   getChannelName,
   getGalleryStatusName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   refreshCacheAction,
   setOfflineAction,
@@ -48,7 +49,7 @@ class Edit extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'gallery/get',
+      loadApiPath: modelTypeCollection.galleryTypeCollection.get,
       backPath: `/assistTools/gallery/pageList/key`,
       galleryId: null,
     };

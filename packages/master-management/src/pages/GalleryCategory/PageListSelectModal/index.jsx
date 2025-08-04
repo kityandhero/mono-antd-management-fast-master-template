@@ -11,13 +11,13 @@ import {
 } from 'antd-management-fast-framework';
 
 import { getGalleryCategoryStatusName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
 const { MultiPageSelectModal } = DataMultiPageView;
 
 const visibleFlag = '8bba4702fc574b28b7252f5642cdcda0';
-
 @connect(({ galleryCategory, schedulingControl }) => ({
   galleryCategory,
   schedulingControl,
@@ -35,7 +35,7 @@ class PageListSelectModal extends MultiPageSelectModal {
     this.state = {
       ...this.state,
       pageTitle: '展示图类别选择列表',
-      loadApiPath: 'galleryCategory/pageList',
+      loadApiPath: modelTypeCollection.galleryCategoryTypeCollection.pageList,
       listViewMode: listViewConfig.viewMode.table,
       tableScrollX: 1020,
     };

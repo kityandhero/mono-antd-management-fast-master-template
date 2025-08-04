@@ -25,6 +25,7 @@ import {
   getGalleryCategoryStatusName,
   renderSearchGalleryCategoryStatusSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import AddBasicInfoDrawer from '../AddBasicInfoDrawer';
 import {
   refreshCacheAction,
@@ -53,7 +54,7 @@ class PageList extends MultiPage {
       ...this.state,
       paramsKey: accessWayCollection.galleryCategory.pageList.paramsKey,
       pageTitle: '展示图分类列表',
-      loadApiPath: 'galleryCategory/pageList',
+      loadApiPath: modelTypeCollection.galleryCategoryTypeCollection.pageList,
       currentRecord: null,
     };
   }

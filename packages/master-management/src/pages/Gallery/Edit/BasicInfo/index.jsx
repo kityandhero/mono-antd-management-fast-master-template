@@ -19,6 +19,7 @@ import {
   buildUpdateTimeAndOperatorFieldItem,
   renderFormGalleryTypeSelect,
 } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { singleTreeListAction as categorySingleTreeListAction } from '../../../GalleryCategory/Assist/action';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData, typeCollection } from '../../Common/data';
@@ -36,8 +37,8 @@ class Index extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'gallery/get',
-      submitApiPath: 'gallery/updateBasicInfo',
+      loadApiPath: modelTypeCollection.galleryTypeCollection.get,
+      submitApiPath: modelTypeCollection.galleryTypeCollection.updateBasicInfo,
       categoryTreeData: [],
       galleryId: '',
       categoryId: '',

@@ -28,6 +28,7 @@ import {
   getGalleryStatusName,
   renderSearchGalleryStatusSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   refreshCacheAction,
   removeAction,
@@ -51,10 +52,10 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
+      listViewMode: listViewConfig.viewMode.list,
       pageTitle: '展示图列表',
       paramsKey: accessWayCollection.gallery.pageList.paramsKey,
-      listViewMode: listViewConfig.viewMode.list,
-      loadApiPath: 'gallery/pageList',
+      loadApiPath: modelTypeCollection.galleryTypeCollection.pageList,
       currentRecord: null,
     };
   }

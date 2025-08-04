@@ -10,6 +10,7 @@ import {
 } from 'antd-management-fast-framework';
 
 import { getGalleryCategoryStatusName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
@@ -33,7 +34,7 @@ class PageListDrawer extends MultiPageSelectDrawer {
     this.state = {
       ...this.state,
       tableScrollX: 880,
-      loadApiPath: 'galleryCategory/pageList',
+      loadApiPath: modelTypeCollection.galleryCategoryTypeCollection.pageList,
     };
   }
 
