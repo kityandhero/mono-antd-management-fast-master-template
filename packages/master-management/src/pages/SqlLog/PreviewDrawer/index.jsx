@@ -1,7 +1,7 @@
 import { format } from 'sql-formatter';
 
 import { connect } from 'easy-soft-dva';
-import { formatCollection, getValueByKey, logConsole } from 'easy-soft-utility';
+import { formatCollection, getValueByKey } from 'easy-soft-utility';
 
 import {
   cardConfig,
@@ -76,14 +76,6 @@ class PreviewDrawer extends BaseLoadDrawer {
       keywordCase: 'upper',
       linesBetweenQueries: 2,
     });
-
-    logConsole(
-      {
-        commandString,
-        commandStringFormat,
-      },
-      'doOtherAfterLoadSuccess',
-    );
 
     this.setState({
       commandString: commandStringFormat,
