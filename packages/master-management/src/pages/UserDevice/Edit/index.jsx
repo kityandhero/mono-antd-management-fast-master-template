@@ -16,6 +16,7 @@ import {
   getDeviceTypeName,
   getUserStatusName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshCacheAction } from '../Assist/action';
 import {
   checkNeedUpdateAssist,
@@ -51,7 +52,7 @@ class Detail extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'userDevice/get',
+      loadApiPath: modelTypeCollection.userDeviceTypeCollection.get,
       backPath: `/person/userDevice/pageList/key`,
       userDeviceId: null,
     };

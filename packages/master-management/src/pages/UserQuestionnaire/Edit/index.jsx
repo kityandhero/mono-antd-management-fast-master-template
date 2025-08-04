@@ -15,6 +15,7 @@ import {
   getChannelName,
   getUserQuestionnaireStatusName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshCacheAction } from '../Assist/action';
 import {
   checkNeedUpdateAssist,
@@ -44,7 +45,7 @@ class Edit extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'userQuestionnaire/get',
+      loadApiPath: modelTypeCollection.userQuestionnaireTypeCollection.get,
       backPath: `/userQuestionnaire/pageList/key`,
       userQuestionnaireId: null,
     };

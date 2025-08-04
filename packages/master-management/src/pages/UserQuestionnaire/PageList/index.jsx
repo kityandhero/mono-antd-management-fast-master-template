@@ -13,6 +13,7 @@ import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshCacheAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
@@ -33,7 +34,7 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '列表',
       paramsKey: accessWayCollection.userQuestionnaire.pageList.paramsKey,
-      loadApiPath: 'userQuestionnaire/pageList',
+      loadApiPath: modelTypeCollection.userQuestionnaireTypeCollection.pageList,
       currentRecord: null,
     };
   }

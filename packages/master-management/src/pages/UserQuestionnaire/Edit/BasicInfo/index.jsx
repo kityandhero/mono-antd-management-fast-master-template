@@ -9,6 +9,7 @@ import { iconBuilder } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
 import { buildUpdateTimeAndOperatorFieldItem } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
@@ -28,8 +29,9 @@ class Index extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'userQuestionnaire/get',
-      submitApiPath: 'userQuestionnaire/updateBasicInfo',
+      loadApiPath: modelTypeCollection.userQuestionnaireTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.userQuestionnaireTypeCollection.updateBasicInfo,
       userQuestionnaireId: null,
     };
   }

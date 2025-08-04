@@ -16,6 +16,7 @@ import {
   buildUpdateTimeAndOperatorFieldItem,
   getDeviceTypeName,
 } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
@@ -32,7 +33,7 @@ class BasicInfo extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'userDevice/get',
+      loadApiPath: modelTypeCollection.userDeviceTypeCollection.get,
       userDeviceId: null,
       avatar: '',
     };

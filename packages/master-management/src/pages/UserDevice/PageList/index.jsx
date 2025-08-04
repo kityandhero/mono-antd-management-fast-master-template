@@ -23,6 +23,7 @@ import {
   getUserDeviceStatusName,
   renderSearchDeviceTypeSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import AddBasicInfoDrawer from '../Add';
 import { refreshCacheAction, removeAction } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
@@ -44,7 +45,7 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '用户列表',
       paramsKey: accessWayCollection.userDevice.pageList.paramsKey,
-      loadApiPath: 'userDevice/pageList',
+      loadApiPath: modelTypeCollection.userDeviceTypeCollection.pageList,
       dateRangeFieldName: '创建时间',
     };
   }
