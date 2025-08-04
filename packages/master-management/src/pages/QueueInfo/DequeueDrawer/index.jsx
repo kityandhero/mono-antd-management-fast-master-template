@@ -8,6 +8,7 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseLoadDrawer } = DataDrawer;
@@ -31,7 +32,7 @@ class DequeueDrawer extends BaseLoadDrawer {
     this.state = {
       ...this.state,
       pageTitle: '尝试消费队列数据',
-      loadApiPath: 'queueInfo/tryDequeue',
+      loadApiPath: modelTypeCollection.queueInfoTypeCollection.tryDequeue,
       json: '',
     };
   }

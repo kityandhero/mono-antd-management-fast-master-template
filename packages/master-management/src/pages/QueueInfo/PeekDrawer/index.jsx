@@ -8,10 +8,10 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseLoadDrawer } = DataDrawer;
-
 const visibleFlag = '7aa13e812f1e4247b72c5988c9923245';
 
 @connect(({ queueInfo, schedulingControl }) => ({
@@ -31,7 +31,7 @@ class PeekDrawer extends BaseLoadDrawer {
     this.state = {
       ...this.state,
       pageTitle: '尝试读取队列数据',
-      loadApiPath: 'queueInfo/tryPeek',
+      loadApiPath: modelTypeCollection.queueInfoTypeCollection.tryPeek,
       json: '',
     };
   }

@@ -15,6 +15,7 @@ import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   tryPurgeAction,
   trySendAction,
@@ -39,7 +40,7 @@ class Index extends MultiPage {
       ...this.state,
       pageTitle: '异常列表',
       paramsKey: accessWayCollection.queueInfo.pageList.paramsKey,
-      loadApiPath: 'queueInfo/pageList',
+      loadApiPath: modelTypeCollection.queueInfoTypeCollection.pageList,
       currentRecord: null,
       canReStart: whetherNumber.no,
     };

@@ -7,10 +7,10 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseLoadDrawer } = DataDrawer;
-
 const visibleFlag = '189c0b9766d84fa2b5117a9b17a53497';
 
 @connect(({ queueInfo, schedulingControl }) => ({
@@ -30,7 +30,7 @@ class PreviewDrawer extends BaseLoadDrawer {
     this.state = {
       ...this.state,
       pageTitle: '队列摘要信息',
-      loadApiPath: 'queueInfo/get',
+      loadApiPath: modelTypeCollection.queueInfoTypeCollection.get,
     };
   }
 

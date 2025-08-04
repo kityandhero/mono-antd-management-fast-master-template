@@ -14,10 +14,10 @@ import {
   renderFormBusinessModeSelect,
   renderFormOptionPoolCategorySelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
-
 const visibleFlag = 'a08a4e2b112141a99351d39e314e3354';
 
 @connect(({ optionPool, schedulingControl }) => ({
@@ -37,8 +37,9 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'optionPool/get',
-      submitApiPath: 'optionPool/updateBasicInfo',
+      loadApiPath: modelTypeCollection.optionPoolTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.optionPoolTypeCollection.updateBasicInfo,
       imageUrl: '',
       appHeadImage: '',
     };

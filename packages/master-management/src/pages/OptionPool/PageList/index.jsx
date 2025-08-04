@@ -26,6 +26,7 @@ import {
   getOptionPoolCategoryName,
   getOptionPoolStatusName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { AddBasicInfoDrawer } from '../AddBasicInfoDrawer';
 import {
   refreshCacheAction,
@@ -53,7 +54,7 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '选项集合列表',
       paramsKey: accessWayCollection.optionPool.pageList.paramsKey,
-      loadApiPath: 'optionPool/pageList',
+      loadApiPath: modelTypeCollection.optionPoolTypeCollection.pageList,
       dateRangeFieldName: '开通时间',
       tableScrollX: 1520,
       currentRecord: null,

@@ -13,6 +13,7 @@ import {
   renderFormBusinessModeSelect,
   renderFormOptionPoolCategorySelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseAddDrawer } = DataDrawer;
@@ -35,8 +36,8 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'optionPool/get',
-      submitApiPath: 'optionPool/addBasicInfo',
+      loadApiPath: modelTypeCollection.optionPoolTypeCollection.get,
+      submitApiPath: modelTypeCollection.optionPoolTypeCollection.addBasicInfo,
     };
   }
 

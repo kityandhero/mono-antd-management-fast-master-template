@@ -5,6 +5,7 @@ import { cardConfig } from 'antd-management-fast-common';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
@@ -28,8 +29,8 @@ class UpdateSortModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '排序值设置',
-      loadApiPath: 'optionPool/get',
-      submitApiPath: 'optionPool/updateSort',
+      loadApiPath: modelTypeCollection.optionPoolTypeCollection.get,
+      submitApiPath: modelTypeCollection.optionPoolTypeCollection.updateSort,
     };
   }
 
