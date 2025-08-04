@@ -8,6 +8,7 @@ import {
   DataTabContainerSupplement,
   getErrorLogResolveName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
@@ -35,7 +36,7 @@ class Index extends DataTabContainerSupplement {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'errorLog/get',
+      loadApiPath: modelTypeCollection.errorLogTypeCollection.get,
       backPath: `/logs/errorLog/pageList/key`,
       errorLogId: null,
     };

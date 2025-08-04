@@ -8,10 +8,10 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseLoadDrawer } = DataDrawer;
-
 const visibleFlag = '4b04425da2f94bdcb96027c2cfc8d549';
 
 @connect(({ errorLog, schedulingControl }) => ({
@@ -31,7 +31,7 @@ class PreviewDrawer extends BaseLoadDrawer {
     this.state = {
       ...this.state,
       pageTitle: '异常摘要信息',
-      loadApiPath: 'errorLog/get',
+      loadApiPath: modelTypeCollection.errorLogTypeCollection.get,
     };
   }
 

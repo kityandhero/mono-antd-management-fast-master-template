@@ -23,6 +23,7 @@ import {
   renderSearchErrorLogResolveSelect,
   renderSearchWebChannelSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   createTestExceptionAction,
   removeAction,
@@ -47,7 +48,7 @@ class Index extends MultiPage {
       ...this.state,
       pageTitle: '异常列表',
       paramsKey: accessWayCollection.errorLog.pageList.paramsKey,
-      loadApiPath: 'errorLog/pageList',
+      loadApiPath: modelTypeCollection.errorLogTypeCollection.pageList,
       dateRangeFieldName: '发生时段',
       currentRecord: null,
     };

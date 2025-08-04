@@ -18,6 +18,7 @@ import {
 } from 'antd-management-fast-framework';
 
 import { getWebChannelName } from '../../customSpecialComponents';
+import { modelTypeCollection } from '../../modelBuilders';
 import { removeAction } from '../ErrorLog/Assist/action';
 import { getResolveBadge } from '../ErrorLog/Assist/tools';
 import { fieldData } from '../ErrorLog/Common/data';
@@ -51,7 +52,7 @@ class Index extends MultiPage {
       ...this.state,
       pageTitle: '工作台',
       listTitle: '新近异常列表',
-      loadApiPath: 'errorLog/pageList',
+      loadApiPath: modelTypeCollection.errorLogTypeCollection.pageList,
       tableScrollX: 1020,
       currentOperator: null,
     };
