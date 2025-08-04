@@ -5,13 +5,13 @@ import { cardConfig } from 'antd-management-fast-common';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
 import { renderFormSectionRenderTypeSelect } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = '87801b1cb8d8420ca3056d136fc09711';
-
 @connect(({ section, schedulingControl }) => ({
   section,
   schedulingControl,
@@ -27,8 +27,8 @@ class ChangeRenderTypeModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '渲染模式设置',
-      loadApiPath: 'section/get',
-      submitApiPath: 'section/updateRenderType',
+      loadApiPath: modelTypeCollection.sectionTypeCollection.get,
+      submitApiPath: modelTypeCollection.sectionTypeCollection.updateRenderType,
     };
   }
 

@@ -9,10 +9,10 @@ import {
 } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { configItemData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
-
 const visibleFlag = 'e860d561c19941fc9ef4655666617a9e';
 
 @connect(({ sectionApplicationConfig, schedulingControl }) => ({
@@ -33,8 +33,12 @@ class UpdateConfigItemDrawer extends BaseUpdateDrawer {
     this.state = {
       ...this.state,
       pageTitle: '编辑栏目特定页面自定义配置',
-      loadApiPath: 'sectionApplicationConfig/getConfigItem',
-      submitApiPath: 'sectionApplicationConfig/updateConfigItem',
+      loadApiPath:
+        modelTypeCollection.sectionApplicationConfigTypeCollection
+          .getConfigItem,
+      submitApiPath:
+        modelTypeCollection.sectionApplicationConfigTypeCollection
+          .updateConfigItem,
       icon: '',
     };
   }

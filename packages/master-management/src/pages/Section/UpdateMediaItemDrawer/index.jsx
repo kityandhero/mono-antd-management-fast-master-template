@@ -18,6 +18,7 @@ import {
   keyValueItemData,
   keyValueTypeCollection,
 } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 
 const { BaseUpdateDrawer } = DataDrawer;
 
@@ -40,8 +41,8 @@ class UpdateMediaItemDrawer extends BaseUpdateDrawer {
     this.state = {
       ...this.state,
       pageTitle: '修改媒体',
-      loadApiPath: 'section/getMediaItem',
-      submitApiPath: 'section/updateMediaItem',
+      loadApiPath: modelTypeCollection.sectionTypeCollection.getMediaItem,
+      submitApiPath: modelTypeCollection.sectionTypeCollection.updateMediaItem,
       type: keyValueTypeCollection.text,
       image: '',
       video: '',

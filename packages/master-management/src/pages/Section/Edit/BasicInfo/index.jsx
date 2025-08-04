@@ -15,6 +15,7 @@ import {
 import { buildButton, iconBuilder } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { singleTreeListAction } from '../../Assist/action';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
@@ -32,8 +33,8 @@ class Index extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'section/get',
-      submitApiPath: 'section/updateBasicInfo',
+      loadApiPath: modelTypeCollection.sectionTypeCollection.get,
+      submitApiPath: modelTypeCollection.sectionTypeCollection.updateBasicInfo,
       sectionId: null,
       image: '',
       rectangleImage: '',

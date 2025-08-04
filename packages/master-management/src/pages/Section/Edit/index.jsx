@@ -19,6 +19,7 @@ import {
   DataTabContainerSupplement,
   getSectionStatusName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   refreshCacheAction,
   setOfflineAction,
@@ -80,7 +81,7 @@ class Edit extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'section/get',
+      loadApiPath: modelTypeCollection.sectionTypeCollection.get,
       backPath: `/news/section/pageList/key`,
       sectionId: null,
     };

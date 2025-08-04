@@ -28,6 +28,7 @@ import {
   getSectionStatusName,
   renderSearchSectionStatusSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { AddBasicInfoDrawer } from '../AddBasicInfoDrawer';
 import {
   refreshCacheAction,
@@ -44,7 +45,6 @@ import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData, statusCollection } from '../Common/data';
 
 const { MultiPage } = DataMultiPageView;
-
 @connect(({ section, schedulingControl }) => ({
   section,
   schedulingControl,
@@ -61,7 +61,7 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '栏目列表',
       paramsKey: accessWayCollection.section.pageList.paramsKey,
-      loadApiPath: 'section/pageList',
+      loadApiPath: modelTypeCollection.sectionTypeCollection.pageList,
     };
   }
 

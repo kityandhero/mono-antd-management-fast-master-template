@@ -2,10 +2,10 @@ import { connect } from 'easy-soft-dva';
 
 import { switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { BaseSqlContentDrawer } from '../BaseSqlContentDrawer';
 
 const visibleFlag = '759d016e26c142eaa5c66066138627f9';
-
 @connect(({ sqlEntity, schedulingControl }) => ({
   sqlEntity,
   schedulingControl,
@@ -20,7 +20,7 @@ class SqlContentBusinessDrawer extends BaseSqlContentDrawer {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'sqlEntity/getBusiness',
+      loadApiPath: modelTypeCollection.sqlEntityTypeCollection.getBusiness,
     };
   }
 }

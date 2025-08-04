@@ -5,6 +5,7 @@ import { cardConfig } from 'antd-management-fast-common';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
 import { renderFormBusinessModeSelect } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
@@ -27,8 +28,9 @@ class ChangeBusinessModeModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '适用业务设置',
-      loadApiPath: 'section/get',
-      submitApiPath: 'section/updateBusinessMode',
+      loadApiPath: modelTypeCollection.sectionTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.sectionTypeCollection.updateBusinessMode,
     };
   }
 

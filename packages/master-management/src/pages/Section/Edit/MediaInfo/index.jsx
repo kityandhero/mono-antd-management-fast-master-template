@@ -34,6 +34,7 @@ import {
   keyValueItemData,
   keyValueTypeCollection,
 } from '../../../../customConfig';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { AddMediaItemDrawer } from '../../AddMediaItemDrawer';
 import {
   removeMediaItemAction,
@@ -57,7 +58,7 @@ class MediaInfo extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'section/get',
+      loadApiPath: modelTypeCollection.sectionTypeCollection.get,
       sectionId: null,
       mediaItemList: [],
       mediaItemCount: 0,

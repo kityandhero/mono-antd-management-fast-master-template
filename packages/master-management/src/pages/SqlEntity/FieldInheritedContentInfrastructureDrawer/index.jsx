@@ -3,6 +3,7 @@ import { convertCollection, getValueByKey } from 'easy-soft-utility';
 
 import { switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { BaseFieldContentDrawer } from '../BaseFieldContentDrawer';
 import { fieldData } from '../Common/data';
 
@@ -22,7 +23,8 @@ class FieldInheritedContentInfrastructureDrawer extends BaseFieldContentDrawer {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'sqlEntity/getInfrastructure',
+      loadApiPath:
+        modelTypeCollection.sqlEntityTypeCollection.getInfrastructure,
     };
   }
 

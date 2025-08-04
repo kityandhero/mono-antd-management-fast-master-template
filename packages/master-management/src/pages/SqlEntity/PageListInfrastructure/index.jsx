@@ -11,6 +11,7 @@ import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshCacheAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 import { FieldAllContentInfrastructureDrawer } from '../FieldAllContentInfrastructureDrawer';
@@ -19,7 +20,6 @@ import { FieldInheritedContentInfrastructureDrawer } from '../FieldInheritedCont
 import { SqlContentInfrastructureDrawer } from '../SqlContentInfrastructureDrawer';
 
 const { MultiPage } = DataMultiPageView;
-
 @connect(({ sqlEntity, schedulingControl }) => ({
   sqlEntity,
   schedulingControl,
@@ -35,7 +35,8 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '数据实体列表',
       paramsKey: accessWayCollection.sqlEntity.pageListInfrastructure.paramsKey,
-      loadApiPath: 'sqlEntity/pageListInfrastructure',
+      loadApiPath:
+        modelTypeCollection.sqlEntityTypeCollection.pageListInfrastructure,
       currentRecord: null,
     };
   }

@@ -4,6 +4,7 @@ import { getValueByKey } from 'easy-soft-utility';
 import { switchControlAssist } from 'antd-management-fast-framework';
 
 import { BaseUpdateKeyValueInfoModal } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const visibleFlag = '078394bc1c3f4ee6a66fbf1ff7e3f935';
@@ -23,8 +24,9 @@ class UpdateKeyValueInfoModal extends BaseUpdateKeyValueInfoModal {
     this.state = {
       ...this.state,
       pageTitle: '设置键值信息',
-      loadApiPath: 'section/get',
-      submitApiPath: 'section/updateKeyValueInfo',
+      loadApiPath: modelTypeCollection.sectionTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.sectionTypeCollection.updateKeyValueInfo,
     };
   }
 

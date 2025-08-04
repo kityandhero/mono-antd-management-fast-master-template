@@ -10,10 +10,10 @@ import {
 
 import { accessWayCollection } from '../../../customConfig';
 import { buildUpdateTimeAndOperatorFieldItem } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
-
 const visibleFlag = 'd9c75a9d8183474a94c9e3b032197cc9';
 
 @connect(({ sectionApplicationConfig, schedulingControl }) => ({
@@ -34,8 +34,11 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
     this.state = {
       ...this.state,
       pageTitle: '编辑配置信息',
-      loadApiPath: 'sectionApplicationConfig/get',
-      submitApiPath: 'sectionApplicationConfig/updateBasicInfo',
+      loadApiPath:
+        modelTypeCollection.sectionApplicationConfigTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.sectionApplicationConfigTypeCollection
+          .updateBasicInfo,
       applicationId: '',
       applicationName: '',
     };

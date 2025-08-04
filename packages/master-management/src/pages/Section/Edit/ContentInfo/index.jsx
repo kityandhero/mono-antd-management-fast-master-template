@@ -10,12 +10,12 @@ import { iconBuilder } from 'antd-management-fast-component';
 import { MobileContainor } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../../customConfig';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
 
 const { MobileHtmlPreviewBox } = MobileContainor;
-
 @connect(({ section, schedulingControl }) => ({
   section,
   schedulingControl,
@@ -32,8 +32,9 @@ class ContentInfo extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'section/get',
-      submitApiPath: 'section/updateContentInfo',
+      loadApiPath: modelTypeCollection.sectionTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.sectionTypeCollection.updateContentInfo,
       sectionId: null,
       initContent: '',
       contentPreview: '',
