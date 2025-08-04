@@ -22,6 +22,7 @@ import {
   getChannelName,
   renderSearchChannelSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { PageListDrawer } from '../../ChannelExecuteLogSwitch/PageListDrawer';
 import {
   removeAction,
@@ -45,7 +46,7 @@ class Index extends MultiPage {
       ...this.state,
       pageTitle: '执行日志列表',
       paramsKey: accessWayCollection.executeLog.pageList.paramsKey,
-      loadApiPath: 'executeLog/pageList',
+      loadApiPath: modelTypeCollection.executeLogTypeCollection.pageList,
       dateRangeFieldName: '发生时段',
       currentRecord: null,
     };

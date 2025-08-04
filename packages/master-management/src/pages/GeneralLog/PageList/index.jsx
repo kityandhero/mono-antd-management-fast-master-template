@@ -23,6 +23,7 @@ import {
   renderSearchChannelSelect,
   renderSearchGeneralLogTypeSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   createTestLogAction,
   removeAction,
@@ -46,7 +47,7 @@ class Index extends MultiPage {
       ...this.state,
       pageTitle: '一般日志列表',
       paramsKey: accessWayCollection.generalLog.pageList.paramsKey,
-      loadApiPath: 'generalLog/pageList',
+      loadApiPath: modelTypeCollection.generalLogTypeCollection.pageList,
       dateRangeFieldName: '发生时段',
       currentRecord: null,
     };

@@ -5,6 +5,7 @@ import { getDerivedStateFromPropertiesForUrlParameters } from 'antd-management-f
 import { iconBuilder } from 'antd-management-fast-component';
 
 import { DataTabContainerSupplement } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
@@ -28,7 +29,7 @@ class Index extends DataTabContainerSupplement {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'executeLog/get',
+      loadApiPath: modelTypeCollection.executeLogTypeCollection.get,
       backPath: `/executeLog/pageList/key`,
       executeLogId: null,
     };

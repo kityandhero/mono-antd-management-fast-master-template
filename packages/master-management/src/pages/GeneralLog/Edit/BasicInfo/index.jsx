@@ -13,6 +13,7 @@ import {
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
@@ -29,7 +30,7 @@ class Index extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'generalLog/get',
+      loadApiPath: modelTypeCollection.generalLogTypeCollection.get,
       generalLogId: null,
     };
   }

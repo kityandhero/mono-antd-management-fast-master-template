@@ -8,6 +8,7 @@ import {
   DataTabContainerSupplement,
   getGeneralLogTypeName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
@@ -31,7 +32,7 @@ class Index extends DataTabContainerSupplement {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'generalLog/get',
+      loadApiPath: modelTypeCollection.generalLogTypeCollection.get,
       backPath: `/generalLog/pageList/key`,
       generalLogId: null,
     };

@@ -8,10 +8,10 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseLoadDrawer } = DataDrawer;
-
 const visibleFlag = '7c2bbc50611a496bad27b0e340c2deba';
 
 @connect(({ executeLog, schedulingControl }) => ({
@@ -31,7 +31,7 @@ class PreviewDrawer extends BaseLoadDrawer {
     this.state = {
       ...this.state,
       pageTitle: '日志摘要信息',
-      loadApiPath: 'executeLog/get',
+      loadApiPath: modelTypeCollection.executeLogTypeCollection.get,
     };
   }
 
