@@ -19,6 +19,7 @@ import {
   getChannelName,
   renderSearchManagementChannelSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshCacheAction, testPermissionAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 import { PageListAssemblyVerifyDrawer } from '../PageListAssemblyVerifyDrawer';
@@ -38,7 +39,7 @@ class PageList extends MultiPage {
       ...this.state,
       paramsKey: accessWayCollection.accessWay.pageList.paramsKey,
       pageTitle: '模块列表',
-      loadApiPath: 'accessWay/pageList',
+      loadApiPath: modelTypeCollection.accessWayTypeCollection.pageList,
     };
   }
 

@@ -20,6 +20,7 @@ import {
 } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshSingleTreeListWithCrossingLevelCacheAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
@@ -45,7 +46,9 @@ class TreeCrossingLevelDrawer extends BaseVerticalFlexDrawer {
       ...this.state,
       width: 620,
       pageTitle: '指定节点树预览',
-      loadApiPath: 'administrativeDivision/singleTreeListWithCrossingLevel',
+      loadApiPath:
+        modelTypeCollection.administrativeDivisionTypeCollection
+          .singleTreeListWithCrossingLevel,
       wrapperVisibility: 1,
       crossingLevel: 1,
     };

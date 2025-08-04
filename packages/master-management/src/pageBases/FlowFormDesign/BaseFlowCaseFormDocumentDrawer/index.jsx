@@ -17,6 +17,7 @@ import {
 import { DataDrawer } from 'antd-management-fast-framework';
 
 import { fieldDataFlowFormDesign, signetStyle } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { updateDocumentSchemaAction } from '../Assist/action';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
@@ -44,7 +45,8 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
     this.state = {
       ...this.state,
       pageTitle: '流程表单',
-      loadApiPath: 'workflowFormDesign/getByWorkflow',
+      loadApiPath:
+        modelTypeCollection.workflowFormDesignTypeCollection.getByWorkflow,
       width: 1024,
       overlayButtonOpenText: '查看数据',
       overlayButtonCloseText: '关闭数据',

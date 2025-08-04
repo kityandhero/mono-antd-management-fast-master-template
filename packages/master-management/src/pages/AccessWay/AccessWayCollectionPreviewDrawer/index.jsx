@@ -12,6 +12,7 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { accessWayPermissionFieldData } from '../Common/data';
 
 const { SinglePageDrawer } = DataSinglePageView;
@@ -40,7 +41,7 @@ class AccessWayCollectionPreviewDrawer extends SinglePageDrawer {
     this.state = {
       ...this.state,
       listViewMode: listViewConfig.viewMode.cardCollectionView,
-      loadApiPath: 'accessWay/singleListRoute',
+      loadApiPath: modelTypeCollection.accessWayTypeCollection.singleListRoute,
       showBottomBar: true,
     };
   }

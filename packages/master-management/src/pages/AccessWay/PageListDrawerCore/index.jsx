@@ -17,6 +17,7 @@ import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { getChannelName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { MultiPageDrawer } = DataMultiPageView;
@@ -29,7 +30,7 @@ class PageListDrawerCore extends MultiPageDrawer {
       ...this.state,
       tableScrollX: 1520,
       channel: unlimitedWithStringFlag.flag,
-      loadApiPath: 'accessWay/pageList',
+      loadApiPath: modelTypeCollection.accessWayTypeCollection.pageList,
       dateRangeFieldName: '创建时间',
     };
   }

@@ -20,6 +20,7 @@ import {
 } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshSingleTreeListWithDefaultProvinceCacheAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
@@ -45,7 +46,9 @@ class TreeDefaultProvinceDrawer extends BaseVerticalFlexDrawer {
       ...this.state,
       width: 640,
       pageTitle: '默认省节点树预览',
-      loadApiPath: 'administrativeDivision/singleTreeListWithDefaultProvince',
+      loadApiPath:
+        modelTypeCollection.administrativeDivisionTypeCollection
+          .singleTreeListWithDefaultProvince,
       wrapperVisibility: 1,
       crossingLevel: 1,
     };

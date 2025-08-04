@@ -22,6 +22,7 @@ import {
   getAdministrativeDivisionStatusName,
   renderSearchAdministrativeDivisionLevelSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshCacheAction } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
@@ -49,7 +50,8 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '行政区划列表',
       paramsKey: accessWayCollection.administrativeDivision.pageList.paramsKey,
-      loadApiPath: 'administrativeDivision/pageList',
+      loadApiPath:
+        modelTypeCollection.administrativeDivisionTypeCollection.pageList,
       currentRecord: null,
     };
   }

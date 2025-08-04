@@ -15,6 +15,7 @@ import {
   getAdministrativeDivisionStatusName,
   getChannelName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshCacheAction } from '../Assist/action';
 import {
   checkNeedUpdateAssist,
@@ -44,7 +45,7 @@ class Edit extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'administrativeDivision/get',
+      loadApiPath: modelTypeCollection.administrativeDivisionTypeCollection.get,
       backPath: `/administrativeDivision/pageList/key`,
       administrativeDivisionId: null,
     };

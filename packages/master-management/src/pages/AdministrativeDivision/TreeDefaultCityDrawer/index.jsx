@@ -20,6 +20,7 @@ import {
 } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshSingleTreeListWithDefaultCityCacheAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
@@ -45,7 +46,9 @@ class TreeDefaultCityDrawer extends BaseVerticalFlexDrawer {
       ...this.state,
       width: 640,
       pageTitle: '默认市节点树预览',
-      loadApiPath: 'administrativeDivision/singleTreeListWithDefaultCity',
+      loadApiPath:
+        modelTypeCollection.administrativeDivisionTypeCollection
+          .singleTreeListWithDefaultCity,
       wrapperVisibility: 1,
       crossingLevel: 1,
     };

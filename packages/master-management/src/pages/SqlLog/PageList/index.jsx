@@ -13,6 +13,7 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
 import { getChannelName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { PageListDrawer } from '../../ChannelSqlLogSwitch/PageListDrawer';
 import {
   createTestLogAction,
@@ -37,7 +38,7 @@ class Index extends MultiPage {
       ...this.state,
       pageTitle: 'SQL日志列表',
       paramsKey: accessWayCollection.sqlLog.pageList.paramsKey,
-      loadApiPath: 'sqlLog/pageList',
+      loadApiPath: modelTypeCollection.sqlLogTypeCollection.pageList,
       tableScrollX: 2200,
       dateRangeFieldName: '发生时段',
       currentRecord: null,

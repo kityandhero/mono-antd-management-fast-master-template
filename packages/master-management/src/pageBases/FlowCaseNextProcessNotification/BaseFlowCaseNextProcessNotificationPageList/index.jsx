@@ -22,6 +22,7 @@ import {
   getChannelName,
   getFlowCaseNextProcessNotificationStatusName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { getFlowCaseNextProcessNotificationStatusBadge } from '../Assist/tools';
 
 const { MultiPage } = DataMultiPageView;
@@ -34,7 +35,7 @@ class BaseFlowCaseNextProcessNotificationPageList extends MultiPage {
       ...this.state,
       pageTitle: '流程实例下一审批通知列表',
       paramsKey: accessWayCollection.workflowCase.pageList.paramsKey,
-      loadApiPath: 'workflowCase/pageList',
+      loadApiPath: modelTypeCollection.workflowCaseTypeCollection.pageList,
       dateRangeFieldName: '创建时间',
       currentRecord: null,
     };
