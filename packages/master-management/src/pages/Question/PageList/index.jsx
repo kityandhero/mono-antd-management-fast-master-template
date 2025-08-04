@@ -28,6 +28,7 @@ import {
   renderSearchQuestionStatusSelect,
   renderSearchQuestionTypeSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { singleTreeListWithQuestionAction } from '../../Tag/Assist/action';
 import { AddBasicInfoDrawer } from '../AddBasicInfoDrawer';
 import {
@@ -43,7 +44,6 @@ import { PracticeModal } from '../PracticeModal';
 import { UpdateAnswerDrawer } from '../UpdateAnswerDrawer';
 
 const { MultiPage } = DataMultiPageView;
-
 @connect(({ question, schedulingControl }) => ({
   question,
   schedulingControl,
@@ -61,7 +61,7 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '问题列表',
       paramsKey: accessWayCollection.question.pageList.paramsKey,
-      loadApiPath: 'question/pageList',
+      loadApiPath: modelTypeCollection.questionTypeCollection.pageList,
       currentRecord: null,
       tagIdCollection: [],
       tagName: '',

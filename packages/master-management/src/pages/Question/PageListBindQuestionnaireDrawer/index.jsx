@@ -21,6 +21,7 @@ import {
   getQuestionStatusName,
   getQuestionTypeName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { bindRelationAction } from '../../QuestionnaireQuestionRelation/Assist/action';
 import { fieldData as fieldDataQuestionnaireQuestion } from '../../QuestionnaireQuestionRelation/Common/data';
 import { getStatusBadge } from '../Assist/tools';
@@ -30,7 +31,6 @@ const { MultiPageDrawer } = DataMultiPageView;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = '951a69342a164cf1a0a1c08dc2cb2221';
-
 @connect(({ question, userSubsidiaryInfo, schedulingControl }) => ({
   question,
   userSubsidiaryInfo,
@@ -52,7 +52,8 @@ class PageListBindQuestionnaireDrawer extends MultiPageDrawer {
     this.state = {
       ...this.state,
       pageTitle: '绑定到问卷',
-      loadApiPath: 'question/pageListWithoutQuestionnaire',
+      loadApiPath:
+        modelTypeCollection.questionTypeCollection.pageListWithoutQuestionnaire,
       tableScrollX: 1320,
     };
   }

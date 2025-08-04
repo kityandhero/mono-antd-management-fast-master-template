@@ -24,6 +24,7 @@ import {
   getChannelName,
   getQuestionnaireStatusName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   refreshCacheAction,
   setOfflineAction,
@@ -76,7 +77,7 @@ class Edit extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'questionnaire/get',
+      loadApiPath: modelTypeCollection.questionnaireTypeCollection.get,
       backPath: `/questionnaire/pageList/key`,
       questionnaireId: null,
     };

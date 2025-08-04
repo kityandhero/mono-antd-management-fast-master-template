@@ -14,6 +14,7 @@ import { cardConfig } from 'antd-management-fast-common';
 import { ColorText } from 'antd-management-fast-component';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData as fieldDataQuestionItem } from '../../QuestionItem/Common/data';
 import { practiceAction } from '../Assist/action';
 import { getTypeName } from '../Assist/tools';
@@ -21,7 +22,6 @@ import { fieldData, typeCollection } from '../Common/data';
 
 const { Paragraph } = Typography;
 const { BaseUpdateModal } = DataModal;
-
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = '1cd0bc39bdcb4418895622c3860436e1';
 
@@ -44,8 +44,8 @@ class PracticeModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '测试题目',
-      loadApiPath: 'question/get',
-      submitApiPath: 'question/practice',
+      loadApiPath: modelTypeCollection.questionTypeCollection.get,
+      submitApiPath: modelTypeCollection.questionTypeCollection.practice,
       /**
        * 题目测验是否已完成
        */

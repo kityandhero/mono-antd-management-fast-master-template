@@ -28,6 +28,7 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../../../customConfig';
 import { getQuestionItemStatusName } from '../../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../../modelBuilders';
 import { AddBasicInfoDrawer } from '../../../../QuestionItem/AddBasicInfoDrawer';
 import {
   refreshCacheAction,
@@ -81,7 +82,7 @@ class PageList extends InnerMultiPage {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'questionItem/pageList',
+      loadApiPath: modelTypeCollection.questionItemTypeCollection.pageList,
       questionId: null,
       currentRecord: null,
     };

@@ -17,6 +17,7 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
 import { getQuestionItemStatusName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshCacheAction } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { ChangeSortModal } from '../ChangeSortModal';
@@ -24,7 +25,6 @@ import { fieldData } from '../Common/data';
 import { OperateLogDrawer } from '../OperateLogDrawer';
 
 const { MultiPage } = DataMultiPageView;
-
 @connect(({ questionItem, schedulingControl }) => ({
   questionItem,
   schedulingControl,
@@ -39,7 +39,7 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '问题选项列表',
       paramsKey: accessWayCollection.questionItem.pageList.paramsKey,
-      loadApiPath: 'questionItem/pageList',
+      loadApiPath: modelTypeCollection.questionItemTypeCollection.pageList,
       currentRecord: null,
     };
   }

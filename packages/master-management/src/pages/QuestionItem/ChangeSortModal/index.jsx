@@ -4,13 +4,13 @@ import { convertCollection, getValueByKey } from 'easy-soft-utility';
 import { cardConfig } from 'antd-management-fast-common';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = 'f213579de6ec4dd09187e394e8e0ba88';
-
 @connect(({ questionItem, schedulingControl }) => ({
   questionItem,
   schedulingControl,
@@ -26,8 +26,8 @@ class ChangeSortModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '排序值设置',
-      loadApiPath: 'questionItem/get',
-      submitApiPath: 'questionItem/updateSort',
+      loadApiPath: modelTypeCollection.questionItemTypeCollection.get,
+      submitApiPath: modelTypeCollection.questionItemTypeCollection.updateSort,
     };
   }
 

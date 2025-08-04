@@ -5,6 +5,7 @@ import { cardConfig } from 'antd-management-fast-common';
 import { FunctionSupplement } from 'antd-management-fast-component';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
@@ -30,8 +31,9 @@ class ChangeWhetherCorrectModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '设置判断结果',
-      loadApiPath: 'question/get',
-      submitApiPath: 'question/updateWhetherCorrect',
+      loadApiPath: modelTypeCollection.questionTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.questionTypeCollection.updateWhetherCorrect,
     };
   }
 

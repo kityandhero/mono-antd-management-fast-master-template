@@ -21,6 +21,7 @@ import {
   getQuestionStatusName,
   getQuestionTypeName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData as fieldDataQuestionTagRelation } from '../../QuestionTagRelation/Common/data';
 import {
   refreshCacheAction,
@@ -84,7 +85,7 @@ class Edit extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'question/get',
+      loadApiPath: modelTypeCollection.questionTypeCollection.get,
       backPath: `/survey/question/pageList/key`,
       questionId: null,
     };

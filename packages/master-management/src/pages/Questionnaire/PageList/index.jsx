@@ -33,6 +33,7 @@ import {
   renderSearchQuestionnaireQuestionCreateModeSelect,
   renderSearchQuestionnaireStatusSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { AddBasicInfoDrawer } from '../AddBasicInfoDrawer';
 import {
   refreshCacheAction,
@@ -75,7 +76,7 @@ class PageList extends MultiPage {
       pageTitle: '问卷列表',
       tableScrollX: 1820,
       paramsKey: accessWayCollection.questionnaire.pageList.paramsKey,
-      loadApiPath: 'questionnaire/pageList',
+      loadApiPath: modelTypeCollection.questionnaireTypeCollection.pageList,
       currentRecord: null,
     };
   }

@@ -16,6 +16,7 @@ import {
 import { EverySpace, iconBuilder } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { fieldData as fieldDataQuestionItem } from '../../../QuestionItem/Common/data';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { getTypeName } from '../../Assist/tools';
@@ -36,8 +37,8 @@ class Index extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'question/get',
-      submitApiPath: 'question/updateAnswer',
+      loadApiPath: modelTypeCollection.questionTypeCollection.get,
+      submitApiPath: modelTypeCollection.questionTypeCollection.updateAnswer,
       questionId: null,
     };
   }

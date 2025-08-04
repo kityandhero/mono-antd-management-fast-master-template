@@ -12,6 +12,7 @@ import {
 } from 'antd-management-fast-framework';
 
 import { buildUpdateTimeAndOperatorFieldItem } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
@@ -36,8 +37,9 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
     this.state = {
       ...this.state,
       pageTitle: '编辑选项信息',
-      loadApiPath: 'questionItem/get',
-      submitApiPath: 'questionItem/updateBasicInfo',
+      loadApiPath: modelTypeCollection.questionItemTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.questionItemTypeCollection.updateBasicInfo,
     };
   }
 

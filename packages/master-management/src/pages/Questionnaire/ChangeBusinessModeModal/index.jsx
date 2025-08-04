@@ -5,13 +5,13 @@ import { cardConfig } from 'antd-management-fast-common';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
 import { renderFormBusinessModeSelect } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = '0439592d438743f98114a1034ccf1650';
-
 @connect(({ questionnaire, schedulingControl }) => ({
   questionnaire,
   schedulingControl,
@@ -27,8 +27,9 @@ class ChangeBusinessModeModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '适用业务设置',
-      loadApiPath: 'questionnaire/get',
-      submitApiPath: 'questionnaire/updateBusinessMode',
+      loadApiPath: modelTypeCollection.questionnaireTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.questionnaireTypeCollection.updateBusinessMode,
     };
   }
 

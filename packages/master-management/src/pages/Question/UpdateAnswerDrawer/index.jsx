@@ -15,13 +15,13 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData as fieldDataQuestionItem } from '../../QuestionItem/Common/data';
 import { fieldData, typeCollection } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
 
 const visibleFlag = 'd3f287ec3d3241b591ad9bbbf249b049';
-
 const { Paragraph } = Typography;
 
 @connect(({ question, schedulingControl }) => ({
@@ -39,8 +39,8 @@ class UpdateAnswerDrawer extends BaseUpdateDrawer {
     this.state = {
       ...this.state,
       pageTitle: '编辑答案解析',
-      loadApiPath: 'question/get',
-      submitApiPath: 'question/updateAnswer',
+      loadApiPath: modelTypeCollection.questionTypeCollection.get,
+      submitApiPath: modelTypeCollection.questionTypeCollection.updateAnswer,
     };
   }
 

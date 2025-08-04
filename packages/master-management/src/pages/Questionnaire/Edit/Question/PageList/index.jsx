@@ -15,6 +15,7 @@ import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../../../customConfig';
+import { modelTypeCollection } from '../../../../../modelBuilders';
 import { PageListBindQuestionnaireDrawer } from '../../../../Question/PageListBindQuestionnaireDrawer';
 import { PracticeModal } from '../../../../Question/PracticeModal';
 import { unbindRelationAction } from '../../../../QuestionnaireQuestionRelation/Assist/action';
@@ -37,7 +38,9 @@ class PageList extends InnerMultiPage {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'questionnaireQuestionRelation/pageList',
+      loadApiPath:
+        modelTypeCollection.questionnaireQuestionRelationTypeCollection
+          .pageList,
       dateRangeFieldName: '绑定时间',
       questionnaireId: null,
       currentRecord: null,
