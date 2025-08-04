@@ -8,11 +8,11 @@ import {
 } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 
 const { BaseLoadDrawer } = DataDrawer;
 
 const visibleFlag = 'bea96cb3af38411d8b4a0f2bd43951d9';
-
 @connect(({ subsidiary, schedulingControl }) => ({
   subsidiary,
   schedulingControl,
@@ -30,7 +30,7 @@ class TreeDrawer extends BaseLoadDrawer {
     this.state = {
       ...this.state,
       // pageTitle: '子公司结构树型展示',
-      loadApiPath: 'subsidiary/singleTreeList',
+      loadApiPath: modelTypeCollection.subsidiaryTypeCollection.singleTreeList,
     };
   }
 

@@ -18,6 +18,7 @@ import {
   DataTabContainerSupplement,
   getTagStatusName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { GraphicalSingleSubsidiaryDepartmentTreeDrawer } from '../../Organization/GraphicalSingleSubsidiaryDepartmentTreeDrawer';
 import {
   refreshCacheAction,
@@ -58,7 +59,7 @@ class Detail extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'subsidiary/get',
+      loadApiPath: modelTypeCollection.subsidiaryTypeCollection.get,
       backPath: `/organization/subsidiary/pageList/key`,
       subsidiaryId: null,
     };

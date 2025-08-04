@@ -17,6 +17,7 @@ import {
 
 import { accessWayCollection } from '../../../customConfig';
 import { getSubsidiaryStatusName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { addAction } from '../../WorkflowRangeEffectiveSubsidiaryRelation/Assist/action';
 import { fieldData as fieldDataWorkflowRangeEffectiveSubsidiaryRelation } from '../../WorkflowRangeEffectiveSubsidiaryRelation/Common/data';
 import { getStatusBadge } from '../Assist/tools';
@@ -26,7 +27,6 @@ const { MultiPageDrawer } = DataMultiPageView;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = 'f12f9033140d43818b33fc0b913281db';
-
 @connect(({ subsidiary, userSubsidiaryInfo, schedulingControl }) => ({
   subsidiary,
   userSubsidiaryInfo,
@@ -47,7 +47,7 @@ class PageListAddWorkflowRangeEffectiveDrawer extends MultiPageDrawer {
     this.state = {
       ...this.state,
       pageTitle: '增加流程适用的公司',
-      loadApiPath: 'subsidiary/pageList',
+      loadApiPath: modelTypeCollection.subsidiaryTypeCollection.pageList,
       tableScrollX: 920,
     };
   }

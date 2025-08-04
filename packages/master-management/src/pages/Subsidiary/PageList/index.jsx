@@ -27,6 +27,7 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
 import { getSubsidiaryStatusName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { GraphicalSingleSubsidiaryDepartmentTreeDrawer } from '../../Organization/GraphicalSingleSubsidiaryDepartmentTreeDrawer';
 import {
   refreshCacheAction,
@@ -54,10 +55,10 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
+      listViewMode: listViewConfig.viewMode.list,
       pageTitle: '公司列表',
       paramsKey: accessWayCollection.subsidiary.pageList.paramsKey,
-      listViewMode: listViewConfig.viewMode.list,
-      loadApiPath: 'subsidiary/pageList',
+      loadApiPath: modelTypeCollection.subsidiaryTypeCollection.pageList,
       dateRangeFieldName: '创建时间',
       currentRecord: null,
     };

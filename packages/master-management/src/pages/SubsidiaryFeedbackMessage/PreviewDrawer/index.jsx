@@ -13,12 +13,12 @@ import {
 } from 'antd-management-fast-framework';
 
 import { buildUpdateTimeAndOperatorFieldItem } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseLoadDrawer } = DataDrawer;
 
 const visibleFlag = 'e851f7507e254c7e9352b0f0469d5be8';
-
 @connect(({ subsidiaryFeedbackMessage, schedulingControl }) => ({
   subsidiaryFeedbackMessage,
   schedulingControl,
@@ -36,7 +36,8 @@ class PreviewDrawer extends BaseLoadDrawer {
     this.state = {
       ...this.state,
       pageTitle: '留言信息',
-      loadApiPath: 'subsidiaryFeedbackMessage/get',
+      loadApiPath:
+        modelTypeCollection.subsidiaryFeedbackMessageTypeCollection.get,
     };
   }
 

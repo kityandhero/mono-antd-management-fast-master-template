@@ -9,6 +9,7 @@ import { buildCustomGrid, iconBuilder } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
 import { buildUpdateTimeAndOperatorFieldItem } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
@@ -28,8 +29,11 @@ class Index extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'subsidiaryReportMessage/get',
-      submitApiPath: 'subsidiaryReportMessage/updateBasicInfo',
+      loadApiPath:
+        modelTypeCollection.subsidiaryReportMessageTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.subsidiaryReportMessageTypeCollection
+          .updateBasicInfo,
       subsidiaryReportMessageId: null,
     };
   }

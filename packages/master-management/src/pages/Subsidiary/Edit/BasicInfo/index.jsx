@@ -8,6 +8,7 @@ import {
 import { iconBuilder } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
 import { SubsidiarySelectDrawerField } from '../../SelectDrawerField';
@@ -25,8 +26,9 @@ class BasicInfo extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'subsidiary/get',
-      submitApiPath: 'subsidiary/updateBasicInfo',
+      loadApiPath: modelTypeCollection.subsidiaryTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.subsidiaryTypeCollection.updateBasicInfo,
       subsidiaryId: null,
       logo: '',
       parentId: '',

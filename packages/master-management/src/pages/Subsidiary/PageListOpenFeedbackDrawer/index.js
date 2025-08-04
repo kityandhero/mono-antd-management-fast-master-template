@@ -21,6 +21,7 @@ import {
 
 import { accessWayCollection } from '../../../customConfig';
 import { getSubsidiaryStatusName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { toggleFeedbackSwitchAction } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
@@ -50,7 +51,7 @@ class PageListOpenFeedbackDrawer extends MultiPageDrawer {
     this.state = {
       ...this.state,
       pageTitle: '已开启留言功能的企业列表',
-      loadApiPath: 'subsidiary/pageList',
+      loadApiPath: modelTypeCollection.subsidiaryTypeCollection.pageList,
       tableScrollX: 1200,
       listViewMode: listViewConfig.viewMode.table,
     };

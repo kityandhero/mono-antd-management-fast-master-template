@@ -13,12 +13,12 @@ import {
 } from 'antd-management-fast-framework';
 
 import { buildUpdateTimeAndOperatorFieldItem } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseLoadDrawer } = DataDrawer;
 
 const visibleFlag = '117cacfd47064e8d841bc8e2dfa39229';
-
 @connect(({ subsidiaryComplaintMessage, schedulingControl }) => ({
   subsidiaryComplaintMessage,
   schedulingControl,
@@ -36,7 +36,8 @@ class PreviewDrawer extends BaseLoadDrawer {
     this.state = {
       ...this.state,
       pageTitle: '举报信息',
-      loadApiPath: 'subsidiaryComplaintMessage/get',
+      loadApiPath:
+        modelTypeCollection.subsidiaryComplaintMessageTypeCollection.get,
     };
   }
 

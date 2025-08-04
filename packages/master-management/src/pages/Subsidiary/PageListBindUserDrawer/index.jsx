@@ -13,6 +13,7 @@ import {
 
 import { accessWayCollection } from '../../../customConfig';
 import { getSubsidiaryStatusName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData as fieldDataUser } from '../../User/Common/data';
 import { addBasicInfoAction } from '../../UserSubsidiaryInfo/Assist/action';
 import { getStatusBadge } from '../Assist/tools';
@@ -43,7 +44,7 @@ class PageListBindUserDrawer extends MultiPageDrawer {
     this.state = {
       ...this.state,
       pageTitle: '设置归属公司',
-      loadApiPath: 'subsidiary/pageList',
+      loadApiPath: modelTypeCollection.subsidiaryTypeCollection.pageList,
       tableScrollX: 920,
     };
   }

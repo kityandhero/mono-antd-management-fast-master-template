@@ -4,8 +4,9 @@ import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataOperation } from 'antd-management-fast-framework';
 
-const { BaseView } = DataOperation;
+import { modelTypeCollection } from '../../../modelBuilders';
 
+const { BaseView } = DataOperation;
 @connect(({ section, schedulingControl }) => ({
   section,
   schedulingControl,
@@ -16,7 +17,7 @@ class Index extends BaseView {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'subsidiary/singleTreeList',
+      loadApiPath: modelTypeCollection.subsidiaryTypeCollection.singleTreeList,
     };
   }
 

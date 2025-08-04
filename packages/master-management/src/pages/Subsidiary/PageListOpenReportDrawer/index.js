@@ -21,6 +21,7 @@ import {
 
 import { accessWayCollection } from '../../../customConfig';
 import { getSubsidiaryStatusName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { toggleReportSwitchAction } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
@@ -30,7 +31,6 @@ const { MultiPageDrawer } = DataMultiPageView;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = '5643d4e1af484a34aaa72c3c4d544763';
-
 @connect(({ subsidiary, schedulingControl }) => ({
   subsidiary,
   schedulingControl,
@@ -50,7 +50,7 @@ class PageListOpenReportDrawer extends MultiPageDrawer {
     this.state = {
       ...this.state,
       pageTitle: '已开启举报功能的企业列表',
-      loadApiPath: 'subsidiary/pageList',
+      loadApiPath: modelTypeCollection.subsidiaryTypeCollection.pageList,
       tableScrollX: 1200,
       listViewMode: listViewConfig.viewMode.table,
     };
