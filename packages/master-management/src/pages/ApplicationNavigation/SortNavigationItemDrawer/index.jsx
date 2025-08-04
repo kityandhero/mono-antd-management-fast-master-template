@@ -17,6 +17,7 @@ import {
 } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData, navigationItemData } from '../Common/data';
 import { buildSortTable } from '../Component/FunctionComponent';
 
@@ -41,8 +42,10 @@ class SortNavigationItemDrawer extends BaseUpdateDrawer {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'applicationNavigation/get',
-      submitApiPath: 'applicationNavigation/setNavigationCollectionSort',
+      loadApiPath: modelTypeCollection.applicationNavigationTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.applicationNavigationTypeCollection
+          .setNavigationCollectionSort,
       imageUrl: '',
       appHeadImage: '',
       navigationItemList: [],

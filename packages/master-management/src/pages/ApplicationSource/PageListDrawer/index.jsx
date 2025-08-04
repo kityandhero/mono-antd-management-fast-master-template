@@ -23,6 +23,7 @@ import {
   renderSearchApplicationSourceStatusSelect,
   renderSearchApplicationSourceTypeSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { setOwnAction } from '../../Application/Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
@@ -49,7 +50,7 @@ class Index extends MultiPageDrawer {
     this.state = {
       ...this.state,
       tableScrollX: 440,
-      loadApiPath: 'applicationSource/pageList',
+      loadApiPath: modelTypeCollection.applicationSourceTypeCollection.pageList,
     };
   }
 

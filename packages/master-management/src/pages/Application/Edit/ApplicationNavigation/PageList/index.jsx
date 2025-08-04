@@ -22,6 +22,7 @@ import {
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../../../customConfig';
+import { modelTypeCollection } from '../../../../../modelBuilders';
 import { AddBasicInfoDrawer } from '../../../../ApplicationNavigation/AddBasicInfoDrawer';
 import { AddNavigationItemDrawer } from '../../../../ApplicationNavigation/AddNavigationItemDrawer';
 import {
@@ -58,7 +59,8 @@ class Index extends InnerMultiPage {
     this.state = {
       ...this.state,
       listViewMode: listViewConfig.viewMode.cardCollectionView,
-      loadApiPath: 'applicationNavigation/pageList',
+      loadApiPath:
+        modelTypeCollection.applicationNavigationTypeCollection.pageList,
       applicationId: null,
       currentRecord: null,
       currentNavigationItem: null,

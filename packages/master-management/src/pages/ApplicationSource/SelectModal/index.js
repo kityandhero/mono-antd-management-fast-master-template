@@ -2,6 +2,8 @@ import { connect } from 'easy-soft-dva';
 
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
+
 const { BaseSelectModal } = DataModal;
 
 const visibleFlag = '7b2679411ce24c8f9b90da367ce5adc9';
@@ -26,7 +28,8 @@ class SelectModal extends BaseSelectModal {
     this.state = {
       ...this.state,
       pageTitle: '选择应用模板',
-      loadApiPath: 'applicationSource/singleList',
+      loadApiPath:
+        modelTypeCollection.applicationSourceTypeCollection.singleList,
     };
   }
 }

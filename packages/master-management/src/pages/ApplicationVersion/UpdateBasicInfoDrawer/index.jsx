@@ -9,6 +9,7 @@ import {
 } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
@@ -33,8 +34,9 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
     this.state = {
       ...this.state,
       pageTitle: '编辑信息',
-      loadApiPath: 'applicationVersion/get',
-      submitApiPath: 'applicationVersion/updateBasicInfo',
+      loadApiPath: modelTypeCollection.applicationVersionTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.applicationVersionTypeCollection.updateBasicInfo,
       imageUrl: '',
       appHeadImage: '',
     };

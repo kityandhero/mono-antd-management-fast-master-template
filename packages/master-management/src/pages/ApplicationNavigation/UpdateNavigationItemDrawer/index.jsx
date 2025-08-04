@@ -18,6 +18,7 @@ import {
   renderFormApplicationNavigationOperationTypeSelect,
   renderFormApplicationNavigationVisibilitySelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { navigationItemData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
@@ -41,8 +42,12 @@ class UpdateNavigationItemDrawer extends BaseUpdateDrawer {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'applicationNavigation/getNavigationItem',
-      submitApiPath: 'applicationNavigation/updateNavigationItem',
+      loadApiPath:
+        modelTypeCollection.applicationNavigationTypeCollection
+          .getNavigationItem,
+      submitApiPath:
+        modelTypeCollection.applicationNavigationTypeCollection
+          .updateNavigationItem,
       icon: '',
     };
   }

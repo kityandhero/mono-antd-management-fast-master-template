@@ -19,6 +19,7 @@ import {
   renderSearchApplicationSourceStatusSelect,
   renderSearchApplicationSourceTypeSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
@@ -43,7 +44,7 @@ class PageListSelectDrawer extends MultiPageSelectDrawer {
     this.state = {
       ...this.state,
       tableScrollX: 440,
-      loadApiPath: 'applicationSource/pageList',
+      loadApiPath: modelTypeCollection.applicationSourceTypeCollection.pageList,
     };
   }
 

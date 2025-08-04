@@ -23,6 +23,7 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../../../customConfig';
 import { getApplicationVersionStatusName } from '../../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../../modelBuilders';
 import { AddBasicInfoDrawer } from '../../../../ApplicationVersion/AddBasicInfoDrawer';
 import {
   refreshCacheAction,
@@ -59,7 +60,8 @@ class Index extends InnerMultiPage {
     this.state = {
       ...this.state,
       listViewMode: listViewConfig.viewMode.list,
-      loadApiPath: 'applicationVersion/pageList',
+      loadApiPath:
+        modelTypeCollection.applicationVersionTypeCollection.pageList,
       applicationId: null,
       currentRecord: null,
     };

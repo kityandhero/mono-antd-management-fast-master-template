@@ -28,6 +28,7 @@ import {
   renderSearchApplicationSourceStatusSelect,
   renderSearchApplicationSourceTypeSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import AddBasicInfoDrawer from '../AddBasicInfoDrawer';
 import {
   refreshCacheAction,
@@ -50,9 +51,9 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      paramsKey: accessWayCollection.applicationSource.pageList.paramsKey,
       pageTitle: '应用源列表',
-      loadApiPath: 'applicationSource/pageList',
+      paramsKey: accessWayCollection.applicationSource.pageList.paramsKey,
+      loadApiPath: modelTypeCollection.applicationSourceTypeCollection.pageList,
     };
   }
 

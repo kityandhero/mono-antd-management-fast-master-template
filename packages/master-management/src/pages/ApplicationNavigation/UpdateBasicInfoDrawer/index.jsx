@@ -10,6 +10,7 @@ import {
 
 import { accessWayCollection } from '../../../customConfig';
 import { buildUpdateTimeAndOperatorFieldItem } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
@@ -34,8 +35,9 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
     this.state = {
       ...this.state,
       pageTitle: '编辑导航项',
-      loadApiPath: 'applicationNavigation/get',
-      submitApiPath: 'applicationNavigation/updateBasicInfo',
+      loadApiPath: modelTypeCollection.applicationNavigationTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.applicationNavigationTypeCollection.updateBasicInfo,
       imageUrl: '',
       appHeadImage: '',
     };
