@@ -4,10 +4,10 @@ import { getValueByKey } from 'easy-soft-utility';
 import { cardConfig } from 'antd-management-fast-common';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
-
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = '86879824732a4bf5b747dd7ea74eda8c';
 
@@ -26,8 +26,8 @@ class ResetPasswordModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '重置登录密码',
-      loadApiPath: 'user/get',
-      submitApiPath: 'user/resetPassword',
+      loadApiPath: modelTypeCollection.userTypeCollection.get,
+      submitApiPath: modelTypeCollection.userTypeCollection.resetPassword,
     };
   }
 

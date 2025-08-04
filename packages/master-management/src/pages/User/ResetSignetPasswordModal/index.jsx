@@ -4,6 +4,7 @@ import { getValueByKey } from 'easy-soft-utility';
 import { cardConfig } from 'antd-management-fast-common';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
@@ -26,8 +27,8 @@ class ResetSignetPasswordModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '重置印章密码',
-      loadApiPath: 'user/get',
-      submitApiPath: 'user/resetSignetPassword',
+      loadApiPath: modelTypeCollection.userTypeCollection.get,
+      submitApiPath: modelTypeCollection.userTypeCollection.resetSignetPassword,
     };
   }
 

@@ -12,6 +12,7 @@ import {
 
 import { accessWayCollection } from '../../../customConfig';
 import { getUserStatusName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
@@ -19,7 +20,6 @@ const { MultiPageSelectModal } = DataMultiPageView;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = '84a572551d704d6da00bf5d5821f44d7';
-
 @connect(({ user, schedulingControl }) => ({
   user,
   schedulingControl,
@@ -39,7 +39,7 @@ class PageListModal extends MultiPageSelectModal {
     this.state = {
       ...this.state,
       tableScrollX: 1200,
-      loadApiPath: 'user/pageList',
+      loadApiPath: modelTypeCollection.userTypeCollection.pageList,
       listViewMode: listViewConfig.viewMode.table,
     };
   }

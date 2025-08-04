@@ -14,6 +14,7 @@ import { iconBuilder } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
 import { renderFormGenderSelect } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
@@ -32,8 +33,8 @@ class BasicInfo extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'user/get',
-      submitApiPath: 'user/updateBasicInfo',
+      loadApiPath: modelTypeCollection.userTypeCollection.get,
+      submitApiPath: modelTypeCollection.userTypeCollection.updateBasicInfo,
       userId: null,
       avatar: '',
     };

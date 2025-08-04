@@ -18,6 +18,7 @@ import {
 import { iconBuilder } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { clearParentAction } from '../../Assist/action';
 import {
   checkNeedUpdateAssist,
@@ -43,7 +44,7 @@ class ParentInfo extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'user/get',
+      loadApiPath: modelTypeCollection.userTypeCollection.get,
       submitApiPath: 'user/updateParent',
       parentId: '',
       parentNickname: '',

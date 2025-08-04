@@ -22,6 +22,7 @@ import {
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   closeSignetPasswordSwitchAction,
   openSignetPasswordSwitchAction,
@@ -49,7 +50,7 @@ class PageListSignet extends MultiPage {
       ...this.state,
       pageTitle: '印章管理',
       paramsKey: accessWayCollection.user.pageList.paramsKey,
-      loadApiPath: 'user/pageList',
+      loadApiPath: modelTypeCollection.userTypeCollection.pageList,
       dateRangeFieldName: '创建时间',
       currentRecord: null,
     };

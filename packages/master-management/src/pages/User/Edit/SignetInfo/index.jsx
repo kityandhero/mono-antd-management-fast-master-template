@@ -20,6 +20,7 @@ import {
   emptySignet,
   signetStyle,
 } from '../../../../customConfig';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { toggleSignetPasswordSwitchAction } from '../../Assist/action';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
@@ -37,8 +38,8 @@ class SignetInfo extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'user/get',
-      submitApiPath: 'user/setSignet',
+      loadApiPath: modelTypeCollection.userTypeCollection.get,
+      submitApiPath: modelTypeCollection.userTypeCollection.setSignet,
       userId: null,
       signet: '',
     };
