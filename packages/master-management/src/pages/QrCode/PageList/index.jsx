@@ -28,6 +28,7 @@ import {
   getQrCodeStatusName,
   renderSearchQrCodeCategoryStatusSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   refreshCacheAction,
   removeAction,
@@ -51,10 +52,10 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
+      listViewMode: listViewConfig.viewMode.list,
       pageTitle: '列表',
       paramsKey: accessWayCollection.qrCode.pageList.paramsKey,
-      listViewMode: listViewConfig.viewMode.list,
-      loadApiPath: 'qrCode/pageList',
+      loadApiPath: modelTypeCollection.qrCodeTypeCollection.pageList,
       currentRecord: null,
     };
   }

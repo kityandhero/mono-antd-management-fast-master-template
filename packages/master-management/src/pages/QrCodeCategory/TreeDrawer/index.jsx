@@ -6,10 +6,11 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
+
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
 const visibleFlag = 'dab35935dcff4c52b90ee05c6a40633c';
-
 @connect(({ qrCodeCategory, schedulingControl }) => ({
   qrCodeCategory,
   schedulingControl,
@@ -28,7 +29,8 @@ class TreeDrawer extends BaseVerticalFlexDrawer {
       ...this.state,
       width: 260,
       pageTitle: '可用类别树预览',
-      loadApiPath: 'qrCodeCategory/singleTreeList',
+      loadApiPath:
+        modelTypeCollection.qrCodeCategoryTypeCollection.singleTreeList,
     };
   }
 

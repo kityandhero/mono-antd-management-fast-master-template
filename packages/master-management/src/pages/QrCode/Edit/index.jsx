@@ -15,6 +15,7 @@ import {
   getChannelName,
   getQrCodeStatusName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   refreshCacheAction,
   setOfflineAction,
@@ -48,7 +49,7 @@ class Edit extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'qrCode/get',
+      loadApiPath: modelTypeCollection.qrCodeTypeCollection.get,
       backPath: `/assistTools/qrCode/pageList/key`,
       qrCodeId: null,
     };

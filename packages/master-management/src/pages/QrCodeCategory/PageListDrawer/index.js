@@ -10,11 +10,11 @@ import {
 } from 'antd-management-fast-framework';
 
 import { getQrCodeCategoryStatusName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
 const { MultiPageSelectDrawer } = DataMultiPageView;
-
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = '1a28441e01b44be8aedb15e6b4183db5';
 
@@ -33,7 +33,7 @@ class PageListDrawer extends MultiPageSelectDrawer {
     this.state = {
       ...this.state,
       tableScrollX: 880,
-      loadApiPath: 'qrCodeCategory/pageList',
+      loadApiPath: modelTypeCollection.qrCodeCategoryTypeCollection.pageList,
     };
   }
 

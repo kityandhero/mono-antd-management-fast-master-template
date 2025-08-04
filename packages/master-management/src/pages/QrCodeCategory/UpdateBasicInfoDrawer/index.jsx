@@ -9,10 +9,10 @@ import {
 } from 'antd-management-fast-framework';
 
 import { buildUpdateTimeAndOperatorFieldItem } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
-
 const visibleFlag = '356da29a038e40b6b0cb993901681be3';
 
 @connect(({ qrCodeCategory, schedulingControl }) => ({
@@ -30,8 +30,9 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
     this.state = {
       ...this.state,
       pageTitle: '编辑类别信息',
-      loadApiPath: 'qrCodeCategory/get',
-      submitApiPath: 'qrCodeCategory/updateBasicInfo',
+      loadApiPath: modelTypeCollection.qrCodeCategoryTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.qrCodeCategoryTypeCollection.updateBasicInfo,
     };
   }
 

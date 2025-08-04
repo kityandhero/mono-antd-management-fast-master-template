@@ -15,6 +15,7 @@ import { buildButton, iconBuilder } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
 import { buildUpdateTimeAndOperatorFieldItem } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { singleTreeListAction as categorySingleTreeListAction } from '../../../QrCodeCategory/Assist/action';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
@@ -34,8 +35,8 @@ class Index extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'qrCode/get',
-      submitApiPath: 'qrCode/updateBasicInfo',
+      loadApiPath: modelTypeCollection.qrCodeTypeCollection.get,
+      submitApiPath: modelTypeCollection.qrCodeTypeCollection.updateBasicInfo,
       qrCodeId: null,
       image: '',
     };

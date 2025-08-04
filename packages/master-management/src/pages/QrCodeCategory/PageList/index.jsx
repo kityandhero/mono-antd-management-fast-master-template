@@ -25,6 +25,7 @@ import {
   getQrCodeCategoryStatusName,
   renderSearchQrCodeCategoryStatusSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import AddBasicInfoDrawer from '../AddBasicInfoDrawer';
 import {
   refreshCacheAction,
@@ -53,7 +54,7 @@ class PageList extends MultiPage {
       ...this.state,
       paramsKey: accessWayCollection.qrCodeCategory.pageList.paramsKey,
       pageTitle: '二维码分类列表',
-      loadApiPath: 'qrCodeCategory/pageList',
+      loadApiPath: modelTypeCollection.qrCodeCategoryTypeCollection.pageList,
       currentRecord: null,
     };
   }
