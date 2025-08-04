@@ -98,12 +98,12 @@
     "@umijs/max": "^4.4.12",
     "antd": "^5.26.7",
     "antd-management-fast-common": "^2.6.165",
-    "antd-management-fast-component": "^2.7.53",
+    "antd-management-fast-component": "^2.7.55",
     "antd-management-fast-design-playground": "^1.0.208",
-    "antd-management-fast-design-react": "^1.0.134",
-    "antd-management-fast-flow": "^1.0.136",
-    "antd-management-fast-formily": "^1.0.148",
-    "antd-management-fast-framework": "^2.12.59",
+    "antd-management-fast-design-react": "^1.0.136",
+    "antd-management-fast-flow": "^1.0.138",
+    "antd-management-fast-formily": "^1.0.150",
+    "antd-management-fast-framework": "^2.12.61",
     "axios": "^1.11.0",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.13",
@@ -171,7 +171,7 @@
     "husky": "^9.1.7",
     "jest": "^30.0.5",
     "jsdoc": "^4.0.4",
-    "lint-staged": "^16.1.2",
+    "lint-staged": "^16.1.4",
     "npm-check-updates": "^18.0.2",
     "prettier": "^3.6.2",
     "prettier-plugin-organize-imports": "^4.2.0",
@@ -185,6 +185,6 @@
     "stylelint-config-standard": "^39.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.8.0",
     "stylelint-order": "^7.0.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   }
 }
