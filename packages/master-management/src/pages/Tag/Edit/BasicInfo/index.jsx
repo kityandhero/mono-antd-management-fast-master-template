@@ -24,6 +24,7 @@ import {
   getTagDisplayRangeName,
   renderFormTagTypeSelect,
 } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { updateColorAction } from '../../Assist/action';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
@@ -41,8 +42,8 @@ class BasicInfo extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'tag/get',
-      submitApiPath: 'tag/updateBasicInfo',
+      loadApiPath: modelTypeCollection.tagTypeCollection.get,
+      submitApiPath: modelTypeCollection.tagTypeCollection.updateBasicInfo,
       tagId: null,
       image: '',
       color: '',

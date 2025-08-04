@@ -2,10 +2,10 @@ import { connect } from 'easy-soft-dva';
 
 import { switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { BasePageListSelectDrawer } from '../BasePageListSelectDrawer';
 
 const visibleFlag = '17db236b4072425aa8f295b1131fe4d2';
-
 @connect(({ tag, schedulingControl }) => ({
   tag,
   schedulingControl,
@@ -26,7 +26,7 @@ class PageListWithQuestionSelectDrawer extends BasePageListSelectDrawer {
     this.state = {
       ...this.state,
       // 页面加载时自动加载的远程请求
-      loadApiPath: 'tag/pageListWithQuestion',
+      loadApiPath: modelTypeCollection.tagTypeCollection.pageListWithQuestion,
     };
   }
 }

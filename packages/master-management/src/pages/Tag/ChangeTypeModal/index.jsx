@@ -5,10 +5,10 @@ import { cardConfig } from 'antd-management-fast-common';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
 import { renderFormTagTypeSelect } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
-
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = '2a5bc9dad0c64b20bc9370ad8d8463d8';
 
@@ -29,8 +29,8 @@ class ChangeTypeModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '适用类别设置',
-      loadApiPath: 'tag/get',
-      submitApiPath: 'tag/updateType',
+      loadApiPath: modelTypeCollection.tagTypeCollection.get,
+      submitApiPath: modelTypeCollection.tagTypeCollection.updateType,
     };
   }
 

@@ -19,12 +19,12 @@ import {
 } from 'antd-management-fast-framework';
 
 import { getTagStatusName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
 const { Text } = Typography;
 const { MultiPageSelectModal } = DataMultiPageView;
-
 const visibleFlag = '68f7e5fc318a4e11b918f48ac14edb8b';
 
 @connect(({ tag, schedulingControl }) => ({
@@ -43,9 +43,9 @@ class PageListWithQuestionMultiSelectModal extends MultiPageSelectModal {
 
     this.state = {
       ...this.state,
-      pageTitle: '标签选择列表',
-      loadApiPath: 'tag/pageListWithQuestion',
       listViewMode: listViewConfig.viewMode.table,
+      pageTitle: '标签选择列表',
+      loadApiPath: modelTypeCollection.tagTypeCollection.pageListWithQuestion,
       showSelect: true,
       tableScrollX: 1020,
     };

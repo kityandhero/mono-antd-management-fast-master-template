@@ -18,6 +18,7 @@ import {
   getTagStatusName,
   getTagTypeName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   refreshCacheAction,
   setDisableAction,
@@ -57,7 +58,7 @@ class Detail extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'tag/get',
+      loadApiPath: modelTypeCollection.tagTypeCollection.get,
       backPath: `/data/tag/pageList/key`,
       tagId: null,
     };

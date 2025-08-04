@@ -29,6 +29,7 @@ import {
   getTagStatusName,
   getTagTypeName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import AddBasicInfoDrawer from '../AddBasicInfoDrawer';
 import {
   refreshCacheAction,
@@ -65,7 +66,7 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '标签列表',
       paramsKey: accessWayCollection.tag.pageList.paramsKey,
-      loadApiPath: 'tag/pageList',
+      loadApiPath: modelTypeCollection.tagTypeCollection.pageList,
       dateRangeFieldName: '创建时间',
       currentRecord: null,
     };
