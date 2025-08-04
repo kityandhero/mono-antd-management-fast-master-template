@@ -17,6 +17,7 @@ import {
 
 import { accessWayCollection } from '../../../customConfig';
 import { getSubsidiaryStatusName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { addAction } from '../../WorkflowRangeEffectiveExternalDepartmentRelation/Assist/action';
 import { fieldData as fieldDataWorkflowRangeEffectiveSubsidiaryRelation } from '../../WorkflowRangeEffectiveSubsidiaryRelation/Common/data';
 import { getStatusBadge } from '../Assist/tools';
@@ -47,7 +48,7 @@ class PageListAddWorkflowRangeEffectiveDrawer extends MultiPageDrawer {
     this.state = {
       ...this.state,
       pageTitle: '增加流程适用的外部部门',
-      loadApiPath: 'department/pageList',
+      loadApiPath: modelTypeCollection.departmentTypeCollection.pageList,
       tableScrollX: 920,
     };
   }

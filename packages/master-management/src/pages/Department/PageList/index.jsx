@@ -27,6 +27,7 @@ import {
   getDepartmentStatusName,
   renderSearchDepartmentOwnershipModeSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   refreshCacheAction,
   setInvalidAction,
@@ -52,7 +53,7 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '部门列表',
       paramsKey: accessWayCollection.department.pageList.paramsKey,
-      loadApiPath: 'department/pageList',
+      loadApiPath: modelTypeCollection.departmentTypeCollection.pageList,
       dateRangeFieldName: '创建时间',
       currentRecord: null,
     };
