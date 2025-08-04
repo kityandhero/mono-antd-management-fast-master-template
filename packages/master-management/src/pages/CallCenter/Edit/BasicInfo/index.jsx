@@ -15,6 +15,7 @@ import { buildButton, iconBuilder } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
 import { buildUpdateTimeAndOperatorFieldItem } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { singleTreeListAction as categorySingleTreeListAction } from '../../../CallCenterCategory/Assist/action';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
@@ -34,8 +35,9 @@ class Index extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'callCenter/get',
-      submitApiPath: 'callCenter/updateBasicInfo',
+      loadApiPath: modelTypeCollection.callCenterTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.callCenterTypeCollection.updateBasicInfo,
       categoryTreeData: [],
       callCenterId: null,
       categoryId: '',

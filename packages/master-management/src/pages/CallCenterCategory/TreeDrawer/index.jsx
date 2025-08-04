@@ -6,6 +6,8 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
+
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
 const visibleFlag = 'ea381245c688400a9c7f747df1d88c9a';
@@ -28,7 +30,8 @@ class TreeDrawer extends BaseVerticalFlexDrawer {
       ...this.state,
       width: 260,
       pageTitle: '可用类别树预览',
-      loadApiPath: 'callCenterCategory/singleTreeList',
+      loadApiPath:
+        modelTypeCollection.callCenterCategoryTypeCollection.singleTreeList,
     };
   }
 

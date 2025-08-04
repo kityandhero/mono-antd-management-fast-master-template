@@ -25,6 +25,7 @@ import {
   getCallCenterCategoryStatusName,
   renderSearchCallCenterStatusSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { singleTreeListAction as categorySingleTreeListAction } from '../../CallCenterCategory/Assist/action';
 import {
   refreshCacheAction,
@@ -50,9 +51,9 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      pageTitle: '列表',
+      pageTitle: '坐席列表',
       paramsKey: accessWayCollection.callCenter.pageList.paramsKey,
-      loadApiPath: 'callCenter/pageList',
+      loadApiPath: modelTypeCollection.callCenterTypeCollection.pageList,
       categoryTreeData: [],
       categoryId: '',
       categoryName: '',

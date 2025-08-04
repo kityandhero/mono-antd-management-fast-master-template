@@ -14,6 +14,7 @@ import {
   DataTabContainerSupplement,
   getCallCenterStatusName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   refreshCacheAction,
   setOfflineAction,
@@ -47,7 +48,7 @@ class Edit extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'callCenter/get',
+      loadApiPath: modelTypeCollection.callCenterTypeCollection.get,
       backPath: `/assistTools/callCenter/pageList/key`,
       callCenterId: null,
     };

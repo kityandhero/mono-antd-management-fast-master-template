@@ -26,6 +26,7 @@ import {
   getCallCenterCategoryStatusName,
   renderSearchCallCenterCategoryStatusSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import AddBasicInfoDrawer from '../AddBasicInfoDrawer';
 import {
   refreshCacheAction,
@@ -52,9 +53,10 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      paramsKey: accessWayCollection.callCenterCategory.pageList.paramsKey,
       pageTitle: '呼叫中心分类列表',
-      loadApiPath: 'callCenterCategory/pageList',
+      paramsKey: accessWayCollection.callCenterCategory.pageList.paramsKey,
+      loadApiPath:
+        modelTypeCollection.callCenterCategoryTypeCollection.pageList,
       currentRecord: null,
     };
   }
