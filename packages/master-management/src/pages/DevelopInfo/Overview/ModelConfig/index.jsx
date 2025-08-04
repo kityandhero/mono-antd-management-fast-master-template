@@ -9,6 +9,7 @@ import {
 import { iconBuilder, SyntaxHighlighter } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { ModelConfigBusinessDrawer } from '../../ModelConfigBusinessDrawer';
 import { ModelConfigInfrastructureDrawer } from '../../ModelConfigInfrastructureDrawer';
 import { TabPageBase } from '../../TabPageBase';
@@ -26,7 +27,9 @@ class ModelConfig extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'accessWay/getAllModelConfigFileContent',
+      loadApiPath:
+        modelTypeCollection.accessWayTypeCollection
+          .getAllModelConfigFileContent,
     };
   }
 

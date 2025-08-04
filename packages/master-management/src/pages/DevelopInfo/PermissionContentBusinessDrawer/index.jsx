@@ -8,6 +8,8 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
+
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
 const visibleFlag = '9c30c36ca7ce4f1d8370467cff7e21e9';
@@ -27,7 +29,9 @@ class PermissionContentBusinessDrawer extends BaseVerticalFlexDrawer {
     this.state = {
       ...this.state,
       pageTitle: '前端业务权限键值配置文件',
-      loadApiPath: 'accessWay/getBusinessPermissionFileContent',
+      loadApiPath:
+        modelTypeCollection.accessWayTypeCollection
+          .getBusinessPermissionFileContent,
     };
   }
 

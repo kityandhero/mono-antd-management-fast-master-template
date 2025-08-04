@@ -9,6 +9,7 @@ import {
 import { iconBuilder, SyntaxHighlighter } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { PermissionContentBusinessDrawer } from '../../PermissionContentBusinessDrawer';
 import { PermissionContentInfrastructureDrawer } from '../../PermissionContentInfrastructureDrawer';
 import { TabPageBase } from '../../TabPageBase';
@@ -26,7 +27,8 @@ class PermissionContent extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'accessWay/getAllPermissionFileContent',
+      loadApiPath:
+        modelTypeCollection.accessWayTypeCollection.getAllPermissionFileContent,
     };
   }
 

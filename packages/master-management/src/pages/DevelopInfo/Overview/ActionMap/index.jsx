@@ -5,6 +5,7 @@ import { cardConfig, extraBuildType } from 'antd-management-fast-common';
 import { iconBuilder, SyntaxHighlighter } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { NonePermissionActionMapDrawer } from '../../NonePermissionActionMapDrawer';
 import { PermissionActionMapDrawer } from '../../PermissionActionMapDrawer';
 import { TabPageBase } from '../../TabPageBase';
@@ -21,7 +22,7 @@ class ActionMap extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'accessWay/getActionMap',
+      loadApiPath: modelTypeCollection.accessWayTypeCollection.getActionMap,
     };
   }
 

@@ -8,6 +8,8 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
+
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
 const visibleFlag = '884bbbe2117c4f9e93d61a973a26a637';
@@ -27,7 +29,9 @@ class ModelConfigInfrastructureDrawer extends BaseVerticalFlexDrawer {
     this.state = {
       ...this.state,
       pageTitle: '前端基础 Model 配置文件',
-      loadApiPath: 'accessWay/getInfrastructureModelConfigFileContent',
+      loadApiPath:
+        modelTypeCollection.accessWayTypeCollection
+          .getInfrastructureModelConfigFileContent,
     };
   }
 
