@@ -27,6 +27,7 @@ import {
   renderSearchApplicationSourceStatusSelect,
   renderSearchApplicationSourceTypeSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { createModeCollection } from '../../ApplicationSource/Common/data';
 import ApplicationSourcePageListDrawer from '../../ApplicationSource/PageListDrawer';
 import { setOwnAction, setStartAction, setStopAction } from '../Assist/action';
@@ -50,9 +51,9 @@ class PageList extends MultiPage {
     this.state = {
       ...this.state,
       tableScrollX: 1500,
-      paramsKey: accessWayCollection.application.pageList.paramsKey,
       pageTitle: '应用列表',
-      loadApiPath: 'application/pageList',
+      paramsKey: accessWayCollection.application.pageList.paramsKey,
+      loadApiPath: modelTypeCollection.applicationTypeCollection.pageList,
       currentRecord: null,
     };
   }

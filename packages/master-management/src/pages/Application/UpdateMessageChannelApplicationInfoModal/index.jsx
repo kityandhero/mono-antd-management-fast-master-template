@@ -5,6 +5,7 @@ import { cardConfig } from 'antd-management-fast-common';
 import { convertOptionOrRadioData } from 'antd-management-fast-component';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { supplementApplicationId } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
@@ -27,8 +28,10 @@ class UpdateMessageChannelApplicationInfoModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '转发微信消息',
-      loadApiPath: 'application/singleList',
-      submitApiPath: 'application/updateMessageChannelApplicationInfo',
+      loadApiPath: modelTypeCollection.applicationTypeCollection.singleList,
+      submitApiPath:
+        modelTypeCollection.applicationTypeCollection
+          .updateMessageChannelApplicationInfo,
     };
   }
 

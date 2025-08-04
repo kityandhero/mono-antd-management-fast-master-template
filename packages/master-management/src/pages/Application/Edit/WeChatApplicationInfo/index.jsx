@@ -14,6 +14,7 @@ import { iconBuilder } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
 import { renderFormApplicationMerchantTypeSelect } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { getWechatApplicationAccessTokenAction } from '../../Assist/action';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
@@ -33,8 +34,10 @@ class WeChatApplicationInfo extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'application/get',
-      submitApiPath: 'application/updateWeChatApplicationInfo',
+      loadApiPath: modelTypeCollection.applicationTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.applicationTypeCollection
+          .updateWeChatApplicationInfo,
       applicationId: null,
     };
   }

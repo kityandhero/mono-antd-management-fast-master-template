@@ -5,6 +5,7 @@ import { cardConfig } from 'antd-management-fast-common';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
 import { renderFormSmsCategoryFlagSelect } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { supplementApplicationId } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
@@ -29,8 +30,9 @@ class TestSendSmsCaptchaModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '测试发送短信验证码',
-      loadApiPath: 'application/get',
-      submitApiPath: 'application/testSendSmsCaptcha',
+      loadApiPath: modelTypeCollection.applicationTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.applicationTypeCollection.testSendSmsCaptcha,
     };
   }
 

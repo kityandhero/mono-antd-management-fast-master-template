@@ -23,6 +23,7 @@ import {
   buildNowTimeFieldItem,
   renderFormJsonItemTypeSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 
 const { BaseUpdateDrawer } = DataDrawer;
 
@@ -46,8 +47,11 @@ class UpdateJsonItemDrawer extends BaseUpdateDrawer {
     this.state = {
       ...this.state,
       pageTitle: '修改项',
-      loadApiPath: 'application/getCustomGlobalDataItem',
-      submitApiPath: 'application/updateCustomGlobalDataItem',
+      loadApiPath:
+        modelTypeCollection.applicationTypeCollection.getCustomGlobalDataItem,
+      submitApiPath:
+        modelTypeCollection.applicationTypeCollection
+          .updateCustomGlobalDataItem,
       type: keyValueTypeCollection.text,
       image: '',
       video: '',

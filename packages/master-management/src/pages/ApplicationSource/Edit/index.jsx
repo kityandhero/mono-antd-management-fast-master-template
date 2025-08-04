@@ -15,6 +15,7 @@ import {
   getApplicationSourceStatusName,
   getApplicationSourceTypeName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   refreshCacheAction,
   setDisableAction,
@@ -50,7 +51,7 @@ class Edit extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'applicationSource/get',
+      loadApiPath: modelTypeCollection.applicationSourceTypeCollection.get,
       backPath: `/app/applicationSource/pageList/key`,
       applicationSourceId: null,
     };

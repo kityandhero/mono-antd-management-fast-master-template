@@ -12,6 +12,7 @@ import {
   buildUpdateTimeAndOperatorFieldItem,
   getApplicationTypeName,
 } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
@@ -30,8 +31,9 @@ class BasicInfo extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'application/get',
-      submitApiPath: 'application/updateBasicInfo',
+      loadApiPath: modelTypeCollection.applicationTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.applicationTypeCollection.updateBasicInfo,
       applicationId: null,
       logo: '',
     };

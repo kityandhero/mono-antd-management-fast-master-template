@@ -4,6 +4,7 @@ import { getValueByKey } from 'easy-soft-utility';
 import { cardConfig } from 'antd-management-fast-common';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { supplementApplicationId } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
@@ -28,8 +29,10 @@ class TestSendWechatTemplateMessageModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '测试发送微信公众号模板消息',
-      loadApiPath: 'application/get',
-      submitApiPath: 'application/testSendWechatTemplateMessage',
+      loadApiPath: modelTypeCollection.applicationTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.applicationTypeCollection
+          .testSendWechatTemplateMessage,
     };
   }
 

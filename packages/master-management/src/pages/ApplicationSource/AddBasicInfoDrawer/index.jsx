@@ -12,6 +12,7 @@ import {
   renderFormApplicationSourceCreateModeSelect,
   renderFormApplicationSourceTypeSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseAddDrawer } = DataDrawer;
@@ -33,8 +34,9 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
     this.state = {
       ...this.state,
       pageTitle: '创建应用源',
-      loadApiPath: 'applicationSource/get',
-      submitApiPath: 'applicationSource/addBasicInfo',
+      loadApiPath: modelTypeCollection.applicationSourceTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.applicationSourceTypeCollection.addBasicInfo,
       applicationSourceId: null,
       logo: '',
     };

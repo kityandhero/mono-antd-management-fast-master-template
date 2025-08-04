@@ -30,6 +30,7 @@ import {
   keyValueItemData,
 } from '../../../../customConfig';
 import { getJsonItemTypeName } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { AddJsonItemDrawer } from '../../AddJsonItemDrawer';
 import { removeCustomGlobalDataItemAction } from '../../Assist/action';
 import { parseUrlParametersForSetState } from '../../Assist/config';
@@ -48,7 +49,8 @@ class BasicInfo extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'application/getCustomGlobalData',
+      loadApiPath:
+        modelTypeCollection.applicationTypeCollection.getCustomGlobalData,
       applicationId: null,
       itemList: [],
       itemCount: 0,

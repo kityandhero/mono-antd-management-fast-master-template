@@ -13,6 +13,7 @@ import {
   renderFormApplicationSourceCreateModeSelect,
   renderFormApplicationSourceTypeSelect,
 } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
@@ -32,8 +33,9 @@ class Index extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'applicationSource/get',
-      submitApiPath: 'applicationSource/updateBasicInfo',
+      loadApiPath: modelTypeCollection.applicationSourceTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.applicationSourceTypeCollection.updateBasicInfo,
       applicationSourceId: null,
       logo: '',
     };
