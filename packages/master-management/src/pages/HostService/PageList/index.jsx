@@ -23,6 +23,7 @@ import {
   getHostServiceStatusName,
   renderSearchHostServiceStatusSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   refreshAllStatusAction,
   setRestartAction,
@@ -45,9 +46,9 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      paramsKey: accessWayCollection.hostService.pageList.paramsKey,
       pageTitle: '驻守服务列表',
-      loadApiPath: 'hostService/pageList',
+      paramsKey: accessWayCollection.hostService.pageList.paramsKey,
+      loadApiPath: modelTypeCollection.hostServiceTypeCollection.pageList,
     };
   }
 

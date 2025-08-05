@@ -12,6 +12,7 @@ import {
   DataTabContainerSupplement,
   getHostServiceStatusName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { setStartAction, setStopAction } from '../Assist/action';
 import {
   checkNeedUpdateAssist,
@@ -38,7 +39,7 @@ class Index extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'hostService/get',
+      loadApiPath: modelTypeCollection.hostServiceTypeCollection.get,
       backPath: `/service/hostService/pageList/key`,
       hostServiceId: null,
     };

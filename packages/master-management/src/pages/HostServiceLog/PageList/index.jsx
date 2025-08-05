@@ -15,6 +15,7 @@ import {
   getHostServiceChangeTypeName,
   renderFormHostServiceChangeTypeSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { parseUrlParametersForSetState } from '../Assist/config';
 import { fieldData } from '../Common/data';
 
@@ -32,9 +33,9 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      paramsKey: accessWayCollection.hostServiceLog.pageList.paramsKey,
       pageTitle: '驻留服务变动记录',
-      loadApiPath: 'hostServiceLog/pageList',
+      paramsKey: accessWayCollection.hostServiceLog.pageList.paramsKey,
+      loadApiPath: modelTypeCollection.hostServiceLogTypeCollection.pageList,
     };
   }
 

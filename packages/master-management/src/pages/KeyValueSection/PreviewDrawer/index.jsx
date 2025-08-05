@@ -10,10 +10,10 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const visibleFlag = 'd083c217e37e41d6ac7c1bbc22f8d584';
-
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
 @connect(({ keyValueSection, schedulingControl }) => ({
@@ -31,7 +31,7 @@ class PreviewDrawer extends BaseVerticalFlexDrawer {
     this.state = {
       ...this.state,
       pageTitle: '键值信息',
-      loadApiPath: 'keyValueSection/get',
+      loadApiPath: modelTypeCollection.keyValueSectionTypeCollection.get,
     };
   }
 

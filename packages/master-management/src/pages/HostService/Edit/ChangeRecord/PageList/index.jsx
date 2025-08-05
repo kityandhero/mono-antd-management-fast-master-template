@@ -13,6 +13,7 @@ import {
   getHostServiceChangeTypeName,
   renderFormHostServiceChangeTypeSelect,
 } from '../../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../../modelBuilders';
 import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
@@ -31,7 +32,8 @@ class Index extends InnerMultiPage {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'hostServiceChangeRecord/pageList',
+      loadApiPath:
+        modelTypeCollection.hostServiceChangeRecordTypeCollection.pageList,
     };
   }
 

@@ -25,6 +25,7 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
 import { getBusinessSetStatusName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import AddBasicInfoDrawer from '../AddBasicInfoDrawer';
 import {
   refreshCacheAction,
@@ -54,7 +55,7 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '业务列表',
       paramsKey: accessWayCollection.businessSet.pageList.paramsKey,
-      loadApiPath: 'businessSet/pageList',
+      loadApiPath: modelTypeCollection.businessSetTypeCollection.pageList,
       currentRecord: null,
     };
   }

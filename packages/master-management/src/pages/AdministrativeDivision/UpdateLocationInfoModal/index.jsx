@@ -4,6 +4,7 @@ import { getValueByKey } from 'easy-soft-utility';
 import { cardConfig } from 'antd-management-fast-common';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
@@ -26,8 +27,10 @@ class UpdateLocationInfoModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '设置位置',
-      loadApiPath: 'administrativeDivision/get',
-      submitApiPath: 'administrativeDivision/updateLocationInfo',
+      loadApiPath: modelTypeCollection.administrativeDivisionTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.administrativeDivisionTypeCollection
+          .updateLocationInfo,
     };
   }
 

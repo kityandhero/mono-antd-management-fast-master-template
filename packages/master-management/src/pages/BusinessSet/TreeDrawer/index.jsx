@@ -6,8 +6,9 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
-const { BaseVerticalFlexDrawer } = DataDrawer;
+import { modelTypeCollection } from '../../../modelBuilders';
 
+const { BaseVerticalFlexDrawer } = DataDrawer;
 const visibleFlag = '3275784bf11d451cb08dd70d86eb52e2';
 
 @connect(({ businessSet, schedulingControl }) => ({
@@ -28,7 +29,7 @@ class TreeDrawer extends BaseVerticalFlexDrawer {
       ...this.state,
       width: 260,
       pageTitle: '业务树预览',
-      loadApiPath: 'businessSet/singleTreeList',
+      loadApiPath: modelTypeCollection.businessSetTypeCollection.singleTreeList,
     };
   }
 

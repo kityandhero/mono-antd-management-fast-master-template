@@ -12,6 +12,7 @@ import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshAllCacheAction, refreshCacheAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 import { PreviewDrawer } from '../PreviewDrawer';
@@ -33,7 +34,8 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '应用键值列表',
       paramsKey: accessWayCollection.keyValueApplication.pageList.paramsKey,
-      loadApiPath: 'keyValueApplication/pageList',
+      loadApiPath:
+        modelTypeCollection.keyValueApplicationTypeCollection.pageList,
       tableScrollX: 1760,
       dateRangeFieldName: '操作时间',
       currentRecord: null,
