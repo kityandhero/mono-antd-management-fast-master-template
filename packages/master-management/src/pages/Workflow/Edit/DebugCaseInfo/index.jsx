@@ -39,6 +39,7 @@ import {
   flowNodeTypeCollection,
 } from '../../../../customConfig';
 import { getChannelName } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import {
   adjustFlowCaseDataToState,
   buildColumnsCarbonCopyNotification,
@@ -121,7 +122,8 @@ class DebugCaseInfo extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'workflowDebugCase/getByWorkflow',
+      loadApiPath:
+        modelTypeCollection.workflowDebugCaseTypeCollection.getByWorkflow,
       workflowId: null,
       listApprove: [],
       listProcessHistory: [],

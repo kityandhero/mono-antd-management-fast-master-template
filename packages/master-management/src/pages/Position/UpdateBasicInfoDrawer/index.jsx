@@ -9,12 +9,12 @@ import {
 } from 'antd-management-fast-framework';
 
 import { buildUpdateTimeAndOperatorFieldItem } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
 
 const visibleFlag = 'e8851cd3faef4a9bb71610e40398182b';
-
 @connect(({ position, schedulingControl }) => ({
   position,
   schedulingControl,
@@ -30,8 +30,8 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
     this.state = {
       ...this.state,
       pageTitle: '编辑信息',
-      loadApiPath: 'position/get',
-      submitApiPath: 'position/updateBasicInfo',
+      loadApiPath: modelTypeCollection.positionTypeCollection.get,
+      submitApiPath: modelTypeCollection.positionTypeCollection.updateBasicInfo,
     };
   }
 

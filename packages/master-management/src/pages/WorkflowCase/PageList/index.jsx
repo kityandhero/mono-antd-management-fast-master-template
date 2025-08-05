@@ -34,6 +34,7 @@ import {
   renderSearchFlowScopeSelect,
   renderSearchFlowStatusSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { getFlowCaseStatusBadge } from '../../../pageBases';
 import { FlowDisplayDrawer } from '../../Workflow/FlowDisplayDrawer';
 import {
@@ -62,7 +63,8 @@ class PageList extends MultiPage {
       tableScrollX: 1880,
       pageTitle: '流程实例列表',
       paramsKey: accessWayCollection.workflowCase.pageList.paramsKey,
-      loadApiPath: 'workflowCase/pageList',
+      loadApiPath:
+        modelTypeCollection.workflowCaseTypeCollection.pageListUnderway,
       dateRangeFieldName: '创建时间',
       currentRecord: null,
     };

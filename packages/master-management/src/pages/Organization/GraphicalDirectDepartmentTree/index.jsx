@@ -7,10 +7,10 @@ import { iconBuilder } from 'antd-management-fast-component';
 import { DataForm } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { buildFlowGraphConfig } from '../../../utils';
 
 const { BaseUpdateForm } = DataForm;
-
 @connect(({ organization, schedulingControl }) => ({
   organization,
   schedulingControl,
@@ -25,7 +25,9 @@ class AddBasicInfo extends BaseUpdateForm {
     this.state = {
       ...this.state,
       pageTitle: '直属部门图示',
-      loadApiPath: 'organization/getGraphicalDirectDepartment',
+      loadApiPath:
+        modelTypeCollection.organizationTypeCollection
+          .getGraphicalDirectDepartment,
     };
   }
 

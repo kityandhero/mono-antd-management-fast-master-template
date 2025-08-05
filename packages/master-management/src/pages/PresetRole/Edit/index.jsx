@@ -13,6 +13,7 @@ import {
   getChannelName,
   getPresetRoleStatusName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   refreshCacheAction,
   setDisableAction,
@@ -46,7 +47,7 @@ class Edit extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'presetRole/get',
+      loadApiPath: modelTypeCollection.presetRoleTypeCollection.get,
       backPath: `/permission/presetRole/pageList/key`,
       presetRoleId: null,
     };

@@ -21,6 +21,7 @@ import {
   renderFormFlowBranchConditionItemTargetComparisonModeSelect,
   renderFormFlowBranchConditionItemTargetTypeSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { singleListAction } from '../../WorkflowBranchCondition/Assist/action';
 import { fieldData as fieldDataWorkflowFormDesign } from '../../WorkflowFormDesign/Common/data';
 import { fieldData } from '../Common/data';
@@ -40,7 +41,6 @@ function dataFormFieldConvert(o, index) {
 }
 
 const visibleFlag = '74776b1dc47a4dc4a4560ab11bf5b7ab';
-
 @connect(({ workflowLine, workflowBranchCondition, schedulingControl }) => ({
   workflowLine,
   workflowBranchCondition,
@@ -57,8 +57,9 @@ class BindBranchConditionModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '更新表单字段判断条件',
-      loadApiPath: 'workflowLine/get',
-      submitApiPath: 'workflowLine/setBranchConditionId',
+      loadApiPath: modelTypeCollection.workflowLineTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.workflowLineTypeCollection.setBranchConditionId,
       branchConditionList: [],
     };
   }

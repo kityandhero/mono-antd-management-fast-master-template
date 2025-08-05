@@ -3,10 +3,10 @@ import { convertCollection, getValueByKey } from 'easy-soft-utility';
 
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
-
 const visibleFlag = 'e05cdc39baf6415ea18bb83f75d06cd2';
 
 @connect(({ workflow, schedulingControl }) => ({
@@ -24,8 +24,8 @@ class UpdateMultibranchModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '启用多分支模式',
-      loadApiPath: 'workflow/get',
-      submitApiPath: 'workflow/openMultibranch',
+      loadApiPath: modelTypeCollection.workflowTypeCollection.get,
+      submitApiPath: modelTypeCollection.workflowTypeCollection.openMultibranch,
     };
   }
 

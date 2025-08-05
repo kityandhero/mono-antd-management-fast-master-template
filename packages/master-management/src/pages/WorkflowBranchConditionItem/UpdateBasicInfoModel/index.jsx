@@ -19,12 +19,12 @@ import {
   renderFormFlowBranchConditionItemTargetComparisonModeSelect,
   renderFormFlowBranchConditionItemTargetTypeSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { getByWorkflowAction } from '../../WorkflowFormDesign/Assist/action';
 import { fieldData as fieldDataWorkflowFormDesign } from '../../WorkflowFormDesign/Common/data';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
-
 // eslint-disable-next-line no-unused-vars
 function dataFormFieldConvert(o, index) {
   const { name, title, type } = o;
@@ -55,8 +55,11 @@ class UpdateBasicInfoModel extends BaseUpdateModal {
       ...this.state,
       width: 720,
       pageTitle: '更新表单字段判断条件',
-      loadApiPath: 'workflowBranchConditionItem/get',
-      submitApiPath: 'workflowBranchConditionItem/updateBasicInfo',
+      loadApiPath:
+        modelTypeCollection.workflowBranchConditionItemTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.workflowBranchConditionItemTypeCollection
+          .updateBasicInfo,
       dataSchemaList: [],
       targetTitle: '',
       currentTargetType: null,

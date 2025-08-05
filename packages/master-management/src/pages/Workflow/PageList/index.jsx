@@ -37,6 +37,7 @@ import {
   renderSearchFlowScopeSelect,
   renderSearchFlowStatusSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData as fieldDataSubsidiary } from '../../Subsidiary/Common/data';
 import { SubsidiarySelectDrawerField } from '../../Subsidiary/SelectDrawerField';
 import { FlowCaseFormExampleDocumentDrawer } from '../../WorkflowFormDesign/FlowCaseFormExampleDocumentDrawer';
@@ -76,7 +77,7 @@ class PageList extends MultiPage {
       tableScrollX: 1800,
       pageTitle: '流程列表',
       paramsKey: accessWayCollection.workflow.pageList.paramsKey,
-      loadApiPath: 'workflow/pageList',
+      loadApiPath: modelTypeCollection.workflowTypeCollection.pageList,
       dateRangeFieldName: '创建时间',
       currentRecord: null,
       currentRecordShowApply: false,

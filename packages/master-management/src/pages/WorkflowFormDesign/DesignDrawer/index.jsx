@@ -42,10 +42,10 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
-
 const visibleFlag = '4b5cd020d5be41e8bb3e503f46c7a6a0';
 
 @connect(({ workflowFormDesign, schedulingControl }) => ({
@@ -69,8 +69,10 @@ class DesignDrawer extends BaseUpdateDrawer {
     this.state = {
       ...this.state,
       showBottomBar: false,
-      loadApiPath: 'workflowFormDesign/getByWorkflow',
-      submitApiPath: 'workflowFormDesign/updateBasicInfo',
+      loadApiPath:
+        modelTypeCollection.workflowFormDesignTypeCollection.getByWorkflow,
+      submitApiPath:
+        modelTypeCollection.workflowFormDesignTypeCollection.updateBasicInfo,
       width: '100vw',
     };
   }

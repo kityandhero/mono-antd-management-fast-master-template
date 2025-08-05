@@ -3,6 +3,7 @@ import { connect } from 'easy-soft-dva';
 import { searchCardConfig } from 'antd-management-fast-common';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { MultiPage } = DataMultiPageView;
@@ -20,7 +21,7 @@ class PageList extends MultiPage {
     this.state = {
       ...this.state,
       pageTitle: '渠道码列表',
-      loadApiPath: 'channel/pageList',
+      loadApiPath: modelTypeCollection.channelTypeCollection.pageList,
     };
   }
 

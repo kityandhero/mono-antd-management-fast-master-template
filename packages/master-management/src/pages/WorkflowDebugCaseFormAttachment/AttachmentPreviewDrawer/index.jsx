@@ -3,6 +3,7 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { BaseAttachmentPreviewDrawer } from '../../../pageBases';
 import { fieldData } from '../Common/data';
 
@@ -22,7 +23,8 @@ class AttachmentPreviewDrawer extends BaseAttachmentPreviewDrawer {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'workflowDebugCaseFormAttachment/get',
+      loadApiPath:
+        modelTypeCollection.workflowDebugCaseFormAttachmentTypeCollection.get,
     };
   }
 

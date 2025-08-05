@@ -3,11 +3,11 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { BaseAttachmentPreviewDrawer } from '../../../pageBases';
 import { fieldData } from '../Common/data';
 
 const visibleFlag = '1862037d2beb46af92d85d33e379acd6';
-
 @connect(({ workflowCaseFormAttachment, schedulingControl }) => ({
   workflowCaseFormAttachment,
   schedulingControl,
@@ -22,7 +22,8 @@ class AttachmentPreviewDrawer extends BaseAttachmentPreviewDrawer {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'workflowCaseFormAttachment/get',
+      loadApiPath:
+        modelTypeCollection.workflowCaseFormAttachmentTypeCollection.get,
     };
   }
 

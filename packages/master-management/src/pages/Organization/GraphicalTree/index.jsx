@@ -7,6 +7,7 @@ import { iconBuilder } from 'antd-management-fast-component';
 import { DataForm } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { buildFlowGraphConfig } from '../../../utils';
 
 const { BaseUpdateForm } = DataForm;
@@ -25,7 +26,8 @@ class AddBasicInfo extends BaseUpdateForm {
     this.state = {
       ...this.state,
       pageTitle: '结构概览',
-      loadApiPath: 'organization/getGraphicalTree',
+      loadApiPath:
+        modelTypeCollection.organizationTypeCollection.getGraphicalTree,
     };
   }
 

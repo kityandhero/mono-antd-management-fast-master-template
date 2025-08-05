@@ -4,6 +4,7 @@ import { columnFacadeMode } from 'antd-management-fast-common';
 import { DataSinglePageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { SinglePage: SinglePageView } = DataSinglePageView;
@@ -23,7 +24,8 @@ class SinglePage extends SinglePageView {
       ...this.state,
       pageTitle: 'Mongo慢查询列表',
       paramsKey: accessWayCollection.mongoSlowQueryInfo.singleList.paramsKey,
-      loadApiPath: 'mongoSlowQueryInfo/singleList',
+      loadApiPath:
+        modelTypeCollection.mongoSlowQueryInfoTypeCollection.singleList,
     };
   }
 

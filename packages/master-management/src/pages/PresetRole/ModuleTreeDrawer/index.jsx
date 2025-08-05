@@ -10,10 +10,10 @@ import {
 } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
-
 const visibleFlag = '96503b03e8e44a1fbbd9807b4b8bb46e';
 
 @connect(({ presetRole, schedulingControl }) => ({
@@ -32,7 +32,7 @@ class ModuleTreeDrawer extends BaseVerticalFlexDrawer {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'presetRole/listTreeModule',
+      loadApiPath: modelTypeCollection.presetRoleTypeCollection.listTreeModule,
       defaultExpandedKeys: [],
     };
   }

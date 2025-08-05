@@ -45,6 +45,7 @@ import {
   flowNodeTypeCollection,
   signetStyle,
 } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { BaseFlowCaseFormInfoDrawer } from '../../../pageBases';
 import { buildFlowCaseFormInitialValues } from '../../../utils';
 
@@ -55,8 +56,8 @@ class WorkflowCaseFormInfoDrawer extends BaseFlowCaseFormInfoDrawer {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'workflowCase/get',
-      submitApiPath: 'workflowCase/submitForm',
+      loadApiPath: modelTypeCollection.workflowCaseTypeCollection.get,
+      submitApiPath: modelTypeCollection.workflowCaseTypeCollection.submitForm,
     };
   }
 

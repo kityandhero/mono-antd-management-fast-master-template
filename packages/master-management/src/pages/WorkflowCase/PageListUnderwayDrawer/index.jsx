@@ -4,13 +4,13 @@ import { checkHasAuthority } from 'easy-soft-utility';
 import { switchControlAssist } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { BaseFlowCasePageListUnderwayDrawer } from '../../../pageBases';
 import { forceEndAction, refreshCacheAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = 'db291519f9734ff4bf284374ce9a2ddb';
-
 @connect(({ workflowCase, schedulingControl }) => ({
   workflowCase,
   schedulingControl,
@@ -29,7 +29,8 @@ class WorkflowCasePageListUnderwayDrawer extends BaseFlowCasePageListUnderwayDra
     this.state = {
       ...this.state,
       pageTitle: '进行中的审批实例列表',
-      loadApiPath: 'workflowCase/pageListUnderway',
+      loadApiPath:
+        modelTypeCollection.workflowCaseTypeCollection.pageListUnderway,
     };
   }
 

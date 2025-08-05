@@ -23,6 +23,7 @@ import {
   DataTabContainerSupplement,
   getFlowCaseStatusName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { FlowDisplayDrawer } from '../../Workflow/FlowDisplayDrawer';
 import { resetAllApproveAction } from '../../WorkflowCaseProcessHistory/Assist/action';
 import { PageListDrawer as WorkflowLinePageListDrawer } from '../../WorkflowLine/PageListDrawer';
@@ -82,7 +83,7 @@ class Detail extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'workflowCase/get',
+      loadApiPath: modelTypeCollection.workflowCaseTypeCollection.get,
       backPath: `/flow/workflowCase/pageList/key`,
       workflowCaseId: null,
     };

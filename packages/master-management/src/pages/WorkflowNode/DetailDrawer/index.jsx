@@ -13,12 +13,12 @@ import {
   accessWayCollection,
   flowNodeApproverModeCollection,
 } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { AddAttachmentModal } from '../../WorkflowDebugCaseFormAttachment/AddAttachmentModal';
 import { fieldData as fieldDataWorkflowNodeApprover } from '../../WorkflowNodeApprover/Common/data';
 import { fieldData } from '../Common/data';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
-
 const visibleFlag = 'eb965c312f1a4580a41a8983d5a657f0';
 
 @connect(({ workflowNode, schedulingControl }) => ({
@@ -42,7 +42,7 @@ class WorkflowNodeDetailDrawer extends BaseVerticalFlexDrawer {
     this.state = {
       ...this.state,
       pageTitle: '工作流节点信息',
-      loadApiPath: 'workflowNode/get',
+      loadApiPath: modelTypeCollection.workflowNodeTypeCollection.get,
       workflowNodeId: null,
     };
   }

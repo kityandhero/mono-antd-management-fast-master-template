@@ -4,13 +4,13 @@ import { checkHasAuthority } from 'easy-soft-utility';
 import { switchControlAssist } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { BaseFlowCaseProcessHistoryPageListDrawer } from '../../../pageBases';
 import { refreshCacheAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = '0e532e94b3cc4f23ac5d57e744e97e37';
-
 @connect(({ workflowDebugCaseProcessHistory, schedulingControl }) => ({
   workflowDebugCaseProcessHistory,
   schedulingControl,
@@ -31,7 +31,9 @@ class WorkflowDebugCaseProcessHistoryPageListDrawer extends BaseFlowCaseProcessH
     this.state = {
       ...this.state,
       pageTitle: '测试流程审批记录列表',
-      loadApiPath: 'workflowDebugCaseProcessHistory/pageList',
+      loadApiPath:
+        modelTypeCollection.workflowDebugCaseProcessHistoryTypeCollection
+          .pageList,
     };
   }
 

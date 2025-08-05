@@ -10,6 +10,7 @@ import { iconBuilder } from 'antd-management-fast-component';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
 import { renderFormFlowBranchConditionJudgmentModeSelect } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
@@ -33,8 +34,11 @@ class UpdateBasicInfoModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '编辑分支条件基本信息',
-      loadApiPath: 'workflowBranchCondition/get',
-      submitApiPath: 'workflowBranchCondition/updateBasicInfo',
+      loadApiPath:
+        modelTypeCollection.workflowBranchConditionTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.workflowBranchConditionTypeCollection
+          .updateBasicInfo,
     };
   }
 

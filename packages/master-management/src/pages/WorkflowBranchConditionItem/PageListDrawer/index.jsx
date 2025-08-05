@@ -24,6 +24,7 @@ import {
   getFlowBranchConditionItemTargetSourceModeName,
   getFlowBranchConditionItemTargetTypeName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshCacheAction } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
@@ -32,7 +33,6 @@ const { MultiPageDrawer } = DataMultiPageView;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = 'ace14910532c46efb5cf5474f2f89dd3';
-
 @connect(({ workflowBranchConditionItem, schedulingControl }) => ({
   workflowBranchConditionItem,
   schedulingControl,
@@ -53,7 +53,8 @@ class PageListDrawer extends MultiPageDrawer {
     this.state = {
       ...this.state,
       pageTitle: '流程节点条件项列表',
-      loadApiPath: 'workflowBranchConditionItem/pageList',
+      loadApiPath:
+        modelTypeCollection.workflowBranchConditionItemTypeCollection.pageList,
       tableScrollX: 2420,
     };
   }

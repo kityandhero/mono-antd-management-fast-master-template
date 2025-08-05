@@ -19,6 +19,7 @@ import {
   getWeChatMessageRecordSendStatusName,
   renderSearchWeChatMessageRecordSendStatusSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 import PreviewDrawer from '../PreviewDrawer';
@@ -37,7 +38,8 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '微信消息发送列表',
       paramsKey: accessWayCollection.weChatMessageRecord.pageList.paramsKey,
-      loadApiPath: 'weChatMessageRecord/pageList',
+      loadApiPath:
+        modelTypeCollection.weChatMessageRecordTypeCollection.pageList,
       dateRangeFieldName: '发生时段',
       currentRecord: null,
     };

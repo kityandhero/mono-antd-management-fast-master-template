@@ -4,13 +4,13 @@ import { convertCollection, getValueByKey, isArray } from 'easy-soft-utility';
 import { cardConfig } from 'antd-management-fast-common';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData as fieldDataWorkflow } from '../../Workflow/Common/data';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
 
 const visibleFlag = '61943ea462604ca389bb5b1aa3b05a08';
-
 @connect(({ workflow, workflowNode, schedulingControl }) => ({
   workflow,
   workflowNode,
@@ -27,8 +27,9 @@ class ChangeForwardModal extends BaseUpdateModal {
     this.state = {
       ...this.state,
       pageTitle: '更改前进流程',
-      loadApiPath: 'workflow/get',
-      submitApiPath: 'workflowNode/updateForwardId',
+      loadApiPath: modelTypeCollection.workflowTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.workflowNodeTypeCollection.updateForwardId,
     };
   }
 

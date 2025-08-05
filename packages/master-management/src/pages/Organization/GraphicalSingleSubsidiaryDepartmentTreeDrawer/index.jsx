@@ -9,13 +9,13 @@ import {
 } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { buildFlowGraphConfig } from '../../../utils';
 import { fieldData } from '../../Subsidiary/Common/data';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
 const visibleFlag = 'bd06b254017b42e28b993d8331ed255a';
-
 @connect(({ organization, schedulingControl }) => ({
   organization,
   schedulingControl,
@@ -34,7 +34,9 @@ class GraphicalSingleSubsidiaryDepartmentTreeDrawer extends BaseVerticalFlexDraw
 
     this.state = {
       ...this.state,
-      loadApiPath: 'organization/getGraphicalSingleSubsidiaryDepartment',
+      loadApiPath:
+        modelTypeCollection.organizationTypeCollection
+          .getGraphicalSingleSubsidiaryDepartment,
     };
   }
 

@@ -26,6 +26,7 @@ import {
   getPresetRoleStatusName,
   renderSearchManagementChannelSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import AddModal from '../AddModal';
 import {
   refreshCacheAction,
@@ -50,9 +51,9 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      paramsKey: accessWayCollection.presetRole.pageList.paramsKey,
       pageTitle: '预设角色列表',
-      loadApiPath: 'presetRole/pageList',
+      paramsKey: accessWayCollection.presetRole.pageList.paramsKey,
+      loadApiPath: modelTypeCollection.presetRoleTypeCollection.pageList,
       currentRecord: null,
     };
   }

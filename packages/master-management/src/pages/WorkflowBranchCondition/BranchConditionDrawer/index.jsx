@@ -29,6 +29,7 @@ import {
   getFlowBranchConditionItemTargetSourceModeName,
   refitFlowBranchConditionItemTargetSourceModeList,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { AddFormFieldBasicInfoModel } from '../../WorkflowBranchConditionItem/AddFormFieldBasicInfoModel';
 import {
   refreshCacheAction as refreshBranchConditionItemCacheAction,
@@ -45,7 +46,6 @@ import { UpdateBasicInfoModal } from '../UpdateBasicInfoModel';
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
 const visibleFlag = 'bcc0fad276c24177920a39bc32a2a1d1';
-
 @connect(
   ({
     workflowNode,
@@ -78,7 +78,7 @@ class BranchConditionDrawer extends BaseVerticalFlexDrawer {
     this.state = {
       ...this.state,
       pageTitle: '工作流节点分支条件设置',
-      loadApiPath: 'workflowNode/get',
+      loadApiPath: modelTypeCollection.workflowNodeTypeCollection.get,
       workflowNodeId: null,
       currentBranchCondition: null,
       currentBranchConditionItem: null,

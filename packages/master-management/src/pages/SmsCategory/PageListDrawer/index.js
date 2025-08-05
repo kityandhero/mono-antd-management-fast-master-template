@@ -10,11 +10,11 @@ import {
 } from 'antd-management-fast-framework';
 
 import { getSmsCategoryStatusName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
 const { MultiPageSelectDrawer } = DataMultiPageView;
-
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = '17bd1050b38745a2bd999542329bccca';
 
@@ -33,7 +33,7 @@ class PageListDrawer extends MultiPageSelectDrawer {
     this.state = {
       ...this.state,
       tableScrollX: 880,
-      loadApiPath: 'smsCategory/pageList',
+      loadApiPath: modelTypeCollection.smsCategoryTypeCollection.pageList,
     };
   }
 

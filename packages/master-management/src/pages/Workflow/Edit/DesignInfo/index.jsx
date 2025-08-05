@@ -26,6 +26,7 @@ import {
   flowNodeTypeCollection,
 } from '../../../../customConfig';
 import { getFlowNodeApproveModeName } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { BranchConditionDrawer } from '../../../WorkflowBranchCondition/BranchConditionDrawer';
 import { AddLineDrawer } from '../../../WorkflowLine/AddLineDrawer';
 import {
@@ -78,7 +79,7 @@ class Index extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'workflow/get',
+      loadApiPath: modelTypeCollection.workflowTypeCollection.get,
       workflowId: null,
       currentNode: null,
       currentLine: null,

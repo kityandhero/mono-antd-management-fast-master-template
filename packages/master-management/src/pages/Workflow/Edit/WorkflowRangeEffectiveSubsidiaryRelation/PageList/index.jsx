@@ -12,6 +12,7 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../../../customConfig';
 import { getFlowRangeEffectiveRelationStatusName } from '../../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../../modelBuilders';
 import { PageListAddWorkflowRangeEffectiveDrawer } from '../../../../Subsidiary/PageListAddWorkflowRangeEffectiveDrawer';
 import {
   refreshCacheAction,
@@ -44,7 +45,9 @@ class PageList extends InnerMultiPage {
       paramsKey:
         accessWayCollection.workflowRangeEffectiveSubsidiaryRelation.pageList
           .paramsKey,
-      loadApiPath: 'workflowRangeEffectiveSubsidiaryRelation/pageList',
+      loadApiPath:
+        modelTypeCollection
+          .workflowRangeEffectiveSubsidiaryRelationTypeCollection.pageList,
       dateRangeFieldName: '创建时间',
       workflowId: null,
     };

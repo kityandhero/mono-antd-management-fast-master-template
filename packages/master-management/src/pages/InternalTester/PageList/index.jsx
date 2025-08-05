@@ -15,11 +15,11 @@ import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { removeAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
 const { MultiPage } = DataMultiPageView;
-
 @connect(({ internalTester, schedulingControl }) => ({
   internalTester,
   schedulingControl,
@@ -34,7 +34,7 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '内测用户列表',
       paramsKey: accessWayCollection.internalTester.pageList.paramsKey,
-      loadApiPath: 'internalTester/pageList',
+      loadApiPath: modelTypeCollection.internalTesterTypeCollection.pageList,
       dateRangeFieldName: '注册时间',
     };
   }

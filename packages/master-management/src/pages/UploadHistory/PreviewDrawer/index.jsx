@@ -19,12 +19,12 @@ import {
   getUploadHistorySourceTypeName,
   getUploadHistoryStatusName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
 const visibleFlag = '4c88e80e17f8403698d19dcb39ea2087';
-
 @connect(({ uploadHistory, schedulingControl }) => ({
   uploadHistory,
   schedulingControl,
@@ -42,7 +42,7 @@ class PreviewDrawer extends BaseVerticalFlexDrawer {
     this.state = {
       ...this.state,
       pageTitle: '详细信息',
-      loadApiPath: 'uploadHistory/get',
+      loadApiPath: modelTypeCollection.uploadHistoryTypeCollection.get,
       overlayButtonOpenText: '查看文件信息',
       overlayButtonCloseText: '关闭文件信息',
     };

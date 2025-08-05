@@ -14,13 +14,13 @@ import {
   renderFormFlowLineToPositionSelect,
   renderFormFlowLineTypeSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData as fieldDataWorkflowNode } from '../../WorkflowNode/Common/data';
 import { FromNodeSelectModalField } from '../../WorkflowNode/FromNodeSelectModalField';
 import { ToNodeSelectModalField } from '../../WorkflowNode/ToNodeSelectModalField';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
-
 const visibleFlag = '114db37a1cfd4a059bf045cadfb4cb9a';
 
 @connect(({ workflowNode, schedulingControl }) => ({
@@ -38,8 +38,8 @@ class UpdateLineDrawer extends BaseUpdateDrawer {
     this.state = {
       ...this.state,
       pageTitle: '更新流程线',
-      loadApiPath: 'workflowLine/get',
-      submitApiPath: 'workflowLine/updateLine',
+      loadApiPath: modelTypeCollection.workflowLineTypeCollection.get,
+      submitApiPath: modelTypeCollection.workflowLineTypeCollection.updateLine,
       fromId: '',
       fromName: '',
       toId: '',

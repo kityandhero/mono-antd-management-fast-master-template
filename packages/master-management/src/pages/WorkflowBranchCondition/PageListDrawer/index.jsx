@@ -22,6 +22,7 @@ import {
   getFlowBranchConditionJudgmentModeName,
   getFlowBranchConditionStatusName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshCacheAction } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
@@ -51,7 +52,8 @@ class PageListDrawer extends MultiPageDrawer {
     this.state = {
       ...this.state,
       pageTitle: '流程节点条件列表',
-      loadApiPath: 'workflowBranchCondition/pageList',
+      loadApiPath:
+        modelTypeCollection.workflowBranchConditionTypeCollection.pageList,
       tableScrollX: 1260,
     };
   }

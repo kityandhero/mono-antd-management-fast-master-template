@@ -20,6 +20,7 @@ import {
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../../../customConfig';
+import { modelTypeCollection } from '../../../../../modelBuilders';
 import { refreshKeyValueCacheAction } from '../../../Assist/action';
 import { fieldDataDefaultImage } from '../../../Common/data';
 import { UpdateDefaultImageModal } from '../../../UpdateDefaultImageModal';
@@ -44,7 +45,9 @@ class PageList extends InnerMultiPage {
       ...this.state,
       listViewMode: listViewConfig.viewMode.list,
       pageTitle: '默认图片配置单页列表',
-      loadApiPath: 'currentManagementInfrastructure/pageListDefaultImage',
+      loadApiPath:
+        modelTypeCollection.currentManagementInfrastructureTypeCollection
+          .pageListDefaultImage,
       currentRecord: null,
     };
   }

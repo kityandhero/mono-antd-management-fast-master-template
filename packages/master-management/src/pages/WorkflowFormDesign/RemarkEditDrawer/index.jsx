@@ -12,13 +12,13 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { updateRemarkSchemaAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
 const visibleFlag = 'b1fbead77ced442f854d79fd83b3af18';
-
 @connect(({ workflowFormDesign, schedulingControl }) => ({
   workflowFormDesign,
   schedulingControl,
@@ -38,7 +38,8 @@ class RemarkEditDrawer extends BaseVerticalFlexDrawer {
     this.state = {
       ...this.state,
       pageTitle: '表单备注编辑',
-      loadApiPath: 'workflowFormDesign/getByWorkflow',
+      loadApiPath:
+        modelTypeCollection.workflowFormDesignTypeCollection.getByWorkflow,
       width: 1024,
       dataStamp: '',
     };

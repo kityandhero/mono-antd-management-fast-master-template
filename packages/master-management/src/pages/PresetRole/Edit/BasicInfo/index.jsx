@@ -8,6 +8,7 @@ import {
 import { iconBuilder } from 'antd-management-fast-component';
 
 import { buildUpdateTimeAndOperatorFieldItem } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
@@ -24,8 +25,9 @@ class Index extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'presetRole/get',
-      submitApiPath: 'presetRole/updateBasicInfo',
+      loadApiPath: modelTypeCollection.presetRoleTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.presetRoleTypeCollection.updateBasicInfo,
       presetRoleId: null,
     };
   }

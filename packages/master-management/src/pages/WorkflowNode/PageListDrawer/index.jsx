@@ -23,6 +23,7 @@ import {
   getFlowNodeStatusName,
   getFlowNodeTypeName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshCacheAction } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
@@ -51,7 +52,7 @@ class PageListDrawer extends MultiPageDrawer {
     this.state = {
       ...this.state,
       pageTitle: '流程节点列表',
-      loadApiPath: 'workflowNode/pageList',
+      loadApiPath: modelTypeCollection.workflowNodeTypeCollection.pageList,
       tableScrollX: 1260,
     };
   }

@@ -23,6 +23,7 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   refreshCacheAction,
   setDisableAction,
@@ -31,7 +32,6 @@ import {
 import { fieldData } from '../Common/data';
 
 const { MultiPageDrawer } = DataMultiPageView;
-
 const visibleFlag = '84ae32350cae4ff186eb19854a1dde30';
 
 @connect(({ channelSqlLogSwitch, schedulingControl }) => ({
@@ -50,9 +50,10 @@ class PageListDrawer extends MultiPageDrawer {
 
     this.state = {
       ...this.state,
-      pageTitle: '日志开关',
-      loadApiPath: 'channelSqlLogSwitch/pageList',
       listViewMode: listViewConfig.viewMode.list,
+      pageTitle: '日志开关',
+      loadApiPath:
+        modelTypeCollection.channelSqlLogSwitchTypeCollection.pageList,
     };
   }
 

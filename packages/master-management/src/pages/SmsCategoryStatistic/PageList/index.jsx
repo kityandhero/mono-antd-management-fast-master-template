@@ -14,6 +14,7 @@ import {
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { SelectDrawerField } from '../../SmsCategory/SelectDrawerField';
 import { parseUrlParametersForSetState } from '../Assist/config';
 import { fieldData } from '../Common/data';
@@ -32,9 +33,10 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      paramsKey: accessWayCollection.smsCategoryStatistic.pageList.paramsKey,
       pageTitle: '分类短信发送总量统计列表',
-      loadApiPath: 'smsCategoryStatistic/pageList',
+      paramsKey: accessWayCollection.smsCategoryStatistic.pageList.paramsKey,
+      loadApiPath:
+        modelTypeCollection.smsCategoryStatisticTypeCollection.pageList,
     };
   }
 

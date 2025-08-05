@@ -45,6 +45,7 @@ import {
   flowCaseStatusCollection,
   signetStyle,
 } from '../../../../customConfig';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import {
   adjustFlowCaseDataToState,
   buildColumnsCarbonCopyNotification,
@@ -86,8 +87,8 @@ class FormInfo extends TabPageBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'workflowCase/get',
-      submitApiPath: 'workflowCase/submitForm',
+      loadApiPath: modelTypeCollection.workflowCaseTypeCollection.get,
+      submitApiPath: modelTypeCollection.workflowCaseTypeCollection.submitForm,
       workflowCaseId: null,
       currentAttachment: null,
       workflowFormDesign: null,

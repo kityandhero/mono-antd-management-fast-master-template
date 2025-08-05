@@ -2,6 +2,7 @@ import { connect } from 'easy-soft-dva';
 
 import { getDerivedStateFromPropertiesForUrlParameters } from 'antd-management-fast-common';
 
+import { modelTypeCollection } from '../../../../../modelBuilders';
 import ModuleInfoBase from '../../../../AccessWay/ModuleInfoBase';
 import AccessWayDrawer from '../../../AccessWayDrawer';
 import { removeModuleAction } from '../../../Assist/action';
@@ -22,8 +23,9 @@ class ModuleInfo extends ModuleInfoBase {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'presetRole/listModule',
-      removeModuleApiPath: 'presetRole/removeModule',
+      loadApiPath: modelTypeCollection.presetRoleTypeCollection.listModule,
+      removeModuleApiPath:
+        modelTypeCollection.presetRoleTypeCollection.removeModule,
       presetRoleId: null,
     };
   }

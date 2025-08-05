@@ -24,6 +24,7 @@ import {
   renderSearchFileTypeSelect,
   renderSearchUploadHistorySourceTypeSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshCacheAction, removeAction } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
@@ -49,7 +50,7 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '上传历史列表',
       paramsKey: accessWayCollection.uploadHistory.pageList.paramsKey,
-      loadApiPath: 'uploadHistory/pageList',
+      loadApiPath: modelTypeCollection.uploadHistoryTypeCollection.pageList,
       dateRangeFieldName: '上传时间',
       tableScrollX: 1520,
       currentRecord: null,

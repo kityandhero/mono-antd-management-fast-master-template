@@ -2,10 +2,10 @@ import { connect } from 'easy-soft-dva';
 
 import { switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { BaseFlowCaseProcessChainDrawer } from '../../../pageBases';
 
 const visibleFlag = '8f53689d202146bab9d684c36d911e9a';
-
 @connect(({ workflowDebugCase, schedulingControl }) => ({
   workflowDebugCase,
   schedulingControl,
@@ -20,7 +20,8 @@ class ProcessChainDrawer extends BaseFlowCaseProcessChainDrawer {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'workflowDebugCase/getChainByWorkflow',
+      loadApiPath:
+        modelTypeCollection.workflowDebugCaseTypeCollection.getChainByWorkflow,
     };
   }
 }
