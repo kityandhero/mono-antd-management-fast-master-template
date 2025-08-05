@@ -250,6 +250,21 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
               }),
             },
           ],
+          instruction: [
+            {
+              title: '设置说明',
+              showDivider: false,
+              showNumber: true,
+              list: [
+                {
+                  text: '审批人模式为 ”指定人员“ 时, 需要选择人员作为审批人。',
+                },
+                {
+                  text: '审批人模式为 ”直属部门“ 时, 需要选择职级, 符合所选职级的直属部门人员作为审批人, 请注意，直属部门是提交人所在部门，并非上级部门。',
+                },
+              ],
+            },
+          ],
         },
         {
           title: {

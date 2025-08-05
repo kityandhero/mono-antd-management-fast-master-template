@@ -204,6 +204,41 @@ export const flowLineTypeCollection = {
 };
 
 /**
+ * 流程线条方向值集合
+ */
+export const flowLinePositionCollection = {
+  /**
+   * 未知
+   * value : 0
+   */
+  unknown: 0,
+
+  /**
+   * 上部
+   * value : 100
+   */
+  top: 100,
+
+  /**
+   * 左侧
+   * value : 200
+   */
+  left: 200,
+
+  /**
+   * 右侧
+   * value : 300
+   */
+  right: 300,
+
+  /**
+   * 下部
+   * value : 400
+   */
+  bottom: 400,
+};
+
+/**
  * 流程线条状态值集合
  */
 export const flowLineStatusCollection = {

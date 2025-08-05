@@ -1,5 +1,10 @@
 import { connect } from 'easy-soft-dva';
-import { getValueByKey } from 'easy-soft-utility';
+import {
+  checkInCollection,
+  filter,
+  getValueByKey,
+  toString,
+} from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
@@ -8,12 +13,14 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { flowLinePositionCollection } from '../../../customConfig';
 import {
   buildNowTimeFieldItem,
   renderFormFlowLineFromPositionSelect,
   renderFormFlowLineToPositionSelect,
   renderFormFlowLineTypeSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData as fieldDataWorkflow } from '../../Workflow/Common/data';
 import { fieldData as fieldDataWorkflowNode } from '../../WorkflowNode/Common/data';
 import { FromNodeSelectModalField } from '../../WorkflowNode/FromNodeSelectModalField';
@@ -21,7 +28,6 @@ import { ToNodeSelectModalField } from '../../WorkflowNode/ToNodeSelectModalFiel
 import { fieldData } from '../Common/data';
 
 const { BaseAddDrawer } = DataDrawer;
-
 const visibleFlag = '6807d8021f2c4ef9bbcf2acfd350e0f2';
 
 @connect(({ workflowLine, schedulingControl }) => ({
@@ -41,7 +47,7 @@ class AddLineDrawer extends BaseAddDrawer {
     this.state = {
       ...this.state,
       pageTitle: '新增流程线',
-      submitApiPath: 'workflowLine/createLine',
+      submitApiPath: modelTypeCollection.workflowLineTypeCollection.createLine,
       fromId: '',
       toId: '',
     };
@@ -104,12 +110,32 @@ class AddLineDrawer extends BaseAddDrawer {
     });
   };
 
+  adjustLinePositionListData = (list) => {
+    const listAdjust = filter(list, (one) => {
+      const { flag } = one;
+
+      return checkInCollection(
+        [
+          toString(flowLinePositionCollection.top),
+          toString(flowLinePositionCollection.left),
+          toString(flowLinePositionCollection.right),
+          toString(flowLinePositionCollection.bottom),
+        ],
+        toString(flag),
+      );
+    });
+
+    return listAdjust;
+  };
+
   renderPresetTitle = () => {
     return '新增流程线';
   };
 
   establishCardCollectionConfig = () => {
     const { externalData } = this.state;
+
+    const that = this;
 
     return {
       list: [
@@ -140,7 +166,9 @@ class AddLineDrawer extends BaseAddDrawer {
             {
               lg: 12,
               type: cardConfig.contentItemType.component,
-              component: renderFormFlowLineFromPositionSelect({}),
+              component: renderFormFlowLineFromPositionSelect({
+                adjustListData: that.adjustLinePositionListData,
+              }),
               require: true,
             },
             {
@@ -163,7 +191,9 @@ class AddLineDrawer extends BaseAddDrawer {
             {
               lg: 12,
               type: cardConfig.contentItemType.component,
-              component: renderFormFlowLineToPositionSelect({}),
+              component: renderFormFlowLineToPositionSelect({
+                adjustListData: that.adjustLinePositionListData,
+              }),
               require: true,
             },
           ],

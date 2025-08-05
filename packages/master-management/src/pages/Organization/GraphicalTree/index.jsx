@@ -1,4 +1,4 @@
-import { FlowGraph } from '@ant-design/graphs';
+import { G6, MindMap } from '@ant-design/graphs';
 
 import { connect } from 'easy-soft-dva';
 
@@ -8,9 +8,11 @@ import { DataForm } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
 import { modelTypeCollection } from '../../../modelBuilders';
-import { buildFlowGraphConfig } from '../../../utils';
+import { buildOrganizationGraphConfig } from '../../../utils';
 
 const { BaseUpdateForm } = DataForm;
+
+const { treeToGraphData } = G6;
 
 @connect(({ organization, schedulingControl }) => ({
   organization,
@@ -28,8 +30,37 @@ class AddBasicInfo extends BaseUpdateForm {
       pageTitle: '结构概览',
       loadApiPath:
         modelTypeCollection.organizationTypeCollection.getGraphicalTree,
+      graphData: null,
     };
   }
+
+  doOtherAfterLoadSuccess = ({
+    metaData = null,
+    // eslint-disable-next-line no-unused-vars
+    metaListData = [],
+    // eslint-disable-next-line no-unused-vars
+    metaExtra = null,
+    // eslint-disable-next-line no-unused-vars
+    metaOriginalData = null,
+  }) => {
+    this.setState({
+      graphData: treeToGraphData(
+        JSON.parse(
+          JSON.stringify(
+            metaData || {
+              id: 'root',
+              name: '加载中',
+              value: {
+                name: '加载中',
+                level: 0,
+              },
+              children: [],
+            },
+          ),
+        ),
+      ),
+    });
+  };
 
   fillInitialValuesAfterLoad = ({
     // eslint-disable-next-line no-unused-vars
@@ -47,7 +78,7 @@ class AddBasicInfo extends BaseUpdateForm {
   };
 
   establishCardCollectionConfig = () => {
-    const { metaData } = this.state;
+    const { graphData } = this.state;
 
     return {
       list: [
@@ -69,21 +100,9 @@ class AddBasicInfo extends BaseUpdateForm {
             {
               lg: 24,
               type: cardConfig.contentItemType.component,
-              component: metaData ? (
-                <FlowGraph
-                  {...buildFlowGraphConfig()}
-                  data={
-                    metaData || {
-                      id: 'root',
-                      value: {
-                        name: '加载中',
-                        level: 0,
-                      },
-                      children: [],
-                    }
-                  }
-                />
-              ) : null,
+              component: (
+                <MindMap {...buildOrganizationGraphConfig()} data={graphData} />
+              ),
             },
           ],
         },

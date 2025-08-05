@@ -1,4 +1,4 @@
-import { FlowGraph } from '@ant-design/graphs';
+import { G6, MindMap } from '@ant-design/graphs';
 
 import { connect } from 'easy-soft-dva';
 import { getValueByKey } from 'easy-soft-utility';
@@ -10,10 +10,12 @@ import {
 
 import { accessWayCollection } from '../../../customConfig';
 import { modelTypeCollection } from '../../../modelBuilders';
-import { buildFlowGraphConfig } from '../../../utils';
+import { buildOrganizationGraphConfig } from '../../../utils';
 import { fieldData } from '../../Subsidiary/Common/data';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
+
+const { treeToGraphData } = G6;
 
 const visibleFlag = 'bd06b254017b42e28b993d8331ed255a';
 @connect(({ organization, schedulingControl }) => ({
@@ -62,8 +64,36 @@ class GraphicalSingleSubsidiaryDepartmentTreeDrawer extends BaseVerticalFlexDraw
     return d;
   };
 
+  doOtherAfterLoadSuccess = ({
+    metaData = null,
+    // eslint-disable-next-line no-unused-vars
+    metaListData = [],
+    // eslint-disable-next-line no-unused-vars
+    metaExtra = null,
+    // eslint-disable-next-line no-unused-vars
+    metaOriginalData = null,
+  }) => {
+    this.setState({
+      graphData: treeToGraphData(
+        JSON.parse(
+          JSON.stringify(
+            metaData || {
+              id: 'root',
+              name: '加载中',
+              value: {
+                name: '加载中',
+                level: 0,
+              },
+              children: [],
+            },
+          ),
+        ),
+      ),
+    });
+  };
+
   renderPresetContentContainorInnerTop = () => {
-    const { metaData } = this.state;
+    const { graphData } = this.state;
 
     return (
       <div
@@ -71,19 +101,7 @@ class GraphicalSingleSubsidiaryDepartmentTreeDrawer extends BaseVerticalFlexDraw
           paddingTop: '20px',
         }}
       >
-        <FlowGraph
-          {...buildFlowGraphConfig()}
-          data={
-            metaData || {
-              id: 'root',
-              value: {
-                name: '加载中',
-                level: 0,
-              },
-              children: [],
-            }
-          }
-        />
+        <MindMap {...buildOrganizationGraphConfig()} data={graphData} />
       </div>
     );
   };
