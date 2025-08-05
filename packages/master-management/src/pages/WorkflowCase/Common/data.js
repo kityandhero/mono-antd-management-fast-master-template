@@ -1,5 +1,13 @@
 import { fieldDataFlowCase } from '../../../customConfig';
 
+const fieldDataExtra = {
+  canHide: {
+    label: '能否隐藏',
+    name: 'canHide',
+    helper: '',
+  },
+};
+
 export const fieldData = {
   ...fieldDataFlowCase,
   workflowCaseId: {
@@ -7,4 +15,5 @@ export const fieldData = {
     name: 'workflowCaseId',
     helper: '',
   },
+  ...fieldDataExtra,
 };
