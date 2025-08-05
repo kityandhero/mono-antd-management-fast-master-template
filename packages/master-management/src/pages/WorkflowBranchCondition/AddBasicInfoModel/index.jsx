@@ -26,7 +26,7 @@ class AddBasicInfoModel extends BaseAddModal {
 
     this.state = {
       ...this.state,
-      pageTitle: '新增审批流程',
+      pageTitle: '新增审批流程条件',
       submitApiPath: 'workflowBranchCondition/addBasicInfo',
     };
   }
