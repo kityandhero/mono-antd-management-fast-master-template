@@ -9,10 +9,10 @@ import {
 } from 'antd-management-fast-framework';
 
 import { buildUpdateTimeAndOperatorFieldItem } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
-
 const visibleFlag = 'd646854f851c45f295cbeb25939eeac4';
 
 @connect(({ positionGrade, schedulingControl }) => ({
@@ -30,8 +30,9 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
     this.state = {
       ...this.state,
       pageTitle: '编辑信息',
-      loadApiPath: 'positionGrade/get',
-      submitApiPath: 'positionGrade/updateBasicInfo',
+      loadApiPath: modelTypeCollection.positionGradeTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.positionGradeTypeCollection.updateBasicInfo,
     };
   }
 

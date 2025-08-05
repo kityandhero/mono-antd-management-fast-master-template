@@ -12,6 +12,7 @@ import {
 
 import { accessWayCollection } from '../../../customConfig';
 import { getChannelName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { MultiPage } = DataMultiPageView;
@@ -33,7 +34,8 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '操作日志列表',
       paramsKey: accessWayCollection.masterManagerLoginLog.pageList.paramsKey,
-      loadApiPath: 'masterManagerLoginLog/pageList',
+      loadApiPath:
+        modelTypeCollection.masterManagerLoginLogTypeCollection.pageList,
       dateRangeFieldName: '创建时间',
     };
   }

@@ -11,11 +11,11 @@ import {
 } from 'antd-management-fast-framework';
 
 import { getGalleryCategoryStatusName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
 const { MultiPageSelectModal } = DataMultiPageView;
-
 const visibleFlag = '0645efa88748421b977f0e882b6e7cb3';
 
 @connect(({ emailSenderAgent, schedulingControl }) => ({
@@ -34,10 +34,10 @@ class PageListSelectModal extends MultiPageSelectModal {
 
     this.state = {
       ...this.state,
-      pageTitle: '展示图类别选择列表',
-      loadApiPath: 'emailSenderAgent/pageList',
       listViewMode: listViewConfig.viewMode.table,
       tableScrollX: 1020,
+      pageTitle: '展示图类别选择列表',
+      loadApiPath: modelTypeCollection.emailSenderAgentTypeCollection.pageList,
     };
   }
 

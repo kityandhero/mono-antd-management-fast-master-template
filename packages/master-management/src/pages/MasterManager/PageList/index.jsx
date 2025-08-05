@@ -23,6 +23,7 @@ import {
   getMasterManagerStatusName,
   renderSearchMasterManagerStatusSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import AddBasicInfoDrawer from '../AddBasicInfoDrawer';
 import {
   refreshCacheAction,
@@ -35,7 +36,6 @@ import { UpdateRoleModal } from '../ChangeRoleModal';
 import { fieldData, statusCollection } from '../Common/data';
 
 const { MultiPage } = DataMultiPageView;
-
 @connect(({ masterManager, schedulingControl }) => ({
   masterManager,
   schedulingControl,
@@ -53,7 +53,7 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '管理账户列表',
       paramsKey: accessWayCollection.masterManager.pageList.paramsKey,
-      loadApiPath: 'masterManager/pageList',
+      loadApiPath: modelTypeCollection.masterManagerTypeCollection.pageList,
       dateRangeFieldName: '创建时间',
       currentRecord: null,
     };

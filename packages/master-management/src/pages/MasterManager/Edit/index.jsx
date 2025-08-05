@@ -15,6 +15,7 @@ import {
   DataTabContainerSupplement,
   getMasterManagerStatusName,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import {
   refreshCacheAction,
   setDisableAction,
@@ -64,7 +65,7 @@ class Detail extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath: 'masterManager/get',
+      loadApiPath: modelTypeCollection.masterManagerTypeCollection.get,
       backPath: `/account/masterManager/pageList/key`,
       masterManagerId: null,
     };

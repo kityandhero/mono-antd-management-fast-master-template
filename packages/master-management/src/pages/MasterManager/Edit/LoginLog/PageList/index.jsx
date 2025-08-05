@@ -7,6 +7,7 @@ import {
 } from 'antd-management-fast-common';
 
 import { getChannelName } from '../../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../../modelBuilders';
 import { fieldData } from '../../../../MasterManagerLoginLog/Common/data';
 import BaseInnerPageList from '../../../../OperationLog/BaseInnerPageList';
 import {
@@ -24,7 +25,8 @@ class PageList extends BaseInnerPageList {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'masterManagerLoginLog/pageList',
+      loadApiPath:
+        modelTypeCollection.masterManagerLoginLogTypeCollection.pageList,
       dateRangeFieldName: '操作时间',
       masterManagerId: null,
       currentRecord: null,

@@ -5,6 +5,7 @@ import { columnFacadeMode } from 'antd-management-fast-common';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { getChannelName } from '../../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { fieldData } from '../../../MasterManagerLoginLog/Common/data';
 
 const { MultiPage } = DataMultiPageView;
@@ -21,7 +22,8 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'currentAccount/pageListLoginLog',
+      loadApiPath:
+        modelTypeCollection.currentAccountTypeCollection.pageListLoginLog,
       dateRangeFieldName: '操作时间',
     };
   }

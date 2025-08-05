@@ -8,12 +8,12 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
 
 const visibleFlag = '1f5a6f8c21da4d3194770ca999d31dba';
-
 @connect(({ generalDiscourse, schedulingControl }) => ({
   generalDiscourse,
   schedulingControl,
@@ -29,8 +29,9 @@ class Index extends BaseUpdateDrawer {
     this.state = {
       ...this.state,
       pageTitle: '编辑常用语信息',
-      loadApiPath: 'generalDiscourse/get',
-      submitApiPath: 'generalDiscourse/updateBasicInfo',
+      loadApiPath: modelTypeCollection.generalDiscourseTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.generalDiscourseTypeCollection.updateBasicInfo,
     };
   }
 

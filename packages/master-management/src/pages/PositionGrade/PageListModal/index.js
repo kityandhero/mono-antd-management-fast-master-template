@@ -12,6 +12,7 @@ import {
 
 import { accessWayCollection } from '../../../customConfig';
 import { getPositionGradeStatusName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
@@ -19,7 +20,6 @@ const { MultiPageSelectModal } = DataMultiPageView;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = '5bfd5df1-5e29-4226-b3e9-c6606001e4da';
-
 @connect(({ positionGrade, schedulingControl }) => ({
   positionGrade,
   schedulingControl,
@@ -39,7 +39,7 @@ class PageListModal extends MultiPageSelectModal {
     this.state = {
       ...this.state,
       tableScrollX: 1200,
-      loadApiPath: 'positionGrade/pageList',
+      loadApiPath: modelTypeCollection.positionGradeTypeCollection.pageList,
       listViewMode: listViewConfig.viewMode.table,
     };
   }

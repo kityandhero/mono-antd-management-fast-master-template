@@ -13,6 +13,7 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
 import { getPositionGradeStatusName } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { AddBasicInfoDrawer } from '../AddBasicInfoDrawer';
 import { refreshCacheAction } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
@@ -37,7 +38,7 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '职级列表',
       paramsKey: accessWayCollection.positionGrade.pageList.paramsKey,
-      loadApiPath: 'positionGrade/pageList',
+      loadApiPath: modelTypeCollection.positionGradeTypeCollection.pageList,
       currentRecord: null,
     };
   }

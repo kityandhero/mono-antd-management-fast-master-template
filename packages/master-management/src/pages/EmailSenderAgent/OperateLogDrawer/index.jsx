@@ -3,9 +3,9 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { BasePageListDrawer } from '../../OperationLog/BasePageListDrawer';
 import { fieldData } from '../Common/data';
-
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = '9816d855cfa1483dadd44d6eb60591cc';
 
@@ -23,7 +23,8 @@ class OperateLogDrawer extends BasePageListDrawer {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'emailSenderAgent/pageListOperateLog',
+      loadApiPath:
+        modelTypeCollection.emailSenderAgentTypeCollection.pageListOperateLog,
       emailSenderAgentId: null,
     };
   }

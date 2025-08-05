@@ -30,6 +30,7 @@ import {
   getEmailSenderAgentTypeName,
   renderSearchEmailSenderAgentStatusSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import AddBasicInfoDrawer from '../AddBasicInfoDrawer';
 import {
   refreshCacheAction,
@@ -60,7 +61,7 @@ class PageList extends MultiPage {
       ...this.state,
       paramsKey: accessWayCollection.emailSenderAgent.pageList.paramsKey,
       pageTitle: '邮件转发代理列表',
-      loadApiPath: 'emailSenderAgent/pageList',
+      loadApiPath: modelTypeCollection.emailSenderAgentTypeCollection.pageList,
       currentRecord: null,
     };
   }

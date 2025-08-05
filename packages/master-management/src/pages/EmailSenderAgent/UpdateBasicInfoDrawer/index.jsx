@@ -12,10 +12,10 @@ import {
   buildUpdateTimeAndOperatorFieldItem,
   renderFormEmailSenderAgentTypeSelect,
 } from '../../../customSpecialComponents';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
-
 const visibleFlag = '63d6e52c04394b74887ee7eb145246c4';
 
 @connect(({ emailSenderAgent, schedulingControl }) => ({
@@ -33,8 +33,9 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
     this.state = {
       ...this.state,
       pageTitle: '编辑转发信息',
-      loadApiPath: 'emailSenderAgent/get',
-      submitApiPath: 'emailSenderAgent/updateBasicInfo',
+      loadApiPath: modelTypeCollection.emailSenderAgentTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.emailSenderAgentTypeCollection.updateBasicInfo,
     };
   }
 

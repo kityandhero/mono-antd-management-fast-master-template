@@ -5,10 +5,10 @@ import { switchControlAssist } from 'antd-management-fast-framework';
 
 import { listSelectAction } from '../../../commonAssist';
 import BaseUpdateRoleModal from '../../../customSpecialComponents/BaseUpdateRoleModal';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const visibleFlag = '353c1120acee4829aa8c78c497ed2d15';
-
 @connect(({ presetRole, masterManager, schedulingControl }) => ({
   presetRole,
   masterManager,
@@ -26,8 +26,9 @@ class UpdateRoleModal extends BaseUpdateRoleModal {
 
     this.state = {
       ...this.state,
-      loadApiPath: 'masterManager/get',
-      submitApiPath: 'masterManager/changePermission',
+      loadApiPath: modelTypeCollection.masterManagerTypeCollection.get,
+      submitApiPath:
+        modelTypeCollection.masterManagerTypeCollection.changePermission,
     };
   }
 
