@@ -73,6 +73,16 @@ export async function toggleEmergencyData(parameters) {
   });
 }
 
+export const setTitleFromCaseNameTemplateDataApiAddress =
+  '/workflowCase/setTitleFromCaseNameTemplate';
+
+export async function setTitleFromCaseNameTemplateData(parameters) {
+  return request({
+    api: setTitleFromCaseNameTemplateDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setSubsidiaryIdDataApiAddress = '/workflowCase/setSubsidiaryId';
 
 export async function setSubsidiaryIdData(parameters) {

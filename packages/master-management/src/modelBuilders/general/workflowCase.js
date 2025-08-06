@@ -1,5 +1,6 @@
 import {
   getTacitlyState,
+  pretreatmentRemoteListData,
   pretreatmentRemotePageListData,
   pretreatmentRemoteSingleData,
   reducerCollection,
@@ -27,6 +28,7 @@ import {
   setAttentionStatementData,
   setAttentionUserData,
   setSubsidiaryIdData,
+  setTitleFromCaseNameTemplateData,
   singleListNextNodeApproverData,
   toggleEmergencyData,
   updateBasicInfoData,
@@ -42,6 +44,7 @@ export const workflowCaseTypeCollection = {
   getChain: 'workflowCase/getChain',
   updateBasicInfo: 'workflowCase/updateBasicInfo',
   toggleEmergency: 'workflowCase/toggleEmergency',
+  setTitleFromCaseNameTemplate: 'workflowCase/setTitleFromCaseNameTemplate',
   setSubsidiaryId: 'workflowCase/setSubsidiaryId',
   setApplicantStatement: 'workflowCase/setApplicantStatement',
   setAttentionUser: 'workflowCase/setAttentionUser',
@@ -131,7 +134,7 @@ export function buildModel() {
       ) {
         const response = yield call(singleListNextNodeApproverData, payload);
 
-        const dataAdjust = pretreatmentRemotePageListData({
+        const dataAdjust = pretreatmentRemoteListData({
           source: response,
           successCallback: pretreatmentSuccessCallback || null,
           failCallback: pretreatmentFailCallback || null,
@@ -260,6 +263,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(toggleEmergencyData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setTitleFromCaseNameTemplate(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setTitleFromCaseNameTemplateData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

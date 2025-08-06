@@ -167,6 +167,36 @@ export async function toggleEmergencyAction({
   });
 }
 
+export async function setTitleFromCaseNameTemplateAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  // 验证必要参数是否存在
+  const workflowCaseId = getValueByKey({
+    data: handleData,
+    key: fieldData.workflowCaseId.name,
+  });
+
+  if (!workflowCaseId) {
+    console.warn('Missing required parameter: workflowCaseId');
+    return;
+  }
+
+  actionCore({
+    api: modelTypeCollection.workflowCaseTypeCollection
+      .setTitleFromCaseNameTemplate,
+    params: {
+      workflowCaseId,
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function forceEndAction({
   target,
   handleData,

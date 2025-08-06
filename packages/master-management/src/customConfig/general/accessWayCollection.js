@@ -3668,6 +3668,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '33b6022eb40fa20d2d3a0a8583514c9b',
       permission: 'fce7744cbc044272bb8a22819f0c09f5',
     },
+    setTitleFromCaseNameTemplate: {
+      title: '根据流程命名模板设置实例标题',
+      paramsKey: 'cf74b9684ac2ff7cbe01a5039aaaf3a8',
+      permission: '15e06abe30e54f7d9368656b01fc65dd',
+    },
     setSubsidiaryId: {
       title: '设置所属企业',
       paramsKey: 'f0fe1e5d06fcb3225e9773dd56f36497',
@@ -3973,6 +3978,11 @@ export const accessWayInfrastructureCollection = {
       title: '切换是否紧急',
       paramsKey: '744fff785448eed95e08ad1e7f37570b',
       permission: '8048102ee683436f90a2da9419e9d858',
+    },
+    setTitleFromCaseNameTemplate: {
+      title: '根据流程命名模板设置实例标题',
+      paramsKey: 'b5433e75e97dc27e2d353c6b9dff69d9',
+      permission: 'bea3791113dc4051a88dedd453d3f012',
     },
     setSubsidiaryId: {
       title: '设置所属企业',

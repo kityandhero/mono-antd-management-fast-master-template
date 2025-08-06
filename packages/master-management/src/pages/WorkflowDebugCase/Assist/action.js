@@ -72,6 +72,36 @@ export async function addBasicInfoAction({
   });
 }
 
+export async function setTitleFromCaseNameTemplateAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  // 验证必要参数是否存在
+  const workflowDebugCaseId = getValueByKey({
+    data: handleData,
+    key: fieldData.workflowDebugCaseId.name,
+  });
+
+  if (!workflowDebugCaseId) {
+    console.warn('Missing required parameter: workflowDebugCaseId');
+    return;
+  }
+
+  actionCore({
+    api: modelTypeCollection.workflowDebugCaseTypeCollection
+      .setTitleFromCaseNameTemplate,
+    params: {
+      workflowDebugCaseId,
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function setSubsidiaryIdAction({
   target,
   handleData,

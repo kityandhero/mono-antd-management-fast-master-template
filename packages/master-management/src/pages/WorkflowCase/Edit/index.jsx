@@ -35,6 +35,7 @@ import {
   openCancelApproveSwitchAction,
   openResetAllApproveSwitchAction,
   refreshCacheAction,
+  setTitleFromCaseNameTemplateAction,
   toggleEmergencyAction,
 } from '../Assist/action';
 import {
@@ -194,6 +195,16 @@ class Detail extends DataTabContainerSupplement {
 
   toggleEmergency = (r) => {
     toggleEmergencyAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target }) => {
+        target.reloadData({});
+      },
+    });
+  };
+
+  setTitleFromCaseNameTemplate = (r) => {
+    setTitleFromCaseNameTemplateAction({
       target: this,
       handleData: r,
       successCallback: ({ target }) => {
@@ -499,6 +510,11 @@ class Detail extends DataTabContainerSupplement {
             break;
           }
 
+          case 'setTitleFromCaseNameTemplate': {
+            that.setTitleFromCaseNameTemplate(handleData);
+            break;
+          }
+
           case 'goToWorkflow': {
             that.goToWorkflow(handleData);
             break;
@@ -566,6 +582,20 @@ class Detail extends DataTabContainerSupplement {
           confirm: true,
           title:
             '将要切换紧急状态（位于紧急状态下的审批，会向审批人发送审批通知），确定吗？',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'setTitleFromCaseNameTemplate',
+          icon: iconBuilder.edit(),
+          text: '设置实例标题[从命名模板生成]',
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowCase.setTitleFromCaseNameTemplate
+              .permission,
+          ),
+          confirm: true,
+          title: '将要设置实例标题（从命名模板生成），确定吗？',
         },
         {
           type: dropdownExpandItemType.divider,

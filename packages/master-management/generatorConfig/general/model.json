@@ -5894,7 +5894,7 @@
           "api": "/workflowCase/singleListNextNodeApprover",
           "effect": "singleListNextNodeApprover",
           "service": "singleListNextNodeApproverData",
-          "type": "pageList"
+          "type": "singleList"
         },
         {
           "title": "获取详情",
@@ -5929,6 +5929,13 @@
           "api": "/workflowCase/toggleEmergency",
           "effect": "toggleEmergency",
           "service": "toggleEmergencyData",
+          "type": "singleData"
+        },
+        {
+          "title": "根据流程命名模板设置实例标题",
+          "api": "/workflowCase/setTitleFromCaseNameTemplate",
+          "effect": "setTitleFromCaseNameTemplate",
+          "service": "setTitleFromCaseNameTemplateData",
           "type": "singleData"
         },
         {
@@ -6363,7 +6370,7 @@
           "api": "/workflowDebugCase/singleListNextNodeApprover",
           "effect": "singleListNextNodeApprover",
           "service": "singleListNextNodeApproverData",
-          "type": "pageList"
+          "type": "singleList"
         },
         {
           "title": "获取详情",
@@ -6405,6 +6412,13 @@
           "api": "/workflowDebugCase/toggleEmergency",
           "effect": "toggleEmergency",
           "service": "toggleEmergencyData",
+          "type": "singleData"
+        },
+        {
+          "title": "根据流程命名模板设置实例标题",
+          "api": "/workflowDebugCase/setTitleFromCaseNameTemplate",
+          "effect": "setTitleFromCaseNameTemplate",
+          "service": "setTitleFromCaseNameTemplateData",
           "type": "singleData"
         },
         {

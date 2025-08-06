@@ -59,6 +59,7 @@ import {
   openCancelApproveSwitchAction,
   openResetAllApproveSwitchAction,
   setSubsidiaryIdAction,
+  setTitleFromCaseNameTemplateAction,
   submitApprovalAction,
   toggleEmergencyAction,
 } from '../../../WorkflowDebugCase/Assist/action';
@@ -234,6 +235,16 @@ class DebugCaseInfo extends TabPageBase {
 
   toggleEmergency = (r) => {
     toggleEmergencyAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target }) => {
+        target.reloadData({});
+      },
+    });
+  };
+
+  setTitleFromCaseNameTemplate = (r) => {
+    setTitleFromCaseNameTemplateAction({
       target: this,
       handleData: r,
       successCallback: ({ target }) => {
@@ -889,6 +900,11 @@ class DebugCaseInfo extends TabPageBase {
                       break;
                     }
 
+                    case 'setTitleFromCaseNameTemplate': {
+                      that.setTitleFromCaseNameTemplate(handleData);
+                      break;
+                    }
+
                     case 'archive': {
                       that.archive(handleData);
                       break;
@@ -1006,6 +1022,20 @@ class DebugCaseInfo extends TabPageBase {
                     confirm: true,
                     title:
                       '将要切换紧急状态（位于紧急状态下的审批，会向审批人发送审批通知），确定吗？',
+                  },
+                  {
+                    type: dropdownExpandItemType.divider,
+                  },
+                  {
+                    key: 'setTitleFromCaseNameTemplate',
+                    icon: iconBuilder.edit(),
+                    text: '设置实例标题[从命名模板生成]',
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflowDebugCase
+                        .setTitleFromCaseNameTemplate.permission,
+                    ),
+                    confirm: true,
+                    title: '将要设置实例标题（从命名模板生成），确定吗？',
                   },
                   {
                     type: dropdownExpandItemType.divider,
