@@ -38,7 +38,7 @@ const defaultProperties = {
   watermarkText: '',
 };
 
-class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
+class BaseFlowCaseFormDocumentDisplayDrawer extends BaseVerticalFlexDrawer {
   constructor(properties, visibleFlag) {
     super(properties, visibleFlag);
 
@@ -338,4 +338,4 @@ class BaseFlowCaseFormDocumentDrawer extends BaseVerticalFlexDrawer {
   };
 }
 
-export { BaseFlowCaseFormDocumentDrawer };
+export { BaseFlowCaseFormDocumentDisplayDrawer };

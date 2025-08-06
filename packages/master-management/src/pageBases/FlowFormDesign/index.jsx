@@ -1,2 +1,3 @@
 export * from './Assist';
-export * from './BaseFlowCaseFormDocumentDrawer';
+export * from './BaseFlowCaseFormDocumentDisplayDrawer';
+export * from './FlowCaseFormDocumentDesignDrawer';

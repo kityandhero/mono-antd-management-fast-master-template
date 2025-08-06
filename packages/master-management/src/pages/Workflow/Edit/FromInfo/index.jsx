@@ -30,9 +30,9 @@ import {
 
 import { accessWayCollection, simpleQRCode } from '../../../../customConfig';
 import { modelTypeCollection } from '../../../../modelBuilders';
+import { FlowCaseFormDocumentDesignDrawer } from '../../../../pageBases';
 import { fieldData as fieldDataWorkflowFormDesign } from '../../../WorkflowFormDesign/Common/data';
 import { DesignDrawer } from '../../../WorkflowFormDesign/DesignDrawer';
-import { FlowCaseFormDocumentDrawer } from '../../../WorkflowFormDesign/FlowCaseFormDocumentDrawer';
 import { RemarkEditDrawer } from '../../../WorkflowFormDesign/RemarkEditDrawer';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import {
@@ -125,11 +125,11 @@ class BasicInfo extends TabPageBase {
     this.reloadData({});
   };
 
-  showFlowCaseFormDocumentDrawer = () => {
-    FlowCaseFormDocumentDrawer.open();
+  showFlowCaseFormDocumentDesignDrawer = () => {
+    FlowCaseFormDocumentDesignDrawer.open();
   };
 
-  afterFlowCaseFormDocumentDrawerClose = () => {
+  afterFlowCaseFormDocumentDesignDrawerClose = () => {
     this.reloadData({});
   };
 
@@ -251,7 +251,7 @@ class BasicInfo extends TabPageBase {
                 type: 'default',
                 text: '打印设计',
                 handleClick: () => {
-                  this.showFlowCaseFormDocumentDrawer();
+                  this.showFlowCaseFormDocumentDesignDrawer();
                 },
               },
               {
@@ -407,7 +407,7 @@ class BasicInfo extends TabPageBase {
           }}
         />
 
-        <FlowCaseFormDocumentDrawer
+        <FlowCaseFormDocumentDesignDrawer
           maskClosable
           canDesign
           values={[]}
@@ -420,7 +420,7 @@ class BasicInfo extends TabPageBase {
           serialNumberContent={'1836370789809655808'}
           externalData={{ workflowId }}
           afterClose={() => {
-            this.afterFlowCaseFormDocumentDrawerClose();
+            this.afterFlowCaseFormDocumentDesignDrawerClose();
           }}
         />
 

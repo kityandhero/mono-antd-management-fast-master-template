@@ -3,7 +3,7 @@ import { convertCollection, getValueByKey, isArray } from 'easy-soft-utility';
 
 import { switchControlAssist } from 'antd-management-fast-framework';
 
-import { BaseFlowCaseFormDocumentDrawer } from '../../../pageBases';
+import { BaseFlowCaseFormDocumentDisplayDrawer } from '../../../pageBases';
 import { getChainByWorkflowAction } from '../../WorkflowDebugCase/Assist/action';
 import { fieldData as fieldDataWorkflowDebugCase } from '../../WorkflowDebugCase/Common/data';
 
@@ -16,7 +16,7 @@ const visibleFlag = '6579a159f1bb4c79ab3230b7ef9cf9e9';
   workflowFormDesign,
   schedulingControl,
 }))
-class FlowCaseFormExampleDocumentDrawer extends BaseFlowCaseFormDocumentDrawer {
+class FlowCaseFormExampleDocumentDisplayDrawer extends BaseFlowCaseFormDocumentDisplayDrawer {
   static open() {
     switchControlAssist.open(visibleFlag);
   }
@@ -106,4 +106,4 @@ class FlowCaseFormExampleDocumentDrawer extends BaseFlowCaseFormDocumentDrawer {
   };
 }
 
-export { FlowCaseFormExampleDocumentDrawer };
+export { FlowCaseFormExampleDocumentDisplayDrawer };

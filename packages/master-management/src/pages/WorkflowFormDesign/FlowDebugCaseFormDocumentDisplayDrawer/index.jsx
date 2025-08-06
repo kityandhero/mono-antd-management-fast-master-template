@@ -3,17 +3,17 @@ import { convertCollection, getValueByKey, isArray } from 'easy-soft-utility';
 
 import { switchControlAssist } from 'antd-management-fast-framework';
 
-import { BaseFlowCaseFormDocumentDrawer } from '../../../pageBases';
+import { BaseFlowCaseFormDocumentDisplayDrawer } from '../../../pageBases';
 import { getChainByWorkflowAction } from '../../WorkflowDebugCase/Assist/action';
 import { fieldData as fieldDataWorkflowDebugCase } from '../../WorkflowDebugCase/Common/data';
 
-const visibleFlag = '010012cdadee4558bb71f2617793f2ef';
+const visibleFlag = '64d7f22032f54376a6af4777d475b680';
 
 @connect(({ workflowFormDesign, schedulingControl }) => ({
   workflowFormDesign,
   schedulingControl,
 }))
-class FlowCaseFormDocumentDrawer extends BaseFlowCaseFormDocumentDrawer {
+class FlowDebugCaseFormDocumentDisplayDrawer extends BaseFlowCaseFormDocumentDisplayDrawer {
   static open() {
     switchControlAssist.open(visibleFlag);
   }
@@ -27,7 +27,7 @@ class FlowCaseFormDocumentDrawer extends BaseFlowCaseFormDocumentDrawer {
 
     this.state = {
       ...this.state,
-      allApproveProcessList: [],
+      listChainApprove: [],
     };
   }
 
@@ -50,7 +50,7 @@ class FlowCaseFormDocumentDrawer extends BaseFlowCaseFormDocumentDrawer {
         });
 
         target.setState({
-          allApproveProcessList: listChainApprove,
+          listChainApprove: listChainApprove,
         });
       },
     });
@@ -71,10 +71,10 @@ class FlowCaseFormDocumentDrawer extends BaseFlowCaseFormDocumentDrawer {
   };
 
   getAllApproveProcessList = () => {
-    const { allApproveProcessList } = this.state;
+    const { listChainApprove } = this.state;
 
-    const allApproveProcessListAdjust = isArray(allApproveProcessList)
-      ? allApproveProcessList.map((o) => {
+    const listChainApproveAdjust = isArray(listChainApprove)
+      ? listChainApprove.map((o) => {
           const { name } = { name: '', ...o };
 
           return {
@@ -84,8 +84,8 @@ class FlowCaseFormDocumentDrawer extends BaseFlowCaseFormDocumentDrawer {
         })
       : [];
 
-    return allApproveProcessListAdjust;
+    return listChainApproveAdjust;
   };
 }
 
-export { FlowCaseFormDocumentDrawer };
+export { FlowDebugCaseFormDocumentDisplayDrawer };

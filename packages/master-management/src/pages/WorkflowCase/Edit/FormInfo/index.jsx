@@ -65,7 +65,7 @@ import { fieldData as fieldDataWorkflowCaseNextProcessApprove } from '../../../W
 import { fieldData as fieldDataWorkflowCaseNextProcessNotification } from '../../../WorkflowCaseNextProcessNotification/Common/data';
 import { WorkflowCaseProcessHistoryPageListDrawer } from '../../../WorkflowCaseProcessHistory/PageListDrawer';
 import { fieldData as fieldDataWorkflowFormDesign } from '../../../WorkflowFormDesign/Common/data';
-import { FlowCaseFormDocumentDrawer } from '../../../WorkflowFormDesign/FlowCaseFormDocumentDrawer';
+import { FlowCaseFormDocumentDisplayDrawer } from '../../../WorkflowFormDesign/FlowCaseFormDocumentDisplayDrawer';
 import { getChainAction } from '../../Assist/action';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
@@ -399,7 +399,7 @@ class FormInfo extends TabPageBase {
   };
 
   showFlowCaseFormDocumentDrawer = () => {
-    FlowCaseFormDocumentDrawer.open();
+    FlowCaseFormDocumentDisplayDrawer.open();
   };
 
   fillInitialValuesAfterLoad = ({
@@ -1146,7 +1146,7 @@ class FormInfo extends TabPageBase {
           }}
         />
 
-        <FlowCaseFormDocumentDrawer
+        <FlowCaseFormDocumentDisplayDrawer
           maskClosable
           canDesign={false}
           showToolbar={false}

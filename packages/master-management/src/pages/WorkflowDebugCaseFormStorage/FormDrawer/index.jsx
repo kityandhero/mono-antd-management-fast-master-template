@@ -49,6 +49,7 @@ class FormDrawer extends BaseFlowCaseStorageFormDrawer {
       submitApiPath:
         modelTypeCollection.workflowDebugCaseTypeCollection.submitForm,
       currentAttachment: null,
+      listChainApprove: [],
     };
   }
 

@@ -91,7 +91,7 @@ import { WorkflowDebugCaseProcessHistoryPageListDrawer } from '../../../Workflow
 import { PassModal } from '../../../WorkflowDebugCaseProcessHistory/PassModal';
 import { RefuseModal } from '../../../WorkflowDebugCaseProcessHistory/RefuseModal';
 import { DataSchemaDrawer } from '../../../WorkflowFormDesign/DataSchemaDrawer';
-import { FlowDebugCaseFormDocumentDrawer } from '../../../WorkflowFormDesign/FlowDebugCaseFormDocumentDrawer';
+import { FlowDebugCaseFormDocumentDisplayDrawer } from '../../../WorkflowFormDesign/FlowDebugCaseFormDocumentDisplayDrawer';
 import { fieldData as fieldDataWorkflowNode } from '../../../WorkflowNode/Common/data';
 import { WorkflowNodeDetailDrawer } from '../../../WorkflowNode/DetailDrawer';
 import { fieldData as fieldDataWorkflowNodeApprover } from '../../../WorkflowNodeApprover/Common/data';
@@ -549,8 +549,8 @@ class DebugCaseInfo extends TabPageBase {
     WorkflowDebugCasePageListLatestApproveDrawer.open();
   };
 
-  showFlowDebugCaseFormDocumentDrawer = () => {
-    FlowDebugCaseFormDocumentDrawer.open();
+  showFlowDebugCaseFormDocumentDisplayDrawer = () => {
+    FlowDebugCaseFormDocumentDisplayDrawer.open();
   };
 
   showWorkflowDebugCaseNextProcessProgressPreviewDrawer = () => {
@@ -850,7 +850,7 @@ class DebugCaseInfo extends TabPageBase {
                     accessWayCollection.workflowDebugCase.get.permission,
                   ),
                 handleClick: () => {
-                  that.showFlowDebugCaseFormDocumentDrawer();
+                  that.showFlowDebugCaseFormDocumentDisplayDrawer();
                 },
               },
               {
@@ -2141,7 +2141,7 @@ class DebugCaseInfo extends TabPageBase {
           }}
         />
 
-        <FlowDebugCaseFormDocumentDrawer
+        <FlowDebugCaseFormDocumentDisplayDrawer
           maskClosable
           canDesign={false}
           externalData={{

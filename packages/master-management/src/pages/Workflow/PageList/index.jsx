@@ -40,7 +40,7 @@ import {
 import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData as fieldDataSubsidiary } from '../../Subsidiary/Common/data';
 import { SubsidiarySelectDrawerField } from '../../Subsidiary/SelectDrawerField';
-import { FlowCaseFormExampleDocumentDrawer } from '../../WorkflowFormDesign/FlowCaseFormExampleDocumentDrawer';
+import { FlowCaseFormExampleDocumentDisplayDrawer } from '../../WorkflowFormDesign/FlowCaseFormExampleDocumentDisplayDrawer';
 import { AddOfficeAutomationArticleAuditDrawer } from '../AddOfficeAutomationArticleAuditDrawer';
 import { AddOfficeAutomationProcessApprovalDrawer } from '../AddOfficeAutomationProcessApprovalDrawer';
 import {
@@ -176,8 +176,8 @@ class PageList extends MultiPage {
         break;
       }
 
-      case 'showFlowCaseFormExampleDocumentDrawer': {
-        this.showFlowCaseFormExampleDocumentDrawer(handleData);
+      case 'showFlowCaseFormExampleDocumentDisplayDrawer': {
+        this.showFlowCaseFormExampleDocumentDisplayDrawer(handleData);
         break;
       }
 
@@ -336,7 +336,7 @@ class PageList extends MultiPage {
     });
   };
 
-  showFlowCaseFormExampleDocumentDrawer = (o) => {
+  showFlowCaseFormExampleDocumentDisplayDrawer = (o) => {
     const { showApply, listApply } = getSimpleApplicantConfig(o);
     const { showAttention, listAttention } = getSimpleAttentionConfig(o);
 
@@ -349,7 +349,7 @@ class PageList extends MultiPage {
         currentRecordListAttention: listAttention,
       },
       () => {
-        FlowCaseFormExampleDocumentDrawer.open();
+        FlowCaseFormExampleDocumentDisplayDrawer.open();
       },
     );
   };
@@ -528,7 +528,7 @@ class PageList extends MultiPage {
           type: dropdownExpandItemType.divider,
         },
         {
-          key: 'showFlowCaseFormExampleDocumentDrawer',
+          key: 'showFlowCaseFormExampleDocumentDisplayDrawer',
           icon: iconBuilder.printer(),
           hidden: !checkHasAuthority(
             accessWayCollection.workflow.get.permission,
@@ -781,7 +781,7 @@ class PageList extends MultiPage {
 
         <FlowDisplayDrawer maskClosable externalData={currentRecord} />
 
-        <FlowCaseFormExampleDocumentDrawer
+        <FlowCaseFormExampleDocumentDisplayDrawer
           maskClosable
           canDesign={false}
           values={[]}
