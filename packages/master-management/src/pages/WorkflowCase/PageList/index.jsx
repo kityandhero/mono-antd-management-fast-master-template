@@ -63,8 +63,7 @@ class PageList extends MultiPage {
       tableScrollX: 1880,
       pageTitle: '流程实例列表',
       paramsKey: accessWayCollection.workflowCase.pageList.paramsKey,
-      loadApiPath:
-        modelTypeCollection.workflowCaseTypeCollection.pageListUnderway,
+      loadApiPath: modelTypeCollection.workflowCaseTypeCollection.pageList,
       dateRangeFieldName: '创建时间',
       currentRecord: null,
     };
