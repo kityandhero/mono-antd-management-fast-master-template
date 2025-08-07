@@ -26,7 +26,7 @@ class UpdateDebugApproverModeModal extends BaseUpdateModal {
 
     this.state = {
       ...this.state,
-      pageTitle: '设置数据通道',
+      pageTitle: '设置流程测试审批人模式',
       loadApiPath: modelTypeCollection.workflowTypeCollection.get,
       submitApiPath:
         modelTypeCollection.workflowTypeCollection.setDebugApproverMode,
@@ -71,7 +71,7 @@ class UpdateDebugApproverModeModal extends BaseUpdateModal {
     // eslint-disable-next-line no-unused-vars
     submitData,
   ) => {
-    return `数据通道值更新成功。`;
+    return `流程测试审批人模式更新成功。`;
   };
 
   establishFormAdditionalConfig = () => {

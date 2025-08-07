@@ -25,6 +25,7 @@ import { fieldData as fieldDataWorkflowFormDesign } from '../../WorkflowFormDesi
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateModal } = DataModal;
+
 // eslint-disable-next-line no-unused-vars
 function dataFormFieldConvert(o, index) {
   const { name, title, type } = o;

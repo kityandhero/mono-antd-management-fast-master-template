@@ -28,17 +28,13 @@ import {
   setSchemaWithExternalData,
 } from 'antd-management-fast-design-playground';
 
-import { accessWayCollection, simpleQRCode } from '../../../../customConfig';
+import { accessWayCollection } from '../../../../customConfig';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { FlowCaseFormDocumentDesignDrawer } from '../../../../pageBases';
 import { fieldData as fieldDataWorkflowFormDesign } from '../../../WorkflowFormDesign/Common/data';
 import { DesignDrawer } from '../../../WorkflowFormDesign/DesignDrawer';
 import { RemarkEditDrawer } from '../../../WorkflowFormDesign/RemarkEditDrawer';
 import { parseUrlParametersForSetState } from '../../Assist/config';
-import {
-  getSimpleApplicantConfig,
-  getSimpleAttentionConfig,
-} from '../../Assist/tools';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
 
@@ -103,18 +99,6 @@ class BasicInfo extends TabPageBase {
 
   getTemporaryFormData = () => {
     return getJsonFromLocalStorage(this.buildTemporaryFormDataKey()) || null;
-  };
-
-  getApplicantConfig = () => {
-    const { metaData } = this.state;
-
-    return getSimpleApplicantConfig(metaData);
-  };
-
-  getAttentionConfig = () => {
-    const { metaData } = this.state;
-
-    return getSimpleAttentionConfig(metaData);
   };
 
   showDesignDrawer = () => {
@@ -394,10 +378,6 @@ class BasicInfo extends TabPageBase {
   renderPresetOther = () => {
     const { workflowId } = this.state;
 
-    const { showApply, listApply } = this.getApplicantConfig();
-
-    const { showAttention, listAttention } = this.getAttentionConfig();
-
     return (
       <>
         <DesignDrawer
@@ -409,15 +389,6 @@ class BasicInfo extends TabPageBase {
 
         <FlowCaseFormDocumentDesignDrawer
           maskClosable
-          canDesign
-          values={[]}
-          showApply={showApply}
-          applyList={listApply}
-          showAttention={showAttention}
-          attentionList={listAttention}
-          approveList={[]}
-          qRCodeImage={simpleQRCode}
-          serialNumberContent={'1836370789809655808'}
           externalData={{ workflowId }}
           afterClose={() => {
             this.afterFlowCaseFormDocumentDesignDrawerClose();
