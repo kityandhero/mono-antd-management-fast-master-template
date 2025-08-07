@@ -1,4 +1,4 @@
-import { FlowGraph } from '@ant-design/graphs';
+import { FlowGraph, G6 } from '@ant-design/graphs';
 
 import { convertCollection, getValueByKey } from 'easy-soft-utility';
 
@@ -9,6 +9,34 @@ import { DataDrawer } from 'antd-management-fast-framework';
 import { fieldDataFlowCase } from '../../../customConfig';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
+
+const { treeToGraphData } = G6;
+
+const ApprovalNode = ({ text }) => {
+  return (
+    <div
+      style={{
+        // height: 'inherit',
+        // width: 'auto',
+        // display: 'flex',
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        textAlign: 'center',
+        lineHeight: '22px',
+        boxSizing: 'border-box',
+        borderRadius: '16px',
+        backgroundColor: '#FFF6E3',
+        color: '#8B5DFF',
+        border: '2px solid #8B5DFF',
+        fontFamily: 'Futura',
+        padding: '12px 18px',
+        // whiteSpace: 'nowrap',
+      }}
+    >
+      {text}
+    </div>
+  );
+};
 
 class BaseFlowCaseProcessChainDrawer extends BaseVerticalFlexDrawer {
   constructor(properties, visibleFlag) {
@@ -150,23 +178,41 @@ class BaseFlowCaseProcessChainDrawer extends BaseVerticalFlexDrawer {
           }}
         >
           <FlowGraph
-            autoFit
-            fitCenter
-            animate
-            minimapCfg={{
-              show: true,
+            animation
+            autoResize
+            autoFit="view"
+            direction="vertical"
+            node={{
+              style: {
+                component: (d) => <ApprovalNode text={d.name} />,
+                size: [180, 40],
+              },
             }}
-            behaviors={['drag-canvas', 'zoom-canvas', 'drag-node']}
-            data={
-              (showOnlyApprove ? treeChainApprove : treeChainAll) || {
-                id: 'root',
-                value: {
-                  name: '加载中',
-                  level: 0,
-                },
-                children: [],
-              }
-            }
+            edge={{
+              style: {
+                stroke: '#8B5DFF',
+              },
+            }}
+            layout={{
+              type: 'dagre',
+              rankSep: 110,
+              nodeSep: 60,
+            }}
+            data={treeToGraphData(
+              JSON.parse(
+                JSON.stringify(
+                  (showOnlyApprove ? treeChainApprove : treeChainAll) || {
+                    id: 'root',
+                    name: '加载中',
+                    value: {
+                      name: '加载中',
+                      level: 0,
+                    },
+                    children: [],
+                  },
+                ),
+              ),
+            )}
           />
         </div>
       </ScrollFacadeBox>
