@@ -6002,10 +6002,17 @@
           "type": "singleData"
         },
         {
-          "title": "强制结束（即该次审批作废）",
+          "title": "强制结束（即该次审批强制终止）",
           "api": "/workflowCase/forceEnd",
           "effect": "forceEnd",
           "service": "forceEndData",
+          "type": "singleData"
+        },
+        {
+          "title": "作废（即该次审批废弃不再使用）",
+          "api": "/workflowCase/disuse",
+          "effect": "disuse",
+          "service": "disuseData",
           "type": "singleData"
         },
         {
@@ -6492,10 +6499,17 @@
           "type": "singleData"
         },
         {
-          "title": "强制结束（即该次审批作废）",
+          "title": "强制结束（即该次审批强制终止）",
           "api": "/workflowDebugCase/forceEnd",
           "effect": "forceEnd",
           "service": "forceEndData",
+          "type": "singleData"
+        },
+        {
+          "title": "作废（即该次审批废弃不再使用）",
+          "api": "/workflowDebugCase/disuse",
+          "effect": "disuse",
+          "service": "disuseData",
           "type": "singleData"
         },
         {
@@ -6555,10 +6569,17 @@
           "type": "singleData"
         },
         {
-          "title": "增加流程测试表单存储",
+          "title": "增加附件",
           "api": "/workflowDebugCaseFormAttachment/addBasicInfo",
           "effect": "addBasicInfo",
           "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "追加附件（仅限审批完成的审批实例）",
+          "api": "/workflowDebugCaseFormAttachment/supplement",
+          "effect": "supplement",
+          "service": "supplementData",
           "type": "singleData"
         },
         {

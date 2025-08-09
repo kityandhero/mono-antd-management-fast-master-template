@@ -39,6 +39,16 @@ export async function addBasicInfoData(parameters) {
   });
 }
 
+export const supplementDataApiAddress =
+  '/workflowDebugCaseFormAttachment/supplement';
+
+export async function supplementData(parameters) {
+  return request({
+    api: supplementDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const removeDataApiAddress = '/workflowDebugCaseFormAttachment/remove';
 
 export async function removeData(parameters) {

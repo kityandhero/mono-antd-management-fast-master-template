@@ -42,6 +42,24 @@ import { SealRefuse } from '../../FlowCase/Assist';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
+function judgeCanUpload(status) {
+  return checkInCollection(
+    [flowCaseStatusCollection.created, flowCaseStatusCollection.refuse],
+    status,
+  );
+}
+
+function judgeCanSupplement(status) {
+  return checkInCollection([flowCaseStatusCollection.success], status);
+}
+
+function judgeCanRemove(status) {
+  return checkInCollection(
+    [flowCaseStatusCollection.created, flowCaseStatusCollection.refuse],
+    status,
+  );
+}
+
 class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
   useFormWrapper = false;
 
@@ -370,6 +388,14 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
     this.reloadData({});
   };
 
+  showSupplementAttachmentModal = () => {
+    throw new Error('showSupplementAttachmentModal need overrode to implement');
+  };
+
+  afterSupplementAttachmentModalClose = () => {
+    this.reloadData({});
+  };
+
   showFlowCaseFormAttachmentPreviewDrawer = (item) => {
     const that = this;
 
@@ -583,8 +609,9 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
               }}
             >
               <FileViewer
-                canUpload
-                canRemove
+                canUpload={judgeCanUpload(status)}
+                canSupplement={judgeCanSupplement(status)}
+                canRemove={judgeCanRemove(status)}
                 list={listAttachment}
                 dataTransfer={(o) => {
                   return {
@@ -612,6 +639,9 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
                 onUploadButtonClick={() => {
                   this.showAddAttachmentModal();
                 }}
+                onSupplementButtonClick={() => {
+                  this.showSupplementAttachmentModal();
+                }}
                 onItemClick={(o) => {
                   this.showFlowCaseFormAttachmentPreviewDrawer(o);
                 }}
@@ -629,6 +659,12 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
   renderFlowCaseFormFieldDisplay = () => {
     const { metaData, workflowFormDesign, listFormStorage, listAttachment } =
       this.state;
+
+    const status = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.status.name,
+      convert: convertCollection.number,
+    });
 
     const canEdit = getValueByKey({
       data: metaData,
@@ -689,8 +725,9 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
           descriptionUpperLabel="附件列表"
           descriptionUpperComponent={
             <FileViewer
-              canUpload
-              canRemove
+              canUpload={judgeCanUpload(status)}
+              canSupplement={judgeCanSupplement(status)}
+              canRemove={judgeCanRemove(status)}
               list={listAttachment}
               dataTransfer={(o) => {
                 return {

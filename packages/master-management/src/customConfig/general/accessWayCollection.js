@@ -3719,9 +3719,14 @@ export const accessWayInfrastructureCollection = {
       permission: '75ebf77f8c2d482694be36c7787a2006',
     },
     forceEnd: {
-      title: '强制结束（即该次审批作废）',
+      title: '强制结束（即该次审批强制终止）',
       paramsKey: '2e4e08dea61b6cf6be094eb4c48230e0',
       permission: '836d2d7b58d742fbbe696932269bd760',
+    },
+    disuse: {
+      title: '作废（即该次审批废弃不再使用）',
+      paramsKey: 'b09d11d5798b589c79269d619e84b045',
+      permission: '27de085e9b0f4fd595e142d31a09658d',
     },
     archive: {
       title: '归档',
@@ -4035,9 +4040,14 @@ export const accessWayInfrastructureCollection = {
       permission: '6ff89656f0b74899b215b02d9bed0830',
     },
     forceEnd: {
-      title: '强制结束（即该次审批作废）',
+      title: '强制结束（即该次审批强制终止）',
       paramsKey: 'e03974f34b4431ec3c98e48dded243ed',
       permission: '960eeeeaee2f429b977aec1ecfd94d64',
+    },
+    disuse: {
+      title: '作废（即该次审批废弃不再使用）',
+      paramsKey: '1ba5aece420b285ec2b4644dd1cb55ca',
+      permission: '3c8a90e46a1a4117b19968cce9e8244c',
     },
     archive: {
       title: '归档',
@@ -4077,9 +4087,14 @@ export const accessWayInfrastructureCollection = {
       permission: 'a9f2c37898994389b9018ee6e3efcd96',
     },
     addBasicInfo: {
-      title: '增加流程测试表单存储',
+      title: '增加附件',
       paramsKey: '3ccaad655c2d17f10be43d814b0ee4a6',
       permission: '8dcd2da78e394c6da2ea8e29b91bcc19',
+    },
+    supplement: {
+      title: '追加附件（仅限审批完成的审批实例）',
+      paramsKey: '3449ee7af5f9518588b4eeac3d5c548f',
+      permission: 'b3490cbc310d40ab8ed47eff6702a506',
     },
     remove: {
       title: '删除',

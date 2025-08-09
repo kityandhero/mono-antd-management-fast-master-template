@@ -38,6 +38,7 @@ import { modelTypeCollection } from '../../../modelBuilders';
 import { getFlowCaseStatusBadge } from '../../../pageBases';
 import { FlowDisplayDrawer } from '../../Workflow/FlowDisplayDrawer';
 import {
+  disuseAction,
   forceEndAction,
   hideAction,
   refreshCacheAction,
@@ -45,6 +46,7 @@ import {
   toggleEmergencyAction,
 } from '../Assist/action';
 import { fieldData } from '../Common/data';
+import { FormDocumentPreviewDrawer } from '../FormDocumentPreviewDrawer';
 
 const { MultiPage } = DataMultiPageView;
 
@@ -104,8 +106,19 @@ class PageList extends MultiPage {
         break;
       }
 
+      case 'showFormDocumentPreviewDrawer': {
+        this.showFormDocumentPreviewDrawer(handleData);
+        break;
+      }
+
       case 'forceEnd': {
         this.forceEnd(handleData);
+
+        break;
+      }
+
+      case 'disuse': {
+        this.disuse(handleData);
 
         break;
       }
@@ -137,6 +150,16 @@ class PageList extends MultiPage {
 
   forceEnd = (r) => {
     forceEndAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target, handleData, remoteData }) => {
+        target.handleItemStatus({ target, handleData, remoteData });
+      },
+    });
+  };
+
+  disuse = (r) => {
+    disuseAction({
       target: this,
       handleData: r,
       successCallback: ({ target, handleData, remoteData }) => {
@@ -185,6 +208,12 @@ class PageList extends MultiPage {
   showFlowDisplayDrawer = (o) => {
     this.setState({ currentRecord: o }, () => {
       FlowDisplayDrawer.open();
+    });
+  };
+
+  showFormDocumentPreviewDrawer = (o) => {
+    this.setState({ currentRecord: o }, () => {
+      FormDocumentPreviewDrawer.open();
     });
   };
 
@@ -302,21 +331,12 @@ class PageList extends MultiPage {
           type: dropdownExpandItemType.divider,
         },
         {
-          key: 'forceEnd',
-          icon: iconBuilder.stop(),
-          text: '强制结束',
-          disabled: !checkHasAuthority(
-            accessWayCollection.workflowCase.forceEnd.permission,
+          key: 'showFormDocumentPreviewDrawer',
+          icon: iconBuilder.read(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowCase.get.permission,
           ),
-          hidden: !checkInCollection(
-            [
-              flowCaseStatusCollection.submitApproval,
-              flowCaseStatusCollection.inApprovalProcess,
-            ],
-            status,
-          ),
-          confirm: true,
-          title: '将要强制结束审批（即该次审批作废），确定吗？',
+          text: '查看表单文档',
         },
         {
           type: dropdownExpandItemType.divider,
@@ -325,12 +345,12 @@ class PageList extends MultiPage {
           key: 'toggleEmergency',
           icon: iconBuilder.swap(),
           text: '切换紧急',
-          hidden: !checkHasAuthority(
-            accessWayCollection.workflowCase.toggleEmergency.permission,
-          ),
           disabled: !checkInCollection(
             [flowCaseStatusCollection.created],
             status,
+          ),
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowCase.toggleEmergency.permission,
           ),
           confirm: true,
           title:
@@ -340,10 +360,59 @@ class PageList extends MultiPage {
           type: dropdownExpandItemType.divider,
         },
         {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'forceEnd',
+          icon: iconBuilder.stop(),
+          text: '强制结束',
+          disabled: !checkInCollection(
+            [
+              flowCaseStatusCollection.submitApproval,
+              flowCaseStatusCollection.inApprovalProcess,
+            ],
+            status,
+          ),
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowCase.forceEnd.permission,
+          ),
+          confirm: true,
+          title: '将要强制结束审批（即该次审批作废），确定吗？',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'disuse',
+          icon: iconBuilder.clear(),
+          text: '审批作废',
+          disabled: !checkInCollection(
+            [flowCaseStatusCollection.success],
+            status,
+          ),
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowCase.forceEnd.permission,
+          ),
+          confirm: true,
+          title: '将要设置该次审批作废，确定吗？',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'hide',
           icon: iconBuilder.delete(),
           text: '移除审批',
-          disabled: !checkHasAuthority(
+          disabled: !checkInCollection(
+            [
+              flowCaseStatusCollection.created,
+              flowCaseStatusCollection.refuse,
+              flowCaseStatusCollection.forcedEnd,
+              flowCaseStatusCollection.disuse,
+            ],
+            status,
+          ),
+          hidden: !checkHasAuthority(
             accessWayCollection.workflowCase.hide.permission,
           ),
           confirm: true,
@@ -356,6 +425,9 @@ class PageList extends MultiPage {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
           text: '刷新缓存',
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowCase.refreshCache.permission,
+          ),
           confirm: true,
           title: '将要刷新缓存，确定吗？',
         },
@@ -495,6 +567,8 @@ class PageList extends MultiPage {
     return (
       <>
         <FlowDisplayDrawer maskClosable externalData={currentRecord} />
+
+        <FormDocumentPreviewDrawer maskClosable externalData={currentRecord} />
       </>
     );
   };

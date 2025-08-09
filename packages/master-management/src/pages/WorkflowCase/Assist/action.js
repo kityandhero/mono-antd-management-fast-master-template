@@ -218,6 +218,27 @@ export async function forceEndAction({
   });
 }
 
+export async function disuseAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.workflowCaseTypeCollection.disuse,
+    params: {
+      workflowCaseId: getValueByKey({
+        data: handleData,
+        key: fieldData.workflowCaseId.name,
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function hideAction({
   target,
   handleData,

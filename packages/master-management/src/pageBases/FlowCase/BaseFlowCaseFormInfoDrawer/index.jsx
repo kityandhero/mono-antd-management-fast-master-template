@@ -568,6 +568,14 @@ class BaseFlowCaseFormInfoDrawer extends BaseUpdateDrawer {
     this.saveForm(temporaryFormValues);
   };
 
+  showSupplementAttachmentModal = () => {
+    throw new Error('showSupplementAttachmentModal need overrode to implement');
+  };
+
+  afterSupplementAttachmentModalClose = () => {
+    this.reloadData({});
+  };
+
   openFlowCaseFormDocumentDrawer = () => {
     throw new Error(
       'openFlowCaseFormDocumentDrawer need overrode to implement',

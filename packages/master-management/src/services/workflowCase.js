@@ -179,6 +179,15 @@ export async function forceEndData(parameters) {
   });
 }
 
+export const disuseDataApiAddress = '/workflowCase/disuse';
+
+export async function disuseData(parameters) {
+  return request({
+    api: disuseDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const archiveDataApiAddress = '/workflowCase/archive';
 
 export async function archiveData(parameters) {

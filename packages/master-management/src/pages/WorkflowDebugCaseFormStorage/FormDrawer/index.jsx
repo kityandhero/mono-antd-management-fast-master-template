@@ -11,6 +11,7 @@ import { fieldData as fieldDataWorkflowDebugCase } from '../../WorkflowDebugCase
 import { AddAttachmentModal } from '../../WorkflowDebugCaseFormAttachment/AddAttachmentModal';
 import { removeAction } from '../../WorkflowDebugCaseFormAttachment/Assist/action';
 import { AttachmentPreviewDrawer as WorkflowDebugCaseFormAttachmentPreviewDrawer } from '../../WorkflowDebugCaseFormAttachment/AttachmentPreviewDrawer';
+import { SupplementAttachmentModal } from '../../WorkflowDebugCaseFormAttachment/SupplementAttachmentModal';
 
 const visibleFlag = 'd5007ce0991442e4a553b3d2ab28f927';
 
@@ -117,6 +118,10 @@ class FormDrawer extends BaseFlowCaseStorageFormDrawer {
     AddAttachmentModal.open();
   };
 
+  showSupplementAttachmentModal = () => {
+    SupplementAttachmentModal.open();
+  };
+
   openFlowCaseFormAttachmentPreviewDrawer = () => {
     WorkflowDebugCaseFormAttachmentPreviewDrawer.open();
   };
@@ -129,6 +134,11 @@ class FormDrawer extends BaseFlowCaseStorageFormDrawer {
         <AddAttachmentModal
           externalData={metaData}
           afterClose={this.afterAddAttachmentModalClose}
+        />
+
+        <SupplementAttachmentModal
+          externalData={metaData}
+          afterClose={this.afterSupplementAttachmentModalClose}
         />
 
         <WorkflowDebugCaseFormAttachmentPreviewDrawer

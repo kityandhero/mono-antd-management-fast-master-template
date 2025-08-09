@@ -16,6 +16,7 @@ import {
   refreshCacheData,
   removeData,
   singleListData,
+  supplementData,
   uploadFileData,
 } from '../../services/workflowDebugCaseFormAttachment';
 
@@ -24,6 +25,7 @@ export const workflowDebugCaseFormAttachmentTypeCollection = {
   singleList: 'workflowDebugCaseFormAttachment/singleList',
   get: 'workflowDebugCaseFormAttachment/get',
   addBasicInfo: 'workflowDebugCaseFormAttachment/addBasicInfo',
+  supplement: 'workflowDebugCaseFormAttachment/supplement',
   remove: 'workflowDebugCaseFormAttachment/remove',
   refreshCache: 'workflowDebugCaseFormAttachment/refreshCache',
   pageListOperateLog: 'workflowDebugCaseFormAttachment/pageListOperateLog',
@@ -127,6 +129,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(addBasicInfoData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *supplement(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(supplementData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

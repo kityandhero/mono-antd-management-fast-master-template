@@ -223,6 +223,15 @@ export async function forceEndData(parameters) {
   });
 }
 
+export const disuseDataApiAddress = '/workflowDebugCase/disuse';
+
+export async function disuseData(parameters) {
+  return request({
+    api: disuseDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const archiveDataApiAddress = '/workflowDebugCase/archive';
 
 export async function archiveData(parameters) {

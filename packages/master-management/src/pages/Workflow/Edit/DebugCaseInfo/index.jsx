@@ -55,6 +55,7 @@ import {
   cancelArchiveAction,
   closeCancelApproveSwitchAction,
   closeResetAllApproveSwitchAction,
+  disuseAction,
   forceEndAction,
   openCancelApproveSwitchAction,
   openResetAllApproveSwitchAction,
@@ -245,6 +246,16 @@ class DebugCaseInfo extends TabPageBase {
 
   setTitleFromCaseNameTemplate = (r) => {
     setTitleFromCaseNameTemplateAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target }) => {
+        target.reloadData({});
+      },
+    });
+  };
+
+  disuse = (r) => {
+    disuseAction({
       target: this,
       handleData: r,
       successCallback: ({ target }) => {
@@ -905,6 +916,11 @@ class DebugCaseInfo extends TabPageBase {
                       break;
                     }
 
+                    case 'disuse': {
+                      that.disuse(handleData);
+                      break;
+                    }
+
                     case 'archive': {
                       that.archive(handleData);
                       break;
@@ -932,6 +948,7 @@ class DebugCaseInfo extends TabPageBase {
                     key: 'showPageListSubsidiarySelectActionDrawer',
                     icon: iconBuilder.edit(),
                     text: `设置实例归属企业`,
+                    disabled: !firstLoadSuccess,
                     hidden: !checkHasAuthority(
                       accessWayCollection.workflowDebugCase.setSubsidiaryId
                         .permission,
@@ -944,11 +961,13 @@ class DebugCaseInfo extends TabPageBase {
                     key: 'showSetApplicantStatementDrawer',
                     icon: iconBuilder.edit(),
                     text: `申请人签名配置`,
+                    disabled:
+                      !firstLoadSuccess ||
+                      applicantSignSwitch !== whetherNumber.yes,
                     hidden: !checkHasAuthority(
                       accessWayCollection.workflowDebugCase
                         .setApplicantStatement.permission,
                     ),
-                    disabled: applicantSignSwitch !== whetherNumber.yes,
                   },
                   {
                     type: dropdownExpandItemType.divider,
@@ -957,21 +976,25 @@ class DebugCaseInfo extends TabPageBase {
                     key: 'showSetAttentionUserDrawer',
                     icon: iconBuilder.edit(),
                     text: `经办人配置`,
+                    disabled:
+                      !firstLoadSuccess ||
+                      attentionSignSwitch !== whetherNumber.yes,
                     hidden: !checkHasAuthority(
                       accessWayCollection.workflowDebugCase.setAttentionUser
                         .permission,
                     ),
-                    disabled: attentionSignSwitch !== whetherNumber.yes,
                   },
                   {
                     key: 'showSetAttentionStatementDrawer',
                     icon: iconBuilder.edit(),
                     text: `经办人签名配置`,
+                    disabled:
+                      !firstLoadSuccess ||
+                      attentionSignSwitch !== whetherNumber.yes,
                     hidden: !checkHasAuthority(
                       accessWayCollection.workflowDebugCase
                         .setAttentionStatement.permission,
                     ),
-                    disabled: attentionSignSwitch !== whetherNumber.yes,
                   },
                   {
                     type: dropdownExpandItemType.divider,
@@ -980,6 +1003,7 @@ class DebugCaseInfo extends TabPageBase {
                     key: 'showUpdateDebugUserDrawer',
                     icon: iconBuilder.edit(),
                     text: '配置本流程指定调试发起人',
+                    disabled: !firstLoadSuccess,
                     hidden: !checkHasAuthority(
                       accessWayCollection.workflow.setDebugUserId.permission,
                     ),
@@ -988,6 +1012,7 @@ class DebugCaseInfo extends TabPageBase {
                     key: 'showUpdateDebugUserModeModal',
                     icon: iconBuilder.edit(),
                     text: '配置调试发起人模式',
+                    disabled: !firstLoadSuccess,
                     hidden: !checkHasAuthority(
                       accessWayCollection.workflow.setDebugUserMode.permission,
                     ),
@@ -999,6 +1024,7 @@ class DebugCaseInfo extends TabPageBase {
                     key: 'showUpdateDebugApproverModeModal',
                     icon: iconBuilder.edit(),
                     text: '配置调试审批人模式',
+                    disabled: !firstLoadSuccess,
                     hidden: !checkHasAuthority(
                       accessWayCollection.workflow.setDebugApproverMode
                         .permission,
@@ -1011,13 +1037,15 @@ class DebugCaseInfo extends TabPageBase {
                     key: 'toggleEmergency',
                     icon: iconBuilder.swap(),
                     text: '切换紧急',
+                    disabled:
+                      !firstLoadSuccess ||
+                      !checkInCollection(
+                        [flowCaseStatusCollection.created],
+                        status,
+                      ),
                     hidden: !checkHasAuthority(
                       accessWayCollection.workflowDebugCase.toggleEmergency
                         .permission,
-                    ),
-                    disabled: !checkInCollection(
-                      [flowCaseStatusCollection.created],
-                      status,
                     ),
                     confirm: true,
                     title:
@@ -1030,6 +1058,7 @@ class DebugCaseInfo extends TabPageBase {
                     key: 'setTitleFromCaseNameTemplate',
                     icon: iconBuilder.edit(),
                     text: '设置实例标题[从命名模板生成]',
+                    disabled: !firstLoadSuccess,
                     hidden: !checkHasAuthority(
                       accessWayCollection.workflowDebugCase
                         .setTitleFromCaseNameTemplate.permission,
@@ -1041,15 +1070,33 @@ class DebugCaseInfo extends TabPageBase {
                     type: dropdownExpandItemType.divider,
                   },
                   {
+                    key: 'disuse',
+                    icon: iconBuilder.clear(),
+                    text: '审批作废',
+                    disabled:
+                      !firstLoadSuccess ||
+                      status !== flowCaseStatusCollection.success,
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflowDebugCase.disuse.permission,
+                    ),
+                    confirm: true,
+                    title: '将要设置为审批作废，确定吗？',
+                  },
+                  {
+                    type: dropdownExpandItemType.divider,
+                  },
+                  {
                     key: 'archive',
                     icon: iconBuilder.file(),
                     text: '实例归档',
+                    disabled:
+                      !firstLoadSuccess ||
+                      status !== flowCaseStatusCollection.success ||
+                      whetherArchive === whetherNumber.yes,
                     hidden: !checkHasAuthority(
                       accessWayCollection.workflowDebugCase.archive.permission,
                     ),
-                    disabled:
-                      status !== flowCaseStatusCollection.success ||
-                      whetherArchive === whetherNumber.yes,
+
                     confirm: true,
                     title: '将要进行归档操作，确定吗？',
                   },
@@ -1057,13 +1104,14 @@ class DebugCaseInfo extends TabPageBase {
                     key: 'cancelArchive',
                     icon: iconBuilder.file(),
                     text: '取消实例归档',
+                    disabled:
+                      !firstLoadSuccess ||
+                      status !== flowCaseStatusCollection.success ||
+                      whetherArchive !== whetherNumber.yes,
                     hidden: !checkHasAuthority(
                       accessWayCollection.workflowDebugCase.cancelArchive
                         .permission,
                     ),
-                    disabled:
-                      status !== flowCaseStatusCollection.success ||
-                      whetherArchive !== whetherNumber.yes,
                     confirm: true,
                     title: '将要进行取消归档操作，确定吗？',
                   },
@@ -1071,12 +1119,13 @@ class DebugCaseInfo extends TabPageBase {
                     key: 'previewArchive',
                     icon: iconBuilder.read(),
                     text: '预览归档文件',
+                    disabled:
+                      !firstLoadSuccess ||
+                      whetherArchive !== whetherNumber.yes ||
+                      checkStringIsNullOrWhiteSpace(archiveUrl),
                     hidden: !checkHasAuthority(
                       accessWayCollection.workflowDebugCase.archive.permission,
                     ),
-                    disabled:
-                      whetherArchive !== whetherNumber.yes ||
-                      checkStringIsNullOrWhiteSpace(archiveUrl),
                   },
                 ],
               },
