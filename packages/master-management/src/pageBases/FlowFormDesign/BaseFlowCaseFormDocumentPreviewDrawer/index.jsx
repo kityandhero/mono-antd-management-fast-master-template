@@ -6,7 +6,6 @@ import {
   getValueByKey,
   isArray,
   isEmptyArray,
-  logConsole,
   logException,
   whetherNumber,
 } from 'easy-soft-utility';
@@ -524,8 +523,6 @@ class BaseFlowCaseFormDocumentPreviewDrawer extends BaseVerticalFlexDrawer {
       this.getSerialNumberConfig();
 
     const { qRCodeImage } = this.getQRCodeConfig();
-
-    logConsole({ showRemark, remarkSchemaList });
 
     return (
       <Watermark content={watermarkText} inherit={false}>

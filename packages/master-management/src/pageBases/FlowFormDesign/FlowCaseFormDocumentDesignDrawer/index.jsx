@@ -5,7 +5,6 @@ import {
   getValueByKey,
   isArray,
   isEmptyArray,
-  logConsole,
   logException,
   whetherNumber,
 } from 'easy-soft-utility';
@@ -618,8 +617,6 @@ class FlowCaseFormDocumentDesignDrawer extends BaseVerticalFlexDrawer {
       this.getSerialNumberConfig();
 
     const { qRCodeImage } = this.getQRCodeConfig();
-
-    logConsole({ showRemark, remarkSchemaList });
 
     return (
       <DocumentPrintDesigner
