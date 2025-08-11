@@ -49,10 +49,6 @@ function judgeCanUpload(status) {
   );
 }
 
-function judgeCanSupplement(status) {
-  return checkInCollection([flowCaseStatusCollection.success], status);
-}
-
 function judgeCanRemove(status) {
   return checkInCollection(
     [flowCaseStatusCollection.created, flowCaseStatusCollection.refuse],
@@ -85,6 +81,10 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
 
   getFlowCaseId = () => {
     throw new Error('getFlowCaseId need overrode to implement');
+  };
+
+  checkHasSupplementFormAttachmentAuthority = () => {
+    return false;
   };
 
   loadChainApprove = () => {};
@@ -610,7 +610,10 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
             >
               <FileViewer
                 canUpload={judgeCanUpload(status)}
-                canSupplement={judgeCanSupplement(status)}
+                canSupplement={
+                  this.checkHasSupplementFormAttachmentAuthority() &&
+                  checkInCollection([flowCaseStatusCollection.success], status)
+                }
                 canRemove={judgeCanRemove(status)}
                 list={listAttachment}
                 dataTransfer={(o) => {
@@ -726,7 +729,6 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
           descriptionUpperComponent={
             <FileViewer
               canUpload={judgeCanUpload(status)}
-              canSupplement={judgeCanSupplement(status)}
               canRemove={judgeCanRemove(status)}
               list={listAttachment}
               dataTransfer={(o) => {
