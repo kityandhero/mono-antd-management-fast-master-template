@@ -123,6 +123,20 @@ class BaseAttachmentPreviewDrawer extends BaseVerticalFlexDrawer {
       return buildPlayer({ url: url });
     }
 
+    if (existPdf === whetherNumber.yes) {
+      return (
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            overflow: 'hidden',
+          }}
+        >
+          <FrameBox url={urlPdf} />
+        </div>
+      );
+    }
+
     if (checkInCollection(['jpeg', 'jpg', 'png', 'gif'], toLower(suffix))) {
       return (
         <div
@@ -134,20 +148,6 @@ class BaseAttachmentPreviewDrawer extends BaseVerticalFlexDrawer {
           }}
         >
           <ImageBox fillHeight={false} showMode="contentImage" src={url} />
-        </div>
-      );
-    }
-
-    if (existPdf === whetherNumber.yes) {
-      return (
-        <div
-          style={{
-            width: '100%',
-            height: '100%',
-            overflow: 'hidden',
-          }}
-        >
-          <FrameBox url={urlPdf} />
         </div>
       );
     }
