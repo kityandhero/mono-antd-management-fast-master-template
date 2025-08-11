@@ -7129,6 +7129,13 @@
           "type": "singleData"
         },
         {
+          "title": "更新排序值",
+          "api": "/workflowNodeApprover/updateSort",
+          "effect": "updateSort",
+          "service": "updateSortData",
+          "type": "singleData"
+        },
+        {
           "title": "删除流程节点审批人",
           "api": "/workflowNodeApprover/remove",
           "effect": "remove",

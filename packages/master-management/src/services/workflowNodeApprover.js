@@ -59,6 +59,15 @@ export async function addPositionGradeBasicInfoData(parameters) {
   });
 }
 
+export const updateSortDataApiAddress = '/workflowNodeApprover/updateSort';
+
+export async function updateSortData(parameters) {
+  return request({
+    api: updateSortDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const removeDataApiAddress = '/workflowNodeApprover/remove';
 
 export async function removeData(parameters) {

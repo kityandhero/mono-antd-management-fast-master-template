@@ -13,3 +13,4 @@ export * from './fieldDataFlowCaseProcessHistory';
 export * from './fieldDataFlowFormDesign';
 export * from './fieldDataFlowLine';
 export * from './fieldDataFlowNode';
+export * from './fieldDataFlowNodeApprover';

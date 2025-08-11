@@ -57,6 +57,7 @@ import { AddWorkflowNodeApprovePositionGradeDrawer } from '../../../WorkflowNode
 import { AddWorkflowNodeApproverDrawer } from '../../../WorkflowNodeApprover/AddWorkflowNodeApproverDrawer';
 import { removeConfirmAction as removeNodeApproverConfirmAction } from '../../../WorkflowNodeApprover/Assist/action';
 import { fieldData as fieldDataWorkflowNodeApprover } from '../../../WorkflowNodeApprover/Common/data';
+import { WorkflowNodeApproverSingleListDrawer } from '../../../WorkflowNodeApprover/SingleListDrawer';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
@@ -181,6 +182,8 @@ class Index extends TabPageBase {
           ...viewConfig,
           data: {
             data: o,
+            canEditApprover: false,
+            canListApprover: true,
             footerBuilder: (data) => {
               const approverMode = getValueByKey({
                 data: data,
@@ -242,8 +245,13 @@ class Index extends TabPageBase {
                 }
               }
             },
+            // onEditApprover: (data) => {},
             onRemoveApprover: (data) => {
               this.removeNodeApproverConfirm(data);
+            },
+            // eslint-disable-next-line no-unused-vars
+            onListApprover: (data) => {
+              this.showWorkflowNodeApproverSingleListDrawer(data);
             },
             onChange: (data) => {
               this.showUpdateBasicInfoDrawer(data);
@@ -567,6 +575,21 @@ class Index extends TabPageBase {
   };
 
   afterBranchConditionDrawerClose = () => {
+    this.reloadData({});
+  };
+
+  showWorkflowNodeApproverSingleListDrawer = (o) => {
+    this.setState(
+      {
+        currentNode: o,
+      },
+      () => {
+        WorkflowNodeApproverSingleListDrawer.open();
+      },
+    );
+  };
+
+  afterWorkflowNodeApproverSingleListDrawerClose = () => {
     this.reloadData({});
   };
 
@@ -957,6 +980,13 @@ class Index extends TabPageBase {
           externalData={currentRecord}
           afterClose={() => {
             this.afterAddWorkflowNodeApprovePositionGradeDrawerOk();
+          }}
+        />
+
+        <WorkflowNodeApproverSingleListDrawer
+          externalData={currentNode}
+          afterClose={() => {
+            this.afterWorkflowNodeApproverSingleListDrawerClose();
           }}
         />
       </>

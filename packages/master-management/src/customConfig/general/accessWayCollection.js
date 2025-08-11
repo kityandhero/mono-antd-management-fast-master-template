@@ -4454,6 +4454,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '83b5dc7b8321d750ea8a9a56860c2d14',
       permission: '77b32d82bee44564aa4a36fd7aa9b08a',
     },
+    updateSort: {
+      title: '更新排序值',
+      paramsKey: '0894aaa41e1b09463e992ba7a6883518',
+      permission: '32fd41d4f71c40548d6859ea880dcc5e',
+    },
     remove: {
       title: '删除流程节点审批人',
       paramsKey: 'fe83ab8667069d5effab4908f4c4f0fd',
