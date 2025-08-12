@@ -5,11 +5,16 @@ import {
   filter,
   formatCollection,
   getValueByKey,
+  toNumber,
   toString,
+  whetherString,
 } from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
+import {
+  FunctionSupplement,
+  iconBuilder,
+} from 'antd-management-fast-component';
 import {
   DataDrawer,
   switchControlAssist,
@@ -28,6 +33,9 @@ import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
+const {
+  Whether: { getWhetherName },
+} = FunctionSupplement;
 
 const visibleFlag = '5f059c0b10ed4cdeac4d2d20581f66da';
 
@@ -52,6 +60,7 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
       submitApiPath:
         modelTypeCollection.workflowNodeTypeCollection.updateBasicInfo,
       approveModeSelectable: false,
+      currentApproveMode: flowNodeApproveModeCollection.oneSignature,
     };
   }
 
@@ -91,7 +100,7 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
 
     if (approverMode != toString(flowNodeApproverModeCollection.designated)) {
       d[fieldData.approveMode.name] = toString(
-        flowNodeApproveModeCollection.oneOfApproval,
+        flowNodeApproveModeCollection.oneSignature,
       );
     }
 
@@ -113,7 +122,14 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
       defaultValue: '',
     });
 
+    const approveMode = getValueByKey({
+      data: metaData,
+      key: fieldData.approveMode.name,
+      defaultValue: '',
+    });
+
     this.setState({
+      currentApproveMode: toNumber(approveMode),
       approveModeSelectable:
         toString(approverMode) ===
         toString(flowNodeApproverModeCollection.designated),
@@ -124,17 +140,32 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
   onApproverModeChange = (v, option) => {
     const data = {};
 
+    const approveModeData = {};
+
     if (toString(v) !== toString(flowNodeApproverModeCollection.designated)) {
       data[fieldData.approveMode.name] = toString(
-        flowNodeApproveModeCollection.oneOfApproval,
+        flowNodeApproveModeCollection.oneSignature,
       );
+      data[fieldData.whetherOneSignatureNeedDesignateNextApprover.name] =
+        whetherString.yes;
+
+      approveModeData.currentApproveMode =
+        flowNodeApproveModeCollection.oneSignature;
     }
 
     this.setFormFieldsValue(data);
 
     this.setState({
+      ...approveModeData,
       approveModeSelectable:
         toString(v) === toString(flowNodeApproverModeCollection.designated),
+    });
+  };
+
+  // eslint-disable-next-line no-unused-vars
+  onApproveModeChange = (v, option) => {
+    this.setState({
+      currentApproveMode: toNumber(v),
     });
   };
 
@@ -176,13 +207,26 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
         key: fieldData.approveMode.name,
         convert: convertCollection.string,
       });
+
+      values[fieldData.whetherOneSignatureNeedDesignateNextApprover.name] =
+        getValueByKey({
+          data: metaData,
+          key: fieldData.whetherOneSignatureNeedDesignateNextApprover.name,
+          convert: convertCollection.string,
+        });
+
+      values[fieldData.whetherCounterSignatureInSequence.name] = getValueByKey({
+        data: metaData,
+        key: fieldData.whetherCounterSignatureInSequence.name,
+        convert: convertCollection.string,
+      });
     }
 
     return values;
   };
 
   establishCardCollectionConfig = () => {
-    const { approveModeSelectable, metaData } = this.state;
+    const { currentApproveMode, approveModeSelectable, metaData } = this.state;
 
     return {
       list: [
@@ -226,7 +270,9 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
             {
               lg: 12,
               type: cardConfig.contentItemType.component,
-              component: renderFormFlowNodeApproveModeSelect({}),
+              component: renderFormFlowNodeApproveModeSelect({
+                onChange: this.onApproveModeChange,
+              }),
               require: true,
               hidden: !approveModeSelectable,
             },
@@ -235,10 +281,42 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
               type: cardConfig.contentItemType.onlyShowInput,
               fieldData: fieldData.approveMode,
               value: getFlowNodeApproveModeName({
-                value: toString(flowNodeApproveModeCollection.oneOfApproval),
+                value: toString(flowNodeApproveModeCollection.oneSignature),
               }),
               require: true,
               hidden: approveModeSelectable,
+            },
+            {
+              lg: 12,
+              type: cardConfig.contentItemType.whetherSelect,
+              fieldData: fieldData.whetherOneSignatureNeedDesignateNextApprover,
+              require: true,
+              hidden:
+                !approveModeSelectable ||
+                currentApproveMode !==
+                  flowNodeApproveModeCollection.oneSignature,
+            },
+            {
+              lg: 12,
+              type: cardConfig.contentItemType.onlyShowInput,
+              fieldData: fieldData.whetherOneSignatureNeedDesignateNextApprover,
+              value: getWhetherName({
+                value: whetherString.yes,
+              }),
+              require: true,
+              hidden:
+                approveModeSelectable ||
+                currentApproveMode !==
+                  flowNodeApproveModeCollection.oneSignature,
+            },
+            {
+              lg: 12,
+              type: cardConfig.contentItemType.whetherSelect,
+              fieldData: fieldData.whetherCounterSignatureInSequence,
+              require: true,
+              hidden:
+                currentApproveMode !==
+                flowNodeApproveModeCollection.counterSignature,
             },
             {
               lg: 12,

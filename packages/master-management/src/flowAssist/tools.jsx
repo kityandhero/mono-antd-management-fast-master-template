@@ -35,6 +35,7 @@ import {
   fieldDataFlowNode,
   flowApproveActionModeCollection,
   flowLineTypeCollection,
+  flowNodeApproveModeCollection,
   flowNodeTypeCollection,
 } from '../customConfig';
 import { getFlowNodeApproveModeName } from '../customSpecialComponents';
@@ -399,40 +400,7 @@ function adjustFlowCaseDataItem({
           data: o,
           isNext: nextApproveWorkflowNodeId === workflowNodeId,
           footerBuilder: (data) => {
-            const approverMode = getValueByKey({
-              data: data,
-              key: fieldDataFlowNode.approveMode.name,
-              convert: convertCollection.number,
-              defaultValue: '',
-            });
-
-            const approverModeName = getFlowNodeApproveModeName({
-              value: approverMode,
-            });
-
-            if (checkStringIsNullOrWhiteSpace(approverModeName)) {
-              return null;
-            }
-
-            return (
-              <ColorText
-                textPrefix="审批方式"
-                text={approverModeName}
-                color="#999"
-                style={{
-                  fontSize: 10,
-                }}
-                textPrefixStyle={{
-                  color: '#999',
-                }}
-                separator="："
-                separatorStyle={{
-                  paddingLeft: '2px',
-                  paddingRight: '0px',
-                  color: '#999',
-                }}
-              />
-            );
+            return <NodeFooter data={data} />;
           },
         },
       });
@@ -834,6 +802,97 @@ export function SealRefuse({
         }}
       >
         <ImageBox showMode="contentImage" src={image} />
+      </div>
+    </div>
+  );
+}
+
+export function NodeFooter({ data }) {
+  const approverMode = getValueByKey({
+    data: data,
+    key: fieldDataFlowNode.approveMode.name,
+    convert: convertCollection.number,
+    defaultValue: '',
+  });
+
+  const approverModeName = getFlowNodeApproveModeName({
+    value: approverMode,
+  });
+
+  if (checkStringIsNullOrWhiteSpace(approverModeName)) {
+    return null;
+  }
+
+  let configDescription = '';
+
+  if (approverMode === flowNodeApproveModeCollection.oneSignature) {
+    const whetherOneSignatureNeedDesignateNextApprover = getValueByKey({
+      data: data,
+      key: fieldDataFlowNode.whetherOneSignatureNeedDesignateNextApprover.name,
+      convert: convertCollection.number,
+      defaultValue: '',
+    });
+
+    configDescription =
+      whetherOneSignatureNeedDesignateNextApprover === whetherNumber.yes
+        ? '需要指定下一审批人'
+        : '不需要指定下一审批人';
+  }
+
+  if (approverMode === flowNodeApproveModeCollection.counterSignature) {
+    const whetherCounterSignatureInSequence = getValueByKey({
+      data: data,
+      key: fieldDataFlowNode.whetherCounterSignatureInSequence.name,
+      convert: convertCollection.number,
+      defaultValue: '',
+    });
+
+    configDescription =
+      whetherCounterSignatureInSequence === whetherNumber.yes
+        ? '依照顺序分别签署'
+        : '无需依照顺序签署';
+  }
+
+  return (
+    <div>
+      <div>
+        <ColorText
+          textPrefix="审批方式"
+          text={approverModeName}
+          color="#999"
+          style={{
+            fontSize: 10,
+          }}
+          textPrefixStyle={{
+            color: '#999',
+          }}
+          separator="："
+          separatorStyle={{
+            paddingLeft: '2px',
+            paddingRight: '0px',
+            color: '#999',
+          }}
+        />
+      </div>
+
+      <div>
+        <ColorText
+          textPrefix="审批配置"
+          text={configDescription}
+          color="#999"
+          style={{
+            fontSize: 10,
+          }}
+          textPrefixStyle={{
+            color: '#999',
+          }}
+          separator="："
+          separatorStyle={{
+            paddingLeft: '2px',
+            paddingRight: '0px',
+            color: '#999',
+          }}
+        />
       </div>
     </div>
   );

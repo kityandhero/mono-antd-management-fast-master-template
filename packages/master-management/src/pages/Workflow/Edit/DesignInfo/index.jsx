@@ -2,7 +2,6 @@ import { connect } from 'easy-soft-dva';
 import {
   checkHasAuthority,
   checkInCollection,
-  checkStringIsNullOrWhiteSpace,
   convertCollection,
   findIndex,
   getValueByKey,
@@ -16,7 +15,7 @@ import {
   cardConfig,
   getDerivedStateFromPropertiesForUrlParameters,
 } from 'antd-management-fast-common';
-import { ColorText, iconBuilder } from 'antd-management-fast-component';
+import { iconBuilder } from 'antd-management-fast-component';
 import { adjustEdge, Flow } from 'antd-management-fast-flow';
 
 import {
@@ -25,7 +24,7 @@ import {
   flowNodeApproverModeCollection,
   flowNodeTypeCollection,
 } from '../../../../customConfig';
-import { getFlowNodeApproveModeName } from '../../../../customSpecialComponents';
+import { NodeFooter } from '../../../../flowAssist';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { BranchConditionDrawer } from '../../../WorkflowBranchCondition/BranchConditionDrawer';
 import { AddLineDrawer } from '../../../WorkflowLine/AddLineDrawer';
@@ -185,40 +184,7 @@ class Index extends TabPageBase {
             canEditApprover: false,
             canListApprover: true,
             footerBuilder: (data) => {
-              const approverMode = getValueByKey({
-                data: data,
-                key: fieldDataWorkflowNode.approveMode.name,
-                convert: convertCollection.number,
-                defaultValue: '',
-              });
-
-              const approverModeName = getFlowNodeApproveModeName({
-                value: approverMode,
-              });
-
-              if (checkStringIsNullOrWhiteSpace(approverModeName)) {
-                return null;
-              }
-
-              return (
-                <ColorText
-                  textPrefix="审批方式"
-                  text={approverModeName}
-                  color="#999"
-                  style={{
-                    fontSize: 10,
-                  }}
-                  textPrefixStyle={{
-                    color: '#999',
-                  }}
-                  separator="："
-                  separatorStyle={{
-                    paddingLeft: '2px',
-                    paddingRight: '0px',
-                    color: '#999',
-                  }}
-                />
-              );
+              return <NodeFooter data={data} />;
             },
             onAddApprover: (data) => {
               const approverMode = getValueByKey({

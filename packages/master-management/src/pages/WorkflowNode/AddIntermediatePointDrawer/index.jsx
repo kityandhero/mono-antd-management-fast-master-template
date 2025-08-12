@@ -69,7 +69,7 @@ class AddIntermediatePointDrawer extends BaseAddPointDrawer {
 
     if (toString(v) !== toString(flowNodeApproverModeCollection.designated)) {
       data[fieldData.approveMode.name] = toString(
-        flowNodeApproveModeCollection.oneOfApproval,
+        flowNodeApproveModeCollection.oneSignature,
       );
     }
 
@@ -89,7 +89,7 @@ class AddIntermediatePointDrawer extends BaseAddPointDrawer {
     );
 
     initialValues[fieldData.approveMode.name] = toString(
-      flowNodeApproveModeCollection.oneOfApproval,
+      flowNodeApproveModeCollection.oneSignature,
     );
 
     return initialValues;
@@ -122,7 +122,7 @@ class AddIntermediatePointDrawer extends BaseAddPointDrawer {
         type: cardConfig.contentItemType.onlyShowInput,
         fieldData: fieldData.approveMode,
         value: getFlowNodeApproveModeName({
-          value: toString(flowNodeApproveModeCollection.oneOfApproval),
+          value: toString(flowNodeApproveModeCollection.oneSignature),
         }),
         require: true,
         hidden: approveModeSelectable,

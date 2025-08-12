@@ -11,11 +11,7 @@ import {
   toString,
 } from 'easy-soft-utility';
 
-import {
-  ColorText,
-  iconBuilder,
-  ImageBox,
-} from 'antd-management-fast-component';
+import { iconBuilder, ImageBox } from 'antd-management-fast-component';
 import { adjustEdge, adjustNode } from 'antd-management-fast-flow';
 
 import {
@@ -34,10 +30,8 @@ import {
   flowLineTypeCollection,
   flowNodeTypeCollection,
 } from '../../../customConfig';
-import {
-  getChannelName,
-  getFlowNodeApproveModeName,
-} from '../../../customSpecialComponents';
+import { getChannelName } from '../../../customSpecialComponents';
+import { NodeFooter } from '../../../flowAssist';
 
 export function getFlowCaseStatusBadge(status) {
   let result = 'default';
@@ -620,40 +614,7 @@ function adjustFlowCaseDataItemToState({
           data: o,
           isNext: nextApproveWorkflowNodeId === workflowNodeId,
           footerBuilder: (data) => {
-            const approverMode = getValueByKey({
-              data: data,
-              key: fieldDataFlowNode.approveMode.name,
-              convert: convertCollection.number,
-              defaultValue: '',
-            });
-
-            const approverModeName = getFlowNodeApproveModeName({
-              value: approverMode,
-            });
-
-            if (checkStringIsNullOrWhiteSpace(approverModeName)) {
-              return null;
-            }
-
-            return (
-              <ColorText
-                textPrefix="审批方式"
-                text={approverModeName}
-                color="#999"
-                style={{
-                  fontSize: 10,
-                }}
-                textPrefixStyle={{
-                  color: '#999',
-                }}
-                separator="："
-                separatorStyle={{
-                  paddingLeft: '2px',
-                  paddingRight: '0px',
-                  color: '#999',
-                }}
-              />
-            );
+            return <NodeFooter data={data} />;
           },
         },
       });

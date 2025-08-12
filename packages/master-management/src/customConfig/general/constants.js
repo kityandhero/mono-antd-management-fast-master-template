@@ -321,13 +321,13 @@ export const flowNodeApproveModeCollection = {
    * 或签【需要某位审批人员同意即可】
    * value : 0
    */
-  oneOfApproval: 0,
+  oneSignature: 0,
 
   /**
    * 会签【需要全部审批人员同意方可】
    * value : 100
    */
-  allApproval: 100,
+  counterSignature: 100,
 };
 
 /**

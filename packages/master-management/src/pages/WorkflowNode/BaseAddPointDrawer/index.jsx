@@ -40,7 +40,7 @@ class BaseAddPointDrawer extends BaseAddDrawer {
 
     if (approverMode != toString(flowNodeApproverModeCollection.designated)) {
       d[fieldData.approveMode.name] = toString(
-        flowNodeApproveModeCollection.oneOfApproval,
+        flowNodeApproveModeCollection.oneSignature,
       );
     }
 

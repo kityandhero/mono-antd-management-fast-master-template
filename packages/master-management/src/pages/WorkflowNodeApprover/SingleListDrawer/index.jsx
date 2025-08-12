@@ -120,6 +120,15 @@ class WorkflowNodeApproverSingleListDrawer extends SinglePageDrawer {
 
   renderPresetTitleIcon = () => null;
 
+  buildTitleSubText = () => {
+    const { externalData } = this.props;
+
+    return getValueByKey({
+      data: externalData,
+      key: fieldDataFlowNode.name.name,
+    });
+  };
+
   establishSearchCardConfig = () => {
     return {
       list: [
