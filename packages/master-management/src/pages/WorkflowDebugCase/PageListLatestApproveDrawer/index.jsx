@@ -36,7 +36,6 @@ class WorkflowDebugCasePageListLatestApproveDrawer extends BaseFlowCasePageListL
     };
   }
 
-  // eslint-disable-next-line no-unused-vars
   getFlowCaseId = (o) => {
     return getValueByKey({
       data: o,

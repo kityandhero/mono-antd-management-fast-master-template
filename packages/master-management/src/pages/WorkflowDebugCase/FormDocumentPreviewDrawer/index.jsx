@@ -1,10 +1,11 @@
 import { connect } from 'easy-soft-dva';
-import { getValueByKey } from 'easy-soft-utility';
+import { convertCollection, getValueByKey } from 'easy-soft-utility';
 
 import { switchControlAssist } from 'antd-management-fast-framework';
 
 import { modelTypeCollection } from '../../../modelBuilders';
 import { BaseFlowCaseFormDocumentPreviewDrawer } from '../../../pageBases';
+import { getChainByWorkflowAction } from '../Assist/action';
 import { fieldData as fieldDataWorkflowDebugCase } from '../Common/data';
 
 const visibleFlag = '3ca020a324fa439e8de82626b5bd31a5';
@@ -36,16 +37,50 @@ class FormDocumentPreviewDrawer extends BaseFlowCaseFormDocumentPreviewDrawer {
     };
   }
 
-  getFlowCaseId = (o) => {
+  getFlowCaseId = () => {
+    const { metaData } = this.state;
+
     return getValueByKey({
-      data: o,
+      data: metaData,
       key: fieldDataWorkflowDebugCase.workflowDebugCaseId.name,
-      defaultValue: '0',
     });
   };
 
-  getFlowCaseIdName = () => {
-    return fieldDataWorkflowDebugCase.workflowDebugCaseId.name;
+  supplementLoadRequestParams = (o) => {
+    const d = { ...o };
+    const { externalData } = this.props;
+
+    d[fieldDataWorkflowDebugCase.workflowId.name] = getValueByKey({
+      data: externalData,
+      key: fieldDataWorkflowDebugCase.workflowId.name,
+    });
+
+    return d;
+  };
+
+  loadChainApprove = () => {
+    const { externalData } = this.props;
+
+    getChainByWorkflowAction({
+      target: this,
+      handleData: {
+        workflowId: getValueByKey({
+          data: externalData,
+          key: fieldDataWorkflowDebugCase.workflowId.name,
+        }),
+      },
+      successCallback: ({ target, remoteData }) => {
+        const listChainApprove = getValueByKey({
+          data: remoteData,
+          key: fieldDataWorkflowDebugCase.listChainApprove.name,
+          convert: convertCollection.array,
+        });
+
+        target.setState({
+          listChainApprove: listChainApprove,
+        });
+      },
+    });
   };
 }
 

@@ -1,8 +1,9 @@
 import { connect } from 'easy-soft-dva';
-import { convertCollection, getValueByKey, isArray } from 'easy-soft-utility';
+import { convertCollection, getValueByKey } from 'easy-soft-utility';
 
 import { switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { BaseFlowCaseFormDocumentDisplayDrawer } from '../../../pageBases';
 import { getChainByWorkflowAction } from '../../WorkflowDebugCase/Assist/action';
 import { fieldData as fieldDataWorkflowDebugCase } from '../../WorkflowDebugCase/Common/data';
@@ -17,6 +18,8 @@ const visibleFlag = '6579a159f1bb4c79ab3230b7ef9cf9e9';
   schedulingControl,
 }))
 class FlowCaseFormExampleDocumentDisplayDrawer extends BaseFlowCaseFormDocumentDisplayDrawer {
+  useEmptyMode = true;
+
   static open() {
     switchControlAssist.open(visibleFlag);
   }
@@ -31,9 +34,31 @@ class FlowCaseFormExampleDocumentDisplayDrawer extends BaseFlowCaseFormDocumentD
     this.state = {
       ...this.state,
       pageTitle: '流程表单打印样例展示',
-      allApproveProcessList: [],
+      loadApiPath:
+        modelTypeCollection.workflowDebugCaseTypeCollection.getByWorkflow,
     };
   }
+
+  getFlowCaseId = () => {
+    const { metaData } = this.state;
+
+    return getValueByKey({
+      data: metaData,
+      key: fieldDataWorkflowDebugCase.workflowDebugCaseId.name,
+    });
+  };
+
+  supplementLoadRequestParams = (o) => {
+    const d = { ...o };
+    const { externalData } = this.props;
+
+    d[fieldDataWorkflowDebugCase.workflowId.name] = getValueByKey({
+      data: externalData,
+      key: fieldDataWorkflowDebugCase.workflowId.name,
+    });
+
+    return d;
+  };
 
   loadChainApprove = () => {
     const { externalData } = this.props;
@@ -54,41 +79,10 @@ class FlowCaseFormExampleDocumentDisplayDrawer extends BaseFlowCaseFormDocumentD
         });
 
         target.setState({
-          allApproveProcessList: listChainApprove,
+          listChainApprove: listChainApprove,
         });
       },
     });
-  };
-
-  reloadChainApprove = () => {
-    this.loadChainApprove();
-  };
-
-  executeAfterDoOtherWhenChangeVisibleToShow = () => {
-    this.loadChainApprove();
-  };
-
-  executeAfterDoOtherWhenChangeVisibleToHide = () => {
-    this.setState({
-      listChainApprove: [],
-    });
-  };
-
-  getAllApproveProcessList = () => {
-    const { allApproveProcessList } = this.state;
-
-    const allApproveProcessListAdjust = isArray(allApproveProcessList)
-      ? allApproveProcessList.map((o) => {
-          const { name } = { name: '', ...o };
-
-          return {
-            title: name,
-            ...o,
-          };
-        })
-      : [];
-
-    return allApproveProcessListAdjust;
   };
 
   establishHelpConfig = () => {

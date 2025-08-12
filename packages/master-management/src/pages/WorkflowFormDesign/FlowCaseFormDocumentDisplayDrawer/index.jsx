@@ -1,16 +1,17 @@
 import { connect } from 'easy-soft-dva';
-import { convertCollection, getValueByKey, isArray } from 'easy-soft-utility';
+import { convertCollection, getValueByKey } from 'easy-soft-utility';
 
 import { switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { BaseFlowCaseFormDocumentDisplayDrawer } from '../../../pageBases';
-import { getChainByWorkflowAction } from '../../WorkflowDebugCase/Assist/action';
-import { fieldData as fieldDataWorkflowDebugCase } from '../../WorkflowDebugCase/Common/data';
+import { getChainAction } from '../../WorkflowCase/Assist/action';
+import { fieldData as fieldDataWorkflowCase } from '../../WorkflowCase/Common/data';
 
 const visibleFlag = '010012cdadee4558bb71f2617793f2ef';
 
-@connect(({ workflowFormDesign, schedulingControl }) => ({
-  workflowFormDesign,
+@connect(({ workflowCase, schedulingControl }) => ({
+  workflowCase,
   schedulingControl,
 }))
 class FlowCaseFormDocumentDisplayDrawer extends BaseFlowCaseFormDocumentDisplayDrawer {
@@ -27,64 +28,52 @@ class FlowCaseFormDocumentDisplayDrawer extends BaseFlowCaseFormDocumentDisplayD
 
     this.state = {
       ...this.state,
-      allApproveProcessList: [],
+      loadApiPath: modelTypeCollection.workflowCaseTypeCollection.get,
     };
   }
+
+  getFlowCaseId = () => {
+    const { externalData } = this.state;
+
+    return getValueByKey({
+      data: externalData,
+      key: fieldDataWorkflowCase.workflowCaseId.name,
+    });
+  };
+
+  supplementLoadRequestParams = (o) => {
+    const d = { ...o };
+    const { externalData } = this.props;
+
+    d[fieldDataWorkflowCase.workflowCaseId.name] =
+      this.getFlowCaseId(externalData);
+
+    return d;
+  };
 
   loadChainApprove = () => {
     const { externalData } = this.props;
 
-    getChainByWorkflowAction({
+    getChainAction({
       target: this,
       handleData: {
-        workflowId: getValueByKey({
+        workflowCaseId: getValueByKey({
           data: externalData,
-          key: fieldDataWorkflowDebugCase.workflowId.name,
+          key: fieldDataWorkflowCase.workflowCaseId.name,
         }),
       },
       successCallback: ({ target, remoteData }) => {
         const listChainApprove = getValueByKey({
           data: remoteData,
-          key: fieldDataWorkflowDebugCase.listChainApprove.name,
+          key: fieldDataWorkflowCase.listChainApprove.name,
           convert: convertCollection.array,
         });
 
         target.setState({
-          allApproveProcessList: listChainApprove,
+          listChainApprove: listChainApprove,
         });
       },
     });
-  };
-
-  reloadChainApprove = () => {
-    this.loadChainApprove();
-  };
-
-  executeAfterDoOtherWhenChangeVisibleToShow = () => {
-    this.loadChainApprove();
-  };
-
-  executeAfterDoOtherWhenChangeVisibleToHide = () => {
-    this.setState({
-      listChainApprove: [],
-    });
-  };
-
-  getAllApproveProcessList = () => {
-    const { allApproveProcessList } = this.state;
-
-    const allApproveProcessListAdjust = isArray(allApproveProcessList)
-      ? allApproveProcessList.map((o) => {
-          const { name } = { name: '', ...o };
-
-          return {
-            title: name,
-            ...o,
-          };
-        })
-      : [];
-
-    return allApproveProcessListAdjust;
   };
 }
 

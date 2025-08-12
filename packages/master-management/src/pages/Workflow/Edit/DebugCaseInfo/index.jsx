@@ -2004,48 +2004,12 @@ class DebugCaseInfo extends TabPageBase {
   };
 
   renderPresetOther = () => {
-    const { metaData, listApprove, currentNextProcessNotification } =
-      this.state;
+    const { metaData, currentNextProcessNotification } = this.state;
 
     const { nextApproveWorkflowNode } = {
       nextApproveWorkflowNode: null,
       ...metaData,
     };
-
-    const workflowDebugCaseId = getValueByKey({
-      data: metaData,
-      key: fieldData.workflowDebugCaseId.name,
-      convert: convertCollection.string,
-    });
-
-    const qRCodeImage = getValueByKey({
-      data: metaData,
-      key: fieldData.qRCodeImage.name,
-      convert: convertCollection.string,
-    });
-
-    const watermarkVisibility = getValueByKey({
-      data: metaData,
-      key: fieldDataFlowCase.watermarkVisibility.name,
-      convert: convertCollection.number,
-      defaultValue: whetherNumber.no,
-    });
-
-    const watermarkText =
-      watermarkVisibility === whetherNumber.yes
-        ? getValueByKey({
-            data: metaData,
-            key: fieldDataFlowCase.watermarkText.name,
-            convert: convertCollection.string,
-            defaultValue: '',
-          })
-        : '';
-
-    const listFormStorage = getValueByKey({
-      data: metaData,
-      key: fieldData.listFormStorage.name,
-      convert: convertCollection.array,
-    });
 
     const archiveUrl = getValueByKey({
       data: metaData,
@@ -2053,10 +2017,6 @@ class DebugCaseInfo extends TabPageBase {
       convert: convertCollection.string,
       defaultValue: '',
     });
-
-    const { showApply, listApply } = this.getApplicantConfig();
-
-    const { showAttention, listAttention } = this.getAttentionConfig();
 
     return (
       <>
@@ -2192,7 +2152,6 @@ class DebugCaseInfo extends TabPageBase {
 
         <FlowDebugCaseFormDocumentDisplayDrawer
           maskClosable
-          canDesign={false}
           externalData={{
             workflowId: getValueByKey({
               data: metaData,
@@ -2200,16 +2159,6 @@ class DebugCaseInfo extends TabPageBase {
               defaultValue: '',
             }),
           }}
-          values={listFormStorage}
-          showApply={showApply}
-          applyList={listApply}
-          showAttention={showAttention}
-          attentionList={listAttention}
-          approveList={listApprove}
-          qRCodeImage={qRCodeImage}
-          serialNumberContent={workflowDebugCaseId}
-          watermarkVisibility={watermarkVisibility}
-          watermarkText={watermarkText ?? ''}
         />
 
         <FilePreviewDrawer url={archiveUrl} suffix="pdf" maskClosable />

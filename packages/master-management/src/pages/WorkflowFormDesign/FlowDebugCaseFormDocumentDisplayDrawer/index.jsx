@@ -1,16 +1,17 @@
 import { connect } from 'easy-soft-dva';
-import { convertCollection, getValueByKey, isArray } from 'easy-soft-utility';
+import { convertCollection, getValueByKey } from 'easy-soft-utility';
 
 import { switchControlAssist } from 'antd-management-fast-framework';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { BaseFlowCaseFormDocumentDisplayDrawer } from '../../../pageBases';
 import { getChainByWorkflowAction } from '../../WorkflowDebugCase/Assist/action';
 import { fieldData as fieldDataWorkflowDebugCase } from '../../WorkflowDebugCase/Common/data';
 
 const visibleFlag = '64d7f22032f54376a6af4777d475b680';
 
-@connect(({ workflowFormDesign, schedulingControl }) => ({
-  workflowFormDesign,
+@connect(({ workflowDebugCase, schedulingControl }) => ({
+  workflowDebugCase,
   schedulingControl,
 }))
 class FlowDebugCaseFormDocumentDisplayDrawer extends BaseFlowCaseFormDocumentDisplayDrawer {
@@ -27,9 +28,31 @@ class FlowDebugCaseFormDocumentDisplayDrawer extends BaseFlowCaseFormDocumentDis
 
     this.state = {
       ...this.state,
-      listChainApprove: [],
+      loadApiPath:
+        modelTypeCollection.workflowDebugCaseTypeCollection.getByWorkflow,
     };
   }
+
+  getFlowCaseId = () => {
+    const { metaData } = this.state;
+
+    return getValueByKey({
+      data: metaData,
+      key: fieldDataWorkflowDebugCase.workflowDebugCaseId.name,
+    });
+  };
+
+  supplementLoadRequestParams = (o) => {
+    const d = { ...o };
+    const { externalData } = this.props;
+
+    d[fieldDataWorkflowDebugCase.workflowId.name] = getValueByKey({
+      data: externalData,
+      key: fieldDataWorkflowDebugCase.workflowId.name,
+    });
+
+    return d;
+  };
 
   loadChainApprove = () => {
     const { externalData } = this.props;
@@ -54,37 +77,6 @@ class FlowDebugCaseFormDocumentDisplayDrawer extends BaseFlowCaseFormDocumentDis
         });
       },
     });
-  };
-
-  reloadChainApprove = () => {
-    this.loadChainApprove();
-  };
-
-  executeAfterDoOtherWhenChangeVisibleToShow = () => {
-    this.loadChainApprove();
-  };
-
-  executeAfterDoOtherWhenChangeVisibleToHide = () => {
-    this.setState({
-      listChainApprove: [],
-    });
-  };
-
-  getAllApproveProcessList = () => {
-    const { listChainApprove } = this.state;
-
-    const listChainApproveAdjust = isArray(listChainApprove)
-      ? listChainApprove.map((o) => {
-          const { name } = { name: '', ...o };
-
-          return {
-            title: name,
-            ...o,
-          };
-        })
-      : [];
-
-    return listChainApproveAdjust;
   };
 }
 

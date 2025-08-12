@@ -1,21 +1,11 @@
 import { connect } from 'easy-soft-dva';
-import {
-  checkStringIsNullOrWhiteSpace,
-  convertCollection,
-  getValueByKey,
-  isArray,
-  isEmptyArray,
-  logException,
-  whetherNumber,
-} from 'easy-soft-utility';
+import { convertCollection, getValueByKey, isArray } from 'easy-soft-utility';
 
 import { extraBuildType } from 'antd-management-fast-common';
 import { iconBuilder, SyntaxHighlighter } from 'antd-management-fast-component';
 import {
   DocumentPrintDesigner,
   filterDocumentPrintDesignerItemConfig,
-  nodeApply,
-  nodeAttention,
 } from 'antd-management-fast-design-playground';
 import {
   DataDrawer,
@@ -23,19 +13,20 @@ import {
 } from 'antd-management-fast-framework';
 
 import {
-  emptySignet,
+  fieldDataFlow,
   fieldDataFlowFormDesign,
   signetStyle,
   simpleQRCode,
 } from '../../../customConfig';
-import { modelTypeCollection } from '../../../modelBuilders';
 import {
+  analysisFlowCaseAfterLoad,
+  getDocumentPrintDesignerConfig,
   getSimpleApplicantConfig,
   getSimpleAttentionConfig,
-} from '../../../pages/Workflow/Assist/tools';
+} from '../../../flowAssist';
+import { modelTypeCollection } from '../../../modelBuilders';
 import { getChainByWorkflowAction } from '../../../pages/WorkflowDebugCase/Assist/action';
 import { fieldData as fieldDataWorkflowDebugCase } from '../../../pages/WorkflowDebugCase/Common/data';
-import { adjustFlowCaseDataToState } from '../../FlowCase';
 import { updateDocumentSchemaAction } from '../Assist/action';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
@@ -47,21 +38,7 @@ const dataModeCollection = {
 
 const visibleFlag = 'fb97326493c249eebea99f19b937c05f';
 
-const defaultProperties = {
-  canDesign: false,
-  showToolbar: true,
-  showIndependentPrint: false,
-  showApply: false,
-  serialNumber: '',
-  qRCodeImage: '',
-  applyList: [],
-  showAttention: false,
-  attentionList: [],
-  approveList: [],
-  values: [],
-  watermarkVisibility: false,
-  watermarkText: '',
-};
+const defaultProperties = {};
 
 @connect(
   ({
@@ -110,18 +87,12 @@ class FlowCaseFormDocumentDesignDrawer extends BaseVerticalFlexDrawer {
   };
 
   supplementLoadRequestParams = (o) => {
-    return {
-      ...this.supplementRequestParams(o),
-    };
-  };
-
-  supplementRequestParams = (o) => {
     const d = { ...o };
-    const { externalData } = this.state;
+    const { externalData } = this.props;
 
-    d[fieldDataFlowFormDesign.workflowId.name] = getValueByKey({
+    d[fieldDataFlow.workflowId.name] = getValueByKey({
       data: externalData,
-      key: fieldDataFlowFormDesign.workflowId.name,
+      key: fieldDataFlow.workflowId.name,
     });
 
     return d;
@@ -137,39 +108,15 @@ class FlowCaseFormDocumentDesignDrawer extends BaseVerticalFlexDrawer {
     // eslint-disable-next-line no-unused-vars
     metaOriginalData = null,
   }) => {
-    const approveBatchNumber = getValueByKey({
-      data: metaData,
-      key: fieldDataWorkflowDebugCase.approveBatchNumber.name,
-      defaultValue: 0,
-      convert: convertCollection.number,
+    const {
+      workflow,
+      workflowFormDesign,
+      listFormStorage,
+      listProcessHistory,
+      listApprove,
+    } = analysisFlowCaseAfterLoad({
+      flowCase: metaData,
     });
-
-    const listFormStorage = getValueByKey({
-      data: metaData,
-      key: fieldDataWorkflowDebugCase.listFormStorage.name,
-      convert: convertCollection.array,
-      defaultValue: [],
-    });
-
-    const workflow = getValueByKey({
-      data: metaData,
-      key: fieldDataWorkflowDebugCase.workflow.name,
-      defaultValue: null,
-    });
-
-    const workflowFormDesign = getValueByKey({
-      data: metaData,
-      key: fieldDataWorkflowDebugCase.workflowFormDesign.name,
-      defaultValue: null,
-    });
-
-    const { listApprove, listProcessHistory } = adjustFlowCaseDataToState(
-      metaData,
-      {
-        approveBatchNumber,
-        whetherFilterBatchNumber: true,
-      },
-    );
 
     this.setState({
       workflow,
@@ -224,6 +171,16 @@ class FlowCaseFormDocumentDesignDrawer extends BaseVerticalFlexDrawer {
     });
   };
 
+  getFlowCaseId = () => {
+    const { metaData } = this.state;
+
+    return getValueByKey({
+      data: metaData,
+      key: fieldDataWorkflowDebugCase.workflowDebugCaseId.name,
+      defaultValue: '0',
+    });
+  };
+
   setStaticSampleData = () => {
     this.setState({
       dataMode: dataModeCollection.staticSampleData,
@@ -236,263 +193,16 @@ class FlowCaseFormDocumentDesignDrawer extends BaseVerticalFlexDrawer {
     });
   };
 
-  getGeneralConfig = () => {
-    const { workflowFormDesign, listChainApprove } = this.state;
+  getStaticSampleDataApplicantConfig = () => {
+    const { workflow } = this.state;
 
-    const documentSchema = getValueByKey({
-      data: workflowFormDesign,
-      key: fieldDataFlowFormDesign.documentSchema.name,
-      defaultValue: {},
-    });
-
-    const remarkSchemaList = getValueByKey({
-      data: workflowFormDesign,
-      key: fieldDataFlowFormDesign.remarkSchemaList.name,
-      convert: convertCollection.array,
-    });
-
-    const workflowTitle = getValueByKey({
-      data: workflowFormDesign,
-      key: fieldDataFlowFormDesign.workflowTitle.name,
-      defaultValue: '',
-    });
-
-    const {
-      general,
-      title,
-      items: itemsSource,
-    } = {
-      general: {},
-      title: {},
-      items: [],
-      ...documentSchema,
-    };
-
-    const dataSchema = getValueByKey({
-      data: workflowFormDesign,
-      key: fieldDataFlowFormDesign.dataSchema.name,
-      defaultValue: '[]',
-    });
-
-    let listDataSchema = [];
-
-    try {
-      listDataSchema = JSON.parse(dataSchema);
-    } catch (error) {
-      logException(error);
-    }
-
-    const listChainApproveAdjust = isArray(listChainApprove)
-      ? listChainApprove.map((o) => {
-          const { name } = { name: '', ...o };
-
-          return {
-            title: name,
-            ...o,
-          };
-        })
-      : [];
-
-    return {
-      workflowTitle,
-      general,
-      title,
-      items: itemsSource,
-      formItems: listDataSchema,
-      allApproveProcessList: listChainApproveAdjust,
-      remarkSchemaList,
-      showRemark: !(
-        !isArray(remarkSchemaList) || isEmptyArray(remarkSchemaList)
-      ),
-    };
+    return getSimpleApplicantConfig(workflow);
   };
 
-  getValueConfig = () => {
-    const { dataMode, listFormStorage } = this.state;
+  getStaticSampleDataAttentionConfig = () => {
+    const { workflow } = this.state;
 
-    if (dataMode === dataModeCollection.staticSampleData) {
-      return {
-        values: [],
-      };
-    }
-
-    return {
-      values: listFormStorage,
-    };
-  };
-
-  getApproveConfig = () => {
-    const { dataMode, listApprove } = this.state;
-
-    if (dataMode === dataModeCollection.staticSampleData) {
-      return {
-        approveList: [],
-      };
-    }
-
-    return {
-      approveList: listApprove,
-    };
-  };
-
-  getApplicantConfig = () => {
-    const { metaData, dataMode, workflow } = this.state;
-
-    if (dataMode === dataModeCollection.staticSampleData) {
-      return getSimpleApplicantConfig(workflow);
-    }
-
-    const applicantSignSwitch = getValueByKey({
-      data: metaData,
-      key: fieldDataWorkflowDebugCase.applicantSignSwitch.name,
-      convert: convertCollection.number,
-    });
-
-    const applicantStatementTitle = getValueByKey({
-      data: metaData,
-      key: fieldDataWorkflowDebugCase.applicantStatementTitle.name,
-      convert: convertCollection.string,
-    });
-
-    const applicantStatementContent = getValueByKey({
-      data: metaData,
-      key: fieldDataWorkflowDebugCase.applicantStatementContent.name,
-      convert: convertCollection.string,
-    });
-
-    const applicantUserSignet = getValueByKey({
-      data: metaData,
-      key: fieldDataWorkflowDebugCase.applicantUserSignet.name,
-      convert: convertCollection.string,
-    });
-
-    const listApply = [
-      {
-        ...nodeApply,
-        title: applicantStatementTitle,
-        note: applicantStatementContent,
-        ...(checkStringIsNullOrWhiteSpace(applicantUserSignet)
-          ? {
-              signet: emptySignet,
-            }
-          : {
-              signet: applicantUserSignet,
-            }),
-        time: getValueByKey({
-          data: metaData,
-          key: fieldDataWorkflowDebugCase.applicantTime.name,
-          convert: convertCollection.string,
-        }),
-      },
-    ];
-
-    return {
-      showApply: applicantSignSwitch === whetherNumber.yes,
-      listApply,
-    };
-  };
-
-  getAttentionConfig = () => {
-    const { metaData, dataMode, workflow } = this.state;
-
-    if (dataMode === dataModeCollection.staticSampleData) {
-      return getSimpleAttentionConfig(workflow);
-    }
-
-    const attentionSignSwitch = getValueByKey({
-      data: metaData,
-      key: fieldDataWorkflowDebugCase.attentionSignSwitch.name,
-      convert: convertCollection.number,
-    });
-
-    const attentionStatementTitle = getValueByKey({
-      data: metaData,
-      key: fieldDataWorkflowDebugCase.attentionStatementTitle.name,
-      convert: convertCollection.string,
-    });
-
-    const attentionStatementContent = getValueByKey({
-      data: metaData,
-      key: fieldDataWorkflowDebugCase.attentionStatementContent.name,
-      convert: convertCollection.string,
-    });
-
-    const attentionUserSignet = getValueByKey({
-      data: metaData,
-      key: fieldDataWorkflowDebugCase.attentionUserSignet.name,
-      convert: convertCollection.string,
-    });
-
-    const listAttention = [
-      {
-        ...nodeAttention,
-        title: attentionStatementTitle,
-        note: attentionStatementContent,
-        ...(checkStringIsNullOrWhiteSpace(attentionUserSignet)
-          ? {
-              signet: emptySignet,
-            }
-          : {
-              signet: attentionUserSignet,
-            }),
-        time: getValueByKey({
-          data: metaData,
-          key: fieldDataWorkflowDebugCase.attentionTime.name,
-          convert: convertCollection.string,
-        }),
-      },
-    ];
-
-    return {
-      showAttention: attentionSignSwitch === whetherNumber.yes,
-      listAttention,
-    };
-  };
-
-  getApproveList = () => {
-    throw new Error('getApproveList need overrode to implement');
-  };
-
-  getSerialNumberConfig = () => {
-    const { metaData, dataMode } = this.state;
-
-    if (dataMode === dataModeCollection.staticSampleData) {
-      return {
-        serialNumberTitle: '审批流水号: ',
-        serialNumberContent: '1836370789809655808',
-      };
-    }
-
-    const workflowDebugCaseId = getValueByKey({
-      data: metaData,
-      key: fieldDataWorkflowDebugCase.workflowDebugCaseId.name,
-      convert: convertCollection.string,
-    });
-
-    return {
-      serialNumberTitle: '审批流水号: ',
-      serialNumberContent: workflowDebugCaseId,
-    };
-  };
-
-  getQRCodeConfig = () => {
-    const { metaData, dataMode } = this.state;
-
-    if (dataMode === dataModeCollection.staticSampleData) {
-      return {
-        qRCodeImage: simpleQRCode,
-      };
-    }
-
-    const qRCodeImage = getValueByKey({
-      data: metaData,
-      key: fieldDataWorkflowDebugCase.qRCodeImage.name,
-      convert: convertCollection.string,
-    });
-
-    return {
-      qRCodeImage,
-    };
+    return getSimpleAttentionConfig(workflow);
   };
 
   saveDataSchema = (data) => {
@@ -563,16 +273,6 @@ class FlowCaseFormDocumentDesignDrawer extends BaseVerticalFlexDrawer {
   };
 
   establishHelpConfig = () => {
-    const { canDesign } = this.getProperties();
-
-    const list = [];
-
-    if (canDesign) {
-      list.push({
-        text: '申请人、经办人以及审批节点样例仅在设计时用于占位进行效果展示, 实际表单将呈现真实审批节点。',
-      });
-    }
-
     return {
       title: '操作提示',
       list: [
@@ -582,7 +282,9 @@ class FlowCaseFormDocumentDesignDrawer extends BaseVerticalFlexDrawer {
         {
           text: '打印预览需要关闭设计模式。',
         },
-        ...list,
+        {
+          text: '申请人、经办人以及审批节点样例仅在设计时用于占位进行效果展示, 实际表单将呈现真实审批节点。',
+        },
       ],
     };
   };
@@ -595,28 +297,53 @@ class FlowCaseFormDocumentDesignDrawer extends BaseVerticalFlexDrawer {
 
   renderPresetContentContainorInnerTop = () => {
     const {
+      dataMode,
+      metaData,
+      workflowFormDesign,
+      listChainApprove,
+      listFormStorage,
+      listApprove,
+    } = this.state;
+
+    const {
       workflowTitle,
       general,
       title,
       items,
       formItems,
       allApproveProcessList,
-      showRemark,
       remarkSchemaList,
-    } = this.getGeneralConfig();
-
-    const { values } = this.getValueConfig();
-
-    const { approveList } = this.getApproveConfig();
-
-    const { showApply, listApply } = this.getApplicantConfig();
-
-    const { showAttention, listAttention } = this.getAttentionConfig();
-
-    const { serialNumberTitle, serialNumberContent } =
-      this.getSerialNumberConfig();
-
-    const { qRCodeImage } = this.getQRCodeConfig();
+      showRemark,
+      values,
+      approveList,
+      showApply,
+      listApply,
+      showAttention,
+      listAttention,
+      serialNumberTitle,
+      serialNumberContent,
+      qRCodeImage,
+    } = {
+      ...getDocumentPrintDesignerConfig({
+        flowCaseId: this.getFlowCaseId(),
+        flowCase: metaData,
+        workflowFormDesign,
+        listChainApprove,
+        listFormStorage,
+        listApprove,
+      }),
+      ...(dataMode === dataModeCollection.staticSampleData
+        ? {
+            values: [],
+            approveList: [],
+            ...this.getStaticSampleDataApplicantConfig(),
+            ...this.getStaticSampleDataAttentionConfig(),
+            serialNumberTitle: '审批流水号: ',
+            serialNumberContent: '1836370789809655808',
+            qRCodeImage: simpleQRCode,
+          }
+        : {}),
+    };
 
     return (
       <DocumentPrintDesigner
@@ -624,7 +351,7 @@ class FlowCaseFormDocumentDesignDrawer extends BaseVerticalFlexDrawer {
         showToolbar
         showIndependentPrint={false}
         title={workflowTitle}
-        values={isArray(values) ? values : []}
+        values={values}
         schema={{
           general: general || {},
           title: title || {},
@@ -636,7 +363,7 @@ class FlowCaseFormDocumentDesignDrawer extends BaseVerticalFlexDrawer {
         signetStyle={signetStyle}
         showApply={showApply || false}
         applyList={listApply}
-        showAttention={showAttention || false}
+        showAttention={showAttention}
         attentionList={listAttention}
         showRemark={showRemark}
         remarkList={remarkSchemaList}
@@ -651,28 +378,36 @@ class FlowCaseFormDocumentDesignDrawer extends BaseVerticalFlexDrawer {
   };
 
   renderOverlayContent = () => {
-    const { values } = this.getProperties();
-    const { metaData } = this.state;
+    const {
+      dataMode,
+      metaData,
+      workflowFormDesign,
+      listChainApprove,
+      listFormStorage,
+      listApprove,
+    } = this.state;
 
-    const documentSchema = getValueByKey({
-      data: metaData,
-      key: fieldDataFlowFormDesign.documentSchema.name,
-      defaultValue: {},
-    });
-
-    const { general, title } = {
-      general: {},
-      title: {},
-      ...documentSchema,
+    const { general, title, items, formItems, remarkSchemaList, values } = {
+      ...getDocumentPrintDesignerConfig({
+        flowCaseId: this.getFlowCaseId(),
+        flowCase: metaData,
+        workflowFormDesign,
+        listChainApprove,
+        listFormStorage,
+        listApprove,
+      }),
+      ...(dataMode === dataModeCollection.staticSampleData
+        ? {
+            values: [],
+            approveList: [],
+            ...this.getStaticSampleDataApplicantConfig(),
+            ...this.getStaticSampleDataAttentionConfig(),
+            serialNumberTitle: '审批流水号: ',
+            serialNumberContent: '1836370789809655808',
+            qRCodeImage: simpleQRCode,
+          }
+        : {}),
     };
-
-    const { items, formItems } = this.getGeneralConfig();
-
-    const remarkSchemaList = getValueByKey({
-      data: metaData,
-      key: fieldDataFlowFormDesign.remarkSchemaList.name,
-      convert: convertCollection.array,
-    });
 
     const data = {
       documentSchema: {

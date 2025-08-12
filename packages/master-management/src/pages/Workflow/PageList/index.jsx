@@ -50,11 +50,7 @@ import {
   setEnableAction,
   toggleAvailableOnMobileSwitchAction,
 } from '../Assist/action';
-import {
-  getSimpleApplicantConfig,
-  getSimpleAttentionConfig,
-  getStatusBadge,
-} from '../Assist/tools';
+import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 import { CreateDuplicateModal } from '../CreateDuplicateModal';
 import { FlowDisplayDrawer } from '../FlowDisplayDrawer';
@@ -337,16 +333,9 @@ class PageList extends MultiPage {
   };
 
   showFlowCaseFormExampleDocumentDisplayDrawer = (o) => {
-    const { showApply, listApply } = getSimpleApplicantConfig(o);
-    const { showAttention, listAttention } = getSimpleAttentionConfig(o);
-
     this.setState(
       {
         currentRecord: o,
-        currentRecordShowApply: showApply,
-        currentRecordListApply: listApply,
-        currentRecordShowAttention: showAttention,
-        currentRecordListAttention: listAttention,
       },
       () => {
         FlowCaseFormExampleDocumentDisplayDrawer.open();

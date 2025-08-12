@@ -18,6 +18,8 @@
     "src/customConfig/index.js",
     "src/customSpecialComponents/CustomAssembly/menuHeader.js",
     "src/customSpecialComponents/CustomAssembly/timeAndOperator.js",
+    "src/flowAssist/index.jsx",
+    "src/flowAssist/tools.jsx",
     "src/localeConfig/custom/index.js",
     "src/localeConfig/general/index.js",
     "src/localeConfig/general/zh-CN/index.js",

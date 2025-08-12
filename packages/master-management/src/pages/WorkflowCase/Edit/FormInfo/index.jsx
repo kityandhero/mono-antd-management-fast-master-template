@@ -1086,47 +1086,7 @@ class FormInfo extends TabPageBase {
   };
 
   renderPresetOther = () => {
-    const { metaData, currentAttachment, listApprove, listChainApprove } =
-      this.state;
-
-    const workflowCaseId = getValueByKey({
-      data: metaData,
-      key: fieldData.workflowCaseId.name,
-      convert: convertCollection.string,
-    });
-
-    const qRCodeImage = getValueByKey({
-      data: metaData,
-      key: fieldData.qRCodeImage.name,
-      convert: convertCollection.string,
-    });
-
-    const watermarkVisibility = getValueByKey({
-      data: metaData,
-      key: fieldData.watermarkVisibility.name,
-      convert: convertCollection.number,
-      defaultValue: whetherNumber.no,
-    });
-
-    const watermarkText =
-      watermarkVisibility === whetherNumber.yes
-        ? getValueByKey({
-            data: metaData,
-            key: fieldData.watermarkText.name,
-            convert: convertCollection.string,
-            defaultValue: '',
-          })
-        : '';
-
-    const listFormStorage = getValueByKey({
-      data: metaData,
-      key: fieldData.listFormStorage.name,
-      convert: convertCollection.array,
-    });
-
-    const { showApply, listApply } = this.getApplicantConfig();
-
-    const { showAttention, listAttention } = this.getAttentionConfig();
+    const { metaData, currentAttachment } = this.state;
 
     return (
       <>
@@ -1148,9 +1108,6 @@ class FormInfo extends TabPageBase {
 
         <FlowCaseFormDocumentDisplayDrawer
           maskClosable
-          canDesign={false}
-          showToolbar={false}
-          showIndependentPrint
           externalData={{
             workflowId: getValueByKey({
               data: metaData,
@@ -1158,17 +1115,6 @@ class FormInfo extends TabPageBase {
               defaultValue: '',
             }),
           }}
-          values={listFormStorage}
-          showApply={showApply}
-          applyList={listApply}
-          showAttention={showAttention}
-          attentionList={listAttention}
-          approveList={listApprove}
-          allApproveProcessList={listChainApprove}
-          qRCodeImage={qRCodeImage}
-          serialNumberContent={workflowCaseId}
-          watermarkVisibility={watermarkVisibility}
-          watermarkText={watermarkText ?? ''}
         />
       </>
     );
