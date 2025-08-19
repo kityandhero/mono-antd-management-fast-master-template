@@ -57,6 +57,16 @@ export async function resetAllApproveData(parameters) {
   });
 }
 
+export const resetAllApproveWithWorkflowDataApiAddress =
+  '/workflowDebugCaseProcessHistory/resetAllApproveWithWorkflow';
+
+export async function resetAllApproveWithWorkflowData(parameters) {
+  return request({
+    api: resetAllApproveWithWorkflowDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const refreshCacheDataApiAddress =
   '/workflowDebugCaseProcessHistory/refreshCache';
 

@@ -314,6 +314,18 @@ export function buildColumnsCaseLatestApprove({
       width: '140px',
     },
     {
+      title: fieldDataFlowCaseLatestApprove.workflowNodeApproveModeNote.label,
+      dataIndex:
+        fieldDataFlowCaseLatestApprove.workflowNodeApproveModeNote.name,
+      key: fieldDataFlowCaseLatestApprove.workflowNodeApproveModeNote.name,
+      ellipsis: true,
+      align: 'center',
+      width: '240px',
+      render: (text) => {
+        return text || '--';
+      },
+    },
+    {
       title: fieldDataFlowCaseLatestApprove.approveActionModeNote.label,
       dataIndex: fieldDataFlowCaseLatestApprove.approveActionModeNote.name,
       key: fieldDataFlowCaseLatestApprove.approveActionModeNote.name,

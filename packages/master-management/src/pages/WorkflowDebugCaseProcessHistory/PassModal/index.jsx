@@ -9,7 +9,9 @@ import {
   getValueByKey,
   isArray,
   isEmptyArray,
+  logConsole,
   toString,
+  whetherNumber,
   zeroString,
 } from 'easy-soft-utility';
 
@@ -21,9 +23,11 @@ import {
   accessWayCollection,
   fieldDataFlowCase,
   fieldDataFlowCaseProcessHistory,
+  fieldDataFlowNode,
   flowBranchConditionItemTargetComparisonModelCollection,
   flowBranchConditionItemTargetTypeCollection,
   flowDebugApproverModeCollection,
+  flowNodeApproveModeCollection,
 } from '../../../customConfig';
 import {
   renderFormFlowBranchConditionItemTargetComparisonModeSelect,
@@ -279,15 +283,15 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
   };
 
   establishNextNodeApproverUserViewConfig = () => {
-    const { externalData, approverList, nextNodeApproverUserList } = this.state;
+    const { approverList, nextNodeApproverUserList, metaData } = this.state;
 
     const debugApproverMode = getValueByKey({
-      data: externalData,
+      data: metaData,
       key: fieldDataFlowCase.debugApproverMode.name,
       convert: convertCollection.number,
     });
 
-    return [
+    let list = [
       {
         lg: 24,
         type: cardConfig.contentItemType.onlyShowInput,
@@ -335,52 +339,101 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
           ),
         require: true,
       },
-      {
-        lg: 24,
-        type: cardConfig.contentItemType.onlyShowInput,
-        fieldData: {
-          label: '下步审批人',
-          name: this.nextNodeApproverUserName,
-          helper: '',
-        },
-        value: this.nextWorkflowNodeApproverUserRealName,
-        hidden:
-          (debugApproverMode ===
-            flowDebugApproverModeCollection.flowConfiguration &&
-            nextNodeApproverUserList.length !== 1) ||
-          !checkHasAuthority(
-            accessWayCollection.workflowNodeApprover.singleList.permission,
-          ),
-        require: true,
-      },
-      {
-        lg: 24,
-        type: cardConfig.contentItemType.select,
-        fieldData: {
-          label: '下步审批人',
-          name: this.nextNodeApproverUserName,
-          helper: '',
-        },
-        listData: nextNodeApproverUserList,
-        dataConvert: dataFormFieldApproverConvert,
-        onChange: this.onNextNodeApproverChange,
-        addonAfter: buildButton({
-          text: '',
-          icon: iconBuilder.reload(),
-          handleClick: () => {
-            this.reloadNextNodeApproverList();
-          },
-        }),
-        hidden:
-          debugApproverMode ===
-            flowDebugApproverModeCollection.globalDebugUser ||
-          (debugApproverMode ===
-            flowDebugApproverModeCollection.flowConfiguration &&
-            nextNodeApproverUserList.length <= 1) ||
-          !this.checkHasSingleListNextNodeApproverAuthority(),
-        require: true,
-      },
     ];
+
+    const nextApproveWorkflowNode = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.nextApproveWorkflowNode.name,
+    });
+
+    const nextNextApproveWorkflowNode = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.nextNextApproveWorkflowNode.name,
+    });
+
+    const nextApproveWorkflowNodeWhetherFinalApprovalNode = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.nextApproveWorkflowNodeWhetherFinalApprovalNode
+        .name,
+      convert: convertCollection.number,
+    });
+
+    const nextNextApproveWorkflowNodeApproveMode = getValueByKey({
+      data: nextNextApproveWorkflowNode,
+      key: fieldDataFlowNode.approveMode.name,
+      convert: convertCollection.number,
+    });
+
+    const nextNextApproveWorkflowNodeWhetherOneSignatureDesignateNextApprover =
+      getValueByKey({
+        data: nextNextApproveWorkflowNode,
+        key: fieldDataFlowNode.whetherOneSignatureDesignateNextApprover.name,
+        convert: convertCollection.number,
+      });
+
+    if (
+      nextNextApproveWorkflowNodeApproveMode ===
+      flowNodeApproveModeCollection.oneSignature
+    ) {
+      if (
+        nextApproveWorkflowNodeWhetherFinalApprovalNode === whetherNumber.no &&
+        nextNextApproveWorkflowNodeWhetherOneSignatureDesignateNextApprover ===
+          whetherNumber.yes
+      ) {
+        list = [
+          ...list,
+          {
+            lg: 24,
+            type: cardConfig.contentItemType.onlyShowInput,
+            fieldData: {
+              label: '下步审批人',
+              name: this.nextNodeApproverUserName,
+              helper: '',
+            },
+            value: this.nextWorkflowNodeApproverUserRealName,
+            hidden:
+              (debugApproverMode ===
+                flowDebugApproverModeCollection.flowConfiguration &&
+                nextNodeApproverUserList.length !== 1) ||
+              !checkHasAuthority(
+                accessWayCollection.workflowNodeApprover.singleList.permission,
+              ),
+            require: true,
+          },
+          {
+            lg: 24,
+            type: cardConfig.contentItemType.select,
+            fieldData: {
+              label: '下步审批人',
+              name: this.nextNodeApproverUserName,
+              helper: '',
+            },
+            listData: nextNodeApproverUserList,
+            dataConvert: dataFormFieldApproverConvert,
+            onChange: this.onNextNodeApproverChange,
+            addonAfter: buildButton({
+              text: '',
+              icon: iconBuilder.reload(),
+              handleClick: () => {
+                this.reloadNextNodeApproverList();
+              },
+            }),
+            hidden:
+              debugApproverMode ===
+                flowDebugApproverModeCollection.globalDebugUser ||
+              (debugApproverMode ===
+                flowDebugApproverModeCollection.flowConfiguration &&
+                nextNodeApproverUserList.length <= 1) ||
+              !this.checkHasSingleListNextNodeApproverAuthority(),
+            require: true,
+          },
+        ];
+      }
+    } else {
+      // ignore
+    }
+
+    return list;
   };
 }
 

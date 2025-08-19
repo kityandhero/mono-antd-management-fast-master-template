@@ -826,17 +826,17 @@ export function NodeFooter({ data }) {
   let configDescription = '';
 
   if (approverMode === flowNodeApproveModeCollection.oneSignature) {
-    const whetherOneSignatureNeedDesignateNextApprover = getValueByKey({
+    const whetherOneSignatureDesignateNextApprover = getValueByKey({
       data: data,
-      key: fieldDataFlowNode.whetherOneSignatureNeedDesignateNextApprover.name,
+      key: fieldDataFlowNode.whetherOneSignatureDesignateNextApprover.name,
       convert: convertCollection.number,
       defaultValue: '',
     });
 
     configDescription =
-      whetherOneSignatureNeedDesignateNextApprover === whetherNumber.yes
-        ? '需要指定下一审批人'
-        : '不需要指定下一审批人';
+      whetherOneSignatureDesignateNextApprover === whetherNumber.yes
+        ? '指定审批人签署'
+        : '不指定审批人签署';
   }
 
   if (approverMode === flowNodeApproveModeCollection.counterSignature) {

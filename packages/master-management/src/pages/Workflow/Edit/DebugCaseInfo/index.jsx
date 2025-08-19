@@ -87,6 +87,7 @@ import { WorkflowDebugCaseNextProcessProgressPreviewDrawer } from '../../../Work
 import {
   cancelApproveAction,
   resetAllApproveAction,
+  resetAllApproveWithWorkflowAction,
 } from '../../../WorkflowDebugCaseProcessHistory/Assist/action';
 import { WorkflowDebugCaseProcessHistoryPageListDrawer } from '../../../WorkflowDebugCaseProcessHistory/PageListDrawer';
 import { PassModal } from '../../../WorkflowDebugCaseProcessHistory/PassModal';
@@ -292,6 +293,20 @@ class DebugCaseInfo extends TabPageBase {
           data: o,
           key: fieldData.workflowDebugCaseId.name,
         }),
+      },
+      successCallback: ({ target }) => {
+        target.reloadData({});
+      },
+    });
+  };
+
+  resetAllApproveWithWorkflow = () => {
+    const { workflowId } = this.state;
+
+    resetAllApproveWithWorkflowAction({
+      target: this,
+      handleData: {
+        workflowId,
       },
       successCallback: ({ target }) => {
         target.reloadData({});
@@ -1572,6 +1587,21 @@ class DebugCaseInfo extends TabPageBase {
                   ),
                 handleClick: () => {
                   this.resetAllApprove(metaData);
+                },
+              },
+              {
+                buildType: cardConfig.extraBuildType.generalExtraButton,
+                type: 'default',
+                icon: iconBuilder.clear(),
+                text: '重置审批',
+                hidden:
+                  metaData != null ||
+                  !checkHasAuthority(
+                    accessWayCollection.workflowDebugCaseProcessHistory
+                      .resetAllApproveWithWorkflow.permission,
+                  ),
+                handleClick: () => {
+                  this.resetAllApproveWithWorkflow();
                 },
               },
               {

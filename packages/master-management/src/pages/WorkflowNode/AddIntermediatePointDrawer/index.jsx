@@ -1,7 +1,14 @@
 import { connect } from 'easy-soft-dva';
-import { checkInCollection, filter, toString } from 'easy-soft-utility';
+import {
+  checkInCollection,
+  filter,
+  toNumber,
+  toString,
+  whetherString,
+} from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
+import { FunctionSupplement } from 'antd-management-fast-component';
 import { switchControlAssist } from 'antd-management-fast-framework';
 
 import {
@@ -16,6 +23,10 @@ import {
 import { modelTypeCollection } from '../../../modelBuilders';
 import { BaseAddPointDrawer } from '../BaseAddPointDrawer';
 import { fieldData } from '../Common/data';
+
+const {
+  Whether: { getWhetherName },
+} = FunctionSupplement;
 
 const visibleFlag = '709b7d9a521c45abbec25f6c6568a9a2';
 
@@ -44,6 +55,7 @@ class AddIntermediatePointDrawer extends BaseAddPointDrawer {
       submitApiPath:
         modelTypeCollection.workflowNodeTypeCollection.addIntermediatePoint,
       approveModeSelectable: true,
+      currentApproveMode: flowNodeApproveModeCollection.oneSignature,
     };
   }
 
@@ -67,17 +79,32 @@ class AddIntermediatePointDrawer extends BaseAddPointDrawer {
   onApproverModeChange = (v, option) => {
     const data = {};
 
+    const approveModeData = {};
+
     if (toString(v) !== toString(flowNodeApproverModeCollection.designated)) {
       data[fieldData.approveMode.name] = toString(
         flowNodeApproveModeCollection.oneSignature,
       );
+      data[fieldData.whetherOneSignatureDesignateNextApprover.name] =
+        whetherString.yes;
+
+      approveModeData.currentApproveMode =
+        flowNodeApproveModeCollection.oneSignature;
     }
 
     this.setFormFieldsValue(data);
 
     this.setState({
+      ...approveModeData,
       approveModeSelectable:
         toString(v) === toString(flowNodeApproverModeCollection.designated),
+    });
+  };
+
+  // eslint-disable-next-line no-unused-vars
+  onApproveModeChange = (v, option) => {
+    this.setState({
+      currentApproveMode: toNumber(v),
     });
   };
 
@@ -92,11 +119,17 @@ class AddIntermediatePointDrawer extends BaseAddPointDrawer {
       flowNodeApproveModeCollection.oneSignature,
     );
 
+    initialValues[fieldData.whetherOneSignatureDesignateNextApprover.name] =
+      whetherString.yes;
+
+    initialValues[fieldData.whetherCounterSignatureInSequence.name] =
+      whetherString.yes;
+
     return initialValues;
   };
 
   establishCustomExtraViewConfig = () => {
-    const { approveModeSelectable } = this.state;
+    const { currentApproveMode, approveModeSelectable } = this.state;
 
     const that = this;
 
@@ -113,7 +146,9 @@ class AddIntermediatePointDrawer extends BaseAddPointDrawer {
       {
         lg: 12,
         type: cardConfig.contentItemType.component,
-        component: renderFormFlowNodeApproveModeSelect({}),
+        component: renderFormFlowNodeApproveModeSelect({
+          onChange: this.onApproveModeChange,
+        }),
         require: true,
         hidden: !approveModeSelectable,
       },
@@ -126,6 +161,41 @@ class AddIntermediatePointDrawer extends BaseAddPointDrawer {
         }),
         require: true,
         hidden: approveModeSelectable,
+      },
+      {
+        lg: 12,
+        type: cardConfig.contentItemType.whetherSelect,
+        fieldData: fieldData.whetherOneSignatureDesignateNextApprover,
+        require: true,
+        hidden:
+          !approveModeSelectable ||
+          currentApproveMode !== flowNodeApproveModeCollection.oneSignature,
+      },
+      {
+        lg: 12,
+        type: cardConfig.contentItemType.onlyShowInput,
+        fieldData: fieldData.whetherOneSignatureDesignateNextApprover,
+        value: getWhetherName({
+          value: whetherString.yes,
+        }),
+        require: true,
+        hidden:
+          approveModeSelectable ||
+          currentApproveMode !== flowNodeApproveModeCollection.oneSignature,
+      },
+      {
+        lg: 12,
+        type: cardConfig.contentItemType.whetherSelect,
+        fieldData: fieldData.whetherCounterSignatureInSequence,
+        require: true,
+        hidden:
+          currentApproveMode !== flowNodeApproveModeCollection.counterSignature,
+      },
+      {
+        lg: 12,
+        type: cardConfig.contentItemType.onlyShowInput,
+        fieldData: fieldData.typeNote,
+        value: '过程点',
       },
     ];
   };

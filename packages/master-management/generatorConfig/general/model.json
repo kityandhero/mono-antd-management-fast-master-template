@@ -6828,6 +6828,13 @@
           "type": "singleData"
         },
         {
+          "title": "重置审批至起点(通过流程)",
+          "api": "/workflowDebugCaseProcessHistory/resetAllApproveWithWorkflow",
+          "effect": "resetAllApproveWithWorkflow",
+          "service": "resetAllApproveWithWorkflowData",
+          "type": "singleData"
+        },
+        {
           "title": "刷新缓存",
           "api": "/workflowDebugCaseProcessHistory/refreshCache",
           "effect": "refreshCache",

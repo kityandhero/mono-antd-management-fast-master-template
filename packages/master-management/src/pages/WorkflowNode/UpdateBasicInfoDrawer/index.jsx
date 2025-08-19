@@ -136,6 +136,22 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
     });
   };
 
+  adjustApproverModeListData = (list) => {
+    const listAdjust = filter(list, (one) => {
+      const { flag } = one;
+
+      return checkInCollection(
+        [
+          toString(flowNodeApproverModeCollection.designated),
+          toString(flowNodeApproverModeCollection.directlyAffiliatedDepartment),
+        ],
+        toString(flag),
+      );
+    });
+
+    return listAdjust;
+  };
+
   // eslint-disable-next-line no-unused-vars
   onApproverModeChange = (v, option) => {
     const data = {};
@@ -146,7 +162,7 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
       data[fieldData.approveMode.name] = toString(
         flowNodeApproveModeCollection.oneSignature,
       );
-      data[fieldData.whetherOneSignatureNeedDesignateNextApprover.name] =
+      data[fieldData.whetherOneSignatureDesignateNextApprover.name] =
         whetherString.yes;
 
       approveModeData.currentApproveMode =
@@ -208,10 +224,10 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
         convert: convertCollection.string,
       });
 
-      values[fieldData.whetherOneSignatureNeedDesignateNextApprover.name] =
+      values[fieldData.whetherOneSignatureDesignateNextApprover.name] =
         getValueByKey({
           data: metaData,
-          key: fieldData.whetherOneSignatureNeedDesignateNextApprover.name,
+          key: fieldData.whetherOneSignatureDesignateNextApprover.name,
           convert: convertCollection.string,
         });
 
@@ -227,6 +243,8 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
 
   establishCardCollectionConfig = () => {
     const { currentApproveMode, approveModeSelectable, metaData } = this.state;
+
+    const that = this;
 
     return {
       list: [
@@ -246,23 +264,7 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
               lg: 12,
               type: cardConfig.contentItemType.component,
               component: renderFormFlowNodeApproverModeSelect({
-                adjustListData: (list) => {
-                  const listAdjust = filter(list, (one) => {
-                    const { flag } = one;
-
-                    return checkInCollection(
-                      [
-                        toString(flowNodeApproverModeCollection.designated),
-                        toString(
-                          flowNodeApproverModeCollection.directlyAffiliatedDepartment,
-                        ),
-                      ],
-                      toString(flag),
-                    );
-                  });
-
-                  return listAdjust;
-                },
+                adjustListData: that.adjustApproverModeListData,
                 onChange: this.onApproverModeChange,
               }),
               require: true,
@@ -289,7 +291,7 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
             {
               lg: 12,
               type: cardConfig.contentItemType.whetherSelect,
-              fieldData: fieldData.whetherOneSignatureNeedDesignateNextApprover,
+              fieldData: fieldData.whetherOneSignatureDesignateNextApprover,
               require: true,
               hidden:
                 !approveModeSelectable ||
@@ -299,7 +301,7 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
             {
               lg: 12,
               type: cardConfig.contentItemType.onlyShowInput,
-              fieldData: fieldData.whetherOneSignatureNeedDesignateNextApprover,
+              fieldData: fieldData.whetherOneSignatureDesignateNextApprover,
               value: getWhetherName({
                 value: whetherString.yes,
               }),

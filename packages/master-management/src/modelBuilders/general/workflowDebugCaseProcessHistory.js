@@ -16,6 +16,7 @@ import {
   refreshCacheData,
   refuseData,
   resetAllApproveData,
+  resetAllApproveWithWorkflowData,
 } from '../../services/workflowDebugCaseProcessHistory';
 
 export const workflowDebugCaseProcessHistoryTypeCollection = {
@@ -25,6 +26,8 @@ export const workflowDebugCaseProcessHistoryTypeCollection = {
   refuse: 'workflowDebugCaseProcessHistory/refuse',
   cancelApprove: 'workflowDebugCaseProcessHistory/cancelApprove',
   resetAllApprove: 'workflowDebugCaseProcessHistory/resetAllApprove',
+  resetAllApproveWithWorkflow:
+    'workflowDebugCaseProcessHistory/resetAllApproveWithWorkflow',
   refreshCache: 'workflowDebugCaseProcessHistory/refreshCache',
   pageListOperateLog: 'workflowDebugCaseProcessHistory/pageListOperateLog',
 };
@@ -178,6 +181,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(resetAllApproveData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *resetAllApproveWithWorkflow(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(resetAllApproveWithWorkflowData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

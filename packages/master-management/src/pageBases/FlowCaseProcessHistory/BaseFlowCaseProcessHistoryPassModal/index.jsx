@@ -9,6 +9,7 @@ import {
   getValueByKey,
   isArray,
   isEmptyArray,
+  logConsole,
   toString,
   zeroString,
 } from 'easy-soft-utility';
@@ -21,9 +22,11 @@ import {
   accessWayCollection,
   fieldDataFlowCase,
   fieldDataFlowCaseProcessHistory,
+  fieldDataFlowNode,
   flowBranchConditionItemTargetComparisonModelCollection,
   flowBranchConditionItemTargetTypeCollection,
   flowDebugApproverModeCollection,
+  flowNodeApproveModeCollection,
 } from '../../../customConfig';
 import {
   renderFormFlowBranchConditionItemTargetComparisonModeSelect,
@@ -63,6 +66,7 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
 
     this.state = {
       ...this.state,
+      width: 640,
       pageTitle: '同意审批',
       loadApiPath: '',
       submitApiPath: '',
@@ -185,13 +189,54 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
   };
 
   establishCardCollectionConfig = () => {
-    const { externalData, generalDiscourseList } = this.state;
+    const { metaData, generalDiscourseList } = this.state;
 
     const debugApproverMode = getValueByKey({
-      data: externalData,
+      data: metaData,
       key: fieldDataFlowCase.debugApproverMode.name,
       convert: convertCollection.number,
     });
+
+    const nextApproveWorkflowNode = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.nextApproveWorkflowNode.name,
+    });
+
+    const nextApproveWorkflowNodeName = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.nextApproveWorkflowNodeName.name,
+      convert: convertCollection.string,
+    });
+
+    const nextApproveWorkflowNodeApproveMode = getValueByKey({
+      data: nextApproveWorkflowNode,
+      key: fieldDataFlowNode.approveMode.name,
+      convert: convertCollection.number,
+    });
+
+    let approveMode = '';
+
+    if (metaData != null) {
+      switch (nextApproveWorkflowNodeApproveMode) {
+        case flowNodeApproveModeCollection.oneSignature: {
+          approveMode = '【或签】';
+
+          break;
+        }
+
+        case flowNodeApproveModeCollection.counterSignature: {
+          approveMode = '【会签】';
+
+          break;
+        }
+
+        default: {
+          approveMode = '';
+
+          break;
+        }
+      }
+    }
 
     return {
       list: [
@@ -201,6 +246,15 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
             text: '基本信息',
           },
           items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.onlyShowText,
+              fieldData: {
+                ...fieldDataFlowCase.nextApproveWorkflowNodeName,
+                label: '当前节点',
+              },
+              value: `${approveMode}${nextApproveWorkflowNodeName}`,
+            },
             ...this.establishNextNodeApproverUserViewConfig(),
             {
               lg: 24,

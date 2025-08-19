@@ -100,13 +100,13 @@ export const fieldDataFlowNode = {
     name: 'approveModeNote',
     helper: '',
   },
-  whetherOneSignatureNeedDesignateNextApprover: {
-    label: '或签是否需要指定下一审批人',
-    name: 'whetherOneSignatureNeedDesignateNextApprover',
+  whetherOneSignatureDesignateNextApprover: {
+    label: '或签是否指定审批人签署',
+    name: 'whetherOneSignatureDesignateNextApprover',
     helper: '',
   },
   whetherCounterSignatureInSequence: {
-    label: '是否按顺序会签',
+    label: '会签是否按顺序签署',
     name: 'whetherCounterSignatureInSequence',
     helper: '',
   },

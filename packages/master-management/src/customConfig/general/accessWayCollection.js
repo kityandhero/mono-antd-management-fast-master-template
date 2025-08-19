@@ -4251,6 +4251,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'dd6aea24cc85a964d7cf9fba76d80e6a',
       permission: 'cda276fc9bf648bbacb5f78e6799d03f',
     },
+    resetAllApproveWithWorkflow: {
+      title: '重置审批至起点(通过流程)',
+      paramsKey: '803ee4129f1635006d5f311f46b72fd4',
+      permission: 'd6a88c62710a43ef8a640bd5b5d4408b',
+    },
     refreshCache: {
       title: '刷新缓存',
       paramsKey: 'a6720226e03f03bacbe1f57ec966f6f8',

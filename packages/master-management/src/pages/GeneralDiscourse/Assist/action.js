@@ -22,6 +22,7 @@ export async function singleListAction({
     successCallback,
     successMessage,
     showProcessing: false,
+    showSuccessMessage: false,
   });
 }
 

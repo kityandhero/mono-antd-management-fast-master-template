@@ -35,13 +35,7 @@ class BaseFlowCaseNextProcessProgressPreviewDrawer extends BaseVerticalFlexDrawe
       title: '操作提示',
       list: [
         {
-          text: '此图例显示的流程表单打印概览, 仅可查看。',
-        },
-        {
-          text: '设置为非独占行的单元, 若前一个单元为独占, 则此单元也将转换为行布局, 宽度设置将无效。',
-        },
-        {
-          text: '打印预览需要关闭设计模式。',
+          text: '此信息为流程实例下一流转信息。',
         },
       ],
     };

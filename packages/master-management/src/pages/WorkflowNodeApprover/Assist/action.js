@@ -22,6 +22,7 @@ export async function singleListApproverUserWithNodeAndFlowCaseAction({
     successCallback,
     successMessage,
     showProcessing: false,
+    showSuccessMessage: false,
   });
 }
 

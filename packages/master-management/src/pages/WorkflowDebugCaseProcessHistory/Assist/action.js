@@ -2,6 +2,7 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { actionCore } from 'antd-management-fast-common';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 export async function passAction({
@@ -11,7 +12,7 @@ export async function passAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowDebugCaseProcessHistory/pass',
+    api: modelTypeCollection.workflowDebugCaseProcessHistoryTypeCollection.pass,
     params: {
       flowCaseId: getValueByKey({
         data: handleData,
@@ -37,7 +38,8 @@ export async function refuseAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowDebugCaseProcessHistory/refuse',
+    api: modelTypeCollection.workflowDebugCaseProcessHistoryTypeCollection
+      .refuse,
     params: {
       flowCaseId: getValueByKey({
         data: handleData,
@@ -63,7 +65,8 @@ export async function cancelApproveAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowDebugCaseProcessHistory/cancelApprove',
+    api: modelTypeCollection.workflowDebugCaseProcessHistoryTypeCollection
+      .cancelApprove,
     params: {
       flowCaseId: getValueByKey({
         data: handleData,
@@ -89,11 +92,34 @@ export async function resetAllApproveAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowDebugCaseProcessHistory/resetAllApprove',
+    api: modelTypeCollection.workflowDebugCaseProcessHistoryTypeCollection
+      .resetAllApprove,
     params: {
       flowCaseId: getValueByKey({
         data: handleData,
         key: fieldData.flowCaseId.name,
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export async function resetAllApproveWithWorkflowAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.workflowDebugCaseProcessHistoryTypeCollection
+      .resetAllApproveWithWorkflow,
+    params: {
+      workflowId: getValueByKey({
+        data: handleData,
+        key: fieldData.workflowId.name,
       }),
     },
     target,
@@ -110,7 +136,8 @@ export async function refreshCacheAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowDebugCaseProcessHistory/refreshCache',
+    api: modelTypeCollection.workflowDebugCaseProcessHistoryTypeCollection
+      .refreshCache,
     params: {
       workflowDebugCaseProcessHistoryId: getValueByKey({
         data: handleData,

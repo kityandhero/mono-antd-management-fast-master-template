@@ -25,6 +25,7 @@ export async function singleListNextNodeApproverAction({
     successCallback,
     successMessage,
     showProcessing: false,
+    showSuccessMessage: false,
   });
 }
 
