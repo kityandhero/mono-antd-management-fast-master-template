@@ -11,8 +11,8 @@ const items = {
      */
 
     // It will default to "detect" in the future
-    version: '999.999.999',
-    // version: 'detect',
+    // version: '999.999.999',
+    version: 'detect',
   },
 };
 
