@@ -129,7 +129,7 @@ class PageListBindQuestionnaireDrawer extends MultiPageDrawer {
     };
   };
 
-  establishListItemDropdownConfig = (record) => {
+  establishListItemDropdownConfig = (item) => {
     return {
       size: 'small',
       icon: iconBuilder.select(),
@@ -138,8 +138,9 @@ class PageListBindQuestionnaireDrawer extends MultiPageDrawer {
         accessWayCollection.questionnaireQuestionRelation.bindRelation
           .permission,
       ),
-      handleButtonClick: () => {
-        this.bind(record);
+      handleData: item,
+      handleButtonClick: ({ handleData }) => {
+        this.bind(handleData);
       },
       confirm: true,
       title: '立即绑定到问卷，确定吗？',

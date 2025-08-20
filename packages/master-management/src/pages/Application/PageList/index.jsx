@@ -286,8 +286,9 @@ class PageList extends MultiPage {
           size: 'small',
           icon: iconBuilder.cloudDownload(),
           text: '立即开通',
-          handleButtonClick: () => {
-            this.setOwn(record);
+          handleData: record,
+          handleButtonClick: ({ handleData }) => {
+            this.setOwn(handleData);
           },
           confirm: true,
           title: '立即开通应用程序，确定吗？',

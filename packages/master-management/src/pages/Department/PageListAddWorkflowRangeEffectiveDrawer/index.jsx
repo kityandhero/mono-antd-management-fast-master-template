@@ -28,11 +28,17 @@ const { MultiPageDrawer } = DataMultiPageView;
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = '483eb1d7611a47b788a9f2df466d1168';
 
-@connect(({ department, userSubsidiaryInfo, schedulingControl }) => ({
-  department,
-  userSubsidiaryInfo,
-  schedulingControl,
-}))
+@connect(
+  ({
+    department,
+    workflowRangeEffectiveExternalDepartmentRelation,
+    schedulingControl,
+  }) => ({
+    department,
+    workflowRangeEffectiveExternalDepartmentRelation,
+    schedulingControl,
+  }),
+)
 class PageListAddWorkflowRangeEffectiveDrawer extends MultiPageDrawer {
   reloadWhenShow = true;
 
@@ -113,16 +119,18 @@ class PageListAddWorkflowRangeEffectiveDrawer extends MultiPageDrawer {
     };
   };
 
-  establishListItemDropdownConfig = (record) => {
+  establishListItemDropdownConfig = (item) => {
     return {
       size: 'small',
       icon: iconBuilder.select(),
       text: '设置适用',
       disabled: !checkHasAuthority(
-        accessWayCollection.userSubsidiaryInfo.addBasicInfo.permission,
+        accessWayCollection.workflowRangeEffectiveExternalDepartmentRelation.add
+          .permission,
       ),
-      handleButtonClick: () => {
-        this.add(record);
+      handleData: item,
+      handleButtonClick: ({ handleData }) => {
+        this.add(handleData);
       },
       confirm: true,
       title: '即将设置工作流适用与此外部部门，确定吗？',
