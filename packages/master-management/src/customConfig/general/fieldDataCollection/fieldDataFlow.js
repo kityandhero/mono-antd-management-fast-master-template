@@ -220,6 +220,11 @@ export const fieldDataFlow = {
     name: 'availableOnMobileSwitchNote',
     helper: '',
   },
+  sort: {
+    label: '排序值',
+    name: 'sort',
+    helper: '',
+  },
   creatorUserId: {
     label: '是否创建人用户标识',
     name: 'creatorUserId',
@@ -233,36 +238,6 @@ export const fieldDataFlow = {
   creatorUserNickname: {
     label: '创建人昵称',
     name: 'creatorUserNickname',
-    helper: '',
-  },
-  status: {
-    label: '状态',
-    name: 'status',
-    helper: '用户状态',
-  },
-  statusNote: {
-    label: '状态',
-    name: 'statusNote',
-    helper: '用户状态',
-  },
-  createOperatorId: {
-    label: '创建人标识',
-    name: 'createOperatorId',
-    helper: '',
-  },
-  createTime: {
-    label: '创建时间',
-    name: 'createTime',
-    helper: '',
-  },
-  updateOperatorId: {
-    label: '更新人标识',
-    name: 'updateOperatorId',
-    helper: '',
-  },
-  updateTime: {
-    label: '更新时间',
-    name: 'updateTime',
     helper: '',
   },
   ...formExtraData,

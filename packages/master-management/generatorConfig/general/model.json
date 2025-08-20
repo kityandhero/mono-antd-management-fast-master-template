@@ -5589,6 +5589,13 @@
           "type": "singleData"
         },
         {
+          "title": "更新排序值",
+          "api": "/workflow/updateSort",
+          "effect": "updateSort",
+          "service": "updateSortData",
+          "type": "singleData"
+        },
+        {
           "title": "设置实例名模板",
           "api": "/workflow/setCaseNameTemplate",
           "effect": "setCaseNameTemplate",

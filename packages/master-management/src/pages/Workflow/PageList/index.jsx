@@ -51,6 +51,7 @@ import {
   toggleAvailableOnMobileSwitchAction,
 } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
+import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData } from '../Common/data';
 import { CreateDuplicateModal } from '../CreateDuplicateModal';
 import { FlowDisplayDrawer } from '../FlowDisplayDrawer';
@@ -70,7 +71,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      tableScrollX: 1800,
+      tableScrollX: 1880,
       pageTitle: '流程列表',
       paramsKey: accessWayCollection.workflow.pageList.paramsKey,
       loadApiPath: modelTypeCollection.workflowTypeCollection.pageList,
@@ -164,6 +165,11 @@ class PageList extends MultiPage {
     switch (key) {
       case 'setChannel': {
         this.showUpdateChannelModal(handleData);
+        break;
+      }
+
+      case 'updateSort': {
+        this.showChangeSortModal(handleData);
         break;
       }
 
@@ -297,6 +303,29 @@ class PageList extends MultiPage {
   };
 
   afterUpdateChannelModalOk = () => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  showChangeSortModal = (o) => {
+    this.setState({ currentRecord: o }, () => {
+      ChangeSortModal.open();
+    });
+  };
+
+  afterChangeSortModalOk = ({
+    // eslint-disable-next-line no-unused-vars
+    singleData,
+    // eslint-disable-next-line no-unused-vars
+    listData,
+    // eslint-disable-next-line no-unused-vars
+    extraData,
+    // eslint-disable-next-line no-unused-vars
+    responseOriginalData,
+    // eslint-disable-next-line no-unused-vars
+    submitData,
+    // eslint-disable-next-line no-unused-vars
+    subjoinData,
+  }) => {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
@@ -497,6 +526,14 @@ class PageList extends MultiPage {
         this.handleMenuClick({ key, handleData });
       },
       items: [
+        {
+          key: 'updateSort',
+          icon: iconBuilder.edit(),
+          text: '设置排序值',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
         {
           key: 'setChannel',
           icon: iconBuilder.edit(),
@@ -722,6 +759,12 @@ class PageList extends MultiPage {
       },
     },
     {
+      dataTarget: fieldData.sort,
+      width: 80,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
       dataTarget: fieldData.workflowId,
       width: 120,
       showRichFacade: true,
@@ -759,6 +802,11 @@ class PageList extends MultiPage {
           afterOK={() => {
             this.afterUpdateChannelModalOk();
           }}
+        />
+
+        <ChangeSortModal
+          externalData={currentRecord}
+          afterOK={this.afterChangeSortModalOk}
         />
 
         <CreateDuplicateModal

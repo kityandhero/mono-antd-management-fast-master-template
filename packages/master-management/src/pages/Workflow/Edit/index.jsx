@@ -49,6 +49,7 @@ import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
 } from '../Assist/config';
+import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData } from '../Common/data';
 import { CreateDuplicateModal } from '../CreateDuplicateModal';
 import { FlowDisplayDrawer } from '../FlowDisplayDrawer';
@@ -396,6 +397,27 @@ class Detail extends DataTabContainerSupplement {
   };
 
   afterUpdateChannelModalOk = () => {
+    this.reloadData({});
+  };
+
+  showChangeSortModal = () => {
+    ChangeSortModal.open();
+  };
+
+  afterChangeSortModalOk = ({
+    // eslint-disable-next-line no-unused-vars
+    singleData,
+    // eslint-disable-next-line no-unused-vars
+    listData,
+    // eslint-disable-next-line no-unused-vars
+    extraData,
+    // eslint-disable-next-line no-unused-vars
+    responseOriginalData,
+    // eslint-disable-next-line no-unused-vars
+    submitData,
+    // eslint-disable-next-line no-unused-vars
+    subjoinData,
+  }) => {
     this.reloadData({});
   };
 
@@ -757,6 +779,11 @@ class Detail extends DataTabContainerSupplement {
             break;
           }
 
+          case 'showChangeSortModal': {
+            that.showChangeSortModal(handleData);
+            break;
+          }
+
           case 'showCreateDuplicateModal': {
             that.showCreateDuplicateModal(handleData);
             break;
@@ -918,6 +945,17 @@ class Detail extends DataTabContainerSupplement {
           type: dropdownExpandItemType.divider,
         },
         {
+          key: 'showChangeSortModal',
+          icon: iconBuilder.edit(),
+          text: '设置排序值',
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.updateSort.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'showCreateDuplicateModal',
           icon: iconBuilder.copy(),
           text: '复制流程',
@@ -1041,10 +1079,10 @@ class Detail extends DataTabContainerSupplement {
         }),
       },
       {
-        label: fieldData.globalDebugUserRealName.label,
+        label: fieldData.sort.label,
         value: getValueByKey({
           data: metaData,
-          key: fieldData.globalDebugUserRealName.name,
+          key: fieldData.sort.name,
         }),
       },
     ];
@@ -1109,6 +1147,11 @@ class Detail extends DataTabContainerSupplement {
           afterOK={() => {
             this.afterUpdateChannelModalOk();
           }}
+        />
+
+        <ChangeSortModal
+          externalData={{ workflowId }}
+          afterOK={this.afterChangeSortModalOk}
         />
 
         <FlowDisplayDrawer maskClosable externalData={{ workflowId }} />

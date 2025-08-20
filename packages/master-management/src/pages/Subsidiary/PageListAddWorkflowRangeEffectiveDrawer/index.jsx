@@ -27,11 +27,17 @@ const { MultiPageDrawer } = DataMultiPageView;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = 'f12f9033140d43818b33fc0b913281db';
-@connect(({ subsidiary, userSubsidiaryInfo, schedulingControl }) => ({
-  subsidiary,
-  userSubsidiaryInfo,
-  schedulingControl,
-}))
+@connect(
+  ({
+    subsidiary,
+    workflowRangeEffectiveSubsidiaryRelation,
+    schedulingControl,
+  }) => ({
+    subsidiary,
+    workflowRangeEffectiveSubsidiaryRelation,
+    schedulingControl,
+  }),
+)
 class PageListAddWorkflowRangeEffectiveDrawer extends MultiPageDrawer {
   reloadWhenShow = true;
 
@@ -56,7 +62,7 @@ class PageListAddWorkflowRangeEffectiveDrawer extends MultiPageDrawer {
     return super.getDerivedStateFromProps(nextProperties, previousState);
   }
 
-  add = (r) => {
+  add = (o) => {
     const { externalData } = this.props;
 
     const workflowId = getValueByKey({
@@ -65,7 +71,7 @@ class PageListAddWorkflowRangeEffectiveDrawer extends MultiPageDrawer {
     });
 
     const subsidiaryId = getValueByKey({
-      data: r,
+      data: o,
       key: fieldData.subsidiaryId.name,
     });
 
@@ -103,16 +109,18 @@ class PageListAddWorkflowRangeEffectiveDrawer extends MultiPageDrawer {
     };
   };
 
-  establishListItemDropdownConfig = (record) => {
+  establishListItemDropdownConfig = (item) => {
     return {
       size: 'small',
       icon: iconBuilder.select(),
       text: '设置适用',
       disabled: !checkHasAuthority(
-        accessWayCollection.userSubsidiaryInfo.addBasicInfo.permission,
+        accessWayCollection.workflowRangeEffectiveSubsidiaryRelation.add
+          .permission,
       ),
-      handleButtonClick: () => {
-        this.add(record);
+      handleData: item,
+      handleButtonClick: ({ handleData }) => {
+        this.add(handleData);
       },
       confirm: true,
       title: '即将设置工作流适用与此公司，确定吗？',

@@ -47,6 +47,15 @@ export async function updateBasicInfoData(parameters) {
   });
 }
 
+export const updateSortDataApiAddress = '/workflow/updateSort';
+
+export async function updateSortData(parameters) {
+  return request({
+    api: updateSortDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setCaseNameTemplateDataApiAddress =
   '/workflow/setCaseNameTemplate';
 

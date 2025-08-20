@@ -2,6 +2,7 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { actionCore } from 'antd-management-fast-common';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 export async function addAction({
@@ -11,7 +12,8 @@ export async function addAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'workflowRangeEffectiveSubsidiaryRelation/add',
+    api: modelTypeCollection
+      .workflowRangeEffectiveSubsidiaryRelationTypeCollection.add,
     params: {
       workflowId: getValueByKey({
         data: handleData,
@@ -38,7 +40,8 @@ export async function removeAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'workflowRangeEffectiveSubsidiaryRelation/remove',
+    api: modelTypeCollection
+      .workflowRangeEffectiveSubsidiaryRelationTypeCollection.remove,
     params: {
       workflowRangeEffectiveSubsidiaryRelationId: getValueByKey({
         data: handleData,
@@ -59,7 +62,8 @@ export async function removeAllAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'workflowRangeEffectiveSubsidiaryRelation/removeAll',
+    api: modelTypeCollection
+      .workflowRangeEffectiveSubsidiaryRelationTypeCollection.removeAll,
     params: {
       workflowId: getValueByKey({
         data: handleData,
@@ -80,7 +84,8 @@ export async function refreshCacheAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowRangeEffectiveSubsidiaryRelation/refreshCache',
+    api: modelTypeCollection
+      .workflowRangeEffectiveSubsidiaryRelationTypeCollection.refreshCache,
     params: {
       workflowRangeEffectiveSubsidiaryRelationId: getValueByKey({
         data: handleData,

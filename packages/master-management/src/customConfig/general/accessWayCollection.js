@@ -3437,6 +3437,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'db250df0792063ebd82fe994c7f5b642',
       permission: '8a63ab515e30408db57a45d465af14b6',
     },
+    updateSort: {
+      title: '更新排序值',
+      paramsKey: 'dd2c536a9403fb47e0a6aa886e323477',
+      permission: 'dcb58d92ae4a43f7bfc0856d8b25319e',
+    },
     setCaseNameTemplate: {
       title: '设置实例名模板',
       paramsKey: '2a1780e0bd7e7c500417dfae0ab473a4',
