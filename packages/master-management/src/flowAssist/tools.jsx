@@ -1055,7 +1055,7 @@ export function SealRefuse({
 }
 
 export function NodeFooter({ data }) {
-  const approverMode = getValueByKey({
+  const approveMode = getValueByKey({
     data: data,
     key: fieldDataFlowNode.approveMode.name,
     convert: convertCollection.number,
@@ -1063,7 +1063,7 @@ export function NodeFooter({ data }) {
   });
 
   const approverModeName = getFlowNodeApproveModeName({
-    value: approverMode,
+    value: approveMode,
   });
 
   if (checkStringIsNullOrWhiteSpace(approverModeName)) {
@@ -1072,7 +1072,7 @@ export function NodeFooter({ data }) {
 
   let configDescription = '';
 
-  if (approverMode === flowNodeApproveModeCollection.oneSignature) {
+  if (approveMode === flowNodeApproveModeCollection.oneSignature) {
     const whetherOneSignatureDesignateNextApprover = getValueByKey({
       data: data,
       key: fieldDataFlowNode.whetherOneSignatureDesignateNextApprover.name,
@@ -1086,7 +1086,7 @@ export function NodeFooter({ data }) {
         : '不指定审批人签署';
   }
 
-  if (approverMode === flowNodeApproveModeCollection.counterSignature) {
+  if (approveMode === flowNodeApproveModeCollection.counterSignature) {
     const whetherCounterSignatureInSequence = getValueByKey({
       data: data,
       key: fieldDataFlowNode.whetherCounterSignatureInSequence.name,
