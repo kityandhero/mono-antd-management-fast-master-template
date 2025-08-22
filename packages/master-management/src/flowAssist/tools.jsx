@@ -775,6 +775,253 @@ export function getDocumentPrintDesignerConfig({
   };
 }
 
+export function adjustFlowCaseDataToState(o, options) {
+  const { workflow } = {
+    workflow: {
+      workflowNodeList: [],
+      workflowLineList: [],
+    },
+    ...o,
+  };
+
+  const nextApproveWorkflowNodeId = getValueByKey({
+    data: o,
+    key: fieldDataFlowCase.nextApproveWorkflowNodeId.name,
+    convert: convertCollection.string,
+    defaultValue: '',
+  });
+
+  const listProcessHistory = getValueByKey({
+    data: o,
+    key: fieldDataFlowCase.listProcessHistory.name,
+    convert: convertCollection.array,
+    defaultValue: [],
+  });
+
+  const { approveBatchNumber, whetherFilterBatchNumber } = {
+    approveBatchNumber: 0,
+    whetherFilterBatchNumber: false,
+    ...options,
+  };
+
+  const { nodeList, edgeList, listApprove } = adjustFlowCaseDataItemToState({
+    workflow,
+    nextApproveWorkflowNodeId,
+    listProcessHistory,
+    approveBatchNumber,
+    whetherFilterBatchNumber,
+  });
+
+  return {
+    nodeList,
+    edgeList,
+    listApprove,
+    listProcessHistory,
+  };
+}
+
+function adjustFlowCaseDataItemToState({
+  workflow,
+  nextApproveWorkflowNodeId,
+  listProcessHistory,
+  approveBatchNumber = 0,
+  whetherFilterBatchNumber = false,
+}) {
+  const listApprove = filter(listProcessHistory, (one) => {
+    const {
+      approveActionMode,
+      approveBatchNumber: processHistoryApproveBatchNumber,
+    } = {
+      approveActionMode: 0,
+      approveBatchNumber: 0,
+      ...one,
+    };
+
+    if (whetherFilterBatchNumber) {
+      return (
+        approveActionMode === flowApproveActionModeCollection.manualControl &&
+        toString(processHistoryApproveBatchNumber) ===
+          toString(approveBatchNumber)
+      );
+    }
+
+    return approveActionMode === flowApproveActionModeCollection.manualControl;
+  }).map((o) => {
+    const {
+      note,
+      approveWorkflowNodeName,
+      approveUserName,
+      approveUserSignet,
+      approveTime,
+    } = {
+      approveWorkflowNodeName: '',
+      note: '',
+      approveUserName: '张三',
+      approveUserSignet: '',
+      approveTime: '',
+      ...o,
+    };
+
+    return {
+      ...o,
+      title: approveWorkflowNodeName,
+      note: note || '未填写',
+      name: approveUserName,
+      signet: approveUserSignet || emptySignet,
+      time: approveTime,
+    };
+  });
+
+  const workflowNodeList = getValueByKey({
+    data: workflow,
+    key: fieldDataFlow.workflowNodeList.name,
+    convert: convertCollection.array,
+  });
+
+  const workflowLineList = getValueByKey({
+    data: workflow,
+    key: fieldDataFlow.workflowLineList.name,
+    convert: convertCollection.array,
+  });
+
+  const nodeList = (isArray(workflowNodeList) ? workflowNodeList : []).map(
+    (o) => {
+      const workflowNodeId = getValueByKey({
+        data: o,
+        key: fieldDataFlowNode.workflowNodeId.name,
+      });
+
+      const type = getValueByKey({
+        data: o,
+        key: fieldDataFlowNode.type.name,
+        convert: convertCollection.number,
+      });
+
+      let nodeType = 'intermediate';
+
+      switch (type) {
+        case flowNodeTypeCollection.startNode: {
+          nodeType = 'start';
+          break;
+        }
+
+        case flowNodeTypeCollection.endNode: {
+          nodeType = 'end';
+          break;
+        }
+
+        case flowNodeTypeCollection.intermediateNode: {
+          nodeType = 'intermediate';
+          break;
+        }
+
+        case flowNodeTypeCollection.carbonCopyPoint: {
+          nodeType = 'carbonCopy';
+          break;
+        }
+
+        default: {
+          nodeType = 'intermediate';
+        }
+      }
+
+      const { viewConfig } = {
+        viewConfig: {
+          position: {
+            x: 0,
+            y: 0,
+          },
+        },
+        ...o,
+      };
+
+      const result = adjustNode({
+        id: workflowNodeId,
+        type: nodeType,
+        ...viewConfig,
+        data: {
+          data: o,
+          isNext: nextApproveWorkflowNodeId === workflowNodeId,
+          footerBuilder: (data) => {
+            return <NodeFooter data={data} />;
+          },
+        },
+      });
+
+      return result;
+    },
+  );
+
+  const edgeList = (isArray(workflowLineList) ? workflowLineList : []).map(
+    (o, index) => {
+      const workflowLineId = getValueByKey({
+        data: o,
+        key: fieldDataFlowLine.workflowLineId.name,
+      });
+
+      const fromId = getValueByKey({
+        data: o,
+        key: fieldDataFlowLine.fromId.name,
+      });
+
+      const fromPositionName = getValueByKey({
+        data: o,
+        key: fieldDataFlowLine.fromPositionName.name,
+        convertBuilder: (v) => {
+          return toLowerFirst(v);
+        },
+      });
+
+      const toId = getValueByKey({
+        data: o,
+        key: fieldDataFlowLine.toId.name,
+      });
+
+      const toPositionName = getValueByKey({
+        data: o,
+        key: fieldDataFlowLine.toPositionName.name,
+        convertBuilder: (v) => {
+          return toLowerFirst(v);
+        },
+      });
+
+      const type = getValueByKey({
+        data: o,
+        key: fieldDataFlowLine.type.name,
+        convert: convertCollection.number,
+      });
+
+      const positionList = ['top', 'left', 'bottom', 'right'];
+
+      return adjustEdge({
+        index,
+        id: workflowLineId,
+        forward:
+          type === flowLineTypeCollection.forward ||
+          type === flowLineTypeCollection.carbonCopy,
+        carbonCopy: type === flowLineTypeCollection.carbonCopy,
+        source: fromId,
+        sourceHandle: checkInCollection(positionList, fromPositionName)
+          ? fromPositionName
+          : 'bottom',
+        target: toId,
+        targetHandle: checkInCollection(positionList, toPositionName)
+          ? toPositionName
+          : 'top',
+        data: {
+          data: o,
+        },
+      });
+    },
+  );
+
+  return {
+    nodeList,
+    edgeList,
+    listApprove,
+  };
+}
+
 export function SealRefuse({
   hidden = false,
   image = '',

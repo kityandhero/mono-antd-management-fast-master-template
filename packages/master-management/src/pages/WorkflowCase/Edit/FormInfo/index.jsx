@@ -45,16 +45,15 @@ import {
   flowCaseStatusCollection,
   signetStyle,
 } from '../../../../customConfig';
+import { adjustFlowCaseDataToState, SealRefuse } from '../../../../flowAssist';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import {
-  adjustFlowCaseDataToState,
   buildColumnsCarbonCopyNotification,
   buildColumnsCaseLatestApprove,
   buildColumnsNextProcessApprove,
   buildColumnsNextProcessNotification,
   convertProcessHistoryItemData,
   convertProcessHistoryNextData,
-  SealRefuse,
 } from '../../../../pageBases';
 import { buildFlowCaseFormInitialValues } from '../../../../utils';
 import { fieldData as fieldDataWorkflowCaseCarbonCopyNotification } from '../../../WorkflowCaseCarbonCopyNotification/Common/data';

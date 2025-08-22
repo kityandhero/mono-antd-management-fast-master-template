@@ -51,7 +51,7 @@ class PageListDrawer extends MultiPageDrawer {
     this.state = {
       ...this.state,
       listViewMode: listViewConfig.viewMode.list,
-      pageTitle: '日志开关',
+      pageTitle: '执行日志开关',
       loadApiPath:
         modelTypeCollection.channelExecuteLogSwitchTypeCollection.pageList,
     };

@@ -53,8 +53,8 @@ import {
   flowNodeTypeCollection,
   signetStyle,
 } from '../../../customConfig';
+import { SealRefuse } from '../../../flowAssist';
 import { buildFlowCaseFormInitialValues } from '../../../utils';
-import { SealRefuse } from '../Assist';
 
 const { BaseUpdateDrawer } = DataDrawer;
 

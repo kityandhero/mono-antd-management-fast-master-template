@@ -10,7 +10,11 @@ import {
   whetherString,
 } from 'easy-soft-utility';
 
-import { listViewConfig, searchCardConfig } from 'antd-management-fast-common';
+import {
+  listViewConfig,
+  searchCardConfig,
+  unlimitedWithStringFlag,
+} from 'antd-management-fast-common';
 import {
   buildIconInfoList,
   ColorText,
@@ -51,7 +55,7 @@ class PageListDrawer extends MultiPageDrawer {
     this.state = {
       ...this.state,
       listViewMode: listViewConfig.viewMode.list,
-      pageTitle: '日志开关',
+      pageTitle: 'SQL日志开关',
       loadApiPath:
         modelTypeCollection.channelSqlLogSwitchTypeCollection.pageList,
     };
@@ -177,6 +181,14 @@ class PageListDrawer extends MultiPageDrawer {
         },
       ],
     };
+  };
+
+  fillSearchCardInitialValues = () => {
+    const values = {};
+
+    values[fieldData.value.name] = unlimitedWithStringFlag.flag;
+
+    return values;
   };
 
   establishSearchCardConfig = () => {

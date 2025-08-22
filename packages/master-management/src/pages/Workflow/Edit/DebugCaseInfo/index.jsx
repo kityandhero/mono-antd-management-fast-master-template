@@ -39,9 +39,9 @@ import {
   flowNodeTypeCollection,
 } from '../../../../customConfig';
 import { getChannelName } from '../../../../customSpecialComponents';
+import { adjustFlowCaseDataToState } from '../../../../flowAssist';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import {
-  adjustFlowCaseDataToState,
   buildColumnsCarbonCopyNotification,
   buildColumnsCaseLatestApprove,
   buildColumnsNextProcessApprove,
