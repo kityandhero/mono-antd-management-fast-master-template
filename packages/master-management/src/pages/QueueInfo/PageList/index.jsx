@@ -1,8 +1,10 @@
 import { connect } from 'easy-soft-dva';
 import {
+  buildRandomHexColor,
   convertCollection,
   getValueByKey,
   showSimpleErrorMessage,
+  toNumber,
   whetherNumber,
 } from 'easy-soft-utility';
 
@@ -38,7 +40,7 @@ class Index extends MultiPage {
 
     this.state = {
       ...this.state,
-      pageTitle: '异常列表',
+      pageTitle: '队列列表',
       paramsKey: accessWayCollection.queueInfo.pageList.paramsKey,
       loadApiPath: modelTypeCollection.queueInfoTypeCollection.pageList,
       currentRecord: null,
@@ -254,6 +256,13 @@ class Index extends MultiPage {
   getColumnWrapper = () => [
     {
       dataTarget: fieldData.name,
+      width: 340,
+      align: 'left',
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.description,
       align: 'left',
       showRichFacade: true,
       emptyValue: '--',
@@ -269,6 +278,24 @@ class Index extends MultiPage {
       width: 100,
       showRichFacade: true,
       emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.exist,
+      width: 100,
+      showRichFacade: true,
+      emptyValue: '--',
+      facadeConfigBuilder: (value) => {
+        return {
+          color: buildRandomHexColor({
+            seed: toNumber(value) + 47,
+          }),
+        };
+      },
+      formatValue: (value) => {
+        const v = toNumber(value);
+
+        return v === whetherNumber.yes ? '是' : '否';
+      },
     },
     {
       dataTarget: fieldData.queueInfoId,

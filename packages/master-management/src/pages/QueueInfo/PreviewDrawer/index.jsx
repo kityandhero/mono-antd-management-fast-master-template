@@ -67,6 +67,14 @@ class PreviewDrawer extends BaseLoadDrawer {
                 },
                 {
                   span: 2,
+                  label: fieldData.description.label,
+                  value: getValueByKey({
+                    data: metaData,
+                    key: fieldData.description.name,
+                  }),
+                },
+                {
+                  span: 2,
                   label: fieldData.queueInfoId.label,
                   value: getValueByKey({
                     data: metaData,

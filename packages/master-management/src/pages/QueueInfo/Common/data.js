@@ -9,6 +9,11 @@ export const fieldData = {
     name: 'name',
     helper: '',
   },
+  description: {
+    label: '队列描述',
+    name: 'description',
+    helper: '',
+  },
   queueMode: {
     label: '队列模式',
     name: 'queueMode',
@@ -27,6 +32,11 @@ export const fieldData = {
   count: {
     label: '消息数量',
     name: 'count',
+    helper: '',
+  },
+  exist: {
+    label: '是否存在',
+    name: 'exist',
     helper: '',
   },
   json: {
