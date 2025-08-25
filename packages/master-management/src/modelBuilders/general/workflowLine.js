@@ -13,6 +13,7 @@ import {
   getData,
   pageListData,
   pageListOperateLogData,
+  refreshAllEntityCacheData,
   refreshCacheData,
   removeAllData,
   removeData,
@@ -31,6 +32,7 @@ export const workflowLineTypeCollection = {
   remove: 'workflowLine/remove',
   removeAll: 'workflowLine/removeAll',
   refreshCache: 'workflowLine/refreshCache',
+  refreshAllEntityCache: 'workflowLine/refreshAllEntityCache',
   pageListOperateLog: 'workflowLine/pageListOperateLog',
 };
 
@@ -261,6 +263,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(refreshCacheData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *refreshAllEntityCache(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(refreshAllEntityCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

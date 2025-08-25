@@ -16,6 +16,7 @@ import {
   openMultiEndData,
   pageListData,
   pageListOperateLogData,
+  refreshAllEntityCacheData,
   refreshCacheData,
   removeData,
   setCaseNameTemplateData,
@@ -62,6 +63,7 @@ export const workflowTypeCollection = {
   setDisable: 'workflow/setDisable',
   createDuplicate: 'workflow/createDuplicate',
   refreshCache: 'workflow/refreshCache',
+  refreshAllEntityCache: 'workflow/refreshAllEntityCache',
   remove: 'workflow/remove',
   pageListOperateLog: 'workflow/pageListOperateLog',
 };
@@ -689,6 +691,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(refreshCacheData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *refreshAllEntityCache(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(refreshAllEntityCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

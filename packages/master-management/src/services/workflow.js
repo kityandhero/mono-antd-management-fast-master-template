@@ -226,6 +226,16 @@ export async function refreshCacheData(parameters) {
   });
 }
 
+export const refreshAllEntityCacheDataApiAddress =
+  '/workflow/refreshAllEntityCache';
+
+export async function refreshAllEntityCacheData(parameters) {
+  return request({
+    api: refreshAllEntityCacheDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const removeDataApiAddress = '/workflow/remove';
 
 export async function removeData(parameters) {

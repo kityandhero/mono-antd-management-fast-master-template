@@ -13,6 +13,7 @@ import {
   getData,
   pageListData,
   pageListOperateLogData,
+  refreshAllEntityCacheData,
   refreshCacheData,
   removeData,
   singleListData,
@@ -26,6 +27,7 @@ export const workflowBranchConditionTypeCollection = {
   addBasicInfo: 'workflowBranchCondition/addBasicInfo',
   updateBasicInfo: 'workflowBranchCondition/updateBasicInfo',
   refreshCache: 'workflowBranchCondition/refreshCache',
+  refreshAllEntityCache: 'workflowBranchCondition/refreshAllEntityCache',
   remove: 'workflowBranchCondition/remove',
   pageListOperateLog: 'workflowBranchCondition/pageListOperateLog',
 };
@@ -179,6 +181,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(refreshCacheData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *refreshAllEntityCache(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(refreshAllEntityCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

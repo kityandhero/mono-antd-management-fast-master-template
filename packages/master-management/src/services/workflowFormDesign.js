@@ -75,6 +75,16 @@ export async function refreshCacheData(parameters) {
   });
 }
 
+export const refreshAllEntityCacheDataApiAddress =
+  '/workflowFormDesign/refreshAllEntityCache';
+
+export async function refreshAllEntityCacheData(parameters) {
+  return request({
+    api: refreshAllEntityCacheDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const pageListOperateLogDataApiAddress =
   '/workflowFormDesign/pageListOperateLog';
 

@@ -375,3 +375,20 @@ export async function refreshCacheAction({
     successMessage,
   });
 }
+
+export async function refreshAllEntityCacheAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.workflowDebugCaseTypeCollection
+      .refreshAllEntityCache,
+    params: {},
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}

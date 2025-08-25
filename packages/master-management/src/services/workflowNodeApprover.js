@@ -86,6 +86,16 @@ export async function refreshCacheData(parameters) {
   });
 }
 
+export const refreshAllEntityCacheDataApiAddress =
+  '/workflowNodeApprover/refreshAllEntityCache';
+
+export async function refreshAllEntityCacheData(parameters) {
+  return request({
+    api: refreshAllEntityCacheDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const pageListOperateLogDataApiAddress =
   '/workflowNodeApprover/pageListOperateLog';
 

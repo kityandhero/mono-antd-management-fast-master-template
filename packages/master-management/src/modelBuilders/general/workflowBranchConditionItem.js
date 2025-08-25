@@ -13,6 +13,7 @@ import {
   getData,
   pageListData,
   pageListOperateLogData,
+  refreshAllEntityCacheData,
   refreshCacheData,
   removeData,
   setRemoteCallParametersData,
@@ -30,6 +31,7 @@ export const workflowBranchConditionItemTypeCollection = {
   setRemoteCallParameters:
     'workflowBranchConditionItem/setRemoteCallParameters',
   refreshCache: 'workflowBranchConditionItem/refreshCache',
+  refreshAllEntityCache: 'workflowBranchConditionItem/refreshAllEntityCache',
   remove: 'workflowBranchConditionItem/remove',
   pageListOperateLog: 'workflowBranchConditionItem/pageListOperateLog',
 };
@@ -235,6 +237,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(refreshCacheData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *refreshAllEntityCache(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(refreshAllEntityCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

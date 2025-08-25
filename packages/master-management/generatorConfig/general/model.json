@@ -5722,6 +5722,13 @@
           "type": "singleData"
         },
         {
+          "title": "刷新全部实体缓存",
+          "api": "/workflow/refreshAllEntityCache",
+          "effect": "refreshAllEntityCache",
+          "service": "refreshAllEntityCacheData",
+          "type": "singleData"
+        },
+        {
           "title": "删除",
           "api": "/workflow/remove",
           "effect": "remove",
@@ -5782,6 +5789,13 @@
           "api": "/workflowBranchCondition/refreshCache",
           "effect": "refreshCache",
           "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新全部实体缓存",
+          "api": "/workflowBranchCondition/refreshAllEntityCache",
+          "effect": "refreshAllEntityCache",
+          "service": "refreshAllEntityCacheData",
           "type": "singleData"
         },
         {
@@ -5859,6 +5873,13 @@
           "api": "/workflowBranchConditionItem/refreshCache",
           "effect": "refreshCache",
           "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新全部实体缓存",
+          "api": "/workflowBranchConditionItem/refreshAllEntityCache",
+          "effect": "refreshAllEntityCache",
+          "service": "refreshAllEntityCacheData",
           "type": "singleData"
         },
         {
@@ -6041,6 +6062,13 @@
           "api": "/workflowCase/refreshCache",
           "effect": "refreshCache",
           "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新全部实体缓存",
+          "api": "/workflowCase/refreshAllEntityCache",
+          "effect": "refreshAllEntityCache",
+          "service": "refreshAllEntityCacheData",
           "type": "singleData"
         },
         {
@@ -6541,6 +6569,13 @@
           "type": "singleData"
         },
         {
+          "title": "刷新全部实体缓存",
+          "api": "/workflowDebugCase/refreshAllEntityCache",
+          "effect": "refreshAllEntityCache",
+          "service": "refreshAllEntityCacheData",
+          "type": "singleData"
+        },
+        {
           "title": "操作日志列表",
           "api": "/workflowDebugCase/pageListOperateLog",
           "effect": "pageListOperateLog",
@@ -6919,6 +6954,13 @@
           "type": "singleData"
         },
         {
+          "title": "刷新全部实体缓存",
+          "api": "/workflowFormDesign/refreshAllEntityCache",
+          "effect": "refreshAllEntityCache",
+          "service": "refreshAllEntityCacheData",
+          "type": "singleData"
+        },
+        {
           "title": "操作日志列表",
           "api": "/workflowFormDesign/pageListOperateLog",
           "effect": "pageListOperateLog",
@@ -6993,6 +7035,13 @@
           "api": "/workflowLine/refreshCache",
           "effect": "refreshCache",
           "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新全部实体缓存",
+          "api": "/workflowLine/refreshAllEntityCache",
+          "effect": "refreshAllEntityCache",
+          "service": "refreshAllEntityCacheData",
           "type": "singleData"
         },
         {
@@ -7087,6 +7136,13 @@
           "type": "singleData"
         },
         {
+          "title": "刷新全部实体缓存",
+          "api": "/workflowNode/refreshAllEntityCache",
+          "effect": "refreshAllEntityCache",
+          "service": "refreshAllEntityCacheData",
+          "type": "singleData"
+        },
+        {
           "title": "操作日志列表",
           "api": "/workflowNode/pageListOperateLog",
           "effect": "pageListOperateLog",
@@ -7161,6 +7217,13 @@
           "api": "/workflowNodeApprover/refreshCache",
           "effect": "refreshCache",
           "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新全部实体缓存",
+          "api": "/workflowNodeApprover/refreshAllEntityCache",
+          "effect": "refreshAllEntityCache",
+          "service": "refreshAllEntityCacheData",
           "type": "singleData"
         },
         {

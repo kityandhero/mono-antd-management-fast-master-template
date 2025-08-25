@@ -13,6 +13,7 @@ import {
   getData,
   pageListData,
   pageListOperateLogData,
+  refreshAllEntityCacheData,
   refreshCacheData,
   updateBasicInfoData,
   updateDocumentSchemaData,
@@ -28,6 +29,7 @@ export const workflowFormDesignTypeCollection = {
   updateDocumentSchema: 'workflowFormDesign/updateDocumentSchema',
   updateRemarkSchema: 'workflowFormDesign/updateRemarkSchema',
   refreshCache: 'workflowFormDesign/refreshCache',
+  refreshAllEntityCache: 'workflowFormDesign/refreshAllEntityCache',
   pageListOperateLog: 'workflowFormDesign/pageListOperateLog',
 };
 
@@ -232,6 +234,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(refreshCacheData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *refreshAllEntityCache(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(refreshAllEntityCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

@@ -25,6 +25,7 @@ import {
   pageListOperateLogData,
   pageListUnderwayData,
   pageListWaitApproveData,
+  refreshAllEntityCacheData,
   refreshCacheData,
   setApplicantStatementData,
   setAttentionStatementData,
@@ -68,6 +69,7 @@ export const workflowDebugCaseTypeCollection = {
   archive: 'workflowDebugCase/archive',
   cancelArchive: 'workflowDebugCase/cancelArchive',
   refreshCache: 'workflowDebugCase/refreshCache',
+  refreshAllEntityCache: 'workflowDebugCase/refreshAllEntityCache',
   pageListOperateLog: 'workflowDebugCase/pageListOperateLog',
 };
 
@@ -766,6 +768,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(refreshCacheData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *refreshAllEntityCache(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(refreshAllEntityCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

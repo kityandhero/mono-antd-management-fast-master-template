@@ -2,6 +2,7 @@ import { getValueByKey, request } from 'easy-soft-utility';
 
 import { actionCore, confirmActionCore } from 'antd-management-fast-common';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { updateViewConfigDataApiAddress } from '../../../services/workflowNode';
 import { fieldData } from '../Common/data';
 
@@ -30,7 +31,7 @@ export function addStartPointAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowNode/addStartPoint',
+    api: modelTypeCollection.workflowNodeTypeCollection.addStartPoint,
     params: handleData || {},
     target,
     handleData,
@@ -51,7 +52,7 @@ export function addEndPointAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowNode/addEndPoint',
+    api: modelTypeCollection.workflowNodeTypeCollection.addEndPoint,
     params: handleData || {},
     target,
     handleData,
@@ -60,147 +61,6 @@ export function addEndPointAction({
     successCallback,
     successMessage,
     setProgressingFirst: false,
-  });
-}
-
-export function updateForwardIdAction({
-  target,
-  handleData,
-  beforeProcess,
-  completeProcess,
-  successCallback,
-  successMessage,
-}) {
-  actionCore({
-    api: 'workflowNode/updateForwardId',
-    params: handleData || {},
-    target,
-    handleData,
-    beforeProcess,
-    completeProcess,
-    successCallback,
-    successMessage,
-    setProgressingFirst: false,
-  });
-}
-
-export function clearForwardIdAction({
-  target,
-  handleData,
-  beforeProcess,
-  completeProcess,
-  successCallback,
-  successMessage,
-}) {
-  actionCore({
-    api: 'workflowNode/clearForwardId',
-    params: {
-      workflowNodeId: getValueByKey({
-        data: handleData,
-        key: fieldData.workflowNodeId.name,
-      }),
-    },
-    target,
-    handleData,
-    beforeProcess,
-    completeProcess,
-    successCallback,
-    successMessage,
-    setProgressingFirst: false,
-  });
-}
-
-export function updateBackwardIdAction({
-  target,
-  handleData,
-  beforeProcess,
-  completeProcess,
-  successCallback,
-  successMessage,
-}) {
-  actionCore({
-    api: 'workflowNode/updateBackwardId',
-    params: {
-      workflowNodeId: getValueByKey({
-        data: handleData,
-        key: fieldData.workflowNodeId.name,
-      }),
-    },
-    target,
-    handleData,
-    beforeProcess,
-    completeProcess,
-    successCallback,
-    successMessage,
-    setProgressingFirst: false,
-  });
-}
-
-export function clearBackwardIdAction({
-  target,
-  handleData,
-  beforeProcess,
-  completeProcess,
-  successCallback,
-  successMessage,
-}) {
-  actionCore({
-    api: 'workflowNode/clearBackwardId',
-    params: {
-      workflowNodeId: getValueByKey({
-        data: handleData,
-        key: fieldData.workflowNodeId.name,
-      }),
-    },
-    target,
-    handleData,
-    beforeProcess,
-    completeProcess,
-    successCallback,
-    successMessage,
-    setProgressingFirst: false,
-  });
-}
-
-export function setEnableAction({
-  target,
-  handleData,
-  successCallback,
-  successMessage,
-}) {
-  actionCore({
-    api: 'workflowNode/setEnable',
-    params: {
-      workflowNodeId: getValueByKey({
-        data: handleData,
-        key: fieldData.workflowNodeId.name,
-      }),
-    },
-    target,
-    handleData,
-    successCallback,
-    successMessage,
-  });
-}
-
-export function setDisableAction({
-  target,
-  handleData,
-  successCallback,
-  successMessage,
-}) {
-  actionCore({
-    api: 'workflowNode/setDisable',
-    params: {
-      workflowNodeId: getValueByKey({
-        data: handleData,
-        key: fieldData.workflowNodeId.name,
-      }),
-    },
-    target,
-    handleData,
-    successCallback,
-    successMessage,
   });
 }
 
@@ -211,7 +71,7 @@ export async function removeAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowNode/remove',
+    api: modelTypeCollection.workflowNodeTypeCollection.remove,
     params: {
       workflowNodeId: getValueByKey({
         data: handleData,
@@ -234,7 +94,7 @@ export async function removeConfirmAction({
   confirmActionCore({
     title: `移除流程节点`,
     content: `即将移除流程线, 注意连结到此节点的流程线吉将同步移除，确定吗？`,
-    api: 'workflowNode/remove',
+    api: modelTypeCollection.workflowNodeTypeCollection.remove,
     params: {
       workflowNodeId: getValueByKey({
         data: handleData,
@@ -255,13 +115,29 @@ export async function refreshCacheAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowNode/refreshCache',
+    api: modelTypeCollection.workflowNodeTypeCollection.refreshCache,
     params: {
       workflowNodeId: getValueByKey({
         data: handleData,
         key: fieldData.workflowNodeId.name,
       }),
     },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export async function refreshAllEntityCacheAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.workflowNodeTypeCollection.refreshAllEntityCache,
+    params: {},
     target,
     handleData,
     successCallback,

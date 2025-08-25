@@ -2,6 +2,7 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { actionCore, confirmActionCore } from 'antd-management-fast-common';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 export async function removeAction({
@@ -11,7 +12,7 @@ export async function removeAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowBranchConditionItem/remove',
+    api: modelTypeCollection.workflowBranchConditionItemTypeCollection.remove,
     params: {
       workflowBranchConditionItemId: getValueByKey({
         data: handleData,
@@ -34,7 +35,7 @@ export async function removeConfirmAction({
   confirmActionCore({
     title: `移除条件项`,
     content: `即将移除条件项，确定吗？`,
-    api: 'workflowBranchConditionItem/remove',
+    api: modelTypeCollection.workflowBranchConditionItemTypeCollection.remove,
     params: {
       workflowBranchConditionItemId: getValueByKey({
         data: handleData,
@@ -55,13 +56,31 @@ export async function refreshCacheAction({
   successMessage,
 }) {
   actionCore({
-    api: 'workflowBranchConditionItem/refreshCache',
+    api: modelTypeCollection.workflowBranchConditionItemTypeCollection
+      .refreshCache,
     params: {
       workflowBranchConditionItemId: getValueByKey({
         data: handleData,
         key: fieldData.workflowBranchConditionItemId.name,
       }),
     },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
+export async function refreshAllEntityCacheAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.workflowBranchConditionItemTypeCollection
+      .refreshAllEntityCache,
+    params: {},
     target,
     handleData,
     successCallback,

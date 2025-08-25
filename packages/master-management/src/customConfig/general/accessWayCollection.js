@@ -3532,6 +3532,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '6cf0ee284dec4d9af6d18a923c11f39a',
       permission: '9fd9e3dbdae24370bc5aa90c79b4d68b',
     },
+    refreshAllEntityCache: {
+      title: '刷新全部实体缓存',
+      paramsKey: '0a1d10d31c15fe66be12d6092714b9c9',
+      permission: 'b70e810d9fc8462893294a428ffeb430',
+    },
     remove: {
       title: '删除',
       paramsKey: 'ebeb3bfedf8ced37181cbc2bd221410a',
@@ -3573,6 +3578,11 @@ export const accessWayInfrastructureCollection = {
       title: '刷新缓存',
       paramsKey: '32d47000b2ff4c74a372985535a579f9',
       permission: '742ff31810b94ad88f88cccd24bd17fb',
+    },
+    refreshAllEntityCache: {
+      title: '刷新全部实体缓存',
+      paramsKey: 'fb8eeb2cd9d94a87a2f97c7a901103e4',
+      permission: '4a829b3976d04307afd6d944c6b24600',
     },
     remove: {
       title: '删除',
@@ -3625,6 +3635,11 @@ export const accessWayInfrastructureCollection = {
       title: '刷新缓存',
       paramsKey: '00fc1df21d744ab1fa97c2d2eb926b6a',
       permission: '69a919a6ba9e465992fb3dd1889361d5',
+    },
+    refreshAllEntityCache: {
+      title: '刷新全部实体缓存',
+      paramsKey: 'f924495532f8ac0e9a40b66636694d17',
+      permission: '6b5e09d5afe44d96a14faaa819a46439',
     },
     remove: {
       title: '删除',
@@ -3747,6 +3762,11 @@ export const accessWayInfrastructureCollection = {
       title: '刷新缓存',
       paramsKey: '95a9f7321de9e416b034e149c484c8a3',
       permission: '3f7d2a7c8efd4b5dbcc8616e35a2dd27',
+    },
+    refreshAllEntityCache: {
+      title: '刷新全部实体缓存',
+      paramsKey: '9d228f7743ba0934a802fd3894f99433',
+      permission: 'df4b5425187f4088934f093aa4cbd9ab',
     },
     repairSubsidiary: {
       title: '修复实例的归属企业信息',
@@ -4069,6 +4089,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '31162e11180d794b493311abeb7d5f41',
       permission: '06ef7163483a41c186e6fa028a52b881',
     },
+    refreshAllEntityCache: {
+      title: '刷新全部实体缓存',
+      paramsKey: '8840374ba3393735ea11e66abc179f6e',
+      permission: 'f7b6da53aff74b399c518db82cb55fa8',
+    },
     pageListOperateLog: {
       title: '操作日志列表',
       paramsKey: '245c266e36244dbb908c0055e67db5d0',
@@ -4313,6 +4338,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'be712b242f89bed04d7e3fccea09ee45',
       permission: '85b6b594f2ac44ff87ed77c8d022d234',
     },
+    refreshAllEntityCache: {
+      title: '刷新全部实体缓存',
+      paramsKey: 'd7494c85f3d235fabdd77666e56053fc',
+      permission: '9d81e1ec74074c80bf8314d0ec304464',
+    },
     pageListOperateLog: {
       title: '操作日志列表',
       paramsKey: '9e96e1e1b4f179d272752ea28f05062b',
@@ -4364,6 +4394,11 @@ export const accessWayInfrastructureCollection = {
       title: '刷新缓存',
       paramsKey: '1957262c75c1bf4f2adcb2ddeb743bd3',
       permission: 'cb7af486414f4d5eaca1b171007c19a1',
+    },
+    refreshAllEntityCache: {
+      title: '刷新全部实体缓存',
+      paramsKey: '0842c444cbe54dc402d8fc2fe9b9454b',
+      permission: '29bd2879d9bb4ea489af874fc63d6724',
     },
     pageListOperateLog: {
       title: '操作日志列表',
@@ -4427,6 +4462,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'f128396930fc781d66d5ae69d575e91c',
       permission: '945382da4d9342b78dbcf357053fb293',
     },
+    refreshAllEntityCache: {
+      title: '刷新全部实体缓存',
+      paramsKey: '77ff50448ce4520854f66201a55b6a8a',
+      permission: 'eb328a490a2c4674a990599b5b9aedc1',
+    },
     pageListOperateLog: {
       title: '操作日志列表',
       paramsKey: 'c01a39af8f83d7c5fbf1ac7e1eeae9d6',
@@ -4478,6 +4518,11 @@ export const accessWayInfrastructureCollection = {
       title: '刷新缓存',
       paramsKey: '31085acf20b808a648445e9c359cf1c6',
       permission: 'fc1e5ccb1e364afd89a8051fa60740ad',
+    },
+    refreshAllEntityCache: {
+      title: '刷新全部实体缓存',
+      paramsKey: '36874e82b1f59c8c593532e723b8d3bd',
+      permission: 'b5cdc859e52545048c130dfc0f2f3a16',
     },
     pageListOperateLog: {
       title: '操作日志列表',

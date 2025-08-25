@@ -57,6 +57,16 @@ export async function refreshCacheData(parameters) {
   });
 }
 
+export const refreshAllEntityCacheDataApiAddress =
+  '/workflowBranchCondition/refreshAllEntityCache';
+
+export async function refreshAllEntityCacheData(parameters) {
+  return request({
+    api: refreshAllEntityCacheDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const removeDataApiAddress = '/workflowBranchCondition/remove';
 
 export async function removeData(parameters) {

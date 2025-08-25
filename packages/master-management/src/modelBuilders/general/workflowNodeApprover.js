@@ -14,6 +14,7 @@ import {
   getData,
   pageListData,
   pageListOperateLogData,
+  refreshAllEntityCacheData,
   refreshCacheData,
   removeData,
   singleListApproverUserWithNodeAndFlowCaseData,
@@ -32,6 +33,7 @@ export const workflowNodeApproverTypeCollection = {
   updateSort: 'workflowNodeApprover/updateSort',
   remove: 'workflowNodeApprover/remove',
   refreshCache: 'workflowNodeApprover/refreshCache',
+  refreshAllEntityCache: 'workflowNodeApprover/refreshAllEntityCache',
   pageListOperateLog: 'workflowNodeApprover/pageListOperateLog',
 };
 
@@ -265,6 +267,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(refreshCacheData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *refreshAllEntityCache(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(refreshAllEntityCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

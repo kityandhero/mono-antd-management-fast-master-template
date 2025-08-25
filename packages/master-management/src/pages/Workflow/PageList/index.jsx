@@ -15,6 +15,7 @@ import {
 import {
   columnFacadeMode,
   dropdownExpandItemType,
+  extraBuildType,
   listViewConfig,
   searchCardConfig,
   unlimitedWithStringFlag,
@@ -40,10 +41,19 @@ import {
 import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData as fieldDataSubsidiary } from '../../Subsidiary/Common/data';
 import { SubsidiarySelectDrawerField } from '../../Subsidiary/SelectDrawerField';
+import { refreshAllEntityCacheAction as refreshAllWorkflowBranchConditionEntityCacheAction } from '../../WorkflowBranchCondition/Assist/action';
+import { refreshAllEntityCacheAction as refreshAllWorkflowBranchConditionItemEntityCacheAction } from '../../WorkflowBranchConditionItem/Assist/action';
+import { refreshAllEntityCacheAction as refreshAllWorkflowCaseEntityCacheAction } from '../../WorkflowCase/Assist/action';
+import { refreshAllEntityCacheAction as refreshAllWorkflowDebugCaseEntityCacheAction } from '../../WorkflowDebugCase/Assist/action';
+import { refreshAllEntityCacheAction as refreshAllWorkflowFormDesignEntityCacheAction } from '../../WorkflowFormDesign/Assist/action';
 import { FlowCaseFormExampleDocumentDisplayDrawer } from '../../WorkflowFormDesign/FlowCaseFormExampleDocumentDisplayDrawer';
+import { refreshAllEntityCacheAction as refreshAllWorkflowLineEntityCacheAction } from '../../WorkflowLine/Assist/action';
+import { refreshAllEntityCacheAction as refreshAllWorkflowNodeEntityCacheAction } from '../../WorkflowNode/Assist/action';
+import { refreshAllEntityCacheAction as refreshAllWorkflowNodeApproverEntityCacheAction } from '../../WorkflowNodeApprover/Assist/action';
 import { AddOfficeAutomationArticleAuditDrawer } from '../AddOfficeAutomationArticleAuditDrawer';
 import { AddOfficeAutomationProcessApprovalDrawer } from '../AddOfficeAutomationProcessApprovalDrawer';
 import {
+  refreshAllEntityCacheAction as refreshAllWorkflowEntityCacheAction,
   refreshCacheAction,
   removeAction,
   setDisableAction,
@@ -296,6 +306,69 @@ class PageList extends MultiPage {
     });
   };
 
+  refreshAllWorkflowEntityCache = () => {
+    refreshAllWorkflowEntityCacheAction({
+      target: this,
+      handleData: {},
+    });
+  };
+
+  refreshAllWorkflowLineEntityCache = () => {
+    refreshAllWorkflowLineEntityCacheAction({
+      target: this,
+      handleData: {},
+    });
+  };
+
+  refreshAllWorkflowNodeEntityCache = () => {
+    refreshAllWorkflowNodeEntityCacheAction({
+      target: this,
+      handleData: {},
+    });
+  };
+
+  refreshAllWorkflowNodeApproverEntityCache = () => {
+    refreshAllWorkflowNodeApproverEntityCacheAction({
+      target: this,
+      handleData: {},
+    });
+  };
+
+  refreshAllWorkflowBranchConditionEntityCache = () => {
+    refreshAllWorkflowBranchConditionEntityCacheAction({
+      target: this,
+      handleData: {},
+    });
+  };
+
+  refreshAllWorkflowBranchConditionItemEntityCache = () => {
+    refreshAllWorkflowBranchConditionItemEntityCacheAction({
+      target: this,
+      handleData: {},
+    });
+  };
+
+  refreshAllWorkflowDebugCaseEntityCache = () => {
+    refreshAllWorkflowDebugCaseEntityCacheAction({
+      target: this,
+      handleData: {},
+    });
+  };
+
+  refreshAllWorkflowCaseEntityCache = () => {
+    refreshAllWorkflowCaseEntityCacheAction({
+      target: this,
+      handleData: {},
+    });
+  };
+
+  refreshAllWorkflowFormDesignEntityCache = () => {
+    refreshAllWorkflowFormDesignEntityCacheAction({
+      target: this,
+      handleData: {},
+    });
+  };
+
   showUpdateChannelModal = (o) => {
     this.setState({ currentRecord: o }, () => {
       UpdateChannelModal.open();
@@ -403,6 +476,196 @@ class PageList extends MultiPage {
     });
 
     this.goToPath(`/flow/workflow/edit/load/${workflowId}/key/basicInfo`);
+  };
+
+  establishExtraActionConfig = () => {
+    return {
+      list: [
+        {
+          buildType: extraBuildType.generalExtraButton,
+          type: 'default',
+          size: 'small',
+          icon: iconBuilder.reload(),
+          text: '刷新全部工作流实体缓存',
+          confirm: true,
+          title: '即将刷新全部工作流实体缓存，确定执行吗?',
+          disabled: this.checkInProgress(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.refreshAllEntityCache.permission,
+          ),
+          handleClick: () => {
+            this.refreshAllWorkflowEntityCache();
+          },
+        },
+      ],
+    };
+  };
+
+  establishExtraActionEllipsisConfig = () => {
+    const that = this;
+
+    return {
+      size: 'small',
+      disabled: this.checkInProgress(),
+      handleMenuClick: ({ key, handleData }) => {
+        switch (key) {
+          case 'refreshAllWorkflowLineEntityCache': {
+            that.refreshAllWorkflowLineEntityCache(handleData);
+            break;
+          }
+
+          case 'refreshAllWorkflowNodeEntityCache': {
+            that.refreshAllWorkflowNodeEntityCache(handleData);
+            break;
+          }
+
+          case 'refreshAllWorkflowNodeApproverEntityCache': {
+            that.refreshAllWorkflowNodeApproverEntityCache(handleData);
+            break;
+          }
+
+          case 'refreshAllWorkflowBranchConditionEntityCache': {
+            that.refreshAllWorkflowBranchConditionEntityCache(handleData);
+            break;
+          }
+
+          case 'refreshAllWorkflowBranchConditionItemEntityCache': {
+            that.refreshAllWorkflowBranchConditionItemEntityCache(handleData);
+            break;
+          }
+
+          case 'refreshAllWorkflowDebugCaseEntityCache': {
+            that.refreshAllWorkflowDebugCaseEntityCache(handleData);
+            break;
+          }
+
+          case 'refreshAllWorkflowCaseEntityCache': {
+            that.refreshAllWorkflowCaseEntityCache(handleData);
+            break;
+          }
+
+          case 'refreshAllWorkflowFormDesignEntityCache': {
+            that.refreshAllWorkflowFormDesignEntityCache(handleData);
+            break;
+          }
+
+          default: {
+            showSimpleErrorMessage('can not find matched key');
+            break;
+          }
+        }
+      },
+      handleData: {},
+      items: [
+        {
+          key: 'refreshAllWorkflowLineEntityCache',
+          icon: iconBuilder.reload(),
+          size: 'small',
+          text: '刷新全部工作流线条实体缓存',
+          confirm: true,
+          title: '即将刷新全部工作流线条实体缓存，确定执行吗?',
+          disabled: this.checkInProgress(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowLine.refreshAllEntityCache.permission,
+          ),
+        },
+        {
+          key: 'refreshAllWorkflowNodeEntityCache',
+          icon: iconBuilder.reload(),
+          size: 'small',
+          text: '刷新全部工作流节点实体缓存',
+          confirm: true,
+          title: '即将刷新全部工作流节点实体缓存，确定执行吗?',
+          disabled: this.checkInProgress(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowNode.refreshAllEntityCache.permission,
+          ),
+        },
+        {
+          key: 'refreshAllWorkflowNodeApproverEntityCache',
+          icon: iconBuilder.reload(),
+          size: 'small',
+          text: '刷新全部工作流节点审批人实体缓存',
+          confirm: true,
+          title: '即将刷新全部工作流节点审批人实体缓存，确定执行吗?',
+          disabled: this.checkInProgress(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowNodeApprover.refreshAllEntityCache
+              .permission,
+          ),
+        },
+        {
+          key: 'refreshAllWorkflowBranchConditionEntityCache',
+          icon: iconBuilder.reload(),
+          size: 'small',
+          text: '刷新全部工作流条件实体缓存',
+          confirm: true,
+          title: '即将刷新全部工作流条件实体缓存，确定执行吗?',
+          disabled: this.checkInProgress(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowBranchCondition.refreshAllEntityCache
+              .permission,
+          ),
+        },
+        {
+          key: 'refreshAllWorkflowBranchConditionItemEntityCache',
+          icon: iconBuilder.reload(),
+          size: 'small',
+          text: '刷新全部工作流条件项实体缓存',
+          confirm: true,
+          title: '即将刷新全部工作流条件项实体缓存，确定执行吗?',
+          disabled: this.checkInProgress(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowBranchConditionItem
+              .refreshAllEntityCache.permission,
+          ),
+        },
+        {
+          key: 'refreshAllWorkflowFormDesignEntityCache',
+          icon: iconBuilder.reload(),
+          size: 'small',
+          text: '刷新全部工作流表单设计实体缓存',
+          confirm: true,
+          title: '即将刷新全部工作流表单设计实体缓存，确定执行吗?',
+          disabled: this.checkInProgress(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowFormDesign.refreshAllEntityCache
+              .permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'refreshAllWorkflowCaseEntityCache',
+          icon: iconBuilder.reload(),
+          size: 'small',
+          text: '刷新全部工作流实例实体缓存',
+          confirm: true,
+          title: '即将刷新全部工作流实例实体缓存，确定执行吗?',
+          disabled: this.checkInProgress(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowCase.refreshAllEntityCache.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'refreshAllWorkflowFormDesignEntityCache',
+          icon: iconBuilder.reload(),
+          size: 'small',
+          text: '刷新全部工作流测试实例实体缓存',
+          confirm: true,
+          title: '即将刷新全部工作流测试实例实体缓存，确定执行吗?',
+          disabled: this.checkInProgress(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowDebugCase.refreshAllEntityCache
+              .permission,
+          ),
+        },
+      ],
+    };
   };
 
   fillSearchCardInitialValues = () => {
