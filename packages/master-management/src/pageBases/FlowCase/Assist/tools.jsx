@@ -69,6 +69,22 @@ export function buildColumnsNextProcessApprove({
       key: fieldDataFlowCaseNextProcessApprove.nextWorkflowNodeName.name,
     },
     {
+      title:
+        fieldDataFlowCaseNextProcessApprove.nextWorkflowNodeApproveModeNote
+          .label,
+      dataIndex:
+        fieldDataFlowCaseNextProcessApprove.nextWorkflowNodeApproveModeNote
+          .name,
+      key: fieldDataFlowCaseNextProcessApprove.nextWorkflowNodeApproveModeNote
+        .name,
+      ellipsis: true,
+      align: 'center',
+      width: '240px',
+      render: (text) => {
+        return text || '--';
+      },
+    },
+    {
       title: fieldDataFlowCaseNextProcessApprove.nextApproveUserRealName.label,
       dataIndex:
         fieldDataFlowCaseNextProcessApprove.nextApproveUserRealName.name,

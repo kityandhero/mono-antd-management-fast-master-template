@@ -18,8 +18,10 @@ import {
   accessWayCollection,
   fieldDataFlowCase,
   fieldDataFlowCaseProcessHistory,
+  fieldDataFlowNode,
   flowBranchConditionItemTargetComparisonModelCollection,
   flowBranchConditionItemTargetTypeCollection,
+  flowNodeApproveModeCollection,
 } from '../../../customConfig';
 import {
   renderFormFlowBranchConditionItemTargetComparisonModeSelect,
@@ -50,6 +52,7 @@ class BaseFlowCaseProcessHistoryRefuseModal extends BaseUpdateModal {
 
     this.state = {
       ...this.state,
+      width: 640,
       pageTitle: '拒绝审批',
       loadApiPath: '',
       submitApiPath: '',
@@ -161,7 +164,48 @@ class BaseFlowCaseProcessHistoryRefuseModal extends BaseUpdateModal {
   };
 
   establishCardCollectionConfig = () => {
-    const { generalDiscourseList } = this.state;
+    const { metaData, generalDiscourseList } = this.state;
+
+    const nextApproveWorkflowNode = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.nextApproveWorkflowNode.name,
+    });
+
+    const nextApproveWorkflowNodeName = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.nextApproveWorkflowNodeName.name,
+      convert: convertCollection.string,
+    });
+
+    const nextApproveWorkflowNodeApproveMode = getValueByKey({
+      data: nextApproveWorkflowNode,
+      key: fieldDataFlowNode.approveMode.name,
+      convert: convertCollection.number,
+    });
+
+    let approveMode = '';
+
+    if (metaData != null) {
+      switch (nextApproveWorkflowNodeApproveMode) {
+        case flowNodeApproveModeCollection.oneSignature: {
+          approveMode = '【或签】';
+
+          break;
+        }
+
+        case flowNodeApproveModeCollection.counterSignature: {
+          approveMode = '【会签】';
+
+          break;
+        }
+
+        default: {
+          approveMode = '';
+
+          break;
+        }
+      }
+    }
 
     return {
       list: [
@@ -171,6 +215,15 @@ class BaseFlowCaseProcessHistoryRefuseModal extends BaseUpdateModal {
             text: '基本信息',
           },
           items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.onlyShowText,
+              fieldData: {
+                ...fieldDataFlowCase.nextApproveWorkflowNodeName,
+                label: '当前节点',
+              },
+              value: `${approveMode}${nextApproveWorkflowNodeName}`,
+            },
             ...this.establishCustomExtraViewConfig(),
             {
               lg: 24,
