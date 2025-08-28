@@ -45,7 +45,7 @@ import {
   flowCaseStatusCollection,
   signetStyle,
 } from '../../../../customConfig';
-import { adjustFlowCaseDataToState, SealRefuse } from '../../../../flowAssist';
+import { adjustFlowCaseDataToState, SealImage } from '../../../../flowAssist';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import {
   buildColumnsCarbonCopyNotification,
@@ -208,6 +208,7 @@ class FormInfo extends TabPageBase {
           flowCaseStatusCollection.inApprovalProcess,
           flowCaseStatusCollection.success,
           flowCaseStatusCollection.refuse,
+          flowCaseStatusCollection.disuse,
         ],
         flowCaseStatus,
       ),
@@ -969,6 +970,23 @@ class FormInfo extends TabPageBase {
           })
         : '';
 
+    const sealDisuseVisibility = getValueByKey({
+      data: metaData,
+      key: fieldData.sealDisuseVisibility.name,
+      convert: convertCollection.number,
+      defaultValue: whetherNumber.no,
+    });
+
+    const sealDisuseImage =
+      sealDisuseVisibility === whetherNumber.yes
+        ? getValueByKey({
+            data: metaData,
+            key: fieldData.sealDisuseImage.name,
+            convert: convertCollection.string,
+            defaultValue: '',
+          })
+        : '';
+
     const remarkSchemaList = getValueByKey({
       data: workflowFormDesign,
       key: fieldDataFlowFormDesign.remarkSchemaList.name,
@@ -998,9 +1016,16 @@ class FormInfo extends TabPageBase {
     return (
       <Watermark content={watermarkText ?? ''} inherit={false}>
         {status === flowCaseStatusCollection.refuse ? (
-          <SealRefuse
+          <SealImage
             hidden={sealRefuseVisibility !== whetherNumber.yes}
             image={sealRefuseImage ?? emptyImage}
+          />
+        ) : null}
+
+        {status === flowCaseStatusCollection.disuse ? (
+          <SealImage
+            hidden={sealDisuseVisibility !== whetherNumber.yes}
+            image={sealDisuseImage ?? emptyImage}
           />
         ) : null}
 

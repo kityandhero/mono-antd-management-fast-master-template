@@ -301,6 +301,16 @@ export const fieldData = {
     name: 'flowCaseSealRefuseImage',
     helper: '',
   },
+  flowCaseSealDisuseVisibility: {
+    label: '流程实例作废印章是否显示',
+    name: 'flowCaseSealDisuseVisibility',
+    helper: '控制流程实例作废印章是否显示的开关, 需要前端做相应支持',
+  },
+  flowCaseSealDisuseImage: {
+    label: '流程实例作废印章图片',
+    name: 'flowCaseSealDisuseImage',
+    helper: '',
+  },
   flowCaseWatermarkVisibility: {
     label: '流程实例水印背景是否显示',
     name: 'flowCaseWatermarkVisibility',

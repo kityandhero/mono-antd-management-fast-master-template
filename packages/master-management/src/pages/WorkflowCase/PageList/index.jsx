@@ -106,8 +106,8 @@ class PageList extends MultiPage {
         break;
       }
 
-      case 'showFormDocumentPreviewDrawer': {
-        this.showFormDocumentPreviewDrawer(handleData);
+      case 'goToEdit': {
+        this.goToEdit(handleData);
         break;
       }
 
@@ -306,13 +306,13 @@ class PageList extends MultiPage {
 
     return {
       size: 'small',
-      text: '详情',
+      text: '查看',
       icon: iconBuilder.read(),
       disabled: !checkHasAuthority(
         accessWayCollection.workflowCase.get.permission,
       ),
       handleButtonClick: ({ handleData }) => {
-        this.goToEdit(handleData);
+        this.showFormDocumentPreviewDrawer(handleData);
       },
       handleData: record,
       handleMenuClick: ({ key, handleData }) => {
@@ -320,23 +320,23 @@ class PageList extends MultiPage {
       },
       items: [
         {
+          key: 'goToEdit',
+          icon: iconBuilder.read(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowCase.get.permission,
+          ),
+          text: '查看详情',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'showFlowDisplayDrawer',
           icon: iconBuilder.apartment(),
           hidden: !checkHasAuthority(
             accessWayCollection.workflow.get.permission,
           ),
           text: '查看流程图',
-        },
-        {
-          type: dropdownExpandItemType.divider,
-        },
-        {
-          key: 'showFormDocumentPreviewDrawer',
-          icon: iconBuilder.read(),
-          hidden: !checkHasAuthority(
-            accessWayCollection.workflowCase.get.permission,
-          ),
-          text: '查看表单文档',
         },
         {
           type: dropdownExpandItemType.divider,

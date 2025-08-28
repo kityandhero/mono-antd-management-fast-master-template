@@ -163,6 +163,12 @@ class Index extends TabPageBase {
       convert: convertCollection.string,
     });
 
+    const flowCaseSealInvalidImage = getValueByKey({
+      data: metaData,
+      key: fieldData.flowCaseSealDisuseImage.name,
+      convert: convertCollection.string,
+    });
+
     const flowCaseWatermarkTextImage = getValueByKey({
       data: metaData,
       key: fieldData.flowCaseWatermarkTextImage.name,
@@ -502,7 +508,7 @@ class Index extends TabPageBase {
               showNumber: true,
               list: [
                 {
-                  text: '印章图片请在默认图中配置.',
+                  text: '驳回印章图片请在默认图中配置.',
                 },
               ],
             },
@@ -523,6 +529,79 @@ class Index extends TabPageBase {
               image: checkStringIsNullOrWhiteSpace(flowCaseSealRefuseImage)
                 ? emptyImage
                 : `${flowCaseSealRefuseImage}?time=${getTimeStamp(getNow())}`,
+              imageBoxProps: {
+                imageBoxStyle: {
+                  boxShadow: '0 1px 4px #ccc, 0 0 40px #ccc inset',
+                  padding: '4px',
+                },
+                fillHeight: false,
+              },
+              imageBoxContainorStyle: {
+                width: '160px',
+              },
+            },
+          ],
+        },
+        {
+          // {}可以打断行布局, 起到换行效果
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
+            text: '流程表单作废签章配置',
+          },
+          fullLine: false,
+          width: 'auto',
+          items: [
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData: fieldData.flowCaseSealDisuseVisibility,
+              editMode: keyValueEditModeCollection.whether,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              value: getValueByKey({
+                data: metaData,
+                key: fieldData.flowCaseSealDisuseVisibility.name,
+                convert: convertCollection.number,
+                formatBuilder: (v) => {
+                  return v === whetherNumber.yes ? '显示' : '不显示';
+                },
+              }),
+              inputIcon: iconBuilder.swap(),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+          ],
+          instruction: [
+            {
+              title: '设置说明',
+              showDivider: false,
+              showNumber: true,
+              list: [
+                {
+                  text: '作废印章图片请在默认图中配置.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.picture(),
+            text: '作废签章预览',
+          },
+          fullLine: false,
+          width: '226px',
+          items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.imageShow,
+              fieldData: fieldData.flowCaseSealDisuseImage,
+              image: checkStringIsNullOrWhiteSpace(flowCaseSealInvalidImage)
+                ? emptyImage
+                : `${flowCaseSealInvalidImage}?time=${getTimeStamp(getNow())}`,
               imageBoxProps: {
                 imageBoxStyle: {
                   boxShadow: '0 1px 4px #ccc, 0 0 40px #ccc inset',

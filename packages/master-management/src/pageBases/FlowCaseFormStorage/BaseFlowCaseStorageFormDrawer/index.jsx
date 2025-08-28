@@ -37,7 +37,7 @@ import {
   flowCaseStatusCollection,
   signetStyle,
 } from '../../../customConfig';
-import { SealRefuse } from '../../../flowAssist';
+import { SealImage } from '../../../flowAssist';
 import { buildFlowCaseFormInitialValues } from '../../../utils';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
@@ -214,6 +214,7 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
           flowCaseStatusCollection.inApprovalProcess,
           flowCaseStatusCollection.success,
           flowCaseStatusCollection.refuse,
+          flowCaseStatusCollection.disuse,
         ],
         flowCaseStatus,
       ),
@@ -523,6 +524,23 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
           })
         : '';
 
+    const sealDisuseVisibility = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.sealDisuseVisibility.name,
+      convert: convertCollection.number,
+      defaultValue: whetherNumber.no,
+    });
+
+    const sealDisuseImage =
+      sealDisuseVisibility === whetherNumber.yes
+        ? getValueByKey({
+            data: metaData,
+            key: fieldDataFlowCase.sealDisuseImage.name,
+            convert: convertCollection.string,
+            defaultValue: '',
+          })
+        : '';
+
     const remarkSchemaList = getValueByKey({
       data: workflowFormDesign,
       key: fieldDataFlowFormDesign.remarkSchemaList.name,
@@ -562,10 +580,18 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
       <>
         <Watermark content={watermarkText} inherit={false}>
           {status === flowCaseStatusCollection.refuse ? (
-            <SealRefuse
+            <SealImage
               hidden={sealRefuseVisibility !== whetherNumber.yes}
               right="160px"
               image={sealRefuseImage ?? emptyImage}
+            />
+          ) : null}
+
+          {status === flowCaseStatusCollection.disuse ? (
+            <SealImage
+              hidden={sealDisuseVisibility !== whetherNumber.yes}
+              right="160px"
+              image={sealDisuseImage ?? emptyImage}
             />
           ) : null}
 

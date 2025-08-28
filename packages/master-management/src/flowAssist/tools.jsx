@@ -603,6 +603,23 @@ export function getDocumentPrintDesignerConfig({
         })
       : '';
 
+  const sealDisuseVisibility = getValueByKey({
+    data: flowCase,
+    key: fieldDataFlowCase.sealDisuseVisibility.name,
+    convert: convertCollection.number,
+    defaultValue: whetherNumber.no,
+  });
+
+  const sealDisuseImage =
+    sealDisuseVisibility === whetherNumber.yes
+      ? getValueByKey({
+          data: flowCase,
+          key: fieldDataFlowCase.sealDisuseImage.name,
+          convert: convertCollection.string,
+          defaultValue: '',
+        })
+      : '';
+
   const documentSchema = getValueByKey({
     data: workflowFormDesign,
     key: fieldDataFlowFormDesign.documentSchema.name,
@@ -755,6 +772,8 @@ export function getDocumentPrintDesignerConfig({
     watermarkText,
     sealRefuseVisibility,
     sealRefuseImage,
+    sealDisuseVisibility,
+    sealDisuseImage,
     workflowTitle,
     general,
     title,
@@ -1022,7 +1041,7 @@ function adjustFlowCaseDataItemToState({
   };
 }
 
-export function SealRefuse({
+export function SealImage({
   hidden = false,
   image = '',
   top = '180px',

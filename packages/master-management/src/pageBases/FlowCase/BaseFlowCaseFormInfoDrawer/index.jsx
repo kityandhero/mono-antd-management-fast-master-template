@@ -53,7 +53,7 @@ import {
   flowNodeTypeCollection,
   signetStyle,
 } from '../../../customConfig';
-import { SealRefuse } from '../../../flowAssist';
+import { SealImage } from '../../../flowAssist';
 import { buildFlowCaseFormInitialValues } from '../../../utils';
 
 const { BaseUpdateDrawer } = DataDrawer;
@@ -1069,6 +1069,23 @@ class BaseFlowCaseFormInfoDrawer extends BaseUpdateDrawer {
           })
         : '';
 
+    const sealDisuseVisibility = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.sealDisuseVisibility.name,
+      convert: convertCollection.number,
+      defaultValue: whetherNumber.no,
+    });
+
+    const sealDisuseImage =
+      sealDisuseVisibility === whetherNumber.yes
+        ? getValueByKey({
+            data: metaData,
+            key: fieldDataFlowCase.sealDisuseImage.name,
+            convert: convertCollection.string,
+            defaultValue: '',
+          })
+        : '';
+
     const { latestApproveWorkflowNodeType, workflowFormDesign } = {
       latestApproveWorkflowNodeType: 0,
       workflowFormDesign: {},
@@ -1131,9 +1148,16 @@ class BaseFlowCaseFormInfoDrawer extends BaseUpdateDrawer {
     return (
       <Watermark content={watermarkText} inherit={false}>
         {status === flowCaseStatusCollection.refuse ? (
-          <SealRefuse
+          <SealImage
             hidden={sealRefuseVisibility !== whetherNumber.yes}
             image={sealRefuseImage ?? emptyImage}
+          />
+        ) : null}
+
+        {status === flowCaseStatusCollection.disuse ? (
+          <SealImage
+            hidden={sealDisuseVisibility !== whetherNumber.yes}
+            image={sealDisuseImage ?? emptyImage}
           />
         ) : null}
 

@@ -19,7 +19,7 @@ import {
 import {
   analysisFlowCaseAfterLoad,
   getDocumentPrintDesignerConfig,
-  SealRefuse,
+  SealImage,
 } from '../../../flowAssist';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
@@ -106,6 +106,7 @@ class BaseFlowCaseFormDocumentPreviewDrawer extends BaseVerticalFlexDrawer {
 
   executeAfterDoOtherWhenChangeVisibleToHide = () => {
     this.setState({
+      metaData: null,
       workflow: null,
       workflowFormDesign: null,
       listChainApprove: [],
@@ -147,6 +148,8 @@ class BaseFlowCaseFormDocumentPreviewDrawer extends BaseVerticalFlexDrawer {
       watermarkText,
       sealRefuseVisibility,
       sealRefuseImage,
+      sealDisuseVisibility,
+      sealDisuseImage,
       workflowTitle,
       general,
       title,
@@ -182,9 +185,18 @@ class BaseFlowCaseFormDocumentPreviewDrawer extends BaseVerticalFlexDrawer {
     return (
       <Watermark content={watermarkText} inherit={false}>
         {status === flowCaseStatusCollection.refuse ? (
-          <SealRefuse
+          <SealImage
             hidden={sealRefuseVisibility !== whetherNumber.yes}
+            right="160px"
             image={sealRefuseImage ?? emptyImage}
+          />
+        ) : null}
+
+        {status === flowCaseStatusCollection.disuse ? (
+          <SealImage
+            hidden={sealDisuseVisibility !== whetherNumber.yes}
+            right="160px"
+            image={sealDisuseImage ?? emptyImage}
           />
         ) : null}
 

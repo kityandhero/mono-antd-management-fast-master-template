@@ -321,6 +321,16 @@ const fieldExtraData = {
     name: 'sealRefuseImage',
     helper: '',
   },
+  sealDisuseVisibility: {
+    label: '作废印章可见性',
+    name: 'sealDisuseVisibility',
+    helper: '',
+  },
+  sealDisuseImage: {
+    label: '作废印章图片',
+    name: 'sealDisuseImage',
+    helper: '',
+  },
 };
 
 export const fieldDataFlowCase = {
