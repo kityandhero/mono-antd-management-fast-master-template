@@ -47,6 +47,7 @@ import {
 } from '../Assist/action';
 import { fieldData } from '../Common/data';
 import { FormDocumentPreviewDrawer } from '../FormDocumentPreviewDrawer';
+import { OperateLogDrawer } from '../OperateLogDrawer';
 
 const { MultiPage } = DataMultiPageView;
 
@@ -135,6 +136,12 @@ class PageList extends MultiPage {
         break;
       }
 
+      case 'showOperateLog': {
+        this.showOperateLogDrawer(handleData);
+
+        break;
+      }
+
       case 'refreshCache': {
         this.refreshCache(handleData);
 
@@ -215,6 +222,17 @@ class PageList extends MultiPage {
     this.setState({ currentRecord: o }, () => {
       FormDocumentPreviewDrawer.open();
     });
+  };
+
+  showOperateLogDrawer = (item) => {
+    this.setState(
+      {
+        currentRecord: item,
+      },
+      () => {
+        OperateLogDrawer.open();
+      },
+    );
   };
 
   goToEdit = (item) => {
@@ -422,6 +440,17 @@ class PageList extends MultiPage {
           type: dropdownExpandItemType.divider,
         },
         {
+          key: 'showOperateLog',
+          icon: iconBuilder.read(),
+          text: '操作日志',
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowCase.pageListOperateLog.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
           text: '刷新缓存',
@@ -569,6 +598,8 @@ class PageList extends MultiPage {
         <FlowDisplayDrawer maskClosable externalData={currentRecord} />
 
         <FormDocumentPreviewDrawer maskClosable externalData={currentRecord} />
+
+        <OperateLogDrawer externalData={currentRecord} maskClosable />
       </>
     );
   };
