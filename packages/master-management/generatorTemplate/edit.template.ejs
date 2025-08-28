@@ -14,7 +14,6 @@ import {
   DataTabContainerSupplement,
   getChannelName,
 } from '../../../customSpecialComponents';
-import { modelTypeCollection } from '../../../modelBuilders';
 import {
   refreshCacheAction,
   setOfflineAction,
@@ -48,8 +47,7 @@ class Edit extends DataTabContainerSupplement {
     this.state = {
       ...this.state,
       pageTitle: '',
-      loadApiPath:
-        modelTypeCollection.<%= o.model %>TypeCollection.get,
+      loadApiPath: '<%= o.model %>/get',
       backPath: `/<%= o.model %>/pageList/key`,
       <%= o.key %>: null,
     };

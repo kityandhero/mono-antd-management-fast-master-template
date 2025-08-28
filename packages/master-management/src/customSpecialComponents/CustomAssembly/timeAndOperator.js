@@ -2,11 +2,6 @@ import {
   checkStringIsNullOrWhiteSpace,
   formatCollection,
   getValueByKey,
-  isArray,
-  isEmptyObject,
-  isNull,
-  isObject,
-  isUndefined,
   toNumber,
 } from 'easy-soft-utility';
 
@@ -29,43 +24,7 @@ export function buildNowTimeFieldItem({ title = '时间信息' }) {
   };
 }
 
-export function buildUpdateTimeAndOperatorFieldItem({
-  data,
-  line = 1,
-  additionalDataConfig = [],
-}) {
-  let externalData = [];
-
-  if (isArray(additionalDataConfig) && !isEmptyObject(additionalDataConfig)) {
-    for (const item of additionalDataConfig) {
-      const { fieldData, span = 1 } = {
-        span: 1,
-        fieldData: null,
-        ...item,
-      };
-
-      if (
-        isNull(fieldData) ||
-        isUndefined(fieldData) ||
-        !isObject(fieldData) ||
-        isEmptyObject(fieldData)
-      ) {
-        continue;
-      }
-
-      const o = {
-        span: span,
-        label: fieldData.label,
-        value: getValueByKey({
-          data: data,
-          key: fieldData.name,
-        }),
-      };
-
-      externalData.push(o);
-    }
-  }
-
+export function buildUpdateTimeAndOperatorFieldItem({ data, line = 1 }) {
   return {
     title: {
       icon: iconBuilder.contacts(),
@@ -76,7 +35,6 @@ export function buildUpdateTimeAndOperatorFieldItem({
         lg: 24,
         type: cardConfig.contentItemType.customGrid,
         list: [
-          ...externalData,
           {
             span: 1,
             label: formNameCollection.createOperatorId.label,

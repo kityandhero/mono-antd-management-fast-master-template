@@ -10,14 +10,12 @@ import {
 
 import {
   columnFacadeMode,
-  dropdownExpandItemType,
   searchCardConfig,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
-import { modelTypeCollection } from '../../../modelBuilders';
 import { refreshCacheAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 
@@ -37,9 +35,7 @@ class PageList extends MultiPage {
       ...this.state,
       pageTitle: '列表',
       paramsKey: accessWayCollection.<%= o.model%>.pageList.paramsKey,
-      loadApiPath:
-        modelTypeCollection.<%= o.model %>TypeCollection
-          .pageList,
+      loadApiPath: '<%= o.model%>/pageList',
       currentRecord: null,
     };
   }
@@ -109,10 +105,9 @@ class PageList extends MultiPage {
       },
       items: [
         {
-          type: dropdownExpandItemType.divider,
-        },
-        {
           key: 'refreshCache',
+          withDivider: true,
+          uponDivider: true,
           icon: iconBuilder.reload(),
           text: '刷新缓存',
           hidden: !checkHasAuthority(
