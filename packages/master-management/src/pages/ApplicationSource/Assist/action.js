@@ -2,6 +2,7 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { actionCore } from 'antd-management-fast-common';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 export async function setEnableAction({
@@ -11,7 +12,7 @@ export async function setEnableAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'applicationSource/setEnable',
+    api: modelTypeCollection.applicationSourceTypeCollection.setEnable,
     params: {
       applicationSourceId: getValueByKey({
         data: handleData,
@@ -32,7 +33,7 @@ export async function setDisableAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'applicationSource/setDisable',
+    api: modelTypeCollection.applicationSourceTypeCollection.setDisable,
     params: {
       applicationSourceId: getValueByKey({
         data: handleData,
@@ -53,7 +54,7 @@ export async function refreshCacheAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'applicationSource/refreshCache',
+    api: modelTypeCollection.applicationSourceTypeCollection.refreshCache,
     params: {
       applicationSourceId: getValueByKey({
         data: handleData,

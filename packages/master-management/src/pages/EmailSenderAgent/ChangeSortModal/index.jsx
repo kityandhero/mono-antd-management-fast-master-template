@@ -11,6 +11,7 @@ const { BaseUpdateModal } = DataModal;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = '595a7fed204b4cec8fce86716ef07a5a';
+
 @connect(({ emailSenderAgent, schedulingControl }) => ({
   emailSenderAgent,
   schedulingControl,
