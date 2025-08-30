@@ -110,6 +110,12 @@ class PageList extends MultiPage {
       emptyValue: '--',
     },
     {
+      dataTarget: fieldData.operatorModeNote,
+      width: 120,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
       dataTarget: fieldData.operatorId,
       width: 120,
       showRichFacade: true,

@@ -1,5 +1,13 @@
 import { formNameCollection } from '../../../customConfig';
 
+const fieldExtraData = {
+  operatorModeNote: {
+    label: '操作人模式',
+    name: 'operatorModeNote',
+    helper: '',
+  },
+};
+
 export const fieldData = {
   ...formNameCollection,
   operationLogId: {
@@ -22,6 +30,11 @@ export const fieldData = {
     name: 'operatorName',
     helper: '',
   },
+  operatorMode: {
+    label: '操作人模式',
+    name: 'operatorMode',
+    helper: '',
+  },
   title: {
     label: '标题',
     name: 'title',
@@ -37,9 +50,5 @@ export const fieldData = {
     name: 'tableName',
     helper: '',
   },
-  createTime: {
-    label: '创建时间',
-    name: 'createTime',
-    helper: '',
-  },
+  ...fieldExtraData,
 };
