@@ -8,3 +8,13 @@ export async function singleListData(parameters) {
     params: parameters,
   });
 }
+
+export const getCurrentOperationsDataApiAddress =
+  '/mongoSlowQueryInfo/getCurrentOperations';
+
+export async function getCurrentOperationsData(parameters) {
+  return request({
+    api: getCurrentOperationsDataApiAddress,
+    params: parameters,
+  });
+}

@@ -1,5 +1,13 @@
 import { formNameCollection } from '../../../customConfig';
 
+const fieldExtraData = {
+  currentOperation: {
+    label: '当前操作',
+    name: 'currentOperation',
+    helper: '',
+  },
+};
+
 export const fieldData = {
   ...formNameCollection,
   nameSpace: {
@@ -37,4 +45,5 @@ export const fieldData = {
     name: 'createTime',
     helper: '',
   },
+  ...fieldExtraData,
 };

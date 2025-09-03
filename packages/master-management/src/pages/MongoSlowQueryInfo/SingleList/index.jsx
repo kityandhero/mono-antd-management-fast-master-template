@@ -1,11 +1,14 @@
 import { connect } from 'easy-soft-dva';
+import { checkHasAuthority } from 'easy-soft-utility';
 
-import { columnFacadeMode } from 'antd-management-fast-common';
+import { columnFacadeMode, extraBuildType } from 'antd-management-fast-common';
+import { iconBuilder } from 'antd-management-fast-component';
 import { DataSinglePageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
 import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
+import { CurrentOperationDrawer } from '../CurrentOperationDrawer';
 
 const { SinglePage: SinglePageView } = DataSinglePageView;
 
@@ -28,6 +31,32 @@ class SinglePage extends SinglePageView {
         modelTypeCollection.mongoSlowQueryInfoTypeCollection.singleList,
     };
   }
+
+  showCurrentOperationDrawer = () => {
+    CurrentOperationDrawer.open();
+  };
+
+  establishExtraActionConfig = () => {
+    return {
+      list: [
+        {
+          buildType: extraBuildType.generalExtraButton,
+          type: 'default',
+          size: 'small',
+          icon: iconBuilder.read(),
+          text: '获取当前实时操作',
+          disabled: this.checkInProgress(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.mongoSlowQueryInfo.getCurrentOperations
+              .permission,
+          ),
+          handleClick: () => {
+            this.showCurrentOperationDrawer();
+          },
+        },
+      ],
+    };
+  };
 
   // establishListItemDropdownConfig = (record) => {
   //   return {
@@ -77,6 +106,14 @@ class SinglePage extends SinglePageView {
         },
       ],
     };
+  };
+
+  renderPresetOther = () => {
+    return (
+      <>
+        <CurrentOperationDrawer maskClosable />
+      </>
+    );
   };
 }
 

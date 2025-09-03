@@ -304,12 +304,12 @@ export const accessWayInfrastructureCollection = {
   },
   applicationNavigation: {
     pageList: {
-      title: '导航配置列表',
+      title: '分页列表',
       paramsKey: '315e150ff2e2fbbafdb5dfb21ae0823e',
       permission: '45427cdaee944822902a13427656568a',
     },
     get: {
-      title: '导航配置详情',
+      title: '详情',
       paramsKey: '715bac5fc9a5a643c2b920e44be40fd7',
       permission: 'cb5f2f0b816f45a092c543296a220850',
     },
@@ -366,12 +366,12 @@ export const accessWayInfrastructureCollection = {
   },
   applicationSource: {
     pageList: {
-      title: '应用源列表',
+      title: '分页列表',
       paramsKey: 'aedf4271279fb7f8484cecaef38cb151',
       permission: 'cf6dbb6965f547a08c6b29a752cc84bc',
     },
     singleList: {
-      title: '应用源列表',
+      title: '单页列表',
       paramsKey: 'be186f4a295f68a09418c62a72d6ec20',
       permission: '616093b00f18440694bcea021ec410f4',
     },
@@ -381,27 +381,27 @@ export const accessWayInfrastructureCollection = {
       permission: '7caa0bdc9cfb4f5ebbfe1c8208cd9c76',
     },
     get: {
-      title: '平台详情',
+      title: '获取详情',
       paramsKey: 'efbcf82a02410227cebebaab80386c48',
       permission: '40a38dd8884e43d2b78b62ac519332c9',
     },
     addBasicInfo: {
-      title: '新增应用源',
+      title: '新增',
       paramsKey: 'facb9345c5b4110b4b7d1adf7566883a',
       permission: '8cb182b7297c4e608ecb91616ee6251e',
     },
     updateBasicInfo: {
-      title: '更新信息',
+      title: '更新基础信息',
       paramsKey: '315595a6be2bd3d69dc906f0a9ac60ff',
       permission: '30509c1be6674d87afac7f3b76b5bb12',
     },
     setEnable: {
-      title: '开始运营',
+      title: '设为启用',
       paramsKey: '850ef4c50b66dd6cee50c45a18ad9fea',
       permission: '280cebfcd876400099ede64aa2203598',
     },
     setDisable: {
-      title: '停止运营',
+      title: '设为禁用',
       paramsKey: 'aba759e453c68ea7e4e7f1775854c17d',
       permission: 'dc7957ce92294e9c8671df92bda1f5f8',
     },
@@ -411,7 +411,7 @@ export const accessWayInfrastructureCollection = {
       permission: 'f7e9820c7c574442bf3573a2d9bc8b78',
     },
     uploadImage: {
-      title: '上传图片文件',
+      title: '上传图片',
       paramsKey: '5df2aab408ab9d57c61214a8f9f42c60',
       permission: 'e7313eacb22048c2bcb803b432fd0aad',
     },
@@ -455,12 +455,12 @@ export const accessWayInfrastructureCollection = {
   },
   applicationVersion: {
     pageList: {
-      title: '版本列表',
+      title: '分页列表',
       paramsKey: '34cded45a7ec18357ad34d5e343e3482',
       permission: 'dd80922beeb449adbf583d42144c4413',
     },
     singleList: {
-      title: '版本列表',
+      title: '单页列表',
       paramsKey: '5b662c35c5b9a9e3eae6a295218f1a58',
       permission: 'e3036405d05142f2a911ba2344343f4b',
     },
@@ -470,12 +470,12 @@ export const accessWayInfrastructureCollection = {
       permission: '0b4e68c92fd64501a82641e914f15479',
     },
     get: {
-      title: '版本详情',
+      title: '获取详情',
       paramsKey: '5f7a97379037972e8c47a236c9ef2b5f',
       permission: '2be8d0995d664bdb8aa3dafcfc6a24bb',
     },
     addBasicInfo: {
-      title: '新增版本',
+      title: '新增',
       paramsKey: '01bf2586fb35f5329e4ac036bb048aa4',
       permission: '06969d388b78468da3c583a1c1616eff',
     },
@@ -512,12 +512,12 @@ export const accessWayInfrastructureCollection = {
   },
   articleNotificationApplication: {
     pageList: {
-      title: '设置列表',
+      title: '分页列表',
       paramsKey: '54befb83b89f9ff095cc302b98234e3b',
       permission: 'd64d6d20eb1d4c71a381806e7ea13a39',
     },
     get: {
-      title: '设置详情',
+      title: '详情',
       paramsKey: 'd6949781f33e6b27d06e21013aef25ae',
       permission: '8088ee2227c14aceb7900ec0ee02eeb7',
     },
@@ -710,24 +710,24 @@ export const accessWayInfrastructureCollection = {
       permission: 'f2580cdf96a14e9dac3ee941318d7410',
     },
     get: {
-      title: '开关详情',
+      title: '获取详情',
       paramsKey: '1e8496a1b67d552e27d2c8f48823b810',
       permission: 'a6a8e78cf95e4aa38a634034d0c93966',
     },
   },
   channelExecuteLogSwitch: {
     pageList: {
-      title: '开关分页列表',
+      title: '分页列表',
       paramsKey: 'f10c517c09c11a460d5d62fa3f119963',
       permission: 'd5bae7b1222c4c08905c702d6ae6cf63',
     },
     singleList: {
-      title: '开关单页列表',
+      title: '单页列表',
       paramsKey: '309120db21a4029c0cde890a88f69536',
       permission: 'f57ad482becd49438157599aa20aee7e',
     },
     get: {
-      title: '开关详情',
+      title: '获取详情',
       paramsKey: '50184b2a737e28df60ac95f359af0f88',
       permission: '69b5f6cdd4bb49cba2ee047fcaf38bc5',
     },
@@ -744,17 +744,17 @@ export const accessWayInfrastructureCollection = {
   },
   channelSqlLogSwitch: {
     pageList: {
-      title: '开关分页列表',
+      title: '分页列表',
       paramsKey: '7415d3b102421de0faf239a09602662a',
       permission: '5507c240c747406f9787530663812b12',
     },
     singleList: {
-      title: '开关单页列表',
+      title: '单页列表',
       paramsKey: 'f6a92e6524bdd78adae7f0bbacbe1e6f',
       permission: 'e3a65e7c098f4ac5a78458e5c33365ff',
     },
     get: {
-      title: '平台详情',
+      title: '获取详情',
       paramsKey: '5aaaece56e4407b50a9d8a9f367200e2',
       permission: '15434b3c2c40413cab40c370b9a5c87a',
     },
@@ -771,12 +771,12 @@ export const accessWayInfrastructureCollection = {
   },
   cloudStorage: {
     pageList: {
-      title: '文件列表',
+      title: '分页列表',
       paramsKey: '41f5b9ab5e5df24bfe22e5df202e8214',
       permission: '53bd06f5e15b465f98d905514dca82b5',
     },
     get: {
-      title: '文件详情',
+      title: '获取详情',
       paramsKey: 'd5fcba460423931cbdf780af542717f7',
       permission: 'dfb78791619644fa96d20f8409b8a452',
     },
@@ -986,7 +986,7 @@ export const accessWayInfrastructureCollection = {
       permission: '957e48a4b2ed4b6d998313643b471b07',
     },
     get: {
-      title: '部门详情',
+      title: '获取详情',
       paramsKey: '5963788af66d6ea751a1bda6ade16135',
       permission: 'f17c937e77bc45199adde1e26f6f97ba',
     },
@@ -1048,7 +1048,7 @@ export const accessWayInfrastructureCollection = {
       permission: '8138619f5ab74db2983ee12bff5d7aa3',
     },
     addBasicInfo: {
-      title: '新建分类',
+      title: '新建',
       paramsKey: 'eb0e43f6870df93ad78bd932183fdd13',
       permission: '676f8efe182d409cbf3e12f4363f8858',
     },
@@ -1090,7 +1090,7 @@ export const accessWayInfrastructureCollection = {
   },
   errorLog: {
     pageList: {
-      title: '日志列表',
+      title: '分页列表',
       paramsKey: 'f7f8013d157462f198b75772861af658',
       permission: '01fa04253c48426b9eb1e6d2e898766e',
     },
@@ -1122,7 +1122,7 @@ export const accessWayInfrastructureCollection = {
   },
   executeLog: {
     pageList: {
-      title: '日志列表',
+      title: '分页列表',
       paramsKey: '5e237d5ebcfcbb51f2cd5ffc84bd9788',
       permission: '16c1619a1f944ee8ba6f3f4c110a76dd',
     },
@@ -1132,17 +1132,17 @@ export const accessWayInfrastructureCollection = {
       permission: '98eb75e19ade4fb7b91ff4773a100ffc',
     },
     remove: {
-      title: '删除日志',
+      title: '删除',
       paramsKey: 'c7e2af5b729b60999539360eb947c60e',
       permission: '49e91561ed874cbcb8a1f4ea072b0fac',
     },
     removeMulti: {
-      title: '批量删除日志',
+      title: '批量删除',
       paramsKey: 'ac9a4e57376234d147b4f82cc20ba0c8',
       permission: 'df710c0195784fc99611d9abdb2680e1',
     },
     removeAll: {
-      title: '全量删除日志',
+      title: '全量删除',
       paramsKey: 'eaf6294983084bc6cc333874017e82c8',
       permission: '889bdfab8e77408eb7a2bc889bb7d001',
     },
@@ -1216,7 +1216,7 @@ export const accessWayInfrastructureCollection = {
       permission: 'a5be9d301c0a455aadd1dcb4fe6d8a18',
     },
     addBasicInfo: {
-      title: '新建分类',
+      title: '新建',
       paramsKey: '29550704f241e6e6edfdf98589502079',
       permission: 'bab749af9674462382d1c50789f1a004',
     },
@@ -1315,27 +1315,27 @@ export const accessWayInfrastructureCollection = {
   },
   generalLog: {
     pageList: {
-      title: '日志列表',
+      title: '分页列表',
       paramsKey: 'df3fb02561f3aa25dc189a13c6a1b9e5',
       permission: 'ef466bf7fe294d1d82d06cae1c29c3df',
     },
     get: {
-      title: '日志详情',
+      title: '获取详情',
       paramsKey: '930da33ac2ffc34f50ed43dc6f9a20f3',
       permission: 'c5894f626f6d4750b8f0a05df22beaaa',
     },
     remove: {
-      title: '删除日志',
+      title: '删除',
       paramsKey: '81c882b4f8e1dfb8ba361ea2f7f14f7f',
       permission: 'e63dc2fc38c247f7ac012182bffe6867',
     },
     removeMulti: {
-      title: '批量删除日志',
+      title: '批量删除',
       paramsKey: 'c5426e84b963633eea2d39cda350dd49',
       permission: '0866265a4b3944549127c1cc0d35a6e6',
     },
     removeAll: {
-      title: '全量删除日志',
+      title: '全量删除',
       paramsKey: '74c9e268baa08f4d25cd3176a711ea62',
       permission: '1ef39adf6ad74cfdaedae527ef40322d',
     },
@@ -1369,27 +1369,27 @@ export const accessWayInfrastructureCollection = {
   },
   hostServiceLog: {
     pageList: {
-      title: '日志列表',
+      title: '分页列表',
       paramsKey: '78c923e1ea88a8e15555ade9dcac6731',
       permission: 'bb135bd6e8a04d328dd9cc288abe1882',
     },
     get: {
-      title: '日志详情',
+      title: '获取详情',
       paramsKey: '522588b116875a4736754f232e02bb6f',
       permission: '547011be8fbc4b4199cb79a49f1e8104',
     },
     remove: {
-      title: '删除日志',
+      title: '删除',
       paramsKey: '66a69ae7c434a7e4960c4039f4aa3655',
       permission: '0eae52b85912470bb2b898439c963969',
     },
     removeMulti: {
-      title: '批量删除日志',
+      title: '批量删除',
       paramsKey: '6a36cd778f209798cc942ebee824a4c7',
       permission: 'fc4d4b31f3164a4facb57322c5c96932',
     },
     removeAll: {
-      title: '全量删除日志',
+      title: '全量删除',
       paramsKey: '25d91de24928c3f5ffc1208c1a0e1655',
       permission: 'de7e18159e714d3fa1a3d931159d1ad3',
     },
@@ -1406,7 +1406,7 @@ export const accessWayInfrastructureCollection = {
       permission: 'e2624321cc70422e8f50fc49f76e36ed',
     },
     get: {
-      title: '获取列表',
+      title: '获取详情',
       paramsKey: '86705224223ac4e0864fbe1896a6a22f',
       permission: 'b8cb4e2bfa8c4322b109b6dabdd028c4',
     },
@@ -1416,7 +1416,7 @@ export const accessWayInfrastructureCollection = {
       permission: '23f9775f61da43a0a588e2578656a35e',
     },
     remove: {
-      title: '移除数据',
+      title: '移除',
       paramsKey: '6be3c27d7df1694b3052f4f84aa3aaaa',
       permission: '593926be80be47f9a0422d8d9351a0f2',
     },
@@ -1624,12 +1624,27 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '09ed427c385e4ce91457fe2800ac7c82',
       permission: '09c453e5c04944fb83601e8b1d26fc5f',
     },
+    getCurrentOperations: {
+      title: '获取当前操作',
+      paramsKey: '7ea52f728b65276e6e77fc828a954fd1',
+      permission: '13b431402f4f494c8c6a48fcbc43bff2',
+    },
   },
   operationLog: {
     pageList: {
       title: '分页列表',
       paramsKey: '9b3b122963a1f8631931ab47aa0aa175',
       permission: '402c66a920ea40b7a16da18d8092cbc1',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: 'a2db56dae7441ecf51dd348e8669592a',
+      permission: 'aaab8233b38b4f08a884907399032f2c',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '9b093f550a5a5bcacd3fba90dc1a3515',
+      permission: '48e15be44a624b09a4f2346c84b4b637',
     },
   },
   optionPool: {
@@ -1921,7 +1936,7 @@ export const accessWayInfrastructureCollection = {
       permission: '48efd6a4d2da473f8079ac9b3dfcf241',
     },
     addBasicInfo: {
-      title: '新建分类',
+      title: '新建',
       paramsKey: 'be8e31000e2b430aeaf0cb59d2279c5c',
       permission: '67401d508a8a4208bff3326744866014',
     },
@@ -2256,17 +2271,17 @@ export const accessWayInfrastructureCollection = {
       permission: '7861a8184ffd46f1b498c650c8cc594b',
     },
     add: {
-      title: '新增标签关系',
+      title: '新增',
       paramsKey: '2db962d3b2bb91506cba304354dfd160',
       permission: 'eb7b94a595ea4f19930cb315be20b21e',
     },
     addBatch: {
-      title: '批量新增标签关系',
+      title: '批量新增',
       paramsKey: 'e7576c0e20b404e6f731d2e65f69cfd0',
       permission: 'c26cdb3076ac407f88bc69fb3384f68d',
     },
     remove: {
-      title: '移除标签关系',
+      title: '移除',
       paramsKey: '0d61768647ccab8d62a42cd9d2cbc35f',
       permission: 'ad821691e6f34e66a56c4fc798e683ce',
     },
@@ -2477,7 +2492,7 @@ export const accessWayInfrastructureCollection = {
       permission: '165bb5ded84b4d10b1f86849499f2c76',
     },
     addBasicInfo: {
-      title: '新增基础信息',
+      title: '新增',
       paramsKey: 'c2d48d0ee47088fba6837c82571e33bf',
       permission: '4d0ca5ad2cb64385be8f6ce76dd6ce5c',
     },
@@ -2634,27 +2649,27 @@ export const accessWayInfrastructureCollection = {
   },
   sqlLog: {
     pageList: {
-      title: '日志列表',
+      title: '分页列表',
       paramsKey: '086e374552a29849628c495301039622',
       permission: 'ce9083bcfcbf49cda36efed57dc99d73',
     },
     get: {
-      title: '日志详情',
+      title: '获取详情',
       paramsKey: 'dd5dea35ef774700b6a6d2536be61b23',
       permission: '5de8cfd126104a2a9d9291cac1925f4e',
     },
     remove: {
-      title: '删除日志',
+      title: '删除',
       paramsKey: 'b5adb4bbfbc0f5bc7c22cbe15583d8ca',
       permission: 'c2507f6fca244b0ea99f4711c1635db5',
     },
     removeMulti: {
-      title: '批量删除日志',
+      title: '批量删除',
       paramsKey: 'a998695c9b5eb10063dfdb748205f5d6',
       permission: '3fefa736a8ba4895872a96048a47eb3a',
     },
     removeAll: {
-      title: '全量删除日志',
+      title: '全量删除',
       paramsKey: 'a0ceef45ff766f5a9d14bba5a593b7f4',
       permission: '04d8b8b8c4b4461e8534b499a2ad1c63',
     },
@@ -2906,22 +2921,22 @@ export const accessWayInfrastructureCollection = {
   },
   tag: {
     pageList: {
-      title: '标签列表',
+      title: '分页列表',
       paramsKey: '1c9247614e2c577a940ea9dcbec32b4e',
       permission: 'd8025a63b4f546d5845d0b7828edaaaa',
     },
     pageListWithQuestion: {
-      title: '用于问题的标签列表',
+      title: '用于问题的标签分页列表',
       paramsKey: '4eeae8b3f638b569eeb58000aec3c84b',
       permission: '8074212c5422472c83a96f061d6b4a01',
     },
     pageListWithNotice: {
-      title: '用于通知的标签列表',
+      title: '用于通知的标签分页列表',
       paramsKey: '1eb962affb151d65e4fa4a671e0ff375',
       permission: 'd10e73c8651146dab655d19721d05b51',
     },
     pageListWithWorkflow: {
-      title: '用于流程的标签列表',
+      title: '用于流程的标签分页列表',
       paramsKey: 'bdf6aed301dae7d2ae6fae6d6ffbe27e',
       permission: 'd902450dc3ef44fa97a6802bf07167c7',
     },
@@ -2931,27 +2946,27 @@ export const accessWayInfrastructureCollection = {
       permission: '28e952194bd746949c82cd9a3cf27e92',
     },
     singleListWithQuestion: {
-      title: '单页列表',
+      title: '用于问题的标签单页列表',
       paramsKey: '300077be69cba7b870285a2d549474d6',
       permission: '1dd958def8f24b4a975662d5bc2e6307',
     },
     singleListWithNotice: {
-      title: '单页列表',
+      title: '用于通知的标签单页列表',
       paramsKey: 'e1709a03c66df970653c23f4d78f952a',
       permission: '78061014dc924f058470e68a1040ffa3',
     },
     singleListWithWorkflow: {
-      title: '单页列表',
+      title: '用于工作流的标签单页列表',
       paramsKey: '2d894088d40e1ba97c13f783709e6f4a',
       permission: 'b2e8b117c2574448832bc093d7c33aff',
     },
     get: {
-      title: '标签详情',
+      title: '获取详情',
       paramsKey: 'e91a0fb98df9638e13189aaaa26d9982',
       permission: '53e20f79165b466695f05fc6103c90ce',
     },
     addBasicInfo: {
-      title: '更新信息',
+      title: '新增',
       paramsKey: 'b87524668635708f4744c082d853fc5d',
       permission: '0a4c0b8992be442d9ed7d1f273919378',
     },
@@ -2991,7 +3006,7 @@ export const accessWayInfrastructureCollection = {
       permission: '770c0c2cdafc4db7b26bc36fc296359e',
     },
     remove: {
-      title: '删除标签',
+      title: '删除',
       paramsKey: '121264724b5b6bbdeec08eda9df10ca8',
       permission: '1b56dc0fffb346f198c896e890910e4c',
     },
@@ -3018,7 +3033,7 @@ export const accessWayInfrastructureCollection = {
       permission: 'c2cc84e3ab3b45a2959f60589f5d1017',
     },
     remove: {
-      title: '删除上传',
+      title: '删除',
       paramsKey: '4b086efb982046fb8c1508fc6b97cfa3',
       permission: '8beb5367c80140ad8e0f02e62f9cf261',
     },
@@ -3396,17 +3411,17 @@ export const accessWayInfrastructureCollection = {
       permission: '148b3daa22df492c9eb8511f58b9bca1',
     },
     remove: {
-      title: '删除日志',
+      title: '删除',
       paramsKey: '71704d8a1b2ab64e306cdbdd1bdbcc37',
       permission: '901b1433090647de8151056b941dd782',
     },
     removeMulti: {
-      title: '批量删除日志',
+      title: '批量删除',
       paramsKey: 'dba8f68e6cc3e6ceeb71a7bf3419275a',
       permission: '79d28c77f0ed4f7fbc76f7522cf23cfd',
     },
     removeAll: {
-      title: '全量删除日志',
+      title: '全量删除',
       paramsKey: '5cbfa524b6a9e0173203185e9cce5d62',
       permission: '7cf91d92fb124724a51f16f11e9c3184',
     },

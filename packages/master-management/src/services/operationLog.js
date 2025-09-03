@@ -8,3 +8,21 @@ export async function pageListData(parameters) {
     params: parameters,
   });
 }
+
+export const getDataApiAddress = '/operationLog/get';
+
+export async function getData(parameters) {
+  return request({
+    api: getDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const refreshCacheDataApiAddress = '/operationLog/refreshCache';
+
+export async function refreshCacheData(parameters) {
+  return request({
+    api: refreshCacheDataApiAddress,
+    params: parameters,
+  });
+}

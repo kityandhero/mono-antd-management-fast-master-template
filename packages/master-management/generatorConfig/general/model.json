@@ -493,14 +493,14 @@
     {
       "apis": [
         {
-          "title": "导航配置列表",
+          "title": "分页列表",
           "api": "/applicationNavigation/pageList",
           "effect": "pageList",
           "service": "pageListData",
           "type": "pageList"
         },
         {
-          "title": "导航配置详情",
+          "title": "详情",
           "api": "/applicationNavigation/get",
           "effect": "get",
           "service": "getData",
@@ -598,14 +598,14 @@
     {
       "apis": [
         {
-          "title": "应用源列表",
+          "title": "分页列表",
           "api": "/applicationSource/pageList",
           "effect": "pageList",
           "service": "pageListData",
           "type": "pageList"
         },
         {
-          "title": "应用源列表",
+          "title": "单页列表",
           "api": "/applicationSource/singleList",
           "effect": "singleList",
           "service": "singleListData",
@@ -619,35 +619,35 @@
           "type": "pageList"
         },
         {
-          "title": "平台详情",
+          "title": "获取详情",
           "api": "/applicationSource/get",
           "effect": "get",
           "service": "getData",
           "type": "singleData"
         },
         {
-          "title": "新增应用源",
+          "title": "新增",
           "api": "/applicationSource/addBasicInfo",
           "effect": "addBasicInfo",
           "service": "addBasicInfoData",
           "type": "singleData"
         },
         {
-          "title": "更新信息",
+          "title": "更新基础信息",
           "api": "/applicationSource/updateBasicInfo",
           "effect": "updateBasicInfo",
           "service": "updateBasicInfoData",
           "type": "singleData"
         },
         {
-          "title": "开始运营",
+          "title": "设为启用",
           "api": "/applicationSource/setEnable",
           "effect": "setEnable",
           "service": "setEnableData",
           "type": "singleData"
         },
         {
-          "title": "停止运营",
+          "title": "设为禁用",
           "api": "/applicationSource/setDisable",
           "effect": "setDisable",
           "service": "setDisableData",
@@ -661,7 +661,7 @@
           "type": "singleData"
         },
         {
-          "title": "上传图片文件",
+          "title": "上传图片",
           "api": "/applicationSource/uploadImage",
           "effect": "uploadImage",
           "service": "uploadImageData",
@@ -731,14 +731,14 @@
     {
       "apis": [
         {
-          "title": "版本列表",
+          "title": "分页列表",
           "api": "/applicationVersion/pageList",
           "effect": "pageList",
           "service": "pageListData",
           "type": "pageList"
         },
         {
-          "title": "版本列表",
+          "title": "单页列表",
           "api": "/applicationVersion/singleList",
           "effect": "singleList",
           "service": "singleListData",
@@ -752,14 +752,14 @@
           "type": "pageList"
         },
         {
-          "title": "版本详情",
+          "title": "获取详情",
           "api": "/applicationVersion/get",
           "effect": "get",
           "service": "getData",
           "type": "singleData"
         },
         {
-          "title": "新增版本",
+          "title": "新增",
           "api": "/applicationVersion/addBasicInfo",
           "effect": "addBasicInfo",
           "service": "addBasicInfoData",
@@ -815,14 +815,14 @@
     {
       "apis": [
         {
-          "title": "设置列表",
+          "title": "分页列表",
           "api": "/articleNotificationApplication/pageList",
           "effect": "pageList",
           "service": "pageListData",
           "type": "pageList"
         },
         {
-          "title": "设置详情",
+          "title": "详情",
           "api": "/articleNotificationApplication/get",
           "effect": "get",
           "service": "getData",
@@ -1130,7 +1130,7 @@
           "type": "singleList"
         },
         {
-          "title": "开关详情",
+          "title": "获取详情",
           "api": "/channel/get",
           "effect": "get",
           "service": "getData",
@@ -1144,21 +1144,21 @@
     {
       "apis": [
         {
-          "title": "开关分页列表",
+          "title": "分页列表",
           "api": "/channelExecuteLogSwitch/pageList",
           "effect": "pageList",
           "service": "pageListData",
           "type": "pageList"
         },
         {
-          "title": "开关单页列表",
+          "title": "单页列表",
           "api": "/channelExecuteLogSwitch/singleList",
           "effect": "singleList",
           "service": "singleListData",
           "type": "singleList"
         },
         {
-          "title": "开关详情",
+          "title": "获取详情",
           "api": "/channelExecuteLogSwitch/get",
           "effect": "get",
           "service": "getData",
@@ -1186,21 +1186,21 @@
     {
       "apis": [
         {
-          "title": "开关分页列表",
+          "title": "分页列表",
           "api": "/channelSqlLogSwitch/pageList",
           "effect": "pageList",
           "service": "pageListData",
           "type": "pageList"
         },
         {
-          "title": "开关单页列表",
+          "title": "单页列表",
           "api": "/channelSqlLogSwitch/singleList",
           "effect": "singleList",
           "service": "singleListData",
           "type": "singleList"
         },
         {
-          "title": "平台详情",
+          "title": "获取详情",
           "api": "/channelSqlLogSwitch/get",
           "effect": "get",
           "service": "getData",
@@ -1222,20 +1222,20 @@
         }
       ],
       "cover": true,
-      "title": "Sql日志开关",
+      "title": "SQL日志开关",
       "name": "channelSqlLogSwitch"
     },
     {
       "apis": [
         {
-          "title": "文件列表",
+          "title": "分页列表",
           "api": "/cloudStorage/pageList",
           "effect": "pageList",
           "service": "pageListData",
           "type": "pageList"
         },
         {
-          "title": "文件详情",
+          "title": "获取详情",
           "api": "/cloudStorage/get",
           "effect": "get",
           "service": "getData",
@@ -1298,7 +1298,7 @@
           "type": "singleData"
         },
         {
-          "title": "登录记录列表",
+          "title": "登录记录分页列表",
           "api": "/currentAccount/pageListLoginLog",
           "effect": "pageListLoginLog",
           "service": "pageListLoginLogData",
@@ -1641,7 +1641,7 @@
           "type": "singleList"
         },
         {
-          "title": "部门详情",
+          "title": "获取详情",
           "api": "/department/get",
           "effect": "get",
           "service": "getData",
@@ -1753,7 +1753,7 @@
           "type": "singleData"
         },
         {
-          "title": "新建分类",
+          "title": "新建",
           "api": "/emailSenderAgent/addBasicInfo",
           "effect": "addBasicInfo",
           "service": "addBasicInfoData",
@@ -1816,7 +1816,7 @@
     {
       "apis": [
         {
-          "title": "日志列表",
+          "title": "分页列表",
           "api": "/errorLog/pageList",
           "effect": "pageList",
           "service": "pageListData",
@@ -1865,7 +1865,7 @@
     {
       "apis": [
         {
-          "title": "日志列表",
+          "title": "分页列表",
           "api": "/executeLog/pageList",
           "effect": "pageList",
           "service": "pageListData",
@@ -1879,21 +1879,21 @@
           "type": "singleData"
         },
         {
-          "title": "删除日志",
+          "title": "删除",
           "api": "/executeLog/remove",
           "effect": "remove",
           "service": "removeData",
           "type": "singleData"
         },
         {
-          "title": "批量删除日志",
+          "title": "批量删除",
           "api": "/executeLog/removeMulti",
           "effect": "removeMulti",
           "service": "removeMultiData",
           "type": "singleData"
         },
         {
-          "title": "全量删除日志",
+          "title": "全量删除",
           "api": "/executeLog/removeAll",
           "effect": "removeAll",
           "service": "removeAllData",
@@ -2026,7 +2026,7 @@
           "type": "singleData"
         },
         {
-          "title": "新建分类",
+          "title": "新建",
           "api": "/galleryCategory/addBasicInfo",
           "effect": "addBasicInfo",
           "service": "addBasicInfoData",
@@ -2173,35 +2173,35 @@
     {
       "apis": [
         {
-          "title": "日志列表",
+          "title": "分页列表",
           "api": "/generalLog/pageList",
           "effect": "pageList",
           "service": "pageListData",
           "type": "pageList"
         },
         {
-          "title": "日志详情",
+          "title": "获取详情",
           "api": "/generalLog/get",
           "effect": "get",
           "service": "getData",
           "type": "singleData"
         },
         {
-          "title": "删除日志",
+          "title": "删除",
           "api": "/generalLog/remove",
           "effect": "remove",
           "service": "removeData",
           "type": "singleData"
         },
         {
-          "title": "批量删除日志",
+          "title": "批量删除",
           "api": "/generalLog/removeMulti",
           "effect": "removeMulti",
           "service": "removeMultiData",
           "type": "singleData"
         },
         {
-          "title": "全量删除日志",
+          "title": "全量删除",
           "api": "/generalLog/removeAll",
           "effect": "removeAll",
           "service": "removeAllData",
@@ -2257,35 +2257,35 @@
     {
       "apis": [
         {
-          "title": "日志列表",
+          "title": "分页列表",
           "api": "/hostServiceLog/pageList",
           "effect": "pageList",
           "service": "pageListData",
           "type": "pageList"
         },
         {
-          "title": "日志详情",
+          "title": "获取详情",
           "api": "/hostServiceLog/get",
           "effect": "get",
           "service": "getData",
           "type": "singleData"
         },
         {
-          "title": "删除日志",
+          "title": "删除",
           "api": "/hostServiceLog/remove",
           "effect": "remove",
           "service": "removeData",
           "type": "singleData"
         },
         {
-          "title": "批量删除日志",
+          "title": "批量删除",
           "api": "/hostServiceLog/removeMulti",
           "effect": "removeMulti",
           "service": "removeMultiData",
           "type": "singleData"
         },
         {
-          "title": "全量删除日志",
+          "title": "全量删除",
           "api": "/hostServiceLog/removeAll",
           "effect": "removeAll",
           "service": "removeAllData",
@@ -2313,7 +2313,7 @@
           "type": "pageList"
         },
         {
-          "title": "获取列表",
+          "title": "获取详情",
           "api": "/internalTester/get",
           "effect": "get",
           "service": "getData",
@@ -2327,7 +2327,7 @@
           "type": "singleData"
         },
         {
-          "title": "移除数据",
+          "title": "移除",
           "api": "/internalTester/remove",
           "effect": "remove",
           "service": "removeData",
@@ -2668,6 +2668,13 @@
           "effect": "singleList",
           "service": "singleListData",
           "type": "singleList"
+        },
+        {
+          "title": "获取当前操作",
+          "api": "/mongoSlowQueryInfo/getCurrentOperations",
+          "effect": "getCurrentOperations",
+          "service": "getCurrentOperationsData",
+          "type": "singleData"
         }
       ],
       "cover": true,
@@ -2682,6 +2689,20 @@
           "effect": "pageList",
           "service": "pageListData",
           "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/operationLog/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/operationLog/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
         }
       ],
       "cover": true,
@@ -3160,7 +3181,7 @@
           "type": "singleData"
         },
         {
-          "title": "新建分类",
+          "title": "新建",
           "api": "/qrCodeCategory/addBasicInfo",
           "effect": "addBasicInfo",
           "service": "addBasicInfoData",
@@ -3699,21 +3720,21 @@
           "type": "singleData"
         },
         {
-          "title": "新增标签关系",
+          "title": "新增",
           "api": "/questionTagRelation/add",
           "effect": "add",
           "service": "addData",
           "type": "singleData"
         },
         {
-          "title": "批量新增标签关系",
+          "title": "批量新增",
           "api": "/questionTagRelation/addBatch",
           "effect": "addBatch",
           "service": "addBatchData",
           "type": "singleData"
         },
         {
-          "title": "移除标签关系",
+          "title": "移除",
           "api": "/questionTagRelation/remove",
           "effect": "remove",
           "service": "removeData",
@@ -4035,7 +4056,7 @@
           "type": "singleData"
         },
         {
-          "title": "新增基础信息",
+          "title": "新增",
           "api": "/sectionApplicationConfig/addBasicInfo",
           "effect": "addBasicInfo",
           "service": "addBasicInfoData",
@@ -4294,35 +4315,35 @@
     {
       "apis": [
         {
-          "title": "日志列表",
+          "title": "分页列表",
           "api": "/sqlLog/pageList",
           "effect": "pageList",
           "service": "pageListData",
           "type": "pageList"
         },
         {
-          "title": "日志详情",
+          "title": "获取详情",
           "api": "/sqlLog/get",
           "effect": "get",
           "service": "getData",
           "type": "singleData"
         },
         {
-          "title": "删除日志",
+          "title": "删除",
           "api": "/sqlLog/remove",
           "effect": "remove",
           "service": "removeData",
           "type": "singleData"
         },
         {
-          "title": "批量删除日志",
+          "title": "批量删除",
           "api": "/sqlLog/removeMulti",
           "effect": "removeMulti",
           "service": "removeMultiData",
           "type": "singleData"
         },
         {
-          "title": "全量删除日志",
+          "title": "全量删除",
           "api": "/sqlLog/removeAll",
           "effect": "removeAll",
           "service": "removeAllData",
@@ -4337,7 +4358,7 @@
         }
       ],
       "cover": true,
-      "title": "Sql执行日志",
+      "title": "SQL执行日志",
       "name": "sqlLog"
     },
     {
@@ -4728,28 +4749,28 @@
     {
       "apis": [
         {
-          "title": "标签列表",
+          "title": "分页列表",
           "api": "/tag/pageList",
           "effect": "pageList",
           "service": "pageListData",
           "type": "pageList"
         },
         {
-          "title": "用于问题的标签列表",
+          "title": "用于问题的标签分页列表",
           "api": "/tag/pageListWithQuestion",
           "effect": "pageListWithQuestion",
           "service": "pageListWithQuestionData",
           "type": "pageList"
         },
         {
-          "title": "用于通知的标签列表",
+          "title": "用于通知的标签分页列表",
           "api": "/tag/pageListWithNotice",
           "effect": "pageListWithNotice",
           "service": "pageListWithNoticeData",
           "type": "pageList"
         },
         {
-          "title": "用于流程的标签列表",
+          "title": "用于流程的标签分页列表",
           "api": "/tag/pageListWithWorkflow",
           "effect": "pageListWithWorkflow",
           "service": "pageListWithWorkflowData",
@@ -4763,21 +4784,21 @@
           "type": "singleList"
         },
         {
-          "title": "单页列表",
+          "title": "用于问题的标签单页列表",
           "api": "/tag/singleListWithQuestion",
           "effect": "singleListWithQuestion",
           "service": "singleListWithQuestionData",
           "type": "singleList"
         },
         {
-          "title": "单页列表",
+          "title": "用于通知的标签单页列表",
           "api": "/tag/singleListWithNotice",
           "effect": "singleListWithNotice",
           "service": "singleListWithNoticeData",
           "type": "singleList"
         },
         {
-          "title": "单页列表",
+          "title": "用于工作流的标签单页列表",
           "api": "/tag/singleListWithWorkflow",
           "effect": "singleListWithWorkflow",
           "service": "singleListWithWorkflowData",
@@ -4812,14 +4833,14 @@
           "type": "singleList"
         },
         {
-          "title": "标签详情",
+          "title": "获取详情",
           "api": "/tag/get",
           "effect": "get",
           "service": "getData",
           "type": "singleData"
         },
         {
-          "title": "更新信息",
+          "title": "新增",
           "api": "/tag/addBasicInfo",
           "effect": "addBasicInfo",
           "service": "addBasicInfoData",
@@ -4875,7 +4896,7 @@
           "type": "singleData"
         },
         {
-          "title": "删除标签",
+          "title": "删除",
           "api": "/tag/remove",
           "effect": "remove",
           "service": "removeData",
@@ -4924,7 +4945,7 @@
           "type": "singleData"
         },
         {
-          "title": "删除上传",
+          "title": "删除",
           "api": "/uploadHistory/remove",
           "effect": "remove",
           "service": "removeData",
@@ -5526,21 +5547,21 @@
           "type": "singleData"
         },
         {
-          "title": "删除日志",
+          "title": "删除",
           "api": "/weChatMessageRecord/remove",
           "effect": "remove",
           "service": "removeData",
           "type": "singleData"
         },
         {
-          "title": "批量删除日志",
+          "title": "批量删除",
           "api": "/weChatMessageRecord/removeMulti",
           "effect": "removeMulti",
           "service": "removeMultiData",
           "type": "singleData"
         },
         {
-          "title": "全量删除日志",
+          "title": "全量删除",
           "api": "/weChatMessageRecord/removeAll",
           "effect": "removeAll",
           "service": "removeAllData",
