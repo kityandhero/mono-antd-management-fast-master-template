@@ -1629,6 +1629,21 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '7ea52f728b65276e6e77fc828a954fd1',
       permission: '13b431402f4f494c8c6a48fcbc43bff2',
     },
+    getProfilingStatus: {
+      title: '获取 Profiling 信息',
+      paramsKey: '474afefe133125a2e0fa2da6ab0ce83c',
+      permission: 'fb8596a1c2864398a2964bc7343f1399',
+    },
+    openSlowQueryRecord: {
+      title: '开启慢查询记录（100ms)',
+      paramsKey: 'e2c706b47d1621a7280f1a59a76bb448',
+      permission: 'b0e553cef8e441e4bc0ebd373a32fc68',
+    },
+    closeSlowQueryRecord: {
+      title: '关闭慢查询记',
+      paramsKey: 'c8563d605ae21565abcfb5e4e87d2436',
+      permission: '7f1c5a16ee654f9e865248aac12d5b6a',
+    },
   },
   operationLog: {
     pageList: {

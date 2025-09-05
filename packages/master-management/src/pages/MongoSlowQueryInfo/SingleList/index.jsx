@@ -1,14 +1,23 @@
 import { connect } from 'easy-soft-dva';
-import { checkHasAuthority } from 'easy-soft-utility';
+import { checkHasAuthority, showSimpleErrorMessage } from 'easy-soft-utility';
 
-import { columnFacadeMode, extraBuildType } from 'antd-management-fast-common';
+import {
+  columnFacadeMode,
+  dropdownExpandItemType,
+  extraBuildType,
+} from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataSinglePageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../customConfig';
 import { modelTypeCollection } from '../../../modelBuilders';
+import {
+  closeSlowQueryRecordAction,
+  openSlowQueryRecordAction,
+} from '../Assist/action';
 import { fieldData } from '../Common/data';
 import { CurrentOperationDrawer } from '../CurrentOperationDrawer';
+import { ProfilingDrawer } from '../ProfilingDrawer';
 
 const { SinglePage: SinglePageView } = DataSinglePageView;
 
@@ -32,8 +41,24 @@ class SinglePage extends SinglePageView {
     };
   }
 
+  openSlowQueryRecord = () => {
+    openSlowQueryRecordAction({
+      target: this,
+    });
+  };
+
+  closeSlowQueryRecord = () => {
+    closeSlowQueryRecordAction({
+      target: this,
+    });
+  };
+
   showCurrentOperationDrawer = () => {
     CurrentOperationDrawer.open();
+  };
+
+  showProfilingDrawer = () => {
+    ProfilingDrawer.open();
   };
 
   establishExtraActionConfig = () => {
@@ -58,22 +83,80 @@ class SinglePage extends SinglePageView {
     };
   };
 
-  // establishListItemDropdownConfig = (record) => {
-  //   return {
-  //     size: 'small',
-  //     text: '移除',
-  //     icon: iconBuilder.delete(),
-  //     disabled: !checkHasAuthority(
-  //       accessWayCollection.mongoSlowQueryInfo.remove.permission,
-  //     ),
-  //     handleButtonClick: ({ handleData }) => {
-  //       this.remove(handleData);
-  //     },
-  //     handleData: record,
-  //     confirm: true,
-  //     title: '即将移除数据，确定吗？',
-  //   };
-  // };
+  establishExtraActionEllipsisConfig = () => {
+    const that = this;
+
+    return {
+      size: 'small',
+      disabled: this.checkInProgress(),
+      handleMenuClick: ({ key, handleData }) => {
+        switch (key) {
+          case 'openSlowQueryRecord': {
+            that.openSlowQueryRecord(handleData);
+            break;
+          }
+
+          case 'closeSlowQueryRecord': {
+            that.closeSlowQueryRecord(handleData);
+            break;
+          }
+
+          case 'showProfilingDrawer': {
+            that.showProfilingDrawer(handleData);
+            break;
+          }
+
+          default: {
+            showSimpleErrorMessage('can not find matched key');
+            break;
+          }
+        }
+      },
+      handleData: {},
+      items: [
+        {
+          key: 'openSlowQueryRecord',
+          icon: iconBuilder.playCircle(),
+          size: 'small',
+          text: '开启慢查询日志',
+          confirm: true,
+          title: '即将开启慢查询日志，确定吗？',
+          disabled: this.checkInProgress(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.mongoSlowQueryInfo.openSlowQueryRecord
+              .permission,
+          ),
+        },
+        {
+          key: 'closeSlowQueryRecord',
+          icon: iconBuilder.pauseCircle(),
+          size: 'small',
+          text: '关闭慢查询日志',
+          confirm: true,
+          title: '即将关闭慢查询日志，确定吗？',
+          disabled: this.checkInProgress(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.mongoSlowQueryInfo.closeSlowQueryRecord
+              .permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'showProfilingDrawer',
+          icon: iconBuilder.read(),
+          size: 'small',
+          text: '查看 Profiling 状态信息',
+          disabled: this.checkInProgress(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.mongoSlowQueryInfo.getProfilingStatus
+              .permission,
+          ),
+        },
+      ],
+    };
+  };
 
   getColumnWrapper = () => [
     {
@@ -112,6 +195,8 @@ class SinglePage extends SinglePageView {
     return (
       <>
         <CurrentOperationDrawer maskClosable />
+
+        <ProfilingDrawer maskClosable />
       </>
     );
   };

@@ -2,6 +2,7 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { actionCore } from 'antd-management-fast-common';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 export function removeAction({
@@ -11,7 +12,7 @@ export function removeAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'sqlLog/remove',
+    api: modelTypeCollection.sqlLogTypeCollection.remove,
     params: {
       sqlLogId: getValueByKey({
         data: handleData,
@@ -32,7 +33,7 @@ export function removeMultiAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'sqlLog/removeMulti',
+    api: modelTypeCollection.sqlLogTypeCollection.removeMulti,
     params: { ...handleData },
     target,
     handleData,
@@ -48,7 +49,7 @@ export function removeAllAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'sqlLog/removeAll',
+    api: modelTypeCollection.sqlLogTypeCollection.removeAll,
     params: { ...handleData },
     target,
     handleData,
@@ -64,7 +65,7 @@ export function createTestLogAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'sqlLog/createTestLog',
+    api: modelTypeCollection.sqlLogTypeCollection.createTestLog,
     params: { ...handleData },
     target,
     handleData,

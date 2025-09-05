@@ -2675,6 +2675,27 @@
           "effect": "getCurrentOperations",
           "service": "getCurrentOperationsData",
           "type": "singleData"
+        },
+        {
+          "title": "获取 Profiling 信息",
+          "api": "/mongoSlowQueryInfo/getProfilingStatus",
+          "effect": "getProfilingStatus",
+          "service": "getProfilingStatusData",
+          "type": "singleData"
+        },
+        {
+          "title": "开启慢查询记录（100ms)",
+          "api": "/mongoSlowQueryInfo/openSlowQueryRecord",
+          "effect": "openSlowQueryRecord",
+          "service": "openSlowQueryRecordData",
+          "type": "singleData"
+        },
+        {
+          "title": "关闭慢查询记",
+          "api": "/mongoSlowQueryInfo/closeSlowQueryRecord",
+          "effect": "closeSlowQueryRecord",
+          "service": "closeSlowQueryRecordData",
+          "type": "singleData"
         }
       ],
       "cover": true,

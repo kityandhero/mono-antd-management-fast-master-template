@@ -6,6 +6,11 @@ const fieldExtraData = {
     name: 'currentOperation',
     helper: '',
   },
+  profiling: {
+    label: 'profiling状态信息',
+    name: 'profiling',
+    helper: '',
+  },
 };
 
 export const fieldData = {

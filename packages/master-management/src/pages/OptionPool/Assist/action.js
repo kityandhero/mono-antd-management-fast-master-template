@@ -2,6 +2,7 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { actionCore } from 'antd-management-fast-common';
 
+import { modelTypeCollection } from '../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 export function setEnableAction({
@@ -11,7 +12,7 @@ export function setEnableAction({
   successMessage,
 }) {
   actionCore({
-    api: 'optionPool/setEnable',
+    api: modelTypeCollection.optionPoolTypeCollection.setEnable,
     params: {
       optionPoolId: getValueByKey({
         data: handleData,
@@ -32,7 +33,7 @@ export function setDisableAction({
   successMessage,
 }) {
   actionCore({
-    api: 'optionPool/setDisable',
+    api: modelTypeCollection.optionPoolTypeCollection.setDisable,
     params: {
       optionPoolId: getValueByKey({
         data: handleData,
@@ -53,7 +54,7 @@ export async function refreshCacheAction({
   successMessage,
 }) {
   actionCore({
-    api: 'optionPool/refreshCache',
+    api: modelTypeCollection.optionPoolTypeCollection.refreshCache,
     params: {
       optionPoolId: getValueByKey({
         data: handleData,

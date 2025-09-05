@@ -8,13 +8,19 @@ import {
 } from 'easy-soft-utility';
 
 import {
+  closeSlowQueryRecordData,
   getCurrentOperationsData,
+  getProfilingStatusData,
+  openSlowQueryRecordData,
   singleListData,
 } from '../../services/mongoSlowQueryInfo';
 
 export const mongoSlowQueryInfoTypeCollection = {
   singleList: 'mongoSlowQueryInfo/singleList',
   getCurrentOperations: 'mongoSlowQueryInfo/getCurrentOperations',
+  getProfilingStatus: 'mongoSlowQueryInfo/getProfilingStatus',
+  openSlowQueryRecord: 'mongoSlowQueryInfo/openSlowQueryRecord',
+  closeSlowQueryRecord: 'mongoSlowQueryInfo/closeSlowQueryRecord',
 };
 
 export function buildModel() {
@@ -62,6 +68,84 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(getCurrentOperationsData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *getProfilingStatus(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(getProfilingStatusData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *openSlowQueryRecord(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(openSlowQueryRecordData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *closeSlowQueryRecord(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(closeSlowQueryRecordData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
