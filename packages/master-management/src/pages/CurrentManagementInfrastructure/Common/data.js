@@ -426,10 +426,20 @@ export const fieldData = {
     name: 'diskSpaceMonitoringSwitch',
     helper: '',
   },
+  diskSpaceMonitoringDetectionEmailSwitch: {
+    label: '磁盘监控探测邮件发送开关',
+    name: 'diskSpaceMonitoringDetectionEmailSwitch',
+    helper: '开启后，每天定时发送磁盘可用空间信息',
+  },
   diskSpaceMonitoringDriveLetter: {
     label: '磁盘空间监控盘符',
     name: 'diskSpaceMonitoringDriveLetter',
     helper: '多盘符请用 ”,“ 符号分隔, 例如”E,F“, 注意使用英文逗号',
+  },
+  diskSpaceMonitoringRecentlyOccurrenceTime: {
+    label: '磁盘空间监控近期触发时间',
+    name: 'diskSpaceMonitoringRecentlyOccurrenceTime',
+    helper: '磁盘检测最近一次触发时间',
   },
   diskSpaceMonitoringAlarmThreshold: {
     label: '磁盘空间预警阈值[GB]',

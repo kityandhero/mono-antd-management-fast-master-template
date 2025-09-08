@@ -253,6 +253,20 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
             buildInputItem({
               firstLoadSuccess,
               handleData: metaData,
+              fieldData: fieldData.diskSpaceMonitoringDetectionEmailSwitch,
+              editMode: keyValueEditModeCollection.whether,
+              hidden:
+                diskSpaceMonitoringSwitch === whetherNumber.no ||
+                !checkHasAuthority(
+                  accessWayCollection.currentManagementInfrastructure
+                    .updateKeyValueInfo.permission,
+                ),
+              inputIcon: iconBuilder.swap(),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
               fieldData: fieldData.diskSpaceMonitoringDriveLetter,
               editMode: keyValueEditModeCollection.string,
               hidden:
@@ -263,6 +277,16 @@ class DiskSpaceMonitoringInfo extends TabPageBase {
                 ),
               handleClick: this.showUpdateKeyValueInfoModal,
             }),
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.onlyShowInput,
+              fieldData: fieldData.diskSpaceMonitoringRecentlyOccurrenceTime,
+              value: getValueByKey({
+                data: metaData,
+                key: fieldData.diskSpaceMonitoringRecentlyOccurrenceTime.name,
+              }),
+              hidden: diskSpaceMonitoringSwitch === whetherNumber.no,
+            },
           ],
         },
         {
