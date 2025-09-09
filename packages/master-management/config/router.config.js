@@ -17,7 +17,7 @@ import {
   customerWechatApplicationInfo,
   dataDictionaryInfrastructure,
   developTools,
-  emailSenderAgent,
+  email,
   entrance,
   flow,
   generalDiscourse,
@@ -63,6 +63,7 @@ export default [
     routes: [weChatMessageRecord],
   },
   sms,
+  email,
   services,
   apps,
   {
@@ -83,7 +84,6 @@ export default [
       tag,
       optionPool,
       generalDiscourse,
-      emailSenderAgent,
     ],
   },
   {

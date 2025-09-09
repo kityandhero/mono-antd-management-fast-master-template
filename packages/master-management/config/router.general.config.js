@@ -388,6 +388,142 @@ export const sms = {
   ],
 };
 
+export const emailSenderAgent = {
+  name: 'emailSenderAgent',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/email/emailSenderAgent',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.emailSenderAgent.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/email/emailSenderAgent',
+      redirect: '/email/emailSenderAgent/pageList',
+    },
+    {
+      path: '/email/emailSenderAgent/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/email/emailSenderAgent/pageList/no',
+    },
+    {
+      path: '/email/emailSenderAgent/pageList/:pageKey',
+      hideInMenu: true,
+      component: './EmailSenderAgent/PageList',
+    },
+  ],
+};
+
+export const emailMessage = {
+  name: 'emailMessage',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/email/emailMessage',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.emailMessage.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/email/emailMessage',
+      redirect: '/email/emailMessage/pageList',
+    },
+    {
+      path: '/email/emailMessage/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/email/emailMessage/pageList/no',
+    },
+    {
+      path: '/email/emailMessage/pageList/:pageKey',
+      hideInMenu: true,
+      component: './EmailMessage/PageList',
+    },
+  ],
+};
+
+export const emailSenderAgentStatistic = {
+  name: 'emailSenderAgentStatistic',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/email/emailSenderAgentStatistic',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.emailSenderAgentStatistic.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/email/emailSenderAgentStatistic',
+      redirect: '/email/emailSenderAgentStatistic/pageList',
+    },
+    {
+      path: '/email/emailSenderAgentStatistic/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/email/emailSenderAgentStatistic/pageList/no',
+    },
+    {
+      path: '/email/emailSenderAgentStatistic/pageList/:pageKey',
+      hideInMenu: true,
+      component: './EmailSenderAgentStatistic/PageList',
+    },
+  ],
+};
+
+export const emailStatistic = {
+  name: 'emailStatistic',
+  icon: 'reconciliation',
+  hideChildrenInMenu: true,
+  path: '/email/emailStatistic',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.emailStatistic.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/email/emailStatistic',
+      redirect: '/email/emailStatistic/pageList',
+    },
+    {
+      path: '/email/emailStatistic/pageList',
+      name: 'pageList',
+      icon: 'bars',
+      redirect: '/email/emailStatistic/pageList/no',
+    },
+    {
+      path: '/email/emailStatistic/pageList/:pageKey',
+      hideInMenu: true,
+      component: './EmailStatistic/PageList',
+    },
+  ],
+};
+
+export const email = {
+  name: 'email',
+  icon: 'read',
+  path: '/email',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.emailSenderAgent.pageList.permission,
+    accessWayCollection.emailMessage.pageList.permission,
+    accessWayCollection.emailSenderAgentStatistic.pageList.permission,
+    accessWayCollection.emailStatistic.pageList.permission,
+  ],
+  routes: [
+    emailSenderAgent,
+    emailMessage,
+    emailSenderAgentStatistic,
+    emailStatistic,
+  ],
+};
+
 export const services = {
   name: 'services',
   icon: 'reconciliation',
@@ -947,35 +1083,6 @@ export const generalDiscourse = {
       name: 'pageList',
       hideInMenu: true,
       component: './GeneralDiscourse/PageList',
-    },
-  ],
-};
-
-export const emailSenderAgent = {
-  name: 'emailSenderAgent',
-  icon: 'reconciliation',
-  hideChildrenInMenu: true,
-  path: '/data/emailSenderAgent',
-  access: 'checkAccess',
-  authority: [
-    accessWayCollection.super.permission,
-    accessWayCollection.emailSenderAgent.pageList.permission,
-  ],
-  routes: [
-    {
-      path: '/data/emailSenderAgent',
-      redirect: '/data/emailSenderAgent/pageList',
-    },
-    {
-      path: '/data/emailSenderAgent/pageList',
-      name: 'pageList',
-      icon: 'bars',
-      redirect: '/data/emailSenderAgent/pageList/no',
-    },
-    {
-      path: '/data/emailSenderAgent/pageList/:pageKey',
-      hideInMenu: true,
-      component: './EmailSenderAgent/PageList',
     },
   ],
 };

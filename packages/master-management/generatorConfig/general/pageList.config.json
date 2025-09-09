@@ -366,13 +366,6 @@
       "coverFile": false
     },
     {
-      "folder": "SqlEntity/PageList",
-      "model": "sqlEntity",
-      "key": "sqlEntityId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
       "folder": "SqlEntity/PageListBusiness",
       "model": "sqlEntity",
       "key": "sqlEntityId",
@@ -404,6 +397,27 @@
       "folder": "WorkflowCase/PageList",
       "model": "workflowCase",
       "key": "workflowCaseId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "EmailMessage/PageList",
+      "model": "emailMessage",
+      "key": "emailMessageId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "EmailSenderAgentStatistic/PageList",
+      "model": "emailSenderAgentStatistic",
+      "key": "emailSenderAgentStatisticId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "EmailStatistic/PageList",
+      "model": "emailStatistic",
+      "key": "emailStatisticId",
       "fileName": "index.jsx",
       "coverFile": false
     }

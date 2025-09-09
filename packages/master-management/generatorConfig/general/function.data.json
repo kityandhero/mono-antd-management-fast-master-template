@@ -649,6 +649,31 @@
       "functionSegment": "ApplicationCustomerFeedbackStatus",
       "label": "状态",
       "name": "status"
+    },
+    {
+      "functionSegment": "EmailMessageContentType",
+      "label": "内容类型",
+      "name": "contentType"
+    },
+    {
+      "functionSegment": "EmailMessageAggregate",
+      "label": "汇总状态",
+      "name": "aggregate"
+    },
+    {
+      "functionSegment": "EmailMessageStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "EmailSenderAgentStatisticStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "EmailStatisticStatus",
+      "label": "状态",
+      "name": "status"
     }
   ]
 }

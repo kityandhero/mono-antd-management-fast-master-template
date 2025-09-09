@@ -104,6 +104,27 @@
       "key": "businessSetId",
       "visibleFlag": "29ec6fb069c74bb5afe6aba8d05ae751",
       "coverFile": true
+    },
+    {
+      "folder": "EmailMessage/OperateLogDrawer",
+      "model": "emailMessage",
+      "key": "emailMessageId",
+      "visibleFlag": "10fd8be6c81b4a7c822ddc6611a07bea",
+      "coverFile": true
+    },
+    {
+      "folder": "EmailSenderAgentStatistic/OperateLogDrawer",
+      "model": "emailSenderAgentStatistic",
+      "key": "emailSenderAgentStatisticId",
+      "visibleFlag": "5641b5d11be64ea9b10f1839d60b9ef0",
+      "coverFile": true
+    },
+    {
+      "folder": "EmailStatistic/OperateLogDrawer",
+      "model": "emailStatistic",
+      "key": "emailStatisticId",
+      "visibleFlag": "e0cd4ba14cbf432a94f692d33881b9f8",
+      "coverFile": true
     }
   ]
 }

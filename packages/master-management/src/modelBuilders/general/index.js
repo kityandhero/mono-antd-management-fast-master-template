@@ -88,9 +88,21 @@ import {
 } from './department';
 import { buildModel as buildEditorModel, editorTypeCollection } from './editor';
 import {
+  buildModel as buildEmailMessageModel,
+  emailMessageTypeCollection,
+} from './emailMessage';
+import {
   buildModel as buildEmailSenderAgentModel,
   emailSenderAgentTypeCollection,
 } from './emailSenderAgent';
+import {
+  buildModel as buildEmailSenderAgentStatisticModel,
+  emailSenderAgentStatisticTypeCollection,
+} from './emailSenderAgentStatistic';
+import {
+  buildModel as buildEmailStatisticModel,
+  emailStatisticTypeCollection,
+} from './emailStatistic';
 import {
   buildModel as buildErrorLogModel,
   errorLogTypeCollection,
@@ -417,7 +429,10 @@ export const modelTypeCollection = {
   customerWechatApplicationInfoTypeCollection,
   departmentTypeCollection,
   editorTypeCollection,
+  emailMessageTypeCollection,
   emailSenderAgentTypeCollection,
+  emailSenderAgentStatisticTypeCollection,
+  emailStatisticTypeCollection,
   errorLogTypeCollection,
   executeLogTypeCollection,
   galleryTypeCollection,
@@ -526,7 +541,10 @@ export function listModelBuilder() {
     buildCustomerWechatApplicationInfoModel,
     buildDepartmentModel,
     buildEditorModel,
+    buildEmailMessageModel,
     buildEmailSenderAgentModel,
+    buildEmailSenderAgentStatisticModel,
+    buildEmailStatisticModel,
     buildErrorLogModel,
     buildExecuteLogModel,
     buildGalleryModel,

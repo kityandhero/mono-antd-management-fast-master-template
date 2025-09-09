@@ -1733,6 +1733,41 @@
       "apis": [
         {
           "title": "分页列表",
+          "api": "/emailMessage/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/emailMessage/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/emailMessage/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/emailMessage/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "邮件消息管理",
+      "name": "emailMessage"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
           "api": "/emailSenderAgent/pageList",
           "effect": "pageList",
           "service": "pageListData",
@@ -1812,6 +1847,76 @@
       "cover": true,
       "title": "邮件发送代理管理",
       "name": "emailSenderAgent"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/emailSenderAgentStatistic/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/emailSenderAgentStatistic/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/emailSenderAgentStatistic/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/emailSenderAgentStatistic/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "邮件代理发送统计管理",
+      "name": "emailSenderAgentStatistic"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/emailStatistic/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/emailStatistic/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/emailStatistic/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/emailStatistic/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "邮件发送统计管理",
+      "name": "emailStatistic"
     },
     {
       "apis": [

@@ -622,6 +622,27 @@
       "key": "workflowRangeEffectiveSubsidiaryRelationId",
       "fileName": "data.js",
       "coverFile": false
+    },
+    {
+      "folder": "EmailMessage/Common",
+      "model": "emailMessage",
+      "key": "emailMessageId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "EmailSenderAgentStatistic/Common",
+      "model": "emailSenderAgentStatistic",
+      "key": "emailSenderAgentStatisticId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "EmailStatistic/Common",
+      "model": "emailStatistic",
+      "key": "emailStatisticId",
+      "fileName": "data.js",
+      "coverFile": false
     }
   ]
 }

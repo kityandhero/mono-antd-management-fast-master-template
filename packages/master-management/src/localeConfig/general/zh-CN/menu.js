@@ -102,6 +102,29 @@ export const menuZhCNGeneral = {
   'menu.sms.smsCategoryStatistic.pageList': '统计列表',
   'menu.sms.smsCategoryStatistic.pageList-mini': '统计表',
 
+  'menu.email': '邮件发送',
+  'menu.email-mini': '邮件',
+
+  'menu.email.emailSenderAgent': '邮件发送代理',
+  'menu.email.emailSenderAgent-mini': '邮发代理',
+  'menu.email.emailSenderAgent.pageList': '分页列表',
+  'menu.email.emailSenderAgent.pageList-mini': '列表',
+
+  'menu.email.emailMessage': '邮件消息',
+  'menu.email.emailMessage-mini': '邮件消息',
+  'menu.email.emailMessage.pageList': '分页列表',
+  'menu.email.emailMessage.pageList-mini': '列表',
+
+  'menu.email.emailSenderAgentStatistic': '代理发送统计',
+  'menu.email.emailSenderAgentStatistic-mini': '代理发送统计',
+  'menu.email.emailSenderAgentStatistic.pageList': '分页列表',
+  'menu.email.emailSenderAgentStatistic.pageList-mini': '列表',
+
+  'menu.email.emailStatistic': '总发送统计',
+  'menu.email.emailStatistic-mini': '总发送统计',
+  'menu.email.emailStatistic.pageList': '分页列表',
+  'menu.email.emailStatistic.pageList-mini': '列表',
+
   'menu.subsidiaryMessages': '企业反馈',
   'menu.subsidiaryMessages-mini': '反馈',
 
@@ -219,11 +242,6 @@ export const menuZhCNGeneral = {
   'menu.data.generalDiscourse-mini': '常用语',
   'menu.data.generalDiscourse.pageList': '分页列表',
   'menu.data.generalDiscourse.pageList-mini': '列表',
-
-  'menu.data.emailSenderAgent': '邮件发送代理',
-  'menu.data.emailSenderAgent-mini': '邮发代理',
-  'menu.data.emailSenderAgent.pageList': '分页列表',
-  'menu.data.emailSenderAgent.pageList-mini': '列表',
 
   'menu.organization': '组织管理',
   'menu.organization-mini': '组织',

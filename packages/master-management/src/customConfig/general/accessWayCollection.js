@@ -1036,6 +1036,28 @@ export const accessWayInfrastructureCollection = {
       permission: 'e47326447d5c4221b79faba3ccf8a796',
     },
   },
+  emailMessage: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: 'b08e3485484bb4a7a36655e2b8fddf25',
+      permission: 'e475deedf1e243a082d85fa67bec6de1',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '8c684090443b9613533d686f619c0362',
+      permission: '5ecab2c18f924a8a8c3f3ee3589247a7',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '5ae7d8467c4017d9c18daec615b486e7',
+      permission: '8670c6540260418294c339359fd3abfb',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: '5818335912d1894490d4bbe3279acd14',
+      permission: '648c64b7a70e439587375b77bf60a611',
+    },
+  },
   emailSenderAgent: {
     pageList: {
       title: '分页列表',
@@ -1086,6 +1108,50 @@ export const accessWayInfrastructureCollection = {
       title: '操作日志列表',
       paramsKey: '2a19e0b05ec74c0d4892bcf7aace120a',
       permission: '12680148926a4fb7a3d9362ca1a0ed44',
+    },
+  },
+  emailSenderAgentStatistic: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '1f059c202ce341e8654ccad9d4697424',
+      permission: 'e95e6084b6f2423ba5c887d1ca10b009',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '9ec73206cadca100ddec062298ba2c45',
+      permission: 'a4d92c29d7f5416da9c21cfa3616b5f3',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: 'ca9be1f10e7a817cb8a9972b4b45c981',
+      permission: 'fb31d64a63614a42a62b61018485f66c',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: '2e79f9d8b147c2602562ed27d56dbb00',
+      permission: 'f8907e29242a40ebae6bbceab8354103',
+    },
+  },
+  emailStatistic: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: 'ff2a34aa4177fdc75bcbbe082c2af51c',
+      permission: '1171d6ed8b1c4b62aaba433c2cf16990',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '2ae9cf530d7817a7a1db9ad7177a38ff',
+      permission: 'a5e8b23eb2e44151b0a34a5d279bec82',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: 'cf85baff31de2c1ced4eb7ed25804c94',
+      permission: 'fdfe478db93247219a2781be5c97f246',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: 'ec5e852c560ef5c1571063d39fd7b665',
+      permission: 'e0709276a1cc499ea6085c1a8168f3bf',
     },
   },
   errorLog: {
