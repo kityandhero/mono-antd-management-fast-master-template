@@ -35,7 +35,7 @@
     "src/pages/CustomerWechatApplicationInfo/",
     "src/pages/Department/",
     "src/pages/DevelopInfo/",
-    "src/pages/Email/",
+    "src/pages/EmailMessage/",
     "src/pages/EmailSenderAgent/",
     "src/pages/EmailSenderAgentStatistic/",
     "src/pages/EmailStatistic/",
