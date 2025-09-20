@@ -1,38 +1,26 @@
-/* eslint-disable no-unused-vars */
 import { connect } from 'easy-soft-dva';
 import {
   checkHasAuthority,
-  checkInCollection,
   checkStringIsNullOrWhiteSpace,
   convertCollection,
-  filter,
   getValueByKey,
   isArray,
   isEmptyArray,
-  logConsole,
-  toString,
   whetherNumber,
-  zeroString,
 } from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
 import { buildButton, iconBuilder } from 'antd-management-fast-component';
-import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
+import { switchControlAssist } from 'antd-management-fast-framework';
 
 import {
   accessWayCollection,
   fieldDataFlowCase,
   fieldDataFlowCaseProcessHistory,
   fieldDataFlowNode,
-  flowBranchConditionItemTargetComparisonModelCollection,
-  flowBranchConditionItemTargetTypeCollection,
   flowDebugApproverModeCollection,
   flowNodeApproveModeCollection,
 } from '../../../customConfig';
-import {
-  renderFormFlowBranchConditionItemTargetComparisonModeSelect,
-  renderFormFlowBranchConditionItemTargetTypeSelect,
-} from '../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../modelBuilders';
 import { BaseFlowCaseProcessHistoryPassModal } from '../../../pageBases';
 import { fieldData as fieldDataUser } from '../../User/Common/data';
@@ -278,6 +266,7 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
     return d;
   };
 
+  // eslint-disable-next-line no-unused-vars
   onApproverChange = (v, option) => {
     this.approveUserId = v;
   };
@@ -340,11 +329,6 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
         require: true,
       },
     ];
-
-    const nextApproveWorkflowNode = getValueByKey({
-      data: metaData,
-      key: fieldDataFlowCase.nextApproveWorkflowNode.name,
-    });
 
     const nextNextApproveWorkflowNode = getValueByKey({
       data: metaData,

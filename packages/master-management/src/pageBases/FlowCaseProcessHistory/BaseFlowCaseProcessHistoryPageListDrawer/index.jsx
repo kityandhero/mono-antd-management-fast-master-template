@@ -2,7 +2,6 @@ import {
   buildRandomHexColor,
   convertCollection,
   getValueByKey,
-  logConsole,
   toNumber,
 } from 'easy-soft-utility';
 
@@ -53,8 +52,6 @@ class BaseFlowCaseProcessHistoryPageListDrawer extends MultiPageDrawer {
   supplementRequestParams = (o) => {
     const d = { ...o };
     const { externalData } = this.state;
-
-    logConsole({ externalData });
 
     d[fieldDataFlowCaseProcessHistory.flowCaseId.name] = getValueByKey({
       data: externalData,

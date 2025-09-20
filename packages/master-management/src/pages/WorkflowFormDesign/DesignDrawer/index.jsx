@@ -4,6 +4,7 @@ import {
   getValueByKey,
   isArray,
   isEmptyArray,
+  isEmptyObject,
   isFunction,
 } from 'easy-soft-utility';
 
@@ -47,6 +48,22 @@ import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
 const visibleFlag = '4b5cd020d5be41e8bb3e503f46c7a6a0';
+
+function analysisEnumProperty(enumList) {
+  if (!isArray(enumList) || isEmptyArray(enumList)) {
+    return [];
+  }
+
+  return enumList.map((o) => {
+    const { label, value } = {
+      label: '',
+      value: '',
+      ...o,
+    };
+
+    return { label, value };
+  });
+}
 
 @connect(({ workflowFormDesign, schedulingControl }) => ({
   workflowFormDesign,
@@ -133,21 +150,69 @@ class DesignDrawer extends BaseUpdateDrawer {
         ...value,
       };
 
-      if (isArray(enumList) && !isEmptyArray(enumList)) {
-        const l = enumList.map((o) => {
-          const { label, value } = {
-            label: '',
-            value: '',
-            ...o,
+      let items = [];
+
+      if (type === 'array') {
+        const {
+          items: { properties: itemProperties },
+        } = value;
+
+        for (const item of Object.values(itemProperties)) {
+          const {
+            title: itemTitle,
+            width: itemWidth = 0,
+            align: itemAlign = 'left',
+          } = item['x-component-props'];
+
+          const isEditColumn = (item['x-pattern'] || '') === 'editable';
+
+          if (isEditColumn) {
+            continue;
+          }
+
+          let innerKey = '';
+          let innerValue = {};
+
+          for (const [itemInnerKey, itemInnerValue] of Object.entries(
+            item['properties'],
+          )) {
+            const { type } = itemInnerValue;
+
+            if (type === 'void') {
+              continue;
+            }
+
+            if (innerKey === '') {
+              innerKey = itemInnerKey;
+              innerValue = itemInnerValue;
+            } else {
+              break;
+            }
+          }
+
+          if (isEmptyObject(innerValue)) {
+            continue;
+          }
+
+          const { type: innerType, enum: innerEnumList } = {
+            enum: [],
+            ...innerValue,
           };
 
-          return { label, value };
-        });
-
-        dataSchema.push({ title, type, name, enumList: l });
-      } else {
-        dataSchema.push({ title, type, name });
+          items.push({
+            name: innerKey,
+            title: itemTitle,
+            width: itemWidth,
+            align: itemAlign,
+            type: innerType,
+            enumList: analysisEnumProperty(innerEnumList),
+          });
+        }
       }
+
+      const l = analysisEnumProperty(enumList);
+
+      dataSchema.push({ title, type, name, enumList: l, items });
     }
 
     this.execSubmitApi({

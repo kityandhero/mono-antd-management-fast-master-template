@@ -1,42 +1,23 @@
-/* eslint-disable no-unused-vars */
-import { connect } from 'easy-soft-dva';
 import {
   checkHasAuthority,
-  checkInCollection,
   checkStringIsNullOrWhiteSpace,
   convertCollection,
-  filter,
   getValueByKey,
-  isArray,
-  isEmptyArray,
-  logConsole,
-  toString,
-  zeroString,
 } from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
 import { buildButton, iconBuilder } from 'antd-management-fast-component';
-import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
+import { DataModal } from 'antd-management-fast-framework';
 
 import {
   accessWayCollection,
   fieldDataFlowCase,
   fieldDataFlowCaseProcessHistory,
   fieldDataFlowNode,
-  flowBranchConditionItemTargetComparisonModelCollection,
-  flowBranchConditionItemTargetTypeCollection,
-  flowDebugApproverModeCollection,
   flowNodeApproveModeCollection,
 } from '../../../customConfig';
-import {
-  renderFormFlowBranchConditionItemTargetComparisonModeSelect,
-  renderFormFlowBranchConditionItemTargetTypeSelect,
-} from '../../../customSpecialComponents';
 import { singleListAction } from '../../../pages/GeneralDiscourse/Assist/action';
 import { typeCollection } from '../../../pages/GeneralDiscourse/Common/data';
-import { fieldData as fieldDataUser } from '../../../pages/User/Common/data';
-import { singleListNextNodeApproverAction } from '../../../pages/WorkflowDebugCase/Assist/action';
-import { singleListApproverUserWithNodeAndFlowCaseAction } from '../../../pages/WorkflowNodeApprover/Assist/action';
 
 const { BaseUpdateModal } = DataModal;
 
@@ -104,8 +85,6 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
   };
 
   loadGeneralDiscourseList = () => {
-    const { externalData } = this.props;
-
     singleListAction({
       target: this,
       handleData: {
@@ -146,6 +125,7 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
     }
   };
 
+  // eslint-disable-next-line no-unused-vars
   onNextNodeApproverChange = (v, option) => {
     this.nextWorkflowNodeApproverUserId = v;
   };
@@ -171,6 +151,7 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
   };
 
   fillInitialValuesAfterLoad = ({
+    // eslint-disable-next-line no-unused-vars
     metaData = null,
     // eslint-disable-next-line no-unused-vars
     metaListData = [],
@@ -190,12 +171,6 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
 
   establishCardCollectionConfig = () => {
     const { metaData, generalDiscourseList } = this.state;
-
-    const debugApproverMode = getValueByKey({
-      data: metaData,
-      key: fieldDataFlowCase.debugApproverMode.name,
-      convert: convertCollection.number,
-    });
 
     const nextApproveWorkflowNode = getValueByKey({
       data: metaData,
