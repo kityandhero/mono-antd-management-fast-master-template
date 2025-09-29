@@ -486,11 +486,6 @@
       "name": "status"
     },
     {
-      "functionSegment": "UserYonYouCorrelationStatus",
-      "label": "状态",
-      "name": "status"
-    },
-    {
       "functionSegment": "UserDeviceStatus",
       "label": "状态",
       "name": "status"
