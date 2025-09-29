@@ -1,2 +1,1 @@
-export * from './YonYouImportHistoryStatus';
-export * from './YonYouPushMessageStatus';
+export * from './PurePlaceholder';
