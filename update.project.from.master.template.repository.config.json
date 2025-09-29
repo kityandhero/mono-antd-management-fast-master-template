@@ -136,8 +136,6 @@
     "src/customConfig/index.js",
     "src/customSpecialComponents/CustomAssembly/menuHeader.js",
     "src/customSpecialComponents/CustomAssembly/timeAndOperator.js",
-    "src/customSpecialComponents/FunctionSpecialCustomComponent/index.jsx",
-    "src/customSpecialComponents/FunctionSpecialGeneralComponent/index.jsx",
     "src/flowAssist/index.jsx",
     "src/flowAssist/tools.jsx",
     "src/localeConfig/general/index.js",
@@ -201,6 +199,8 @@
     "src/customConfig/custom/index.js",
     "src/customSpecialComponents/CustomAssembly/footer.js",
     "src/customSpecialComponents/CustomAssembly/index.js",
+    "src/customSpecialComponents/FunctionSpecialCustomComponent/index.jsx",
+    "src/customSpecialComponents/FunctionSpecialGeneralComponent/index.jsx",
     "src/customSpecialComponents/index.jsx",
     "src/global.less",
     "src/localeConfig/custom/index.js",
@@ -221,10 +221,10 @@
     "src/locales/zh-CN/settings.js",
     "src/overrides.less",
     "src/pages/Workbench/PageHeaderContent/index.jsx",
-    "src/pages/Workbench/index.jsx",
     "src/pages/Workbench/ShortcutPanel/index.jsx",
-    "src/utils/theme.js",
+    "src/pages/Workbench/index.jsx",
     "src/utils/custom/index.jsx",
+    "src/utils/theme.js",
     "src/utils/custom/tools.jsx"
   ]
 }
