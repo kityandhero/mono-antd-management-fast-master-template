@@ -2641,13 +2641,13 @@ export const accessWayInfrastructureCollection = {
     },
     setEnable: {
       title: '设为启用',
-      paramsKey: 'a6fb4eee9185c4cc8adc8e0ecf3a001e',
-      permission: '3c0250528e7a47cbb783035ac69388fd',
+      paramsKey: '6c2ced4a4dc88f2afdfbad0e0cf24f37',
+      permission: '28f5de225bb74e6fa16b240cec6ab877',
     },
     setDisable: {
       title: '设为停用',
-      paramsKey: '42bc30d289ad00af5990c06e3e42f986',
-      permission: '0edafa3b981740128b49c090876e1b60',
+      paramsKey: '7c33ac1981bf1718b876fd4c5b0aeb75',
+      permission: 'cb11d91492544abead274cd2a98ebc7b',
     },
     remove: {
       title: '移除',
@@ -2661,8 +2661,8 @@ export const accessWayInfrastructureCollection = {
     },
     refreshCache: {
       title: '刷新缓存',
-      paramsKey: '15a4faa9e6b6ad84c375ee8a284eccb6',
-      permission: 'e1ee0da99c6a4a2aa941f8513d0a16cb',
+      paramsKey: '0a91bdebcad1032d701b25197b885d31',
+      permission: '05dc6111f01c4640a41fa4c570064fd7',
     },
   },
   smsCategoryStatistic: {
@@ -2835,23 +2835,23 @@ export const accessWayInfrastructureCollection = {
   subsidiaryComplaintCategory: {
     pageList: {
       title: '分页列表',
-      paramsKey: '2f9e085a9e88f9b52c9d1b4e714f1678',
-      permission: '48ff85f445b5402a84780dd7df55e125',
+      paramsKey: '88a4d83baa41fbf2c1d1125b4284373c',
+      permission: '0c0d1468729d4a1f8721f9d812aa5802',
     },
     get: {
       title: '获取详情',
-      paramsKey: '918ce242cc69dfbc78190c60bdddbd84',
-      permission: '529dbbd6e0084ec29a3d80e94fe150b6',
+      paramsKey: '424481f8446bebacbd30b8e41a9df2bc',
+      permission: '9c2e10137eb84e3fb6960174b73b6635',
     },
     addBasicInfo: {
       title: '新建分类',
-      paramsKey: '6507ea35941f98ce5f48aef6c941b6a7',
-      permission: '858012c8bc324b4d8d02a9b14ca7acd3',
+      paramsKey: 'ecdde72f44136499f9fbcd3bdc79cf77',
+      permission: 'feccf0cd0e96475c96a7d429e28069fd',
     },
     updateBasicInfo: {
       title: '编辑信息',
-      paramsKey: 'f5582508326b6a46ab0b3e14d99dae68',
-      permission: '022d3a46101c4cc998237c8b837d8da5',
+      paramsKey: '37100247e17937672ec5ff1e4e53f1ca',
+      permission: '5b625cfb13bb4226bcbb91696014b15a',
     },
     updateSort: {
       title: '设置排序值',
@@ -2870,13 +2870,13 @@ export const accessWayInfrastructureCollection = {
     },
     remove: {
       title: '移除',
-      paramsKey: 'ce893b6fa9f28f727596a17227c9e2be',
-      permission: '9bf1e8cf76f24cecb1caf28252f1ef58',
+      paramsKey: '3c9307ce8e0dcdb59a5ac8857dae466e',
+      permission: 'e25a036c41e64e74b1f6267350bbc59f',
     },
     removeSingleTreeListCache: {
       title: '移除单页树型列表缓存',
-      paramsKey: '351b38fb2a53d5e7003a685cdf26c3c9',
-      permission: 'df8527c2fac4465fb40a8ca08a48f736',
+      paramsKey: '3bf82d97054b182868531f3856888c17',
+      permission: '0494169be6c74cb88f627637a967b7c9',
     },
     refreshCache: {
       title: '刷新缓存',
@@ -3866,8 +3866,8 @@ export const accessWayInfrastructureCollection = {
     },
     repairSubsidiary: {
       title: '修复实例的归属企业信息',
-      paramsKey: '95a9f7321de9e416b034e149c484c8a3',
-      permission: '3f7d2a7c8efd4b5dbcc8616e35a2dd27',
+      paramsKey: '40d0f9fa73b1cbe86f23df3d1d6c3b3a',
+      permission: '4bc18db827064a948864fa727f433709',
     },
     pageListOperateLog: {
       title: '操作日志列表',
@@ -3954,13 +3954,13 @@ export const accessWayInfrastructureCollection = {
   workflowCaseNextProcessNotification: {
     pageList: {
       title: '分页列表',
-      paramsKey: 'e7eb7004be23916f9afdd72befd43002',
-      permission: 'ad16e7de956f4b56a6c6dfda13a5dc8b',
+      paramsKey: 'b13dade7f988bb36cefd39fb93f20fa6',
+      permission: 'adf98ed624a34c55ac33809ce6b3a7bb',
     },
     singleList: {
       title: '单页列表',
-      paramsKey: 'c0e7bb632d2acebecaf5bc27283ffeb7',
-      permission: '5ba60b547b9e4e94980377aa8ed3c4be',
+      paramsKey: '7fc2a7b9388f472af32e24ae78a9edc0',
+      permission: '2a36d51d6873423ba57f0436ba8f7486',
     },
     get: {
       title: '获取详情',
@@ -4278,8 +4278,8 @@ export const accessWayInfrastructureCollection = {
   workflowDebugCaseNextProcessApprove: {
     pageList: {
       title: '分页列表',
-      paramsKey: '555e5d4ecc098d6a106d169d00e60339',
-      permission: '57dc9853b10447a3aa56a219c0002bfe',
+      paramsKey: 'db8f661a37feeab4cb582484c832bca7',
+      permission: 'ec1e7586586540268e1a4cd85356b03d',
     },
     singleList: {
       title: '单页列表',
@@ -4305,8 +4305,8 @@ export const accessWayInfrastructureCollection = {
     },
     singleList: {
       title: '单页列表',
-      paramsKey: '561affcfbe835ae92033f5aec57daba9',
-      permission: 'ed993d9224344ff6b25678f8d9e2657a',
+      paramsKey: '0d7c68b24b6caffac0f55f83c2ff837f',
+      permission: '78f492c698ee40d59b557928f886c2d1',
     },
     get: {
       title: '获取详情',
