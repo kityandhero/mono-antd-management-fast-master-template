@@ -11,6 +11,7 @@ import {
 
 import {
   defaultEmptyImage,
+  dropdownExpandItemType,
   listViewConfig,
   searchCardConfig,
   unlimitedWithStringFlag,
@@ -353,8 +354,9 @@ class PageList extends MultiPage {
             text: '设置排序值',
           },
           {
-            withDivider: true,
-            uponDivider: true,
+            type: dropdownExpandItemType.divider,
+          },
+          {
             key: 'setOnline',
             icon: iconBuilder.upload(),
             text: '设为上线',
@@ -371,8 +373,9 @@ class PageList extends MultiPage {
             title: '将要设为下线，确定吗？',
           },
           {
-            withDivider: true,
-            uponDivider: true,
+            type: dropdownExpandItemType.divider,
+          },
+          {
             key: 'refreshCache',
             icon: iconBuilder.reload(),
             text: '刷新缓存',
@@ -380,8 +383,9 @@ class PageList extends MultiPage {
             title: '将要刷新缓存，确定吗？',
           },
           {
-            withDivider: true,
-            uponDivider: true,
+            type: dropdownExpandItemType.divider,
+          },
+          {
             key: 'remove',
             icon: iconBuilder.delete(),
             text: '移除数据',
