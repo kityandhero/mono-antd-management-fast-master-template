@@ -107,7 +107,7 @@ class SinglePage extends SinglePageView {
           }
 
           default: {
-            showSimpleErrorMessage('can not find matched key');
+            showSimpleErrorMessage(`can not find matched key "${key}"`);
             break;
           }
         }
