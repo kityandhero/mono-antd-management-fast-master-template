@@ -112,6 +112,12 @@ class Index extends TabPageBase {
       convert: convertCollection.string,
     });
 
+    const imageUrl = getValueByKey({
+      data: metaData,
+      key: fieldData.imageUrl.name,
+      convert: convertCollection.string,
+    });
+
     const type = getValueByKey({
       data: metaData,
       key: fieldData.type.name,
@@ -120,6 +126,7 @@ class Index extends TabPageBase {
 
     this.setState({
       categoryId: categoryId === zeroString ? '' : categoryId,
+      image: imageUrl,
       selectType: type,
     });
   };

@@ -1,6 +1,7 @@
 import { connect } from 'easy-soft-dva';
 import {
   checkHasAuthority,
+  checkStringIsNullOrWhiteSpace,
   convertCollection,
   getValueByKey,
   showSimpleErrorMessage,
@@ -136,7 +137,18 @@ class Edit extends DataTabContainerSupplement {
   };
 
   establishPageHeaderAvatarConfig = () => {
-    return { icon: iconBuilder.snippets() };
+    const { metaData } = this.state;
+
+    const imageUrl = getValueByKey({
+      data: metaData,
+      key: fieldData.imageUrl.name,
+    });
+
+    if (!checkStringIsNullOrWhiteSpace(imageUrl || '')) {
+      return { src: imageUrl };
+    }
+
+    return null;
   };
 
   establishPageHeaderTitlePrefix = () => {
