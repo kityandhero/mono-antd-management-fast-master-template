@@ -18,7 +18,6 @@ import {
 } from 'antd-management-fast-common';
 import {
   buildListViewItemExtra,
-  buildListViewItemInnerWithDropdownButton,
   ColorText,
   iconBuilder,
 } from 'antd-management-fast-component';
@@ -283,14 +282,14 @@ class PageList extends MultiPage {
   };
 
   // eslint-disable-next-line no-unused-vars
-  renderPresetListViewItemInner = (item, index) => {
+  establishPresetListViewItemInnerConfig = (item, index) => {
     const status = getValueByKey({
       data: item,
       key: fieldData.status.name,
       convert: convertCollection.number,
     });
 
-    return buildListViewItemInnerWithDropdownButton({
+    return {
       title: {
         label: fieldData.title.label,
         text: getValueByKey({
@@ -434,7 +433,7 @@ class PageList extends MultiPage {
           },
         ],
       },
-    });
+    };
   };
 
   establishHelpConfig = () => {
