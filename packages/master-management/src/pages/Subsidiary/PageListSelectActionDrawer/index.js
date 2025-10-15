@@ -6,10 +6,7 @@ import {
   listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
-import {
-  buildListViewItemInnerWithDropdownButton,
-  iconBuilder,
-} from 'antd-management-fast-component';
+import { iconBuilder } from 'antd-management-fast-component';
 import {
   DataMultiPageView,
   switchControlAssist,
@@ -97,8 +94,8 @@ class PageListSubsidiarySelectActionDrawer extends MultiPageDrawer {
   };
 
   // eslint-disable-next-line no-unused-vars
-  renderPresetListViewItemInner = (item, index) => {
-    return buildListViewItemInnerWithDropdownButton({
+  establishPresetListViewItemInnerConfig = (item, index) => {
+    return {
       image: getValueByKey({
         data: item,
         key: fieldData.logo.name,
@@ -163,7 +160,7 @@ class PageListSubsidiarySelectActionDrawer extends MultiPageDrawer {
       statusBarWrapperStyle: {
         paddingRight: '10px',
       },
-    });
+    };
   };
 }
 

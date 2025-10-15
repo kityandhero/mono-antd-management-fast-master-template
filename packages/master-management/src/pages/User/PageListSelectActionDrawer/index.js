@@ -2,10 +2,7 @@ import { connect } from 'easy-soft-dva';
 import { getValueByKey, isFunction } from 'easy-soft-utility';
 
 import { listViewConfig, searchCardConfig } from 'antd-management-fast-common';
-import {
-  buildListViewItemInnerWithDropdownButton,
-  iconBuilder,
-} from 'antd-management-fast-component';
+import { iconBuilder } from 'antd-management-fast-component';
 import {
   DataMultiPageView,
   switchControlAssist,
@@ -93,8 +90,8 @@ class PageListUserSelectActionDrawer extends MultiPageDrawer {
   };
 
   // eslint-disable-next-line no-unused-vars
-  renderPresetListViewItemInner = (item, index) => {
-    return buildListViewItemInnerWithDropdownButton({
+  establishPresetListViewItemInnerConfig = (item, index) => {
+    return {
       title: {
         label: fieldData.loginName.label,
         text: getValueByKey({
@@ -152,7 +149,7 @@ class PageListUserSelectActionDrawer extends MultiPageDrawer {
       statusBarWrapperStyle: {
         paddingRight: '10px',
       },
-    });
+    };
   };
 }
 

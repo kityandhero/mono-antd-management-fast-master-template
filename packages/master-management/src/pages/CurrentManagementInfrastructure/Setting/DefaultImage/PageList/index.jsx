@@ -14,7 +14,6 @@ import {
 } from 'antd-management-fast-common';
 import {
   buildListViewItemExtra,
-  buildListViewItemInnerWithDropdownButton,
   iconBuilder,
 } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
@@ -139,8 +138,8 @@ class PageList extends InnerMultiPage {
   };
 
   // eslint-disable-next-line no-unused-vars
-  renderPresetListViewItemInner = (item, index) => {
-    return buildListViewItemInnerWithDropdownButton({
+  establishPresetListViewItemInnerConfig = (item, index) => {
+    return {
       title: {
         label: fieldDataDefaultImage.title.label,
         text: getValueByKey({
@@ -207,7 +206,7 @@ class PageList extends InnerMultiPage {
           },
         ],
       },
-    });
+    };
   };
 
   establishListItemDropdownConfig = (item) => {

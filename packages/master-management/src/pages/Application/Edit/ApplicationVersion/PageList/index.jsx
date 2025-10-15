@@ -14,11 +14,7 @@ import {
   listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
-import {
-  buildListViewItemInnerWithDropdownButton,
-  ColorText,
-  iconBuilder,
-} from 'antd-management-fast-component';
+import { ColorText, iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../../../customConfig';
@@ -256,14 +252,14 @@ class Index extends InnerMultiPage {
   };
 
   // eslint-disable-next-line no-unused-vars
-  renderPresetListViewItemInner = (item, index) => {
+  establishPresetListViewItemInnerConfig = (item, index) => {
     const status = getValueByKey({
       data: item,
       key: fieldData.status.name,
       convert: convertCollection.number,
     });
 
-    return buildListViewItemInnerWithDropdownButton({
+    return {
       title: {
         label: fieldData.title.label,
         text: getValueByKey({
@@ -411,7 +407,7 @@ class Index extends InnerMultiPage {
           },
         ],
       },
-    });
+    };
   };
 
   renderPresetOther = () => {
