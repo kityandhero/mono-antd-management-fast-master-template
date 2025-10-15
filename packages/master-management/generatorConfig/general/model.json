@@ -2047,6 +2047,13 @@
           "type": "singleData"
         },
         {
+          "title": "UpdateImage",
+          "api": "/gallery/updateImage",
+          "effect": "updateImage",
+          "service": "updateImageData",
+          "type": "singleData"
+        },
+        {
           "title": "更新排序值",
           "api": "/gallery/updateSort",
           "effect": "updateSort",
@@ -3220,6 +3227,13 @@
           "api": "/qrCode/updateBasicInfo",
           "effect": "updateBasicInfo",
           "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "UpdateImage",
+          "api": "/qrCode/updateImage",
+          "effect": "updateImage",
+          "service": "updateImageData",
           "type": "singleData"
         },
         {

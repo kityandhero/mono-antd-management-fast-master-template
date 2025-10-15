@@ -17,6 +17,7 @@ import {
   setOfflineData,
   setOnlineData,
   updateBasicInfoData,
+  updateImageData,
   updateSortData,
   uploadImageData,
 } from '../../services/gallery';
@@ -26,6 +27,7 @@ export const galleryTypeCollection = {
   get: 'gallery/get',
   addBasicInfo: 'gallery/addBasicInfo',
   updateBasicInfo: 'gallery/updateBasicInfo',
+  updateImage: 'gallery/updateImage',
   updateSort: 'gallery/updateSort',
   setOnline: 'gallery/setOnline',
   setOffline: 'gallery/setOffline',
@@ -132,6 +134,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(updateBasicInfoData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *updateImage(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(updateImageData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

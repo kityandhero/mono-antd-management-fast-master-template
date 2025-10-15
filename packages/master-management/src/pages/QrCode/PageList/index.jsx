@@ -11,6 +11,7 @@ import {
 
 import {
   defaultEmptyImage,
+  dropdownExpandItemType,
   listViewConfig,
   searchCardConfig,
   unlimitedWithStringFlag,
@@ -35,6 +36,7 @@ import {
   setOfflineAction,
   setOnlineAction,
 } from '../Assist/action';
+import { ChangeImageModal } from '../ChangeImageModal';
 import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData, statusCollection } from '../Common/data';
 
@@ -91,6 +93,11 @@ class PageList extends MultiPage {
     switch (key) {
       case 'updateSort': {
         this.showChangeSortModal(handleData);
+        break;
+      }
+
+      case 'updateImage': {
+        this.showChangeImageModal(handleData);
         break;
       }
 
@@ -165,6 +172,29 @@ class PageList extends MultiPage {
   };
 
   afterChangeSortModalOk = ({
+    // eslint-disable-next-line no-unused-vars
+    singleData,
+    // eslint-disable-next-line no-unused-vars
+    listData,
+    // eslint-disable-next-line no-unused-vars
+    extraData,
+    // eslint-disable-next-line no-unused-vars
+    responseOriginalData,
+    // eslint-disable-next-line no-unused-vars
+    submitData,
+    // eslint-disable-next-line no-unused-vars
+    subjoinData,
+  }) => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  showChangeImageModal = (r) => {
+    this.setState({ currentRecord: r }, () => {
+      ChangeImageModal.open();
+    });
+  };
+
+  afterChangeImageModalOk = ({
     // eslint-disable-next-line no-unused-vars
     singleData,
     // eslint-disable-next-line no-unused-vars
@@ -353,8 +383,20 @@ class PageList extends MultiPage {
             text: '设置排序值',
           },
           {
-            withDivider: true,
-            uponDivider: true,
+            type: dropdownExpandItemType.divider,
+          },
+          {
+            key: 'updateImage',
+            icon: iconBuilder.picture(),
+            text: `设置图片`,
+            hidden: !checkHasAuthority(
+              accessWayCollection.gallery.updateImage.permission,
+            ),
+          },
+          {
+            type: dropdownExpandItemType.divider,
+          },
+          {
             key: 'setOnline',
             icon: iconBuilder.upload(),
             text: '设为上线',
@@ -371,8 +413,9 @@ class PageList extends MultiPage {
             title: '将要设为下线，确定吗？',
           },
           {
-            withDivider: true,
-            uponDivider: true,
+            type: dropdownExpandItemType.divider,
+          },
+          {
             key: 'refreshCache',
             icon: iconBuilder.reload(),
             text: '刷新缓存',
@@ -380,8 +423,9 @@ class PageList extends MultiPage {
             title: '将要刷新缓存，确定吗？',
           },
           {
-            withDivider: true,
-            uponDivider: true,
+            type: dropdownExpandItemType.divider,
+          },
+          {
             key: 'remove',
             icon: iconBuilder.delete(),
             text: '移除数据',
@@ -412,6 +456,11 @@ class PageList extends MultiPage {
         <ChangeSortModal
           externalData={currentRecord}
           afterOK={this.afterChangeSortModalOk}
+        />
+
+        <ChangeImageModal
+          externalData={currentRecord}
+          afterOK={this.afterChangeImageModalOk}
         />
       </>
     );

@@ -36,6 +36,15 @@ export async function updateBasicInfoData(parameters) {
   });
 }
 
+export const updateImageDataApiAddress = '/gallery/updateImage';
+
+export async function updateImageData(parameters) {
+  return request({
+    api: updateImageDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const updateSortDataApiAddress = '/gallery/updateSort';
 
 export async function updateSortData(parameters) {

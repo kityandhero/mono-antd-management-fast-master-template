@@ -95,7 +95,6 @@ export * from './PhoneVerifyMode';
 export * from './PositionGradeStatus';
 export * from './PositionStatus';
 export * from './PresetRoleStatus';
-export * from './PurePlaceholder';
 export * from './QrCodeCategoryStatus';
 export * from './QrCodeStatus';
 export * from './QuestionItemStatus';

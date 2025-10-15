@@ -1239,6 +1239,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'b230f5ad195adb81c5d51a42039b08b6',
       permission: '33e5a2b9527942c98fb33c266014f6a4',
     },
+    updateImage: {
+      title: 'UpdateImage',
+      paramsKey: '9558ff8ab467d6a4f3f5c6b65b57d317',
+      permission: 'd6dceeeed7704a5ca72716bd248fc4e4',
+    },
     updateSort: {
       title: '更新排序值',
       paramsKey: '8ff9b6e76425ed88f2f5e644283acd3f',
@@ -1973,6 +1978,11 @@ export const accessWayInfrastructureCollection = {
       title: '更新基本信息',
       paramsKey: '4601aa983ce196dfce350af6879373b7',
       permission: 'c8db71fa4f2e4283863fc867d0eced7d',
+    },
+    updateImage: {
+      title: 'UpdateImage',
+      paramsKey: '3fe803f5fa693f4c2aaf4d747bbd5cd7',
+      permission: 'eb6ef264c62449738f3fb164773bfb8a',
     },
     updateSort: {
       title: '更新排序值',

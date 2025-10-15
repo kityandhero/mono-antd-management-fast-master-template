@@ -36,6 +36,15 @@ export async function updateBasicInfoData(parameters) {
   });
 }
 
+export const updateImageDataApiAddress = '/qrCode/updateImage';
+
+export async function updateImageData(parameters) {
+  return request({
+    api: updateImageDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const updateSortDataApiAddress = '/qrCode/updateSort';
 
 export async function updateSortData(parameters) {

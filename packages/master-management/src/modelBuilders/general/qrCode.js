@@ -17,6 +17,7 @@ import {
   setOfflineData,
   setOnlineData,
   updateBasicInfoData,
+  updateImageData,
   updateSortData,
   uploadImageData,
 } from '../../services/qrCode';
@@ -26,6 +27,7 @@ export const qrCodeTypeCollection = {
   get: 'qrCode/get',
   addBasicInfo: 'qrCode/addBasicInfo',
   updateBasicInfo: 'qrCode/updateBasicInfo',
+  updateImage: 'qrCode/updateImage',
   updateSort: 'qrCode/updateSort',
   setOnline: 'qrCode/setOnline',
   setOffline: 'qrCode/setOffline',
@@ -132,6 +134,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(updateBasicInfoData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *updateImage(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(updateImageData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
