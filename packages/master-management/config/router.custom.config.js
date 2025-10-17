@@ -24,7 +24,7 @@ export const dashboard = {
       path: '/dashboard/workbench',
       name: 'workbench',
       icon: 'bars',
-      component: './Workbench',
+      component: './custom/Workbench',
     },
   ],
 };

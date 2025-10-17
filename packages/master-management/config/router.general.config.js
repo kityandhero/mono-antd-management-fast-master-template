@@ -9,7 +9,7 @@ export const entrance = {
     { path: '/entrance', redirect: '/entrance/signIn' },
     {
       path: '/entrance/signIn',
-      component: './Entrance',
+      component: './general/Entrance',
     },
   ],
 };
@@ -52,23 +52,23 @@ export const logs = {
         {
           path: '/logs/errorLog/pageList/:pageKey',
           hideInMenu: true,
-          component: './ErrorLog/PageList',
+          component: './general/ErrorLog/PageList',
         },
         {
           path: '/logs/errorLog/edit/:op/:id/:pageKey',
           name: 'edit',
           hideInMenu: true,
-          component: './ErrorLog/Edit',
+          component: './general/ErrorLog/Edit',
           routes: [
             {
               path: '/logs/errorLog/edit/:op/:id/:pageKey/basicInfo',
               name: 'basicInfo',
-              component: './ErrorLog/Edit/BasicInfo',
+              component: './general/ErrorLog/Edit/BasicInfo',
             },
             {
               path: '/logs/errorLog/edit/:op/:id/:pageKey/paramInfo',
               name: 'paramInfo',
-              component: './ErrorLog/Edit/ParamInfo',
+              component: './general/ErrorLog/Edit/ParamInfo',
             },
           ],
         },
@@ -98,18 +98,18 @@ export const logs = {
         {
           path: '/logs/generalLog/pageList/:pageKey',
           hideInMenu: true,
-          component: './GeneralLog/PageList',
+          component: './general/GeneralLog/PageList',
         },
         {
           path: '/logs/generalLog/edit/:op/:id/:pageKey',
           name: 'edit',
           hideInMenu: true,
-          component: './GeneralLog/Edit',
+          component: './general/GeneralLog/Edit',
           routes: [
             {
               path: '/logs/generalLog/edit/:op/:id/:pageKey/basicInfo',
               name: 'basicInfo',
-              component: './GeneralLog/Edit/BasicInfo',
+              component: './general/GeneralLog/Edit/BasicInfo',
             },
           ],
         },
@@ -139,18 +139,18 @@ export const logs = {
         {
           path: '/logs/executeLog/pageList/:pageKey',
           hideInMenu: true,
-          component: './ExecuteLog/PageList',
+          component: './general/ExecuteLog/PageList',
         },
         {
           path: '/logs/executeLog/edit/:op/:id/:pageKey',
           name: 'edit',
           hideInMenu: true,
-          component: './ExecuteLog/Edit',
+          component: './general/ExecuteLog/Edit',
           routes: [
             {
               path: '/logs/executeLog/edit/:op/:id/:pageKey/basicInfo',
               name: 'basicInfo',
-              component: './ExecuteLog/Edit/BasicInfo',
+              component: './general/ExecuteLog/Edit/BasicInfo',
             },
           ],
         },
@@ -180,7 +180,7 @@ export const logs = {
         {
           path: '/logs/sqlLog/pageList/:pageKey',
           hideInMenu: true,
-          component: './SqlLog/PageList',
+          component: './general/SqlLog/PageList',
         },
       ],
     },
@@ -208,7 +208,7 @@ export const logs = {
         {
           path: '/logs/operationLog/pageList/:pageKey',
           hideInMenu: true,
-          component: './OperationLog/PageList',
+          component: './general/OperationLog/PageList',
         },
       ],
     },
@@ -232,7 +232,7 @@ export const logs = {
           name: 'singleList',
           icon: 'bars',
           hideInMenu: true,
-          component: './MongoSlowQueryInfo/SingleList',
+          component: './general/MongoSlowQueryInfo/SingleList',
         },
       ],
     },
@@ -273,7 +273,7 @@ export const queues = {
         {
           path: '/queues/queueInfo/pageList/:pageKey',
           hideInMenu: true,
-          component: './QueueInfo/PageList',
+          component: './general/QueueInfo/PageList',
         },
       ],
     },
@@ -299,7 +299,7 @@ export const weChatMessageRecord = {
       path: '/messagePush/weChatMessageRecord/pageList/:pageKey',
       name: 'pageList',
       hideInMenu: true,
-      component: './WeChatMessageRecord/PageList',
+      component: './general/WeChatMessageRecord/PageList',
     },
   ],
 };
@@ -335,7 +335,7 @@ export const sms = {
           path: '/sms/smsCategory/pageList/:pageKey',
           name: 'pageList',
           hideInMenu: true,
-          component: './SmsCategory/PageList',
+          component: './general/SmsCategory/PageList',
         },
       ],
     },
@@ -358,7 +358,7 @@ export const sms = {
           path: '/sms/smsLog/pageList/:pageKey',
           name: 'pageList',
           hideInMenu: true,
-          component: './SmsLog/PageList',
+          component: './general/SmsLog/PageList',
         },
       ],
     },
@@ -381,7 +381,7 @@ export const sms = {
           path: '/sms/smsCategoryStatistic/pageList/:pageKey',
           name: 'pageList',
           hideInMenu: true,
-          component: './SmsCategoryStatistic/PageList',
+          component: './general/SmsCategoryStatistic/PageList',
         },
       ],
     },
@@ -412,7 +412,7 @@ export const emailSenderAgent = {
     {
       path: '/email/emailSenderAgent/pageList/:pageKey',
       hideInMenu: true,
-      component: './EmailSenderAgent/PageList',
+      component: './general/EmailSenderAgent/PageList',
     },
   ],
 };
@@ -441,7 +441,7 @@ export const emailMessage = {
     {
       path: '/email/emailMessage/pageList/:pageKey',
       hideInMenu: true,
-      component: './EmailMessage/PageList',
+      component: './general/EmailMessage/PageList',
     },
   ],
 };
@@ -470,7 +470,7 @@ export const emailSenderAgentStatistic = {
     {
       path: '/email/emailSenderAgentStatistic/pageList/:pageKey',
       hideInMenu: true,
-      component: './EmailSenderAgentStatistic/PageList',
+      component: './general/EmailSenderAgentStatistic/PageList',
     },
   ],
 };
@@ -499,7 +499,7 @@ export const emailStatistic = {
     {
       path: '/email/emailStatistic/pageList/:pageKey',
       hideInMenu: true,
-      component: './EmailStatistic/PageList',
+      component: './general/EmailStatistic/PageList',
     },
   ],
 };
@@ -554,13 +554,13 @@ export const services = {
         {
           path: '/services/hostService/pageList/:pageKey',
           hideInMenu: true,
-          component: './HostService/PageList',
+          component: './general/HostService/PageList',
         },
         {
           path: '/services/hostService/edit/:op/:id/:pageKey',
           name: 'edit',
           hideInMenu: true,
-          component: './HostService/Edit',
+          component: './general/HostService/Edit',
           routes: [
             {
               path: '/services/hostService/edit/:op/:id/:pageKey/changeRecord',
@@ -572,7 +572,7 @@ export const services = {
                 },
                 {
                   path: '/services/hostService/edit/:op/:id/:pageKey/changeRecord/pageList',
-                  component: './HostService/Edit/ChangeRecord/PageList',
+                  component: './general/HostService/Edit/ChangeRecord/PageList',
                 },
               ],
             },
@@ -604,7 +604,7 @@ export const services = {
         {
           path: '/services/hostServiceLog/pageList/:pageKey',
           hideInMenu: true,
-          component: './HostServiceLog/PageList',
+          component: './general/HostServiceLog/PageList',
         },
       ],
     },
@@ -646,18 +646,18 @@ export const apps = {
         {
           path: '/app/applicationSource/pageList/:pageKey',
           hideInMenu: true,
-          component: './ApplicationSource/PageList',
+          component: './general/ApplicationSource/PageList',
         },
         {
           path: '/app/applicationSource/edit/:op/:id/:pageKey',
           name: 'edit',
           hideInMenu: true,
-          component: './ApplicationSource/Edit',
+          component: './general/ApplicationSource/Edit',
           routes: [
             {
               path: '/app/applicationSource/edit/:op/:id/:pageKey/basicInfo',
               name: 'basicInfo',
-              component: './ApplicationSource/Edit/BasicInfo',
+              component: './general/ApplicationSource/Edit/BasicInfo',
             },
             {
               path: '/app/applicationSource/edit/:op/:id/:pageKey/operateLog',
@@ -670,7 +670,8 @@ export const apps = {
                 },
                 {
                   path: '/app/applicationSource/edit/:op/:id/:pageKey/operateLog/pageList',
-                  component: './ApplicationSource/Edit/OperateLog/PageList',
+                  component:
+                    './general/ApplicationSource/Edit/OperateLog/PageList',
                 },
               ],
             },
@@ -697,18 +698,18 @@ export const apps = {
           path: '/app/application/pageList/:pageKey',
           name: 'pageList',
           hideInMenu: true,
-          component: './Application/PageList',
+          component: './general/Application/PageList',
         },
         {
           path: '/app/application/edit/:op/:id/:pageKey',
           name: 'edit',
           hideInMenu: true,
-          component: './Application/Edit',
+          component: './general/Application/Edit',
           routes: [
             {
               path: '/app/application/edit/:op/:id/:pageKey/basicInfo',
               name: 'basicInfo',
-              component: './Application/Edit/BasicInfo',
+              component: './general/Application/Edit/BasicInfo',
             },
             {
               path: '/app/application/edit/:op/:id/:pageKey/applicationNavigation',
@@ -722,54 +723,55 @@ export const apps = {
                 {
                   path: '/app/application/edit/:op/:id/:pageKey/applicationNavigation/pageList',
                   component:
-                    './Application/Edit/ApplicationNavigation/PageList',
+                    './general/Application/Edit/ApplicationNavigation/PageList',
                 },
               ],
             },
             {
               path: '/app/application/edit/:op/:id/:pageKey/customGlobalDataInfo',
               name: 'customGlobalDataInfo',
-              component: './Application/Edit/CustomGlobalDataInfo',
+              component: './general/Application/Edit/CustomGlobalDataInfo',
             },
             {
               path: '/app/application/edit/:op/:id/:pageKey/pagePathInfo',
               name: 'pagePathInfo',
-              component: './Application/Edit/PagePathInfo',
+              component: './general/Application/Edit/PagePathInfo',
             },
             {
               path: '/app/application/edit/:op/:id/:pageKey/weChatApplicationInfo',
               name: 'weChatApplicationInfo',
-              component: './Application/Edit/WeChatApplicationInfo',
+              component: './general/Application/Edit/WeChatApplicationInfo',
             },
             {
               path: '/app/application/edit/:op/:id/:pageKey/weChatPayCertificateInfo',
               name: 'weChatPayCertificateInfo',
-              component: './Application/Edit/WeChatPayCertificateInfo',
+              component: './general/Application/Edit/WeChatPayCertificateInfo',
             },
             {
               path: '/app/application/edit/:op/:id/:pageKey/weChatMessageTemplateInfo',
               name: 'weChatMessageTemplateInfo',
-              component: './Application/Edit/WeChatMessageTemplateInfo',
+              component: './general/Application/Edit/WeChatMessageTemplateInfo',
             },
             {
               path: '/app/application/edit/:op/:id/:pageKey/weChatMessageTargetPathInfo',
               name: 'weChatMessageTargetPathInfo',
-              component: './Application/Edit/WeChatMessageTargetPathInfo',
+              component:
+                './general/Application/Edit/WeChatMessageTargetPathInfo',
             },
             {
               path: '/app/application/edit/:op/:id/:pageKey/jiGuangInfo',
               name: 'jiGuangInfo',
-              component: './Application/Edit/JiGuangInfo',
+              component: './general/Application/Edit/JiGuangInfo',
             },
             {
               path: '/app/application/edit/:op/:id/:pageKey/articleNotificationInfo',
               name: 'articleNotificationInfo',
-              component: './Application/Edit/ArticleNotificationInfo',
+              component: './general/Application/Edit/ArticleNotificationInfo',
             },
             {
               path: '/app/application/edit/:op/:id/:pageKey/checkInInfo',
               name: 'checkInInfo',
-              component: './Application/Edit/CheckInInfo',
+              component: './general/Application/Edit/CheckInInfo',
             },
             {
               path: '/app/application/edit/:op/:id/:pageKey/applicationVersion',
@@ -782,7 +784,8 @@ export const apps = {
                 },
                 {
                   path: '/app/application/edit/:op/:id/:pageKey/applicationVersion/pageList',
-                  component: './Application/Edit/ApplicationVersion/PageList',
+                  component:
+                    './general/Application/Edit/ApplicationVersion/PageList',
                 },
               ],
             },
@@ -797,7 +800,7 @@ export const apps = {
                 },
                 {
                   path: '/app/application/edit/:op/:id/:pageKey/operateLog/pageList',
-                  component: './Application/Edit/OperateLog/PageList',
+                  component: './general/Application/Edit/OperateLog/PageList',
                 },
               ],
             },
@@ -832,18 +835,18 @@ export const tag = {
     {
       path: '/data/tag/pageList/:pageKey',
       hideInMenu: true,
-      component: './Tag/PageList',
+      component: './general/Tag/PageList',
     },
     {
       path: '/data/tag/edit/:op/:id/:pageKey',
       name: 'edit',
       hideInMenu: true,
-      component: './Tag/Edit',
+      component: './general/Tag/Edit',
       routes: [
         {
           path: '/data/tag/edit/:op/:id/:pageKey/basicInfo',
           name: 'basicInfo',
-          component: './Tag/Edit/BasicInfo',
+          component: './general/Tag/Edit/BasicInfo',
         },
         {
           path: '/data/tag/edit/:op/:id/:pageKey/operateLog',
@@ -855,7 +858,7 @@ export const tag = {
             },
             {
               path: '/data/tag/edit/:op/:id/:pageKey/operateLog/pageList',
-              component: './Tag/Edit/OperateLog/PageList',
+              component: './general/Tag/Edit/OperateLog/PageList',
             },
           ],
         },
@@ -888,18 +891,18 @@ export const administrativeDivision = {
     {
       path: '/data/administrativeDivision/pageList/:pageKey',
       hideInMenu: true,
-      component: './AdministrativeDivision/PageList',
+      component: './general/AdministrativeDivision/PageList',
     },
     {
       path: '/data/administrativeDivision/edit/:op/:id/:pageKey',
       name: 'edit',
       hideInMenu: true,
-      component: './AdministrativeDivision/Edit',
+      component: './general/AdministrativeDivision/Edit',
       routes: [
         {
           path: '/data/administrativeDivision/edit/:op/:id/:pageKey/basicInfo',
           name: 'basicInfo',
-          component: './AdministrativeDivision/Edit/BasicInfo',
+          component: './general/AdministrativeDivision/Edit/BasicInfo',
         },
         {
           path: '/data/administrativeDivision/edit/:op/:id/:pageKey/operateLog',
@@ -912,7 +915,8 @@ export const administrativeDivision = {
             },
             {
               path: '/data/administrativeDivision/edit/:op/:id/:pageKey/operateLog/pageList',
-              component: './AdministrativeDivision/Edit/OperateLog/PageList',
+              component:
+                './general/AdministrativeDivision/Edit/OperateLog/PageList',
             },
           ],
         },
@@ -943,18 +947,18 @@ export const section = {
     },
     {
       path: '/news/section/pageList/:pageKey',
-      component: './Section/PageList',
+      component: './general/Section/PageList',
     },
     {
       path: '/news/section/edit/:op/:id/:pageKey',
       name: 'edit',
       hideInMenu: true,
-      component: './Section/Edit',
+      component: './general/Section/Edit',
       routes: [
         {
           path: '/news/section/edit/:op/:id/:pageKey/basicInfo',
           name: 'basicInfo',
-          component: './Section/Edit/BasicInfo',
+          component: './general/Section/Edit/BasicInfo',
         },
         {
           path: '/news/section/edit/:op/:id/:pageKey/sectionApplicationConfig',
@@ -967,23 +971,24 @@ export const section = {
             },
             {
               path: '/news/section/edit/:op/:id/:pageKey/sectionApplicationConfig/pageList',
-              component: './Section/Edit/SectionApplicationConfig/PageList',
+              component:
+                './general/Section/Edit/SectionApplicationConfig/PageList',
             },
           ],
         },
         {
           path: '/news/section/edit/:op/:id/:pageKey/contentInfo',
           name: 'contentInfo',
-          component: './Section/Edit/ContentInfo',
+          component: './general/Section/Edit/ContentInfo',
         },
         {
           path: '/news/section/edit/:op/:id/:pageKey/mediaInfo',
           name: 'mediaInfo',
-          component: './Section/Edit/MediaInfo',
+          component: './general/Section/Edit/MediaInfo',
         },
         {
           path: '/news/section/edit/:op/:id/:pageKey/scoreInfo',
-          component: './Section/Edit/ReadObtainScoreInfo',
+          component: './general/Section/Edit/ReadObtainScoreInfo',
         },
         {
           path: '/news/section/edit/:op/:id/:pageKey/operateLog',
@@ -996,7 +1001,7 @@ export const section = {
             },
             {
               path: '/news/section/edit/:op/:id/:pageKey/operateLog/pageList',
-              component: './Section/Edit/OperateLog/PageList',
+              component: './general/Section/Edit/OperateLog/PageList',
             },
           ],
         },
@@ -1029,7 +1034,7 @@ export const businessSet = {
     {
       path: '/data/businessSet/pageList/:pageKey',
       hideInMenu: true,
-      component: './BusinessSet/PageList',
+      component: './general/BusinessSet/PageList',
     },
   ],
 };
@@ -1058,7 +1063,7 @@ export const optionPool = {
     {
       path: '/data/optionPool/pageList/:pageKey',
       hideInMenu: true,
-      component: './OptionPool/PageList',
+      component: './general/OptionPool/PageList',
     },
   ],
 };
@@ -1082,7 +1087,7 @@ export const generalDiscourse = {
       path: '/data/generalDiscourse/pageList/:pageKey',
       name: 'pageList',
       hideInMenu: true,
-      component: './GeneralDiscourse/PageList',
+      component: './general/GeneralDiscourse/PageList',
     },
   ],
 };
@@ -1120,7 +1125,7 @@ export const subsidiaryMessages = {
           path: '/subsidiaryMessages/subsidiaryComplaintCategory/pageList/:pageKey',
           name: 'pageList',
           hideInMenu: true,
-          component: './SubsidiaryComplaintCategory/PageList',
+          component: './general/SubsidiaryComplaintCategory/PageList',
         },
       ],
     },
@@ -1144,18 +1149,18 @@ export const subsidiaryMessages = {
           path: '/subsidiaryMessages/subsidiaryComplaintMessage/pageList/:pageKey',
           name: 'pageList',
           hideInMenu: true,
-          component: './SubsidiaryComplaintMessage/PageList',
+          component: './general/SubsidiaryComplaintMessage/PageList',
         },
         {
           path: '/subsidiaryMessages/subsidiaryComplaintMessage/edit/:op/:id/:pageKey',
           name: 'edit',
           hideInMenu: true,
-          component: './SubsidiaryComplaintMessage/Edit',
+          component: './general/SubsidiaryComplaintMessage/Edit',
           routes: [
             {
               path: '/subsidiaryMessages/subsidiaryComplaintMessage/edit/:op/:id/:pageKey/basicInfo',
               name: 'basicInfo',
-              component: './SubsidiaryComplaintMessage/Edit/BasicInfo',
+              component: './general/SubsidiaryComplaintMessage/Edit/BasicInfo',
             },
             {
               path: '/subsidiaryMessages/subsidiaryComplaintMessage/edit/:op/:id/:pageKey/operateLog',
@@ -1169,7 +1174,7 @@ export const subsidiaryMessages = {
                 {
                   path: '/subsidiaryMessages/subsidiaryComplaintMessage/edit/:op/:id/:pageKey/operateLog/pageList',
                   component:
-                    './SubsidiaryComplaintMessage/Edit/OperateLog/PageList',
+                    './general/SubsidiaryComplaintMessage/Edit/OperateLog/PageList',
                 },
               ],
             },
@@ -1196,18 +1201,18 @@ export const subsidiaryMessages = {
           path: '/subsidiaryMessages/subsidiaryFeedbackMessage/pageList/:pageKey',
           name: 'pageList',
           hideInMenu: true,
-          component: './SubsidiaryFeedbackMessage/PageList',
+          component: './general/SubsidiaryFeedbackMessage/PageList',
         },
         {
           path: '/subsidiaryMessages/subsidiaryFeedbackMessage/edit/:op/:id/:pageKey',
           name: 'edit',
           hideInMenu: true,
-          component: './SubsidiaryFeedbackMessage/Edit',
+          component: './general/SubsidiaryFeedbackMessage/Edit',
           routes: [
             {
               path: '/subsidiaryMessages/subsidiaryFeedbackMessage/edit/:op/:id/:pageKey/basicInfo',
               name: 'basicInfo',
-              component: './SubsidiaryFeedbackMessage/Edit/BasicInfo',
+              component: './general/SubsidiaryFeedbackMessage/Edit/BasicInfo',
             },
             {
               path: '/subsidiaryMessages/subsidiaryFeedbackMessage/edit/:op/:id/:pageKey/operateLog',
@@ -1221,7 +1226,7 @@ export const subsidiaryMessages = {
                 {
                   path: '/subsidiaryMessages/subsidiaryFeedbackMessage/edit/:op/:id/:pageKey/operateLog/pageList',
                   component:
-                    './SubsidiaryFeedbackMessage/Edit/OperateLog/PageList',
+                    './general/SubsidiaryFeedbackMessage/Edit/OperateLog/PageList',
                 },
               ],
             },
@@ -1248,18 +1253,18 @@ export const subsidiaryMessages = {
           path: '/subsidiaryMessages/subsidiaryReportMessage/pageList/:pageKey',
           name: 'pageList',
           hideInMenu: true,
-          component: './SubsidiaryReportMessage/PageList',
+          component: './general/SubsidiaryReportMessage/PageList',
         },
         {
           path: '/subsidiaryMessages/subsidiaryReportMessage/edit/:op/:id/:pageKey',
           name: 'edit',
           hideInMenu: true,
-          component: './SubsidiaryReportMessage/Edit',
+          component: './general/SubsidiaryReportMessage/Edit',
           routes: [
             {
               path: '/subsidiaryMessages/subsidiaryReportMessage/edit/:op/:id/:pageKey/basicInfo',
               name: 'basicInfo',
-              component: './SubsidiaryReportMessage/Edit/BasicInfo',
+              component: './general/SubsidiaryReportMessage/Edit/BasicInfo',
             },
             {
               path: '/subsidiaryMessages/subsidiaryReportMessage/edit/:op/:id/:pageKey/operateLog',
@@ -1273,7 +1278,7 @@ export const subsidiaryMessages = {
                 {
                   path: '/subsidiaryMessages/subsidiaryReportMessage/edit/:op/:id/:pageKey/operateLog/pageList',
                   component:
-                    './SubsidiaryReportMessage/Edit/OperateLog/PageList',
+                    './general/SubsidiaryReportMessage/Edit/OperateLog/PageList',
                 },
               ],
             },
@@ -1308,18 +1313,18 @@ export const question = {
     {
       path: '/survey/question/pageList/:pageKey',
       hideInMenu: true,
-      component: './Question/PageList',
+      component: './general/Question/PageList',
     },
     {
       path: '/survey/question/edit/:op/:id/:pageKey',
       name: 'edit',
       hideInMenu: true,
-      component: './Question/Edit',
+      component: './general/Question/Edit',
       routes: [
         {
           path: '/survey/question/edit/:op/:id/:pageKey/basicInfo',
           name: 'basicInfo',
-          component: './Question/Edit/BasicInfo',
+          component: './general/Question/Edit/BasicInfo',
         },
         {
           path: '/survey/question/edit/:op/:id/:pageKey/items',
@@ -1331,14 +1336,14 @@ export const question = {
             },
             {
               path: '/survey/question/edit/:op/:id/:pageKey/items/pageList',
-              component: './Question/Edit/Items/PageList',
+              component: './general/Question/Edit/Items/PageList',
             },
           ],
         },
         {
           path: '/survey/question/edit/:op/:id/:pageKey/answerInfo',
           name: 'answerInfo',
-          component: './Question/Edit/AnswerInfo',
+          component: './general/Question/Edit/AnswerInfo',
         },
         {
           path: '/survey/question/edit/:op/:id/:pageKey/tagInfo',
@@ -1354,7 +1359,7 @@ export const question = {
             },
             {
               path: '/survey/question/edit/:op/:id/:pageKey/tagInfo/pageList',
-              component: './Question/Edit/TagInfo/PageList',
+              component: './general/Question/Edit/TagInfo/PageList',
             },
           ],
         },
@@ -1369,7 +1374,7 @@ export const question = {
             },
             {
               path: '/survey/question/edit/:op/:id/:pageKey/operateLog/pageList',
-              component: './Question/Edit/OperateLog/PageList',
+              component: './general/Question/Edit/OperateLog/PageList',
             },
           ],
         },
@@ -1402,7 +1407,7 @@ export const questionItem = {
     {
       path: '/survey/questionItem/pageList/:pageKey',
       hideInMenu: true,
-      component: './QuestionItem/PageList',
+      component: './general/QuestionItem/PageList',
     },
   ],
 };
@@ -1431,18 +1436,18 @@ export const questionnaire = {
     {
       path: '/survey/questionnaire/pageList/:pageKey',
       hideInMenu: true,
-      component: './Questionnaire/PageList',
+      component: './general/Questionnaire/PageList',
     },
     {
       path: '/survey/questionnaire/edit/:op/:id/:pageKey',
       name: 'edit',
       hideInMenu: true,
-      component: './Questionnaire/Edit',
+      component: './general/Questionnaire/Edit',
       routes: [
         {
           path: '/survey/questionnaire/edit/:op/:id/:pageKey/basicInfo',
           name: 'basicInfo',
-          component: './Questionnaire/Edit/BasicInfo',
+          component: './general/Questionnaire/Edit/BasicInfo',
         },
         {
           path: '/survey/questionnaire/edit/:op/:id/:pageKey/question',
@@ -1455,7 +1460,7 @@ export const questionnaire = {
             },
             {
               path: '/survey/questionnaire/edit/:op/:id/:pageKey/question/pageList',
-              component: './Questionnaire/Edit/Question/PageList',
+              component: './general/Questionnaire/Edit/Question/PageList',
             },
           ],
         },
@@ -1470,7 +1475,7 @@ export const questionnaire = {
             },
             {
               path: '/survey/questionnaire/edit/:op/:id/:pageKey/operateLog/pageList',
-              component: './Questionnaire/Edit/OperateLog/PageList',
+              component: './general/Questionnaire/Edit/OperateLog/PageList',
             },
           ],
         },
@@ -1515,7 +1520,7 @@ export const uploadHistory = {
     {
       path: '/files/uploadHistory/pageList/:pageKey',
       hideInMenu: true,
-      component: './UploadHistory/PageList',
+      component: './general/UploadHistory/PageList',
     },
   ],
 };
@@ -1544,7 +1549,7 @@ export const cloudStorage = {
     {
       path: '/files/cloudStorage/pageList/:pageKey',
       hideInMenu: true,
-      component: './CloudStorage/PageList',
+      component: './general/CloudStorage/PageList',
     },
   ],
 };
@@ -1573,24 +1578,24 @@ export const subsidiary = {
     {
       path: '/organization/subsidiary/pageList/:pageKey',
       hideInMenu: true,
-      component: './Subsidiary/PageList',
+      component: './general/Subsidiary/PageList',
     },
     {
       path: '/organization/subsidiary/add',
       name: 'add',
       hideInMenu: true,
-      component: './Subsidiary/AddBasicInfo',
+      component: './general/Subsidiary/AddBasicInfo',
     },
     {
       path: '/organization/subsidiary/edit/:op/:id/:pageKey',
       name: 'edit',
       hideInMenu: true,
-      component: './Subsidiary/Edit',
+      component: './general/Subsidiary/Edit',
       routes: [
         {
           path: '/organization/subsidiary/edit/:op/:id/:pageKey/basicInfo',
           name: 'basicInfo',
-          component: './Subsidiary/Edit/BasicInfo',
+          component: './general/Subsidiary/Edit/BasicInfo',
         },
         {
           path: '/organization/subsidiary/edit/:op/:id/:pageKey/operateLog',
@@ -1603,7 +1608,7 @@ export const subsidiary = {
             },
             {
               path: '/organization/subsidiary/edit/:op/:id/:pageKey/operateLog/pageList',
-              component: './Subsidiary/Edit/OperateLog/PageList',
+              component: './general/Subsidiary/Edit/OperateLog/PageList',
             },
           ],
         },
@@ -1636,24 +1641,24 @@ export const department = {
     {
       path: '/organization/department/pageList/:pageKey',
       hideInMenu: true,
-      component: './Department/PageList',
+      component: './general/Department/PageList',
     },
     {
       path: '/organization/department/add',
       name: 'add',
       hideInMenu: true,
-      component: './Department/AddBasicInfo',
+      component: './general/Department/AddBasicInfo',
     },
     {
       path: '/organization/department/edit/:op/:id/:pageKey',
       name: 'edit',
       hideInMenu: true,
-      component: './Department/Edit',
+      component: './general/Department/Edit',
       routes: [
         {
           path: '/organization/department/edit/:op/:id/:pageKey/basicInfo',
           name: 'basicInfo',
-          component: './Department/Edit/BasicInfo',
+          component: './general/Department/Edit/BasicInfo',
         },
         {
           path: '/organization/department/edit/:op/:id/:pageKey/operateLog',
@@ -1666,7 +1671,7 @@ export const department = {
             },
             {
               path: '/organization/department/edit/:op/:id/:pageKey/operateLog/pageList',
-              component: './Department/Edit/OperateLog/PageList',
+              component: './general/Department/Edit/OperateLog/PageList',
             },
           ],
         },
@@ -1699,7 +1704,7 @@ export const position = {
     {
       path: '/organization/position/pageList/:pageKey',
       hideInMenu: true,
-      component: './Position/PageList',
+      component: './general/Position/PageList',
     },
   ],
 };
@@ -1728,7 +1733,7 @@ export const positionGrade = {
     {
       path: '/organization/positionGrade/pageList/:pageKey',
       hideInMenu: true,
-      component: './PositionGrade/PageList',
+      component: './general/PositionGrade/PageList',
     },
   ],
 };
@@ -1762,13 +1767,13 @@ export const organization = {
           path: '/organization/graph/graphicalTree',
           name: 'graphicalTree',
           // hideInMenu: true,
-          component: './Organization/GraphicalTree',
+          component: './general/Organization/GraphicalTree',
         },
         {
           path: '/organization/graph/graphicalDirectDepartmentTree',
           name: 'graphicalDirectDepartmentTree',
           // hideInMenu: true,
-          component: './Organization/GraphicalDirectDepartmentTree',
+          component: './general/Organization/GraphicalDirectDepartmentTree',
         },
       ],
     },
@@ -1814,18 +1819,18 @@ export const flow = {
         {
           path: '/flow/workflow/pageList/:pageKey',
           hideInMenu: true,
-          component: './Workflow/PageList',
+          component: './general/Workflow/PageList',
         },
         {
           path: '/flow/workflow/edit/:op/:id/:pageKey',
           name: 'edit',
           hideInMenu: true,
-          component: './Workflow/Edit',
+          component: './general/Workflow/Edit',
           routes: [
             {
               path: '/flow/workflow/edit/:op/:id/:pageKey/basicInfo',
               name: 'basicInfo',
-              component: './Workflow/Edit/BasicInfo',
+              component: './general/Workflow/Edit/BasicInfo',
             },
             {
               path: '/flow/workflow/edit/:op/:id/:pageKey/workflowRangeEffectiveSubsidiaryRelation',
@@ -1839,7 +1844,7 @@ export const flow = {
                 {
                   path: '/flow/workflow/edit/:op/:id/:pageKey/workflowRangeEffectiveSubsidiaryRelation/pageList',
                   component:
-                    './Workflow/Edit/WorkflowRangeEffectiveSubsidiaryRelation/PageList',
+                    './general/Workflow/Edit/WorkflowRangeEffectiveSubsidiaryRelation/PageList',
                 },
               ],
             },
@@ -1855,24 +1860,24 @@ export const flow = {
                 {
                   path: '/flow/workflow/edit/:op/:id/:pageKey/workflowRangeEffectiveExternalDepartmentRelation/pageList',
                   component:
-                    './Workflow/Edit/WorkflowRangeEffectiveExternalDepartmentRelation/PageList',
+                    './general/Workflow/Edit/WorkflowRangeEffectiveExternalDepartmentRelation/PageList',
                 },
               ],
             },
             {
               path: '/flow/workflow/edit/:op/:id/:pageKey/fromInfo',
               name: 'fromInfo',
-              component: './Workflow/Edit/FromInfo',
+              component: './general/Workflow/Edit/FromInfo',
             },
             {
               path: '/flow/workflow/edit/:op/:id/:pageKey/designInfo',
               name: 'designInfo',
-              component: './Workflow/Edit/DesignInfo',
+              component: './general/Workflow/Edit/DesignInfo',
             },
             {
               path: '/flow/workflow/edit/:op/:id/:pageKey/debugCaseInfo',
               name: 'debugCaseInfo',
-              component: './Workflow/Edit/DebugCaseInfo',
+              component: './general/Workflow/Edit/DebugCaseInfo',
             },
             {
               path: '/flow/workflow/edit/:op/:id/:pageKey/operateLog',
@@ -1885,7 +1890,7 @@ export const flow = {
                 },
                 {
                   path: '/flow/workflow/edit/:op/:id/:pageKey/operateLog/pageList',
-                  component: './Workflow/Edit/OperateLog/PageList',
+                  component: './general/Workflow/Edit/OperateLog/PageList',
                 },
               ],
             },
@@ -1917,23 +1922,23 @@ export const flow = {
         {
           path: '/flow/workflowCase/pageList/:pageKey',
           hideInMenu: true,
-          component: './WorkflowCase/PageList',
+          component: './general/WorkflowCase/PageList',
         },
         {
           path: '/flow/workflowCase/edit/:op/:id/:pageKey',
           name: 'edit',
           hideInMenu: true,
-          component: './WorkflowCase/Edit',
+          component: './general/WorkflowCase/Edit',
           routes: [
             {
               path: '/flow/workflowCase/edit/:op/:id/:pageKey/basicInfo',
               name: 'basicInfo',
-              component: './WorkflowCase/Edit/BasicInfo',
+              component: './general/WorkflowCase/Edit/BasicInfo',
             },
             {
               path: '/flow/workflowCase/edit/:op/:id/:pageKey/formInfo',
               name: 'formInfo',
-              component: './WorkflowCase/Edit/FormInfo',
+              component: './general/WorkflowCase/Edit/FormInfo',
             },
             {
               path: '/flow/workflowCase/edit/:op/:id/:pageKey/operateLog',
@@ -1946,7 +1951,7 @@ export const flow = {
                 },
                 {
                   path: '/flow/workflowCase/edit/:op/:id/:pageKey/operateLog/pageList',
-                  component: './WorkflowCase/Edit/OperateLog/PageList',
+                  component: './general/WorkflowCase/Edit/OperateLog/PageList',
                 },
               ],
             },
@@ -1978,7 +1983,7 @@ export const flow = {
         {
           path: '/flow/workflowCaseProcessHistory/pageList/:pageKey',
           hideInMenu: true,
-          component: './WorkflowCaseProcessHistory/PageList',
+          component: './general/WorkflowCaseProcessHistory/PageList',
         },
       ],
     },
@@ -2006,7 +2011,7 @@ export const flow = {
         {
           path: '/flow/workflowCaseNextProcessProgress/pageList/:pageKey',
           hideInMenu: true,
-          component: './WorkflowCaseNextProcessProgress/PageList',
+          component: './general/WorkflowCaseNextProcessProgress/PageList',
         },
       ],
     },
@@ -2035,7 +2040,7 @@ export const flow = {
         {
           path: '/flow/workflowCaseNextProcessNotification/pageList/:pageKey',
           hideInMenu: true,
-          component: './WorkflowCaseNextProcessNotification/PageList',
+          component: './general/WorkflowCaseNextProcessNotification/PageList',
         },
       ],
     },
@@ -2063,7 +2068,7 @@ export const flow = {
         {
           path: '/flow/workflowCaseNextProcessApprove/pageList/:pageKey',
           hideInMenu: true,
-          component: './WorkflowCaseNextProcessApprove/PageList',
+          component: './general/WorkflowCaseNextProcessApprove/PageList',
         },
       ],
     },
@@ -2092,7 +2097,7 @@ export const flow = {
         {
           path: '/flow/workflowCaseUserMonitorConfiguration/pageList/:pageKey',
           hideInMenu: true,
-          component: './WorkflowCaseUserMonitorConfiguration/PageList',
+          component: './general/WorkflowCaseUserMonitorConfiguration/PageList',
         },
       ],
     },
@@ -2123,7 +2128,7 @@ export const accessWay = {
     {
       path: '/permission/accessWay/pageList/:pageKey',
       hideInMenu: true,
-      component: './AccessWay/PageList',
+      component: './general/AccessWay/PageList',
     },
   ],
 };
@@ -2147,24 +2152,24 @@ export const presetRole = {
       path: '/permission/presetRole/add',
       name: 'add',
       hideInMenu: true,
-      component: './PresetRole/Add',
+      component: './general/PresetRole/Add',
     },
     {
       path: '/permission/presetRole/pageList/:pageKey',
       name: 'pageList',
       hideInMenu: true,
-      component: './PresetRole/PageList',
+      component: './general/PresetRole/PageList',
     },
     {
       path: '/permission/presetRole/edit/:op/:id/:pageKey',
       name: 'edit',
       hideInMenu: true,
-      component: './PresetRole/Edit',
+      component: './general/PresetRole/Edit',
       routes: [
         {
           path: '/permission/presetRole/edit/:op/:id/:pageKey/basicInfo',
           name: 'basicInfo',
-          component: './PresetRole/Edit/BasicInfo',
+          component: './general/PresetRole/Edit/BasicInfo',
         },
         {
           path: '/permission/presetRole/edit/:op/:id/:pageKey/moduleInfo',
@@ -2178,7 +2183,7 @@ export const presetRole = {
             {
               path: '/permission/presetRole/edit/:op/:id/:pageKey/moduleInfo/singleList',
               name: 'singleList',
-              component: './PresetRole/Edit/ModuleInfo/SingleList',
+              component: './general/PresetRole/Edit/ModuleInfo/SingleList',
             },
           ],
         },
@@ -2193,7 +2198,7 @@ export const presetRole = {
             },
             {
               path: '/permission/presetRole/edit/:op/:id/:pageKey/operateLog/pageList',
-              component: './PresetRole/Edit/OperateLog/PageList',
+              component: './general/PresetRole/Edit/OperateLog/PageList',
             },
           ],
         },
@@ -2226,18 +2231,18 @@ export const customer = {
     {
       path: '/frontEndUser/customer/pageList/:pageKey',
       hideInMenu: true,
-      component: './Customer/PageList',
+      component: './general/Customer/PageList',
     },
     {
       path: '/frontEndUser/customer/edit/:op/:id/:pageKey',
       name: 'edit',
       hideInMenu: true,
-      component: './Customer/Edit',
+      component: './general/Customer/Edit',
       routes: [
         {
           path: '/frontEndUser/customer/edit/:op/:id/:pageKey/basicInfo',
           name: 'basicInfo',
-          component: './Customer/Edit/BasicInfo',
+          component: './general/Customer/Edit/BasicInfo',
         },
         {
           path: '/frontEndUser/customer/edit/:op/:id/:pageKey/operateLog',
@@ -2250,7 +2255,7 @@ export const customer = {
             },
             {
               path: '/frontEndUser/customer/edit/:op/:id/:pageKey/operateLog/pageList',
-              component: './Customer/Edit/OperateLog/PageList',
+              component: './general/Customer/Edit/OperateLog/PageList',
             },
           ],
         },
@@ -2283,7 +2288,7 @@ export const customerLoginLog = {
     {
       path: '/frontEndUser/customerLoginLog/pageList/:pageKey',
       hideInMenu: true,
-      component: './CustomerLoginLog/PageList',
+      component: './general/CustomerLoginLog/PageList',
     },
   ],
 };
@@ -2312,7 +2317,7 @@ export const customerWechatApplicationInfo = {
     {
       path: '/frontEndUser/customerWechatApplicationInfo/pageList/:pageKey',
       hideInMenu: true,
-      component: './CustomerWechatApplicationInfo/PageList',
+      component: './general/CustomerWechatApplicationInfo/PageList',
     },
   ],
 };
@@ -2341,28 +2346,28 @@ export const user = {
     {
       path: '/person/user/pageList/:pageKey',
       hideInMenu: true,
-      component: './User/PageList',
+      component: './general/User/PageList',
     },
     {
       path: '/person/user/edit/:op/:id/:pageKey',
       name: 'edit',
       hideInMenu: true,
-      component: './User/Edit',
+      component: './general/User/Edit',
       routes: [
         {
           path: '/person/user/edit/:op/:id/:pageKey/basicInfo',
           name: 'basicInfo',
-          component: './User/Edit/BasicInfo',
+          component: './general/User/Edit/BasicInfo',
         },
         {
           path: '/person/user/edit/:op/:id/:pageKey/parentInfo',
           name: 'parentInfo',
-          component: './User/Edit/ParentInfo',
+          component: './general/User/Edit/ParentInfo',
         },
         {
           path: '/person/user/edit/:op/:id/:pageKey/signetInfo',
           name: 'signetInfo',
-          component: './User/Edit/SignetInfo',
+          component: './general/User/Edit/SignetInfo',
         },
         {
           path: '/person/user/edit/:op/:id/:pageKey/userDepartmentInfo',
@@ -2375,7 +2380,7 @@ export const user = {
             },
             {
               path: '/person/user/edit/:op/:id/:pageKey/userDepartmentInfo/pageList',
-              component: './User/Edit/UserDepartmentInfo/PageList',
+              component: './general/User/Edit/UserDepartmentInfo/PageList',
             },
           ],
         },
@@ -2390,7 +2395,7 @@ export const user = {
             },
             {
               path: '/person/user/edit/:op/:id/:pageKey/userSubsidiaryInfo/pageList',
-              component: './User/Edit/UserSubsidiaryInfo/PageList',
+              component: './general/User/Edit/UserSubsidiaryInfo/PageList',
             },
           ],
         },
@@ -2405,7 +2410,7 @@ export const user = {
             },
             {
               path: '/person/user/edit/:op/:id/:pageKey/operateLog/pageList',
-              component: './User/Edit/OperateLog/PageList',
+              component: './general/User/Edit/OperateLog/PageList',
             },
           ],
         },
@@ -2438,7 +2443,7 @@ export const userLoginLog = {
     {
       path: '/person/userLoginLog/pageList/:pageKey',
       hideInMenu: true,
-      component: './UserLoginLog/PageList',
+      component: './general/UserLoginLog/PageList',
     },
   ],
 };
@@ -2467,7 +2472,7 @@ export const userSignet = {
     {
       path: '/person/userSignet/pageList/:pageKey',
       hideInMenu: true,
-      component: './User/PageListSignet',
+      component: './general/User/PageListSignet',
     },
   ],
 };
@@ -2496,24 +2501,24 @@ export const userDevice = {
     {
       path: '/person/userDevice/pageList/:pageKey',
       hideInMenu: true,
-      component: './UserDevice/PageList',
+      component: './general/UserDevice/PageList',
     },
     {
       path: '/person/userDevice/add',
       name: 'add',
       hideInMenu: true,
-      component: './UserDevice/Add',
+      component: './general/UserDevice/Add',
     },
     {
       path: '/person/userDevice/edit/:op/:id/:pageKey',
       name: 'edit',
       hideInMenu: true,
-      component: './UserDevice/Edit',
+      component: './general/UserDevice/Edit',
       routes: [
         {
           path: '/person/userDevice/edit/:op/:id/:pageKey/basicInfo',
           name: 'basicInfo',
-          component: './UserDevice/Edit/BasicInfo',
+          component: './general/UserDevice/Edit/BasicInfo',
         },
         {
           path: '/person/userDevice/edit/:op/:id/:pageKey/operateLog',
@@ -2526,7 +2531,7 @@ export const userDevice = {
             },
             {
               path: '/person/userDevice/edit/:op/:id/:pageKey/operateLog/pageList',
-              component: './UserDevice/Edit/OperateLog/PageList',
+              component: './general/UserDevice/Edit/OperateLog/PageList',
             },
           ],
         },
@@ -2559,7 +2564,7 @@ export const userWechatApplicationInfo = {
     {
       path: '/person/userWechatApplicationInfo/pageList/:pageKey',
       hideInMenu: true,
-      component: './UserWechatApplicationInfo/PageList',
+      component: './general/UserWechatApplicationInfo/PageList',
     },
   ],
 };
@@ -2588,7 +2593,7 @@ export const userGeneralDiscourse = {
     {
       path: '/person/userGeneralDiscourse/pageList/:pageKey',
       hideInMenu: true,
-      component: './UserGeneralDiscourse/PageList',
+      component: './general/UserGeneralDiscourse/PageList',
     },
   ],
 };
@@ -2617,12 +2622,12 @@ export const internalTester = {
     {
       path: '/person/internalTester/pageList/:pageKey',
       hideInMenu: true,
-      component: './InternalTester/PageList',
+      component: './general/InternalTester/PageList',
     },
     {
       path: '/person/internalTester/add',
       hideInMenu: true,
-      component: './InternalTester/Add',
+      component: './general/InternalTester/Add',
     },
   ],
 };
@@ -2651,7 +2656,7 @@ const galleryCategory = {
     {
       path: '/assistTools/galleryCategory/pageList/:pageKey',
       hideInMenu: true,
-      component: './GalleryCategory/PageList',
+      component: './general/GalleryCategory/PageList',
     },
   ],
 };
@@ -2680,24 +2685,24 @@ const gallery = {
     {
       path: '/assistTools/gallery/pageList/:pageKey',
       hideInMenu: true,
-      component: './Gallery/PageList',
+      component: './general/Gallery/PageList',
     },
     {
       path: '/assistTools/gallery/add',
       name: 'add',
       hideInMenu: true,
-      component: './Gallery/AddBasicInfo',
+      component: './general/Gallery/AddBasicInfo',
     },
     {
       path: '/assistTools/gallery/edit/:op/:id/:pageKey',
       name: 'edit',
       hideInMenu: true,
-      component: './Gallery/Edit',
+      component: './general/Gallery/Edit',
       routes: [
         {
           path: '/assistTools/gallery/edit/:op/:id/:pageKey/basicInfo',
           name: 'basicInfo',
-          component: './Gallery/Edit/BasicInfo',
+          component: './general/Gallery/Edit/BasicInfo',
         },
         {
           path: '/assistTools/gallery/edit/:op/:id/:pageKey/operateLog',
@@ -2710,7 +2715,7 @@ const gallery = {
             },
             {
               path: '/assistTools/gallery/edit/:op/:id/:pageKey/operateLog/pageList',
-              component: './Gallery/Edit/OperateLog/PageList',
+              component: './general/Gallery/Edit/OperateLog/PageList',
             },
           ],
         },
@@ -2743,7 +2748,7 @@ const qrCodeCategory = {
     {
       path: '/assistTools/qrCodeCategory/pageList/:pageKey',
       hideInMenu: true,
-      component: './QrCodeCategory/PageList',
+      component: './general/QrCodeCategory/PageList',
     },
   ],
 };
@@ -2772,24 +2777,24 @@ const qrCode = {
     {
       path: '/assistTools/qrCode/pageList/:pageKey',
       hideInMenu: true,
-      component: './QrCode/PageList',
+      component: './general/QrCode/PageList',
     },
     {
       path: '/assistTools/qrCode/add',
       name: 'add',
       hideInMenu: true,
-      component: './QrCode/AddBasicInfo',
+      component: './general/QrCode/AddBasicInfo',
     },
     {
       path: '/assistTools/qrCode/edit/:op/:id/:pageKey',
       name: 'edit',
       hideInMenu: true,
-      component: './QrCode/Edit',
+      component: './general/QrCode/Edit',
       routes: [
         {
           path: '/assistTools/qrCode/edit/:op/:id/:pageKey/basicInfo',
           name: 'basicInfo',
-          component: './QrCode/Edit/BasicInfo',
+          component: './general/QrCode/Edit/BasicInfo',
         },
         {
           path: '/assistTools/qrCode/edit/:op/:id/:pageKey/operateLog',
@@ -2802,7 +2807,7 @@ const qrCode = {
             },
             {
               path: '/assistTools/qrCode/edit/:op/:id/:pageKey/operateLog/pageList',
-              component: './QrCode/Edit/OperateLog/PageList',
+              component: './general/QrCode/Edit/OperateLog/PageList',
             },
           ],
         },
@@ -2835,7 +2840,7 @@ const callCenterCategory = {
     {
       path: '/assistTools/callCenterCategory/pageList/:pageKey',
       hideInMenu: true,
-      component: './CallCenterCategory/PageList',
+      component: './general/CallCenterCategory/PageList',
     },
   ],
 };
@@ -2864,24 +2869,24 @@ const callCenter = {
     {
       path: '/assistTools/callCenter/pageList/:pageKey',
       hideInMenu: true,
-      component: './CallCenter/PageList',
+      component: './general/CallCenter/PageList',
     },
     {
       path: '/assistTools/callCenter/add',
       name: 'add',
       hideInMenu: true,
-      component: './CallCenter/AddBasicInfo',
+      component: './general/CallCenter/AddBasicInfo',
     },
     {
       path: '/assistTools/callCenter/edit/:op/:id/:pageKey',
       name: 'edit',
       hideInMenu: true,
-      component: './CallCenter/Edit',
+      component: './general/CallCenter/Edit',
       routes: [
         {
           path: '/assistTools/callCenter/edit/:op/:id/:pageKey/basicInfo',
           name: 'basicInfo',
-          component: './CallCenter/Edit/BasicInfo',
+          component: './general/CallCenter/Edit/BasicInfo',
         },
         {
           path: '/assistTools/callCenter/edit/:op/:id/:pageKey/operateLog',
@@ -2894,7 +2899,7 @@ const callCenter = {
             },
             {
               path: '/assistTools/callCenter/edit/:op/:id/:pageKey/operateLog/pageList',
-              component: './CallCenter/Edit/OperateLog/PageList',
+              component: './general/CallCenter/Edit/OperateLog/PageList',
             },
           ],
         },
@@ -2951,18 +2956,18 @@ const applicationUserFeedback = {
     {
       path: '/applicationFeedback/applicationUserFeedback/pageList/:pageKey',
       hideInMenu: true,
-      component: './ApplicationUserFeedback/PageList',
+      component: './general/ApplicationUserFeedback/PageList',
     },
     {
       path: '/applicationFeedback/applicationUserFeedback/edit/:op/:id/:pageKey',
       name: 'edit',
       hideInMenu: true,
-      component: './ApplicationUserFeedback/Edit',
+      component: './general/ApplicationUserFeedback/Edit',
       routes: [
         {
           path: '/applicationFeedback/applicationUserFeedback/edit/:op/:id/:pageKey/basicInfo',
           name: 'basicInfo',
-          component: './ApplicationUserFeedback/Edit/BasicInfo',
+          component: './general/ApplicationUserFeedback/Edit/BasicInfo',
         },
         {
           path: '/applicationFeedback/applicationUserFeedback/edit/:op/:id/:pageKey/operateLog',
@@ -2975,7 +2980,8 @@ const applicationUserFeedback = {
             },
             {
               path: '/applicationFeedback/applicationUserFeedback/edit/:op/:id/:pageKey/operateLog/pageList',
-              component: './ApplicationUserFeedback/Edit/OperateLog/PageList',
+              component:
+                './general/ApplicationUserFeedback/Edit/OperateLog/PageList',
             },
           ],
         },
@@ -3008,18 +3014,18 @@ const applicationCustomerFeedback = {
     {
       path: '/applicationFeedback/applicationCustomerFeedback/pageList/:pageKey',
       hideInMenu: true,
-      component: './ApplicationCustomerFeedback/PageList',
+      component: './general/ApplicationCustomerFeedback/PageList',
     },
     {
       path: '/applicationFeedback/applicationCustomerFeedback/edit/:op/:id/:pageKey',
       name: 'edit',
       hideInMenu: true,
-      component: './ApplicationCustomerFeedback/Edit',
+      component: './general/ApplicationCustomerFeedback/Edit',
       routes: [
         {
           path: '/applicationFeedback/applicationCustomerFeedback/edit/:op/:id/:pageKey/basicInfo',
           name: 'basicInfo',
-          component: './ApplicationCustomerFeedback/Edit/BasicInfo',
+          component: './general/ApplicationCustomerFeedback/Edit/BasicInfo',
         },
         {
           path: '/applicationFeedback/applicationCustomerFeedback/edit/:op/:id/:pageKey/operateLog',
@@ -3033,7 +3039,7 @@ const applicationCustomerFeedback = {
             {
               path: '/applicationFeedback/applicationCustomerFeedback/edit/:op/:id/:pageKey/operateLog/pageList',
               component:
-                './ApplicationCustomerFeedback/Edit/OperateLog/PageList',
+                './general/ApplicationCustomerFeedback/Edit/OperateLog/PageList',
             },
           ],
         },
@@ -3080,7 +3086,7 @@ const keyValueInfrastructure = {
     {
       path: '/dataDictionaryInfrastructure/keyValueInfrastructure/pageList/:pageKey',
       hideInMenu: true,
-      component: './KeyValueInfrastructure/PageList',
+      component: './general/KeyValueInfrastructure/PageList',
     },
   ],
 };
@@ -3109,7 +3115,7 @@ const keyValueApplication = {
     {
       path: '/dataDictionaryInfrastructure/keyValueApplication/pageList/:pageKey',
       hideInMenu: true,
-      component: './KeyValueApplication/PageList',
+      component: './general/KeyValueApplication/PageList',
     },
   ],
 };
@@ -3138,7 +3144,7 @@ const keyValueSection = {
     {
       path: '/dataDictionaryInfrastructure/keyValueSection/pageList/:pageKey',
       hideInMenu: true,
-      component: './KeyValueSection/PageList',
+      component: './general/KeyValueSection/PageList',
     },
   ],
 };
@@ -3167,7 +3173,7 @@ const keyValueWorkflow = {
     {
       path: '/dataDictionaryInfrastructure/keyValueWorkflow/pageList/:pageKey',
       hideInMenu: true,
-      component: './KeyValueWorkflow/PageList',
+      component: './general/KeyValueWorkflow/PageList',
     },
   ],
 };
@@ -3214,7 +3220,7 @@ const sqlEntityInfrastructure = {
     {
       path: '/developTools/sqlEntityInfrastructure/pageList/:pageKey',
       hideInMenu: true,
-      component: './SqlEntity/PageListInfrastructure',
+      component: './general/SqlEntity/PageListInfrastructure',
     },
   ],
 };
@@ -3243,7 +3249,7 @@ const sqlEntityBusiness = {
     {
       path: '/developTools/sqlEntityBusiness/pageList/:pageKey',
       hideInMenu: true,
-      component: './SqlEntity/PageListBusiness',
+      component: './general/SqlEntity/PageListBusiness',
     },
   ],
 };
@@ -3264,7 +3270,7 @@ const developInfo = {
       path: '/developTools/developInfo/overview',
       name: 'overview',
       hideInMenu: true,
-      component: './DevelopInfo/Overview',
+      component: './general/DevelopInfo/Overview',
       routes: [
         {
           path: '/developTools/developInfo/overview',
@@ -3273,17 +3279,17 @@ const developInfo = {
         {
           path: '/developTools/developInfo/overview/actionMap',
           name: 'actionMap',
-          component: './DevelopInfo/Overview/ActionMap',
+          component: './general/DevelopInfo/Overview/ActionMap',
         },
         {
           path: '/developTools/developInfo/overview/modelConfig',
           name: 'modelConfig',
-          component: './DevelopInfo/Overview/ModelConfig',
+          component: './general/DevelopInfo/Overview/ModelConfig',
         },
         {
           path: '/developTools/developInfo/overview/permissionContent',
           name: 'permissionContent',
-          component: './DevelopInfo/Overview/PermissionContent',
+          component: './general/DevelopInfo/Overview/PermissionContent',
         },
       ],
     },
@@ -3314,7 +3320,7 @@ const channel = {
     {
       path: '/developTools/channel/pageList/:pageKey',
       hideInMenu: true,
-      component: './Channel/PageList',
+      component: './general/Channel/PageList',
     },
   ],
 };
@@ -3366,18 +3372,18 @@ export const account = {
         {
           path: '/account/masterManager/pageList/:pageKey',
           hideInMenu: true,
-          component: './MasterManager/PageList',
+          component: './general/MasterManager/PageList',
         },
         {
           path: '/account/masterManager/edit/:op/:id/:pageKey',
           name: 'edit',
           hideInMenu: true,
-          component: './MasterManager/Edit',
+          component: './general/MasterManager/Edit',
           routes: [
             {
               path: '/account/masterManager/edit/:op/:id/:pageKey/basicInfo',
               name: 'basicInfo',
-              component: './MasterManager/Edit/BasicInfo',
+              component: './general/MasterManager/Edit/BasicInfo',
             },
             {
               path: '/account/masterManager/edit/:op/:id/:pageKey/loginLog',
@@ -3390,7 +3396,7 @@ export const account = {
                 },
                 {
                   path: '/account/masterManager/edit/:op/:id/:pageKey/loginLog/pageList',
-                  component: './MasterManager/Edit/LoginLog/PageList',
+                  component: './general/MasterManager/Edit/LoginLog/PageList',
                 },
               ],
             },
@@ -3405,7 +3411,7 @@ export const account = {
                 },
                 {
                   path: '/account/masterManager/edit/:op/:id/:pageKey/operateLog/pageList',
-                  component: './MasterManager/Edit/OperateLog/PageList',
+                  component: './general/MasterManager/Edit/OperateLog/PageList',
                 },
               ],
             },
@@ -3437,7 +3443,7 @@ export const account = {
         {
           path: '/account/masterManagerLoginLog/pageList/:pageKey',
           hideInMenu: true,
-          component: './MasterManagerLoginLog/PageList',
+          component: './general/MasterManagerLoginLog/PageList',
         },
       ],
     },
@@ -3458,7 +3464,7 @@ export const currentAccount = {
       icon: 'bars',
       hideChildrenInMenu: true,
       path: '/currentAccount/setting',
-      component: './CurrentAccount/Setting',
+      component: './general/CurrentAccount/Setting',
       routes: [
         {
           path: '/currentAccount/setting',
@@ -3466,11 +3472,11 @@ export const currentAccount = {
         },
         {
           path: '/currentAccount/setting/:op/basicInfo',
-          component: './CurrentAccount/Setting/BasicInfo',
+          component: './general/CurrentAccount/Setting/BasicInfo',
         },
         {
           path: '/currentAccount/setting/:op/password',
-          component: './CurrentAccount/Setting/Password',
+          component: './general/CurrentAccount/Setting/Password',
         },
       ],
     },
@@ -3493,7 +3499,7 @@ export const currentAccount = {
         {
           path: '/currentAccount/loginLog/pageList/:pageKey',
           hideInMenu: true,
-          component: './CurrentAccount/LoginLog/PageList',
+          component: './general/CurrentAccount/LoginLog/PageList',
         },
       ],
     },
@@ -3517,7 +3523,7 @@ export const currentInfrastructureManagement = {
       icon: 'bars',
       hideChildrenInMenu: true,
       path: '/currentManagement/infrastructure/setting',
-      component: './CurrentManagementInfrastructure/Setting',
+      component: './general/CurrentManagementInfrastructure/Setting',
       routes: [
         {
           path: '/currentManagement/infrastructure/setting',
@@ -3526,13 +3532,14 @@ export const currentInfrastructureManagement = {
         {
           path: '/currentManagement/infrastructure/setting/:op/basicInfo',
           name: 'basicInfo',
-          component: './CurrentManagementInfrastructure/Setting/BasicInfo',
+          component:
+            './general/CurrentManagementInfrastructure/Setting/BasicInfo',
         },
         {
           path: '/currentManagement/infrastructure/setting/:op/defaultValueInfo',
           name: 'basicInfo',
           component:
-            './CurrentManagementInfrastructure/Setting/DefaultValueInfo',
+            './general/CurrentManagementInfrastructure/Setting/DefaultValueInfo',
         },
         {
           path: '/currentManagement/infrastructure/setting/:op/defaultImage',
@@ -3546,7 +3553,7 @@ export const currentInfrastructureManagement = {
             {
               path: '/currentManagement/infrastructure/setting/:op/defaultImage/pageList',
               component:
-                './CurrentManagementInfrastructure/Setting/DefaultImage/PageList',
+                './general/CurrentManagementInfrastructure/Setting/DefaultImage/PageList',
             },
           ],
         },
@@ -3554,49 +3561,55 @@ export const currentInfrastructureManagement = {
           path: '/currentManagement/infrastructure/setting/:op/fileStorageInfo',
           name: 'fileStorageInfo',
           component:
-            './CurrentManagementInfrastructure/Setting/FileStorageInfo',
+            './general/CurrentManagementInfrastructure/Setting/FileStorageInfo',
         },
         {
           path: '/currentManagement/infrastructure/setting/:op/smsInfo',
           name: 'smsInfo',
-          component: './CurrentManagementInfrastructure/Setting/SmsInfo',
+          component:
+            './general/CurrentManagementInfrastructure/Setting/SmsInfo',
         },
         {
           path: '/currentManagement/infrastructure/setting/:op/secretKeyInfo',
           name: 'smsInfo',
-          component: './CurrentManagementInfrastructure/Setting/SecretKeyInfo',
+          component:
+            './general/CurrentManagementInfrastructure/Setting/SecretKeyInfo',
         },
         {
           path: '/currentManagement/infrastructure/setting/:op/flowInfo',
           name: 'flowInfo',
-          component: './CurrentManagementInfrastructure/Setting/FlowInfo',
+          component:
+            './general/CurrentManagementInfrastructure/Setting/FlowInfo',
         },
         {
           path: '/currentManagement/infrastructure/setting/:op/scoreInfo',
           name: 'scoreInfo',
-          component: './CurrentManagementInfrastructure/Setting/ScoreInfo',
+          component:
+            './general/CurrentManagementInfrastructure/Setting/ScoreInfo',
         },
         {
           path: '/currentManagement/infrastructure/setting/:op/architectureInfo',
           name: 'otherInfo',
           component:
-            './CurrentManagementInfrastructure/Setting/ArchitectureInfo',
+            './general/CurrentManagementInfrastructure/Setting/ArchitectureInfo',
         },
         {
           path: '/currentManagement/infrastructure/setting/:op/editorInfo',
           name: 'editorInfo',
-          component: './CurrentManagementInfrastructure/Setting/EditorInfo',
+          component:
+            './general/CurrentManagementInfrastructure/Setting/EditorInfo',
         },
         {
           path: '/currentManagement/infrastructure/setting/:op/diskSpaceMonitoringInfo',
           name: 'editorInfo',
           component:
-            './CurrentManagementInfrastructure/Setting/DiskSpaceMonitoringInfo',
+            './general/CurrentManagementInfrastructure/Setting/DiskSpaceMonitoringInfo',
         },
         {
           path: '/currentManagement/infrastructure/setting/:op/otherInfo',
           name: 'otherInfo',
-          component: './CurrentManagementInfrastructure/Setting/OtherInfo',
+          component:
+            './general/CurrentManagementInfrastructure/Setting/OtherInfo',
         },
       ],
     },
@@ -3616,39 +3629,39 @@ export const result = {
     {
       path: '/result/forbidden',
       name: 'forbidden',
-      component: './Result/Forbidden',
+      component: './general/Result/Forbidden',
     },
     {
       path: '/result/serverError',
       name: 'serverError',
-      component: './Result/ServerError',
+      component: './general/Result/ServerError',
     },
     {
       path: '/result/localError',
       name: 'localError',
-      component: './Result/LocalError',
+      component: './general/Result/LocalError',
     },
     {
       path: '/result/success',
       name: 'success',
-      component: './Result/Success',
+      component: './general/Result/Success',
     },
     {
       path: '/result/info',
       name: 'info',
-      component: './Result/Info',
+      component: './general/Result/Info',
     },
     {
       path: '/result/warn',
       name: 'warn',
-      component: './Result/Warn',
+      component: './general/Result/Warn',
     },
     {
       path: '/result/notFound',
       name: 'notFound',
-      component: './Result/NotFound',
+      component: './general/Result/NotFound',
     },
   ],
 };
 
-export const notFound = { path: '/*', component: './Result/NotFound' };
+export const notFound = { path: '/*', component: './general/Result/NotFound' };
