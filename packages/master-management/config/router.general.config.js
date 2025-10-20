@@ -3506,7 +3506,7 @@ export const currentAccount = {
   ],
 };
 
-export const currentInfrastructureManagement = {
+export const currentManagementInfrastructure = {
   name: 'infrastructure',
   icon: 'user',
   path: '/currentManagement/infrastructure',
