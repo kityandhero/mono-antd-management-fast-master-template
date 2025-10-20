@@ -1,7 +1,7 @@
 {
   "list": [
     {
-      "folder": "Gallery/ChangeImageModal",
+      "folder": "general/Gallery/ChangeImageModal",
       "model": "gallery",
       "key": "galleryId",
       "visibleFlag": "6e097225df6d43e6ae719eecb4c63f53",
@@ -10,7 +10,7 @@
     },
 
     {
-      "folder": "QrCode/ChangeImageModal",
+      "folder": "general/QrCode/ChangeImageModal",
       "model": "qrCode",
       "key": "qrCodeId",
       "visibleFlag": "892bdc623c3b488594ecd6c2af6c7a17",

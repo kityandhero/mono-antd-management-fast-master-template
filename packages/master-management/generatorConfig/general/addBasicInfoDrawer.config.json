@@ -1,7 +1,7 @@
 {
   "list": [
     {
-      "folder": "SubsidiaryComplaintCategory/AddBasicInfoDrawer",
+      "folder": "general/SubsidiaryComplaintCategory/AddBasicInfoDrawer",
       "model": "subsidiaryComplaintCategory",
       "key": "subsidiaryComplaintCategoryId",
       "visibleFlag": "4c976de054cb4e81ade85e3ec3766c66",
@@ -9,7 +9,7 @@
       "coverFile": false
     },
     {
-      "folder": "Position/AddBasicInfoDrawer",
+      "folder": "general/Position/AddBasicInfoDrawer",
       "model": "position",
       "key": "positionId",
       "visibleFlag": "f8b1f8a019754a84a26cc150b84d43ac",
@@ -17,7 +17,7 @@
       "coverFile": false
     },
     {
-      "folder": "PositionGrade/AddBasicInfoDrawer",
+      "folder": "general/PositionGrade/AddBasicInfoDrawer",
       "model": "positionGrade",
       "key": "positionGradeId",
       "visibleFlag": "5dac411b272649ff902f775c90e12e09",
@@ -25,7 +25,7 @@
       "coverFile": false
     },
     {
-      "folder": "Question/AddBasicInfoDrawer",
+      "folder": "general/Question/AddBasicInfoDrawer",
       "model": "question",
       "key": "questionId",
       "visibleFlag": "094daf5864ef418c9e23455cef111145",

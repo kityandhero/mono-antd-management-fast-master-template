@@ -1,189 +1,189 @@
 {
   "list": [
     {
-      "folder": "Customer/PageList",
+      "folder": "general/Customer/PageList",
       "model": "customer",
       "key": "customerId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "CustomerLoginLog/PageList",
+      "folder": "general/CustomerLoginLog/PageList",
       "model": "customerLoginLog",
       "key": "customerLoginLogId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "customerWechatApplicationInfo/PageList",
+      "folder": "general/customerWechatApplicationInfo/PageList",
       "model": "customerWechatApplicationInfo",
       "key": "customerWechatApplicationInfoId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryComplaintCategory/PageList",
+      "folder": "general/SubsidiaryComplaintCategory/PageList",
       "model": "subsidiaryComplaintCategory",
       "key": "subsidiaryComplaintCategoryId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryComplaintMessage/PageList",
+      "folder": "general/SubsidiaryComplaintMessage/PageList",
       "model": "subsidiaryComplaintMessage",
       "key": "subsidiaryComplaintMessageId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryFeedbackMessage/PageList",
+      "folder": "general/SubsidiaryFeedbackMessage/PageList",
       "model": "subsidiaryFeedbackMessage",
       "key": "subsidiaryFeedbackMessageId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "ApplicationUserFeedback/PageList",
+      "folder": "general/ApplicationUserFeedback/PageList",
       "model": "applicationUserFeedback",
       "key": "applicationUserFeedbackId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "ApplicationCustomerFeedback/PageList",
+      "folder": "general/ApplicationCustomerFeedback/PageList",
       "model": "applicationCustomerFeedback",
       "key": "applicationCustomerFeedbackId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryReportMessage/PageList",
+      "folder": "general/SubsidiaryReportMessage/PageList",
       "model": "subsidiaryReportMessage",
       "key": "subsidiaryReportMessageId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Position/PageList",
+      "folder": "general/Position/PageList",
       "model": "position",
       "key": "positionId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "PositionGrade/PageList",
+      "folder": "general/PositionGrade/PageList",
       "model": "positionGrade",
       "key": "positionGradeId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "AdministrativeDivision/PageList",
+      "folder": "general/AdministrativeDivision/PageList",
       "model": "administrativeDivision",
       "key": "administrativeDivisionId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Question/PageList",
+      "folder": "general/Question/PageList",
       "model": "question",
       "key": "questionId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "QuestionItem/PageList",
+      "folder": "general/QuestionItem/PageList",
       "model": "questionItem",
       "key": "questionItemId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Questionnaire/PageList",
+      "folder": "general/Questionnaire/PageList",
       "model": "questionnaire",
       "key": "questionnaireId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "QuestionnaireQuestionRelation/PageList",
+      "folder": "general/QuestionnaireQuestionRelation/PageList",
       "model": "questionnaireQuestionRelation",
       "key": "questionnaireQuestionRelationId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "UserQuestionnaire/PageList",
+      "folder": "general/UserQuestionnaire/PageList",
       "model": "userQuestionnaire",
       "key": "userQuestionnaireId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "KeyValueInfrastructure/PageList",
+      "folder": "general/KeyValueInfrastructure/PageList",
       "model": "keyValueInfrastructure",
       "key": "keyValueInfrastructureId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "KeyValueApplication/PageList",
+      "folder": "general/KeyValueApplication/PageList",
       "model": "keyValueApplication",
       "key": "keyValueApplicationId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "KeyValueSection/PageList",
+      "folder": "general/KeyValueSection/PageList",
       "model": "keyValueSection",
       "key": "keyValueSectionId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "KeyValueWorkflow/PageList",
+      "folder": "general/KeyValueWorkflow/PageList",
       "model": "keyValueWorkflow",
       "key": "keyValueWorkflowId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "AccessWay/PageList",
+      "folder": "general/AccessWay/PageList",
       "model": "accessWay",
       "key": "accessWayId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Application/PageList",
+      "folder": "general/Application/PageList",
       "model": "application",
       "key": "applicationId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "ApplicationSource/PageList",
+      "folder": "general/ApplicationSource/PageList",
       "model": "applicationSource",
       "key": "applicationSourceId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "CallCenter/PageList",
+      "folder": "general/CallCenter/PageList",
       "model": "callCenter",
       "key": "callCenterId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "CallCenterCategory/PageList",
+      "folder": "general/CallCenterCategory/PageList",
       "model": "callCenterCategory",
       "key": "callCenterCategoryId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "BusinessSet/PageList",
+      "folder": "general/BusinessSet/PageList",
       "model": "businessSet",
       "key": "businessSetId",
       "fileName": "index.jsx",
@@ -191,231 +191,231 @@
     },
 
     {
-      "folder": "Department/PageList",
+      "folder": "general/Department/PageList",
       "model": "department",
       "key": "departmentId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "ErrorLog/PageList",
+      "folder": "general/ErrorLog/PageList",
       "model": "errorLog",
       "key": "errorLogId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "ExecuteLog/PageList",
+      "folder": "general/ExecuteLog/PageList",
       "model": "executeLog",
       "key": "executeLogId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Gallery/PageList",
+      "folder": "general/Gallery/PageList",
       "model": "gallery",
       "key": "galleryId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "GalleryCategory/PageList",
+      "folder": "general/GalleryCategory/PageList",
       "model": "galleryCategory",
       "key": "galleryCategoryId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "GeneralDiscourse/PageList",
+      "folder": "general/GeneralDiscourse/PageList",
       "model": "generalDiscourse",
       "key": "generalDiscourseId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "GeneralLog/PageList",
+      "folder": "general/GeneralLog/PageList",
       "model": "generalLog",
       "key": "generalLogId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "HostService/PageList",
+      "folder": "general/HostService/PageList",
       "model": "hostService",
       "key": "hostServiceId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "HostServiceLog/PageList",
+      "folder": "general/HostServiceLog/PageList",
       "model": "hostServiceLog",
       "key": "hostServiceLogId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "InternalTester/PageList",
+      "folder": "general/InternalTester/PageList",
       "model": "internalTester",
       "key": "internalTesterId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "MasterManager/PageList",
+      "folder": "general/MasterManager/PageList",
       "model": "masterManager",
       "key": "masterManagerId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "OptionPool/PageList",
+      "folder": "general/OptionPool/PageList",
       "model": "optionPool",
       "key": "optionPoolId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "PresetRole/PageList",
+      "folder": "general/PresetRole/PageList",
       "model": "presetRole",
       "key": "presetRoleId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "QrCode/PageList",
+      "folder": "general/QrCode/PageList",
       "model": "qrCode",
       "key": "qrCodeId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "QrCodeCategory/PageList",
+      "folder": "general/QrCodeCategory/PageList",
       "model": "qrCodeCategory",
       "key": "qrCodeCategoryId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "QueueInfo/PageList",
+      "folder": "general/QueueInfo/PageList",
       "model": "queueInfo",
       "key": "queueInfoId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Section/PageList",
+      "folder": "general/Section/PageList",
       "model": "section",
       "key": "sectionId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "SmsCategory/PageList",
+      "folder": "general/SmsCategory/PageList",
       "model": "smsCategory",
       "key": "smsCategoryId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "SmsCategoryStatistic/PageList",
+      "folder": "general/SmsCategoryStatistic/PageList",
       "model": "smsCategoryStatistic",
       "key": "smsCategoryStatisticId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "SmsLog/PageList",
+      "folder": "general/SmsLog/PageList",
       "model": "smsLog",
       "key": "smsLogId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Subsidiary/PageList",
+      "folder": "general/Subsidiary/PageList",
       "model": "subsidiary",
       "key": "subsidiaryId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Tag/PageList",
+      "folder": "general/Tag/PageList",
       "model": "tag",
       "key": "tagId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "UploadHistory/PageList",
+      "folder": "general/UploadHistory/PageList",
       "model": "uploadHistory",
       "key": "uploadHistoryId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "User/PageList",
+      "folder": "general/User/PageList",
       "model": "user",
       "key": "userId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "UserDevice/PageList",
+      "folder": "general/UserDevice/PageList",
       "model": "userDevice",
       "key": "userDeviceId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "SqlEntity/PageListBusiness",
+      "folder": "general/SqlEntity/PageListBusiness",
       "model": "sqlEntity",
       "key": "sqlEntityId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "SqlEntity/PageListInfrastructure",
+      "folder": "general/SqlEntity/PageListInfrastructure",
       "model": "sqlEntity",
       "key": "sqlEntityId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "WeChatMessageRecord/PageList",
+      "folder": "general/WeChatMessageRecord/PageList",
       "model": "weChatMessageRecord",
       "key": "weChatMessageRecordId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Workflow/PageList",
+      "folder": "general/Workflow/PageList",
       "model": "workflow",
       "key": "workflowId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "WorkflowCase/PageList",
+      "folder": "general/WorkflowCase/PageList",
       "model": "workflowCase",
       "key": "workflowCaseId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "EmailMessage/PageList",
+      "folder": "general/EmailMessage/PageList",
       "model": "emailMessage",
       "key": "emailMessageId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "EmailSenderAgentStatistic/PageList",
+      "folder": "general/EmailSenderAgentStatistic/PageList",
       "model": "emailSenderAgentStatistic",
       "key": "emailSenderAgentStatisticId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "EmailStatistic/PageList",
+      "folder": "general/EmailStatistic/PageList",
       "model": "emailStatistic",
       "key": "emailStatisticId",
       "fileName": "index.jsx",

@@ -1,637 +1,637 @@
 {
   "list": [
     {
-      "folder": "Customer/Assist",
+      "folder": "general/Customer/Assist",
       "model": "customer",
       "key": "customerId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "CustomerLoginLog/Assist",
+      "folder": "general/CustomerLoginLog/Assist",
       "model": "customerLoginLog",
       "key": "customerLoginLogId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "CustomerWechatApplicationInfo/Assist",
+      "folder": "general/CustomerWechatApplicationInfo/Assist",
       "model": "customerWechatApplicationInfo",
       "key": "customerWechatApplicationInfoId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryComplaintCategory/Assist",
+      "folder": "general/SubsidiaryComplaintCategory/Assist",
       "model": "subsidiaryComplaintCategory",
       "key": "subsidiaryComplaintCategoryId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryComplaintMessage/Assist",
+      "folder": "general/SubsidiaryComplaintMessage/Assist",
       "model": "subsidiaryComplaintMessage",
       "key": "subsidiaryComplaintMessageId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryFeedbackMessage/Assist",
+      "folder": "general/SubsidiaryFeedbackMessage/Assist",
       "model": "subsidiaryFeedbackMessage",
       "key": "subsidiaryFeedbackMessageId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryReportMessage/Assist",
+      "folder": "general/SubsidiaryReportMessage/Assist",
       "model": "subsidiaryReportMessage",
       "key": "subsidiaryReportMessageId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "ApplicationUserFeedback/Assist",
+      "folder": "general/ApplicationUserFeedback/Assist",
       "model": "applicationUserFeedback",
       "key": "applicationUserFeedbackId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "ApplicationCustomerFeedback/Assist",
+      "folder": "general/ApplicationCustomerFeedback/Assist",
       "model": "applicationCustomerFeedback",
       "key": "applicationCustomerFeedbackId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "Position/Assist",
+      "folder": "general/Position/Assist",
       "model": "position",
       "key": "positionId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "PositionGrade/Assist",
+      "folder": "general/PositionGrade/Assist",
       "model": "positionGrade",
       "key": "positionGradeId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "AdministrativeDivision/Assist",
+      "folder": "general/AdministrativeDivision/Assist",
       "model": "administrativeDivision",
       "key": "administrativeDivisionId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "Question/Assist",
+      "folder": "general/Question/Assist",
       "model": "question",
       "key": "questionId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "QuestionItem/Assist",
+      "folder": "general/QuestionItem/Assist",
       "model": "questionItem",
       "key": "questionItemId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "Questionnaire/Assist",
+      "folder": "general/Questionnaire/Assist",
       "model": "questionnaire",
       "key": "questionnaireId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "QuestionnaireQuestionRelation/Assist",
+      "folder": "general/QuestionnaireQuestionRelation/Assist",
       "model": "questionnaireQuestionRelation",
       "key": "questionnaireQuestionRelationId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "UserQuestionnaire/Assist",
+      "folder": "general/UserQuestionnaire/Assist",
       "model": "userQuestionnaire",
       "key": "userQuestionnaireId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "KeyValueInfrastructure/Assist",
+      "folder": "general/KeyValueInfrastructure/Assist",
       "model": "keyValueInfrastructure",
       "key": "keyValueInfrastructureId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "KeyValueApplication/Assist",
+      "folder": "general/KeyValueApplication/Assist",
       "model": "keyValueApplication",
       "key": "keyValueApplicationId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "KeyValueSection/Assist",
+      "folder": "general/KeyValueSection/Assist",
       "model": "keyValueSection",
       "key": "keyValueSectionId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "KeyValueWorkflow/Assist",
+      "folder": "general/KeyValueWorkflow/Assist",
       "model": "keyValueWorkflow",
       "key": "keyValueWorkflowId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "AccessWay/Assist",
+      "folder": "general/AccessWay/Assist",
       "model": "accessWay",
       "key": "accessWayId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "Application/Assist",
+      "folder": "general/Application/Assist",
       "model": "application",
       "key": "applicationId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "ApplicationNavigation/Assist",
+      "folder": "general/ApplicationNavigation/Assist",
       "model": "applicationNavigation",
       "key": "applicationNavigationId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "ApplicationSource/Assist",
+      "folder": "general/ApplicationSource/Assist",
       "model": "applicationSource",
       "key": "applicationSourceId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "ApplicationVersion/Assist",
+      "folder": "general/ApplicationVersion/Assist",
       "model": "applicationVersion",
       "key": "applicationVersionId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "CallCenter/Assist",
+      "folder": "general/CallCenter/Assist",
       "model": "callCenter",
       "key": "callCenterId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "CallCenterCategory/Assist",
+      "folder": "general/CallCenterCategory/Assist",
       "model": "callCenterCategory",
       "key": "callCenterCategoryId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "BusinessSet/Assist",
+      "folder": "general/BusinessSet/Assist",
       "model": "businessSet",
       "key": "businessSetId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "ChannelExecuteLogSwitch/Assist",
+      "folder": "general/ChannelExecuteLogSwitch/Assist",
       "model": "channelExecuteLogSwitch",
       "key": "channelExecuteLogSwitchId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "ChannelSqlLogSwitch/Assist",
+      "folder": "general/ChannelSqlLogSwitch/Assist",
       "model": "channelSqlLogSwitch",
       "key": "channelSqlLogSwitchId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "Department/Assist",
+      "folder": "general/Department/Assist",
       "model": "department",
       "key": "departmentId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "ErrorLog/Assist",
+      "folder": "general/ErrorLog/Assist",
       "model": "errorLog",
       "key": "errorLogId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "ExecuteLog/Assist",
+      "folder": "general/ExecuteLog/Assist",
       "model": "executeLog",
       "key": "executeLogId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "Gallery/Assist",
+      "folder": "general/Gallery/Assist",
       "model": "gallery",
       "key": "galleryId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "GalleryCategory/Assist",
+      "folder": "general/GalleryCategory/Assist",
       "model": "galleryCategory",
       "key": "galleryCategoryId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "GeneralDiscourse/Assist",
+      "folder": "general/GeneralDiscourse/Assist",
       "model": "generalDiscourse",
       "key": "generalDiscourseId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "GeneralLog/Assist",
+      "folder": "general/GeneralLog/Assist",
       "model": "generalLog",
       "key": "generalLogId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "HostService/Assist",
+      "folder": "general/HostService/Assist",
       "model": "hostService",
       "key": "hostServiceId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "HostServiceLog/Assist",
+      "folder": "general/HostServiceLog/Assist",
       "model": "hostServiceLog",
       "key": "hostServiceLogId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "InternalTester/Assist",
+      "folder": "general/InternalTester/Assist",
       "model": "internalTester",
       "key": "internalTesterId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "MasterManager/Assist",
+      "folder": "general/MasterManager/Assist",
       "model": "masterManager",
       "key": "masterManagerId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "OptionPool/Assist",
+      "folder": "general/OptionPool/Assist",
       "model": "optionPool",
       "key": "optionPoolId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "PresetRole/Assist",
+      "folder": "general/PresetRole/Assist",
       "model": "presetRole",
       "key": "presetRoleId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "QrCode/Assist",
+      "folder": "general/QrCode/Assist",
       "model": "qrCode",
       "key": "qrCodeId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "QrCodeCategory/Assist",
+      "folder": "general/QrCodeCategory/Assist",
       "model": "qrCodeCategory",
       "key": "qrCodeCategoryId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "QueueInfo/Assist",
+      "folder": "general/QueueInfo/Assist",
       "model": "queueInfo",
       "key": "queueInfoId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "Section/Assist",
+      "folder": "general/Section/Assist",
       "model": "section",
       "key": "sectionId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "SectionApplicationConfig/Assist",
+      "folder": "general/SectionApplicationConfig/Assist",
       "model": "sectionApplicationConfig",
       "key": "sectionApplicationConfigId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "SmsCategory/Assist",
+      "folder": "general/SmsCategory/Assist",
       "model": "smsCategory",
       "key": "smsCategoryId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "SmsCategoryStatistic/Assist",
+      "folder": "general/SmsCategoryStatistic/Assist",
       "model": "smsCategoryStatistic",
       "key": "smsCategoryStatisticId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "SmsLog/Assist",
+      "folder": "general/SmsLog/Assist",
       "model": "smsLog",
       "key": "smsLogId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "SqlLog/Assist",
+      "folder": "general/SqlLog/Assist",
       "model": "SqlLog",
       "key": "sqlLogId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "Subsidiary/Assist",
+      "folder": "general/Subsidiary/Assist",
       "model": "subsidiary",
       "key": "subsidiaryId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "Tag/Assist",
+      "folder": "general/Tag/Assist",
       "model": "tag",
       "key": "tagId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "UploadHistory/Assist",
+      "folder": "general/UploadHistory/Assist",
       "model": "uploadHistory",
       "key": "uploadHistoryId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "EmailSenderAgent/Assist",
+      "folder": "general/EmailSenderAgent/Assist",
       "model": "emailSenderAgent",
       "key": "emailSenderAgentId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "User/Assist",
+      "folder": "general/User/Assist",
       "model": "user",
       "key": "userId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "UserDepartmentInfo/Assist",
+      "folder": "general/UserDepartmentInfo/Assist",
       "model": "userDepartmentInfo",
       "key": "userDepartmentInfoId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "UserDevice/Assist",
+      "folder": "general/UserDevice/Assist",
       "model": "userDevice",
       "key": "userDeviceId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "UserSubsidiaryInfo/Assist",
+      "folder": "general/UserSubsidiaryInfo/Assist",
       "model": "userSubsidiaryInfo",
       "key": "userSubsidiaryInfoId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "SqlEntity/Assist",
+      "folder": "general/SqlEntity/Assist",
       "model": "userSubsidiaryInfo",
       "key": "userSubsidiaryInfoId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WeChatMessageRecord/Assist",
+      "folder": "general/WeChatMessageRecord/Assist",
       "model": "sqlEntity",
       "key": "sqlEntityId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "Workflow/Assist",
+      "folder": "general/Workflow/Assist",
       "model": "workflow",
       "key": "workflowId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowBranchCondition/Assist",
+      "folder": "general/WorkflowBranchCondition/Assist",
       "model": "workflowBranchCondition",
       "key": "workflowBranchConditionId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowBranchConditionItem/Assist",
+      "folder": "general/WorkflowBranchConditionItem/Assist",
       "model": "workflowBranchConditionItem",
       "key": "workflowBranchConditionItemId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowCase/Assist",
+      "folder": "general/WorkflowCase/Assist",
       "model": "workflowCase",
       "key": "workflowCaseId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowCaseCarbonCopyNotification/Assist",
+      "folder": "general/WorkflowCaseCarbonCopyNotification/Assist",
       "model": "workflowCaseCarbonCopyNotification",
       "key": "workflowCaseCarbonCopyNotificationId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowCaseFormAttachment/Assist",
+      "folder": "general/WorkflowCaseFormAttachment/Assist",
       "model": "workflowCaseFormAttachment",
       "key": "workflowCaseFormAttachmentId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowCaseFormStorage/Assist",
+      "folder": "general/WorkflowCaseFormStorage/Assist",
       "model": "workflowCaseFormStorage",
       "key": "workflowCaseFormStorageId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowCaseLatestApprove/Assist",
+      "folder": "general/WorkflowCaseLatestApprove/Assist",
       "model": "workflowCaseLatestApprove",
       "key": "workflowCaseLatestApproveId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowCaseNextProcessNotification/Assist",
+      "folder": "general/WorkflowCaseNextProcessNotification/Assist",
       "model": "workflowCaseNextProcessNotification",
       "key": "workflowCaseNextProcessNotificationId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowCaseNextProcessProgress/Assist",
+      "folder": "general/WorkflowCaseNextProcessProgress/Assist",
       "model": "workflowCaseNextProcessProgress",
       "key": "workflowCaseNextProcessProgressId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowCaseProcessHistory/Assist",
+      "folder": "general/WorkflowCaseProcessHistory/Assist",
       "model": "workflowCaseProcessHistory",
       "key": "workflowCaseProcessHistoryId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowDebugCase/Assist",
+      "folder": "general/WorkflowDebugCase/Assist",
       "model": "workflowDebugCase",
       "key": "workflowDebugCaseId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowDebugCaseCarbonCopyNotification/Assist",
+      "folder": "general/WorkflowDebugCaseCarbonCopyNotification/Assist",
       "model": "workflowDebugCaseCarbonCopyNotification",
       "key": "workflowDebugCaseCarbonCopyNotificationId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowDebugCaseFormAttachment/Assist",
+      "folder": "general/WorkflowDebugCaseFormAttachment/Assist",
       "model": "workflowDebugCaseFormAttachment",
       "key": "workflowDebugCaseFormAttachmentId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowDebugCaseFormStorage/Assist",
+      "folder": "general/WorkflowDebugCaseFormStorage/Assist",
       "model": "workflowDebugCaseFormStorage",
       "key": "workflowDebugCaseFormStorageId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowDebugCaseLatestApprove/Assist",
+      "folder": "general/WorkflowDebugCaseLatestApprove/Assist",
       "model": "workflowDebugCaseLatestApprove",
       "key": "workflowDebugCaseLatestApproveId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowDebugCaseNextProcessNotification/Assist",
+      "folder": "general/WorkflowDebugCaseNextProcessNotification/Assist",
       "model": "workflowDebugCaseNextProcessNotification",
       "key": "workflowDebugCaseNextProcessNotificationId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowDebugCaseNextProcessProgress/Assist",
+      "folder": "general/WorkflowDebugCaseNextProcessProgress/Assist",
       "model": "workflowDebugCaseNextProcessProgress",
       "key": "workflowDebugCaseNextProcessProgressId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowDebugCaseProcessHistory/Assist",
+      "folder": "general/WorkflowDebugCaseProcessHistory/Assist",
       "model": "workflowDebugCaseProcessHistory",
       "key": "workflowDebugCaseProcessHistoryId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowFormDesign/Assist",
+      "folder": "general/WorkflowFormDesign/Assist",
       "model": "workflowFormDesign",
       "key": "workflowFormDesignId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowLine/Assist",
+      "folder": "general/WorkflowLine/Assist",
       "model": "workflowLine",
       "key": "workflowLineId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowNode/Assist",
+      "folder": "general/WorkflowNode/Assist",
       "model": "workflowNode",
       "key": "workflowNodeId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowNodeApprover/Assist",
+      "folder": "general/WorkflowNodeApprover/Assist",
       "model": "workflowNodeApprover",
       "key": "workflowNodeApproverId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowRangeEffectiveExternalDepartmentRelation/Assist",
+      "folder": "general/WorkflowRangeEffectiveExternalDepartmentRelation/Assist",
       "model": "workflowRangeEffectiveExternalDepartmentRelation",
       "key": "workflowRangeEffectiveExternalDepartmentRelationId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowRangeEffectiveSubsidiaryRelation/Assist",
+      "folder": "general/WorkflowRangeEffectiveSubsidiaryRelation/Assist",
       "model": "workflowRangeEffectiveSubsidiaryRelation",
       "key": "workflowRangeEffectiveSubsidiaryRelationId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "EmailMessage/Assist",
+      "folder": "general/EmailMessage/Assist",
       "model": "emailMessage",
       "key": "emailMessageId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "EmailSenderAgentStatistic/Assist",
+      "folder": "general/EmailSenderAgentStatistic/Assist",
       "model": "emailSenderAgentStatistic",
       "key": "emailSenderAgentStatisticId",
       "fileName": "config.js",
       "coverFile": false
     },
     {
-      "folder": "EmailStatistic/Assist",
+      "folder": "general/EmailStatistic/Assist",
       "model": "emailStatistic",
       "key": "emailStatisticId",
       "fileName": "config.js",

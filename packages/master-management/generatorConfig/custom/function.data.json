@@ -1,14 +1,3 @@
 {
-  "list": [
-    {
-      "functionSegment": "YonYouPushMessageStatus",
-      "label": "状态",
-      "name": "status"
-    },
-    {
-      "functionSegment": "YonYouImportHistoryStatus",
-      "label": "状态",
-      "name": "status"
-    }
-  ]
+  "list": []
 }

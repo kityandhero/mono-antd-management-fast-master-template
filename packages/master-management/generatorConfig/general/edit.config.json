@@ -1,7 +1,7 @@
 {
   "list": [
     {
-      "folder": "AdministrativeDivision/Edit",
+      "folder": "general/AdministrativeDivision/Edit",
       "name": "AdministrativeDivision",
       "model": "administrativeDivision",
       "key": "administrativeDivisionId",
@@ -9,7 +9,7 @@
       "coverFile": false
     },
     {
-      "folder": "Customer/Edit",
+      "folder": "general/Customer/Edit",
       "name": "Customer",
       "model": "customer",
       "key": "customerId",
@@ -17,7 +17,7 @@
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryComplaintCategory/Edit",
+      "folder": "general/SubsidiaryComplaintCategory/Edit",
       "name": "SubsidiaryComplaintCategory",
       "model": "subsidiaryComplaintCategory",
       "key": "subsidiaryComplaintCategoryId",
@@ -25,7 +25,7 @@
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryComplaintMessage/Edit",
+      "folder": "general/SubsidiaryComplaintMessage/Edit",
       "name": "SubsidiaryComplaintMessage",
       "model": "subsidiaryComplaintMessage",
       "key": "subsidiaryComplaintMessageId",
@@ -33,7 +33,7 @@
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryFeedbackMessage/Edit",
+      "folder": "general/SubsidiaryFeedbackMessage/Edit",
       "name": "SubsidiaryFeedbackMessage",
       "model": "subsidiaryFeedbackMessage",
       "key": "subsidiaryFeedbackMessageId",
@@ -41,7 +41,7 @@
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryReportMessage/Edit",
+      "folder": "general/SubsidiaryReportMessage/Edit",
       "name": "SubsidiaryReportMessage",
       "model": "subsidiaryReportMessage",
       "key": "subsidiaryReportMessageId",
@@ -49,7 +49,7 @@
       "coverFile": false
     },
     {
-      "folder": "ApplicationUserFeedback/Edit",
+      "folder": "general/ApplicationUserFeedback/Edit",
       "name": "ApplicationUserFeedback",
       "model": "applicationUserFeedback",
       "key": "applicationUserFeedbackId",
@@ -57,7 +57,7 @@
       "coverFile": false
     },
     {
-      "folder": "ApplicationCustomerFeedback/Edit",
+      "folder": "general/ApplicationCustomerFeedback/Edit",
       "name": "ApplicationCustomerFeedback",
       "model": "applicationCustomerFeedback",
       "key": "applicationCustomerFeedbackId",
@@ -65,7 +65,7 @@
       "coverFile": false
     },
     {
-      "folder": "Question/Edit",
+      "folder": "general/Question/Edit",
       "name": "Question",
       "model": "question",
       "key": "questionId",
@@ -73,7 +73,7 @@
       "coverFile": false
     },
     {
-      "folder": "Questionnaire/Edit",
+      "folder": "general/Questionnaire/Edit",
       "name": "Questionnaire",
       "model": "questionnaire",
       "key": "questionnaireId",
@@ -81,7 +81,7 @@
       "coverFile": false
     },
     {
-      "folder": "UserQuestionnaire/Edit",
+      "folder": "general/UserQuestionnaire/Edit",
       "name": "UserQuestionnaire",
       "model": "userQuestionnaire",
       "key": "userQuestionnaireId",
@@ -89,7 +89,7 @@
       "coverFile": false
     },
     {
-      "folder": "Application/Edit",
+      "folder": "general/Application/Edit",
       "name": "Application",
       "model": "application",
       "key": "applicationId",
@@ -97,7 +97,7 @@
       "coverFile": false
     },
     {
-      "folder": "ApplicationSource/Edit",
+      "folder": "general/ApplicationSource/Edit",
       "name": "ApplicationSource",
       "model": "applicationSource",
       "key": "applicationSourceId",
@@ -105,7 +105,7 @@
       "coverFile": false
     },
     {
-      "folder": "CallCenter/Edit",
+      "folder": "general/CallCenter/Edit",
       "name": "CallCenter",
       "model": "callCenter",
       "key": "callCenterId",
@@ -113,7 +113,7 @@
       "coverFile": false
     },
     {
-      "folder": "Department/Edit",
+      "folder": "general/Department/Edit",
       "name": "Department",
       "model": "department",
       "key": "departmentId",
@@ -121,7 +121,7 @@
       "coverFile": false
     },
     {
-      "folder": "Gallery/Edit",
+      "folder": "general/Gallery/Edit",
       "name": "Gallery",
       "model": "gallery",
       "key": "galleryId",
@@ -129,7 +129,7 @@
       "coverFile": false
     },
     {
-      "folder": "MasterManager/Edit",
+      "folder": "general/MasterManager/Edit",
       "name": "MasterManager",
       "model": "masterManager",
       "key": "masterManagerId",
@@ -137,7 +137,7 @@
       "coverFile": false
     },
     {
-      "folder": "PresetRole/Edit",
+      "folder": "general/PresetRole/Edit",
       "name": "PresetRole",
       "model": "presetRole",
       "key": "presetRoleId",
@@ -145,7 +145,7 @@
       "coverFile": false
     },
     {
-      "folder": "QrCode/Edit",
+      "folder": "general/QrCode/Edit",
       "name": "QrCode",
       "model": "qrCode",
       "key": "qrCodeId",
@@ -153,7 +153,7 @@
       "coverFile": false
     },
     {
-      "folder": "Section/Edit",
+      "folder": "general/Section/Edit",
       "name": "Section",
       "model": "section",
       "key": "sectionId",
@@ -161,7 +161,7 @@
       "coverFile": false
     },
     {
-      "folder": "Subsidiary/Edit",
+      "folder": "general/Subsidiary/Edit",
       "name": "Subsidiary",
       "model": "subsidiary",
       "key": "subsidiaryId",
@@ -169,7 +169,7 @@
       "coverFile": false
     },
     {
-      "folder": "Tag/Edit",
+      "folder": "general/Tag/Edit",
       "name": "Tag",
       "model": "tag",
       "key": "tagId",
@@ -177,7 +177,7 @@
       "coverFile": false
     },
     {
-      "folder": "User/Edit",
+      "folder": "general/User/Edit",
       "name": "User",
       "model": "user",
       "key": "userId",
@@ -185,7 +185,7 @@
       "coverFile": false
     },
     {
-      "folder": "UserDevice/Edit",
+      "folder": "general/UserDevice/Edit",
       "name": "UserDevice",
       "model": "userDevice",
       "key": "userDeviceId",
@@ -193,7 +193,7 @@
       "coverFile": false
     },
     {
-      "folder": "Workflow/Edit",
+      "folder": "general/Workflow/Edit",
       "name": "Workflow",
       "model": "workflow",
       "key": "workflowId",
@@ -201,7 +201,7 @@
       "coverFile": false
     },
     {
-      "folder": "WorkflowCase/Edit",
+      "folder": "general/WorkflowCase/Edit",
       "name": "WorkflowCase",
       "model": "workflowCase",
       "key": "workflowCaseId",

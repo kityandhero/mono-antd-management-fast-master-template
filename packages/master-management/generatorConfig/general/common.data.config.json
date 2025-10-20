@@ -1,644 +1,644 @@
 {
   "list": [
     {
-      "folder": "Customer/Common",
+      "folder": "general/Customer/Common",
       "model": "customer",
       "key": "customerId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "CustomerLoginLog/Common",
+      "folder": "general/CustomerLoginLog/Common",
       "model": "customerLoginLog",
       "key": "customerLoginLogId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "CustomerWechatApplicationInfo/Common",
+      "folder": "general/CustomerWechatApplicationInfo/Common",
       "model": "customerWechatApplicationInfo",
       "key": "customerWechatApplicationInfoId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryComplaintCategory/Common",
+      "folder": "general/SubsidiaryComplaintCategory/Common",
       "model": "subsidiaryComplaintCategory",
       "key": "subsidiaryComplaintCategoryId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryComplaintMessage/Common",
+      "folder": "general/SubsidiaryComplaintMessage/Common",
       "model": "subsidiaryComplaintMessage",
       "key": "subsidiaryComplaintMessageId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryFeedbackMessage/Common",
+      "folder": "general/SubsidiaryFeedbackMessage/Common",
       "model": "subsidiaryFeedbackMessage",
       "key": "subsidiaryFeedbackMessageId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryReportMessage/Common",
+      "folder": "general/SubsidiaryReportMessage/Common",
       "model": "subsidiaryReportMessage",
       "key": "subsidiaryReportMessageId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "ApplicationUserFeedback/Common",
+      "folder": "general/ApplicationUserFeedback/Common",
       "model": "applicationUserFeedback",
       "key": "applicationUserFeedbackId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "ApplicationCustomerFeedback/Common",
+      "folder": "general/ApplicationCustomerFeedback/Common",
       "model": "applicationCustomerFeedback",
       "key": "applicationCustomerFeedbackId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "Position/Common",
+      "folder": "general/Position/Common",
       "model": "position",
       "key": "positionId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "PositionGrade/Common",
+      "folder": "general/PositionGrade/Common",
       "model": "positionGrade",
       "key": "positionGradeId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "AdministrativeDivision/Common",
+      "folder": "general/AdministrativeDivision/Common",
       "model": "administrativeDivision",
       "key": "administrativeDivisionId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "Question/Common",
+      "folder": "general/Question/Common",
       "model": "question",
       "key": "questionId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "QuestionItem/Common",
+      "folder": "general/QuestionItem/Common",
       "model": "questionItem",
       "key": "questionItemId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "QuestionTagRelation/Common",
+      "folder": "general/QuestionTagRelation/Common",
       "model": "questionTagRelation",
       "key": "questionTagRelationId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "Questionnaire/Common",
+      "folder": "general/Questionnaire/Common",
       "model": "questionnaire",
       "key": "questionnaireId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "QuestionnaireQuestionRelation/Common",
+      "folder": "general/QuestionnaireQuestionRelation/Common",
       "model": "questionnaireQuestionRelation",
       "key": "questionnaireQuestionRelationId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "UserQuestionnaire/Common",
+      "folder": "general/UserQuestionnaire/Common",
       "model": "userQuestionnaire",
       "key": "userQuestionnaireId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "KeyValueInfrastructure/Common",
+      "folder": "general/KeyValueInfrastructure/Common",
       "model": "keyValueInfrastructure",
       "key": "keyValueInfrastructureId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "KeyValueApplication/Common",
+      "folder": "general/KeyValueApplication/Common",
       "model": "keyValueApplication",
       "key": "keyValueApplicationId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "KeyValueSection/Common",
+      "folder": "general/KeyValueSection/Common",
       "model": "keyValueSection",
       "key": "keyValueSectionId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "KeyValueWorkflow/Common",
+      "folder": "general/KeyValueWorkflow/Common",
       "model": "keyValueWorkflow",
       "key": "keyValueWorkflowId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "AccessWay/Common",
+      "folder": "general/AccessWay/Common",
       "model": "accessWay",
       "key": "accessWayId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "Application/Common",
+      "folder": "general/Application/Common",
       "model": "application",
       "key": "applicationId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "ApplicationNavigation/Common",
+      "folder": "general/ApplicationNavigation/Common",
       "model": "applicationNavigation",
       "key": "applicationNavigationId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "ApplicationSource/Common",
+      "folder": "general/ApplicationSource/Common",
       "model": "applicationSource",
       "key": "applicationSourceId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "ApplicationVersion/Common",
+      "folder": "general/ApplicationVersion/Common",
       "model": "applicationVersion",
       "key": "applicationVersionId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "CallCenter/Common",
+      "folder": "general/CallCenter/Common",
       "model": "callCenter",
       "key": "callCenterId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "CallCenterCategory/Common",
+      "folder": "general/CallCenterCategory/Common",
       "model": "callCenterCategory",
       "key": "callCenterCategoryId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "BusinessSet/Common",
+      "folder": "general/BusinessSet/Common",
       "model": "businessSet",
       "key": "businessSetId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "ChannelExecuteLogSwitch/Common",
+      "folder": "general/ChannelExecuteLogSwitch/Common",
       "model": "channelExecuteLogSwitch",
       "key": "channelExecuteLogSwitchId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "ChannelSqlLogSwitch/Common",
+      "folder": "general/ChannelSqlLogSwitch/Common",
       "model": "channelSqlLogSwitch",
       "key": "channelSqlLogSwitchId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "Department/Common",
+      "folder": "general/Department/Common",
       "model": "department",
       "key": "departmentId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "ErrorLog/Common",
+      "folder": "general/ErrorLog/Common",
       "model": "errorLog",
       "key": "errorLogId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "ExecuteLog/Common",
+      "folder": "general/ExecuteLog/Common",
       "model": "executeLog",
       "key": "executeLogId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "Gallery/Common",
+      "folder": "general/Gallery/Common",
       "model": "gallery",
       "key": "galleryId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "GalleryCategory/Common",
+      "folder": "general/GalleryCategory/Common",
       "model": "galleryCategory",
       "key": "galleryCategoryId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "GeneralDiscourse/Common",
+      "folder": "general/GeneralDiscourse/Common",
       "model": "generalDiscourse",
       "key": "generalDiscourseId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "GeneralLog/Common",
+      "folder": "general/GeneralLog/Common",
       "model": "generalLog",
       "key": "generalLogId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "HostService/Common",
+      "folder": "general/HostService/Common",
       "model": "hostService",
       "key": "hostServiceId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "HostServiceLog/Common",
+      "folder": "general/HostServiceLog/Common",
       "model": "hostServiceLog",
       "key": "hostServiceLogId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "InternalTester/Common",
+      "folder": "general/InternalTester/Common",
       "model": "internalTester",
       "key": "internalTesterId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "MasterManager/Common",
+      "folder": "general/MasterManager/Common",
       "model": "masterManager",
       "key": "masterManagerId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "OptionPool/Common",
+      "folder": "general/OptionPool/Common",
       "model": "optionPool",
       "key": "optionPoolId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "PresetRole/Common",
+      "folder": "general/PresetRole/Common",
       "model": "presetRole",
       "key": "presetRoleId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "QrCode/Common",
+      "folder": "general/QrCode/Common",
       "model": "qrCode",
       "key": "qrCodeId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "QrCodeCategory/Common",
+      "folder": "general/QrCodeCategory/Common",
       "model": "qrCodeCategory",
       "key": "qrCodeCategoryId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "QueueInfo/Common",
+      "folder": "general/QueueInfo/Common",
       "model": "queueInfo",
       "key": "queueInfoId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "Section/Common",
+      "folder": "general/Section/Common",
       "model": "section",
       "key": "sectionId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "SectionApplicationConfig/Common",
+      "folder": "general/SectionApplicationConfig/Common",
       "model": "sectionApplicationConfig",
       "key": "sectionApplicationConfigId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "SmsCategory/Common",
+      "folder": "general/SmsCategory/Common",
       "model": "smsCategory",
       "key": "smsCategoryId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "SmsCategoryStatistic/Common",
+      "folder": "general/SmsCategoryStatistic/Common",
       "model": "smsCategoryStatistic",
       "key": "smsCategoryStatisticId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "SmsLog/Common",
+      "folder": "general/SmsLog/Common",
       "model": "smsLog",
       "key": "smsLogId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "SqlLog/Common",
+      "folder": "general/SqlLog/Common",
       "model": "SqlLog",
       "key": "sqlLogId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "Subsidiary/Common",
+      "folder": "general/Subsidiary/Common",
       "model": "subsidiary",
       "key": "subsidiaryId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "Tag/Common",
+      "folder": "general/Tag/Common",
       "model": "tag",
       "key": "tagId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "UploadHistory/Common",
+      "folder": "general/UploadHistory/Common",
       "model": "uploadHistory",
       "key": "uploadHistoryId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "EmailSenderAgent/Common",
+      "folder": "general/EmailSenderAgent/Common",
       "model": "emailSenderAgent",
       "key": "emailSenderAgentId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "User/Common",
+      "folder": "general/User/Common",
       "model": "user",
       "key": "userId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "UserDepartmentInfo/Common",
+      "folder": "general/UserDepartmentInfo/Common",
       "model": "userDepartmentInfo",
       "key": "userDepartmentInfoId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "UserDevice/Common",
+      "folder": "general/UserDevice/Common",
       "model": "userDevice",
       "key": "userDeviceId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "UserSubsidiaryInfo/Common",
+      "folder": "general/UserSubsidiaryInfo/Common",
       "model": "userSubsidiaryInfo",
       "key": "userSubsidiaryInfoId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "SqlEntity/Common",
+      "folder": "general/SqlEntity/Common",
       "model": "sqlEntity",
       "key": "sqlEntityId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WeChatMessageRecord/Common",
+      "folder": "general/WeChatMessageRecord/Common",
       "model": "weChatMessageRecord",
       "key": "weChatMessageRecordId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "Workflow/Common",
+      "folder": "general/Workflow/Common",
       "model": "workflow",
       "key": "workflowId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowBranchCondition/Common",
+      "folder": "general/WorkflowBranchCondition/Common",
       "model": "workflowBranchCondition",
       "key": "workflowBranchConditionId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowBranchConditionItem/Common",
+      "folder": "general/WorkflowBranchConditionItem/Common",
       "model": "workflowBranchConditionItem",
       "key": "workflowBranchConditionItemId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowCase/Common",
+      "folder": "general/WorkflowCase/Common",
       "model": "workflowCase",
       "key": "workflowCaseId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowCaseCarbonCopyNotification/Common",
+      "folder": "general/WorkflowCaseCarbonCopyNotification/Common",
       "model": "workflowCaseCarbonCopyNotification",
       "key": "workflowCaseCarbonCopyNotificationId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowCaseFormAttachment/Common",
+      "folder": "general/WorkflowCaseFormAttachment/Common",
       "model": "workflowCaseFormAttachment",
       "key": "workflowCaseFormAttachmentId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowCaseFormStorage/Common",
+      "folder": "general/WorkflowCaseFormStorage/Common",
       "model": "workflowCaseFormStorage",
       "key": "workflowCaseFormStorageId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowCaseLatestApprove/Common",
+      "folder": "general/WorkflowCaseLatestApprove/Common",
       "model": "workflowCaseLatestApprove",
       "key": "workflowCaseLatestApproveId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowCaseNextProcessNotification/Common",
+      "folder": "general/WorkflowCaseNextProcessNotification/Common",
       "model": "workflowCaseNextProcessNotification",
       "key": "workflowCaseNextProcessNotificationId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowCaseNextProcessProgress/Common",
+      "folder": "general/WorkflowCaseNextProcessProgress/Common",
       "model": "workflowCaseNextProcessProgress",
       "key": "workflowCaseNextProcessProgressId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowCaseProcessHistory/Common",
+      "folder": "general/WorkflowCaseProcessHistory/Common",
       "model": "workflowCaseProcessHistory",
       "key": "workflowCaseProcessHistoryId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowDebugCase/Common",
+      "folder": "general/WorkflowDebugCase/Common",
       "model": "workflowDebugCase",
       "key": "workflowDebugCaseId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowDebugCaseCarbonCopyNotification/Common",
+      "folder": "general/WorkflowDebugCaseCarbonCopyNotification/Common",
       "model": "workflowDebugCaseCarbonCopyNotification",
       "key": "workflowDebugCaseCarbonCopyNotificationId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowDebugCaseFormAttachment/Common",
+      "folder": "general/WorkflowDebugCaseFormAttachment/Common",
       "model": "workflowDebugCaseFormAttachment",
       "key": "workflowDebugCaseFormAttachmentId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowDebugCaseFormStorage/Common",
+      "folder": "general/WorkflowDebugCaseFormStorage/Common",
       "model": "workflowDebugCaseFormStorage",
       "key": "workflowDebugCaseFormStorageId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowDebugCaseLatestApprove/Common",
+      "folder": "general/WorkflowDebugCaseLatestApprove/Common",
       "model": "workflowDebugCaseLatestApprove",
       "key": "workflowDebugCaseLatestApproveId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowDebugCaseNextProcessNotification/Common",
+      "folder": "general/WorkflowDebugCaseNextProcessNotification/Common",
       "model": "workflowDebugCaseNextProcessNotification",
       "key": "workflowDebugCaseNextProcessNotificationId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowDebugCaseNextProcessProgress/Common",
+      "folder": "general/WorkflowDebugCaseNextProcessProgress/Common",
       "model": "workflowDebugCaseNextProcessProgress",
       "key": "workflowDebugCaseNextProcessProgressId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowDebugCaseProcessHistory/Common",
+      "folder": "general/WorkflowDebugCaseProcessHistory/Common",
       "model": "workflowDebugCaseProcessHistory",
       "key": "workflowDebugCaseProcessHistoryId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowFormDesign/Common",
+      "folder": "general/WorkflowFormDesign/Common",
       "model": "workflowFormDesign",
       "key": "workflowFormDesignId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowLine/Common",
+      "folder": "general/WorkflowLine/Common",
       "model": "workflowLine",
       "key": "workflowLineId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowNode/Common",
+      "folder": "general/WorkflowNode/Common",
       "model": "workflowNode",
       "key": "workflowNodeId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowNodeApprover/Common",
+      "folder": "general/WorkflowNodeApprover/Common",
       "model": "workflowNodeApprover",
       "key": "workflowNodeApproverId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowRangeEffectiveExternalDepartmentRelation/Common",
+      "folder": "general/WorkflowRangeEffectiveExternalDepartmentRelation/Common",
       "model": "workflowRangeEffectiveExternalDepartmentRelation",
       "key": "workflowRangeEffectiveExternalDepartmentRelationId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "WorkflowRangeEffectiveSubsidiaryRelation/Common",
+      "folder": "general/WorkflowRangeEffectiveSubsidiaryRelation/Common",
       "model": "workflowRangeEffectiveSubsidiaryRelation",
       "key": "workflowRangeEffectiveSubsidiaryRelationId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "EmailMessage/Common",
+      "folder": "general/EmailMessage/Common",
       "model": "emailMessage",
       "key": "emailMessageId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "EmailSenderAgentStatistic/Common",
+      "folder": "general/EmailSenderAgentStatistic/Common",
       "model": "emailSenderAgentStatistic",
       "key": "emailSenderAgentStatisticId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "EmailStatistic/Common",
+      "folder": "general/EmailStatistic/Common",
       "model": "emailStatistic",
       "key": "emailStatisticId",
       "fileName": "data.js",

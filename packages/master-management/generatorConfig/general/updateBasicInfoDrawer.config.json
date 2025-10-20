@@ -1,7 +1,7 @@
 {
   "list": [
     {
-      "folder": "Position/UpdateBasicInfoDrawer",
+      "folder": "general/Position/UpdateBasicInfoDrawer",
       "model": "position",
       "key": "positionId",
       "visibleFlag": "e8851cd3faef4a9bb71610e40398182b",
@@ -9,7 +9,7 @@
       "coverFile": false
     },
     {
-      "folder": "PositionGrade/UpdateBasicInfoDrawer",
+      "folder": "general/PositionGrade/UpdateBasicInfoDrawer",
       "model": "positionGrade",
       "key": "positionGradeId",
       "visibleFlag": "d646854f851c45f295cbeb25939eeac4",

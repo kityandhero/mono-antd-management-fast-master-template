@@ -1,7 +1,7 @@
 {
   "list": [
     {
-      "folder": "SubsidiaryComplaintCategory/ChangeSortModal",
+      "folder": "general/SubsidiaryComplaintCategory/ChangeSortModal",
       "model": "subsidiaryComplaintCategory",
       "key": "subsidiaryComplaintCategoryId",
       "visibleFlag": "2c5c8cd35c5c4184bd52f8bb32b8ce67",
@@ -9,7 +9,7 @@
       "coverFile": false
     },
     {
-      "folder": "Position/ChangeSortModal",
+      "folder": "general/Position/ChangeSortModal",
       "model": "position",
       "key": "positionId",
       "visibleFlag": "a0cc8a0bc2b24b6babf07c2d20cd8c53",
@@ -17,7 +17,7 @@
       "coverFile": false
     },
     {
-      "folder": "PositionGrade/ChangeSortModal",
+      "folder": "general/PositionGrade/ChangeSortModal",
       "model": "positionGrade",
       "key": "positionGradeId",
       "visibleFlag": "2779cdec846e4138b1d41084593172d9",
@@ -25,7 +25,7 @@
       "coverFile": false
     },
     {
-      "folder": "Questionnaire/ChangeSortModal",
+      "folder": "general/Questionnaire/ChangeSortModal",
       "model": "questionnaire",
       "key": "questionnaireId",
       "visibleFlag": "50ab68a174d54706b012005b3aeccf36",
@@ -33,7 +33,7 @@
       "coverFile": false
     },
     {
-      "folder": "QuestionnaireQuestionRelation/ChangeSortModal",
+      "folder": "general/QuestionnaireQuestionRelation/ChangeSortModal",
       "model": "questionnaireQuestionRelation",
       "key": "questionnaireQuestionRelationId",
       "visibleFlag": "25bf7881798541118e85d29e10e08d86",
@@ -41,7 +41,7 @@
       "coverFile": false
     },
     {
-      "folder": "UserQuestionnaire/ChangeSortModal",
+      "folder": "general/UserQuestionnaire/ChangeSortModal",
       "model": "userQuestionnaire",
       "key": "userQuestionnaireId",
       "visibleFlag": "935c0b8a9ba24f1f897ced3e72851562",
@@ -49,7 +49,7 @@
       "coverFile": false
     },
     {
-      "folder": "EmailSenderAgent/ChangeSortModal",
+      "folder": "general/EmailSenderAgent/ChangeSortModal",
       "model": "emailSenderAgent",
       "key": "emailSenderAgentId",
       "visibleFlag": "b4327a30b0544baf8c3938028098c19b",
@@ -57,7 +57,7 @@
       "coverFile": false
     },
     {
-      "folder": "Gallery/ChangeSortModal",
+      "folder": "general/Gallery/ChangeSortModal",
       "model": "gallery",
       "key": "galleryId",
       "visibleFlag": "1de6598ed33f460c846115d1023519a6",
@@ -65,7 +65,7 @@
       "coverFile": false
     },
     {
-      "folder": "GalleryCategory/ChangeSortModal",
+      "folder": "general/GalleryCategory/ChangeSortModal",
       "model": "galleryCategory",
       "key": "galleryCategoryId",
       "visibleFlag": "d531cd3035404a6b8c62c68ba593d7cc",
@@ -73,7 +73,7 @@
       "coverFile": false
     },
     {
-      "folder": "QrCode/ChangeSortModal",
+      "folder": "general/QrCode/ChangeSortModal",
       "model": "qrCode",
       "key": "qrCodeId",
       "visibleFlag": "703597963b8b4d36b343215c71a0b7e1",
@@ -81,7 +81,7 @@
       "coverFile": false
     },
     {
-      "folder": "QrCodeCategory/ChangeSortModal",
+      "folder": "general/QrCodeCategory/ChangeSortModal",
       "model": "qrCodeCategory",
       "key": "qrCodeCategoryId",
       "visibleFlag": "fd3703b6cda6481bababfd968cf35f18",
@@ -89,7 +89,7 @@
       "coverFile": false
     },
     {
-      "folder": "CallCenter/ChangeSortModal",
+      "folder": "general/CallCenter/ChangeSortModal",
       "model": "callCenter",
       "key": "callCenterId",
       "visibleFlag": "68bad5bd1a6449b7bc146cc4f51add50",
@@ -97,7 +97,7 @@
       "coverFile": false
     },
     {
-      "folder": "CallCenterCategory/ChangeSortModal",
+      "folder": "general/CallCenterCategory/ChangeSortModal",
       "model": "callCenterCategory",
       "key": "callCenterCategoryId",
       "visibleFlag": "796ae68f63ab46d9accdecf6ac7ab27d",
@@ -105,7 +105,7 @@
       "coverFile": false
     },
     {
-      "folder": "BusinessSet/ChangeSortModal",
+      "folder": "general/BusinessSet/ChangeSortModal",
       "model": "businessSet",
       "key": "businessSetId",
       "visibleFlag": "c76f223f6c8b4c23a7630e86f837d799",

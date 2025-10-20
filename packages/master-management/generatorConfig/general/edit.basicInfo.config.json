@@ -1,182 +1,182 @@
 {
   "list": [
     {
-      "folder": "AdministrativeDivision/Edit/BasicInfo",
+      "folder": "general/AdministrativeDivision/Edit/BasicInfo",
       "model": "administrativeDivision",
       "key": "administrativeDivisionId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Customer/Edit/BasicInfo",
+      "folder": "general/Customer/Edit/BasicInfo",
       "model": "customer",
       "key": "customerId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryComplaintCategory/Edit/BasicInfo",
+      "folder": "general/SubsidiaryComplaintCategory/Edit/BasicInfo",
       "model": "subsidiaryComplaintCategory",
       "key": "subsidiaryComplaintCategoryId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryComplaintMessage/Edit/BasicInfo",
+      "folder": "general/SubsidiaryComplaintMessage/Edit/BasicInfo",
       "model": "subsidiaryComplaintMessage",
       "key": "subsidiaryComplaintMessageId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryFeedbackMessage/Edit/BasicInfo",
+      "folder": "general/SubsidiaryFeedbackMessage/Edit/BasicInfo",
       "model": "subsidiaryFeedbackMessage",
       "key": "subsidiaryFeedbackMessageId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "SubsidiaryReportMessage/Edit/BasicInfo",
+      "folder": "general/SubsidiaryReportMessage/Edit/BasicInfo",
       "model": "subsidiaryReportMessage",
       "key": "subsidiaryReportMessageId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "ApplicationUserFeedback/Edit/BasicInfo",
+      "folder": "general/ApplicationUserFeedback/Edit/BasicInfo",
       "model": "applicationUserFeedback",
       "key": "applicationUserFeedbackId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "ApplicationCustomerFeedback/Edit/BasicInfo",
+      "folder": "general/ApplicationCustomerFeedback/Edit/BasicInfo",
       "model": "applicationCustomerFeedback",
       "key": "applicationCustomerFeedbackId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Question/Edit/BasicInfo",
+      "folder": "general/Question/Edit/BasicInfo",
       "model": "question",
       "key": "questionId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Questionnaire/Edit/BasicInfo",
+      "folder": "general/Questionnaire/Edit/BasicInfo",
       "model": "questionnaire",
       "key": "questionnaireId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "UserQuestionnaire/Edit/BasicInfo",
+      "folder": "general/UserQuestionnaire/Edit/BasicInfo",
       "model": "userQuestionnaire",
       "key": "userQuestionnaireId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Application/Edit/BasicInfo",
+      "folder": "general/Application/Edit/BasicInfo",
       "model": "application",
       "key": "applicationId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "ApplicationSource/Edit/BasicInfo",
+      "folder": "general/ApplicationSource/Edit/BasicInfo",
       "model": "applicationSource",
       "key": "applicationSourceId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "CallCenter/Edit/BasicInfo",
+      "folder": "general/CallCenter/Edit/BasicInfo",
       "model": "callCenter",
       "key": "callCenterId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Department/Edit/BasicInfo",
+      "folder": "general/Department/Edit/BasicInfo",
       "model": "department",
       "key": "departmentId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Gallery/Edit/BasicInfo",
+      "folder": "general/Gallery/Edit/BasicInfo",
       "model": "gallery",
       "key": "galleryId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "MasterManager/Edit/BasicInfo",
+      "folder": "general/MasterManager/Edit/BasicInfo",
       "model": "masterManager",
       "key": "masterManagerId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "PresetRole/Edit/BasicInfo",
+      "folder": "general/PresetRole/Edit/BasicInfo",
       "model": "presetRole",
       "key": "presetRoleId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "QrCode/Edit/BasicInfo",
+      "folder": "general/QrCode/Edit/BasicInfo",
       "model": "qrCode",
       "key": "qrCodeId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Section/Edit/BasicInfo",
+      "folder": "general/Section/Edit/BasicInfo",
       "model": "section",
       "key": "sectionId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Subsidiary/Edit/BasicInfo",
+      "folder": "general/Subsidiary/Edit/BasicInfo",
       "model": "subsidiary",
       "key": "subsidiaryId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Tag/Edit/BasicInfo",
+      "folder": "general/Tag/Edit/BasicInfo",
       "model": "tag",
       "key": "tagId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "User/Edit/BasicInfo",
+      "folder": "general/User/Edit/BasicInfo",
       "model": "user",
       "key": "userId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "UserDevice/Edit/BasicInfo",
+      "folder": "general/UserDevice/Edit/BasicInfo",
       "model": "userDevice",
       "key": "userDeviceId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "Workflow/Edit/BasicInfo",
+      "folder": "general/Workflow/Edit/BasicInfo",
       "model": "workflow",
       "key": "workflowId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "WorkflowCase/Edit/BasicInfo",
+      "folder": "general/WorkflowCase/Edit/BasicInfo",
       "model": "workflowCase",
       "key": "workflowCaseId",
       "fileName": "index.jsx",

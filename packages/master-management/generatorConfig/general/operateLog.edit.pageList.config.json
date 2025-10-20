@@ -1,157 +1,157 @@
 {
   "list": [
     {
-      "folder": "AdministrativeDivision/Edit/OperateLog/PageList",
+      "folder": "general/AdministrativeDivision/Edit/OperateLog/PageList",
       "model": "administrativeDivision",
       "key": "administrativeDivisionId",
       "coverFile": true
     },
     {
-      "folder": "Customer/Edit/OperateLog/PageList",
+      "folder": "general/Customer/Edit/OperateLog/PageList",
       "model": "customer",
       "key": "customerId",
       "coverFile": true
     },
     {
-      "folder": "SubsidiaryComplaintCategory/Edit/OperateLog/PageList",
+      "folder": "general/SubsidiaryComplaintCategory/Edit/OperateLog/PageList",
       "model": "subsidiaryComplaintCategory",
       "key": "subsidiaryComplaintCategoryId",
       "coverFile": true
     },
     {
-      "folder": "SubsidiaryComplaintMessage/Edit/OperateLog/PageList",
+      "folder": "general/SubsidiaryComplaintMessage/Edit/OperateLog/PageList",
       "model": "subsidiaryComplaintMessage",
       "key": "subsidiaryComplaintMessageId",
       "coverFile": true
     },
     {
-      "folder": "SubsidiaryFeedbackMessage/Edit/OperateLog/PageList",
+      "folder": "general/SubsidiaryFeedbackMessage/Edit/OperateLog/PageList",
       "model": "subsidiaryFeedbackMessage",
       "key": "subsidiaryFeedbackMessageId",
       "coverFile": true
     },
     {
-      "folder": "SubsidiaryReportMessage/Edit/OperateLog/PageList",
+      "folder": "general/SubsidiaryReportMessage/Edit/OperateLog/PageList",
       "model": "subsidiaryReportMessage",
       "key": "subsidiaryReportMessageId",
       "coverFile": true
     },
     {
-      "folder": "ApplicationUserFeedback/Edit/OperateLog/PageList",
+      "folder": "general/ApplicationUserFeedback/Edit/OperateLog/PageList",
       "model": "applicationUserFeedback",
       "key": "applicationUserFeedbackId",
       "coverFile": true
     },
     {
-      "folder": "ApplicationCustomerFeedback/Edit/OperateLog/PageList",
+      "folder": "general/ApplicationCustomerFeedback/Edit/OperateLog/PageList",
       "model": "applicationCustomerFeedback",
       "key": "applicationCustomerFeedbackId",
       "coverFile": true
     },
     {
-      "folder": "Question/Edit/OperateLog/PageList",
+      "folder": "general/Question/Edit/OperateLog/PageList",
       "model": "question",
       "key": "questionId",
       "coverFile": true
     },
     {
-      "folder": "Questionnaire/Edit/OperateLog/PageList",
+      "folder": "general/Questionnaire/Edit/OperateLog/PageList",
       "model": "questionnaire",
       "key": "questionnaireId",
       "coverFile": true
     },
     {
-      "folder": "UserQuestionnaire/Edit/OperateLog/PageList",
+      "folder": "general/UserQuestionnaire/Edit/OperateLog/PageList",
       "model": "userQuestionnaire",
       "key": "userQuestionnaireId",
       "coverFile": true
     },
     {
-      "folder": "Application/Edit/OperateLog/PageList",
+      "folder": "general/Application/Edit/OperateLog/PageList",
       "model": "application",
       "key": "applicationId",
       "coverFile": true
     },
     {
-      "folder": "ApplicationSource/Edit/OperateLog/PageList",
+      "folder": "general/ApplicationSource/Edit/OperateLog/PageList",
       "model": "applicationSource",
       "key": "applicationSourceId",
       "coverFile": true
     },
     {
-      "folder": "CallCenter/Edit/OperateLog/PageList",
+      "folder": "general/CallCenter/Edit/OperateLog/PageList",
       "model": "callCenter",
       "key": "callCenterId",
       "coverFile": true
     },
     {
-      "folder": "Department/Edit/OperateLog/PageList",
+      "folder": "general/Department/Edit/OperateLog/PageList",
       "model": "department",
       "key": "departmentId",
       "coverFile": true
     },
     {
-      "folder": "Gallery/Edit/OperateLog/PageList",
+      "folder": "general/Gallery/Edit/OperateLog/PageList",
       "model": "gallery",
       "key": "galleryId",
       "coverFile": true
     },
     {
-      "folder": "MasterManager/Edit/OperateLog/PageList",
+      "folder": "general/MasterManager/Edit/OperateLog/PageList",
       "model": "masterManager",
       "key": "masterManagerId",
       "coverFile": true
     },
     {
-      "folder": "PresetRole/Edit/OperateLog/PageList",
+      "folder": "general/PresetRole/Edit/OperateLog/PageList",
       "model": "presetRole",
       "key": "presetRoleId",
       "coverFile": true
     },
     {
-      "folder": "QrCode/Edit/OperateLog/PageList",
+      "folder": "general/QrCode/Edit/OperateLog/PageList",
       "model": "qrCode",
       "key": "qrCodeId",
       "coverFile": true
     },
     {
-      "folder": "Section/Edit/OperateLog/PageList",
+      "folder": "general/Section/Edit/OperateLog/PageList",
       "model": "section",
       "key": "sectionId",
       "coverFile": true
     },
     {
-      "folder": "Subsidiary/Edit/OperateLog/PageList",
+      "folder": "general/Subsidiary/Edit/OperateLog/PageList",
       "model": "subsidiary",
       "key": "subsidiaryId",
       "coverFile": true
     },
     {
-      "folder": "Tag/Edit/OperateLog/PageList",
+      "folder": "general/Tag/Edit/OperateLog/PageList",
       "model": "tag",
       "key": "tagId",
       "coverFile": true
     },
     {
-      "folder": "User/Edit/OperateLog/PageList",
+      "folder": "general/User/Edit/OperateLog/PageList",
       "model": "user",
       "key": "userId",
       "coverFile": true
     },
     {
-      "folder": "UserDevice/Edit/OperateLog/PageList",
+      "folder": "general/UserDevice/Edit/OperateLog/PageList",
       "model": "userDevice",
       "key": "userDeviceId",
       "coverFile": true
     },
     {
-      "folder": "Workflow/Edit/OperateLog/PageList",
+      "folder": "general/Workflow/Edit/OperateLog/PageList",
       "model": "workflow",
       "key": "workflowId",
       "coverFile": true
     },
     {
-      "folder": "WorkflowCase/Edit/OperateLog/PageList",
+      "folder": "general/WorkflowCase/Edit/OperateLog/PageList",
       "model": "workflowCase",
       "key": "workflowCaseId",
       "coverFile": true
