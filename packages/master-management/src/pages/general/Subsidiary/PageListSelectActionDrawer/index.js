@@ -8,7 +8,6 @@ import {
 } from 'antd-management-fast-common';
 import {
   buildListViewItemExtra,
-  buildListViewItemInnerWithDropdownButton,
   iconBuilder,
 } from 'antd-management-fast-component';
 import {
@@ -109,8 +108,8 @@ class PageListSubsidiarySelectActionDrawer extends MultiPageDrawer {
   };
 
   // eslint-disable-next-line no-unused-vars
-  renderPresetListViewItemInner = (item, index) => {
-    return buildListViewItemInnerWithDropdownButton({
+  establishPresetListViewItemInnerConfig = (item, index) => {
+    return {
       image: getValueByKey({
         data: item,
         key: fieldData.logo.name,
@@ -132,6 +131,15 @@ class PageListSubsidiarySelectActionDrawer extends MultiPageDrawer {
           }),
           color: '#999999',
         },
+        {
+          label: fieldData.code.label,
+          text: getValueByKey({
+            data: item,
+            key: fieldData.code.name,
+            defaultValue: '暂无',
+          }),
+          color: '#999999',
+        },
       ],
       actionList: [
         {
@@ -139,16 +147,6 @@ class PageListSubsidiarySelectActionDrawer extends MultiPageDrawer {
           text: getValueByKey({
             data: item,
             key: fieldData.subsidiaryId.name,
-          }),
-          canCopy: true,
-          color: '#999999',
-        },
-        {
-          label: fieldData.code.label,
-          text: getValueByKey({
-            data: item,
-            key: fieldData.code.name,
-            defaultValue: '暂无',
           }),
           canCopy: true,
           color: '#999999',
@@ -175,7 +173,7 @@ class PageListSubsidiarySelectActionDrawer extends MultiPageDrawer {
       statusBarWrapperStyle: {
         paddingRight: '10px',
       },
-    });
+    };
   };
 }
 

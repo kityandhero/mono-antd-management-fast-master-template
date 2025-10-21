@@ -6,6 +6,7 @@ import {
   listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
+import { buildListViewItemExtra } from 'antd-management-fast-component';
 import {
   DataMultiPageView,
   switchControlAssist,
@@ -79,6 +80,17 @@ class PageListSelectDrawer extends MultiPageSelectDrawer {
     };
   };
 
+  renderPresetListViewItemExtra = (record, index) => {
+    return buildListViewItemExtra({
+      index,
+      imageUrl: getValueByKey({
+        data: record,
+        key: fieldData.logo.name,
+        defaultValue: defaultEmptyImage,
+      }),
+    });
+  };
+
   // eslint-disable-next-line no-unused-vars
   establishPresetListViewItemInnerConfig = (item, index) => {
     return {
@@ -103,6 +115,15 @@ class PageListSelectDrawer extends MultiPageSelectDrawer {
           }),
           color: '#999999',
         },
+        {
+          label: fieldData.code.label,
+          text: getValueByKey({
+            data: item,
+            key: fieldData.code.name,
+            defaultValue: '暂无',
+          }),
+          color: '#999999',
+        },
       ],
       actionList: [
         {
@@ -110,16 +131,6 @@ class PageListSelectDrawer extends MultiPageSelectDrawer {
           text: getValueByKey({
             data: item,
             key: fieldData.subsidiaryId.name,
-          }),
-          canCopy: true,
-          color: '#999999',
-        },
-        {
-          label: fieldData.code.label,
-          text: getValueByKey({
-            data: item,
-            key: fieldData.code.name,
-            defaultValue: '暂无',
           }),
           canCopy: true,
           color: '#999999',
