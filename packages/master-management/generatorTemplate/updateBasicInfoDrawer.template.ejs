@@ -41,7 +41,7 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
     const d = o;
     const { externalData } = this.state;
 
-    d.<%= o.model%>Id = getValueByKey({
+    d[fieldData.<%= o.model%>Id.name] = getValueByKey({
       data: externalData,
       key: fieldData.<%= o.model%>Id.name,
     });
@@ -53,7 +53,7 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
     const d = o;
     const { externalData } = this.state;
 
-    d.<%= o.model%>Id = getValueByKey({
+    d[fieldData.<%= o.model%>Id.name] = getValueByKey({
       data: externalData,
       key: fieldData.<%= o.model%>Id.name,
     });
