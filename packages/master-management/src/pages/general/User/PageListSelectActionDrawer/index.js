@@ -8,8 +8,8 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
-import { modelTypeCollection } from '../../../../modelBuilders';
 import { accessWayCollection } from '../../../../customConfig';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { MultiPageDrawer } = DataMultiPageView;
