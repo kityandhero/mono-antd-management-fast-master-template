@@ -236,7 +236,7 @@ class Index extends TabPageBase {
               lg: 24,
               type: cardConfig.contentItemType.imageUpload,
               image: image,
-              action: `/gallery/uploadImage`,
+              action: `/qrCode/uploadImage`,
               afterUploadSuccess: (imageData) => {
                 this.afterImageUploadSuccess(imageData);
               },
