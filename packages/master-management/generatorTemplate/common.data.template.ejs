@@ -1,4 +1,4 @@
-import { formNameCollection } from '../../../customConfig';
+import { formNameCollection } from '../../../../customConfig';
 
 const fieldExtraData = {};
 
