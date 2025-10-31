@@ -24,9 +24,9 @@ import {
 } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
+import { accessWayCollection } from '../../../../customConfig';
 import { getSubsidiaryStatusName } from '../../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../../modelBuilders';
-import { accessWayCollection } from '../../../../customConfig';
 import { GraphicalSingleSubsidiaryDepartmentTreeDrawer } from '../../Organization/GraphicalSingleSubsidiaryDepartmentTreeDrawer';
 import {
   refreshCacheAction,
