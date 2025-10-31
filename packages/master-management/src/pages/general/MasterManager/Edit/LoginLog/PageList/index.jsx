@@ -9,7 +9,7 @@ import {
 import { getChannelName } from '../../../../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../../../../modelBuilders';
 import { fieldData } from '../../../../MasterManagerLoginLog/Common/data';
-import BaseInnerPageList from '../../../../OperationLog/BaseInnerPageList';
+import { BaseInnerPageList } from '../../../../OperationLog/BaseInnerPageList';
 import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,

@@ -191,4 +191,4 @@ class BaseInnerPageList extends InnerMultiPage {
   };
 }
 
-export default BaseInnerPageList;
+export { BaseInnerPageList };
