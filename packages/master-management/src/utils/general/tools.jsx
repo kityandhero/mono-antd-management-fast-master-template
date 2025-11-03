@@ -558,3 +558,23 @@ export function buildFlowCaseFormInitialValues(
 
   return data;
 }
+
+/**
+ * 获取指定元数据首项值
+ * @param {*} list 指定的元数据项集合
+ * @returns 元数据首项值
+ */
+export function getTargetMetaDataFirstFlag(list) {
+  if (!isArray(list) || isEmptyArray(list)) {
+    return null;
+  }
+
+  const first = list[0];
+
+  const { flag } = {
+    flag: '',
+    ...first,
+  };
+
+  return flag || '';
+}
