@@ -14,6 +14,7 @@ import {
 import {
   columnFacadeMode,
   defaultEmptyImage,
+  dropdownExpandItemType,
   listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
@@ -391,15 +392,17 @@ class PageList extends MultiPage {
             text: '查看组织图例',
           },
           {
-            withDivider: true,
-            uponDivider: true,
+            type: dropdownExpandItemType.divider,
+          },
+          {
             key: 'updateSort',
             icon: iconBuilder.edit(),
             text: '设置排序值',
           },
           {
-            withDivider: true,
-            uponDivider: true,
+            type: dropdownExpandItemType.divider,
+          },
+          {
             key: 'setEnable',
             icon: iconBuilder.playCircle(),
             text: '设为启用',
@@ -416,8 +419,9 @@ class PageList extends MultiPage {
             title: '将要设为禁用，确定吗？',
           },
           {
-            withDivider: true,
-            uponDivider: true,
+            type: dropdownExpandItemType.divider,
+          },
+          {
             key: 'refreshCache',
             icon: iconBuilder.reload(),
             text: '刷新缓存',

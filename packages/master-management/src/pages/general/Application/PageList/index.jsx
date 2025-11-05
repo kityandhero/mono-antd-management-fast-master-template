@@ -12,6 +12,7 @@ import {
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   getDerivedStateFromPropertiesForUrlParameters,
   listViewConfig,
   searchCardConfig,
@@ -325,23 +326,26 @@ class PageList extends MultiPage {
               title: '即将停止应用，确定吗？',
             },
             {
+              type: dropdownExpandItemType.divider,
+            },
+            {
               key: 'updateMessageChannelApplicationInfo',
-              withDivider: true,
-              uponDivider: true,
               icon: iconBuilder.form(),
               text: '转发微信消息',
             },
             {
+              type: dropdownExpandItemType.divider,
+            },
+            {
               key: 'testSendWechatTemplateMessage',
-              withDivider: true,
-              uponDivider: true,
               icon: iconBuilder.message(),
               text: '测试发送微信公众号模板消息',
             },
             {
+              type: dropdownExpandItemType.divider,
+            },
+            {
               key: 'testSendWechatUniformMessage',
-              withDivider: true,
-              uponDivider: true,
               icon: iconBuilder.message(),
               hidden: type != typeCollection.weChatMiniProgram,
               text: '测试发送微信统一服务消息',

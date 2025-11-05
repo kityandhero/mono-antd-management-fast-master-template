@@ -16,6 +16,7 @@ import {
 import {
   cardConfig,
   defaultEmptyImage,
+  dropdownExpandItemType,
   getDerivedStateFromPropertiesForUrlParameters,
   mobileTypeCollection,
 } from 'antd-management-fast-common';
@@ -456,9 +457,10 @@ class MediaInfo extends TabPageBase {
                   ),
                 },
                 {
+                  type: dropdownExpandItemType.divider,
+                },
+                {
                   key: 'moveUp',
-                  withDivider: true,
-                  uponDivider: true,
                   icon: iconBuilder.arrowUp(),
                   text: '向上移动',
                   hidden: !checkHasAuthority(
@@ -476,9 +478,10 @@ class MediaInfo extends TabPageBase {
                   disabled: sort === (mediaItemList || []).length,
                 },
                 {
+                  type: dropdownExpandItemType.divider,
+                },
+                {
                   key: 'refreshCache',
-                  withDivider: true,
-                  uponDivider: true,
                   icon: iconBuilder.reload(),
                   text: '刷新缓存',
                   hidden: !checkHasAuthority(
@@ -488,9 +491,10 @@ class MediaInfo extends TabPageBase {
                   title: '将要刷新缓存，确定吗？',
                 },
                 {
+                  type: dropdownExpandItemType.divider,
+                },
+                {
                   key: 'removeItem',
-                  withDivider: true,
-                  uponDivider: true,
                   icon: iconBuilder.delete(),
                   text: '删除信息',
                   hidden: !checkHasAuthority(

@@ -196,8 +196,6 @@ class PageList extends InnerMultiPage {
         },
         items: [
           {
-            withDivider: true,
-            uponDivider: true,
             key: 'refreshCache',
             icon: iconBuilder.reload(),
             text: '刷新缓存',

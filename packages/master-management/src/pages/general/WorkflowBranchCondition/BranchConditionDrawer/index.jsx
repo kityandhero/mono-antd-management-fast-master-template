@@ -8,7 +8,10 @@ import {
   getValueByKey,
 } from 'easy-soft-utility';
 
-import { extraBuildType } from 'antd-management-fast-common';
+import {
+  dropdownExpandItemType,
+  extraBuildType,
+} from 'antd-management-fast-common';
 import {
   buildButton,
   buildColumnList,
@@ -430,9 +433,10 @@ class BranchConditionDrawer extends BaseVerticalFlexDrawer {
                     ),
                   },
                   {
+                    type: dropdownExpandItemType.divider,
+                  },
+                  {
                     key: 'refreshCache',
-                    withDivider: true,
-                    uponDivider: true,
                     icon: iconBuilder.delete(),
                     text: '刷新缓存',
                     hidden: !checkHasAuthority(

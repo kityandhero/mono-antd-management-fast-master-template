@@ -10,6 +10,7 @@ import {
 } from 'easy-soft-utility';
 
 import {
+  dropdownExpandItemType,
   getDerivedStateFromPropertiesForUrlParameters,
   listViewConfig,
   searchCardConfig,
@@ -388,8 +389,9 @@ class Index extends InnerMultiPage {
             title: '将要设为禁用，确定吗？',
           },
           {
-            withDivider: true,
-            uponDivider: true,
+            type: dropdownExpandItemType.divider,
+          },
+          {
             key: 'refreshCache',
             icon: iconBuilder.reload(),
             text: '刷新缓存',
@@ -397,8 +399,9 @@ class Index extends InnerMultiPage {
             title: '将要刷新缓存，确定吗？',
           },
           {
-            withDivider: true,
-            uponDivider: true,
+            type: dropdownExpandItemType.divider,
+          },
+          {
             key: 'remove',
             icon: iconBuilder.delete(),
             text: '移除数据',
