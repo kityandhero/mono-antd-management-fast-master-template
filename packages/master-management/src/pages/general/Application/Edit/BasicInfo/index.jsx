@@ -24,7 +24,7 @@ import { TabPageBase } from '../../TabPageBase';
 class BasicInfo extends TabPageBase {
   reloadHeaderOnSubmitSuccess = true;
 
-  componentAuthority = accessWayCollection.application.pageList.permission;
+  componentAuthority = accessWayCollection.application.get.permission;
 
   constructor(properties) {
     super(properties);

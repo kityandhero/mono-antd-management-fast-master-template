@@ -22,7 +22,7 @@ class Index extends TabPageBase {
   reloadHeaderOnSubmitSuccess = true;
 
   componentAuthority =
-    accessWayCollection.<%= o.model %>.pageList.permission;
+    accessWayCollection.<%= o.model %>.get.permission;
 
   constructor(properties) {
     super(properties);
