@@ -38,7 +38,7 @@ class PageListDrawer extends MultiPageSelectDrawer {
     };
   }
 
-  getPageName = () => {
+  getPresetPageTitle = () => {
     return '请选择类别';
   };
 

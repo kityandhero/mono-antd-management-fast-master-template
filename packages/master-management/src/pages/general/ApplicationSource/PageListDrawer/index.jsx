@@ -76,7 +76,7 @@ class Index extends MultiPageDrawer {
     };
   };
 
-  getPageName = () => {
+  getPresetPageTitle = () => {
     return '应用源';
   };
 

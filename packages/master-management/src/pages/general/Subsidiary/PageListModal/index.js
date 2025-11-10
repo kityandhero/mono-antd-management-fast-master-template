@@ -49,7 +49,7 @@ class PageListModal extends MultiPageSelectModal {
     return super.getDerivedStateFromProps(nextProperties, previousState);
   }
 
-  getPageName = () => {
+  getPresetPageTitle = () => {
     return '请选择企业';
   };
 

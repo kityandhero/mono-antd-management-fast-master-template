@@ -64,7 +64,7 @@ class PageListDrawer extends MultiPageSelectDrawer {
     return { ...searchParams, ...d };
   };
 
-  getPageName = () => {
+  getPresetPageTitle = () => {
     return '请选择上级部门';
   };
 

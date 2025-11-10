@@ -11,7 +11,7 @@ const visibleFlag = '31792341dfdc4aa79ed90e51d5da3a60';
   schedulingControl,
 }))
 class FromNodeSelectModal extends BaseNodeSelectModal {
-  showCallProcess = true;
+  // showCallProcess = true;
 
   static open() {
     switchControlAssist.open(visibleFlag);

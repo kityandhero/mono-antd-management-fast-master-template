@@ -48,7 +48,7 @@ class PageListSelectDrawer extends MultiPageSelectDrawer {
     };
   }
 
-  getPageName = () => {
+  getPresetPageTitle = () => {
     return '应用源';
   };
 

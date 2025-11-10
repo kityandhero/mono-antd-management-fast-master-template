@@ -48,7 +48,7 @@ class PageListSelectDrawer extends MultiPageSelectDrawer {
     return super.getDerivedStateFromProps(nextProperties, previousState);
   }
 
-  getPageName = () => {
+  getPresetPageTitle = () => {
     return '请选择公司';
   };
 

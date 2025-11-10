@@ -50,7 +50,7 @@ class BaseNodePageListSelectDrawer extends MultiPageSelectDrawer {
     };
   };
 
-  getPageName = () => {
+  getPresetPageTitle = () => {
     return '流程节点列表';
   };
 
