@@ -1,6 +1,6 @@
 /**
  * 占位函数
  */
-export function emptySpecialCustomComponent() {
+export function PureFunctionSpecialCustomComponentPlaceholder() {
   return null;
 }
