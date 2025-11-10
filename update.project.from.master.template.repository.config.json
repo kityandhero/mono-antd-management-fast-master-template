@@ -11,8 +11,6 @@
     "src/customSpecialComponents/BaseUpdateKeyValueInfoModal/",
     "src/customSpecialComponents/BaseUpdateRoleModal/",
     "src/customSpecialComponents/DataTabContainerSupplement/",
-    "src/customSpecialComponents/FunctionSpecialCustomComponent/PurePlaceholder/",
-    "src/customSpecialComponents/FunctionSpecialGeneralComponent/PurePlaceholder/",
     "src/customSpecialComponents/UpdateModuleModalBase/",
     "src/pageBases/",
     "src/pages/general/"
