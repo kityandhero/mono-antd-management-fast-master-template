@@ -5,7 +5,7 @@
       "name": "Position",
       "model": "position",
       "key": "positionId",
-      "visibleFlag": "0327e38ce64e43e489f088b15d6b7c34",
+      "visibleFlag": "1a801e3656ab4d87818da7de23e74690",
       "fileName": "index.jsx",
       "coverFile": false
     },
@@ -14,7 +14,7 @@
       "name": "PositionGrade",
       "model": "positionGrade",
       "key": "positionGradeId",
-      "visibleFlag": "a25d4b8978604beba48e1398d28049fb",
+      "visibleFlag": "4b80f9efd72f4ea9a5f5dc9575a2711c",
       "fileName": "index.jsx",
       "coverFile": false
     }

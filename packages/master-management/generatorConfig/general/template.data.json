@@ -1465,7 +1465,7 @@
       "config": true,
       "tools": true,
       "data": true,
-      "addBasicInfoDrawer": true,
+      "addBasicInfoDrawer": false,
       "changeImageModal": false,
       "changeSortModal": false,
       "tabPageBase": true,
