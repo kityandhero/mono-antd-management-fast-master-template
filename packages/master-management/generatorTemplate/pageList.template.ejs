@@ -16,8 +16,10 @@ import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../../customConfig';
+import { get<%= o.name%>StatusName } from '../../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { refreshCacheAction } from '../Assist/action';
+import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 
 const { MultiPage } = DataMultiPageView;
@@ -126,6 +128,21 @@ class PageList extends MultiPage {
       align: 'left',
       showRichFacade: true,
       emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.status,
+      width: 120,
+      showRichFacade: true,
+      emptyValue: '--',
+      facadeMode: columnFacadeMode.badge,
+      facadeConfigBuilder: (value) => {
+        return {
+          status: getStatusBadge(value),
+          text: get<%= o.name%>StatusName({
+            value: value,
+          }),
+        };
+      },
     },
     {
       dataTarget: fieldData.<%= o.key%>,

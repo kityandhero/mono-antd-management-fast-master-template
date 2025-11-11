@@ -2,17 +2,19 @@
   "list": [
     {
       "folder": "general/Gallery/ChangeImageModal",
+      "name": "Gallery",
       "model": "gallery",
       "key": "galleryId",
-      "visibleFlag": "3184abe26b0244ef95736668157ab30a",
+      "visibleFlag": "af98506987404cefbaa6b5d74b997e5b",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/QrCode/ChangeImageModal",
+      "name": "QrCode",
       "model": "qrCode",
       "key": "qrCodeId",
-      "visibleFlag": "6fba0c1668944a2bbe4ee9c66cb557bc",
+      "visibleFlag": "f6dcf176b08e4b0f9dbbc3d67f5295e1",
       "fileName": "index.jsx",
       "coverFile": false
     }

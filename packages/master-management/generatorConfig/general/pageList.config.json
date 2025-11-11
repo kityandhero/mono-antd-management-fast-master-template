@@ -2,6 +2,7 @@
   "list": [
     {
       "folder": "general/AccessWay/PageList",
+      "name": "AccessWay",
       "model": "accessWay",
       "key": "accessWayId",
       "fileName": "index.jsx",
@@ -9,6 +10,7 @@
     },
     {
       "folder": "general/AdministrativeDivision/PageList",
+      "name": "AdministrativeDivision",
       "model": "administrativeDivision",
       "key": "administrativeDivisionId",
       "fileName": "index.jsx",
@@ -16,6 +18,7 @@
     },
     {
       "folder": "general/Application/PageList",
+      "name": "Application",
       "model": "application",
       "key": "applicationId",
       "fileName": "index.jsx",
@@ -23,6 +26,7 @@
     },
     {
       "folder": "general/ApplicationCustomerFeedback/PageList",
+      "name": "ApplicationCustomerFeedback",
       "model": "applicationCustomerFeedback",
       "key": "applicationCustomerFeedbackId",
       "fileName": "index.jsx",
@@ -30,6 +34,7 @@
     },
     {
       "folder": "general/ApplicationSource/PageList",
+      "name": "ApplicationSource",
       "model": "applicationSource",
       "key": "applicationSourceId",
       "fileName": "index.jsx",
@@ -37,6 +42,7 @@
     },
     {
       "folder": "general/ApplicationUserFeedback/PageList",
+      "name": "ApplicationUserFeedback",
       "model": "applicationUserFeedback",
       "key": "applicationUserFeedbackId",
       "fileName": "index.jsx",
@@ -44,6 +50,7 @@
     },
     {
       "folder": "general/BusinessSet/PageList",
+      "name": "BusinessSet",
       "model": "businessSet",
       "key": "businessSetId",
       "fileName": "index.jsx",
@@ -51,6 +58,7 @@
     },
     {
       "folder": "general/CallCenter/PageList",
+      "name": "CallCenter",
       "model": "callCenter",
       "key": "callCenterId",
       "fileName": "index.jsx",
@@ -58,6 +66,7 @@
     },
     {
       "folder": "general/CallCenterCategory/PageList",
+      "name": "CallCenterCategory",
       "model": "callCenterCategory",
       "key": "callCenterCategoryId",
       "fileName": "index.jsx",
@@ -65,6 +74,7 @@
     },
     {
       "folder": "general/Customer/PageList",
+      "name": "Customer",
       "model": "customer",
       "key": "customerId",
       "fileName": "index.jsx",
@@ -72,6 +82,7 @@
     },
     {
       "folder": "general/CustomerLoginLog/PageList",
+      "name": "CustomerLoginLog",
       "model": "customerLoginLog",
       "key": "customerLoginLogId",
       "fileName": "index.jsx",
@@ -79,6 +90,7 @@
     },
     {
       "folder": "general/CustomerWechatApplicationInfo/PageList",
+      "name": "CustomerWechatApplicationInfo",
       "model": "customerWechatApplicationInfo",
       "key": "customerWechatApplicationInfoId",
       "fileName": "index.jsx",
@@ -86,6 +98,7 @@
     },
     {
       "folder": "general/Department/PageList",
+      "name": "Department",
       "model": "department",
       "key": "departmentId",
       "fileName": "index.jsx",
@@ -93,6 +106,7 @@
     },
     {
       "folder": "general/EmailMessage/PageList",
+      "name": "EmailMessage",
       "model": "emailMessage",
       "key": "emailMessageId",
       "fileName": "index.jsx",
@@ -100,6 +114,7 @@
     },
     {
       "folder": "general/EmailSenderAgentStatistic/PageList",
+      "name": "EmailSenderAgentStatistic",
       "model": "emailSenderAgentStatistic",
       "key": "emailSenderAgentStatisticId",
       "fileName": "index.jsx",
@@ -107,6 +122,7 @@
     },
     {
       "folder": "general/EmailStatistic/PageList",
+      "name": "EmailStatistic",
       "model": "emailStatistic",
       "key": "emailStatisticId",
       "fileName": "index.jsx",
@@ -114,6 +130,7 @@
     },
     {
       "folder": "general/ErrorLog/PageList",
+      "name": "ErrorLog",
       "model": "errorLog",
       "key": "errorLogId",
       "fileName": "index.jsx",
@@ -121,6 +138,7 @@
     },
     {
       "folder": "general/ExecuteLog/PageList",
+      "name": "ExecuteLog",
       "model": "executeLog",
       "key": "executeLogId",
       "fileName": "index.jsx",
@@ -128,6 +146,7 @@
     },
     {
       "folder": "general/Gallery/PageList",
+      "name": "Gallery",
       "model": "gallery",
       "key": "galleryId",
       "fileName": "index.jsx",
@@ -135,6 +154,7 @@
     },
     {
       "folder": "general/GalleryCategory/PageList",
+      "name": "GalleryCategory",
       "model": "galleryCategory",
       "key": "galleryCategoryId",
       "fileName": "index.jsx",
@@ -142,6 +162,7 @@
     },
     {
       "folder": "general/GeneralDiscourse/PageList",
+      "name": "GeneralDiscourse",
       "model": "generalDiscourse",
       "key": "generalDiscourseId",
       "fileName": "index.jsx",
@@ -149,6 +170,7 @@
     },
     {
       "folder": "general/GeneralLog/PageList",
+      "name": "GeneralLog",
       "model": "generalLog",
       "key": "generalLogId",
       "fileName": "index.jsx",
@@ -156,6 +178,7 @@
     },
     {
       "folder": "general/HostService/PageList",
+      "name": "HostService",
       "model": "hostService",
       "key": "hostServiceId",
       "fileName": "index.jsx",
@@ -163,6 +186,7 @@
     },
     {
       "folder": "general/HostServiceLog/PageList",
+      "name": "HostServiceLog",
       "model": "hostServiceLog",
       "key": "hostServiceLogId",
       "fileName": "index.jsx",
@@ -170,6 +194,7 @@
     },
     {
       "folder": "general/InternalTester/PageList",
+      "name": "InternalTester",
       "model": "internalTester",
       "key": "internalTesterId",
       "fileName": "index.jsx",
@@ -177,6 +202,7 @@
     },
     {
       "folder": "general/KeyValueApplication/PageList",
+      "name": "KeyValueApplication",
       "model": "keyValueApplication",
       "key": "keyValueApplicationId",
       "fileName": "index.jsx",
@@ -184,6 +210,7 @@
     },
     {
       "folder": "general/KeyValueInfrastructure/PageList",
+      "name": "KeyValueInfrastructure",
       "model": "keyValueInfrastructure",
       "key": "keyValueInfrastructureId",
       "fileName": "index.jsx",
@@ -191,6 +218,7 @@
     },
     {
       "folder": "general/KeyValueSection/PageList",
+      "name": "KeyValueSection",
       "model": "keyValueSection",
       "key": "keyValueSectionId",
       "fileName": "index.jsx",
@@ -198,6 +226,7 @@
     },
     {
       "folder": "general/KeyValueWorkflow/PageList",
+      "name": "KeyValueWorkflow",
       "model": "keyValueWorkflow",
       "key": "keyValueWorkflowId",
       "fileName": "index.jsx",
@@ -205,6 +234,7 @@
     },
     {
       "folder": "general/MasterManager/PageList",
+      "name": "MasterManager",
       "model": "masterManager",
       "key": "masterManagerId",
       "fileName": "index.jsx",
@@ -212,6 +242,7 @@
     },
     {
       "folder": "general/OptionPool/PageList",
+      "name": "OptionPool",
       "model": "optionPool",
       "key": "optionPoolId",
       "fileName": "index.jsx",
@@ -219,6 +250,7 @@
     },
     {
       "folder": "general/PresetRole/PageList",
+      "name": "PresetRole",
       "model": "presetRole",
       "key": "presetRoleId",
       "fileName": "index.jsx",
@@ -226,6 +258,7 @@
     },
     {
       "folder": "general/Position/PageList",
+      "name": "Position",
       "model": "position",
       "key": "positionId",
       "fileName": "index.jsx",
@@ -233,6 +266,7 @@
     },
     {
       "folder": "general/PositionGrade/PageList",
+      "name": "PositionGrade",
       "model": "positionGrade",
       "key": "positionGradeId",
       "fileName": "index.jsx",
@@ -240,6 +274,7 @@
     },
     {
       "folder": "general/QrCode/PageList",
+      "name": "QrCode",
       "model": "qrCode",
       "key": "qrCodeId",
       "fileName": "index.jsx",
@@ -247,6 +282,7 @@
     },
     {
       "folder": "general/QrCodeCategory/PageList",
+      "name": "QrCodeCategory",
       "model": "qrCodeCategory",
       "key": "qrCodeCategoryId",
       "fileName": "index.jsx",
@@ -254,6 +290,7 @@
     },
     {
       "folder": "general/Question/PageList",
+      "name": "Question",
       "model": "question",
       "key": "questionId",
       "fileName": "index.jsx",
@@ -261,6 +298,7 @@
     },
     {
       "folder": "general/QuestionItem/PageList",
+      "name": "QuestionItem",
       "model": "questionItem",
       "key": "questionItemId",
       "fileName": "index.jsx",
@@ -268,6 +306,7 @@
     },
     {
       "folder": "general/Questionnaire/PageList",
+      "name": "Questionnaire",
       "model": "questionnaire",
       "key": "questionnaireId",
       "fileName": "index.jsx",
@@ -275,6 +314,7 @@
     },
     {
       "folder": "general/QuestionnaireQuestionRelation/PageList",
+      "name": "QuestionnaireQuestionRelation",
       "model": "questionnaireQuestionRelation",
       "key": "questionnaireQuestionRelationId",
       "fileName": "index.jsx",
@@ -282,6 +322,7 @@
     },
     {
       "folder": "general/QueueInfo/PageList",
+      "name": "QueueInfo",
       "model": "queueInfo",
       "key": "queueInfoId",
       "fileName": "index.jsx",
@@ -289,6 +330,7 @@
     },
     {
       "folder": "general/Section/PageList",
+      "name": "Section",
       "model": "section",
       "key": "sectionId",
       "fileName": "index.jsx",
@@ -296,6 +338,7 @@
     },
     {
       "folder": "general/SmsCategory/PageList",
+      "name": "SmsCategory",
       "model": "smsCategory",
       "key": "smsCategoryId",
       "fileName": "index.jsx",
@@ -303,6 +346,7 @@
     },
     {
       "folder": "general/SmsCategoryStatistic/PageList",
+      "name": "SmsCategoryStatistic",
       "model": "smsCategoryStatistic",
       "key": "smsCategoryStatisticId",
       "fileName": "index.jsx",
@@ -310,6 +354,7 @@
     },
     {
       "folder": "general/SmsLog/PageList",
+      "name": "SmsLog",
       "model": "smsLog",
       "key": "smsLogId",
       "fileName": "index.jsx",
@@ -317,6 +362,7 @@
     },
     {
       "folder": "general/Subsidiary/PageList",
+      "name": "Subsidiary",
       "model": "subsidiary",
       "key": "subsidiaryId",
       "fileName": "index.jsx",
@@ -324,6 +370,7 @@
     },
     {
       "folder": "general/SubsidiaryComplaintCategory/PageList",
+      "name": "SubsidiaryComplaintCategory",
       "model": "subsidiaryComplaintCategory",
       "key": "subsidiaryComplaintCategoryId",
       "fileName": "index.jsx",
@@ -331,6 +378,7 @@
     },
     {
       "folder": "general/SubsidiaryComplaintMessage/PageList",
+      "name": "SubsidiaryComplaintMessage",
       "model": "subsidiaryComplaintMessage",
       "key": "subsidiaryComplaintMessageId",
       "fileName": "index.jsx",
@@ -338,6 +386,7 @@
     },
     {
       "folder": "general/SubsidiaryFeedbackMessage/PageList",
+      "name": "SubsidiaryFeedbackMessage",
       "model": "subsidiaryFeedbackMessage",
       "key": "subsidiaryFeedbackMessageId",
       "fileName": "index.jsx",
@@ -345,6 +394,7 @@
     },
     {
       "folder": "general/SubsidiaryReportMessage/PageList",
+      "name": "SubsidiaryReportMessage",
       "model": "subsidiaryReportMessage",
       "key": "subsidiaryReportMessageId",
       "fileName": "index.jsx",
@@ -352,6 +402,7 @@
     },
     {
       "folder": "general/Tag/PageList",
+      "name": "Tag",
       "model": "tag",
       "key": "tagId",
       "fileName": "index.jsx",
@@ -359,6 +410,7 @@
     },
     {
       "folder": "general/UploadHistory/PageList",
+      "name": "UploadHistory",
       "model": "uploadHistory",
       "key": "uploadHistoryId",
       "fileName": "index.jsx",
@@ -366,6 +418,7 @@
     },
     {
       "folder": "general/User/PageList",
+      "name": "User",
       "model": "user",
       "key": "userId",
       "fileName": "index.jsx",
@@ -373,6 +426,7 @@
     },
     {
       "folder": "general/UserDevice/PageList",
+      "name": "UserDevice",
       "model": "userDevice",
       "key": "userDeviceId",
       "fileName": "index.jsx",
@@ -380,6 +434,7 @@
     },
     {
       "folder": "general/UserQuestionnaire/PageList",
+      "name": "UserQuestionnaire",
       "model": "userQuestionnaire",
       "key": "userQuestionnaireId",
       "fileName": "index.jsx",
@@ -387,6 +442,7 @@
     },
     {
       "folder": "general/WeChatMessageRecord/PageList",
+      "name": "WeChatMessageRecord",
       "model": "weChatMessageRecord",
       "key": "weChatMessageRecordId",
       "fileName": "index.jsx",
@@ -394,6 +450,7 @@
     },
     {
       "folder": "general/Workflow/PageList",
+      "name": "Workflow",
       "model": "workflow",
       "key": "workflowId",
       "fileName": "index.jsx",
@@ -401,6 +458,7 @@
     },
     {
       "folder": "general/WorkflowCase/PageList",
+      "name": "WorkflowCase",
       "model": "workflowCase",
       "key": "workflowCaseId",
       "fileName": "index.jsx",

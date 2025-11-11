@@ -2,145 +2,163 @@
   "list": [
     {
       "folder": "general/ApplicationCustomerFeedback/OperateLogDrawer",
+      "name": "ApplicationCustomerFeedback",
       "model": "applicationCustomerFeedback",
       "key": "applicationCustomerFeedbackId",
-      "visibleFlag": "e76f6e3095d44f5e91a7c9ff7a8453da",
+      "visibleFlag": "ff59f26f86224724be7d6870ab450cc9",
       "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/ApplicationUserFeedback/OperateLogDrawer",
+      "name": "ApplicationUserFeedback",
       "model": "applicationUserFeedback",
       "key": "applicationUserFeedbackId",
-      "visibleFlag": "903283b8aa2c4924b6132c0a9eb47e9a",
+      "visibleFlag": "7422d7de0d5e4894916c6313844cc3ae",
       "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/BusinessSet/OperateLogDrawer",
+      "name": "BusinessSet",
       "model": "businessSet",
       "key": "businessSetId",
-      "visibleFlag": "d2e0dcc07da74140a4cc3f1372f99735",
+      "visibleFlag": "19124f9ab2c6466ab8165a2f5d6f280b",
       "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/CallCenterCategory/OperateLogDrawer",
+      "name": "CallCenterCategory",
       "model": "callCenterCategory",
       "key": "callCenterCategoryId",
-      "visibleFlag": "ec21dfae0776412b8cf1c303e2dc2d4f",
+      "visibleFlag": "3c5d257ff6e14adda2276d26813b370d",
       "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/Customer/OperateLogDrawer",
+      "name": "Customer",
       "model": "customer",
       "key": "customerId",
-      "visibleFlag": "7af5bc875aea4151ad8946e194fba3a0",
+      "visibleFlag": "0d64c5301c4f455c81f452f918b129e8",
       "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/EmailMessage/OperateLogDrawer",
+      "name": "EmailMessage",
       "model": "emailMessage",
       "key": "emailMessageId",
-      "visibleFlag": "db7be2b97939484298cec44e03127fdb",
+      "visibleFlag": "98d2569f48164bcc925ab6ff3cf1a0d5",
       "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/EmailSenderAgentStatistic/OperateLogDrawer",
+      "name": "EmailSenderAgentStatistic",
       "model": "emailSenderAgentStatistic",
       "key": "emailSenderAgentStatisticId",
-      "visibleFlag": "bfca269e561344a19640f7db6c6e1cc0",
+      "visibleFlag": "bf7fc74dba62469d808043bd76559299",
       "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/EmailStatistic/OperateLogDrawer",
+      "name": "EmailStatistic",
       "model": "emailStatistic",
       "key": "emailStatisticId",
-      "visibleFlag": "a46ec13cef9f483ea7681e4da45ffc87",
+      "visibleFlag": "d790c3b7575844cbb6b379821332786a",
       "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/GalleryCategory/OperateLogDrawer",
+      "name": "GalleryCategory",
       "model": "galleryCategory",
       "key": "galleryCategoryId",
-      "visibleFlag": "d72860e7a9ee4597b72bfbda427534e7",
+      "visibleFlag": "52f851a8ea1c4a33bea61a15a2ca31b6",
       "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/Position/OperateLogDrawer",
+      "name": "Position",
       "model": "position",
       "key": "positionId",
-      "visibleFlag": "c0244f067ab44067a342640930976bb1",
+      "visibleFlag": "edd9b79d56d140c1ae05ce97bd890cda",
       "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/PositionGrade/OperateLogDrawer",
+      "name": "PositionGrade",
       "model": "positionGrade",
       "key": "positionGradeId",
-      "visibleFlag": "3867a0d3bea04ceda32cef744f25411f",
+      "visibleFlag": "43700e322c274c46a5f14f8e3bd7a0d9",
       "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/QrCodeCategory/OperateLogDrawer",
+      "name": "QrCodeCategory",
       "model": "qrCodeCategory",
       "key": "qrCodeCategoryId",
-      "visibleFlag": "5c36420691fd4f6bb83063acaa98d4b3",
+      "visibleFlag": "06245673f8f443548ef84067cdb5cca2",
       "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/QuestionItem/OperateLogDrawer",
+      "name": "QuestionItem",
       "model": "questionItem",
       "key": "questionItemId",
-      "visibleFlag": "c80bc97ebad34b88af54dcee481d9174",
+      "visibleFlag": "1345e465bd024cde9df4251fd9709c12",
       "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/QuestionnaireQuestionRelation/OperateLogDrawer",
+      "name": "QuestionnaireQuestionRelation",
       "model": "questionnaireQuestionRelation",
       "key": "questionnaireQuestionRelationId",
-      "visibleFlag": "0a4aeb38ee434a1dadeb419046571825",
+      "visibleFlag": "8624be2a7e4b404a9c92c05a333f65f2",
       "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/SubsidiaryComplaintCategory/OperateLogDrawer",
+      "name": "SubsidiaryComplaintCategory",
       "model": "subsidiaryComplaintCategory",
       "key": "subsidiaryComplaintCategoryId",
-      "visibleFlag": "4196255a325f479ca3417c50ca8c99e2",
+      "visibleFlag": "5365c286cd864010af3fa79ffb22c8a2",
       "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/SubsidiaryComplaintMessage/OperateLogDrawer",
+      "name": "SubsidiaryComplaintMessage",
       "model": "subsidiaryComplaintMessage",
       "key": "subsidiaryComplaintMessageId",
-      "visibleFlag": "46b1863ac5464859b23fad62ca936649",
+      "visibleFlag": "050a60027dc148cb8fa74ea12cc7a93e",
       "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/SubsidiaryFeedbackMessage/OperateLogDrawer",
+      "name": "SubsidiaryFeedbackMessage",
       "model": "subsidiaryFeedbackMessage",
       "key": "subsidiaryFeedbackMessageId",
-      "visibleFlag": "79cf0a2b273440589eb71d7eff2db3c7",
+      "visibleFlag": "7c19bab63b184b7e90d7879e2dfe3f72",
       "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/SubsidiaryReportMessage/OperateLogDrawer",
+      "name": "SubsidiaryReportMessage",
       "model": "subsidiaryReportMessage",
       "key": "subsidiaryReportMessageId",
-      "visibleFlag": "39c6a92ab7a74aeba41d8e30631075c1",
+      "visibleFlag": "e59adbbc8e744388a148c02e82fbd760",
       "fileName": "index.jsx",
       "coverFile": true
     }

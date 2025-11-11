@@ -2,17 +2,19 @@
   "list": [
     {
       "folder": "general/Position/UpdateBasicInfoDrawer",
+      "name": "Position",
       "model": "position",
       "key": "positionId",
-      "visibleFlag": "9c329aa601734716bb487ccad6a27972",
+      "visibleFlag": "0327e38ce64e43e489f088b15d6b7c34",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/PositionGrade/UpdateBasicInfoDrawer",
+      "name": "PositionGrade",
       "model": "positionGrade",
       "key": "positionGradeId",
-      "visibleFlag": "3d1420f7c27d44ff84cc9e3b1b08d973",
+      "visibleFlag": "a25d4b8978604beba48e1398d28049fb",
       "fileName": "index.jsx",
       "coverFile": false
     }

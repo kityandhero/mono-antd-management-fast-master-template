@@ -2,6 +2,7 @@
   "list": [
     {
       "folder": "general/AdministrativeDivision/Edit/OperateLog/PageList",
+      "name": "AdministrativeDivision",
       "model": "administrativeDivision",
       "key": "administrativeDivisionId",
       "fileName": "index.jsx",
@@ -9,6 +10,7 @@
     },
     {
       "folder": "general/Application/Edit/OperateLog/PageList",
+      "name": "Application",
       "model": "application",
       "key": "applicationId",
       "fileName": "index.jsx",
@@ -16,6 +18,7 @@
     },
     {
       "folder": "general/ApplicationCustomerFeedback/Edit/OperateLog/PageList",
+      "name": "ApplicationCustomerFeedback",
       "model": "applicationCustomerFeedback",
       "key": "applicationCustomerFeedbackId",
       "fileName": "index.jsx",
@@ -23,6 +26,7 @@
     },
     {
       "folder": "general/ApplicationSource/Edit/OperateLog/PageList",
+      "name": "ApplicationSource",
       "model": "applicationSource",
       "key": "applicationSourceId",
       "fileName": "index.jsx",
@@ -30,6 +34,7 @@
     },
     {
       "folder": "general/ApplicationUserFeedback/Edit/OperateLog/PageList",
+      "name": "ApplicationUserFeedback",
       "model": "applicationUserFeedback",
       "key": "applicationUserFeedbackId",
       "fileName": "index.jsx",
@@ -37,6 +42,7 @@
     },
     {
       "folder": "general/CallCenter/Edit/OperateLog/PageList",
+      "name": "CallCenter",
       "model": "callCenter",
       "key": "callCenterId",
       "fileName": "index.jsx",
@@ -44,6 +50,7 @@
     },
     {
       "folder": "general/Customer/Edit/OperateLog/PageList",
+      "name": "Customer",
       "model": "customer",
       "key": "customerId",
       "fileName": "index.jsx",
@@ -51,6 +58,7 @@
     },
     {
       "folder": "general/Department/Edit/OperateLog/PageList",
+      "name": "Department",
       "model": "department",
       "key": "departmentId",
       "fileName": "index.jsx",
@@ -58,6 +66,7 @@
     },
     {
       "folder": "general/Gallery/Edit/OperateLog/PageList",
+      "name": "Gallery",
       "model": "gallery",
       "key": "galleryId",
       "fileName": "index.jsx",
@@ -65,6 +74,7 @@
     },
     {
       "folder": "general/MasterManager/Edit/OperateLog/PageList",
+      "name": "MasterManager",
       "model": "masterManager",
       "key": "masterManagerId",
       "fileName": "index.jsx",
@@ -72,6 +82,7 @@
     },
     {
       "folder": "general/PresetRole/Edit/OperateLog/PageList",
+      "name": "PresetRole",
       "model": "presetRole",
       "key": "presetRoleId",
       "fileName": "index.jsx",
@@ -79,6 +90,7 @@
     },
     {
       "folder": "general/QrCode/Edit/OperateLog/PageList",
+      "name": "QrCode",
       "model": "qrCode",
       "key": "qrCodeId",
       "fileName": "index.jsx",
@@ -86,6 +98,7 @@
     },
     {
       "folder": "general/Question/Edit/OperateLog/PageList",
+      "name": "Question",
       "model": "question",
       "key": "questionId",
       "fileName": "index.jsx",
@@ -93,6 +106,7 @@
     },
     {
       "folder": "general/Questionnaire/Edit/OperateLog/PageList",
+      "name": "Questionnaire",
       "model": "questionnaire",
       "key": "questionnaireId",
       "fileName": "index.jsx",
@@ -100,6 +114,7 @@
     },
     {
       "folder": "general/Section/Edit/OperateLog/PageList",
+      "name": "Section",
       "model": "section",
       "key": "sectionId",
       "fileName": "index.jsx",
@@ -107,6 +122,7 @@
     },
     {
       "folder": "general/Subsidiary/Edit/OperateLog/PageList",
+      "name": "Subsidiary",
       "model": "subsidiary",
       "key": "subsidiaryId",
       "fileName": "index.jsx",
@@ -114,6 +130,7 @@
     },
     {
       "folder": "general/SubsidiaryComplaintCategory/Edit/OperateLog/PageList",
+      "name": "SubsidiaryComplaintCategory",
       "model": "subsidiaryComplaintCategory",
       "key": "subsidiaryComplaintCategoryId",
       "fileName": "index.jsx",
@@ -121,6 +138,7 @@
     },
     {
       "folder": "general/SubsidiaryComplaintMessage/Edit/OperateLog/PageList",
+      "name": "SubsidiaryComplaintMessage",
       "model": "subsidiaryComplaintMessage",
       "key": "subsidiaryComplaintMessageId",
       "fileName": "index.jsx",
@@ -128,6 +146,7 @@
     },
     {
       "folder": "general/SubsidiaryFeedbackMessage/Edit/OperateLog/PageList",
+      "name": "SubsidiaryFeedbackMessage",
       "model": "subsidiaryFeedbackMessage",
       "key": "subsidiaryFeedbackMessageId",
       "fileName": "index.jsx",
@@ -135,6 +154,7 @@
     },
     {
       "folder": "general/SubsidiaryReportMessage/Edit/OperateLog/PageList",
+      "name": "SubsidiaryReportMessage",
       "model": "subsidiaryReportMessage",
       "key": "subsidiaryReportMessageId",
       "fileName": "index.jsx",
@@ -142,6 +162,7 @@
     },
     {
       "folder": "general/Tag/Edit/OperateLog/PageList",
+      "name": "Tag",
       "model": "tag",
       "key": "tagId",
       "fileName": "index.jsx",
@@ -149,6 +170,7 @@
     },
     {
       "folder": "general/User/Edit/OperateLog/PageList",
+      "name": "User",
       "model": "user",
       "key": "userId",
       "fileName": "index.jsx",
@@ -156,6 +178,7 @@
     },
     {
       "folder": "general/UserDevice/Edit/OperateLog/PageList",
+      "name": "UserDevice",
       "model": "userDevice",
       "key": "userDeviceId",
       "fileName": "index.jsx",
@@ -163,6 +186,7 @@
     },
     {
       "folder": "general/UserQuestionnaire/Edit/OperateLog/PageList",
+      "name": "UserQuestionnaire",
       "model": "userQuestionnaire",
       "key": "userQuestionnaireId",
       "fileName": "index.jsx",
@@ -170,6 +194,7 @@
     },
     {
       "folder": "general/Workflow/Edit/OperateLog/PageList",
+      "name": "Workflow",
       "model": "workflow",
       "key": "workflowId",
       "fileName": "index.jsx",
@@ -177,6 +202,7 @@
     },
     {
       "folder": "general/WorkflowCase/Edit/OperateLog/PageList",
+      "name": "WorkflowCase",
       "model": "workflowCase",
       "key": "workflowCaseId",
       "fileName": "index.jsx",

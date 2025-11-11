@@ -2,6 +2,7 @@
   "list": [
     {
       "folder": "general/AccessWay/Assist",
+      "name": "AccessWay",
       "model": "accessWay",
       "key": "accessWayId",
       "fileName": "tools.js",
@@ -9,6 +10,7 @@
     },
     {
       "folder": "general/AdministrativeDivision/Assist",
+      "name": "AdministrativeDivision",
       "model": "administrativeDivision",
       "key": "administrativeDivisionId",
       "fileName": "tools.js",
@@ -16,6 +18,7 @@
     },
     {
       "folder": "general/Application/Assist",
+      "name": "Application",
       "model": "application",
       "key": "applicationId",
       "fileName": "tools.js",
@@ -23,6 +26,7 @@
     },
     {
       "folder": "general/ApplicationCustomerFeedback/Assist",
+      "name": "ApplicationCustomerFeedback",
       "model": "applicationCustomerFeedback",
       "key": "applicationCustomerFeedbackId",
       "fileName": "tools.js",
@@ -30,6 +34,7 @@
     },
     {
       "folder": "general/ApplicationNavigation/Assist",
+      "name": "ApplicationNavigation",
       "model": "applicationNavigation",
       "key": "applicationNavigationId",
       "fileName": "tools.js",
@@ -37,6 +42,7 @@
     },
     {
       "folder": "general/ApplicationSource/Assist",
+      "name": "ApplicationSource",
       "model": "applicationSource",
       "key": "applicationSourceId",
       "fileName": "tools.js",
@@ -44,6 +50,7 @@
     },
     {
       "folder": "general/ApplicationUserFeedback/Assist",
+      "name": "ApplicationUserFeedback",
       "model": "applicationUserFeedback",
       "key": "applicationUserFeedbackId",
       "fileName": "tools.js",
@@ -51,6 +58,7 @@
     },
     {
       "folder": "general/ApplicationVersion/Assist",
+      "name": "ApplicationVersion",
       "model": "applicationVersion",
       "key": "applicationVersionId",
       "fileName": "tools.js",
@@ -58,6 +66,7 @@
     },
     {
       "folder": "general/BusinessSet/Assist",
+      "name": "BusinessSet",
       "model": "businessSet",
       "key": "businessSetId",
       "fileName": "tools.js",
@@ -65,6 +74,7 @@
     },
     {
       "folder": "general/CallCenter/Assist",
+      "name": "CallCenter",
       "model": "callCenter",
       "key": "callCenterId",
       "fileName": "tools.js",
@@ -72,6 +82,7 @@
     },
     {
       "folder": "general/CallCenterCategory/Assist",
+      "name": "CallCenterCategory",
       "model": "callCenterCategory",
       "key": "callCenterCategoryId",
       "fileName": "tools.js",
@@ -79,6 +90,7 @@
     },
     {
       "folder": "general/ChannelExecuteLogSwitch/Assist",
+      "name": "ChannelExecuteLogSwitch",
       "model": "channelExecuteLogSwitch",
       "key": "channelExecuteLogSwitchId",
       "fileName": "tools.js",
@@ -86,6 +98,7 @@
     },
     {
       "folder": "general/ChannelSqlLogSwitch/Assist",
+      "name": "ChannelSqlLogSwitch",
       "model": "channelSqlLogSwitch",
       "key": "channelSqlLogSwitchId",
       "fileName": "tools.js",
@@ -93,6 +106,7 @@
     },
     {
       "folder": "general/Customer/Assist",
+      "name": "Customer",
       "model": "customer",
       "key": "customerId",
       "fileName": "tools.js",
@@ -100,6 +114,7 @@
     },
     {
       "folder": "general/CustomerLoginLog/Assist",
+      "name": "CustomerLoginLog",
       "model": "customerLoginLog",
       "key": "customerLoginLogId",
       "fileName": "tools.js",
@@ -107,6 +122,7 @@
     },
     {
       "folder": "general/CustomerWechatApplicationInfo/Assist",
+      "name": "CustomerWechatApplicationInfo",
       "model": "customerWechatApplicationInfo",
       "key": "customerWechatApplicationInfoId",
       "fileName": "tools.js",
@@ -114,6 +130,7 @@
     },
     {
       "folder": "general/Department/Assist",
+      "name": "Department",
       "model": "department",
       "key": "departmentId",
       "fileName": "tools.js",
@@ -121,6 +138,7 @@
     },
     {
       "folder": "general/EmailMessage/Assist",
+      "name": "EmailMessage",
       "model": "emailMessage",
       "key": "emailMessageId",
       "fileName": "tools.js",
@@ -128,6 +146,7 @@
     },
     {
       "folder": "general/EmailSenderAgent/Assist",
+      "name": "EmailSenderAgent",
       "model": "emailSenderAgent",
       "key": "emailSenderAgentId",
       "fileName": "tools.js",
@@ -135,6 +154,7 @@
     },
     {
       "folder": "general/EmailSenderAgentStatistic/Assist",
+      "name": "EmailSenderAgentStatistic",
       "model": "emailSenderAgentStatistic",
       "key": "emailSenderAgentStatisticId",
       "fileName": "tools.js",
@@ -142,6 +162,7 @@
     },
     {
       "folder": "general/EmailStatistic/Assist",
+      "name": "EmailStatistic",
       "model": "emailStatistic",
       "key": "emailStatisticId",
       "fileName": "tools.js",
@@ -149,6 +170,7 @@
     },
     {
       "folder": "general/ErrorLog/Assist",
+      "name": "ErrorLog",
       "model": "errorLog",
       "key": "errorLogId",
       "fileName": "tools.js",
@@ -156,6 +178,7 @@
     },
     {
       "folder": "general/ExecuteLog/Assist",
+      "name": "ExecuteLog",
       "model": "executeLog",
       "key": "executeLogId",
       "fileName": "tools.js",
@@ -163,6 +186,7 @@
     },
     {
       "folder": "general/Gallery/Assist",
+      "name": "Gallery",
       "model": "gallery",
       "key": "galleryId",
       "fileName": "tools.js",
@@ -170,6 +194,7 @@
     },
     {
       "folder": "general/GalleryCategory/Assist",
+      "name": "GalleryCategory",
       "model": "galleryCategory",
       "key": "galleryCategoryId",
       "fileName": "tools.js",
@@ -177,6 +202,7 @@
     },
     {
       "folder": "general/GeneralDiscourse/Assist",
+      "name": "GeneralDiscourse",
       "model": "generalDiscourse",
       "key": "generalDiscourseId",
       "fileName": "tools.js",
@@ -184,6 +210,7 @@
     },
     {
       "folder": "general/GeneralLog/Assist",
+      "name": "GeneralLog",
       "model": "generalLog",
       "key": "generalLogId",
       "fileName": "tools.js",
@@ -191,6 +218,7 @@
     },
     {
       "folder": "general/HostService/Assist",
+      "name": "HostService",
       "model": "hostService",
       "key": "hostServiceId",
       "fileName": "tools.js",
@@ -198,6 +226,7 @@
     },
     {
       "folder": "general/HostServiceLog/Assist",
+      "name": "HostServiceLog",
       "model": "hostServiceLog",
       "key": "hostServiceLogId",
       "fileName": "tools.js",
@@ -205,6 +234,7 @@
     },
     {
       "folder": "general/InternalTester/Assist",
+      "name": "InternalTester",
       "model": "internalTester",
       "key": "internalTesterId",
       "fileName": "tools.js",
@@ -212,6 +242,7 @@
     },
     {
       "folder": "general/KeyValueApplication/Assist",
+      "name": "KeyValueApplication",
       "model": "keyValueApplication",
       "key": "keyValueApplicationId",
       "fileName": "tools.js",
@@ -219,6 +250,7 @@
     },
     {
       "folder": "general/KeyValueInfrastructure/Assist",
+      "name": "KeyValueInfrastructure",
       "model": "keyValueInfrastructure",
       "key": "keyValueInfrastructureId",
       "fileName": "tools.js",
@@ -226,6 +258,7 @@
     },
     {
       "folder": "general/KeyValueSection/Assist",
+      "name": "KeyValueSection",
       "model": "keyValueSection",
       "key": "keyValueSectionId",
       "fileName": "tools.js",
@@ -233,6 +266,7 @@
     },
     {
       "folder": "general/KeyValueWorkflow/Assist",
+      "name": "KeyValueWorkflow",
       "model": "keyValueWorkflow",
       "key": "keyValueWorkflowId",
       "fileName": "tools.js",
@@ -240,6 +274,7 @@
     },
     {
       "folder": "general/MasterManager/Assist",
+      "name": "MasterManager",
       "model": "masterManager",
       "key": "masterManagerId",
       "fileName": "tools.js",
@@ -247,6 +282,7 @@
     },
     {
       "folder": "general/OptionPool/Assist",
+      "name": "OptionPool",
       "model": "optionPool",
       "key": "optionPoolId",
       "fileName": "tools.js",
@@ -254,6 +290,7 @@
     },
     {
       "folder": "general/PresetRole/Assist",
+      "name": "PresetRole",
       "model": "presetRole",
       "key": "presetRoleId",
       "fileName": "tools.js",
@@ -261,6 +298,7 @@
     },
     {
       "folder": "general/Position/Assist",
+      "name": "Position",
       "model": "position",
       "key": "positionId",
       "fileName": "tools.js",
@@ -268,6 +306,7 @@
     },
     {
       "folder": "general/PositionGrade/Assist",
+      "name": "PositionGrade",
       "model": "positionGrade",
       "key": "positionGradeId",
       "fileName": "tools.js",
@@ -275,6 +314,7 @@
     },
     {
       "folder": "general/QrCode/Assist",
+      "name": "QrCode",
       "model": "qrCode",
       "key": "qrCodeId",
       "fileName": "tools.js",
@@ -282,6 +322,7 @@
     },
     {
       "folder": "general/QrCodeCategory/Assist",
+      "name": "QrCodeCategory",
       "model": "qrCodeCategory",
       "key": "qrCodeCategoryId",
       "fileName": "tools.js",
@@ -289,6 +330,7 @@
     },
     {
       "folder": "general/Question/Assist",
+      "name": "Question",
       "model": "question",
       "key": "questionId",
       "fileName": "tools.js",
@@ -296,6 +338,7 @@
     },
     {
       "folder": "general/QuestionItem/Assist",
+      "name": "QuestionItem",
       "model": "questionItem",
       "key": "questionItemId",
       "fileName": "tools.js",
@@ -303,6 +346,7 @@
     },
     {
       "folder": "general/Questionnaire/Assist",
+      "name": "Questionnaire",
       "model": "questionnaire",
       "key": "questionnaireId",
       "fileName": "tools.js",
@@ -310,6 +354,7 @@
     },
     {
       "folder": "general/QuestionnaireQuestionRelation/Assist",
+      "name": "QuestionnaireQuestionRelation",
       "model": "questionnaireQuestionRelation",
       "key": "questionnaireQuestionRelationId",
       "fileName": "tools.js",
@@ -317,6 +362,7 @@
     },
     {
       "folder": "general/QuestionTagRelation/Assist",
+      "name": "QuestionTagRelation",
       "model": "questionTagRelation",
       "key": "questionTagRelationId",
       "fileName": "tools.js",
@@ -324,6 +370,7 @@
     },
     {
       "folder": "general/QueueInfo/Assist",
+      "name": "QueueInfo",
       "model": "queueInfo",
       "key": "queueInfoId",
       "fileName": "tools.js",
@@ -331,6 +378,7 @@
     },
     {
       "folder": "general/Section/Assist",
+      "name": "Section",
       "model": "section",
       "key": "sectionId",
       "fileName": "tools.js",
@@ -338,6 +386,7 @@
     },
     {
       "folder": "general/SectionApplicationConfig/Assist",
+      "name": "SectionApplicationConfig",
       "model": "sectionApplicationConfig",
       "key": "sectionApplicationConfigId",
       "fileName": "tools.js",
@@ -345,6 +394,7 @@
     },
     {
       "folder": "general/SqlEntity/Assist",
+      "name": "SqlEntity",
       "model": "sqlEntity",
       "key": "sqlEntityId",
       "fileName": "tools.js",
@@ -352,6 +402,7 @@
     },
     {
       "folder": "general/SmsCategory/Assist",
+      "name": "SmsCategory",
       "model": "smsCategory",
       "key": "smsCategoryId",
       "fileName": "tools.js",
@@ -359,6 +410,7 @@
     },
     {
       "folder": "general/SmsCategoryStatistic/Assist",
+      "name": "SmsCategoryStatistic",
       "model": "smsCategoryStatistic",
       "key": "smsCategoryStatisticId",
       "fileName": "tools.js",
@@ -366,6 +418,7 @@
     },
     {
       "folder": "general/SmsLog/Assist",
+      "name": "SmsLog",
       "model": "smsLog",
       "key": "smsLogId",
       "fileName": "tools.js",
@@ -373,6 +426,7 @@
     },
     {
       "folder": "general/SqlLog/Assist",
+      "name": "SqlLog",
       "model": "SqlLog",
       "key": "sqlLogId",
       "fileName": "tools.js",
@@ -380,6 +434,7 @@
     },
     {
       "folder": "general/Subsidiary/Assist",
+      "name": "Subsidiary",
       "model": "subsidiary",
       "key": "subsidiaryId",
       "fileName": "tools.js",
@@ -387,6 +442,7 @@
     },
     {
       "folder": "general/SubsidiaryComplaintCategory/Assist",
+      "name": "SubsidiaryComplaintCategory",
       "model": "subsidiaryComplaintCategory",
       "key": "subsidiaryComplaintCategoryId",
       "fileName": "tools.js",
@@ -394,6 +450,7 @@
     },
     {
       "folder": "general/SubsidiaryComplaintMessage/Assist",
+      "name": "SubsidiaryComplaintMessage",
       "model": "subsidiaryComplaintMessage",
       "key": "subsidiaryComplaintMessageId",
       "fileName": "tools.js",
@@ -401,6 +458,7 @@
     },
     {
       "folder": "general/SubsidiaryFeedbackMessage/Assist",
+      "name": "SubsidiaryFeedbackMessage",
       "model": "subsidiaryFeedbackMessage",
       "key": "subsidiaryFeedbackMessageId",
       "fileName": "tools.js",
@@ -408,6 +466,7 @@
     },
     {
       "folder": "general/SubsidiaryReportMessage/Assist",
+      "name": "SubsidiaryReportMessage",
       "model": "subsidiaryReportMessage",
       "key": "subsidiaryReportMessageId",
       "fileName": "tools.js",
@@ -415,6 +474,7 @@
     },
     {
       "folder": "general/Tag/Assist",
+      "name": "Tag",
       "model": "tag",
       "key": "tagId",
       "fileName": "tools.js",
@@ -422,6 +482,7 @@
     },
     {
       "folder": "general/UploadHistory/Assist",
+      "name": "UploadHistory",
       "model": "uploadHistory",
       "key": "uploadHistoryId",
       "fileName": "tools.js",
@@ -429,6 +490,7 @@
     },
     {
       "folder": "general/User/Assist",
+      "name": "User",
       "model": "user",
       "key": "userId",
       "fileName": "tools.js",
@@ -436,6 +498,7 @@
     },
     {
       "folder": "general/UserDepartmentInfo/Assist",
+      "name": "UserDepartmentInfo",
       "model": "userDepartmentInfo",
       "key": "userDepartmentInfoId",
       "fileName": "tools.js",
@@ -443,6 +506,7 @@
     },
     {
       "folder": "general/UserDevice/Assist",
+      "name": "UserDevice",
       "model": "userDevice",
       "key": "userDeviceId",
       "fileName": "tools.js",
@@ -450,6 +514,7 @@
     },
     {
       "folder": "general/UserQuestionnaire/Assist",
+      "name": "UserQuestionnaire",
       "model": "userQuestionnaire",
       "key": "userQuestionnaireId",
       "fileName": "tools.js",
@@ -457,6 +522,7 @@
     },
     {
       "folder": "general/UserSubsidiaryInfo/Assist",
+      "name": "UserSubsidiaryInfo",
       "model": "userSubsidiaryInfo",
       "key": "userSubsidiaryInfoId",
       "fileName": "tools.js",
@@ -464,6 +530,7 @@
     },
     {
       "folder": "general/WeChatMessageRecord/Assist",
+      "name": "WeChatMessageRecord",
       "model": "weChatMessageRecord",
       "key": "weChatMessageRecordId",
       "fileName": "tools.js",
@@ -471,6 +538,7 @@
     },
     {
       "folder": "general/Workflow/Assist",
+      "name": "Workflow",
       "model": "workflow",
       "key": "workflowId",
       "fileName": "tools.js",
@@ -478,6 +546,7 @@
     },
     {
       "folder": "general/WorkflowBranchCondition/Assist",
+      "name": "WorkflowBranchCondition",
       "model": "workflowBranchCondition",
       "key": "workflowBranchConditionId",
       "fileName": "tools.js",
@@ -485,6 +554,7 @@
     },
     {
       "folder": "general/WorkflowBranchConditionItem/Assist",
+      "name": "WorkflowBranchConditionItem",
       "model": "workflowBranchConditionItem",
       "key": "workflowBranchConditionItemId",
       "fileName": "tools.js",
@@ -492,6 +562,7 @@
     },
     {
       "folder": "general/WorkflowCase/Assist",
+      "name": "WorkflowCase",
       "model": "workflowCase",
       "key": "workflowCaseId",
       "fileName": "tools.js",
@@ -499,6 +570,7 @@
     },
     {
       "folder": "general/WorkflowCaseCarbonCopyNotification/Assist",
+      "name": "WorkflowCaseCarbonCopyNotification",
       "model": "workflowCaseCarbonCopyNotification",
       "key": "workflowCaseCarbonCopyNotificationId",
       "fileName": "tools.js",
@@ -506,6 +578,7 @@
     },
     {
       "folder": "general/WorkflowCaseFormAttachment/Assist",
+      "name": "WorkflowCaseFormAttachment",
       "model": "workflowCaseFormAttachment",
       "key": "workflowCaseFormAttachmentId",
       "fileName": "tools.js",
@@ -513,6 +586,7 @@
     },
     {
       "folder": "general/WorkflowCaseFormStorage/Assist",
+      "name": "WorkflowCaseFormStorage",
       "model": "workflowCaseFormStorage",
       "key": "workflowCaseFormStorageId",
       "fileName": "tools.js",
@@ -520,6 +594,7 @@
     },
     {
       "folder": "general/WorkflowCaseLatestApprove/Assist",
+      "name": "WorkflowCaseLatestApprove",
       "model": "workflowCaseLatestApprove",
       "key": "workflowCaseLatestApproveId",
       "fileName": "tools.js",
@@ -527,6 +602,7 @@
     },
     {
       "folder": "general/WorkflowCaseNextProcessNotification/Assist",
+      "name": "WorkflowCaseNextProcessNotification",
       "model": "workflowCaseNextProcessNotification",
       "key": "workflowCaseNextProcessNotificationId",
       "fileName": "tools.js",
@@ -534,6 +610,7 @@
     },
     {
       "folder": "general/WorkflowCaseNextProcessProgress/Assist",
+      "name": "WorkflowCaseNextProcessProgress",
       "model": "workflowCaseNextProcessProgress",
       "key": "workflowCaseNextProcessProgressId",
       "fileName": "tools.js",
@@ -541,6 +618,7 @@
     },
     {
       "folder": "general/WorkflowCaseProcessHistory/Assist",
+      "name": "WorkflowCaseProcessHistory",
       "model": "workflowCaseProcessHistory",
       "key": "workflowCaseProcessHistoryId",
       "fileName": "tools.js",
@@ -548,6 +626,7 @@
     },
     {
       "folder": "general/WorkflowDebugCase/Assist",
+      "name": "WorkflowDebugCase",
       "model": "workflowDebugCase",
       "key": "workflowDebugCaseId",
       "fileName": "tools.js",
@@ -555,6 +634,7 @@
     },
     {
       "folder": "general/WorkflowDebugCaseCarbonCopyNotification/Assist",
+      "name": "WorkflowDebugCaseCarbonCopyNotification",
       "model": "workflowDebugCaseCarbonCopyNotification",
       "key": "workflowDebugCaseCarbonCopyNotificationId",
       "fileName": "tools.js",
@@ -562,6 +642,7 @@
     },
     {
       "folder": "general/WorkflowDebugCaseFormAttachment/Assist",
+      "name": "WorkflowDebugCaseFormAttachment",
       "model": "workflowDebugCaseFormAttachment",
       "key": "workflowDebugCaseFormAttachmentId",
       "fileName": "tools.js",
@@ -569,6 +650,7 @@
     },
     {
       "folder": "general/WorkflowDebugCaseFormStorage/Assist",
+      "name": "WorkflowDebugCaseFormStorage",
       "model": "workflowDebugCaseFormStorage",
       "key": "workflowDebugCaseFormStorageId",
       "fileName": "tools.js",
@@ -576,6 +658,7 @@
     },
     {
       "folder": "general/WorkflowDebugCaseLatestApprove/Assist",
+      "name": "WorkflowDebugCaseLatestApprove",
       "model": "workflowDebugCaseLatestApprove",
       "key": "workflowDebugCaseLatestApproveId",
       "fileName": "tools.js",
@@ -583,6 +666,7 @@
     },
     {
       "folder": "general/WorkflowDebugCaseNextProcessNotification/Assist",
+      "name": "WorkflowDebugCaseNextProcessNotification",
       "model": "workflowDebugCaseNextProcessNotification",
       "key": "workflowDebugCaseNextProcessNotificationId",
       "fileName": "tools.js",
@@ -590,6 +674,7 @@
     },
     {
       "folder": "general/WorkflowDebugCaseNextProcessProgress/Assist",
+      "name": "WorkflowDebugCaseNextProcessProgress",
       "model": "workflowDebugCaseNextProcessProgress",
       "key": "workflowDebugCaseNextProcessProgressId",
       "fileName": "tools.js",
@@ -597,6 +682,7 @@
     },
     {
       "folder": "general/WorkflowDebugCaseProcessHistory/Assist",
+      "name": "WorkflowDebugCaseProcessHistory",
       "model": "workflowDebugCaseProcessHistory",
       "key": "workflowDebugCaseProcessHistoryId",
       "fileName": "tools.js",
@@ -604,6 +690,7 @@
     },
     {
       "folder": "general/WorkflowFormDesign/Assist",
+      "name": "WorkflowFormDesign",
       "model": "workflowFormDesign",
       "key": "workflowFormDesignId",
       "fileName": "tools.js",
@@ -611,6 +698,7 @@
     },
     {
       "folder": "general/WorkflowLine/Assist",
+      "name": "WorkflowLine",
       "model": "workflowLine",
       "key": "workflowLineId",
       "fileName": "tools.js",
@@ -618,6 +706,7 @@
     },
     {
       "folder": "general/WorkflowNode/Assist",
+      "name": "WorkflowNode",
       "model": "workflowNode",
       "key": "workflowNodeId",
       "fileName": "tools.js",
@@ -625,6 +714,7 @@
     },
     {
       "folder": "general/WorkflowNodeApprover/Assist",
+      "name": "WorkflowNodeApprover",
       "model": "workflowNodeApprover",
       "key": "workflowNodeApproverId",
       "fileName": "tools.js",
@@ -632,6 +722,7 @@
     },
     {
       "folder": "general/WorkflowRangeEffectiveExternalDepartmentRelation/Assist",
+      "name": "WorkflowRangeEffectiveExternalDepartmentRelation",
       "model": "workflowRangeEffectiveExternalDepartmentRelation",
       "key": "workflowRangeEffectiveExternalDepartmentRelationId",
       "fileName": "tools.js",
@@ -639,6 +730,7 @@
     },
     {
       "folder": "general/WorkflowRangeEffectiveSubsidiaryRelation/Assist",
+      "name": "WorkflowRangeEffectiveSubsidiaryRelation",
       "model": "workflowRangeEffectiveSubsidiaryRelation",
       "key": "workflowRangeEffectiveSubsidiaryRelationId",
       "fileName": "tools.js",

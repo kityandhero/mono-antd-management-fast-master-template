@@ -2,113 +2,127 @@
   "list": [
     {
       "folder": "general/BusinessSet/ChangeSortModal",
+      "name": "BusinessSet",
       "model": "businessSet",
       "key": "businessSetId",
-      "visibleFlag": "c65d2fb2600a4c11b1b8609db6988777",
+      "visibleFlag": "4be596d96a3942979a0b14d6114ac4a4",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/CallCenter/ChangeSortModal",
+      "name": "CallCenter",
       "model": "callCenter",
       "key": "callCenterId",
-      "visibleFlag": "f1f6ac09048c48c6abd933730e153366",
+      "visibleFlag": "a3e679cbb5f94d31b8d8b57bcd6ce9a0",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/CallCenterCategory/ChangeSortModal",
+      "name": "CallCenterCategory",
       "model": "callCenterCategory",
       "key": "callCenterCategoryId",
-      "visibleFlag": "244ce8eb231d45c3ad768b76504bb9f1",
+      "visibleFlag": "53f6d08a975544d3b6da074926f9d581",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/EmailSenderAgent/ChangeSortModal",
+      "name": "EmailSenderAgent",
       "model": "emailSenderAgent",
       "key": "emailSenderAgentId",
-      "visibleFlag": "a3a41c94aa1f4c259e491c2352af9202",
+      "visibleFlag": "3a6d1e189466420faf4f14f3320599b3",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/Gallery/ChangeSortModal",
+      "name": "Gallery",
       "model": "gallery",
       "key": "galleryId",
-      "visibleFlag": "740d75dd89d246149156b965c378fdd4",
+      "visibleFlag": "2bc8b769412a47b8b4791f344146fafa",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/GalleryCategory/ChangeSortModal",
+      "name": "GalleryCategory",
       "model": "galleryCategory",
       "key": "galleryCategoryId",
-      "visibleFlag": "2a65d08b04fe424195bcce594cc31db6",
+      "visibleFlag": "c70e43a95f7b4263a02aaf1c29e3ffe6",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/Position/ChangeSortModal",
+      "name": "Position",
       "model": "position",
       "key": "positionId",
-      "visibleFlag": "70a7fc5fa92c47988620f572cb1ff4e4",
+      "visibleFlag": "1b08fb9e11d949dcaba5cc505e0775d6",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/PositionGrade/ChangeSortModal",
+      "name": "PositionGrade",
       "model": "positionGrade",
       "key": "positionGradeId",
-      "visibleFlag": "c86dcae7cf454f62acd6d4576fd76bf9",
+      "visibleFlag": "77f06aca5ab848f4a98e6613d3800373",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/QrCode/ChangeSortModal",
+      "name": "QrCode",
       "model": "qrCode",
       "key": "qrCodeId",
-      "visibleFlag": "557ab141bd47424d8c1fefc61ed17ae3",
+      "visibleFlag": "56a218e97d3649eb9577f87c0c02fb20",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/QrCodeCategory/ChangeSortModal",
+      "name": "QrCodeCategory",
       "model": "qrCodeCategory",
       "key": "qrCodeCategoryId",
-      "visibleFlag": "48481ab4a19346d68a9e626cd911a5a1",
+      "visibleFlag": "1aae7b7b57544f7c97667b8d3841c4c1",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/Questionnaire/ChangeSortModal",
+      "name": "Questionnaire",
       "model": "questionnaire",
       "key": "questionnaireId",
-      "visibleFlag": "5d758cbabf974d4caced5754879d2d49",
+      "visibleFlag": "6b3909c744c548e181585dc9308d3b35",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/QuestionnaireQuestionRelation/ChangeSortModal",
+      "name": "QuestionnaireQuestionRelation",
       "model": "questionnaireQuestionRelation",
       "key": "questionnaireQuestionRelationId",
-      "visibleFlag": "fef2f8bc88b54704be3e151d04acdc86",
+      "visibleFlag": "417a94f195224f9fa8a61e4fff8a74e8",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/SubsidiaryComplaintCategory/ChangeSortModal",
+      "name": "SubsidiaryComplaintCategory",
       "model": "subsidiaryComplaintCategory",
       "key": "subsidiaryComplaintCategoryId",
-      "visibleFlag": "4b113afc43454266b8003a7ddf816576",
+      "visibleFlag": "a529d0bb712c4a4295894412a5c44a9b",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/UserQuestionnaire/ChangeSortModal",
+      "name": "UserQuestionnaire",
       "model": "userQuestionnaire",
       "key": "userQuestionnaireId",
-      "visibleFlag": "10409534003648cab1bb72bc4682454f",
+      "visibleFlag": "a1155cb08cc34e60bb37f10a781d9778",
       "fileName": "index.jsx",
       "coverFile": false
     }

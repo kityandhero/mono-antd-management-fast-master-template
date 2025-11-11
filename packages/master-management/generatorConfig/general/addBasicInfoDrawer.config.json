@@ -2,41 +2,46 @@
   "list": [
     {
       "folder": "general/Position/AddBasicInfoDrawer",
+      "name": "Position",
       "model": "position",
       "key": "positionId",
-      "visibleFlag": "47c4ed03c60b4bc296640d23aff9723e",
+      "visibleFlag": "fd542caf54514132ac39e98abbf536cd",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/PositionGrade/AddBasicInfoDrawer",
+      "name": "PositionGrade",
       "model": "positionGrade",
       "key": "positionGradeId",
-      "visibleFlag": "897201815ae542329ff6416f32b21f7b",
+      "visibleFlag": "745c83f1b03d4939adcbee1f445c98af",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/Question/AddBasicInfoDrawer",
+      "name": "Question",
       "model": "question",
       "key": "questionId",
-      "visibleFlag": "600870f525e647cba77780074877cfc8",
+      "visibleFlag": "a89c13332f534c6ead47bc83b48ac410",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/SubsidiaryComplaintCategory/AddBasicInfoDrawer",
+      "name": "SubsidiaryComplaintCategory",
       "model": "subsidiaryComplaintCategory",
       "key": "subsidiaryComplaintCategoryId",
-      "visibleFlag": "ecbbc2614da243808456bf526241d1b6",
+      "visibleFlag": "4b9044f74a404fbc940bea22ecdd634f",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
       "folder": "general/SubsidiaryComplaintMessage/AddBasicInfoDrawer",
+      "name": "SubsidiaryComplaintMessage",
       "model": "subsidiaryComplaintMessage",
       "key": "subsidiaryComplaintMessageId",
-      "visibleFlag": "47acadca81bd4c33b307d56e43e5514f",
+      "visibleFlag": "f7a3fdf917d94a79bad9fce64702d28e",
       "fileName": "index.jsx",
       "coverFile": false
     }

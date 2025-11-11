@@ -2,6 +2,7 @@
   "list": [
     {
       "folder": "general/AdministrativeDivision/TabPageBase",
+      "name": "AdministrativeDivision",
       "model": "administrativeDivision",
       "key": "administrativeDivisionId",
       "fileName": "index.jsx",
@@ -9,21 +10,39 @@
     },
     {
       "folder": "general/Application/TabPageBase",
+      "name": "Application",
       "model": "application",
       "key": "applicationId",
       "fileName": "index.jsx",
       "coverFile": false
     },
-
+    {
+      "folder": "general/ApplicationCustomerFeedback/TabPageBase",
+      "name": "ApplicationCustomerFeedback",
+      "model": "applicationCustomerFeedback",
+      "key": "applicationCustomerFeedbackId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
     {
       "folder": "general/ApplicationSource/TabPageBase",
+      "name": "ApplicationSource",
       "model": "applicationSource",
       "key": "applicationSourceId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
+      "folder": "general/ApplicationUserFeedback/TabPageBase",
+      "name": "ApplicationUserFeedback",
+      "model": "applicationUserFeedback",
+      "key": "applicationUserFeedbackId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/CallCenter/TabPageBase",
+      "name": "CallCenter",
       "model": "callCenter",
       "key": "callCenterId",
       "fileName": "index.jsx",
@@ -31,6 +50,7 @@
     },
     {
       "folder": "general/Customer/TabPageBase",
+      "name": "Customer",
       "model": "customer",
       "key": "customerId",
       "fileName": "index.jsx",
@@ -38,6 +58,7 @@
     },
     {
       "folder": "general/Department/TabPageBase",
+      "name": "Department",
       "model": "department",
       "key": "departmentId",
       "fileName": "index.jsx",
@@ -45,6 +66,7 @@
     },
     {
       "folder": "general/Gallery/TabPageBase",
+      "name": "Gallery",
       "model": "gallery",
       "key": "galleryId",
       "fileName": "index.jsx",
@@ -52,6 +74,7 @@
     },
     {
       "folder": "general/MasterManager/TabPageBase",
+      "name": "MasterManager",
       "model": "masterManager",
       "key": "masterManagerId",
       "fileName": "index.jsx",
@@ -59,6 +82,7 @@
     },
     {
       "folder": "general/PresetRole/TabPageBase",
+      "name": "PresetRole",
       "model": "presetRole",
       "key": "presetRoleId",
       "fileName": "index.jsx",
@@ -66,69 +90,15 @@
     },
     {
       "folder": "general/QrCode/TabPageBase",
+      "name": "QrCode",
       "model": "qrCode",
       "key": "qrCodeId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
-      "folder": "general/Section/TabPageBase",
-      "model": "section",
-      "key": "sectionId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/Subsidiary/TabPageBase",
-      "model": "subsidiary",
-      "key": "subsidiaryId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryComplaintCategory/TabPageBase",
-      "model": "subsidiaryComplaintCategory",
-      "key": "subsidiaryComplaintCategoryId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryComplaintMessage/TabPageBase",
-      "model": "subsidiaryComplaintMessage",
-      "key": "subsidiaryComplaintMessageId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryFeedbackMessage/TabPageBase",
-      "model": "subsidiaryFeedbackMessage",
-      "key": "subsidiaryFeedbackMessageId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryReportMessage/TabPageBase",
-      "model": "subsidiaryReportMessage",
-      "key": "subsidiaryReportMessageId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ApplicationUserFeedback/TabPageBase",
-      "model": "applicationUserFeedback",
-      "key": "applicationUserFeedbackId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ApplicationCustomerFeedback/TabPageBase",
-      "model": "applicationCustomerFeedback",
-      "key": "applicationCustomerFeedbackId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
       "folder": "general/Question/TabPageBase",
+      "name": "Question",
       "model": "question",
       "key": "questionId",
       "fileName": "index.jsx",
@@ -136,13 +106,63 @@
     },
     {
       "folder": "general/Questionnaire/TabPageBase",
+      "name": "Questionnaire",
       "model": "questionnaire",
       "key": "questionnaireId",
       "fileName": "index.jsx",
       "coverFile": false
     },
     {
+      "folder": "general/Section/TabPageBase",
+      "name": "Section",
+      "model": "section",
+      "key": "sectionId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/Subsidiary/TabPageBase",
+      "name": "Subsidiary",
+      "model": "subsidiary",
+      "key": "subsidiaryId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryComplaintCategory/TabPageBase",
+      "name": "SubsidiaryComplaintCategory",
+      "model": "subsidiaryComplaintCategory",
+      "key": "subsidiaryComplaintCategoryId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryComplaintMessage/TabPageBase",
+      "name": "SubsidiaryComplaintMessage",
+      "model": "subsidiaryComplaintMessage",
+      "key": "subsidiaryComplaintMessageId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryFeedbackMessage/TabPageBase",
+      "name": "SubsidiaryFeedbackMessage",
+      "model": "subsidiaryFeedbackMessage",
+      "key": "subsidiaryFeedbackMessageId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryReportMessage/TabPageBase",
+      "name": "SubsidiaryReportMessage",
+      "model": "subsidiaryReportMessage",
+      "key": "subsidiaryReportMessageId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/Tag/TabPageBase",
+      "name": "Tag",
       "model": "tag",
       "key": "tagId",
       "fileName": "index.jsx",
@@ -150,6 +170,7 @@
     },
     {
       "folder": "general/User/TabPageBase",
+      "name": "User",
       "model": "user",
       "key": "userId",
       "fileName": "index.jsx",
@@ -157,6 +178,7 @@
     },
     {
       "folder": "general/UserDevice/TabPageBase",
+      "name": "UserDevice",
       "model": "userDevice",
       "key": "userDeviceId",
       "fileName": "index.jsx",
@@ -164,6 +186,7 @@
     },
     {
       "folder": "general/UserQuestionnaire/TabPageBase",
+      "name": "UserQuestionnaire",
       "model": "userQuestionnaire",
       "key": "userQuestionnaireId",
       "fileName": "index.jsx",
@@ -171,6 +194,7 @@
     },
     {
       "folder": "general/Workflow/TabPageBase",
+      "name": "Workflow",
       "model": "workflow",
       "key": "workflowId",
       "fileName": "index.jsx",
@@ -178,6 +202,7 @@
     },
     {
       "folder": "general/WorkflowCase/TabPageBase",
+      "name": "WorkflowCase",
       "model": "workflowCase",
       "key": "workflowCaseId",
       "fileName": "index.jsx",

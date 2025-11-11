@@ -2,6 +2,7 @@
   "list": [
     {
       "folder": "general/AccessWay/Common",
+      "name": "AccessWay",
       "model": "accessWay",
       "key": "accessWayId",
       "fileName": "data.js",
@@ -9,6 +10,7 @@
     },
     {
       "folder": "general/AdministrativeDivision/Common",
+      "name": "AdministrativeDivision",
       "model": "administrativeDivision",
       "key": "administrativeDivisionId",
       "fileName": "data.js",
@@ -16,6 +18,7 @@
     },
     {
       "folder": "general/Application/Common",
+      "name": "Application",
       "model": "application",
       "key": "applicationId",
       "fileName": "data.js",
@@ -23,6 +26,7 @@
     },
     {
       "folder": "general/ApplicationCustomerFeedback/Common",
+      "name": "ApplicationCustomerFeedback",
       "model": "applicationCustomerFeedback",
       "key": "applicationCustomerFeedbackId",
       "fileName": "data.js",
@@ -30,6 +34,7 @@
     },
     {
       "folder": "general/ApplicationNavigation/Common",
+      "name": "ApplicationNavigation",
       "model": "applicationNavigation",
       "key": "applicationNavigationId",
       "fileName": "data.js",
@@ -37,6 +42,7 @@
     },
     {
       "folder": "general/ApplicationSource/Common",
+      "name": "ApplicationSource",
       "model": "applicationSource",
       "key": "applicationSourceId",
       "fileName": "data.js",
@@ -44,6 +50,7 @@
     },
     {
       "folder": "general/ApplicationUserFeedback/Common",
+      "name": "ApplicationUserFeedback",
       "model": "applicationUserFeedback",
       "key": "applicationUserFeedbackId",
       "fileName": "data.js",
@@ -51,6 +58,7 @@
     },
     {
       "folder": "general/ApplicationVersion/Common",
+      "name": "ApplicationVersion",
       "model": "applicationVersion",
       "key": "applicationVersionId",
       "fileName": "data.js",
@@ -58,6 +66,7 @@
     },
     {
       "folder": "general/BusinessSet/Common",
+      "name": "BusinessSet",
       "model": "businessSet",
       "key": "businessSetId",
       "fileName": "data.js",
@@ -65,6 +74,7 @@
     },
     {
       "folder": "general/CallCenter/Common",
+      "name": "CallCenter",
       "model": "callCenter",
       "key": "callCenterId",
       "fileName": "data.js",
@@ -72,6 +82,7 @@
     },
     {
       "folder": "general/CallCenterCategory/Common",
+      "name": "CallCenterCategory",
       "model": "callCenterCategory",
       "key": "callCenterCategoryId",
       "fileName": "data.js",
@@ -79,6 +90,7 @@
     },
     {
       "folder": "general/ChannelExecuteLogSwitch/Common",
+      "name": "ChannelExecuteLogSwitch",
       "model": "channelExecuteLogSwitch",
       "key": "channelExecuteLogSwitchId",
       "fileName": "data.js",
@@ -86,6 +98,7 @@
     },
     {
       "folder": "general/ChannelSqlLogSwitch/Common",
+      "name": "ChannelSqlLogSwitch",
       "model": "channelSqlLogSwitch",
       "key": "channelSqlLogSwitchId",
       "fileName": "data.js",
@@ -93,6 +106,7 @@
     },
     {
       "folder": "general/Customer/Common",
+      "name": "Customer",
       "model": "customer",
       "key": "customerId",
       "fileName": "data.js",
@@ -100,6 +114,7 @@
     },
     {
       "folder": "general/CustomerLoginLog/Common",
+      "name": "CustomerLoginLog",
       "model": "customerLoginLog",
       "key": "customerLoginLogId",
       "fileName": "data.js",
@@ -107,6 +122,7 @@
     },
     {
       "folder": "general/CustomerWechatApplicationInfo/Common",
+      "name": "CustomerWechatApplicationInfo",
       "model": "customerWechatApplicationInfo",
       "key": "customerWechatApplicationInfoId",
       "fileName": "data.js",
@@ -114,6 +130,7 @@
     },
     {
       "folder": "general/Department/Common",
+      "name": "Department",
       "model": "department",
       "key": "departmentId",
       "fileName": "data.js",
@@ -121,6 +138,7 @@
     },
     {
       "folder": "general/EmailMessage/Common",
+      "name": "EmailMessage",
       "model": "emailMessage",
       "key": "emailMessageId",
       "fileName": "data.js",
@@ -128,6 +146,7 @@
     },
     {
       "folder": "general/EmailSenderAgent/Common",
+      "name": "EmailSenderAgent",
       "model": "emailSenderAgent",
       "key": "emailSenderAgentId",
       "fileName": "data.js",
@@ -135,6 +154,7 @@
     },
     {
       "folder": "general/EmailSenderAgentStatistic/Common",
+      "name": "EmailSenderAgentStatistic",
       "model": "emailSenderAgentStatistic",
       "key": "emailSenderAgentStatisticId",
       "fileName": "data.js",
@@ -142,6 +162,7 @@
     },
     {
       "folder": "general/EmailStatistic/Common",
+      "name": "EmailStatistic",
       "model": "emailStatistic",
       "key": "emailStatisticId",
       "fileName": "data.js",
@@ -149,6 +170,7 @@
     },
     {
       "folder": "general/ErrorLog/Common",
+      "name": "ErrorLog",
       "model": "errorLog",
       "key": "errorLogId",
       "fileName": "data.js",
@@ -156,6 +178,7 @@
     },
     {
       "folder": "general/ExecuteLog/Common",
+      "name": "ExecuteLog",
       "model": "executeLog",
       "key": "executeLogId",
       "fileName": "data.js",
@@ -163,6 +186,7 @@
     },
     {
       "folder": "general/Gallery/Common",
+      "name": "Gallery",
       "model": "gallery",
       "key": "galleryId",
       "fileName": "data.js",
@@ -170,6 +194,7 @@
     },
     {
       "folder": "general/GalleryCategory/Common",
+      "name": "GalleryCategory",
       "model": "galleryCategory",
       "key": "galleryCategoryId",
       "fileName": "data.js",
@@ -177,6 +202,7 @@
     },
     {
       "folder": "general/GeneralDiscourse/Common",
+      "name": "GeneralDiscourse",
       "model": "generalDiscourse",
       "key": "generalDiscourseId",
       "fileName": "data.js",
@@ -184,6 +210,7 @@
     },
     {
       "folder": "general/GeneralLog/Common",
+      "name": "GeneralLog",
       "model": "generalLog",
       "key": "generalLogId",
       "fileName": "data.js",
@@ -191,6 +218,7 @@
     },
     {
       "folder": "general/HostService/Common",
+      "name": "HostService",
       "model": "hostService",
       "key": "hostServiceId",
       "fileName": "data.js",
@@ -198,6 +226,7 @@
     },
     {
       "folder": "general/HostServiceLog/Common",
+      "name": "HostServiceLog",
       "model": "hostServiceLog",
       "key": "hostServiceLogId",
       "fileName": "data.js",
@@ -205,6 +234,7 @@
     },
     {
       "folder": "general/InternalTester/Common",
+      "name": "InternalTester",
       "model": "internalTester",
       "key": "internalTesterId",
       "fileName": "data.js",
@@ -212,6 +242,7 @@
     },
     {
       "folder": "general/KeyValueApplication/Common",
+      "name": "KeyValueApplication",
       "model": "keyValueApplication",
       "key": "keyValueApplicationId",
       "fileName": "data.js",
@@ -219,6 +250,7 @@
     },
     {
       "folder": "general/KeyValueInfrastructure/Common",
+      "name": "KeyValueInfrastructure",
       "model": "keyValueInfrastructure",
       "key": "keyValueInfrastructureId",
       "fileName": "data.js",
@@ -226,6 +258,7 @@
     },
     {
       "folder": "general/KeyValueSection/Common",
+      "name": "KeyValueSection",
       "model": "keyValueSection",
       "key": "keyValueSectionId",
       "fileName": "data.js",
@@ -233,6 +266,7 @@
     },
     {
       "folder": "general/KeyValueWorkflow/Common",
+      "name": "KeyValueWorkflow",
       "model": "keyValueWorkflow",
       "key": "keyValueWorkflowId",
       "fileName": "data.js",
@@ -240,6 +274,7 @@
     },
     {
       "folder": "general/MasterManager/Common",
+      "name": "MasterManager",
       "model": "masterManager",
       "key": "masterManagerId",
       "fileName": "data.js",
@@ -247,6 +282,7 @@
     },
     {
       "folder": "general/OptionPool/Common",
+      "name": "OptionPool",
       "model": "optionPool",
       "key": "optionPoolId",
       "fileName": "data.js",
@@ -254,6 +290,7 @@
     },
     {
       "folder": "general/PresetRole/Common",
+      "name": "PresetRole",
       "model": "presetRole",
       "key": "presetRoleId",
       "fileName": "data.js",
@@ -261,6 +298,7 @@
     },
     {
       "folder": "general/Position/Common",
+      "name": "Position",
       "model": "position",
       "key": "positionId",
       "fileName": "data.js",
@@ -268,6 +306,7 @@
     },
     {
       "folder": "general/PositionGrade/Common",
+      "name": "PositionGrade",
       "model": "positionGrade",
       "key": "positionGradeId",
       "fileName": "data.js",
@@ -275,6 +314,7 @@
     },
     {
       "folder": "general/QrCode/Common",
+      "name": "QrCode",
       "model": "qrCode",
       "key": "qrCodeId",
       "fileName": "data.js",
@@ -282,6 +322,7 @@
     },
     {
       "folder": "general/QrCodeCategory/Common",
+      "name": "QrCodeCategory",
       "model": "qrCodeCategory",
       "key": "qrCodeCategoryId",
       "fileName": "data.js",
@@ -289,6 +330,7 @@
     },
     {
       "folder": "general/Question/Common",
+      "name": "Question",
       "model": "question",
       "key": "questionId",
       "fileName": "data.js",
@@ -296,6 +338,7 @@
     },
     {
       "folder": "general/QuestionItem/Common",
+      "name": "QuestionItem",
       "model": "questionItem",
       "key": "questionItemId",
       "fileName": "data.js",
@@ -303,6 +346,7 @@
     },
     {
       "folder": "general/Questionnaire/Common",
+      "name": "Questionnaire",
       "model": "questionnaire",
       "key": "questionnaireId",
       "fileName": "data.js",
@@ -310,6 +354,7 @@
     },
     {
       "folder": "general/QuestionnaireQuestionRelation/Common",
+      "name": "QuestionnaireQuestionRelation",
       "model": "questionnaireQuestionRelation",
       "key": "questionnaireQuestionRelationId",
       "fileName": "data.js",
@@ -317,6 +362,7 @@
     },
     {
       "folder": "general/QuestionTagRelation/Common",
+      "name": "QuestionTagRelation",
       "model": "questionTagRelation",
       "key": "questionTagRelationId",
       "fileName": "data.js",
@@ -324,6 +370,7 @@
     },
     {
       "folder": "general/QueueInfo/Common",
+      "name": "QueueInfo",
       "model": "queueInfo",
       "key": "queueInfoId",
       "fileName": "data.js",
@@ -331,6 +378,7 @@
     },
     {
       "folder": "general/Section/Common",
+      "name": "Section",
       "model": "section",
       "key": "sectionId",
       "fileName": "data.js",
@@ -338,6 +386,7 @@
     },
     {
       "folder": "general/SectionApplicationConfig/Common",
+      "name": "SectionApplicationConfig",
       "model": "sectionApplicationConfig",
       "key": "sectionApplicationConfigId",
       "fileName": "data.js",
@@ -345,6 +394,7 @@
     },
     {
       "folder": "general/SqlEntity/Common",
+      "name": "SqlEntity",
       "model": "sqlEntity",
       "key": "sqlEntityId",
       "fileName": "data.js",
@@ -352,6 +402,7 @@
     },
     {
       "folder": "general/SmsCategory/Common",
+      "name": "SmsCategory",
       "model": "smsCategory",
       "key": "smsCategoryId",
       "fileName": "data.js",
@@ -359,6 +410,7 @@
     },
     {
       "folder": "general/SmsCategoryStatistic/Common",
+      "name": "SmsCategoryStatistic",
       "model": "smsCategoryStatistic",
       "key": "smsCategoryStatisticId",
       "fileName": "data.js",
@@ -366,6 +418,7 @@
     },
     {
       "folder": "general/SmsLog/Common",
+      "name": "SmsLog",
       "model": "smsLog",
       "key": "smsLogId",
       "fileName": "data.js",
@@ -373,6 +426,7 @@
     },
     {
       "folder": "general/SqlLog/Common",
+      "name": "SqlLog",
       "model": "SqlLog",
       "key": "sqlLogId",
       "fileName": "data.js",
@@ -380,6 +434,7 @@
     },
     {
       "folder": "general/Subsidiary/Common",
+      "name": "Subsidiary",
       "model": "subsidiary",
       "key": "subsidiaryId",
       "fileName": "data.js",
@@ -387,6 +442,7 @@
     },
     {
       "folder": "general/SubsidiaryComplaintCategory/Common",
+      "name": "SubsidiaryComplaintCategory",
       "model": "subsidiaryComplaintCategory",
       "key": "subsidiaryComplaintCategoryId",
       "fileName": "data.js",
@@ -394,6 +450,7 @@
     },
     {
       "folder": "general/SubsidiaryComplaintMessage/Common",
+      "name": "SubsidiaryComplaintMessage",
       "model": "subsidiaryComplaintMessage",
       "key": "subsidiaryComplaintMessageId",
       "fileName": "data.js",
@@ -401,6 +458,7 @@
     },
     {
       "folder": "general/SubsidiaryFeedbackMessage/Common",
+      "name": "SubsidiaryFeedbackMessage",
       "model": "subsidiaryFeedbackMessage",
       "key": "subsidiaryFeedbackMessageId",
       "fileName": "data.js",
@@ -408,6 +466,7 @@
     },
     {
       "folder": "general/SubsidiaryReportMessage/Common",
+      "name": "SubsidiaryReportMessage",
       "model": "subsidiaryReportMessage",
       "key": "subsidiaryReportMessageId",
       "fileName": "data.js",
@@ -415,6 +474,7 @@
     },
     {
       "folder": "general/Tag/Common",
+      "name": "Tag",
       "model": "tag",
       "key": "tagId",
       "fileName": "data.js",
@@ -422,6 +482,7 @@
     },
     {
       "folder": "general/UploadHistory/Common",
+      "name": "UploadHistory",
       "model": "uploadHistory",
       "key": "uploadHistoryId",
       "fileName": "data.js",
@@ -429,6 +490,7 @@
     },
     {
       "folder": "general/User/Common",
+      "name": "User",
       "model": "user",
       "key": "userId",
       "fileName": "data.js",
@@ -436,6 +498,7 @@
     },
     {
       "folder": "general/UserDepartmentInfo/Common",
+      "name": "UserDepartmentInfo",
       "model": "userDepartmentInfo",
       "key": "userDepartmentInfoId",
       "fileName": "data.js",
@@ -443,6 +506,7 @@
     },
     {
       "folder": "general/UserDevice/Common",
+      "name": "UserDevice",
       "model": "userDevice",
       "key": "userDeviceId",
       "fileName": "data.js",
@@ -450,6 +514,7 @@
     },
     {
       "folder": "general/UserQuestionnaire/Common",
+      "name": "UserQuestionnaire",
       "model": "userQuestionnaire",
       "key": "userQuestionnaireId",
       "fileName": "data.js",
@@ -457,6 +522,7 @@
     },
     {
       "folder": "general/UserSubsidiaryInfo/Common",
+      "name": "UserSubsidiaryInfo",
       "model": "userSubsidiaryInfo",
       "key": "userSubsidiaryInfoId",
       "fileName": "data.js",
@@ -464,6 +530,7 @@
     },
     {
       "folder": "general/WeChatMessageRecord/Common",
+      "name": "WeChatMessageRecord",
       "model": "weChatMessageRecord",
       "key": "weChatMessageRecordId",
       "fileName": "data.js",
@@ -471,6 +538,7 @@
     },
     {
       "folder": "general/Workflow/Common",
+      "name": "Workflow",
       "model": "workflow",
       "key": "workflowId",
       "fileName": "data.js",
@@ -478,6 +546,7 @@
     },
     {
       "folder": "general/WorkflowBranchCondition/Common",
+      "name": "WorkflowBranchCondition",
       "model": "workflowBranchCondition",
       "key": "workflowBranchConditionId",
       "fileName": "data.js",
@@ -485,6 +554,7 @@
     },
     {
       "folder": "general/WorkflowBranchConditionItem/Common",
+      "name": "WorkflowBranchConditionItem",
       "model": "workflowBranchConditionItem",
       "key": "workflowBranchConditionItemId",
       "fileName": "data.js",
@@ -492,6 +562,7 @@
     },
     {
       "folder": "general/WorkflowCase/Common",
+      "name": "WorkflowCase",
       "model": "workflowCase",
       "key": "workflowCaseId",
       "fileName": "data.js",
@@ -499,6 +570,7 @@
     },
     {
       "folder": "general/WorkflowCaseCarbonCopyNotification/Common",
+      "name": "WorkflowCaseCarbonCopyNotification",
       "model": "workflowCaseCarbonCopyNotification",
       "key": "workflowCaseCarbonCopyNotificationId",
       "fileName": "data.js",
@@ -506,6 +578,7 @@
     },
     {
       "folder": "general/WorkflowCaseFormAttachment/Common",
+      "name": "WorkflowCaseFormAttachment",
       "model": "workflowCaseFormAttachment",
       "key": "workflowCaseFormAttachmentId",
       "fileName": "data.js",
@@ -513,6 +586,7 @@
     },
     {
       "folder": "general/WorkflowCaseFormStorage/Common",
+      "name": "WorkflowCaseFormStorage",
       "model": "workflowCaseFormStorage",
       "key": "workflowCaseFormStorageId",
       "fileName": "data.js",
@@ -520,6 +594,7 @@
     },
     {
       "folder": "general/WorkflowCaseLatestApprove/Common",
+      "name": "WorkflowCaseLatestApprove",
       "model": "workflowCaseLatestApprove",
       "key": "workflowCaseLatestApproveId",
       "fileName": "data.js",
@@ -527,6 +602,7 @@
     },
     {
       "folder": "general/WorkflowCaseNextProcessNotification/Common",
+      "name": "WorkflowCaseNextProcessNotification",
       "model": "workflowCaseNextProcessNotification",
       "key": "workflowCaseNextProcessNotificationId",
       "fileName": "data.js",
@@ -534,6 +610,7 @@
     },
     {
       "folder": "general/WorkflowCaseNextProcessProgress/Common",
+      "name": "WorkflowCaseNextProcessProgress",
       "model": "workflowCaseNextProcessProgress",
       "key": "workflowCaseNextProcessProgressId",
       "fileName": "data.js",
@@ -541,6 +618,7 @@
     },
     {
       "folder": "general/WorkflowCaseProcessHistory/Common",
+      "name": "WorkflowCaseProcessHistory",
       "model": "workflowCaseProcessHistory",
       "key": "workflowCaseProcessHistoryId",
       "fileName": "data.js",
@@ -548,6 +626,7 @@
     },
     {
       "folder": "general/WorkflowDebugCase/Common",
+      "name": "WorkflowDebugCase",
       "model": "workflowDebugCase",
       "key": "workflowDebugCaseId",
       "fileName": "data.js",
@@ -555,6 +634,7 @@
     },
     {
       "folder": "general/WorkflowDebugCaseCarbonCopyNotification/Common",
+      "name": "WorkflowDebugCaseCarbonCopyNotification",
       "model": "workflowDebugCaseCarbonCopyNotification",
       "key": "workflowDebugCaseCarbonCopyNotificationId",
       "fileName": "data.js",
@@ -562,6 +642,7 @@
     },
     {
       "folder": "general/WorkflowDebugCaseFormAttachment/Common",
+      "name": "WorkflowDebugCaseFormAttachment",
       "model": "workflowDebugCaseFormAttachment",
       "key": "workflowDebugCaseFormAttachmentId",
       "fileName": "data.js",
@@ -569,6 +650,7 @@
     },
     {
       "folder": "general/WorkflowDebugCaseFormStorage/Common",
+      "name": "WorkflowDebugCaseFormStorage",
       "model": "workflowDebugCaseFormStorage",
       "key": "workflowDebugCaseFormStorageId",
       "fileName": "data.js",
@@ -576,6 +658,7 @@
     },
     {
       "folder": "general/WorkflowDebugCaseLatestApprove/Common",
+      "name": "WorkflowDebugCaseLatestApprove",
       "model": "workflowDebugCaseLatestApprove",
       "key": "workflowDebugCaseLatestApproveId",
       "fileName": "data.js",
@@ -583,6 +666,7 @@
     },
     {
       "folder": "general/WorkflowDebugCaseNextProcessNotification/Common",
+      "name": "WorkflowDebugCaseNextProcessNotification",
       "model": "workflowDebugCaseNextProcessNotification",
       "key": "workflowDebugCaseNextProcessNotificationId",
       "fileName": "data.js",
@@ -590,6 +674,7 @@
     },
     {
       "folder": "general/WorkflowDebugCaseNextProcessProgress/Common",
+      "name": "WorkflowDebugCaseNextProcessProgress",
       "model": "workflowDebugCaseNextProcessProgress",
       "key": "workflowDebugCaseNextProcessProgressId",
       "fileName": "data.js",
@@ -597,6 +682,7 @@
     },
     {
       "folder": "general/WorkflowDebugCaseProcessHistory/Common",
+      "name": "WorkflowDebugCaseProcessHistory",
       "model": "workflowDebugCaseProcessHistory",
       "key": "workflowDebugCaseProcessHistoryId",
       "fileName": "data.js",
@@ -604,6 +690,7 @@
     },
     {
       "folder": "general/WorkflowFormDesign/Common",
+      "name": "WorkflowFormDesign",
       "model": "workflowFormDesign",
       "key": "workflowFormDesignId",
       "fileName": "data.js",
@@ -611,6 +698,7 @@
     },
     {
       "folder": "general/WorkflowLine/Common",
+      "name": "WorkflowLine",
       "model": "workflowLine",
       "key": "workflowLineId",
       "fileName": "data.js",
@@ -618,6 +706,7 @@
     },
     {
       "folder": "general/WorkflowNode/Common",
+      "name": "WorkflowNode",
       "model": "workflowNode",
       "key": "workflowNodeId",
       "fileName": "data.js",
@@ -625,6 +714,7 @@
     },
     {
       "folder": "general/WorkflowNodeApprover/Common",
+      "name": "WorkflowNodeApprover",
       "model": "workflowNodeApprover",
       "key": "workflowNodeApproverId",
       "fileName": "data.js",
@@ -632,6 +722,7 @@
     },
     {
       "folder": "general/WorkflowRangeEffectiveExternalDepartmentRelation/Common",
+      "name": "WorkflowRangeEffectiveExternalDepartmentRelation",
       "model": "workflowRangeEffectiveExternalDepartmentRelation",
       "key": "workflowRangeEffectiveExternalDepartmentRelationId",
       "fileName": "data.js",
@@ -639,6 +730,7 @@
     },
     {
       "folder": "general/WorkflowRangeEffectiveSubsidiaryRelation/Common",
+      "name": "WorkflowRangeEffectiveSubsidiaryRelation",
       "model": "workflowRangeEffectiveSubsidiaryRelation",
       "key": "workflowRangeEffectiveSubsidiaryRelationId",
       "fileName": "data.js",
