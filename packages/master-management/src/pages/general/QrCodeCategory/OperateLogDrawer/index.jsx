@@ -8,7 +8,7 @@ import { BasePageListDrawer } from '../../OperationLog/BasePageListDrawer';
 import { fieldData } from '../Common/data';
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
-const visibleFlag = '2dd108a72fa94f348fb445f49b3ca419';
+const visibleFlag = '581ada2fd91d4d0d9b078c9b14b33a33';
 
 @connect(({ qrCodeCategory, schedulingControl }) => ({
   qrCodeCategory,

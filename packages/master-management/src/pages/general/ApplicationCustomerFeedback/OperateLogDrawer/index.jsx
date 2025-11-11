@@ -8,7 +8,7 @@ import { BasePageListDrawer } from '../../OperationLog/BasePageListDrawer';
 import { fieldData } from '../Common/data';
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
-const visibleFlag = 'acef031cbb904d18b940be64e7122a41';
+const visibleFlag = '09d24ab53e3346a29e40d2947fb71f75';
 
 @connect(({ applicationCustomerFeedback, schedulingControl }) => ({
   applicationCustomerFeedback,

@@ -5,7 +5,7 @@
       "name": "Gallery",
       "model": "gallery",
       "key": "galleryId",
-      "visibleFlag": "0b4b8c0d24d04599bae41cf2d8660436",
+      "visibleFlag": "0e1a2425dee6481ea414db108526d5d1",
       "fileName": "index.jsx",
       "coverFile": false
     },
@@ -14,7 +14,7 @@
       "name": "QrCode",
       "model": "qrCode",
       "key": "qrCodeId",
-      "visibleFlag": "a35fc759f623424d9bd35ba9eaedf266",
+      "visibleFlag": "d9d83637872e4e55a207de885af2ed2b",
       "fileName": "index.jsx",
       "coverFile": false
     }

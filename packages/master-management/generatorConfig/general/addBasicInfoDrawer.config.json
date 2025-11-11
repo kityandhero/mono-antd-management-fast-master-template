@@ -5,7 +5,7 @@
       "name": "Position",
       "model": "position",
       "key": "positionId",
-      "visibleFlag": "fa133a9deb7f43209d5b4fbcd184db5a",
+      "visibleFlag": "57c7109bbf8f49dfa3050862131e5250",
       "fileName": "index.jsx",
       "coverFile": false
     },
@@ -14,7 +14,7 @@
       "name": "PositionGrade",
       "model": "positionGrade",
       "key": "positionGradeId",
-      "visibleFlag": "be265349b1fb4d68b9df08bba4dc65d0",
+      "visibleFlag": "e4f4fce6a8024b76845eb11466aa2ef8",
       "fileName": "index.jsx",
       "coverFile": false
     },
@@ -23,7 +23,7 @@
       "name": "Question",
       "model": "question",
       "key": "questionId",
-      "visibleFlag": "a963b0f1c6e94067b4991c314605cded",
+      "visibleFlag": "847a69bd7fb647c49808c7ea52321b24",
       "fileName": "index.jsx",
       "coverFile": false
     },
@@ -32,16 +32,7 @@
       "name": "SubsidiaryComplaintCategory",
       "model": "subsidiaryComplaintCategory",
       "key": "subsidiaryComplaintCategoryId",
-      "visibleFlag": "fee4a7872493412780a26ac95cb9eccb",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryComplaintMessage/AddBasicInfoDrawer",
-      "name": "SubsidiaryComplaintMessage",
-      "model": "subsidiaryComplaintMessage",
-      "key": "subsidiaryComplaintMessageId",
-      "visibleFlag": "b69d438a5c1143b59f458b55b1808068",
+      "visibleFlag": "5c97a03e68dd4b7cbe23476f611ed787",
       "fileName": "index.jsx",
       "coverFile": false
     }
