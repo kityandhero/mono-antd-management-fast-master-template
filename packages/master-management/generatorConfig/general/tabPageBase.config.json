@@ -5,12 +5,83 @@
       "model": "administrativeDivision",
       "key": "administrativeDivisionId",
       "fileName": "index.jsx",
-      "coverFile": true
+      "coverFile": false
+    },
+    {
+      "folder": "general/Application/TabPageBase",
+      "model": "application",
+      "key": "applicationId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+
+    {
+      "folder": "general/ApplicationSource/TabPageBase",
+      "model": "applicationSource",
+      "key": "applicationSourceId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/CallCenter/TabPageBase",
+      "model": "callCenter",
+      "key": "callCenterId",
+      "fileName": "index.jsx",
+      "coverFile": false
     },
     {
       "folder": "general/Customer/TabPageBase",
       "model": "customer",
       "key": "customerId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/Department/TabPageBase",
+      "model": "department",
+      "key": "departmentId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/Gallery/TabPageBase",
+      "model": "gallery",
+      "key": "galleryId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/MasterManager/TabPageBase",
+      "model": "masterManager",
+      "key": "masterManagerId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/PresetRole/TabPageBase",
+      "model": "presetRole",
+      "key": "presetRoleId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/QrCode/TabPageBase",
+      "model": "qrCode",
+      "key": "qrCodeId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/Section/TabPageBase",
+      "model": "section",
+      "key": "sectionId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/Subsidiary/TabPageBase",
+      "model": "subsidiary",
+      "key": "subsidiaryId",
       "fileName": "index.jsx",
       "coverFile": false
     },
@@ -61,133 +132,56 @@
       "model": "question",
       "key": "questionId",
       "fileName": "index.jsx",
-      "coverFile": true
-    },
-    {
-      "folder": "general/QuestionItem/TabPageBase",
-      "model": "questionItem",
-      "key": "questionItemId",
-      "fileName": "index.jsx",
-      "coverFile": true
+      "coverFile": false
     },
     {
       "folder": "general/Questionnaire/TabPageBase",
       "model": "questionnaire",
       "key": "questionnaireId",
       "fileName": "index.jsx",
-      "coverFile": true
-    },
-    {
-      "folder": "general/UserQuestionnaire/TabPageBase",
-      "model": "userQuestionnaire",
-      "key": "userQuestionnaireId",
-      "fileName": "index.jsx",
-      "coverFile": true
-    },
-    {
-      "folder": "general/Section/TabPageBase",
-      "model": "section",
-      "key": "sectionId",
-      "fileName": "index.jsx",
-      "coverFile": true
-    },
-    {
-      "folder": "general/Application/TabPageBase",
-      "model": "application",
-      "key": "applicationId",
-      "fileName": "index.jsx",
-      "coverFile": true
-    },
-    {
-      "folder": "general/ApplicationSource/TabPageBase",
-      "model": "applicationSource",
-      "key": "applicationSourceId",
-      "fileName": "index.jsx",
-      "coverFile": true
-    },
-    {
-      "folder": "general/CallCenter/TabPageBase",
-      "model": "callCenter",
-      "key": "callCenterId",
-      "fileName": "index.jsx",
-      "coverFile": true
-    },
-    {
-      "folder": "general/Department/TabPageBase",
-      "model": "department",
-      "key": "departmentId",
-      "fileName": "index.jsx",
-      "coverFile": true
-    },
-    {
-      "folder": "general/Gallery/TabPageBase",
-      "model": "gallery",
-      "key": "galleryId",
-      "fileName": "index.jsx",
-      "coverFile": true
-    },
-    {
-      "folder": "general/MasterManager/TabPageBase",
-      "model": "masterManager",
-      "key": "masterManagerId",
-      "fileName": "index.jsx",
-      "coverFile": true
-    },
-    {
-      "folder": "general/PresetRole/TabPageBase",
-      "model": "presetRole",
-      "key": "presetRoleId",
-      "fileName": "index.jsx",
-      "coverFile": true
-    },
-    {
-      "folder": "general/QrCode/TabPageBase",
-      "model": "qrCode",
-      "key": "qrCodeId",
-      "fileName": "index.jsx",
-      "coverFile": true
-    },
-    {
-      "folder": "general/Subsidiary/TabPageBase",
-      "model": "subsidiary",
-      "key": "subsidiaryId",
-      "fileName": "index.jsx",
-      "coverFile": true
+      "coverFile": false
     },
     {
       "folder": "general/Tag/TabPageBase",
       "model": "tag",
       "key": "tagId",
       "fileName": "index.jsx",
-      "coverFile": true
+      "coverFile": false
     },
     {
       "folder": "general/User/TabPageBase",
       "model": "user",
       "key": "userId",
       "fileName": "index.jsx",
-      "coverFile": true
+      "coverFile": false
     },
     {
       "folder": "general/UserDevice/TabPageBase",
       "model": "userDevice",
       "key": "userDeviceId",
       "fileName": "index.jsx",
-      "coverFile": true
+      "coverFile": false
+    },
+    {
+      "folder": "general/UserQuestionnaire/TabPageBase",
+      "model": "userQuestionnaire",
+      "key": "userQuestionnaireId",
+      "fileName": "index.jsx",
+      "coverFile": false
     },
     {
       "folder": "general/Workflow/TabPageBase",
       "model": "workflow",
       "key": "workflowId",
       "fileName": "index.jsx",
-      "coverFile": true
+      "coverFile": false
     },
     {
       "folder": "general/WorkflowCase/TabPageBase",
       "model": "workflowCase",
       "key": "workflowCaseId",
       "fileName": "index.jsx",
-      "coverFile": true
+      "coverFile": false
     }
   ]
 }

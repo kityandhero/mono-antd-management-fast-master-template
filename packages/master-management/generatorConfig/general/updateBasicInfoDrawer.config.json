@@ -4,7 +4,7 @@
       "folder": "general/Position/UpdateBasicInfoDrawer",
       "model": "position",
       "key": "positionId",
-      "visibleFlag": "e8851cd3faef4a9bb71610e40398182b",
+      "visibleFlag": "9c329aa601734716bb487ccad6a27972",
       "fileName": "index.jsx",
       "coverFile": false
     },
@@ -12,7 +12,7 @@
       "folder": "general/PositionGrade/UpdateBasicInfoDrawer",
       "model": "positionGrade",
       "key": "positionGradeId",
-      "visibleFlag": "d646854f851c45f295cbeb25939eeac4",
+      "visibleFlag": "3d1420f7c27d44ff84cc9e3b1b08d973",
       "fileName": "index.jsx",
       "coverFile": false
     }

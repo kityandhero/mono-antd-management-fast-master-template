@@ -8,44 +8,9 @@
       "coverFile": false
     },
     {
-      "folder": "general/Customer/Edit/BasicInfo",
-      "model": "customer",
-      "key": "customerId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryComplaintCategory/Edit/BasicInfo",
-      "model": "subsidiaryComplaintCategory",
-      "key": "subsidiaryComplaintCategoryId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryComplaintMessage/Edit/BasicInfo",
-      "model": "subsidiaryComplaintMessage",
-      "key": "subsidiaryComplaintMessageId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryFeedbackMessage/Edit/BasicInfo",
-      "model": "subsidiaryFeedbackMessage",
-      "key": "subsidiaryFeedbackMessageId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryReportMessage/Edit/BasicInfo",
-      "model": "subsidiaryReportMessage",
-      "key": "subsidiaryReportMessageId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ApplicationUserFeedback/Edit/BasicInfo",
-      "model": "applicationUserFeedback",
-      "key": "applicationUserFeedbackId",
+      "folder": "general/Application/Edit/BasicInfo",
+      "model": "application",
+      "key": "applicationId",
       "fileName": "index.jsx",
       "coverFile": false
     },
@@ -57,34 +22,6 @@
       "coverFile": false
     },
     {
-      "folder": "general/Question/Edit/BasicInfo",
-      "model": "question",
-      "key": "questionId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/Questionnaire/Edit/BasicInfo",
-      "model": "questionnaire",
-      "key": "questionnaireId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/UserQuestionnaire/Edit/BasicInfo",
-      "model": "userQuestionnaire",
-      "key": "userQuestionnaireId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/Application/Edit/BasicInfo",
-      "model": "application",
-      "key": "applicationId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
       "folder": "general/ApplicationSource/Edit/BasicInfo",
       "model": "applicationSource",
       "key": "applicationSourceId",
@@ -92,9 +29,23 @@
       "coverFile": false
     },
     {
+      "folder": "general/ApplicationUserFeedback/Edit/BasicInfo",
+      "model": "applicationUserFeedback",
+      "key": "applicationUserFeedbackId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/CallCenter/Edit/BasicInfo",
       "model": "callCenter",
       "key": "callCenterId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/Customer/Edit/BasicInfo",
+      "model": "customer",
+      "key": "customerId",
       "fileName": "index.jsx",
       "coverFile": false
     },
@@ -134,6 +85,20 @@
       "coverFile": false
     },
     {
+      "folder": "general/Question/Edit/BasicInfo",
+      "model": "question",
+      "key": "questionId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/Questionnaire/Edit/BasicInfo",
+      "model": "questionnaire",
+      "key": "questionnaireId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/Section/Edit/BasicInfo",
       "model": "section",
       "key": "sectionId",
@@ -144,6 +109,34 @@
       "folder": "general/Subsidiary/Edit/BasicInfo",
       "model": "subsidiary",
       "key": "subsidiaryId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryComplaintCategory/Edit/BasicInfo",
+      "model": "subsidiaryComplaintCategory",
+      "key": "subsidiaryComplaintCategoryId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryComplaintMessage/Edit/BasicInfo",
+      "model": "subsidiaryComplaintMessage",
+      "key": "subsidiaryComplaintMessageId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryFeedbackMessage/Edit/BasicInfo",
+      "model": "subsidiaryFeedbackMessage",
+      "key": "subsidiaryFeedbackMessageId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryReportMessage/Edit/BasicInfo",
+      "model": "subsidiaryReportMessage",
+      "key": "subsidiaryReportMessageId",
       "fileName": "index.jsx",
       "coverFile": false
     },
@@ -165,6 +158,13 @@
       "folder": "general/UserDevice/Edit/BasicInfo",
       "model": "userDevice",
       "key": "userDeviceId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/UserQuestionnaire/Edit/BasicInfo",
+      "model": "userQuestionnaire",
+      "key": "userQuestionnaireId",
       "fileName": "index.jsx",
       "coverFile": false
     },

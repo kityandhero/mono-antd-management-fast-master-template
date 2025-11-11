@@ -1,6 +1,97 @@
 {
   "list": [
     {
+      "folder": "general/AccessWay/Assist",
+      "model": "accessWay",
+      "key": "accessWayId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/AdministrativeDivision/Assist",
+      "model": "administrativeDivision",
+      "key": "administrativeDivisionId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/Application/Assist",
+      "model": "application",
+      "key": "applicationId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/ApplicationCustomerFeedback/Assist",
+      "model": "applicationCustomerFeedback",
+      "key": "applicationCustomerFeedbackId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/ApplicationNavigation/Assist",
+      "model": "applicationNavigation",
+      "key": "applicationNavigationId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/ApplicationSource/Assist",
+      "model": "applicationSource",
+      "key": "applicationSourceId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/ApplicationUserFeedback/Assist",
+      "model": "applicationUserFeedback",
+      "key": "applicationUserFeedbackId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/ApplicationVersion/Assist",
+      "model": "applicationVersion",
+      "key": "applicationVersionId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/BusinessSet/Assist",
+      "model": "businessSet",
+      "key": "businessSetId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/CallCenter/Assist",
+      "model": "callCenter",
+      "key": "callCenterId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/CallCenterCategory/Assist",
+      "model": "callCenterCategory",
+      "key": "callCenterCategoryId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/ChannelExecuteLogSwitch/Assist",
+      "model": "channelExecuteLogSwitch",
+      "key": "channelExecuteLogSwitchId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/ChannelSqlLogSwitch/Assist",
+      "model": "channelSqlLogSwitch",
+      "key": "channelSqlLogSwitchId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
       "folder": "general/Customer/Assist",
       "model": "customer",
       "key": "customerId",
@@ -22,212 +113,37 @@
       "coverFile": false
     },
     {
-      "folder": "general/SubsidiaryComplaintCategory/Assist",
-      "model": "subsidiaryComplaintCategory",
-      "key": "subsidiaryComplaintCategoryId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryComplaintMessage/Assist",
-      "model": "subsidiaryComplaintMessage",
-      "key": "subsidiaryComplaintMessageId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryFeedbackMessage/Assist",
-      "model": "subsidiaryFeedbackMessage",
-      "key": "subsidiaryFeedbackMessageId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryReportMessage/Assist",
-      "model": "subsidiaryReportMessage",
-      "key": "subsidiaryReportMessageId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ApplicationUserFeedback/Assist",
-      "model": "applicationUserFeedback",
-      "key": "applicationUserFeedbackId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ApplicationCustomerFeedback/Assist",
-      "model": "applicationCustomerFeedback",
-      "key": "applicationCustomerFeedbackId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/Position/Assist",
-      "model": "position",
-      "key": "positionId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/PositionGrade/Assist",
-      "model": "positionGrade",
-      "key": "positionGradeId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/AdministrativeDivision/Assist",
-      "model": "administrativeDivision",
-      "key": "administrativeDivisionId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/Question/Assist",
-      "model": "question",
-      "key": "questionId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/QuestionItem/Assist",
-      "model": "questionItem",
-      "key": "questionItemId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/QuestionTagRelation/Assist",
-      "model": "questionTagRelation",
-      "key": "questionTagRelationId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/Questionnaire/Assist",
-      "model": "questionnaire",
-      "key": "questionnaireId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/QuestionnaireQuestionRelation/Assist",
-      "model": "questionnaireQuestionRelation",
-      "key": "questionnaireQuestionRelationId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/UserQuestionnaire/Assist",
-      "model": "userQuestionnaire",
-      "key": "userQuestionnaireId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/KeyValueInfrastructure/Assist",
-      "model": "keyValueInfrastructure",
-      "key": "keyValueInfrastructureId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/KeyValueApplication/Assist",
-      "model": "keyValueApplication",
-      "key": "keyValueApplicationId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/KeyValueSection/Assist",
-      "model": "keyValueSection",
-      "key": "keyValueSectionId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/KeyValueWorkflow/Assist",
-      "model": "keyValueWorkflow",
-      "key": "keyValueWorkflowId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/AccessWay/Assist",
-      "model": "accessWay",
-      "key": "accessWayId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/Application/Assist",
-      "model": "application",
-      "key": "applicationId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ApplicationNavigation/Assist",
-      "model": "applicationNavigation",
-      "key": "applicationNavigationId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ApplicationSource/Assist",
-      "model": "applicationSource",
-      "key": "applicationSourceId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ApplicationVersion/Assist",
-      "model": "applicationVersion",
-      "key": "applicationVersionId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/CallCenter/Assist",
-      "model": "callCenter",
-      "key": "callCenterId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/CallCenterCategory/Assist",
-      "model": "callCenterCategory",
-      "key": "callCenterCategoryId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/BusinessSet/Assist",
-      "model": "businessSet",
-      "key": "businessSetId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ChannelExecuteLogSwitch/Assist",
-      "model": "channelExecuteLogSwitch",
-      "key": "channelExecuteLogSwitchId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ChannelSqlLogSwitch/Assist",
-      "model": "channelSqlLogSwitch",
-      "key": "channelSqlLogSwitchId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
       "folder": "general/Department/Assist",
       "model": "department",
       "key": "departmentId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/EmailMessage/Assist",
+      "model": "emailMessage",
+      "key": "emailMessageId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/EmailSenderAgent/Assist",
+      "model": "emailSenderAgent",
+      "key": "emailSenderAgentId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/EmailSenderAgentStatistic/Assist",
+      "model": "emailSenderAgentStatistic",
+      "key": "emailSenderAgentStatisticId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/EmailStatistic/Assist",
+      "model": "emailStatistic",
+      "key": "emailStatisticId",
       "fileName": "action.js",
       "coverFile": false
     },
@@ -295,6 +211,34 @@
       "coverFile": false
     },
     {
+      "folder": "general/KeyValueApplication/Assist",
+      "model": "keyValueApplication",
+      "key": "keyValueApplicationId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/KeyValueInfrastructure/Assist",
+      "model": "keyValueInfrastructure",
+      "key": "keyValueInfrastructureId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/KeyValueSection/Assist",
+      "model": "keyValueSection",
+      "key": "keyValueSectionId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/KeyValueWorkflow/Assist",
+      "model": "keyValueWorkflow",
+      "key": "keyValueWorkflowId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
       "folder": "general/MasterManager/Assist",
       "model": "masterManager",
       "key": "masterManagerId",
@@ -316,6 +260,20 @@
       "coverFile": false
     },
     {
+      "folder": "general/Position/Assist",
+      "model": "position",
+      "key": "positionId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/PositionGrade/Assist",
+      "model": "positionGrade",
+      "key": "positionGradeId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
       "folder": "general/QrCode/Assist",
       "model": "qrCode",
       "key": "qrCodeId",
@@ -326,6 +284,41 @@
       "folder": "general/QrCodeCategory/Assist",
       "model": "qrCodeCategory",
       "key": "qrCodeCategoryId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/Question/Assist",
+      "model": "question",
+      "key": "questionId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/QuestionItem/Assist",
+      "model": "questionItem",
+      "key": "questionItemId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/Questionnaire/Assist",
+      "model": "questionnaire",
+      "key": "questionnaireId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/QuestionnaireQuestionRelation/Assist",
+      "model": "questionnaireQuestionRelation",
+      "key": "questionnaireQuestionRelationId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/QuestionTagRelation/Assist",
+      "model": "questionTagRelation",
+      "key": "questionTagRelationId",
       "fileName": "action.js",
       "coverFile": false
     },
@@ -347,6 +340,13 @@
       "folder": "general/SectionApplicationConfig/Assist",
       "model": "sectionApplicationConfig",
       "key": "sectionApplicationConfigId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SqlEntity/Assist",
+      "model": "sqlEntity",
+      "key": "sqlEntityId",
       "fileName": "action.js",
       "coverFile": false
     },
@@ -386,6 +386,34 @@
       "coverFile": false
     },
     {
+      "folder": "general/SubsidiaryComplaintCategory/Assist",
+      "model": "subsidiaryComplaintCategory",
+      "key": "subsidiaryComplaintCategoryId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryComplaintMessage/Assist",
+      "model": "subsidiaryComplaintMessage",
+      "key": "subsidiaryComplaintMessageId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryFeedbackMessage/Assist",
+      "model": "subsidiaryFeedbackMessage",
+      "key": "subsidiaryFeedbackMessageId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryReportMessage/Assist",
+      "model": "subsidiaryReportMessage",
+      "key": "subsidiaryReportMessageId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
       "folder": "general/Tag/Assist",
       "model": "tag",
       "key": "tagId",
@@ -396,13 +424,6 @@
       "folder": "general/UploadHistory/Assist",
       "model": "uploadHistory",
       "key": "uploadHistoryId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/EmailSenderAgent/Assist",
-      "model": "emailSenderAgent",
-      "key": "emailSenderAgentId",
       "fileName": "action.js",
       "coverFile": false
     },
@@ -428,16 +449,16 @@
       "coverFile": false
     },
     {
-      "folder": "general/UserSubsidiaryInfo/Assist",
-      "model": "userSubsidiaryInfo",
-      "key": "userSubsidiaryInfoId",
+      "folder": "general/UserQuestionnaire/Assist",
+      "model": "userQuestionnaire",
+      "key": "userQuestionnaireId",
       "fileName": "action.js",
       "coverFile": false
     },
     {
-      "folder": "general/SqlEntity/Assist",
-      "model": "sqlEntity",
-      "key": "sqlEntityId",
+      "folder": "general/UserSubsidiaryInfo/Assist",
+      "model": "userSubsidiaryInfo",
+      "key": "userSubsidiaryInfoId",
       "fileName": "action.js",
       "coverFile": false
     },
@@ -620,27 +641,6 @@
       "folder": "general/WorkflowRangeEffectiveSubsidiaryRelation/Assist",
       "model": "workflowRangeEffectiveSubsidiaryRelation",
       "key": "workflowRangeEffectiveSubsidiaryRelationId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/EmailMessage/Assist",
-      "model": "emailMessage",
-      "key": "emailMessageId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/EmailSenderAgentStatistic/Assist",
-      "model": "emailSenderAgentStatistic",
-      "key": "emailSenderAgentStatisticId",
-      "fileName": "action.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/EmailStatistic/Assist",
-      "model": "emailStatistic",
-      "key": "emailStatisticId",
       "fileName": "action.js",
       "coverFile": false
     }

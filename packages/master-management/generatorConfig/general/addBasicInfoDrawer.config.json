@@ -1,18 +1,10 @@
 {
   "list": [
     {
-      "folder": "general/SubsidiaryComplaintCategory/AddBasicInfoDrawer",
-      "model": "subsidiaryComplaintCategory",
-      "key": "subsidiaryComplaintCategoryId",
-      "visibleFlag": "4c976de054cb4e81ade85e3ec3766c66",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
       "folder": "general/Position/AddBasicInfoDrawer",
       "model": "position",
       "key": "positionId",
-      "visibleFlag": "f8b1f8a019754a84a26cc150b84d43ac",
+      "visibleFlag": "47c4ed03c60b4bc296640d23aff9723e",
       "fileName": "index.jsx",
       "coverFile": false
     },
@@ -20,7 +12,7 @@
       "folder": "general/PositionGrade/AddBasicInfoDrawer",
       "model": "positionGrade",
       "key": "positionGradeId",
-      "visibleFlag": "5dac411b272649ff902f775c90e12e09",
+      "visibleFlag": "897201815ae542329ff6416f32b21f7b",
       "fileName": "index.jsx",
       "coverFile": false
     },
@@ -28,7 +20,23 @@
       "folder": "general/Question/AddBasicInfoDrawer",
       "model": "question",
       "key": "questionId",
-      "visibleFlag": "094daf5864ef418c9e23455cef111145",
+      "visibleFlag": "600870f525e647cba77780074877cfc8",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryComplaintCategory/AddBasicInfoDrawer",
+      "model": "subsidiaryComplaintCategory",
+      "key": "subsidiaryComplaintCategoryId",
+      "visibleFlag": "ecbbc2614da243808456bf526241d1b6",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryComplaintMessage/AddBasicInfoDrawer",
+      "model": "subsidiaryComplaintMessage",
+      "key": "subsidiaryComplaintMessageId",
+      "visibleFlag": "47acadca81bd4c33b307d56e43e5514f",
       "fileName": "index.jsx",
       "coverFile": false
     }

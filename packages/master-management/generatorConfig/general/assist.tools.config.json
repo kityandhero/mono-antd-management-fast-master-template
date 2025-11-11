@@ -4,644 +4,644 @@
       "folder": "general/AccessWay/Assist",
       "model": "accessWay",
       "key": "accessWayId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/AdministrativeDivision/Assist",
       "model": "administrativeDivision",
       "key": "administrativeDivisionId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/Application/Assist",
       "model": "application",
       "key": "applicationId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/ApplicationCustomerFeedback/Assist",
       "model": "applicationCustomerFeedback",
       "key": "applicationCustomerFeedbackId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/ApplicationNavigation/Assist",
       "model": "applicationNavigation",
       "key": "applicationNavigationId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/ApplicationSource/Assist",
       "model": "applicationSource",
       "key": "applicationSourceId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/ApplicationUserFeedback/Assist",
       "model": "applicationUserFeedback",
       "key": "applicationUserFeedbackId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/ApplicationVersion/Assist",
       "model": "applicationVersion",
       "key": "applicationVersionId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/BusinessSet/Assist",
       "model": "businessSet",
       "key": "businessSetId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/CallCenter/Assist",
       "model": "callCenter",
       "key": "callCenterId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/CallCenterCategory/Assist",
       "model": "callCenterCategory",
       "key": "callCenterCategoryId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/ChannelExecuteLogSwitch/Assist",
       "model": "channelExecuteLogSwitch",
       "key": "channelExecuteLogSwitchId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/ChannelSqlLogSwitch/Assist",
       "model": "channelSqlLogSwitch",
       "key": "channelSqlLogSwitchId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/Customer/Assist",
       "model": "customer",
       "key": "customerId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/CustomerLoginLog/Assist",
       "model": "customerLoginLog",
       "key": "customerLoginLogId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/CustomerWechatApplicationInfo/Assist",
       "model": "customerWechatApplicationInfo",
       "key": "customerWechatApplicationInfoId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/Department/Assist",
       "model": "department",
       "key": "departmentId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/EmailMessage/Assist",
       "model": "emailMessage",
       "key": "emailMessageId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/EmailSenderAgent/Assist",
       "model": "emailSenderAgent",
       "key": "emailSenderAgentId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/EmailSenderAgentStatistic/Assist",
       "model": "emailSenderAgentStatistic",
       "key": "emailSenderAgentStatisticId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/EmailStatistic/Assist",
       "model": "emailStatistic",
       "key": "emailStatisticId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/ErrorLog/Assist",
       "model": "errorLog",
       "key": "errorLogId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/ExecuteLog/Assist",
       "model": "executeLog",
       "key": "executeLogId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/Gallery/Assist",
       "model": "gallery",
       "key": "galleryId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/GalleryCategory/Assist",
       "model": "galleryCategory",
       "key": "galleryCategoryId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/GeneralDiscourse/Assist",
       "model": "generalDiscourse",
       "key": "generalDiscourseId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/GeneralLog/Assist",
       "model": "generalLog",
       "key": "generalLogId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/HostService/Assist",
       "model": "hostService",
       "key": "hostServiceId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/HostServiceLog/Assist",
       "model": "hostServiceLog",
       "key": "hostServiceLogId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/InternalTester/Assist",
       "model": "internalTester",
       "key": "internalTesterId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/KeyValueApplication/Assist",
       "model": "keyValueApplication",
       "key": "keyValueApplicationId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/KeyValueInfrastructure/Assist",
       "model": "keyValueInfrastructure",
       "key": "keyValueInfrastructureId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/KeyValueSection/Assist",
       "model": "keyValueSection",
       "key": "keyValueSectionId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/KeyValueWorkflow/Assist",
       "model": "keyValueWorkflow",
       "key": "keyValueWorkflowId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/MasterManager/Assist",
       "model": "masterManager",
       "key": "masterManagerId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/OptionPool/Assist",
       "model": "optionPool",
       "key": "optionPoolId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/PresetRole/Assist",
       "model": "presetRole",
       "key": "presetRoleId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/Position/Assist",
       "model": "position",
       "key": "positionId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/PositionGrade/Assist",
       "model": "positionGrade",
       "key": "positionGradeId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/QrCode/Assist",
       "model": "qrCode",
       "key": "qrCodeId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/QrCodeCategory/Assist",
       "model": "qrCodeCategory",
       "key": "qrCodeCategoryId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/Question/Assist",
       "model": "question",
       "key": "questionId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/QuestionItem/Assist",
       "model": "questionItem",
       "key": "questionItemId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/Questionnaire/Assist",
       "model": "questionnaire",
       "key": "questionnaireId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/QuestionnaireQuestionRelation/Assist",
       "model": "questionnaireQuestionRelation",
       "key": "questionnaireQuestionRelationId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/QuestionTagRelation/Assist",
       "model": "questionTagRelation",
       "key": "questionTagRelationId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/QueueInfo/Assist",
       "model": "queueInfo",
       "key": "queueInfoId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/Section/Assist",
       "model": "section",
       "key": "sectionId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/SectionApplicationConfig/Assist",
       "model": "sectionApplicationConfig",
       "key": "sectionApplicationConfigId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/SqlEntity/Assist",
       "model": "sqlEntity",
       "key": "sqlEntityId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/SmsCategory/Assist",
       "model": "smsCategory",
       "key": "smsCategoryId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/SmsCategoryStatistic/Assist",
       "model": "smsCategoryStatistic",
       "key": "smsCategoryStatisticId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/SmsLog/Assist",
       "model": "smsLog",
       "key": "smsLogId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/SqlLog/Assist",
       "model": "SqlLog",
       "key": "sqlLogId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/Subsidiary/Assist",
       "model": "subsidiary",
       "key": "subsidiaryId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/SubsidiaryComplaintCategory/Assist",
       "model": "subsidiaryComplaintCategory",
       "key": "subsidiaryComplaintCategoryId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/SubsidiaryComplaintMessage/Assist",
       "model": "subsidiaryComplaintMessage",
       "key": "subsidiaryComplaintMessageId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/SubsidiaryFeedbackMessage/Assist",
       "model": "subsidiaryFeedbackMessage",
       "key": "subsidiaryFeedbackMessageId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/SubsidiaryReportMessage/Assist",
       "model": "subsidiaryReportMessage",
       "key": "subsidiaryReportMessageId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/Tag/Assist",
       "model": "tag",
       "key": "tagId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/UploadHistory/Assist",
       "model": "uploadHistory",
       "key": "uploadHistoryId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/User/Assist",
       "model": "user",
       "key": "userId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/UserDepartmentInfo/Assist",
       "model": "userDepartmentInfo",
       "key": "userDepartmentInfoId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/UserDevice/Assist",
       "model": "userDevice",
       "key": "userDeviceId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/UserQuestionnaire/Assist",
       "model": "userQuestionnaire",
       "key": "userQuestionnaireId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/UserSubsidiaryInfo/Assist",
       "model": "userSubsidiaryInfo",
       "key": "userSubsidiaryInfoId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WeChatMessageRecord/Assist",
       "model": "weChatMessageRecord",
       "key": "weChatMessageRecordId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/Workflow/Assist",
       "model": "workflow",
       "key": "workflowId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowBranchCondition/Assist",
       "model": "workflowBranchCondition",
       "key": "workflowBranchConditionId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowBranchConditionItem/Assist",
       "model": "workflowBranchConditionItem",
       "key": "workflowBranchConditionItemId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowCase/Assist",
       "model": "workflowCase",
       "key": "workflowCaseId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowCaseCarbonCopyNotification/Assist",
       "model": "workflowCaseCarbonCopyNotification",
       "key": "workflowCaseCarbonCopyNotificationId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowCaseFormAttachment/Assist",
       "model": "workflowCaseFormAttachment",
       "key": "workflowCaseFormAttachmentId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowCaseFormStorage/Assist",
       "model": "workflowCaseFormStorage",
       "key": "workflowCaseFormStorageId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowCaseLatestApprove/Assist",
       "model": "workflowCaseLatestApprove",
       "key": "workflowCaseLatestApproveId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowCaseNextProcessNotification/Assist",
       "model": "workflowCaseNextProcessNotification",
       "key": "workflowCaseNextProcessNotificationId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowCaseNextProcessProgress/Assist",
       "model": "workflowCaseNextProcessProgress",
       "key": "workflowCaseNextProcessProgressId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowCaseProcessHistory/Assist",
       "model": "workflowCaseProcessHistory",
       "key": "workflowCaseProcessHistoryId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowDebugCase/Assist",
       "model": "workflowDebugCase",
       "key": "workflowDebugCaseId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowDebugCaseCarbonCopyNotification/Assist",
       "model": "workflowDebugCaseCarbonCopyNotification",
       "key": "workflowDebugCaseCarbonCopyNotificationId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowDebugCaseFormAttachment/Assist",
       "model": "workflowDebugCaseFormAttachment",
       "key": "workflowDebugCaseFormAttachmentId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowDebugCaseFormStorage/Assist",
       "model": "workflowDebugCaseFormStorage",
       "key": "workflowDebugCaseFormStorageId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowDebugCaseLatestApprove/Assist",
       "model": "workflowDebugCaseLatestApprove",
       "key": "workflowDebugCaseLatestApproveId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowDebugCaseNextProcessNotification/Assist",
       "model": "workflowDebugCaseNextProcessNotification",
       "key": "workflowDebugCaseNextProcessNotificationId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowDebugCaseNextProcessProgress/Assist",
       "model": "workflowDebugCaseNextProcessProgress",
       "key": "workflowDebugCaseNextProcessProgressId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowDebugCaseProcessHistory/Assist",
       "model": "workflowDebugCaseProcessHistory",
       "key": "workflowDebugCaseProcessHistoryId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowFormDesign/Assist",
       "model": "workflowFormDesign",
       "key": "workflowFormDesignId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowLine/Assist",
       "model": "workflowLine",
       "key": "workflowLineId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowNode/Assist",
       "model": "workflowNode",
       "key": "workflowNodeId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowNodeApprover/Assist",
       "model": "workflowNodeApprover",
       "key": "workflowNodeApproverId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowRangeEffectiveExternalDepartmentRelation/Assist",
       "model": "workflowRangeEffectiveExternalDepartmentRelation",
       "key": "workflowRangeEffectiveExternalDepartmentRelationId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     },
     {
       "folder": "general/WorkflowRangeEffectiveSubsidiaryRelation/Assist",
       "model": "workflowRangeEffectiveSubsidiaryRelation",
       "key": "workflowRangeEffectiveSubsidiaryRelationId",
-      "fileName": "config.js",
+      "fileName": "tools.js",
       "coverFile": false
     }
   ]

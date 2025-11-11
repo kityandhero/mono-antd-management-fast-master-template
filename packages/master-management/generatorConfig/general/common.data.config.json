@@ -1,6 +1,97 @@
 {
   "list": [
     {
+      "folder": "general/AccessWay/Common",
+      "model": "accessWay",
+      "key": "accessWayId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/AdministrativeDivision/Common",
+      "model": "administrativeDivision",
+      "key": "administrativeDivisionId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/Application/Common",
+      "model": "application",
+      "key": "applicationId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/ApplicationCustomerFeedback/Common",
+      "model": "applicationCustomerFeedback",
+      "key": "applicationCustomerFeedbackId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/ApplicationNavigation/Common",
+      "model": "applicationNavigation",
+      "key": "applicationNavigationId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/ApplicationSource/Common",
+      "model": "applicationSource",
+      "key": "applicationSourceId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/ApplicationUserFeedback/Common",
+      "model": "applicationUserFeedback",
+      "key": "applicationUserFeedbackId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/ApplicationVersion/Common",
+      "model": "applicationVersion",
+      "key": "applicationVersionId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/BusinessSet/Common",
+      "model": "businessSet",
+      "key": "businessSetId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/CallCenter/Common",
+      "model": "callCenter",
+      "key": "callCenterId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/CallCenterCategory/Common",
+      "model": "callCenterCategory",
+      "key": "callCenterCategoryId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/ChannelExecuteLogSwitch/Common",
+      "model": "channelExecuteLogSwitch",
+      "key": "channelExecuteLogSwitchId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/ChannelSqlLogSwitch/Common",
+      "model": "channelSqlLogSwitch",
+      "key": "channelSqlLogSwitchId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
       "folder": "general/Customer/Common",
       "model": "customer",
       "key": "customerId",
@@ -22,212 +113,37 @@
       "coverFile": false
     },
     {
-      "folder": "general/SubsidiaryComplaintCategory/Common",
-      "model": "subsidiaryComplaintCategory",
-      "key": "subsidiaryComplaintCategoryId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryComplaintMessage/Common",
-      "model": "subsidiaryComplaintMessage",
-      "key": "subsidiaryComplaintMessageId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryFeedbackMessage/Common",
-      "model": "subsidiaryFeedbackMessage",
-      "key": "subsidiaryFeedbackMessageId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryReportMessage/Common",
-      "model": "subsidiaryReportMessage",
-      "key": "subsidiaryReportMessageId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ApplicationUserFeedback/Common",
-      "model": "applicationUserFeedback",
-      "key": "applicationUserFeedbackId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ApplicationCustomerFeedback/Common",
-      "model": "applicationCustomerFeedback",
-      "key": "applicationCustomerFeedbackId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/Position/Common",
-      "model": "position",
-      "key": "positionId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/PositionGrade/Common",
-      "model": "positionGrade",
-      "key": "positionGradeId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/AdministrativeDivision/Common",
-      "model": "administrativeDivision",
-      "key": "administrativeDivisionId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/Question/Common",
-      "model": "question",
-      "key": "questionId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/QuestionItem/Common",
-      "model": "questionItem",
-      "key": "questionItemId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/QuestionTagRelation/Common",
-      "model": "questionTagRelation",
-      "key": "questionTagRelationId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/Questionnaire/Common",
-      "model": "questionnaire",
-      "key": "questionnaireId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/QuestionnaireQuestionRelation/Common",
-      "model": "questionnaireQuestionRelation",
-      "key": "questionnaireQuestionRelationId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/UserQuestionnaire/Common",
-      "model": "userQuestionnaire",
-      "key": "userQuestionnaireId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/KeyValueInfrastructure/Common",
-      "model": "keyValueInfrastructure",
-      "key": "keyValueInfrastructureId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/KeyValueApplication/Common",
-      "model": "keyValueApplication",
-      "key": "keyValueApplicationId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/KeyValueSection/Common",
-      "model": "keyValueSection",
-      "key": "keyValueSectionId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/KeyValueWorkflow/Common",
-      "model": "keyValueWorkflow",
-      "key": "keyValueWorkflowId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/AccessWay/Common",
-      "model": "accessWay",
-      "key": "accessWayId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/Application/Common",
-      "model": "application",
-      "key": "applicationId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ApplicationNavigation/Common",
-      "model": "applicationNavigation",
-      "key": "applicationNavigationId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ApplicationSource/Common",
-      "model": "applicationSource",
-      "key": "applicationSourceId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ApplicationVersion/Common",
-      "model": "applicationVersion",
-      "key": "applicationVersionId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/CallCenter/Common",
-      "model": "callCenter",
-      "key": "callCenterId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/CallCenterCategory/Common",
-      "model": "callCenterCategory",
-      "key": "callCenterCategoryId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/BusinessSet/Common",
-      "model": "businessSet",
-      "key": "businessSetId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ChannelExecuteLogSwitch/Common",
-      "model": "channelExecuteLogSwitch",
-      "key": "channelExecuteLogSwitchId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ChannelSqlLogSwitch/Common",
-      "model": "channelSqlLogSwitch",
-      "key": "channelSqlLogSwitchId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
       "folder": "general/Department/Common",
       "model": "department",
       "key": "departmentId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/EmailMessage/Common",
+      "model": "emailMessage",
+      "key": "emailMessageId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/EmailSenderAgent/Common",
+      "model": "emailSenderAgent",
+      "key": "emailSenderAgentId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/EmailSenderAgentStatistic/Common",
+      "model": "emailSenderAgentStatistic",
+      "key": "emailSenderAgentStatisticId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/EmailStatistic/Common",
+      "model": "emailStatistic",
+      "key": "emailStatisticId",
       "fileName": "data.js",
       "coverFile": false
     },
@@ -295,6 +211,34 @@
       "coverFile": false
     },
     {
+      "folder": "general/KeyValueApplication/Common",
+      "model": "keyValueApplication",
+      "key": "keyValueApplicationId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/KeyValueInfrastructure/Common",
+      "model": "keyValueInfrastructure",
+      "key": "keyValueInfrastructureId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/KeyValueSection/Common",
+      "model": "keyValueSection",
+      "key": "keyValueSectionId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/KeyValueWorkflow/Common",
+      "model": "keyValueWorkflow",
+      "key": "keyValueWorkflowId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
       "folder": "general/MasterManager/Common",
       "model": "masterManager",
       "key": "masterManagerId",
@@ -316,6 +260,20 @@
       "coverFile": false
     },
     {
+      "folder": "general/Position/Common",
+      "model": "position",
+      "key": "positionId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/PositionGrade/Common",
+      "model": "positionGrade",
+      "key": "positionGradeId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
       "folder": "general/QrCode/Common",
       "model": "qrCode",
       "key": "qrCodeId",
@@ -326,6 +284,41 @@
       "folder": "general/QrCodeCategory/Common",
       "model": "qrCodeCategory",
       "key": "qrCodeCategoryId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/Question/Common",
+      "model": "question",
+      "key": "questionId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/QuestionItem/Common",
+      "model": "questionItem",
+      "key": "questionItemId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/Questionnaire/Common",
+      "model": "questionnaire",
+      "key": "questionnaireId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/QuestionnaireQuestionRelation/Common",
+      "model": "questionnaireQuestionRelation",
+      "key": "questionnaireQuestionRelationId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/QuestionTagRelation/Common",
+      "model": "questionTagRelation",
+      "key": "questionTagRelationId",
       "fileName": "data.js",
       "coverFile": false
     },
@@ -347,6 +340,13 @@
       "folder": "general/SectionApplicationConfig/Common",
       "model": "sectionApplicationConfig",
       "key": "sectionApplicationConfigId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SqlEntity/Common",
+      "model": "sqlEntity",
+      "key": "sqlEntityId",
       "fileName": "data.js",
       "coverFile": false
     },
@@ -386,6 +386,34 @@
       "coverFile": false
     },
     {
+      "folder": "general/SubsidiaryComplaintCategory/Common",
+      "model": "subsidiaryComplaintCategory",
+      "key": "subsidiaryComplaintCategoryId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryComplaintMessage/Common",
+      "model": "subsidiaryComplaintMessage",
+      "key": "subsidiaryComplaintMessageId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryFeedbackMessage/Common",
+      "model": "subsidiaryFeedbackMessage",
+      "key": "subsidiaryFeedbackMessageId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryReportMessage/Common",
+      "model": "subsidiaryReportMessage",
+      "key": "subsidiaryReportMessageId",
+      "fileName": "data.js",
+      "coverFile": false
+    },
+    {
       "folder": "general/Tag/Common",
       "model": "tag",
       "key": "tagId",
@@ -396,13 +424,6 @@
       "folder": "general/UploadHistory/Common",
       "model": "uploadHistory",
       "key": "uploadHistoryId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/EmailSenderAgent/Common",
-      "model": "emailSenderAgent",
-      "key": "emailSenderAgentId",
       "fileName": "data.js",
       "coverFile": false
     },
@@ -428,16 +449,16 @@
       "coverFile": false
     },
     {
-      "folder": "general/UserSubsidiaryInfo/Common",
-      "model": "userSubsidiaryInfo",
-      "key": "userSubsidiaryInfoId",
+      "folder": "general/UserQuestionnaire/Common",
+      "model": "userQuestionnaire",
+      "key": "userQuestionnaireId",
       "fileName": "data.js",
       "coverFile": false
     },
     {
-      "folder": "general/SqlEntity/Common",
-      "model": "sqlEntity",
-      "key": "sqlEntityId",
+      "folder": "general/UserSubsidiaryInfo/Common",
+      "model": "userSubsidiaryInfo",
+      "key": "userSubsidiaryInfoId",
       "fileName": "data.js",
       "coverFile": false
     },
@@ -620,27 +641,6 @@
       "folder": "general/WorkflowRangeEffectiveSubsidiaryRelation/Common",
       "model": "workflowRangeEffectiveSubsidiaryRelation",
       "key": "workflowRangeEffectiveSubsidiaryRelationId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/EmailMessage/Common",
-      "model": "emailMessage",
-      "key": "emailMessageId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/EmailSenderAgentStatistic/Common",
-      "model": "emailSenderAgentStatistic",
-      "key": "emailSenderAgentStatisticId",
-      "fileName": "data.js",
-      "coverFile": false
-    },
-    {
-      "folder": "general/EmailStatistic/Common",
-      "model": "emailStatistic",
-      "key": "emailStatisticId",
       "fileName": "data.js",
       "coverFile": false
     }

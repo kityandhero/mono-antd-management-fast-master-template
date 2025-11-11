@@ -4,16 +4,15 @@
       "folder": "general/Gallery/ChangeImageModal",
       "model": "gallery",
       "key": "galleryId",
-      "visibleFlag": "6e097225df6d43e6ae719eecb4c63f53",
+      "visibleFlag": "3184abe26b0244ef95736668157ab30a",
       "fileName": "index.jsx",
       "coverFile": false
     },
-
     {
       "folder": "general/QrCode/ChangeImageModal",
       "model": "qrCode",
       "key": "qrCodeId",
-      "visibleFlag": "892bdc623c3b488594ecd6c2af6c7a17",
+      "visibleFlag": "6fba0c1668944a2bbe4ee9c66cb557bc",
       "fileName": "index.jsx",
       "coverFile": false
     }

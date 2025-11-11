@@ -1,79 +1,9 @@
 {
   "list": [
     {
-      "folder": "general/Customer/PageList",
-      "model": "customer",
-      "key": "customerId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/CustomerLoginLog/PageList",
-      "model": "customerLoginLog",
-      "key": "customerLoginLogId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/customerWechatApplicationInfo/PageList",
-      "model": "customerWechatApplicationInfo",
-      "key": "customerWechatApplicationInfoId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryComplaintCategory/PageList",
-      "model": "subsidiaryComplaintCategory",
-      "key": "subsidiaryComplaintCategoryId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryComplaintMessage/PageList",
-      "model": "subsidiaryComplaintMessage",
-      "key": "subsidiaryComplaintMessageId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryFeedbackMessage/PageList",
-      "model": "subsidiaryFeedbackMessage",
-      "key": "subsidiaryFeedbackMessageId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ApplicationUserFeedback/PageList",
-      "model": "applicationUserFeedback",
-      "key": "applicationUserFeedbackId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/ApplicationCustomerFeedback/PageList",
-      "model": "applicationCustomerFeedback",
-      "key": "applicationCustomerFeedbackId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SubsidiaryReportMessage/PageList",
-      "model": "subsidiaryReportMessage",
-      "key": "subsidiaryReportMessageId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/Position/PageList",
-      "model": "position",
-      "key": "positionId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/PositionGrade/PageList",
-      "model": "positionGrade",
-      "key": "positionGradeId",
+      "folder": "general/AccessWay/PageList",
+      "model": "accessWay",
+      "key": "accessWayId",
       "fileName": "index.jsx",
       "coverFile": false
     },
@@ -85,76 +15,6 @@
       "coverFile": false
     },
     {
-      "folder": "general/Question/PageList",
-      "model": "question",
-      "key": "questionId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/QuestionItem/PageList",
-      "model": "questionItem",
-      "key": "questionItemId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/Questionnaire/PageList",
-      "model": "questionnaire",
-      "key": "questionnaireId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/QuestionnaireQuestionRelation/PageList",
-      "model": "questionnaireQuestionRelation",
-      "key": "questionnaireQuestionRelationId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/UserQuestionnaire/PageList",
-      "model": "userQuestionnaire",
-      "key": "userQuestionnaireId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/KeyValueInfrastructure/PageList",
-      "model": "keyValueInfrastructure",
-      "key": "keyValueInfrastructureId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/KeyValueApplication/PageList",
-      "model": "keyValueApplication",
-      "key": "keyValueApplicationId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/KeyValueSection/PageList",
-      "model": "keyValueSection",
-      "key": "keyValueSectionId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/KeyValueWorkflow/PageList",
-      "model": "keyValueWorkflow",
-      "key": "keyValueWorkflowId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/AccessWay/PageList",
-      "model": "accessWay",
-      "key": "accessWayId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
       "folder": "general/Application/PageList",
       "model": "application",
       "key": "applicationId",
@@ -162,9 +22,30 @@
       "coverFile": false
     },
     {
+      "folder": "general/ApplicationCustomerFeedback/PageList",
+      "model": "applicationCustomerFeedback",
+      "key": "applicationCustomerFeedbackId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/ApplicationSource/PageList",
       "model": "applicationSource",
       "key": "applicationSourceId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/ApplicationUserFeedback/PageList",
+      "model": "applicationUserFeedback",
+      "key": "applicationUserFeedbackId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/BusinessSet/PageList",
+      "model": "businessSet",
+      "key": "businessSetId",
       "fileName": "index.jsx",
       "coverFile": false
     },
@@ -183,17 +64,51 @@
       "coverFile": false
     },
     {
-      "folder": "general/BusinessSet/PageList",
-      "model": "businessSet",
-      "key": "businessSetId",
+      "folder": "general/Customer/PageList",
+      "model": "customer",
+      "key": "customerId",
       "fileName": "index.jsx",
       "coverFile": false
     },
-
+    {
+      "folder": "general/CustomerLoginLog/PageList",
+      "model": "customerLoginLog",
+      "key": "customerLoginLogId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/CustomerWechatApplicationInfo/PageList",
+      "model": "customerWechatApplicationInfo",
+      "key": "customerWechatApplicationInfoId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
     {
       "folder": "general/Department/PageList",
       "model": "department",
       "key": "departmentId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/EmailMessage/PageList",
+      "model": "emailMessage",
+      "key": "emailMessageId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/EmailSenderAgentStatistic/PageList",
+      "model": "emailSenderAgentStatistic",
+      "key": "emailSenderAgentStatisticId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/EmailStatistic/PageList",
+      "model": "emailStatistic",
+      "key": "emailStatisticId",
       "fileName": "index.jsx",
       "coverFile": false
     },
@@ -261,6 +176,34 @@
       "coverFile": false
     },
     {
+      "folder": "general/KeyValueApplication/PageList",
+      "model": "keyValueApplication",
+      "key": "keyValueApplicationId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/KeyValueInfrastructure/PageList",
+      "model": "keyValueInfrastructure",
+      "key": "keyValueInfrastructureId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/KeyValueSection/PageList",
+      "model": "keyValueSection",
+      "key": "keyValueSectionId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/KeyValueWorkflow/PageList",
+      "model": "keyValueWorkflow",
+      "key": "keyValueWorkflowId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/MasterManager/PageList",
       "model": "masterManager",
       "key": "masterManagerId",
@@ -282,6 +225,20 @@
       "coverFile": false
     },
     {
+      "folder": "general/Position/PageList",
+      "model": "position",
+      "key": "positionId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/PositionGrade/PageList",
+      "model": "positionGrade",
+      "key": "positionGradeId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/QrCode/PageList",
       "model": "qrCode",
       "key": "qrCodeId",
@@ -292,6 +249,34 @@
       "folder": "general/QrCodeCategory/PageList",
       "model": "qrCodeCategory",
       "key": "qrCodeCategoryId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/Question/PageList",
+      "model": "question",
+      "key": "questionId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/QuestionItem/PageList",
+      "model": "questionItem",
+      "key": "questionItemId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/Questionnaire/PageList",
+      "model": "questionnaire",
+      "key": "questionnaireId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/QuestionnaireQuestionRelation/PageList",
+      "model": "questionnaireQuestionRelation",
+      "key": "questionnaireQuestionRelationId",
       "fileName": "index.jsx",
       "coverFile": false
     },
@@ -338,6 +323,34 @@
       "coverFile": false
     },
     {
+      "folder": "general/SubsidiaryComplaintCategory/PageList",
+      "model": "subsidiaryComplaintCategory",
+      "key": "subsidiaryComplaintCategoryId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryComplaintMessage/PageList",
+      "model": "subsidiaryComplaintMessage",
+      "key": "subsidiaryComplaintMessageId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryFeedbackMessage/PageList",
+      "model": "subsidiaryFeedbackMessage",
+      "key": "subsidiaryFeedbackMessageId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SubsidiaryReportMessage/PageList",
+      "model": "subsidiaryReportMessage",
+      "key": "subsidiaryReportMessageId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/Tag/PageList",
       "model": "tag",
       "key": "tagId",
@@ -366,16 +379,9 @@
       "coverFile": false
     },
     {
-      "folder": "general/SqlEntity/PageListBusiness",
-      "model": "sqlEntity",
-      "key": "sqlEntityId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/SqlEntity/PageListInfrastructure",
-      "model": "sqlEntity",
-      "key": "sqlEntityId",
+      "folder": "general/UserQuestionnaire/PageList",
+      "model": "userQuestionnaire",
+      "key": "userQuestionnaireId",
       "fileName": "index.jsx",
       "coverFile": false
     },
@@ -397,27 +403,6 @@
       "folder": "general/WorkflowCase/PageList",
       "model": "workflowCase",
       "key": "workflowCaseId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/EmailMessage/PageList",
-      "model": "emailMessage",
-      "key": "emailMessageId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/EmailSenderAgentStatistic/PageList",
-      "model": "emailSenderAgentStatistic",
-      "key": "emailSenderAgentStatisticId",
-      "fileName": "index.jsx",
-      "coverFile": false
-    },
-    {
-      "folder": "general/EmailStatistic/PageList",
-      "model": "emailStatistic",
-      "key": "emailStatisticId",
       "fileName": "index.jsx",
       "coverFile": false
     }

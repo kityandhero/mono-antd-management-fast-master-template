@@ -4,156 +4,182 @@
       "folder": "general/AdministrativeDivision/Edit/OperateLog/PageList",
       "model": "administrativeDivision",
       "key": "administrativeDivisionId",
-      "coverFile": true
-    },
-    {
-      "folder": "general/Customer/Edit/OperateLog/PageList",
-      "model": "customer",
-      "key": "customerId",
-      "coverFile": true
-    },
-    {
-      "folder": "general/SubsidiaryComplaintCategory/Edit/OperateLog/PageList",
-      "model": "subsidiaryComplaintCategory",
-      "key": "subsidiaryComplaintCategoryId",
-      "coverFile": true
-    },
-    {
-      "folder": "general/SubsidiaryComplaintMessage/Edit/OperateLog/PageList",
-      "model": "subsidiaryComplaintMessage",
-      "key": "subsidiaryComplaintMessageId",
-      "coverFile": true
-    },
-    {
-      "folder": "general/SubsidiaryFeedbackMessage/Edit/OperateLog/PageList",
-      "model": "subsidiaryFeedbackMessage",
-      "key": "subsidiaryFeedbackMessageId",
-      "coverFile": true
-    },
-    {
-      "folder": "general/SubsidiaryReportMessage/Edit/OperateLog/PageList",
-      "model": "subsidiaryReportMessage",
-      "key": "subsidiaryReportMessageId",
-      "coverFile": true
-    },
-    {
-      "folder": "general/ApplicationUserFeedback/Edit/OperateLog/PageList",
-      "model": "applicationUserFeedback",
-      "key": "applicationUserFeedbackId",
-      "coverFile": true
-    },
-    {
-      "folder": "general/ApplicationCustomerFeedback/Edit/OperateLog/PageList",
-      "model": "applicationCustomerFeedback",
-      "key": "applicationCustomerFeedbackId",
-      "coverFile": true
-    },
-    {
-      "folder": "general/Question/Edit/OperateLog/PageList",
-      "model": "question",
-      "key": "questionId",
-      "coverFile": true
-    },
-    {
-      "folder": "general/Questionnaire/Edit/OperateLog/PageList",
-      "model": "questionnaire",
-      "key": "questionnaireId",
-      "coverFile": true
-    },
-    {
-      "folder": "general/UserQuestionnaire/Edit/OperateLog/PageList",
-      "model": "userQuestionnaire",
-      "key": "userQuestionnaireId",
+      "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/Application/Edit/OperateLog/PageList",
       "model": "application",
       "key": "applicationId",
+      "fileName": "index.jsx",
+      "coverFile": true
+    },
+    {
+      "folder": "general/ApplicationCustomerFeedback/Edit/OperateLog/PageList",
+      "model": "applicationCustomerFeedback",
+      "key": "applicationCustomerFeedbackId",
+      "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/ApplicationSource/Edit/OperateLog/PageList",
       "model": "applicationSource",
       "key": "applicationSourceId",
+      "fileName": "index.jsx",
+      "coverFile": true
+    },
+    {
+      "folder": "general/ApplicationUserFeedback/Edit/OperateLog/PageList",
+      "model": "applicationUserFeedback",
+      "key": "applicationUserFeedbackId",
+      "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/CallCenter/Edit/OperateLog/PageList",
       "model": "callCenter",
       "key": "callCenterId",
+      "fileName": "index.jsx",
+      "coverFile": true
+    },
+    {
+      "folder": "general/Customer/Edit/OperateLog/PageList",
+      "model": "customer",
+      "key": "customerId",
+      "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/Department/Edit/OperateLog/PageList",
       "model": "department",
       "key": "departmentId",
+      "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/Gallery/Edit/OperateLog/PageList",
       "model": "gallery",
       "key": "galleryId",
+      "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/MasterManager/Edit/OperateLog/PageList",
       "model": "masterManager",
       "key": "masterManagerId",
+      "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/PresetRole/Edit/OperateLog/PageList",
       "model": "presetRole",
       "key": "presetRoleId",
+      "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/QrCode/Edit/OperateLog/PageList",
       "model": "qrCode",
       "key": "qrCodeId",
+      "fileName": "index.jsx",
+      "coverFile": true
+    },
+    {
+      "folder": "general/Question/Edit/OperateLog/PageList",
+      "model": "question",
+      "key": "questionId",
+      "fileName": "index.jsx",
+      "coverFile": true
+    },
+    {
+      "folder": "general/Questionnaire/Edit/OperateLog/PageList",
+      "model": "questionnaire",
+      "key": "questionnaireId",
+      "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/Section/Edit/OperateLog/PageList",
       "model": "section",
       "key": "sectionId",
+      "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/Subsidiary/Edit/OperateLog/PageList",
       "model": "subsidiary",
       "key": "subsidiaryId",
+      "fileName": "index.jsx",
+      "coverFile": true
+    },
+    {
+      "folder": "general/SubsidiaryComplaintCategory/Edit/OperateLog/PageList",
+      "model": "subsidiaryComplaintCategory",
+      "key": "subsidiaryComplaintCategoryId",
+      "fileName": "index.jsx",
+      "coverFile": true
+    },
+    {
+      "folder": "general/SubsidiaryComplaintMessage/Edit/OperateLog/PageList",
+      "model": "subsidiaryComplaintMessage",
+      "key": "subsidiaryComplaintMessageId",
+      "fileName": "index.jsx",
+      "coverFile": true
+    },
+    {
+      "folder": "general/SubsidiaryFeedbackMessage/Edit/OperateLog/PageList",
+      "model": "subsidiaryFeedbackMessage",
+      "key": "subsidiaryFeedbackMessageId",
+      "fileName": "index.jsx",
+      "coverFile": true
+    },
+    {
+      "folder": "general/SubsidiaryReportMessage/Edit/OperateLog/PageList",
+      "model": "subsidiaryReportMessage",
+      "key": "subsidiaryReportMessageId",
+      "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/Tag/Edit/OperateLog/PageList",
       "model": "tag",
       "key": "tagId",
+      "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/User/Edit/OperateLog/PageList",
       "model": "user",
       "key": "userId",
+      "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/UserDevice/Edit/OperateLog/PageList",
       "model": "userDevice",
       "key": "userDeviceId",
+      "fileName": "index.jsx",
+      "coverFile": true
+    },
+    {
+      "folder": "general/UserQuestionnaire/Edit/OperateLog/PageList",
+      "model": "userQuestionnaire",
+      "key": "userQuestionnaireId",
+      "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/Workflow/Edit/OperateLog/PageList",
       "model": "workflow",
       "key": "workflowId",
+      "fileName": "index.jsx",
       "coverFile": true
     },
     {
       "folder": "general/WorkflowCase/Edit/OperateLog/PageList",
       "model": "workflowCase",
       "key": "workflowCaseId",
+      "fileName": "index.jsx",
       "coverFile": true
     }
   ]
