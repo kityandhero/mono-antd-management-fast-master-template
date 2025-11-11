@@ -32,7 +32,7 @@ const visibleFlag = '<%= o.visibleFlag %>';
   <%= o.model%>,
   schedulingControl,
 }))
-class PageListDrawer extends MultiPageDrawer {
+class PageList<%= o.name%>Drawer extends MultiPageDrawer {
   reloadWhenShow = true;
 
   componentAuthority = accessWayCollection.<%= o.model%>.pageList.permission;
@@ -190,4 +190,4 @@ class PageListDrawer extends MultiPageDrawer {
   ];
 }
 
-export { PageListDrawer };
+export { PageList<%= o.name%>Drawer };

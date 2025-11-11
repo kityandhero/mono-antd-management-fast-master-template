@@ -16,7 +16,7 @@ const {
   <%= o.model%>,
   schedulingControl,
 }))
-class SelectModalField extends BaseSelectFieldExtra {
+class <%= o.name%>SelectModalField extends BaseSelectFieldExtra {
   selectValueText = (data) => {
     const title = getValueByKey({
       data,
@@ -47,4 +47,4 @@ class SelectModalField extends BaseSelectFieldExtra {
   };
 }
 
-export { SelectModalField };
+export { <%= o.name%>SelectModalField };
