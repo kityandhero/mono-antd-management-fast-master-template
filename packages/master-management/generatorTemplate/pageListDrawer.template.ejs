@@ -95,7 +95,7 @@ class PageList<%= o.name%>Drawer extends MultiPageDrawer {
   };
 
   goToEdit = (record) => {
-    PageListDrawer.close();
+    switchControlAssist.close(visibleFlag);
 
     const id = getValueByKey({
       data: record,
