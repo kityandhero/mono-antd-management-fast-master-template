@@ -5,7 +5,7 @@ import { iconBuilder } from 'antd-management-fast-component';
 import { DataDrawer } from 'antd-management-fast-framework';
 
 import { fieldDataFlowCase } from '../../../customConfig';
-import { SubsidiarySelectModalField } from '../../../pages/Subsidiary/SelectModalField';
+import { SubsidiarySelectModalField } from '../../../pages/general/Subsidiary/SelectModalField';
 
 const { BaseUpdateDrawer } = DataDrawer;
 
