@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { connect } from 'easy-soft-dva';
 import { buildFieldDescription } from 'easy-soft-utility';
 
 import { FieldExtra } from 'antd-management-fast-component';
@@ -11,18 +10,15 @@ const {
   SelectFieldExtra: { BaseSelectFieldExtra },
 } = FieldExtra;
 
-@connect(({ department, schedulingControl }) => ({
-  department,
-  schedulingControl,
-}))
-class DepartmentSelectField extends BaseSelectFieldExtra {
+class SubsidiarySelectDrawerField extends BaseSelectFieldExtra {
   selectValueText = (data) => {
-    const { name } = {
-      name: '',
+    const { fullName, shortName } = {
+      shortName: '',
+      fullName: '',
       ...data,
     };
 
-    return name;
+    return shortName || fullName;
   };
 
   openSelector = () => {
@@ -30,15 +26,13 @@ class DepartmentSelectField extends BaseSelectFieldExtra {
   };
 
   renderPresetSelector = () => {
-    const { label, searchParams } = {
+    const { label } = {
       label: '',
-      searchParams: {},
       ...this.props,
     };
 
     return (
       <PageListSelectDrawer
-        searchParams={searchParams}
         title={buildFieldDescription(label, '选择')}
         width={1200}
         afterSelectSuccess={this.afterSelectSuccess}
@@ -47,4 +41,4 @@ class DepartmentSelectField extends BaseSelectFieldExtra {
   };
 }
 
-export { DepartmentSelectField };
+export { SubsidiarySelectDrawerField };

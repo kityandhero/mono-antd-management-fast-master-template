@@ -1,10 +1,6 @@
 import React from 'react';
 
-import { connect } from 'easy-soft-dva';
-import {
-  buildFieldDescription,
-  checkStringIsNullOrWhiteSpace,
-} from 'easy-soft-utility';
+import { buildFieldDescription } from 'easy-soft-utility';
 
 import { FieldExtra } from 'antd-management-fast-component';
 
@@ -14,23 +10,15 @@ const {
   SelectFieldExtra: { BaseSelectFieldExtra },
 } = FieldExtra;
 
-@connect(({ user, schedulingControl }) => ({
-  user,
-  schedulingControl,
-}))
-class UserSelectModalField extends BaseSelectFieldExtra {
+class SubsidiarySelectModalField extends BaseSelectFieldExtra {
   selectValueText = (data) => {
-    const { loginName, username, realName, phone } = {
-      loginName: '',
-      username: '',
-      realName: '',
-      phone: '',
+    const { fullName, shortName } = {
+      shortName: '',
+      fullName: '',
       ...data,
     };
 
-    return `${realName || username || loginName}${
-      checkStringIsNullOrWhiteSpace(phone) ? '' : ` 【${phone}】`
-    }`;
+    return shortName || fullName;
   };
 
   openSelector = () => {
@@ -39,7 +27,7 @@ class UserSelectModalField extends BaseSelectFieldExtra {
 
   renderPresetSelector = () => {
     const { label } = {
-      label: '',
+      label: '选择企业',
       ...this.props,
     };
 
@@ -53,4 +41,4 @@ class UserSelectModalField extends BaseSelectFieldExtra {
   };
 }
 
-export { UserSelectModalField };
+export { SubsidiarySelectModalField };

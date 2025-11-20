@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { connect } from 'easy-soft-dva';
+import { buildFieldDescription, replaceWithKeep } from 'easy-soft-utility';
 
 import { FieldExtra } from 'antd-management-fast-component';
 
@@ -10,18 +10,14 @@ const {
   SelectFieldExtra: { BaseSelectFieldExtra },
 } = FieldExtra;
 
-@connect(({ smsCategory, schedulingControl }) => ({
-  smsCategory,
-  schedulingControl,
-}))
-class SelectDrawerField extends BaseSelectFieldExtra {
+class SubsidiarySelectField extends BaseSelectFieldExtra {
   selectValueText = (data) => {
-    const { name } = {
-      name: '',
+    const { nickname, userId } = {
+      nickname: '',
       ...data,
     };
 
-    return name;
+    return nickname || replaceWithKeep(userId, '***', 2, 6);
   };
 
   openSelector = () => {
@@ -36,7 +32,7 @@ class SelectDrawerField extends BaseSelectFieldExtra {
 
     return (
       <PageListDrawer
-        title={label}
+        title={buildFieldDescription(label, '选择')}
         width={1200}
         afterSelectSuccess={this.afterSelectSuccess}
       />
@@ -44,4 +40,4 @@ class SelectDrawerField extends BaseSelectFieldExtra {
   };
 }
 
-export { SelectDrawerField };
+export { SubsidiarySelectField };

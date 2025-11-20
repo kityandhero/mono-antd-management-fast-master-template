@@ -1,0 +1,41 @@
+import React from 'react';
+
+import { FieldExtra } from 'antd-management-fast-component';
+
+import PageListDrawer from '../PageListDrawer';
+
+const {
+  SelectFieldExtra: { BaseSelectFieldExtra },
+} = FieldExtra;
+
+class SelectDrawerField extends BaseSelectFieldExtra {
+  selectValueText = (data) => {
+    const { name } = {
+      name: '',
+      ...data,
+    };
+
+    return name;
+  };
+
+  openSelector = () => {
+    PageListDrawer.open();
+  };
+
+  renderPresetSelector = () => {
+    const { label } = {
+      label: '',
+      ...this.props,
+    };
+
+    return (
+      <PageListDrawer
+        title={label}
+        width={1200}
+        afterSelectSuccess={this.afterSelectSuccess}
+      />
+    );
+  };
+}
+
+export { SelectDrawerField };

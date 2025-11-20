@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { connect } from 'easy-soft-dva';
 import {
   buildFieldDescription,
   getValueByKey,
@@ -17,10 +16,6 @@ const {
   SelectFieldExtra: { BaseSelectFieldExtra },
 } = FieldExtra;
 
-@connect(({ tag, schedulingControl }) => ({
-  tag,
-  schedulingControl,
-}))
 class TagMultiSelectWithQuestionField extends BaseSelectFieldExtra {
   selectValueText = (list) => {
     if (!isArray(list) || isEmptyArray(list)) {

@@ -1,28 +1,28 @@
 import React from 'react';
 
-import { connect } from 'easy-soft-dva';
 import { buildFieldDescription, replaceWithKeep } from 'easy-soft-utility';
 
 import { FieldExtra } from 'antd-management-fast-component';
 
-import PageListDrawer from '../PageListDrawer';
+import { PageListDrawer } from '../PageListDrawer';
 
 const {
   SelectFieldExtra: { BaseSelectFieldExtra },
 } = FieldExtra;
 
-@connect(({ user, schedulingControl }) => ({
-  user,
-  schedulingControl,
-}))
-class SubsidiarySelectField extends BaseSelectFieldExtra {
+class UserSelectDrawerField extends BaseSelectFieldExtra {
   selectValueText = (data) => {
-    const { nickname, userId } = {
-      nickname: '',
+    const { userId, loginName, username, realName } = {
+      userId: '',
+      loginName: '',
+      username: '',
+      realName: '',
       ...data,
     };
 
-    return nickname || replaceWithKeep(userId, '***', 2, 6);
+    return (
+      realName || username || loginName || replaceWithKeep(userId, '***', 2, 6)
+    );
   };
 
   openSelector = () => {
@@ -45,4 +45,4 @@ class SubsidiarySelectField extends BaseSelectFieldExtra {
   };
 }
 
-export { SubsidiarySelectField };
+export { UserSelectDrawerField };

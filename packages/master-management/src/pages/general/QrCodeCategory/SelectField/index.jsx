@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { connect } from 'easy-soft-dva';
-
 import { FieldExtra } from 'antd-management-fast-component';
 
 import PageListDrawer from '../PageListDrawer';
@@ -10,11 +8,7 @@ const {
   SelectFieldExtra: { BaseSelectFieldExtra },
 } = FieldExtra;
 
-@connect(({ qrCodeCategory, schedulingControl }) => ({
-  qrCodeCategory,
-  schedulingControl,
-}))
-class SelectDrawerField extends BaseSelectFieldExtra {
+class SelectField extends BaseSelectFieldExtra {
   selectValueText = (data) => {
     const { name } = {
       name: '',
@@ -44,4 +38,4 @@ class SelectDrawerField extends BaseSelectFieldExtra {
   };
 }
 
-export { SelectDrawerField };
+export { SelectField };

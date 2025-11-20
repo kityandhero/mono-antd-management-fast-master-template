@@ -1,20 +1,14 @@
 import React from 'react';
 
-import { connect } from 'easy-soft-dva';
-
 import { FieldExtra } from 'antd-management-fast-component';
 
-import { PageListSelectModal } from '../PageListSelectModal';
+import PageListDrawer from '../PageListDrawer';
 
 const {
   SelectFieldExtra: { BaseSelectFieldExtra },
 } = FieldExtra;
 
-@connect(({ galleryCategory, schedulingControl }) => ({
-  galleryCategory,
-  schedulingControl,
-}))
-class SelectField extends BaseSelectFieldExtra {
+class SelectDrawerField extends BaseSelectFieldExtra {
   selectValueText = (data) => {
     const { name } = {
       name: '',
@@ -25,7 +19,7 @@ class SelectField extends BaseSelectFieldExtra {
   };
 
   openSelector = () => {
-    PageListSelectModal.open();
+    PageListDrawer.open();
   };
 
   renderPresetSelector = () => {
@@ -35,7 +29,7 @@ class SelectField extends BaseSelectFieldExtra {
     };
 
     return (
-      <PageListSelectModal
+      <PageListDrawer
         title={label}
         width={1200}
         afterSelectSuccess={this.afterSelectSuccess}
@@ -44,4 +38,4 @@ class SelectField extends BaseSelectFieldExtra {
   };
 }
 
-export { SelectField };
+export { SelectDrawerField };

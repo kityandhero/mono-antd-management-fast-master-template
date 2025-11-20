@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { connect } from 'easy-soft-dva';
 import {
   buildFieldDescription,
   checkStringIsNullOrWhiteSpace,
@@ -14,10 +13,6 @@ const {
   SelectFieldExtra: { BaseSelectFieldExtra },
 } = FieldExtra;
 
-@connect(({ positionGrade, schedulingControl }) => ({
-  positionGrade,
-  schedulingControl,
-}))
 class PositionGradeSelectModalField extends BaseSelectFieldExtra {
   selectValueText = (data) => {
     const { positionGradeId, name } = {

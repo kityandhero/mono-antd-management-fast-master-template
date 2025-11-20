@@ -1,20 +1,16 @@
 import React from 'react';
 
-import { connect } from 'easy-soft-dva';
+import { buildFieldDescription } from 'easy-soft-utility';
 
 import { FieldExtra } from 'antd-management-fast-component';
 
-import PageListDrawer from '../PageListDrawer';
+import { PageListSelectDrawer } from '../PageListSelectDrawer';
 
 const {
   SelectFieldExtra: { BaseSelectFieldExtra },
 } = FieldExtra;
 
-@connect(({ smsCategory, schedulingControl }) => ({
-  smsCategory,
-  schedulingControl,
-}))
-class SelectField extends BaseSelectFieldExtra {
+class DepartmentSelectField extends BaseSelectFieldExtra {
   selectValueText = (data) => {
     const { name } = {
       name: '',
@@ -25,18 +21,20 @@ class SelectField extends BaseSelectFieldExtra {
   };
 
   openSelector = () => {
-    PageListDrawer.open();
+    PageListSelectDrawer.open();
   };
 
   renderPresetSelector = () => {
-    const { label } = {
+    const { label, searchParams } = {
       label: '',
+      searchParams: {},
       ...this.props,
     };
 
     return (
-      <PageListDrawer
-        title={label}
+      <PageListSelectDrawer
+        searchParams={searchParams}
+        title={buildFieldDescription(label, '选择')}
         width={1200}
         afterSelectSuccess={this.afterSelectSuccess}
       />
@@ -44,4 +42,4 @@ class SelectField extends BaseSelectFieldExtra {
   };
 }
 
-export { SelectField };
+export { DepartmentSelectField };
