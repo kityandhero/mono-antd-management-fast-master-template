@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { connect } from 'easy-soft-dva';
 import { buildFieldDescription, getValueByKey } from 'easy-soft-utility';
 
 import { FieldExtra } from 'antd-management-fast-component';
@@ -12,10 +11,6 @@ const {
   SelectFieldExtra: { BaseSelectFieldExtra },
 } = FieldExtra;
 
-@connect(({ <%= o.model%>, schedulingControl }) => ({
-  <%= o.model%>,
-  schedulingControl,
-}))
 class <%= o.name%>SelectModalField extends BaseSelectFieldExtra {
   selectValueText = (data) => {
     const title = getValueByKey({

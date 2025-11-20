@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { connect } from 'easy-soft-dva';
-
 import { FieldExtra } from 'antd-management-fast-component';
 
 import { ApplicationSelectModal } from '../SelectModal';
@@ -10,10 +8,6 @@ const {
   SelectFieldExtra: { BaseSelectFieldExtra },
 } = FieldExtra;
 
-@connect(({ application, schedulingControl }) => ({
-  application,
-  schedulingControl,
-}))
 class ApplicationSelectModalField extends BaseSelectFieldExtra {
   getProperties = () => {
     return {

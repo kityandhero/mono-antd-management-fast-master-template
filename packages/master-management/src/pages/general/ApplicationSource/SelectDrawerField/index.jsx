@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { connect } from 'easy-soft-dva';
 import { buildFieldDescription } from 'easy-soft-utility';
 
 import { FieldExtra } from 'antd-management-fast-component';
@@ -11,10 +10,6 @@ const {
   SelectFieldExtra: { BaseSelectFieldExtra },
 } = FieldExtra;
 
-@connect(({ applicationSource, schedulingControl }) => ({
-  applicationSource,
-  schedulingControl,
-}))
 class ApplicationSourceSelectDrawerField extends BaseSelectFieldExtra {
   selectValueText = (data) => {
     const { name } = {
