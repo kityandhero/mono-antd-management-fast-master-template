@@ -14,6 +14,7 @@
     "start": "cd packages/master-management && npm run start:ignore:generate",
     "start:generate": "cd packages/master-management && npm run start:generate",
     "test:master-management": "cd packages/master-management && npm run z:test",
+    "x:create-model-functionSpecialComponent": "cd packages/master-management && npm run x:create-model-functionSpecialComponent",
     "x:template:build:all": "cd packages/master-management && npm run x:template:item:all",
     "x:template:build:custom": "cd packages/master-management && npm run x:template:item:custom",
     "x:template:build:general": "cd packages/master-management && npm run x:template:item:general",

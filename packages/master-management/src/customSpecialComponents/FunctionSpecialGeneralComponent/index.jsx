@@ -18,6 +18,7 @@ export * from './BusinessSetStatus';
 export * from './CacheMode';
 export * from './CallCenterCategoryStatus';
 export * from './CallCenterStatus';
+export * from './CarryMode';
 export * from './Channel';
 export * from './CloudStorageSourceType';
 export * from './CloudStorageStatus';

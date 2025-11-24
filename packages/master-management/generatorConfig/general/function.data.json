@@ -21,6 +21,11 @@
       "name": "type"
     },
     {
+      "functionSegment": "CarryMode",
+      "label": "进位模式",
+      "name": "carryMode"
+    },
+    {
       "functionSegment": "CustomerStatus",
       "label": "状态",
       "name": "status"
