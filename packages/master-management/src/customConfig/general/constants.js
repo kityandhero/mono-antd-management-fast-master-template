@@ -6,6 +6,29 @@ export const amapkey = 'bff966857f8311eb68ea03dcbac869ad';
 
 export const channelMasterManagement = 'b4e618f907dc41b797f599c1695c1c70';
 
+/**
+ * 进位模式值集合
+ */
+export const carryModeCollection = {
+  /**
+   * 四舍五入
+   * value : 0
+   */
+  round: 0,
+
+  /**
+   * 向下进位
+   * value : 100
+   */
+  down: 100,
+
+  /**
+   * 向上进位
+   * value : 200
+   */
+  up: 200,
+};
+
 export const colorCollection = {
   yesColor: '#52c41a',
   noColor: '#ec8402',
