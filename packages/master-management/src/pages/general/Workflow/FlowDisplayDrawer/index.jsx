@@ -249,6 +249,8 @@ class FlowDisplayDrawer extends BaseVerticalFlexDrawer {
         listApproverKey={fieldDataWorkflowNode.listApprover.name}
         approverNameKey={fieldDataWorkflowNodeApprover.approverName.name}
         approverNameLabel={fieldDataWorkflowNodeApprover.approverName.label}
+        carbonCopyNameKey={fieldDataWorkflowNodeApprover.approverName.name}
+        carbonCopyNameLabel="抄送"
         nodes={[...(isArray(nodeList) ? nodeList : [])]}
         edges={[...(isArray(edgeList) ? edgeList : [])]}
         updateViewConfig={this.updateViewConfig}

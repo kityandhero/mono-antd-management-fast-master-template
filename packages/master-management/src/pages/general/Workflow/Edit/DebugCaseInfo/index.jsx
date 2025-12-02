@@ -1746,6 +1746,10 @@ class DebugCaseInfo extends TabPageBase {
                     approverNameLabel={
                       fieldDataWorkflowNodeApprover.approverName.label
                     }
+                    carbonCopyNameKey={
+                      fieldDataWorkflowNodeApprover.approverName.name
+                    }
+                    carbonCopyNameLabel="抄送"
                     nodes={[...(isArray(nodeList) ? nodeList : [])]}
                     edges={[...(isArray(edgeList) ? edgeList : [])]}
                   />
