@@ -16,7 +16,9 @@ import {
   isArray,
   isEmptyArray,
   isEmptyObject,
+  isFunction,
   isNull,
+  isObject,
   toLower,
   toNumber,
   toString,
@@ -553,6 +555,37 @@ export function buildFlowCaseFormInitialValues(
 
     if (type === '[]') {
       data[name] = [];
+    }
+  }
+
+  return data;
+}
+
+/**
+ * build upload file data
+ * @param {Object} options options
+ * @param {string} options.uniqueFlag unique flag
+ * @param {string} options.url file url
+ * @param {Function} options.adjustCallback adjust data callback, must be function and return object
+ * @returns upload file data
+ */
+export function buildUploadFileData({
+  uniqueFlag,
+  url,
+  adjustCallback = null,
+}) {
+  let data = {
+    uid: uniqueFlag,
+    name: '',
+    status: 'done',
+    url: url,
+  };
+
+  if (isFunction(adjustCallback)) {
+    const dataAdjust = adjustCallback(data);
+
+    if (isObject(dataAdjust)) {
+      data = dataAdjust;
     }
   }
 
