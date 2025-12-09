@@ -27,7 +27,7 @@ class <%= o.name%>SelectModalField extends BaseSelectFieldExtra {
   };
 
   renderPresetSelector = () => {
-    const { label } = {
+    const { label, externalData } = {
       label: '选择',
       ...this.props,
     };
@@ -36,6 +36,7 @@ class <%= o.name%>SelectModalField extends BaseSelectFieldExtra {
       <PageListSelectModal
         title={buildFieldDescription(label, '选择')}
         width={1200}
+        externalData={externalData}
         afterSelectSuccess={this.afterSelectSuccess}
       />
     );
