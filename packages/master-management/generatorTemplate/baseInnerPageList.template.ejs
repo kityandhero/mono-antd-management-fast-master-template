@@ -35,7 +35,6 @@ import { getStatusBadge } from '../Assist/tools';
 import { ChangeImageModal } from '../ChangeImageModal';
 import { fieldData, statusCollection } from '../Common/data';
 import { OperateLogDrawer } from '../OperateLogDrawer';
-import { PageListDrawer as PageListRoomDrawer } from '../PageListDrawer';
 import { UpdateBasicInfoDrawer } from '../UpdateBasicInfoDrawer';
 
 const { InnerMultiPage } = DataMultiPageView;
@@ -250,17 +249,6 @@ class BaseInnerPageList extends InnerMultiPage {
       },
       () => {
         OperateLogDrawer.open();
-      },
-    );
-  };
-
-  showPageListRoomDrawer = (item) => {
-    this.setState(
-      {
-        currentRecord: item,
-      },
-      () => {
-        PageListRoomDrawer.open();
       },
     );
   };
