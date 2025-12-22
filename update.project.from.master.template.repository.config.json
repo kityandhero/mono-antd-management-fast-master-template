@@ -17,7 +17,8 @@
     "src/customSpecialComponents/FunctionCommonComponent/",
     "src/customSpecialComponents/UpdateModuleModalBase/",
     "src/pageBases/",
-    "src/pages/general/"
+    "src/pages/general/",
+    "src/utils/general/"
   ],
   "syncFiles": [
     "config/router.general.config.js",
@@ -38,8 +39,6 @@
     "src/localeConfig/index.js",
     "src/locales/zh-CN/menu.js",
     "src/modelBuilders/index.js",
-    "src/utils/general/index.jsx",
-    "src/utils/general/tools.jsx",
     "src/utils/index.jsx",
     "src/utils/init.js",
     "tsconfig.json"
@@ -88,7 +87,6 @@
     "src/localeConfig/custom/zh-CN/index.js",
     "src/localeConfig/custom/zh-CN/menu.js",
     "src/localeConfig/custom/zh-CN/menu.js",
-    "src/localeConfig/general/zh-CN/menu.js",
     "src/locales/en-US.js",
     "src/locales/en-US/component.js",
     "src/locales/en-US/globalHeader.js",
@@ -105,7 +103,7 @@
     "src/pages/custom/Workbench/ShortcutPanel/index.jsx",
     "src/pages/custom/Workbench/index.jsx",
     "src/utils/custom/index.jsx",
-    "src/utils/theme.js",
-    "src/utils/custom/tools.jsx"
+    "src/utils/custom/tools.jsx",
+    "src/utils/theme.js"
   ]
 }
