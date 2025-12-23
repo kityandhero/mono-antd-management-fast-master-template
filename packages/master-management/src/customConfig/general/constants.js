@@ -6,6 +6,8 @@ export const amapkey = 'bff966857f8311eb68ea03dcbac869ad';
 
 export const channelMasterManagement = 'b4e618f907dc41b797f599c1695c1c70';
 
+export const channelUserManagement = '504f6296bf1a4b3f9831d9c38d8f6a7b';
+
 /**
  * 进位模式值集合
  */

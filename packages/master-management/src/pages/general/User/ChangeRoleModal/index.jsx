@@ -4,6 +4,7 @@ import { getValueByKey } from 'easy-soft-utility';
 import { switchControlAssist } from 'antd-management-fast-framework';
 
 import { listSelectAction } from '../../../../commonAssist';
+import { channelUserManagement } from '../../../../customConfig';
 import BaseUpdateRoleModal from '../../../../customSpecialComponents/BaseUpdateRoleModal';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { fieldData } from '../Common/data';
@@ -36,7 +37,7 @@ class UpdateRoleModal extends BaseUpdateRoleModal {
     listSelectAction({
       target: this,
       handleData: {
-        channel: '504f6296bf1a4b3f9831d9c38d8f6a7b',
+        channel: channelUserManagement,
       },
       successCallback: ({ target, remoteListData }) => {
         const customData = remoteListData;
