@@ -45,9 +45,9 @@ import {
   flowNodeTypeCollection,
   signetStyle,
 } from '../../../../customConfig';
+import { buildFlowCaseFormInitialValues } from '../../../../flowAssist';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { BaseFlowCaseFormInfoDrawer } from '../../../../pageBases';
-import { buildFlowCaseFormInitialValues } from '../../../../utils';
 
 class WorkflowCaseFormInfoDrawer extends BaseFlowCaseFormInfoDrawer {
   constructor(properties, visibleFlag) {

@@ -37,8 +37,7 @@ import {
   flowCaseStatusCollection,
   signetStyle,
 } from '../../../customConfig';
-import { SealImage } from '../../../flowAssist';
-import { buildFlowCaseFormInitialValues } from '../../../utils';
+import { buildFlowCaseFormInitialValues, SealImage } from '../../../flowAssist';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
 

@@ -9,17 +9,14 @@ import {
   checkStringIsNullOrWhiteSpace,
   convertCollection,
   datetimeFormat,
-  filter,
   formatDatetime,
   getValueByKey,
-  hasKey,
   isArray,
   isEmptyArray,
   isEmptyObject,
   isFunction,
   isNull,
   isObject,
-  toLower,
   toNumber,
   toString,
   whetherString,
@@ -467,98 +464,6 @@ export function buildOrganizationGraphConfig() {
     },
     type: 'boxed',
   };
-}
-
-export function buildFlowCaseFormInitialValues(
-  listFormStorage,
-  dataSchemaList,
-) {
-  const data = {};
-
-  let listFormStorageAdjust = listFormStorage.map((o) => {
-    const { name } = { name: '', ...o };
-
-    const dataSchemaListFilter = filter(dataSchemaList, (one) => {
-      const { name: nameOne } = {
-        name: '',
-        ...one,
-      };
-
-      return name === nameOne;
-    });
-
-    let dataSchemaType = '';
-
-    if (dataSchemaListFilter.length > 0) {
-      let first = dataSchemaListFilter[0];
-
-      const { type } = {
-        type: '',
-        ...first,
-      };
-
-      dataSchemaType = type ?? '';
-    }
-
-    return {
-      dataSchemaType,
-      ...o,
-    };
-  });
-
-  if (isArray(listFormStorageAdjust) && !isEmptyArray(listFormStorageAdjust)) {
-    for (const o of listFormStorageAdjust) {
-      const { dataSchemaType } = {
-        dataSchemaType: '',
-        ...o,
-      };
-
-      try {
-        data[o.name] = checkInCollection(
-          ['string', 'number'],
-          toLower(dataSchemaType),
-        )
-          ? o.value
-          : JSON.parse(o.value);
-      } catch {
-        data[o.name] = o.value;
-      }
-    }
-  }
-
-  if (!isArray(dataSchemaList) || isEmptyArray(dataSchemaList)) {
-    return data;
-  }
-
-  for (const item of dataSchemaList) {
-    const { name, type } = { name: '', type: '', ...item };
-
-    if (checkStringIsNullOrWhiteSpace(name)) {
-      continue;
-    }
-
-    if (checkStringIsNullOrWhiteSpace(type)) {
-      continue;
-    }
-
-    if (hasKey(data, name)) {
-      continue;
-    }
-
-    if (type === 'string') {
-      data[name] = '';
-    }
-
-    if (type === 'number') {
-      data[name] = '';
-    }
-
-    if (type === '[]') {
-      data[name] = [];
-    }
-  }
-
-  return data;
 }
 
 /**

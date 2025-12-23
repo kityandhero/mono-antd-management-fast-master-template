@@ -47,6 +47,7 @@ import {
 } from '../../../../../customConfig';
 import {
   adjustFlowCaseDataToState,
+  buildFlowCaseFormInitialValues,
   SealImage,
 } from '../../../../../flowAssist';
 import { modelTypeCollection } from '../../../../../modelBuilders';
@@ -58,7 +59,6 @@ import {
   convertProcessHistoryItemData,
   convertProcessHistoryNextData,
 } from '../../../../../pageBases';
-import { buildFlowCaseFormInitialValues } from '../../../../../utils';
 import { fieldData as fieldDataWorkflowCaseCarbonCopyNotification } from '../../../WorkflowCaseCarbonCopyNotification/Common/data';
 import { AttachmentPreviewDrawer as WorkflowCaseFormAttachmentPreviewDrawer } from '../../../WorkflowCaseFormAttachment/AttachmentPreviewDrawer';
 import { fieldData as fieldDataWorkflowCaseFormAttachment } from '../../../WorkflowCaseFormAttachment/Common/data';
