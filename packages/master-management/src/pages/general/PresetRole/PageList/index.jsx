@@ -345,12 +345,6 @@ class PageList extends MultiPage {
       },
     },
     {
-      dataTarget: fieldData.createTime,
-      width: 120,
-      showRichFacade: true,
-      canCopy: true,
-    },
-    {
       dataTarget: fieldData.status,
       width: 100,
       showRichFacade: true,
