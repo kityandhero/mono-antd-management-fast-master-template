@@ -16,7 +16,7 @@
     "src/customSpecialComponents/DataTabContainerSupplement/",
     "src/customSpecialComponents/FunctionCommonComponent/",
     "src/customSpecialComponents/UpdateModuleModalBase/",
-    "src/pageBases/",
+    "src/pageBases/general/",
     "src/pages/general/",
     "src/utils/general/"
   ],
@@ -39,6 +39,7 @@
     "src/localeConfig/index.js",
     "src/locales/zh-CN/menu.js",
     "src/modelBuilders/index.js",
+    "src/pageBases/index.jsx",
     "src/utils/index.jsx",
     "src/utils/init.js",
     "tsconfig.json"

@@ -1,1 +1,1 @@
-export * from '../../../../pageBases/FlowFormDesign/Assist/action';
+export * from '../../../../pageBases/general/FlowFormDesign/Assist/action';
