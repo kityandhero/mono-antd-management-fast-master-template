@@ -100,6 +100,7 @@
     "src/locales/zh-CN/settingDrawer.js",
     "src/locales/zh-CN/settings.js",
     "src/overrides.less",
+    "src/pageBases/custom/index.jsx",
     "src/pages/custom/Workbench/PageHeaderContent/index.jsx",
     "src/pages/custom/Workbench/ShortcutPanel/index.jsx",
     "src/pages/custom/Workbench/index.jsx",
