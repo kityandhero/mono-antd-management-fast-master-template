@@ -281,6 +281,11 @@
       "name": "displayMode"
     },
     {
+      "functionSegment": "FlowMobileApproveViewMode",
+      "label": "流程审批移动端视图模式",
+      "name": "mobileApproveViewMode"
+    },
+    {
       "functionSegment": "FlowFormDesignStatus",
       "label": "状态",
       "name": "status"

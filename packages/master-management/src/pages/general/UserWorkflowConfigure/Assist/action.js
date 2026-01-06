@@ -27,6 +27,28 @@ export async function toggleAllowScanCodeVerificationAction({
   });
 }
 
+export async function toggleAllowAutoReuseProcessHistoryAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.userWorkflowConfigureTypeCollection
+      .toggleAllowAutoReuseProcessHistory,
+    params: {
+      userId: getValueByKey({
+        data: handleData,
+        key: fieldData.userId.name,
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function refreshCacheAction({
   target,
   handleData,

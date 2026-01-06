@@ -3499,6 +3499,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '4c4e6e55bce042154b81518e19edae0e',
       permission: '8c48799b44f74e48a413409e1372a868',
     },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: '2e3b646c550b8bbf9c22c792be89267c',
+      permission: 'fc8df275c5ac4d719f348d047652067c',
+    },
   },
   weChatMessageRecord: {
     pageList: {

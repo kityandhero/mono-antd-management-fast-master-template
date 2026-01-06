@@ -1,6 +1,16 @@
 import { formNameCollection } from '../../../../customConfig';
 
 const fieldExtraData = {
+  friendlyName: {
+    label: '名称',
+    name: 'friendlyName',
+    helper: '',
+  },
+  avatar: {
+    label: '头像',
+    name: 'avatar',
+    helper: '',
+  },
   mobileApproveViewModeNote: {
     label: '移动端审批视图模式',
     name: 'mobileApproveViewModeNote',
@@ -12,8 +22,7 @@ const fieldExtraData = {
     helper: '',
   },
   whetherAllowAutoReuseProcessHistoryNote: {
-    label:
-      '是否允许自动套用审批历史【审批实例若存在用户已审批的历史, 则自动套用, 避免重复操作】',
+    label: '是否允许自动套用审批历史',
     name: 'whetherAllowAutoReuseProcessHistoryNote',
     helper: '',
   },
@@ -42,8 +51,7 @@ export const fieldData = {
     helper: '',
   },
   whetherAllowAutoReuseProcessHistory: {
-    label:
-      '是否允许自动套用审批历史【审批实例若存在用户已审批的历史, 则自动套用, 避免重复操作】',
+    label: '是否允许自动套用审批历史',
     name: 'whetherAllowAutoReuseProcessHistory',
     helper: '',
   },

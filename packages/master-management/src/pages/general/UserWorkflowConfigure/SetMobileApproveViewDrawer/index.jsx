@@ -4,7 +4,7 @@ import { convertCollection, getValueByKey } from 'easy-soft-utility';
 import { cardConfig } from 'antd-management-fast-common';
 import { DataModal, switchControlAssist } from 'antd-management-fast-framework';
 
-import { renderFormFlowApproveActionModeSelect } from '../../../../customSpecialComponents';
+import { renderFormFlowMobileApproveViewModeSelect } from '../../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
@@ -98,7 +98,7 @@ class SetMobileApproveViewDrawer extends BaseUpdateModal {
   establishFormAdditionalConfig = () => {
     return {
       labelCol: {
-        flex: '70px',
+        flex: '200px',
       },
       wrapperCol: {
         flex: 'auto',
@@ -111,7 +111,7 @@ class SetMobileApproveViewDrawer extends BaseUpdateModal {
 
     return getValueByKey({
       data: metaData,
-      key: fieldData.name.name,
+      key: fieldData.friendlyName.name,
     });
   };
 
@@ -123,7 +123,7 @@ class SetMobileApproveViewDrawer extends BaseUpdateModal {
             {
               lg: 24,
               type: cardConfig.contentItemType.component,
-              component: renderFormFlowApproveActionModeSelect({
+              component: renderFormFlowMobileApproveViewModeSelect({
                 required: false,
               }),
             },

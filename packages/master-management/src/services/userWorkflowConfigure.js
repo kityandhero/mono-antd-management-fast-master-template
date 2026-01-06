@@ -75,3 +75,13 @@ export async function refreshAllEntityCacheData(parameters) {
     params: parameters,
   });
 }
+
+export const pageListOperateLogDataApiAddress =
+  '/userWorkflowConfigure/pageListOperateLog';
+
+export async function pageListOperateLogData(parameters) {
+  return request({
+    api: pageListOperateLogDataApiAddress,
+    params: parameters,
+  });
+}

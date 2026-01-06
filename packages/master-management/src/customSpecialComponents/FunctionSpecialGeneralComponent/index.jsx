@@ -65,6 +65,7 @@ export * from './FlowLineFromPosition';
 export * from './FlowLineStatus';
 export * from './FlowLineToPosition';
 export * from './FlowLineType';
+export * from './FlowMobileApproveViewMode';
 export * from './FlowNodeApproveMode';
 export * from './FlowNodeApproverMode';
 export * from './FlowNodeApproverStatus';

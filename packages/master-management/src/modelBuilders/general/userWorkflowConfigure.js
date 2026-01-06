@@ -10,6 +10,7 @@ import {
 import {
   getData,
   pageListData,
+  pageListOperateLogData,
   refreshAllEntityCacheData,
   refreshCacheData,
   setMobileApproveViewModeData,
@@ -29,6 +30,7 @@ export const userWorkflowConfigureTypeCollection = {
     'userWorkflowConfigure/toggleAllowAutoReuseProcessHistory',
   refreshCache: 'userWorkflowConfigure/refreshCache',
   refreshAllEntityCache: 'userWorkflowConfigure/refreshAllEntityCache',
+  pageListOperateLog: 'userWorkflowConfigure/pageListOperateLog',
 };
 
 export function buildModel() {
@@ -240,6 +242,32 @@ export function buildModel() {
         const response = yield call(refreshAllEntityCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *pageListOperateLog(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(pageListOperateLogData, payload);
+
+        const dataAdjust = pretreatmentRemotePageListData({
           source: response,
           successCallback: pretreatmentSuccessCallback || null,
           failCallback: pretreatmentFailCallback || null,

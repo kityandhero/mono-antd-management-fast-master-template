@@ -25,6 +25,7 @@ import { modelTypeCollection } from '../../../../modelBuilders';
 import {
   refreshAllEntityCacheAction,
   refreshCacheAction,
+  toggleAllowAutoReuseProcessHistoryAction,
   toggleAllowScanCodeVerificationAction,
 } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
@@ -39,6 +40,8 @@ const { MultiPage } = DataMultiPageView;
   schedulingControl,
 }))
 class PageList extends MultiPage {
+  columnOperateWidth = 146;
+
   componentAuthority =
     accessWayCollection.userWorkflowConfigure.pageList.permission;
 
@@ -58,10 +61,13 @@ class PageList extends MultiPage {
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
       case 'toggleAllowScanCodeVerification': {
-        this.refreshCache(handleData);
+        this.toggleAllowScanCodeVerification(handleData);
         break;
       }
-
+      case 'toggleAllowAutoReuseProcessHistory': {
+        this.toggleAllowAutoReuseProcessHistory(handleData);
+        break;
+      }
       case 'showSetMobileApproveViewDrawer': {
         this.showSetMobileApproveViewDrawer(handleData);
         break;
@@ -112,6 +118,49 @@ class PageList extends MultiPage {
               getValueByKey({
                 data: remoteData,
                 key: fieldData.whetherAllowScanCodeVerificationNote.name,
+              });
+
+            return d;
+          },
+        });
+      },
+    });
+  };
+
+  toggleAllowAutoReuseProcessHistory = (record) => {
+    toggleAllowAutoReuseProcessHistoryAction({
+      target: this,
+      handleData: record,
+      successCallback: ({ target, remoteData }) => {
+        const id = getValueByKey({
+          data: remoteData,
+          key: fieldData.userWorkflowConfigureId.name,
+        });
+
+        handleItem({
+          target,
+          value: id,
+          compareValueHandler: (o) => {
+            const v = getValueByKey({
+              data: o,
+              key: fieldData.userWorkflowConfigureId.name,
+            });
+
+            return v;
+          },
+          handler: (d) => {
+            const o = d;
+
+            o[fieldData.whetherAllowAutoReuseProcessHistory.name] =
+              getValueByKey({
+                data: remoteData,
+                key: fieldData.whetherAllowAutoReuseProcessHistory.name,
+              });
+
+            o[fieldData.whetherAllowAutoReuseProcessHistoryNote.name] =
+              getValueByKey({
+                data: remoteData,
+                key: fieldData.whetherAllowAutoReuseProcessHistoryNote.name,
               });
 
             return d;
@@ -180,7 +229,7 @@ class PageList extends MultiPage {
         {
           lg: 6,
           type: searchCardConfig.contentItemType.input,
-          fieldData: fieldData.title,
+          fieldData: fieldData.friendlyName,
         },
         {
           lg: 6,
@@ -222,12 +271,12 @@ class PageList extends MultiPage {
           type: dropdownExpandItemType.divider,
         },
         {
-          key: 'toggleAllowScanCodeVerification',
+          key: 'toggleAllowAutoReuseProcessHistory',
           icon: iconBuilder.swap(),
-          text: '切换是否允许扫码校验',
+          text: '切换是否允许自动套用审批历史',
           hidden: !checkHasAuthority(
             accessWayCollection.userWorkflowConfigure
-              .toggleAllowScanCodeVerification.permission,
+              .toggleAllowAutoReuseProcessHistory.permission,
           ),
           confirm: true,
           title: '即将切换是否允许扫码校验，确定吗？',
@@ -291,7 +340,7 @@ class PageList extends MultiPage {
     },
     {
       dataTarget: fieldData.whetherAllowAutoReuseProcessHistory,
-      width: 180,
+      width: 220,
       showRichFacade: true,
       emptyValue: '--',
       facadeConfigBuilder: (value) => {
