@@ -47,11 +47,31 @@ export async function toggleAllowScanCodeVerificationData(parameters) {
   });
 }
 
+export const toggleAllowAutoReuseProcessHistoryDataApiAddress =
+  '/userWorkflowConfigure/toggleAllowAutoReuseProcessHistory';
+
+export async function toggleAllowAutoReuseProcessHistoryData(parameters) {
+  return request({
+    api: toggleAllowAutoReuseProcessHistoryDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const refreshCacheDataApiAddress = '/userWorkflowConfigure/refreshCache';
 
 export async function refreshCacheData(parameters) {
   return request({
     api: refreshCacheDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const refreshAllEntityCacheDataApiAddress =
+  '/userWorkflowConfigure/refreshAllEntityCache';
+
+export async function refreshAllEntityCacheData(parameters) {
+  return request({
+    api: refreshAllEntityCacheDataApiAddress,
     params: parameters,
   });
 }

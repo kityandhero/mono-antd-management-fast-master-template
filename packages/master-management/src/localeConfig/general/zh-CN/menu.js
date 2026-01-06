@@ -342,6 +342,11 @@ export const menuZhCNGeneral = {
     '流程实例用户监控配置列表',
   'menu.flow.workflowCaseUserMonitorConfiguration.pageList-mini': '列表',
 
+  'menu.flow.userWorkflowConfigure': '用户工作流配置',
+  'menu.flow.userWorkflowConfigure-mini': '用户工作流配置',
+  'menu.flow.userWorkflowConfigure.pageList': '用户工作流配置列表',
+  'menu.flow.userWorkflowConfigure.pageList-mini': '列表',
+
   'menu.permission': '权限相关',
   'menu.permission-mini': '权限',
 

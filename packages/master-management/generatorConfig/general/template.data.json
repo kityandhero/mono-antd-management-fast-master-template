@@ -2392,6 +2392,32 @@
       "selectDrawerField": false,
       "selectModalField": false,
       "updateBasicInfoDrawer": false
+    },
+    {
+      "folder": "UserWorkflowConfigure",
+      "model": "userWorkflowConfigure",
+      "key": "userWorkflowConfigureId",
+      "action": true,
+      "config": true,
+      "tools": true,
+      "data": true,
+      "addBasicInfoDrawer": false,
+      "changeImageModal": false,
+      "changeSortModal": false,
+      "tabPageBase": false,
+      "edit": false,
+      "basicInfo": false,
+      "operateLogDrawer": true,
+      "operateLogInnerPageList": false,
+      "pageList": true,
+      "pageListDrawer": false,
+      "baseInnerPageList": false,
+      "pageListSelectDrawer": false,
+      "pageListSelectModal": false,
+      "pageListSelectActionDrawer": false,
+      "selectDrawerField": false,
+      "selectModalField": false,
+      "updateBasicInfoDrawer": false
     }
   ]
 }

@@ -5659,10 +5659,24 @@
           "type": "singleData"
         },
         {
+          "title": "切换是否允许自动套用审批历史",
+          "api": "/userWorkflowConfigure/toggleAllowAutoReuseProcessHistory",
+          "effect": "toggleAllowAutoReuseProcessHistory",
+          "service": "toggleAllowAutoReuseProcessHistoryData",
+          "type": "singleData"
+        },
+        {
           "title": "刷新缓存",
           "api": "/userWorkflowConfigure/refreshCache",
           "effect": "refreshCache",
           "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新全部缓存",
+          "api": "/userWorkflowConfigure/refreshAllEntityCache",
+          "effect": "refreshAllEntityCache",
+          "service": "refreshAllEntityCacheData",
           "type": "singleData"
         }
       ],

@@ -10,9 +10,11 @@ import {
 import {
   getData,
   pageListData,
+  refreshAllEntityCacheData,
   refreshCacheData,
   setMobileApproveViewModeData,
   singleListData,
+  toggleAllowAutoReuseProcessHistoryData,
   toggleAllowScanCodeVerificationData,
 } from '../../services/userWorkflowConfigure';
 
@@ -23,7 +25,10 @@ export const userWorkflowConfigureTypeCollection = {
   setMobileApproveViewMode: 'userWorkflowConfigure/setMobileApproveViewMode',
   toggleAllowScanCodeVerification:
     'userWorkflowConfigure/toggleAllowScanCodeVerification',
+  toggleAllowAutoReuseProcessHistory:
+    'userWorkflowConfigure/toggleAllowAutoReuseProcessHistory',
   refreshCache: 'userWorkflowConfigure/refreshCache',
+  refreshAllEntityCache: 'userWorkflowConfigure/refreshAllEntityCache',
 };
 
 export function buildModel() {
@@ -168,6 +173,35 @@ export function buildModel() {
 
         return dataAdjust;
       },
+      *toggleAllowAutoReuseProcessHistory(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(
+          toggleAllowAutoReuseProcessHistoryData,
+          payload,
+        );
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
       *refreshCache(
         {
           payload,
@@ -178,6 +212,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(refreshCacheData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *refreshAllEntityCache(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(refreshAllEntityCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

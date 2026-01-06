@@ -2101,6 +2101,34 @@ export const flow = {
         },
       ],
     },
+    {
+      name: 'userWorkflowConfigure',
+      icon: 'bars',
+      hideChildrenInMenu: true,
+      path: '/flow/userWorkflowConfigure',
+      access: 'checkAccess',
+      authority: [
+        accessWayCollection.super.permission,
+        accessWayCollection.userWorkflowConfigure.pageList.permission,
+      ],
+      routes: [
+        {
+          path: '/flow/userWorkflowConfigure',
+          redirect: '/flow/userWorkflowConfigure/pageList',
+        },
+        {
+          path: '/flow/userWorkflowConfigure/pageList',
+          name: 'pageList',
+          icon: 'bars',
+          redirect: '/flow/userWorkflowConfigure/pageList/no',
+        },
+        {
+          path: '/flow/userWorkflowConfigure/pageList/:pageKey',
+          hideInMenu: true,
+          component: './general/UserWorkflowConfigure/PageList',
+        },
+      ],
+    },
   ],
 };
 

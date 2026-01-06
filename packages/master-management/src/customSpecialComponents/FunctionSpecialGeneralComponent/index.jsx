@@ -131,5 +131,6 @@ export * from './UserQuestionnaireStatus';
 export * from './UserStatus';
 export * from './UserSubsidiaryInfoStatus';
 export * from './UserType';
+export * from './UserWorkflowConfigureStatus';
 export * from './WebChannel';
 export * from './WeChatMessageRecordSendStatus';

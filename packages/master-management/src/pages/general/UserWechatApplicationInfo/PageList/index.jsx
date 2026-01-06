@@ -99,7 +99,7 @@ class PageList extends MultiPage {
       text: '刷新缓存',
       icon: iconBuilder.reload(),
       disabled: !checkHasAuthority(
-        accessWayCollection.userWechatApplicationInfo.remove.permission,
+        accessWayCollection.userWechatApplicationInfo.refreshCache.permission,
       ),
       handleButtonClick: ({ handleData }) => {
         this.refreshCache(handleData);

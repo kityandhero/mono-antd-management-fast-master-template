@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -20,15 +21,15 @@ import {
 } from '../../services/positionGrade';
 
 export const positionGradeTypeCollection = {
-  pageList: 'positionGrade/pageList',
-  singleList: 'positionGrade/singleList',
-  get: 'positionGrade/get',
-  addBasicInfo: 'positionGrade/addBasicInfo',
-  updateBasicInfo: 'positionGrade/updateBasicInfo',
-  updateSort: 'positionGrade/updateSort',
-  refreshCache: 'positionGrade/refreshCache',
-  pageListOperateLog: 'positionGrade/pageListOperateLog',
-};
+  pageList: "positionGrade/pageList",
+  singleList: "positionGrade/singleList",
+  get: "positionGrade/get",
+  addBasicInfo: "positionGrade/addBasicInfo",
+  updateBasicInfo: "positionGrade/updateBasicInfo",
+  updateSort: "positionGrade/updateSort",
+  refreshCache: "positionGrade/refreshCache",
+  pageListOperateLog: "positionGrade/pageListOperateLog",
+}
 
 export function buildModel() {
   return {

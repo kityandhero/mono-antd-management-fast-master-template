@@ -735,6 +735,14 @@
       "key": "workflowRangeEffectiveSubsidiaryRelationId",
       "fileName": "tools.js",
       "coverFile": false
+    },
+    {
+      "folder": "general/UserWorkflowConfigure/Assist",
+      "name": "UserWorkflowConfigure",
+      "model": "userWorkflowConfigure",
+      "key": "userWorkflowConfigureId",
+      "fileName": "tools.js",
+      "coverFile": false
     }
   ]
 }

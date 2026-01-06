@@ -336,6 +336,11 @@
       "name": "status"
     },
     {
+      "functionSegment": "UserWorkflowConfigureStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
       "functionSegment": "UploadHistorySourceType",
       "label": "来源",
       "name": "sourceType"

@@ -161,6 +161,15 @@
       "visibleFlag": "d7e0533b1636403b9b18ae929e569bda",
       "fileName": "index.jsx",
       "coverFile": true
+    },
+    {
+      "folder": "general/UserWorkflowConfigure/OperateLogDrawer",
+      "name": "UserWorkflowConfigure",
+      "model": "userWorkflowConfigure",
+      "key": "userWorkflowConfigureId",
+      "visibleFlag": "a1feae1a3970432e9630bf90fcab3fe8",
+      "fileName": "index.jsx",
+      "coverFile": true
     }
   ]
 }

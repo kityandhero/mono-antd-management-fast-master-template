@@ -3484,10 +3484,20 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'e598965c8656ee515b6a637661283b82',
       permission: '28adc22bc8fd4b29828b798233cb529a',
     },
+    toggleAllowAutoReuseProcessHistory: {
+      title: '切换是否允许自动套用审批历史',
+      paramsKey: '9f25521910345d74bde3b5fe2ef5ba20',
+      permission: 'e3595a25bdc24f7bb563f3bc5ad028d5',
+    },
     refreshCache: {
       title: '刷新缓存',
       paramsKey: '65016f26d22c1b33028d2197288b9e9c',
       permission: 'e0c99b07e8ee439293a83f26c0041257',
+    },
+    refreshAllEntityCache: {
+      title: '刷新全部缓存',
+      paramsKey: '4c4e6e55bce042154b81518e19edae0e',
+      permission: '8c48799b44f74e48a413409e1372a868',
     },
   },
   weChatMessageRecord: {

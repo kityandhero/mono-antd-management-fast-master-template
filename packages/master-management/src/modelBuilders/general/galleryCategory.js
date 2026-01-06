@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -25,20 +26,20 @@ import {
 } from '../../services/galleryCategory';
 
 export const galleryCategoryTypeCollection = {
-  pageList: 'galleryCategory/pageList',
-  singleList: 'galleryCategory/singleList',
-  singleTreeList: 'galleryCategory/singleTreeList',
-  get: 'galleryCategory/get',
-  addBasicInfo: 'galleryCategory/addBasicInfo',
-  updateBasicInfo: 'galleryCategory/updateBasicInfo',
-  updateSort: 'galleryCategory/updateSort',
-  setEnable: 'galleryCategory/setEnable',
-  setDisable: 'galleryCategory/setDisable',
-  remove: 'galleryCategory/remove',
-  removeSingleTreeListCache: 'galleryCategory/removeSingleTreeListCache',
-  refreshCache: 'galleryCategory/refreshCache',
-  pageListOperateLog: 'galleryCategory/pageListOperateLog',
-};
+  pageList: "galleryCategory/pageList",
+  singleList: "galleryCategory/singleList",
+  singleTreeList: "galleryCategory/singleTreeList",
+  get: "galleryCategory/get",
+  addBasicInfo: "galleryCategory/addBasicInfo",
+  updateBasicInfo: "galleryCategory/updateBasicInfo",
+  updateSort: "galleryCategory/updateSort",
+  setEnable: "galleryCategory/setEnable",
+  setDisable: "galleryCategory/setDisable",
+  remove: "galleryCategory/remove",
+  removeSingleTreeListCache: "galleryCategory/removeSingleTreeListCache",
+  refreshCache: "galleryCategory/refreshCache",
+  pageListOperateLog: "galleryCategory/pageListOperateLog",
+}
 
 export function buildModel() {
   return {

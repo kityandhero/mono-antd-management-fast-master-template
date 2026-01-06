@@ -463,6 +463,14 @@
       "key": "workflowCaseId",
       "fileName": "index.jsx",
       "coverFile": false
+    },
+    {
+      "folder": "general/UserWorkflowConfigure/PageList",
+      "name": "UserWorkflowConfigure",
+      "model": "userWorkflowConfigure",
+      "key": "userWorkflowConfigureId",
+      "fileName": "index.jsx",
+      "coverFile": false
     }
   ]
 }
