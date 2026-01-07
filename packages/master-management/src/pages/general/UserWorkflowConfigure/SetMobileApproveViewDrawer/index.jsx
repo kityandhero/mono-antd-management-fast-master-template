@@ -70,11 +70,11 @@ class SetMobileApproveViewDrawer extends BaseUpdateModal {
 
   supplementSubmitRequestParams = (o) => {
     const d = o;
-    const { externalData } = this.state;
+    const { metaData } = this.state;
 
-    d[fieldData.userWorkflowConfigureId.name] = getValueByKey({
-      data: externalData,
-      key: fieldData.userWorkflowConfigureId.name,
+    d[fieldData.userId.name] = getValueByKey({
+      data: metaData,
+      key: fieldData.userId.name,
     });
 
     return d;
@@ -98,7 +98,7 @@ class SetMobileApproveViewDrawer extends BaseUpdateModal {
   establishFormAdditionalConfig = () => {
     return {
       labelCol: {
-        flex: '200px',
+        flex: '170px',
       },
       wrapperCol: {
         flex: 'auto',

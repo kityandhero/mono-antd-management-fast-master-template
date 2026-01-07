@@ -80,9 +80,19 @@ class PageList extends MultiPage {
     return {
       list: [
         {
-          lg: 6,
+          lg: 5,
           type: searchCardConfig.contentItemType.input,
-          fieldData: fieldData.userId,
+          fieldData: fieldData.realName,
+        },
+        {
+          lg: 5,
+          type: searchCardConfig.contentItemType.input,
+          fieldData: fieldData.phone,
+        },
+        {
+          lg: 5,
+          type: searchCardConfig.contentItemType.input,
+          fieldData: fieldData.email,
         },
         {
           lg: 6,

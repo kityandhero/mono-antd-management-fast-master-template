@@ -11,6 +11,26 @@ export const fieldExtraData = {
     name: 'friendlyName',
     helper: '',
   },
+  nickname: {
+    label: '用户昵称',
+    name: 'nickname',
+    helper: '',
+  },
+  realName: {
+    label: '真实姓名',
+    name: 'realName',
+    helper: '',
+  },
+  phone: {
+    label: '联系电话',
+    name: 'phone',
+    helper: '',
+  },
+  email: {
+    label: '邮箱账户',
+    name: 'email',
+    helper: '',
+  },
   avatar: {
     label: '头像',
     name: 'avatar',
@@ -30,7 +50,6 @@ export const fieldData = {
     name: 'userId',
     helper: '',
   },
-
   openId: {
     label: 'OpenId',
     name: 'openId',
@@ -64,36 +83,6 @@ export const fieldData = {
   applicationId: {
     label: '应用标识',
     name: 'applicationId',
-    helper: '',
-  },
-  status: {
-    label: '状态',
-    name: 'status',
-    helper: '用户状态',
-  },
-  statusNote: {
-    label: '状态',
-    name: 'statusNote',
-    helper: '用户状态',
-  },
-  createOperatorId: {
-    label: '创建人标识',
-    name: 'createOperatorId',
-    helper: '',
-  },
-  createTime: {
-    label: '创建时间',
-    name: 'createTime',
-    helper: '',
-  },
-  updateOperatorId: {
-    label: '创建人标识',
-    name: 'updateOperatorId',
-    helper: '',
-  },
-  updateTime: {
-    label: '更新时间',
-    name: 'updateTime',
     helper: '',
   },
   ...fieldExtraData,

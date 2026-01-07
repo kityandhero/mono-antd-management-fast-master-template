@@ -6,6 +6,26 @@ const fieldExtraData = {
     name: 'friendlyName',
     helper: '',
   },
+  nickname: {
+    label: '用户昵称',
+    name: 'nickname',
+    helper: '',
+  },
+  realName: {
+    label: '真实姓名',
+    name: 'realName',
+    helper: '',
+  },
+  phone: {
+    label: '联系电话',
+    name: 'phone',
+    helper: '',
+  },
+  email: {
+    label: '邮箱账户',
+    name: 'email',
+    helper: '',
+  },
   avatar: {
     label: '头像',
     name: 'avatar',

@@ -14,13 +14,21 @@ import {
 import {
   columnFacadeMode,
   dropdownExpandItemType,
+  extraBuildType,
   searchCardConfig,
+  unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
+import {
+  FunctionSupplement,
+  iconBuilder,
+} from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../../customConfig';
-import { getUserWorkflowConfigureStatusName } from '../../../../customSpecialComponents';
+import {
+  getUserWorkflowConfigureStatusName,
+  renderSearchFlowMobileApproveViewModeSelect,
+} from '../../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import {
   refreshAllEntityCacheAction,
@@ -34,6 +42,9 @@ import { OperateLogDrawer } from '../OperateLogDrawer';
 import { SetMobileApproveViewDrawer } from '../SetMobileApproveViewDrawer';
 
 const { MultiPage } = DataMultiPageView;
+const {
+  Whether: { renderSearchWhetherSelect },
+} = FunctionSupplement;
 
 @connect(({ userWorkflowConfigure, schedulingControl }) => ({
   userWorkflowConfigure,
@@ -50,7 +61,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      pageTitle: '列表',
+      pageTitle: '用户工作流配置列表',
       paramsKey: accessWayCollection.userWorkflowConfigure.pageList.paramsKey,
       loadApiPath:
         modelTypeCollection.userWorkflowConfigureTypeCollection.pageList,
@@ -223,16 +234,73 @@ class PageList extends MultiPage {
     );
   };
 
+  establishExtraActionConfig = () => {
+    return {
+      list: [
+        {
+          buildType: extraBuildType.generalExtraButton,
+          type: 'default',
+          size: 'small',
+          icon: iconBuilder.reload(),
+          text: '刷新全部用户工作流配置缓存',
+          confirm: true,
+          title: '即将刷新全部用户工作流配置缓存，确定执行吗?',
+          disabled: this.checkInProgress(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.userWorkflowConfigure.refreshAllEntityCache
+              .permission,
+          ),
+          handleClick: () => {
+            this.refreshAllEntityCache();
+          },
+        },
+      ],
+    };
+  };
+
+  fillSearchCardInitialValues = () => {
+    const values = {};
+
+    values[fieldData.whetherAllowAutoReuseProcessHistory.name] =
+      unlimitedWithStringFlag.flag;
+
+    values[fieldData.whetherAllowScanCodeVerification.name] =
+      unlimitedWithStringFlag.flag;
+
+    values[fieldData.mobileApproveViewMode.name] = unlimitedWithStringFlag.flag;
+
+    return values;
+  };
+
   establishSearchCardConfig = () => {
     return {
       list: [
         {
-          lg: 6,
+          lg: 5,
           type: searchCardConfig.contentItemType.input,
-          fieldData: fieldData.friendlyName,
+          fieldData: fieldData.realName,
         },
         {
-          lg: 6,
+          lg: 5,
+          type: searchCardConfig.contentItemType.component,
+          component: renderSearchWhetherSelect({
+            ...fieldData.whetherAllowAutoReuseProcessHistory,
+          }),
+        },
+        {
+          lg: 5,
+          type: searchCardConfig.contentItemType.component,
+          component: renderSearchWhetherSelect({
+            ...fieldData.whetherAllowScanCodeVerification,
+          }),
+        },
+        {
+          lg: 5,
+          type: searchCardConfig.contentItemType.component,
+          component: renderSearchFlowMobileApproveViewModeSelect({}),
+        },
+        {
+          lg: 4,
           type: searchCardConfig.contentItemType.component,
           component: this.buildSearchCardButtonCore(),
         },
