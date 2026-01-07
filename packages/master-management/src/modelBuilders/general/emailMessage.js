@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -16,11 +15,11 @@ import {
 } from '../../services/emailMessage';
 
 export const emailMessageTypeCollection = {
-  pageList: "emailMessage/pageList",
-  get: "emailMessage/get",
-  refreshCache: "emailMessage/refreshCache",
-  pageListOperateLog: "emailMessage/pageListOperateLog",
-}
+  pageList: 'emailMessage/pageList',
+  get: 'emailMessage/get',
+  refreshCache: 'emailMessage/refreshCache',
+  pageListOperateLog: 'emailMessage/pageListOperateLog',
+};
 
 export function buildModel() {
   return {

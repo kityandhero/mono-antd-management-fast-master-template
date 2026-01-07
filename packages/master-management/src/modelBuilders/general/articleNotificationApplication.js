@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -17,12 +16,12 @@ import {
 } from '../../services/articleNotificationApplication';
 
 export const articleNotificationApplicationTypeCollection = {
-  pageList: "articleNotificationApplication/pageList",
-  get: "articleNotificationApplication/get",
-  addBasicInfo: "articleNotificationApplication/addBasicInfo",
-  updateBasicInfo: "articleNotificationApplication/updateBasicInfo",
-  refreshCache: "articleNotificationApplication/refreshCache",
-}
+  pageList: 'articleNotificationApplication/pageList',
+  get: 'articleNotificationApplication/get',
+  addBasicInfo: 'articleNotificationApplication/addBasicInfo',
+  updateBasicInfo: 'articleNotificationApplication/updateBasicInfo',
+  refreshCache: 'articleNotificationApplication/refreshCache',
+};
 
 export function buildModel() {
   return {

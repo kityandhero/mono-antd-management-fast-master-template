@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -38,32 +37,32 @@ import {
 } from '../../services/tag';
 
 export const tagTypeCollection = {
-  pageList: "tag/pageList",
-  pageListWithQuestion: "tag/pageListWithQuestion",
-  pageListWithNotice: "tag/pageListWithNotice",
-  pageListWithWorkflow: "tag/pageListWithWorkflow",
-  singleList: "tag/singleList",
-  singleListWithQuestion: "tag/singleListWithQuestion",
-  singleListWithNotice: "tag/singleListWithNotice",
-  singleListWithWorkflow: "tag/singleListWithWorkflow",
-  singleTreeList: "tag/singleTreeList",
-  singleTreeListWithQuestion: "tag/singleTreeListWithQuestion",
-  singleTreeListWithNotice: "tag/singleTreeListWithNotice",
-  singleTreeListWithWorkflow: "tag/singleTreeListWithWorkflow",
-  get: "tag/get",
-  addBasicInfo: "tag/addBasicInfo",
-  updateBasicInfo: "tag/updateBasicInfo",
-  updateColor: "tag/updateColor",
-  updateType: "tag/updateType",
-  updateSort: "tag/updateSort",
-  toggleRecommend: "tag/toggleRecommend",
-  setEnable: "tag/setEnable",
-  setDisable: "tag/setDisable",
-  remove: "tag/remove",
-  refreshCache: "tag/refreshCache",
-  uploadImage: "tag/uploadImage",
-  pageListOperateLog: "tag/pageListOperateLog",
-}
+  pageList: 'tag/pageList',
+  pageListWithQuestion: 'tag/pageListWithQuestion',
+  pageListWithNotice: 'tag/pageListWithNotice',
+  pageListWithWorkflow: 'tag/pageListWithWorkflow',
+  singleList: 'tag/singleList',
+  singleListWithQuestion: 'tag/singleListWithQuestion',
+  singleListWithNotice: 'tag/singleListWithNotice',
+  singleListWithWorkflow: 'tag/singleListWithWorkflow',
+  singleTreeList: 'tag/singleTreeList',
+  singleTreeListWithQuestion: 'tag/singleTreeListWithQuestion',
+  singleTreeListWithNotice: 'tag/singleTreeListWithNotice',
+  singleTreeListWithWorkflow: 'tag/singleTreeListWithWorkflow',
+  get: 'tag/get',
+  addBasicInfo: 'tag/addBasicInfo',
+  updateBasicInfo: 'tag/updateBasicInfo',
+  updateColor: 'tag/updateColor',
+  updateType: 'tag/updateType',
+  updateSort: 'tag/updateSort',
+  toggleRecommend: 'tag/toggleRecommend',
+  setEnable: 'tag/setEnable',
+  setDisable: 'tag/setDisable',
+  remove: 'tag/remove',
+  refreshCache: 'tag/refreshCache',
+  uploadImage: 'tag/uploadImage',
+  pageListOperateLog: 'tag/pageListOperateLog',
+};
 
 export function buildModel() {
   return {

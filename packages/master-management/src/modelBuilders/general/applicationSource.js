@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -24,18 +23,18 @@ import {
 } from '../../services/applicationSource';
 
 export const applicationSourceTypeCollection = {
-  pageList: "applicationSource/pageList",
-  singleList: "applicationSource/singleList",
-  pageListLog: "applicationSource/pageListLog",
-  get: "applicationSource/get",
-  addBasicInfo: "applicationSource/addBasicInfo",
-  updateBasicInfo: "applicationSource/updateBasicInfo",
-  setEnable: "applicationSource/setEnable",
-  setDisable: "applicationSource/setDisable",
-  refreshCache: "applicationSource/refreshCache",
-  uploadImage: "applicationSource/uploadImage",
-  pageListOperateLog: "applicationSource/pageListOperateLog",
-}
+  pageList: 'applicationSource/pageList',
+  singleList: 'applicationSource/singleList',
+  pageListLog: 'applicationSource/pageListLog',
+  get: 'applicationSource/get',
+  addBasicInfo: 'applicationSource/addBasicInfo',
+  updateBasicInfo: 'applicationSource/updateBasicInfo',
+  setEnable: 'applicationSource/setEnable',
+  setDisable: 'applicationSource/setDisable',
+  refreshCache: 'applicationSource/refreshCache',
+  uploadImage: 'applicationSource/uploadImage',
+  pageListOperateLog: 'applicationSource/pageListOperateLog',
+};
 
 export function buildModel() {
   return {
