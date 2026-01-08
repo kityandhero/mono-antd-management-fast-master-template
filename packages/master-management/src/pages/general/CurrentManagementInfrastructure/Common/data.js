@@ -341,6 +341,11 @@ export const fieldData = {
     name: 'flowCaseWatermarkTextImage',
     helper: '',
   },
+  flowCaseWhetherAllowAutoReuseProcessHistorySwitch: {
+    label: '流程实例是否允许自动套用审批历史开关',
+    name: 'flowCaseWhetherAllowAutoReuseProcessHistorySwitch',
+    helper: '',
+  },
   masterManagementTokenExpirationTime: {
     label: '主控系统登录凭据有效期 (分钟)',
     name: 'masterManagementTokenExpirationTime',

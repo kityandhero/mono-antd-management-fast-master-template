@@ -475,6 +475,48 @@ class Index extends TabPageBase {
         {
           title: {
             icon: iconBuilder.contacts(),
+            text: '流程实例是否允许自动套用审批历史开关',
+          },
+          items: [
+            buildInputItem({
+              firstLoadSuccess,
+              handleData: metaData,
+              fieldData:
+                fieldData.flowCaseWhetherAllowAutoReuseProcessHistorySwitch,
+              editMode: keyValueEditModeCollection.whether,
+              hidden: !checkHasAuthority(
+                accessWayCollection.currentManagementInfrastructure
+                  .updateKeyValueInfo.permission,
+              ),
+              value: getValueByKey({
+                data: metaData,
+                key: fieldData.flowCaseWhetherAllowAutoReuseProcessHistorySwitch
+                  .name,
+                convert: convertCollection.number,
+                formatBuilder: (v) => {
+                  return v === whetherNumber.yes ? '启用' : '禁用';
+                },
+              }),
+              inputIcon: iconBuilder.swap(),
+              handleClick: this.showUpdateKeyValueInfoModal,
+            }),
+          ],
+          instruction: [
+            {
+              title: '设置说明',
+              showDivider: false,
+              showNumber: true,
+              list: [
+                {
+                  text: '套用审批历史：在一个审批里，用户已经批了一次，下次又到这个人之后，自动套用之前审批内容，自动流转到下一人，即后续的同一人的审批会自动审批, 该开关为全局功能开关, 具体某个用户的功能开关请在用户流程配置中设置，用户开关仅在全局功能开启下生效.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
             text: '流程表单驳回签章配置',
           },
           fullLine: false,

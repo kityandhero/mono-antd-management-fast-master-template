@@ -475,6 +475,17 @@ class PageList extends MultiPage {
     },
   ];
 
+  establishHelpConfig = () => {
+    return {
+      title: '操作提示',
+      list: [
+        {
+          text: '套用审批历史：在一个审批里，用户已经批了一次，下次又到这个人之后，自动套用之前审批内容，自动流转到下一人，即后续的同一人的审批会自动审批。',
+        },
+      ],
+    };
+  };
+
   renderPresetOther = () => {
     const { currentRecord } = this.state;
 
