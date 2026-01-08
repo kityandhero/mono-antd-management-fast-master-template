@@ -6,6 +6,16 @@ const fieldExtraData = {
     name: 'flowCaseTitle',
     helper: '',
   },
+  approveActionReuse: {
+    label: '复用审批',
+    name: 'approveActionReuse',
+    helper: '',
+  },
+  approveActionReuseNote: {
+    label: '复用审批',
+    name: 'approveActionReuseNote',
+    helper: '',
+  },
   approveTime: {
     label: '审批时间',
     name: 'approveTime',

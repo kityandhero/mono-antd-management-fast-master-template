@@ -1,6 +1,17 @@
 import { formNameCollection } from './fieldDataCommon';
 
-const fieldExtraData = {};
+const fieldExtraData = {
+  approveActionReuse: {
+    label: '复用审批',
+    name: 'approveActionReuse',
+    helper: '',
+  },
+  approveActionReuseNote: {
+    label: '复用审批',
+    name: 'approveActionReuseNote',
+    helper: '',
+  },
+};
 
 export const fieldDataFlowCaseLatestApprove = {
   ...formNameCollection,

@@ -348,18 +348,26 @@ export function buildColumnsCaseLatestApprove({
       },
     },
     {
-      title: fieldDataFlowCaseNextProcessNotification.channel.label,
-      dataIndex: fieldDataFlowCaseNextProcessNotification.channel.name,
-      key: fieldDataFlowCaseNextProcessNotification.channel.name,
+      title: fieldDataFlowCaseLatestApprove.approveActionReuseNote.label,
+      dataIndex: fieldDataFlowCaseLatestApprove.approveActionReuseNote.name,
+      key: fieldDataFlowCaseLatestApprove.approveActionReuseNote.name,
       align: 'center',
       ellipsis: true,
       width: '120px',
-      render: (text) => {
-        return getChannelName({
-          value: text,
-        });
-      },
     },
+    // {
+    //   title: fieldDataFlowCaseLatestApprove.channel.label,
+    //   dataIndex: fieldDataFlowCaseLatestApprove.channel.name,
+    //   key: fieldDataFlowCaseLatestApprove.channel.name,
+    //   align: 'center',
+    //   ellipsis: true,
+    //   width: '120px',
+    //   render: (text) => {
+    //     return getChannelName({
+    //       value: text,
+    //     });
+    //   },
+    // },
     {
       title: flowCaseLatestApproveIdLabel,
       dataIndex: flowCaseLatestApproveIdName,

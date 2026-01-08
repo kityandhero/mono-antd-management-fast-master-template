@@ -199,6 +199,14 @@ class BaseFlowCaseProcessHistoryPageListDrawer extends MultiPageDrawer {
           color: '#999999',
         },
         {
+          label: fieldDataFlowCaseProcessHistory.approveActionReuseNote.label,
+          text: getValueByKey({
+            data: item,
+            key: fieldDataFlowCaseProcessHistory.approveActionReuseNote.name,
+          }),
+          color: '#999999',
+        },
+        {
           label: fieldDataFlowCaseProcessHistory.channel.label,
           text: getChannelName({
             value: getValueByKey({

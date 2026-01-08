@@ -2112,6 +2112,7 @@ class DebugCaseInfo extends TabPageBase {
               defaultValue: '',
             }),
           }}
+          width={1200}
         />
 
         <WorkflowDebugCasePageListWaitApproveDrawer
