@@ -19,7 +19,9 @@ import {
 import {
   getChannelName,
   getFlowCaseNextProcessApproveStatusName,
+  getFlowCaseStatusName,
 } from '../../../../customSpecialComponents';
+import { getFlowCaseStatusBadge } from '../../FlowCase/Assist';
 import { getFlowCaseNextProcessApproveStatusBadge } from '../Assist/tools';
 
 const { MultiPage } = DataMultiPageView;
@@ -30,6 +32,7 @@ class BaseFlowCaseNextProcessApprovePageList extends MultiPage {
 
     this.state = {
       ...this.state,
+      tableScrollX: 1960,
       pageTitle: '流程实例下一审批人列表',
       loadApiPath: '',
       dateRangeFieldName: '创建时间',
@@ -150,19 +153,34 @@ class BaseFlowCaseNextProcessApprovePageList extends MultiPage {
     },
     {
       dataTarget: fieldDataFlowCaseNextProcessApprove.nextWorkflowNodeName,
-      width: 140,
+      width: 160,
       showRichFacade: true,
       emptyValue: '--',
     },
     {
+      dataTarget: fieldDataFlowCaseNextProcessApprove.flowCaseStatus,
+      width: 120,
+      showRichFacade: true,
+      emptyValue: '--',
+      facadeMode: columnFacadeMode.badge,
+      facadeConfigBuilder: (value) => {
+        return {
+          status: getFlowCaseStatusBadge(value),
+          text: getFlowCaseStatusName({
+            value: value,
+          }),
+        };
+      },
+    },
+    {
       dataTarget: fieldDataFlowCaseNextProcessApprove.workflowName,
-      width: 220,
+      width: 320,
       showRichFacade: true,
       emptyValue: '--',
     },
     {
       dataTarget: fieldDataFlowCaseNextProcessApprove.channel,
-      width: 120,
+      width: 180,
       showRichFacade: true,
       emptyValue: '--',
       facadeConfigBuilder: (value) => {

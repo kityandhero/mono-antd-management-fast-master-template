@@ -6,6 +6,16 @@ const fieldExtraData = {
     name: 'flowCaseTitle',
     helper: '',
   },
+  flowCaseStatus: {
+    label: '实例状态',
+    name: 'flowCaseStatus',
+    helper: '',
+  },
+  flowCaseStatusNote: {
+    label: '实例标题状态',
+    name: 'flowCaseStatusNote',
+    helper: '',
+  },
   nextWorkflowNodeApproveMode: {
     label: '审批模式',
     name: 'nextWorkflowNodeApproveMode',

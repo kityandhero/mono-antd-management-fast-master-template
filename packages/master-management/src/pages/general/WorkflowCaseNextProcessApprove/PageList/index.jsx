@@ -7,7 +7,7 @@ import { accessWayCollection } from '../../../../customConfig';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { BaseFlowCaseNextProcessApprovePageList } from '../../../../pageBases';
 import { refreshCacheAction } from '../../WorkflowCaseLatestApprove/Assist/action';
-import { fieldData } from '../../WorkflowCaseLatestApprove/Common/data';
+import { fieldData } from '../Common/data';
 import { WorkflowCaseNextProcessApprovePreviewDrawer } from '../PreviewDrawer';
 
 @connect(({ workflowCaseNextProcessApprove, schedulingControl }) => ({
@@ -33,7 +33,7 @@ class PageList extends BaseFlowCaseNextProcessApprovePageList {
   }
 
   getFlowCaseNextProcessApproveIdDataTarget = () => {
-    return fieldData.workflowCaseLatestApproveId;
+    return fieldData.workflowCaseNextProcessApproveId;
   };
 
   refreshCache = (item) => {
