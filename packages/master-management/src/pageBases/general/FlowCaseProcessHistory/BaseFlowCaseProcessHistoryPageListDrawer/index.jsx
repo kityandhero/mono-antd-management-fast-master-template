@@ -278,6 +278,25 @@ class BaseFlowCaseProcessHistoryPageListDrawer extends MultiPageDrawer {
       },
     },
     {
+      dataTarget: fieldDataFlowCaseProcessHistory.approveActionReuse,
+      width: 80,
+      showRichFacade: true,
+      emptyValue: '--',
+      facadeConfigBuilder: (value) => {
+        return {
+          color: buildRandomHexColor({
+            seed: value * 2 + 15,
+          }),
+        };
+      },
+      formatValue: (value, record) => {
+        return getValueByKey({
+          data: record,
+          key: fieldDataFlowCaseProcessHistory.approveActionReuseNote.name,
+        });
+      },
+    },
+    {
       dataTarget: fieldDataFlowCaseProcessHistory.channel,
       width: 120,
       showRichFacade: true,
