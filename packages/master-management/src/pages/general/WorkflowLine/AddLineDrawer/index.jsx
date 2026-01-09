@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { connect } from 'easy-soft-dva';
 import {
   checkInCollection,
@@ -35,7 +37,9 @@ const visibleFlag = '6807d8021f2c4ef9bbcf2acfd350e0f2';
   schedulingControl,
 }))
 class AddLineDrawer extends BaseAddDrawer {
-  destroyOnClose = true;
+  fromNodeSelectRef = React.createRef();
+
+  toNodeSelectRef = React.createRef();
 
   static open() {
     switchControlAssist.open(visibleFlag);
@@ -70,6 +74,9 @@ class AddLineDrawer extends BaseAddDrawer {
   };
 
   executeAfterDoOtherWhenChangeVisibleToHide = () => {
+    this.fromNodeSelectRef.current.clearSelect();
+    this.toNodeSelectRef.current.clearSelect();
+
     this.setState({
       fromId: '',
       toId: '',
@@ -151,6 +158,8 @@ class AddLineDrawer extends BaseAddDrawer {
               type: cardConfig.contentItemType.component,
               component: (
                 <FromNodeSelectModalField
+                  required
+                  ref={this.fromNodeSelectRef}
                   externalData={externalData}
                   label={fieldData.fromName.label}
                   helper={fieldData.fromName.helper}
@@ -176,6 +185,8 @@ class AddLineDrawer extends BaseAddDrawer {
               type: cardConfig.contentItemType.component,
               component: (
                 <ToNodeSelectModalField
+                  required
+                  ref={this.toNodeSelectRef}
                   externalData={externalData}
                   label={fieldData.toName.label}
                   helper={fieldData.toName.helper}

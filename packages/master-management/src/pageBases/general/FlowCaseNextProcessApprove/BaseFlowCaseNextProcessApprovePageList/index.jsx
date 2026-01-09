@@ -1,6 +1,5 @@
 import {
   buildRandomHexColor,
-  checkHasAuthority,
   showSimpleErrorMessage,
   toNumber,
 } from 'easy-soft-utility';
@@ -12,10 +11,7 @@ import {
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
-import {
-  accessWayCollection,
-  fieldDataFlowCaseNextProcessApprove,
-} from '../../../../customConfig';
+import { fieldDataFlowCaseNextProcessApprove } from '../../../../customConfig';
 import {
   getChannelName,
   getFlowCaseNextProcessApproveStatusName,
@@ -78,6 +74,14 @@ class BaseFlowCaseNextProcessApprovePageList extends MultiPage {
     throw new Error('refreshCache need overrode to implement');
   };
 
+  checkGetAuthority = () => {
+    throw new Error('checkGetAuthority need overrode to implement');
+  };
+
+  checkHasRefreshCacheAuthority = () => {
+    throw new Error('checkHasRefreshCacheAuthority need overrode to implement');
+  };
+
   // eslint-disable-next-line no-unused-vars
   preview = (item) => {
     throw new Error('preview need overrode to implement');
@@ -116,9 +120,7 @@ class BaseFlowCaseNextProcessApprovePageList extends MultiPage {
       size: 'small',
       text: '详情',
       icon: iconBuilder.read(),
-      disabled: !checkHasAuthority(
-        accessWayCollection.workflowCase.get.permission,
-      ),
+      disabled: !this.checkGetAuthority(),
       handleButtonClick: ({ handleData }) => {
         this.preview(handleData);
       },
@@ -131,6 +133,7 @@ class BaseFlowCaseNextProcessApprovePageList extends MultiPage {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
           text: '刷新缓存',
+          disabled: !this.checkHasRefreshCacheAuthority(),
           confirm: true,
           title: '将要刷新缓存，确定吗？',
         },

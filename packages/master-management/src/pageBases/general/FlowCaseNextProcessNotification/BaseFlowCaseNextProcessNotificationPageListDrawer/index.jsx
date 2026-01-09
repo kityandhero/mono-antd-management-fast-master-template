@@ -1,6 +1,5 @@
 import {
   buildRandomHexColor,
-  checkHasAuthority,
   getValueByKey,
   handleItem,
   showSimpleErrorMessage,
@@ -14,10 +13,7 @@ import {
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
-import {
-  accessWayCollection,
-  fieldDataFlowCaseNextProcessNotification,
-} from '../../../../customConfig';
+import { fieldDataFlowCaseNextProcessNotification } from '../../../../customConfig';
 import {
   getChannelName,
   getFlowCaseNextProcessNotificationStatusName,
@@ -112,6 +108,10 @@ class BaseFlowCaseNextProcessNotificationPageListDrawer extends MultiPageDrawer 
     throw new Error('preview need overrode to implement');
   };
 
+  checkGetAuthority = () => {
+    throw new Error('checkGetAuthority need overrode to implement');
+  };
+
   fillSearchCardInitialValues = () => {
     const values = {};
 
@@ -140,9 +140,7 @@ class BaseFlowCaseNextProcessNotificationPageListDrawer extends MultiPageDrawer 
       size: 'small',
       text: '详情',
       icon: iconBuilder.read(),
-      disabled: !checkHasAuthority(
-        accessWayCollection.workflowCase.get.permission,
-      ),
+      disabled: !this.checkGetAuthority(),
       handleButtonClick: ({ handleData }) => {
         this.preview(handleData);
       },

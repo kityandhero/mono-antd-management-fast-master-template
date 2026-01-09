@@ -6,7 +6,7 @@ import { checkHasAuthority } from 'easy-soft-utility';
 import { accessWayCollection } from '../../../../customConfig';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { BaseFlowCaseNextProcessApprovePageList } from '../../../../pageBases';
-import { refreshCacheAction } from '../../WorkflowCaseLatestApprove/Assist/action';
+import { refreshCacheAction } from '../Assist/action';
 import { fieldData } from '../Common/data';
 import { WorkflowCaseNextProcessApprovePreviewDrawer } from '../PreviewDrawer';
 

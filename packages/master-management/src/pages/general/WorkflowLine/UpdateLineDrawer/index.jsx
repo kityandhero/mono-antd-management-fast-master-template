@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { connect } from 'easy-soft-dva';
 import { convertCollection, getValueByKey } from 'easy-soft-utility';
 
@@ -28,6 +30,10 @@ const visibleFlag = '114db37a1cfd4a059bf045cadfb4cb9a';
   schedulingControl,
 }))
 class UpdateLineDrawer extends BaseUpdateDrawer {
+  fromNodeSelectRef = React.createRef();
+
+  toNodeSelectRef = React.createRef();
+
   static open() {
     switchControlAssist.open(visibleFlag);
   }
@@ -46,6 +52,18 @@ class UpdateLineDrawer extends BaseUpdateDrawer {
       toName: '',
     };
   }
+
+  executeAfterDoOtherWhenChangeVisibleToHide = () => {
+    this.fromNodeSelectRef.current.clearSelect();
+    this.toNodeSelectRef.current.clearSelect();
+
+    this.setState({
+      fromId: '',
+      fromName: '',
+      toId: '',
+      toName: '',
+    });
+  };
 
   supplementLoadRequestParams = (o) => {
     return {
@@ -222,6 +240,8 @@ class UpdateLineDrawer extends BaseUpdateDrawer {
               type: cardConfig.contentItemType.component,
               component: (
                 <FromNodeSelectModalField
+                  required
+                  ref={this.fromNodeSelectRef}
                   externalData={externalData}
                   label={fieldData.fromName.label}
                   defaultValue={fromName || null}
@@ -246,6 +266,8 @@ class UpdateLineDrawer extends BaseUpdateDrawer {
               type: cardConfig.contentItemType.component,
               component: (
                 <ToNodeSelectModalField
+                  required
+                  ref={this.toNodeSelectRef}
                   externalData={externalData}
                   label={fieldData.toName.label}
                   defaultValue={toName || null}

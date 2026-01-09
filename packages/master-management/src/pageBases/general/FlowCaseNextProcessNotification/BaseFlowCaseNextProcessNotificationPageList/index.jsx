@@ -1,6 +1,5 @@
 import {
   buildRandomHexColor,
-  checkHasAuthority,
   getValueByKey,
   handleItem,
   showSimpleErrorMessage,
@@ -110,6 +109,10 @@ class BaseFlowCaseNextProcessNotificationPageList extends MultiPage {
     throw new Error('preview need overrode to implement');
   };
 
+  checkGetAuthority = () => {
+    throw new Error('checkGetAuthority need overrode to implement');
+  };
+
   fillSearchCardInitialValues = () => {
     const values = {};
 
@@ -138,9 +141,7 @@ class BaseFlowCaseNextProcessNotificationPageList extends MultiPage {
       size: 'small',
       text: '详情',
       icon: iconBuilder.read(),
-      disabled: !checkHasAuthority(
-        accessWayCollection.workflowCase.get.permission,
-      ),
+      disabled: !this.checkGetAuthority(),
       handleButtonClick: ({ handleData }) => {
         this.preview(handleData);
       },

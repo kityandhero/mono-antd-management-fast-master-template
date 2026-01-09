@@ -45,7 +45,8 @@ class PageList extends BaseFlowCaseNextProcessProgressPageList {
 
   checkGetAuthority = () => {
     return checkHasAuthority(
-      accessWayCollection.workflowCaseNextProcessProgress.get.permission,
+      accessWayCollection.workflowCaseNextProcessProgress.getByFlowCaseId
+        .permission,
     );
   };
 
