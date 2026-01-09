@@ -1620,6 +1620,34 @@
     {
       "apis": [
         {
+          "title": "单页列表",
+          "api": "/databaseLock/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        }
+      ],
+      "cover": true,
+      "title": "数据库锁",
+      "name": "databaseLock"
+    },
+    {
+      "apis": [
+        {
+          "title": "单页列表",
+          "api": "/databaseQueryEfficiency/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        }
+      ],
+      "cover": true,
+      "title": "数据库查询效率",
+      "name": "databaseQueryEfficiency"
+    },
+    {
+      "apis": [
+        {
           "title": "分页列表",
           "api": "/department/pageList",
           "effect": "pageList",

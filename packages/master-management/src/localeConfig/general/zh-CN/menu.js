@@ -47,6 +47,16 @@ export const menuZhCNGeneral = {
   'menu.logs.mongoSlowQueryInfo.singleList': '慢查询列表',
   'menu.logs.mongoSlowQueryInfo.singleList-mini': 'Mongo',
 
+  'menu.logs.databaseLock': '数据库锁',
+  'menu.logs.databaseLock-mini': '锁查询',
+  'menu.logs.databaseLock.singleList': '数据库锁列表',
+  'menu.logs.databaseLock.singleList-mini': 'Database',
+
+  'menu.logs.databaseQueryEfficiency': '数据库查询效率',
+  'menu.logs.databaseQueryEfficiency-mini': '查询效率',
+  'menu.logs.databaseQueryEfficiency.singleList': '数据库查询效率列表',
+  'menu.logs.databaseQueryEfficiency.singleList-mini': 'QueryEfficiency',
+
   'menu.queues': '消息队列',
   'menu.queues-mini': 'MQ',
 

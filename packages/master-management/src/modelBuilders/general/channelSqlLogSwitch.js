@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -17,12 +18,12 @@ import {
 } from '../../services/channelSqlLogSwitch';
 
 export const channelSqlLogSwitchTypeCollection = {
-  pageList: 'channelSqlLogSwitch/pageList',
-  singleList: 'channelSqlLogSwitch/singleList',
-  get: 'channelSqlLogSwitch/get',
-  updateKeyValueInfo: 'channelSqlLogSwitch/updateKeyValueInfo',
-  refreshCache: 'channelSqlLogSwitch/refreshCache',
-};
+  pageList: "channelSqlLogSwitch/pageList",
+  singleList: "channelSqlLogSwitch/singleList",
+  get: "channelSqlLogSwitch/get",
+  updateKeyValueInfo: "channelSqlLogSwitch/updateKeyValueInfo",
+  refreshCache: "channelSqlLogSwitch/refreshCache",
+}
 
 export function buildModel() {
   return {

@@ -236,6 +236,54 @@ export const logs = {
         },
       ],
     },
+    {
+      name: 'databaseLock',
+      icon: 'reconciliation',
+      hideChildrenInMenu: true,
+      path: '/logs/databaseLock',
+      access: 'checkAccess',
+      authority: [
+        accessWayCollection.super.permission,
+        accessWayCollection.databaseLock.singleList.permission,
+      ],
+      routes: [
+        {
+          path: '/logs/databaseLock',
+          redirect: '/logs/databaseLock/singleList',
+        },
+        {
+          path: '/logs/databaseLock/singleList',
+          name: 'singleList',
+          icon: 'bars',
+          hideInMenu: true,
+          component: './general/DatabaseLock/SingleList',
+        },
+      ],
+    },
+    {
+      name: 'databaseQueryEfficiency',
+      icon: 'reconciliation',
+      hideChildrenInMenu: true,
+      path: '/logs/databaseQueryEfficiency',
+      access: 'checkAccess',
+      authority: [
+        accessWayCollection.super.permission,
+        accessWayCollection.databaseQueryEfficiency.singleList.permission,
+      ],
+      routes: [
+        {
+          path: '/logs/databaseQueryEfficiency',
+          redirect: '/logs/databaseQueryEfficiency/singleList',
+        },
+        {
+          path: '/logs/databaseQueryEfficiency/singleList',
+          name: 'singleList',
+          icon: 'bars',
+          hideInMenu: true,
+          component: './general/DatabaseQueryEfficiency/SingleList',
+        },
+      ],
+    },
   ],
 };
 

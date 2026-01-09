@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -16,12 +17,12 @@ import {
 } from '../../services/workflowCaseNextProcessApprove';
 
 export const workflowCaseNextProcessApproveTypeCollection = {
-  pageList: 'workflowCaseNextProcessApprove/pageList',
-  singleList: 'workflowCaseNextProcessApprove/singleList',
-  get: 'workflowCaseNextProcessApprove/get',
-  reassign: 'workflowCaseNextProcessApprove/reassign',
-  refreshCache: 'workflowCaseNextProcessApprove/refreshCache',
-};
+  pageList: "workflowCaseNextProcessApprove/pageList",
+  singleList: "workflowCaseNextProcessApprove/singleList",
+  get: "workflowCaseNextProcessApprove/get",
+  reassign: "workflowCaseNextProcessApprove/reassign",
+  refreshCache: "workflowCaseNextProcessApprove/refreshCache",
+}
 
 export function buildModel() {
   return {

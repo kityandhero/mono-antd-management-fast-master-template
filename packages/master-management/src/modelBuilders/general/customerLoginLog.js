@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -18,13 +19,13 @@ import {
 } from '../../services/customerLoginLog';
 
 export const customerLoginLogTypeCollection = {
-  pageList: 'customerLoginLog/pageList',
-  singleList: 'customerLoginLog/singleList',
-  get: 'customerLoginLog/get',
-  remove: 'customerLoginLog/remove',
-  refreshCache: 'customerLoginLog/refreshCache',
-  pageListOperateLog: 'customerLoginLog/pageListOperateLog',
-};
+  pageList: "customerLoginLog/pageList",
+  singleList: "customerLoginLog/singleList",
+  get: "customerLoginLog/get",
+  remove: "customerLoginLog/remove",
+  refreshCache: "customerLoginLog/refreshCache",
+  pageListOperateLog: "customerLoginLog/pageListOperateLog",
+}
 
 export function buildModel() {
   return {

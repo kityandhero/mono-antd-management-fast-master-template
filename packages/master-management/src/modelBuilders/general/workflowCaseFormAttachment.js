@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -18,13 +19,13 @@ import {
 } from '../../services/workflowCaseFormAttachment';
 
 export const workflowCaseFormAttachmentTypeCollection = {
-  pageList: 'workflowCaseFormAttachment/pageList',
-  singleList: 'workflowCaseFormAttachment/singleList',
-  get: 'workflowCaseFormAttachment/get',
-  refreshCache: 'workflowCaseFormAttachment/refreshCache',
-  pageListOperateLog: 'workflowCaseFormAttachment/pageListOperateLog',
-  uploadFile: 'workflowCaseFormAttachment/uploadFile',
-};
+  pageList: "workflowCaseFormAttachment/pageList",
+  singleList: "workflowCaseFormAttachment/singleList",
+  get: "workflowCaseFormAttachment/get",
+  refreshCache: "workflowCaseFormAttachment/refreshCache",
+  pageListOperateLog: "workflowCaseFormAttachment/pageListOperateLog",
+  uploadFile: "workflowCaseFormAttachment/uploadFile",
+}
 
 export function buildModel() {
   return {

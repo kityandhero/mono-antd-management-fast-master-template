@@ -979,6 +979,20 @@ export const accessWayInfrastructureCollection = {
       permission: 'fefc7e68ad6e4747850459ebcf8fffa9',
     },
   },
+  databaseLock: {
+    singleList: {
+      title: '单页列表',
+      paramsKey: 'd9fdf419e9619a9b4720f54a85d47b58',
+      permission: '43214159ad124d52bf6267b808a48ddb',
+    },
+  },
+  databaseQueryEfficiency: {
+    singleList: {
+      title: '单页列表',
+      paramsKey: '0f436412d47c78345ab6a406d37d18d3',
+      permission: 'c44b6fb56fd14300b091b9f5ac1c8741',
+    },
+  },
   department: {
     pageList: {
       title: '分页列表',
