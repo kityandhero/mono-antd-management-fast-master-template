@@ -20,7 +20,6 @@ import {
   getChannelName,
   getFlowCaseNextProcessApproveStatusName,
 } from '../../../../customSpecialComponents';
-import { modelTypeCollection } from '../../../../modelBuilders';
 import { getFlowCaseNextProcessApproveStatusBadge } from '../Assist/tools';
 
 const { MultiPage } = DataMultiPageView;
@@ -31,9 +30,8 @@ class BaseFlowCaseNextProcessApprovePageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      pageTitle: '流程实例下一审批信息列表',
-      paramsKey: accessWayCollection.workflowCase.pageList.paramsKey,
-      loadApiPath: modelTypeCollection.workflowCaseTypeCollection.pageList,
+      pageTitle: '流程实例下一审批人列表',
+      loadApiPath: '',
       dateRangeFieldName: '创建时间',
       currentRecord: null,
     };
@@ -92,12 +90,17 @@ class BaseFlowCaseNextProcessApprovePageList extends MultiPage {
     return {
       list: [
         {
-          lg: 8,
+          lg: 6,
           type: searchCardConfig.contentItemType.input,
           fieldData: fieldDataFlowCaseNextProcessApprove.flowCaseTitle,
         },
         {
-          lg: 8,
+          lg: 6,
+          type: searchCardConfig.contentItemType.input,
+          fieldData: fieldDataFlowCaseNextProcessApprove.realName,
+        },
+        {
+          lg: 6,
           type: searchCardConfig.contentItemType.component,
           component: this.buildSearchCardButtonCore(),
         },

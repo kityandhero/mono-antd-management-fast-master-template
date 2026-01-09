@@ -3970,6 +3970,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '02167096f8fecbb095b8b45ba4fd6c5e',
       permission: '75f794eb1036477ebedbb13e797c1e44',
     },
+    reassign: {
+      title: '重新指定审批人（审批人必须在可审批列表之中',
+      paramsKey: '7774dc7be44fa59f24b3d055defd200a',
+      permission: 'c37537a8f1bd44c0a72ebb8bbf6cb1c7',
+    },
     refreshCache: {
       title: '刷新缓存',
       paramsKey: '5b7ab553e4207e971373f39bec1850c3',

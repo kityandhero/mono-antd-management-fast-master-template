@@ -1,3 +1,4 @@
+
 import { request } from 'easy-soft-utility';
 
 export const pageListDataApiAddress = '/masterManager/pageList';
@@ -90,8 +91,7 @@ export async function refreshCacheData(parameters) {
   });
 }
 
-export const pageListOperateLogDataApiAddress =
-  '/masterManager/pageListOperateLog';
+export const pageListOperateLogDataApiAddress = '/masterManager/pageListOperateLog';
 
 export async function pageListOperateLogData(parameters) {
   return request({
@@ -108,3 +108,4 @@ export async function uploadImageData(parameters) {
     params: parameters,
   });
 }
+

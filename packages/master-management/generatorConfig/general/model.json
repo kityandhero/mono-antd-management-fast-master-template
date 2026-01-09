@@ -6387,6 +6387,13 @@
           "type": "singleData"
         },
         {
+          "title": "重新指定审批人（审批人必须在可审批列表之中",
+          "api": "/workflowCaseNextProcessApprove/reassign",
+          "effect": "reassign",
+          "service": "reassignData",
+          "type": "singleData"
+        },
+        {
           "title": "刷新缓存",
           "api": "/workflowCaseNextProcessApprove/refreshCache",
           "effect": "refreshCache",

@@ -1,6 +1,7 @@
 import { connect } from 'easy-soft-dva';
 import { checkHasAuthority } from 'easy-soft-utility';
 
+import { iconBuilder } from 'antd-management-fast-component';
 import { switchControlAssist } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../../customConfig';
@@ -51,6 +52,22 @@ class WorkflowCaseNextProcessProgressPageListDrawer extends BaseFlowCaseNextProc
       accessWayCollection.workflowCaseNextProcessProgress.refreshCache
         .permission,
     );
+  };
+
+  establishListItemDropdownConfig = (record) => {
+    return {
+      size: 'small',
+      text: '刷新缓存',
+      icon: iconBuilder.reload(),
+      disabled: !checkHasAuthority(
+        accessWayCollection.workflowCaseNextProcessProgress.refreshCache
+          .permission,
+      ),
+      handleButtonClick: ({ handleData }) => {
+        this.refreshCache(handleData);
+      },
+      handleData: record,
+    };
   };
 }
 

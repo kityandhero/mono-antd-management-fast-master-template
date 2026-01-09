@@ -1,6 +1,5 @@
 import {
   buildRandomHexColor,
-  checkHasAuthority,
   getValueByKey,
   handleItem,
   showSimpleErrorMessage,
@@ -11,13 +10,9 @@ import {
   columnFacadeMode,
   searchCardConfig,
 } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
-import {
-  accessWayCollection,
-  fieldDataFlowCaseNextProcessApprove,
-} from '../../../../customConfig';
+import { fieldDataFlowCaseNextProcessApprove } from '../../../../customConfig';
 import {
   getChannelName,
   getFlowCaseNextProcessApproveStatusName,
@@ -27,12 +22,14 @@ import { getFlowCaseNextProcessApproveStatusBadge } from '../Assist/tools';
 const { MultiPageDrawer } = DataMultiPageView;
 
 class BaseFlowCaseNextProcessApprovePageListDrawer extends MultiPageDrawer {
+  columnOperateWidth = 146;
+
   constructor(properties, visibleFlag) {
     super(properties, visibleFlag);
 
     this.state = {
       ...this.state,
-      pageTitle: '流程实例列表',
+      pageTitle: '流程实例下一审批人列表',
       loadApiPath: '',
       dateRangeFieldName: '创建时间',
       currentRecord: null,
@@ -59,6 +56,12 @@ class BaseFlowCaseNextProcessApprovePageListDrawer extends MultiPageDrawer {
     throw new Error(
       'getFlowCaseNextProcessApproveIdDataTarget need overrode to implement',
     );
+  };
+
+  supplementLoadRequestParams = (o) => {
+    const { externalData } = this.state;
+
+    return { ...o, ...externalData };
   };
 
   handleItemStatus = ({ target, handleData, remoteData }) => {
@@ -120,41 +123,14 @@ class BaseFlowCaseNextProcessApprovePageListDrawer extends MultiPageDrawer {
     return {
       list: [
         {
-          lg: 5,
+          lg: 12,
           type: searchCardConfig.contentItemType.input,
           fieldData: fieldDataFlowCaseNextProcessApprove.flowCaseTitle,
         },
         {
-          lg: 4,
+          lg: 12,
           type: searchCardConfig.contentItemType.component,
           component: this.buildSearchCardButtonCore(),
-        },
-      ],
-    };
-  };
-
-  establishListItemDropdownConfig = (record) => {
-    return {
-      size: 'small',
-      text: '详情',
-      icon: iconBuilder.read(),
-      disabled: !checkHasAuthority(
-        accessWayCollection.workflowCase.get.permission,
-      ),
-      handleButtonClick: ({ handleData }) => {
-        this.preview(handleData);
-      },
-      handleData: record,
-      handleMenuClick: ({ key, handleData }) => {
-        this.handleMenuClick({ key, handleData });
-      },
-      items: [
-        {
-          key: 'refreshCache',
-          icon: iconBuilder.reload(),
-          text: '刷新缓存',
-          confirm: true,
-          title: '将要刷新缓存，确定吗？',
         },
       ],
     };

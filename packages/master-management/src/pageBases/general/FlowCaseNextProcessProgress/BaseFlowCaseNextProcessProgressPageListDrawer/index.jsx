@@ -1,6 +1,5 @@
 import {
   buildRandomHexColor,
-  checkHasAuthority,
   getValueByKey,
   handleItem,
   showSimpleErrorMessage,
@@ -11,13 +10,9 @@ import {
   columnFacadeMode,
   searchCardConfig,
 } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
-import {
-  accessWayCollection,
-  fieldDataFlowCaseNextProcessProgress,
-} from '../../../../customConfig';
+import { fieldDataFlowCaseNextProcessProgress } from '../../../../customConfig';
 import {
   getChannelName,
   getFlowCaseNextProcessProgressStatusName,
@@ -27,13 +22,15 @@ import { getFlowCaseNextProcessProgressStatusBadge } from '../Assist/tools';
 const { MultiPageDrawer } = DataMultiPageView;
 
 class BaseFlowCaseNextProcessProgressPageListDrawer extends MultiPageDrawer {
+  columnOperateWidth = 146;
+
   constructor(properties, visibleFlag) {
     super(properties, visibleFlag);
 
     this.state = {
       ...this.state,
       tableScrollX: 1180,
-      pageTitle: '流程实例列表',
+      pageTitle: '流程实例审批进程列表',
       loadApiPath: '',
       dateRangeFieldName: '创建时间',
       currentRecord: null,
@@ -133,33 +130,6 @@ class BaseFlowCaseNextProcessProgressPageListDrawer extends MultiPageDrawer {
           lg: 12,
           type: searchCardConfig.contentItemType.component,
           component: this.buildSearchCardButtonCore(),
-        },
-      ],
-    };
-  };
-
-  establishListItemDropdownConfig = (record) => {
-    return {
-      size: 'small',
-      text: '详情',
-      icon: iconBuilder.read(),
-      disabled: !checkHasAuthority(
-        accessWayCollection.workflowCase.get.permission,
-      ),
-      handleButtonClick: ({ handleData }) => {
-        this.preview(handleData);
-      },
-      handleData: record,
-      handleMenuClick: ({ key, handleData }) => {
-        this.handleMenuClick({ key, handleData });
-      },
-      items: [
-        {
-          key: 'refreshCache',
-          icon: iconBuilder.reload(),
-          text: '刷新缓存',
-          confirm: true,
-          title: '将要刷新缓存，确定吗？',
         },
       ],
     };

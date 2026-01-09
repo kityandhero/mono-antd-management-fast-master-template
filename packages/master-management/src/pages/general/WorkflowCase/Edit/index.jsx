@@ -25,6 +25,8 @@ import {
 } from '../../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { FlowDisplayDrawer } from '../../Workflow/FlowDisplayDrawer';
+import { WorkflowCaseNextProcessApprovePageListDrawer } from '../../WorkflowCaseNextProcessApprove/PageListDrawer';
+import { WorkflowCaseNextProcessProgressPageListDrawer } from '../../WorkflowCaseNextProcessProgress/PageListDrawer';
 import { resetAllApproveAction } from '../../WorkflowCaseProcessHistory/Assist/action';
 import { PageListDrawer as WorkflowLinePageListDrawer } from '../../WorkflowLine/PageListDrawer';
 import { PageListDrawer as WorkflowNodePageListDrawer } from '../../WorkflowNode/PageListDrawer';
@@ -260,6 +262,14 @@ class Detail extends DataTabContainerSupplement {
     WorkflowLinePageListDrawer.open();
   };
 
+  showWorkflowCaseNextProcessApprovePageListDrawer = () => {
+    WorkflowCaseNextProcessApprovePageListDrawer.open();
+  };
+
+  showWorkflowCaseNextProcessProgressPageListDrawer = () => {
+    WorkflowCaseNextProcessProgressPageListDrawer.open();
+  };
+
   goToWorkflow = (item) => {
     const workflowId = getValueByKey({
       data: item,
@@ -307,6 +317,12 @@ class Detail extends DataTabContainerSupplement {
   };
 
   establishTabBarExtraContentRightConfig = () => {
+    const { metaData } = this.state;
+
+    if ((metaData || null) == null) {
+      return null;
+    }
+
     return [
       {
         buildType: tabBarCollection.extraBuildType.button,
@@ -343,6 +359,42 @@ class Detail extends DataTabContainerSupplement {
         handleClick: () => {
           this.showFlowDisplayDrawer();
         },
+      },
+      {
+        buildType: tabBarCollection.extraBuildType.dropdownEllipsis,
+        icon: iconBuilder.form(),
+        size: 'small',
+        handleData: metaData,
+        hidden: false,
+        handleMenuClick: ({ key, handleData }) => {
+          switch (key) {
+            case 'showWorkflowCaseNextProcessApprovePageListDrawer': {
+              this.showWorkflowCaseNextProcessApprovePageListDrawer(handleData);
+
+              break;
+            }
+
+            case 'showWorkflowCaseNextProcessProgressPageListDrawer': {
+              this.showWorkflowCaseNextProcessProgressPageListDrawer(
+                handleData,
+              );
+
+              break;
+            }
+          }
+        },
+        items: [
+          {
+            key: 'showWorkflowCaseNextProcessApprovePageListDrawer',
+            icon: iconBuilder.form(),
+            text: '当前审批人信息',
+          },
+          {
+            key: 'showWorkflowCaseNextProcessProgressPageListDrawer',
+            icon: iconBuilder.form(),
+            text: '当前审批进程信息',
+          },
+        ],
       },
     ];
   };
@@ -708,6 +760,12 @@ class Detail extends DataTabContainerSupplement {
       defaultValue: '',
     });
 
+    const flowCaseId = getValueByKey({
+      data: metaData,
+      key: fieldData.workflowCaseId.name,
+      defaultValue: '',
+    });
+
     return (
       <>
         <SetApplicantStatementDrawer
@@ -738,6 +796,16 @@ class Detail extends DataTabContainerSupplement {
         <WorkflowLinePageListDrawer externalData={{ workflowId }} />
 
         <WorkflowNodeApproverPageListDrawer externalData={{ workflowId }} />
+
+        <WorkflowCaseNextProcessApprovePageListDrawer
+          externalData={{ flowCaseId }}
+          width={1200}
+        />
+
+        <WorkflowCaseNextProcessProgressPageListDrawer
+          externalData={{ flowCaseId }}
+          width={1200}
+        />
       </>
     );
   };

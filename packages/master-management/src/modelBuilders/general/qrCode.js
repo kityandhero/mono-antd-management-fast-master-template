@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -23,19 +24,19 @@ import {
 } from '../../services/qrCode';
 
 export const qrCodeTypeCollection = {
-  pageList: 'qrCode/pageList',
-  get: 'qrCode/get',
-  addBasicInfo: 'qrCode/addBasicInfo',
-  updateBasicInfo: 'qrCode/updateBasicInfo',
-  updateImage: 'qrCode/updateImage',
-  updateSort: 'qrCode/updateSort',
-  setOnline: 'qrCode/setOnline',
-  setOffline: 'qrCode/setOffline',
-  remove: 'qrCode/remove',
-  refreshCache: 'qrCode/refreshCache',
-  pageListOperateLog: 'qrCode/pageListOperateLog',
-  uploadImage: 'qrCode/uploadImage',
-};
+  pageList: "qrCode/pageList",
+  get: "qrCode/get",
+  addBasicInfo: "qrCode/addBasicInfo",
+  updateBasicInfo: "qrCode/updateBasicInfo",
+  updateImage: "qrCode/updateImage",
+  updateSort: "qrCode/updateSort",
+  setOnline: "qrCode/setOnline",
+  setOffline: "qrCode/setOffline",
+  remove: "qrCode/remove",
+  refreshCache: "qrCode/refreshCache",
+  pageListOperateLog: "qrCode/pageListOperateLog",
+  uploadImage: "qrCode/uploadImage",
+}
 
 export function buildModel() {
   return {

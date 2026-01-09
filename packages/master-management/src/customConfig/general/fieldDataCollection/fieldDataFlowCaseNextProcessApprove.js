@@ -16,6 +16,26 @@ const fieldExtraData = {
     name: 'nextWorkflowNodeApproveModeNote',
     helper: '',
   },
+  avatar: {
+    label: '头像',
+    name: 'avatar',
+    helper: '',
+  },
+  friendlyName: {
+    label: '用户',
+    name: 'friendlyName',
+    helper: '',
+  },
+  realName: {
+    label: '姓名',
+    name: 'realName',
+    helper: '',
+  },
+  phone: {
+    label: '手机号码',
+    name: 'phone',
+    helper: '',
+  },
 };
 
 export const fieldDataFlowCaseNextProcessApprove = {

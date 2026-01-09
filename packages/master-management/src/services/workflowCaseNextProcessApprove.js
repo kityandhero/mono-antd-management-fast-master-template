@@ -29,6 +29,16 @@ export async function getData(parameters) {
   });
 }
 
+export const reassignDataApiAddress =
+  '/workflowCaseNextProcessApprove/reassign';
+
+export async function reassignData(parameters) {
+  return request({
+    api: reassignDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const refreshCacheDataApiAddress =
   '/workflowCaseNextProcessApprove/refreshCache';
 
