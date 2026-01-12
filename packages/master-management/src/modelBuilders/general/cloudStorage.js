@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -17,12 +16,12 @@ import {
 } from '../../services/cloudStorage';
 
 export const cloudStorageTypeCollection = {
-  pageList: "cloudStorage/pageList",
-  get: "cloudStorage/get",
-  remove: "cloudStorage/remove",
-  refreshCache: "cloudStorage/refreshCache",
-  pageListOperateLog: "cloudStorage/pageListOperateLog",
-}
+  pageList: 'cloudStorage/pageList',
+  get: 'cloudStorage/get',
+  remove: 'cloudStorage/remove',
+  refreshCache: 'cloudStorage/refreshCache',
+  pageListOperateLog: 'cloudStorage/pageListOperateLog',
+};
 
 export function buildModel() {
   return {

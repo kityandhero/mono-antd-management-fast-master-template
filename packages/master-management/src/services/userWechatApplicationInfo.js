@@ -1,4 +1,3 @@
-
 import { request } from 'easy-soft-utility';
 
 export const pageListDataApiAddress = '/userWechatApplicationInfo/pageList';
@@ -28,7 +27,8 @@ export async function removeData(parameters) {
   });
 }
 
-export const refreshCacheDataApiAddress = '/userWechatApplicationInfo/refreshCache';
+export const refreshCacheDataApiAddress =
+  '/userWechatApplicationInfo/refreshCache';
 
 export async function refreshCacheData(parameters) {
   return request({
@@ -36,4 +36,3 @@ export async function refreshCacheData(parameters) {
     params: parameters,
   });
 }
-

@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -20,15 +19,15 @@ import {
 } from '../../services/questionnaireQuestionRelation';
 
 export const questionnaireQuestionRelationTypeCollection = {
-  pageList: "questionnaireQuestionRelation/pageList",
-  get: "questionnaireQuestionRelation/get",
-  bindRelation: "questionnaireQuestionRelation/bindRelation",
-  bindBatchRelation: "questionnaireQuestionRelation/bindBatchRelation",
-  unbindRelation: "questionnaireQuestionRelation/unbindRelation",
-  setBindSort: "questionnaireQuestionRelation/setBindSort",
-  setBindScore: "questionnaireQuestionRelation/setBindScore",
-  refreshCache: "questionnaireQuestionRelation/refreshCache",
-}
+  pageList: 'questionnaireQuestionRelation/pageList',
+  get: 'questionnaireQuestionRelation/get',
+  bindRelation: 'questionnaireQuestionRelation/bindRelation',
+  bindBatchRelation: 'questionnaireQuestionRelation/bindBatchRelation',
+  unbindRelation: 'questionnaireQuestionRelation/unbindRelation',
+  setBindSort: 'questionnaireQuestionRelation/setBindSort',
+  setBindScore: 'questionnaireQuestionRelation/setBindScore',
+  refreshCache: 'questionnaireQuestionRelation/refreshCache',
+};
 
 export function buildModel() {
   return {

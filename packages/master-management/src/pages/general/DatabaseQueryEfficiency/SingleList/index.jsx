@@ -61,13 +61,31 @@ class SinglePage extends SinglePageView {
       emptyValue: '--',
     },
     {
-      dataTarget: fieldData.totalWorkerTime,
+      dataTarget: fieldData.averageElapsedTime,
       width: 120,
       showRichFacade: true,
       emptyValue: '--',
     },
     {
-      dataTarget: fieldData.totalElapsedTime,
+      dataTarget: fieldData.averageCpuTime,
+      width: 120,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.averageWaitTime,
+      width: 120,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.averageLogicalReads,
+      width: 120,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.averageWrites,
       width: 120,
       showRichFacade: true,
       emptyValue: '--',
@@ -85,7 +103,7 @@ class SinglePage extends SinglePageView {
       title: '操作提示',
       list: [
         {
-          text: '此处显示的是较为耗时的查询语句。',
+          text: '此处显示的是近期较为耗时的查询信息。',
         },
       ],
     };

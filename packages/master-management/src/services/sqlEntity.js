@@ -1,7 +1,7 @@
-
 import { request } from 'easy-soft-utility';
 
-export const pageListInfrastructureDataApiAddress = '/sqlEntity/pageListInfrastructure';
+export const pageListInfrastructureDataApiAddress =
+  '/sqlEntity/pageListInfrastructure';
 
 export async function pageListInfrastructureData(parameters) {
   return request({
@@ -36,4 +36,3 @@ export async function getBusinessData(parameters) {
     params: parameters,
   });
 }
-

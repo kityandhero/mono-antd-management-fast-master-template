@@ -124,18 +124,42 @@ class PreviewDrawer extends BaseNeedlessLoadDrawer {
               list: [
                 {
                   span: 1,
-                  label: fieldData.totalElapsedTime.label,
+                  label: fieldData.averageElapsedTime.label,
                   value: getValueByKey({
                     data: externalData,
-                    key: fieldData.totalElapsedTime.name,
+                    key: fieldData.averageElapsedTime.name,
                   }),
                 },
                 {
                   span: 1,
-                  label: fieldData.totalWorkerTime.label,
+                  label: fieldData.averageCpuTime.label,
                   value: getValueByKey({
                     data: externalData,
-                    key: fieldData.totalWorkerTime.name,
+                    key: fieldData.averageCpuTime.name,
+                  }),
+                },
+                {
+                  span: 1,
+                  label: fieldData.averageWaitTime.label,
+                  value: getValueByKey({
+                    data: externalData,
+                    key: fieldData.averageWaitTime.name,
+                  }),
+                },
+                {
+                  span: 1,
+                  label: fieldData.averageLogicalReads.label,
+                  value: getValueByKey({
+                    data: externalData,
+                    key: fieldData.averageLogicalReads.name,
+                  }),
+                },
+                {
+                  span: 1,
+                  label: fieldData.averageWrites.label,
+                  value: getValueByKey({
+                    data: externalData,
+                    key: fieldData.averageWrites.name,
                   }),
                 },
                 {
