@@ -1,10 +1,13 @@
 import { connect } from 'easy-soft-dva';
+import { checkHasAuthority } from 'easy-soft-utility';
 
-import { columnPlaceholder } from 'antd-management-fast-common';
+import { columnPlaceholder, extraBuildType } from 'antd-management-fast-common';
+import { iconBuilder } from 'antd-management-fast-component';
 import { DataSinglePageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../../customConfig';
 import { modelTypeCollection } from '../../../../modelBuilders';
+import { CommandDrawer } from '../CommandDrawer';
 import { fieldData } from '../Common/data';
 
 const { SinglePage: SinglePageView } = DataSinglePageView;
@@ -31,6 +34,31 @@ class SinglePage extends SinglePageView {
     };
   }
 
+  showCommandDrawer = () => {
+    CommandDrawer.open();
+  };
+
+  establishExtraActionConfig = () => {
+    return {
+      list: [
+        {
+          buildType: extraBuildType.generalExtraButton,
+          type: 'default',
+          size: 'small',
+          icon: iconBuilder.read(),
+          text: '获取命令信息',
+          disabled: this.checkInProgress(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.databaseLock.getCommand.permission,
+          ),
+          handleClick: () => {
+            this.showCommandDrawer();
+          },
+        },
+      ],
+    };
+  };
+
   getColumnWrapper = () => [
     {
       dataTarget: fieldData.spid,
@@ -56,6 +84,14 @@ class SinglePage extends SinglePageView {
         },
       ],
     };
+  };
+
+  renderPresetOther = () => {
+    return (
+      <>
+        <CommandDrawer maskClosable />
+      </>
+    );
   };
 }
 

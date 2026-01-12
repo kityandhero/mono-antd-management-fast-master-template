@@ -163,7 +163,7 @@ class PreviewDrawer extends BaseNeedlessLoadDrawer {
                   }),
                 },
                 {
-                  span: 2,
+                  span: 1,
                   label: fieldData.executionCount.label,
                   value: getValueByKey({
                     data: externalData,

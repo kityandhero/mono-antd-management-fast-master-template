@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -19,14 +20,14 @@ import {
 } from '../../services/questionTagRelation';
 
 export const questionTagRelationTypeCollection = {
-  pageList: 'questionTagRelation/pageList',
-  singleList: 'questionTagRelation/singleList',
-  get: 'questionTagRelation/get',
-  add: 'questionTagRelation/add',
-  addBatch: 'questionTagRelation/addBatch',
-  remove: 'questionTagRelation/remove',
-  refreshCache: 'questionTagRelation/refreshCache',
-};
+  pageList: "questionTagRelation/pageList",
+  singleList: "questionTagRelation/singleList",
+  get: "questionTagRelation/get",
+  add: "questionTagRelation/add",
+  addBatch: "questionTagRelation/addBatch",
+  remove: "questionTagRelation/remove",
+  refreshCache: "questionTagRelation/refreshCache",
+}
 
 export function buildModel() {
   return {

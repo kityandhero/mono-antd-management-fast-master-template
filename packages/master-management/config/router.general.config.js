@@ -26,6 +26,9 @@ export const logs = {
     accessWayCollection.executeLog.pageList.permission,
     accessWayCollection.sqlLog.pageList.permission,
     accessWayCollection.mongoSlowQueryInfo.singleList.permission,
+    accessWayCollection.databaseQueryEfficiency.singleList.permission,
+    accessWayCollection.databaseLock.singleList.permission,
+    accessWayCollection.databaseIndexSuggestion.singleList.permission,
   ],
   routes: [
     {
@@ -281,6 +284,30 @@ export const logs = {
           icon: 'bars',
           hideInMenu: true,
           component: './general/DatabaseQueryEfficiency/SingleList',
+        },
+      ],
+    },
+    {
+      name: 'databaseIndexSuggestion',
+      icon: 'reconciliation',
+      hideChildrenInMenu: true,
+      path: '/logs/databaseIndexSuggestion',
+      access: 'checkAccess',
+      authority: [
+        accessWayCollection.super.permission,
+        accessWayCollection.databaseIndexSuggestion.singleList.permission,
+      ],
+      routes: [
+        {
+          path: '/logs/databaseIndexSuggestion',
+          redirect: '/logs/databaseIndexSuggestion/singleList',
+        },
+        {
+          path: '/logs/databaseIndexSuggestion/singleList',
+          name: 'singleList',
+          icon: 'bars',
+          hideInMenu: true,
+          component: './general/DatabaseIndexSuggestion/SingleList',
         },
       ],
     },

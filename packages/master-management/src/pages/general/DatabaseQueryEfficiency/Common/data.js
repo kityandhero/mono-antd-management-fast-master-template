@@ -1,4 +1,9 @@
 export const fieldData = {
+  command: {
+    label: '命令',
+    name: 'command',
+    helper: '',
+  },
   averageCpuTime: {
     label: '平均CPU时间',
     name: 'averageCpuTime',

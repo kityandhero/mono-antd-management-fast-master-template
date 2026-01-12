@@ -83,6 +83,10 @@ import {
   customerWechatApplicationInfoTypeCollection,
 } from './customerWechatApplicationInfo';
 import {
+  buildModel as buildDatabaseIndexSuggestionModel,
+  databaseIndexSuggestionTypeCollection,
+} from './databaseIndexSuggestion';
+import {
   buildModel as buildDatabaseLockModel,
   databaseLockTypeCollection,
 } from './databaseLock';
@@ -435,6 +439,7 @@ export const modelTypeCollection = {
   customerTypeCollection,
   customerLoginLogTypeCollection,
   customerWechatApplicationInfoTypeCollection,
+  databaseIndexSuggestionTypeCollection,
   databaseLockTypeCollection,
   databaseQueryEfficiencyTypeCollection,
   departmentTypeCollection,
@@ -549,6 +554,7 @@ export function listModelBuilder() {
     buildCustomerModel,
     buildCustomerLoginLogModel,
     buildCustomerWechatApplicationInfoModel,
+    buildDatabaseIndexSuggestionModel,
     buildDatabaseLockModel,
     buildDatabaseQueryEfficiencyModel,
     buildDepartmentModel,

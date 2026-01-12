@@ -1621,10 +1621,38 @@
       "apis": [
         {
           "title": "单页列表",
+          "api": "/databaseIndexSuggestion/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        },
+        {
+          "title": "获取命令",
+          "api": "/databaseIndexSuggestion/getCommand",
+          "effect": "getCommand",
+          "service": "getCommandData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "数据库索引建议",
+      "name": "databaseIndexSuggestion"
+    },
+    {
+      "apis": [
+        {
+          "title": "单页列表",
           "api": "/databaseLock/singleList",
           "effect": "singleList",
           "service": "singleListData",
           "type": "singleList"
+        },
+        {
+          "title": "获取命令",
+          "api": "/databaseLock/getCommand",
+          "effect": "getCommand",
+          "service": "getCommandData",
+          "type": "singleData"
         }
       ],
       "cover": true,
@@ -1639,6 +1667,13 @@
           "effect": "singleList",
           "service": "singleListData",
           "type": "singleList"
+        },
+        {
+          "title": "获取命令",
+          "api": "/databaseQueryEfficiency/getCommand",
+          "effect": "getCommand",
+          "service": "getCommandData",
+          "type": "singleData"
         }
       ],
       "cover": true,

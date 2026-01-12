@@ -8,3 +8,12 @@ export async function singleListData(parameters) {
     params: parameters,
   });
 }
+
+export const getCommandDataApiAddress = '/databaseLock/getCommand';
+
+export async function getCommandData(parameters) {
+  return request({
+    api: getCommandDataApiAddress,
+    params: parameters,
+  });
+}

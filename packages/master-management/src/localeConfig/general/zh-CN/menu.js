@@ -57,6 +57,11 @@ export const menuZhCNGeneral = {
   'menu.logs.databaseQueryEfficiency.singleList': '数据库查询效率列表',
   'menu.logs.databaseQueryEfficiency.singleList-mini': 'QueryEfficiency',
 
+  'menu.logs.databaseIndexSuggestion': '数据库索引建议',
+  'menu.logs.databaseIndexSuggestion-mini': '索引建议',
+  'menu.logs.databaseIndexSuggestion.singleList': '数据库索引建议列表',
+  'menu.logs.databaseIndexSuggestion.singleList-mini': 'IndexSuggestion',
+
   'menu.queues': '消息队列',
   'menu.queues-mini': 'MQ',
 

@@ -1,3 +1,4 @@
+
 import { request } from 'easy-soft-utility';
 
 export const getDataApiAddress = '/currentAccount/get';
@@ -36,8 +37,7 @@ export async function changePasswordData(parameters) {
   });
 }
 
-export const pageListLoginLogDataApiAddress =
-  '/currentAccount/pageListLoginLog';
+export const pageListLoginLogDataApiAddress = '/currentAccount/pageListLoginLog';
 
 export async function pageListLoginLogData(parameters) {
   return request({
@@ -54,3 +54,4 @@ export async function uploadImageData(parameters) {
     params: parameters,
   });
 }
+

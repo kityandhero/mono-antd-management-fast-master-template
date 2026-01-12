@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -16,12 +17,12 @@ import {
 } from '../../services/keyValueApplication';
 
 export const keyValueApplicationTypeCollection = {
-  pageList: 'keyValueApplication/pageList',
-  get: 'keyValueApplication/get',
-  remove: 'keyValueApplication/remove',
-  refreshCache: 'keyValueApplication/refreshCache',
-  refreshAllCache: 'keyValueApplication/refreshAllCache',
-};
+  pageList: "keyValueApplication/pageList",
+  get: "keyValueApplication/get",
+  remove: "keyValueApplication/remove",
+  refreshCache: "keyValueApplication/refreshCache",
+  refreshAllCache: "keyValueApplication/refreshAllCache",
+}
 
 export function buildModel() {
   return {

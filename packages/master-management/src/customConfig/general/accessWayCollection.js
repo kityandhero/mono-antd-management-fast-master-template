@@ -979,11 +979,28 @@ export const accessWayInfrastructureCollection = {
       permission: 'fefc7e68ad6e4747850459ebcf8fffa9',
     },
   },
+  databaseIndexSuggestion: {
+    singleList: {
+      title: '单页列表',
+      paramsKey: '7be4df21cedb9a478dda76de8a83cc0a',
+      permission: '1069404842e14323ac71ef553b8bbc6e',
+    },
+    getCommand: {
+      title: '获取命令',
+      paramsKey: '68e661a209e10c336522478523cf1b1d',
+      permission: '5935ee23d48e4e24bca434d5fd961197',
+    },
+  },
   databaseLock: {
     singleList: {
       title: '单页列表',
       paramsKey: 'd9fdf419e9619a9b4720f54a85d47b58',
       permission: '43214159ad124d52bf6267b808a48ddb',
+    },
+    getCommand: {
+      title: '获取命令',
+      paramsKey: '69566623b68742e135679e7fdae772ee',
+      permission: 'e2becdc8e603459090c2329706434944',
     },
   },
   databaseQueryEfficiency: {
@@ -991,6 +1008,11 @@ export const accessWayInfrastructureCollection = {
       title: '单页列表',
       paramsKey: '0f436412d47c78345ab6a406d37d18d3',
       permission: 'c44b6fb56fd14300b091b9f5ac1c8741',
+    },
+    getCommand: {
+      title: '获取命令',
+      paramsKey: '09265669e7127f05b7e03ee2e8c5490d',
+      permission: '88688e81dda54d3ea8692451212f05c2',
     },
   },
   department: {

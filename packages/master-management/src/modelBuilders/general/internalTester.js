@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -15,11 +16,11 @@ import {
 } from '../../services/internalTester';
 
 export const internalTesterTypeCollection = {
-  pageList: 'internalTester/pageList',
-  get: 'internalTester/get',
-  addBasicInfo: 'internalTester/addBasicInfo',
-  remove: 'internalTester/remove',
-};
+  pageList: "internalTester/pageList",
+  get: "internalTester/get",
+  addBasicInfo: "internalTester/addBasicInfo",
+  remove: "internalTester/remove",
+}
 
 export function buildModel() {
   return {

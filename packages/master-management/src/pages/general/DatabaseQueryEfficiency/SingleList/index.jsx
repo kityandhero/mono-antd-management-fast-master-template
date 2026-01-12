@@ -1,10 +1,13 @@
 import { connect } from 'easy-soft-dva';
+import { checkHasAuthority } from 'easy-soft-utility';
 
+import { extraBuildType } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataSinglePageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../../customConfig';
 import { modelTypeCollection } from '../../../../modelBuilders';
+import { CommandDrawer } from '../CommandDrawer';
 import { fieldData } from '../Common/data';
 import { PreviewDrawer } from '../PreviewDrawer';
 
@@ -38,6 +41,31 @@ class SinglePage extends SinglePageView {
     this.setState({ currentRecord: record }, () => {
       PreviewDrawer.open();
     });
+  };
+
+  showCommandDrawer = () => {
+    CommandDrawer.open();
+  };
+
+  establishExtraActionConfig = () => {
+    return {
+      list: [
+        {
+          buildType: extraBuildType.generalExtraButton,
+          type: 'default',
+          size: 'small',
+          icon: iconBuilder.read(),
+          text: '获取命令信息',
+          disabled: this.checkInProgress(),
+          hidden: !checkHasAuthority(
+            accessWayCollection.databaseQueryEfficiency.getCommand.permission,
+          ),
+          handleClick: () => {
+            this.showCommandDrawer();
+          },
+        },
+      ],
+    };
   };
 
   establishListItemDropdownConfig = (record) => {
@@ -114,6 +142,8 @@ class SinglePage extends SinglePageView {
 
     return (
       <>
+        <CommandDrawer maskClosable />
+
         <PreviewDrawer maskClosable externalData={currentRecord} />
       </>
     );
