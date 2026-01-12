@@ -28,7 +28,7 @@ class SinglePage extends SinglePageView {
 
     this.state = {
       ...this.state,
-      pageTitle: '数据库查询效率列表',
+      pageTitle: '数据库索引建议列表',
       paramsKey:
         accessWayCollection.databaseIndexSuggestion.singleList.paramsKey,
       loadApiPath:
@@ -125,7 +125,22 @@ class SinglePage extends SinglePageView {
       title: '操作提示',
       list: [
         {
+          text: '需要 VIEW SERVER STATE 权限。',
+        },
+        {
           text: '此处显示的是近期较为耗时的查询信息。',
+        },
+        {
+          text: '建议在高峰期运行，以捕获更多真实的查询模式。',
+        },
+        {
+          text: '对于频繁更新的表，索引过多会降低写入性能。',
+        },
+        {
+          text: '不要盲目创建所有建议索引，需结合：查询频率、表数据量、现有索引情况、写入性能影响, 是否会影响写入性能, 是否与现有索引重复, 是否需要覆盖索引（INCLUDE 列）。',
+        },
+        {
+          text: '建议不是绝对, 缺失索引 DMV 只是基于执行计划的统计推测，可能会重复或不适合实际业务。',
         },
       ],
     };

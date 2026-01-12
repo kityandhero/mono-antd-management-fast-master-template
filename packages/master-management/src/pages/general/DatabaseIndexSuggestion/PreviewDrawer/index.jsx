@@ -123,6 +123,38 @@ class PreviewDrawer extends BaseNeedlessLoadDrawer {
               type: cardConfig.contentItemType.customGrid,
               list: [
                 {
+                  span: 2,
+                  label: fieldData.equalityColumns.label,
+                  value: getValueByKey({
+                    data: externalData,
+                    key: fieldData.equalityColumns.name,
+                  }),
+                },
+                {
+                  span: 2,
+                  label: fieldData.includedColumns.label,
+                  value: getValueByKey({
+                    data: externalData,
+                    key: fieldData.includedColumns.name,
+                  }),
+                },
+                {
+                  span: 2,
+                  label: fieldData.inequalityColumns.label,
+                  value: getValueByKey({
+                    data: externalData,
+                    key: fieldData.inequalityColumns.name,
+                  }),
+                },
+                {
+                  span: 2,
+                  label: fieldData.statement.label,
+                  value: getValueByKey({
+                    data: externalData,
+                    key: fieldData.statement.name,
+                  }),
+                },
+                {
                   span: 1,
                   label: fieldData.databaseName.label,
                   value: getValueByKey({

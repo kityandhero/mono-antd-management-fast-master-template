@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -16,11 +15,11 @@ import {
 } from '../../services/smsLog';
 
 export const smsLogTypeCollection = {
-  pageList: "smsLog/pageList",
-  get: "smsLog/get",
-  refreshCache: "smsLog/refreshCache",
-  pageListOperateLog: "smsLog/pageListOperateLog",
-}
+  pageList: 'smsLog/pageList',
+  get: 'smsLog/get',
+  refreshCache: 'smsLog/refreshCache',
+  pageListOperateLog: 'smsLog/pageListOperateLog',
+};
 
 export function buildModel() {
   return {

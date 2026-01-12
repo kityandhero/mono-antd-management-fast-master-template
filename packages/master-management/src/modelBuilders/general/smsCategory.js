@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -24,18 +23,18 @@ import {
 } from '../../services/smsCategory';
 
 export const smsCategoryTypeCollection = {
-  pageList: "smsCategory/pageList",
-  singleList: "smsCategory/singleList",
-  singleTreeList: "smsCategory/singleTreeList",
-  get: "smsCategory/get",
-  addBasicInfo: "smsCategory/addBasicInfo",
-  updateBasicInfo: "smsCategory/updateBasicInfo",
-  setEnable: "smsCategory/setEnable",
-  setDisable: "smsCategory/setDisable",
-  remove: "smsCategory/remove",
-  removeSingleTreeListCache: "smsCategory/removeSingleTreeListCache",
-  refreshCache: "smsCategory/refreshCache",
-}
+  pageList: 'smsCategory/pageList',
+  singleList: 'smsCategory/singleList',
+  singleTreeList: 'smsCategory/singleTreeList',
+  get: 'smsCategory/get',
+  addBasicInfo: 'smsCategory/addBasicInfo',
+  updateBasicInfo: 'smsCategory/updateBasicInfo',
+  setEnable: 'smsCategory/setEnable',
+  setDisable: 'smsCategory/setDisable',
+  remove: 'smsCategory/remove',
+  removeSingleTreeListCache: 'smsCategory/removeSingleTreeListCache',
+  refreshCache: 'smsCategory/refreshCache',
+};
 
 export function buildModel() {
   return {

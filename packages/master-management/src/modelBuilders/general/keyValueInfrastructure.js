@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -17,12 +16,12 @@ import {
 } from '../../services/keyValueInfrastructure';
 
 export const keyValueInfrastructureTypeCollection = {
-  pageList: "keyValueInfrastructure/pageList",
-  get: "keyValueInfrastructure/get",
-  remove: "keyValueInfrastructure/remove",
-  refreshCache: "keyValueInfrastructure/refreshCache",
-  refreshAllCache: "keyValueInfrastructure/refreshAllCache",
-}
+  pageList: 'keyValueInfrastructure/pageList',
+  get: 'keyValueInfrastructure/get',
+  remove: 'keyValueInfrastructure/remove',
+  refreshCache: 'keyValueInfrastructure/refreshCache',
+  refreshAllCache: 'keyValueInfrastructure/refreshAllCache',
+};
 
 export function buildModel() {
   return {

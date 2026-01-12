@@ -15,28 +15,48 @@ export const fieldData = {
     helper: '',
   },
   userSeeks: {
-    label: 'UserSeeks',
+    label: '寻找次数',
     name: 'userSeeks',
     helper: '',
   },
   userScans: {
-    label: 'UserScans',
+    label: '扫描次数',
     name: 'userScans',
     helper: '',
   },
   averageTotalUserCost: {
-    label: '平均总用户成本',
+    label: '平均查询成本',
     name: 'averageTotalUserCost',
     helper: '',
   },
   averageUserImpact: {
-    label: '平均用户影响',
+    label: '性能提升百分比',
     name: 'averageUserImpact',
     helper: '',
   },
   createIndexStatement: {
     label: '索引创建语句',
     name: 'createIndexStatement',
+    helper: '',
+  },
+  equalityColumns: {
+    label: 'Equality 列',
+    name: 'equalityColumns',
+    helper: '',
+  },
+  includedColumns: {
+    label: 'Included 列',
+    name: 'includedColumns',
+    helper: '',
+  },
+  inequalityColumns: {
+    label: 'Inequality 列',
+    name: 'inequalityColumns',
+    helper: '',
+  },
+  statement: {
+    label: '声明',
+    name: 'statement',
     helper: '',
   },
 };

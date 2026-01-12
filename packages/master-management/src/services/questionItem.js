@@ -1,4 +1,3 @@
-
 import { request } from 'easy-soft-utility';
 
 export const pageListDataApiAddress = '/questionItem/pageList';
@@ -64,7 +63,8 @@ export async function refreshCacheData(parameters) {
   });
 }
 
-export const pageListOperateLogDataApiAddress = '/questionItem/pageListOperateLog';
+export const pageListOperateLogDataApiAddress =
+  '/questionItem/pageListOperateLog';
 
 export async function pageListOperateLogData(parameters) {
   return request({
@@ -81,4 +81,3 @@ export async function uploadImageData(parameters) {
     params: parameters,
   });
 }
-
