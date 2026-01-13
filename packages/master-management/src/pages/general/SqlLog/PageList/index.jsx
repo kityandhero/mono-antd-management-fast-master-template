@@ -199,11 +199,11 @@ class Index extends MultiPage {
       emptyValue: '--',
     },
     {
-      dataTarget: fieldData.createTime,
+      dataTarget: fieldData.executionTime,
       width: 160,
       sorter: false,
       showRichFacade: true,
-      facadeMode: columnFacadeMode.datetime,
+      facadeMode: columnFacadeMode.executionTime,
       emptyValue: '--',
     },
 

@@ -63,7 +63,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      tableScrollX: 1880,
+      tableScrollX: 1980,
       pageTitle: '流程实例列表',
       paramsKey: accessWayCollection.workflowCase.pageList.paramsKey,
       loadApiPath: modelTypeCollection.workflowCaseTypeCollection.pageList,
@@ -544,6 +544,27 @@ class PageList extends MultiPage {
       },
     },
     {
+      dataTarget: fieldData.status,
+      width: 120,
+      showRichFacade: true,
+      emptyValue: '--',
+      facadeMode: columnFacadeMode.badge,
+      facadeConfigBuilder: (value) => {
+        return {
+          status: getFlowCaseStatusBadge(value),
+          text: getFlowCaseStatusName({
+            value: value,
+          }),
+        };
+      },
+    },
+    {
+      dataTarget: fieldData.approveBatchNumber,
+      width: 100,
+      showRichFacade: true,
+      canCopy: true,
+    },
+    {
       dataTarget: fieldData.channel,
       width: 120,
       showRichFacade: true,
@@ -559,21 +580,6 @@ class PageList extends MultiPage {
         return getChannelName({
           value: value,
         });
-      },
-    },
-    {
-      dataTarget: fieldData.status,
-      width: 120,
-      showRichFacade: true,
-      emptyValue: '--',
-      facadeMode: columnFacadeMode.badge,
-      facadeConfigBuilder: (value) => {
-        return {
-          status: getFlowCaseStatusBadge(value),
-          text: getFlowCaseStatusName({
-            value: value,
-          }),
-        };
       },
     },
     {

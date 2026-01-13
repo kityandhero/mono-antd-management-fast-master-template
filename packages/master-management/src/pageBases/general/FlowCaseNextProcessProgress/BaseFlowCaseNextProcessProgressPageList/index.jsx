@@ -28,6 +28,7 @@ class BaseFlowCaseNextProcessProgressPageList extends MultiPage {
 
     this.state = {
       ...this.state,
+      tableScrollX: 1860,
       pageTitle: '流程实例审批进程列表',
       loadApiPath: '',
       dateRangeFieldName: '创建时间',
@@ -202,6 +203,12 @@ class BaseFlowCaseNextProcessProgressPageList extends MultiPage {
           }),
         };
       },
+    },
+    {
+      dataTarget: fieldDataFlowCaseNextProcessProgress.approveBatchNumber,
+      width: 100,
+      showRichFacade: true,
+      canCopy: true,
     },
     {
       dataTarget: fieldDataFlowCaseNextProcessProgress.flowCaseId,

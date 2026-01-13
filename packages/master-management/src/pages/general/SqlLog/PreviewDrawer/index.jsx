@@ -213,6 +213,7 @@ class PreviewDrawer extends BaseLoadDrawer {
               type: cardConfig.contentItemType.customGrid,
               list: [
                 {
+                  span: 2,
                   label: fieldData.triggerChannelNote.label,
                   value: getValueByKey({
                     data: metaData,
@@ -220,6 +221,7 @@ class PreviewDrawer extends BaseLoadDrawer {
                   }),
                 },
                 {
+                  span: 1,
                   label: fieldData.collectModeNote.label,
                   value: getValueByKey({
                     data: metaData,
@@ -227,6 +229,7 @@ class PreviewDrawer extends BaseLoadDrawer {
                   }),
                 },
                 {
+                  span: 1,
                   label: fieldData.databaseChannel.label,
                   value: getValueByKey({
                     data: metaData,
@@ -234,6 +237,16 @@ class PreviewDrawer extends BaseLoadDrawer {
                   }),
                 },
                 {
+                  span: 1,
+                  label: fieldData.executionTime.label,
+                  value: getValueByKey({
+                    data: metaData,
+                    key: fieldData.executionTime.name,
+                    format: formatCollection.datetime,
+                  }),
+                },
+                {
+                  span: 1,
                   label: fieldData.createTime.label,
                   value: getValueByKey({
                     data: metaData,

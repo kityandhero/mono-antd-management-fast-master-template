@@ -39,4 +39,9 @@ export const fieldData = {
     name: 'queryStatement',
     helper: '',
   },
+  lastExecutionTime: {
+    label: '最后执行时间',
+    name: 'lastExecutionTime',
+    helper: '',
+  },
 };

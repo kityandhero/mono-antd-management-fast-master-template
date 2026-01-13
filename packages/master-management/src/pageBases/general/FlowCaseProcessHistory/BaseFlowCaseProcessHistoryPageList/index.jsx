@@ -33,7 +33,7 @@ class BaseFlowCaseProcessHistoryPageList extends MultiPage {
       ...this.state,
       pageTitle: '',
       loadApiPath: '',
-      tableScrollX: 1720,
+      tableScrollX: 1820,
       currentRecord: null,
     };
   }
@@ -237,8 +237,14 @@ class BaseFlowCaseProcessHistoryPageList extends MultiPage {
       },
     },
     {
-      dataTarget: fieldDataFlowCaseProcessHistory.flowCaseId,
-      width: 120,
+      dataTarget: fieldDataFlowCaseProcessHistory.approveWorkflowNodeTypeNote,
+      width: 140,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldDataFlowCaseProcessHistory.approveBatchNumber,
+      width: 100,
       showRichFacade: true,
       canCopy: true,
     },

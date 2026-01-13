@@ -70,6 +70,11 @@ export const fieldData = {
     name: 'errored',
     helper: '',
   },
+  executionTime: {
+    label: '执行时间',
+    name: 'executionTime',
+    helper: '',
+  },
   createTime: {
     label: '创建时间',
     name: 'createTime',

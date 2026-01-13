@@ -32,6 +32,7 @@ class BaseFlowCaseNextProcessNotificationPageList extends MultiPage {
 
     this.state = {
       ...this.state,
+      tableScrollX: 1860,
       pageTitle: '流程实例下一审批通知列表',
       paramsKey: accessWayCollection.workflowCase.pageList.paramsKey,
       loadApiPath: modelTypeCollection.workflowCaseTypeCollection.pageList,
@@ -219,6 +220,12 @@ class BaseFlowCaseNextProcessNotificationPageList extends MultiPage {
           }),
         };
       },
+    },
+    {
+      dataTarget: fieldDataFlowCaseNextProcessNotification.approveBatchNumber,
+      width: 100,
+      showRichFacade: true,
+      canCopy: true,
     },
     {
       dataTarget: fieldDataFlowCaseNextProcessNotification.flowCaseId,

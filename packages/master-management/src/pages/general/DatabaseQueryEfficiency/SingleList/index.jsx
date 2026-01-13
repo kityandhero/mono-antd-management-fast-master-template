@@ -1,7 +1,7 @@
 import { connect } from 'easy-soft-dva';
 import { checkHasAuthority } from 'easy-soft-utility';
 
-import { extraBuildType } from 'antd-management-fast-common';
+import { columnFacadeMode, extraBuildType } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataSinglePageView } from 'antd-management-fast-framework';
 
@@ -122,6 +122,14 @@ class SinglePage extends SinglePageView {
       dataTarget: fieldData.executionCount,
       width: 120,
       showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.lastExecutionTime,
+      width: 160,
+      sorter: false,
+      showRichFacade: true,
+      facadeMode: columnFacadeMode.datetime,
       emptyValue: '--',
     },
   ];
