@@ -241,18 +241,6 @@ class Index extends MultiPage {
       },
     },
     {
-      dataTarget: fieldData.flag,
-      width: 120,
-      showRichFacade: true,
-      canCopy: true,
-    },
-    {
-      dataTarget: fieldData.sqlLogId,
-      width: 120,
-      showRichFacade: true,
-      canCopy: true,
-    },
-    {
       dataTarget: fieldData.triggerChannel,
       width: 160,
       showRichFacade: true,
@@ -294,6 +282,18 @@ class Index extends MultiPage {
       width: 120,
       showRichFacade: true,
       emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.flag,
+      width: 120,
+      showRichFacade: true,
+      canCopy: true,
+    },
+    {
+      dataTarget: fieldData.sqlLogId,
+      width: 120,
+      showRichFacade: true,
+      canCopy: true,
     },
   ];
 
