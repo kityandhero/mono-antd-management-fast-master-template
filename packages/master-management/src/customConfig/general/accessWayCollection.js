@@ -4537,6 +4537,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'a1c61809a3d58615625f6fde6412ec21',
       permission: 'fbb6a6c56fa0472d82d16d908db6d826',
     },
+    updateDescriptiveInfo: {
+      title: '更新描述性信息',
+      paramsKey: '31fbba967545ecf6f4744c0d47b25230',
+      permission: 'd4fb4b10eb344fd39b80cf4281c7d9a5',
+    },
     setBranchConditionId: {
       title: '设置流程线条的分支进入条件, 仅应在多分支流程中使用',
       paramsKey: '9d683e30daa42cfbde71db74639c0069',
@@ -4608,6 +4613,11 @@ export const accessWayInfrastructureCollection = {
       title: '编辑信息',
       paramsKey: '5b657a6f8338d2d039b07a9a78717236',
       permission: 'db217a20d56f4bb69eb9b1897a973390',
+    },
+    updateDescriptiveInfo: {
+      title: '更新描述性信息',
+      paramsKey: '42f9de9d66dfc061a36562bb3edfd6ab',
+      permission: '43a4aa5b946946d8bcc5b0947abd2da1',
     },
     updateViewConfig: {
       title: '编辑节点视图配置',

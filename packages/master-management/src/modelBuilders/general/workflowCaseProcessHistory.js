@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -16,12 +17,12 @@ import {
 } from '../../services/workflowCaseProcessHistory';
 
 export const workflowCaseProcessHistoryTypeCollection = {
-  pageList: 'workflowCaseProcessHistory/pageList',
-  get: 'workflowCaseProcessHistory/get',
-  resetAllApprove: 'workflowCaseProcessHistory/resetAllApprove',
-  refreshCache: 'workflowCaseProcessHistory/refreshCache',
-  pageListOperateLog: 'workflowCaseProcessHistory/pageListOperateLog',
-};
+  pageList: "workflowCaseProcessHistory/pageList",
+  get: "workflowCaseProcessHistory/get",
+  resetAllApprove: "workflowCaseProcessHistory/resetAllApprove",
+  refreshCache: "workflowCaseProcessHistory/refreshCache",
+  pageListOperateLog: "workflowCaseProcessHistory/pageListOperateLog",
+}
 
 export function buildModel() {
   return {

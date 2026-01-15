@@ -19,6 +19,7 @@ import {
   removeData,
   setBranchConditionIdData,
   singleListData,
+  updateDescriptiveInfoData,
   updateLineData,
 } from '../../services/workflowLine';
 
@@ -28,6 +29,7 @@ export const workflowLineTypeCollection = {
   get: 'workflowLine/get',
   createLine: 'workflowLine/createLine',
   updateLine: 'workflowLine/updateLine',
+  updateDescriptiveInfo: 'workflowLine/updateDescriptiveInfo',
   setBranchConditionId: 'workflowLine/setBranchConditionId',
   remove: 'workflowLine/remove',
   removeAll: 'workflowLine/removeAll',
@@ -159,6 +161,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(updateLineData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *updateDescriptiveInfo(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(updateDescriptiveInfoData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

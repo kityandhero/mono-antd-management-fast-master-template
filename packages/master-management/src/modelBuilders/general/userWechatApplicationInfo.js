@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -15,11 +16,11 @@ import {
 } from '../../services/userWechatApplicationInfo';
 
 export const userWechatApplicationInfoTypeCollection = {
-  pageList: 'userWechatApplicationInfo/pageList',
-  get: 'userWechatApplicationInfo/get',
-  remove: 'userWechatApplicationInfo/remove',
-  refreshCache: 'userWechatApplicationInfo/refreshCache',
-};
+  pageList: "userWechatApplicationInfo/pageList",
+  get: "userWechatApplicationInfo/get",
+  remove: "userWechatApplicationInfo/remove",
+  refreshCache: "userWechatApplicationInfo/refreshCache",
+}
 
 export function buildModel() {
   return {

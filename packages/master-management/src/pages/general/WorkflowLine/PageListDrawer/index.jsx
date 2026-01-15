@@ -3,6 +3,7 @@ import {
   buildRandomHexColor,
   checkHasAuthority,
   getValueByKey,
+  showSimpleErrorMessage,
   toNumber,
 } from 'easy-soft-utility';
 
@@ -26,6 +27,7 @@ import { modelTypeCollection } from '../../../../modelBuilders';
 import { refreshCacheAction } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
+import { UpdateDescriptiveInfoDrawer } from '../UpdateDescriptiveInfoDrawer';
 
 const { MultiPageDrawer } = DataMultiPageView;
 
@@ -36,6 +38,8 @@ const visibleFlag = 'e91c738150c248aa9512778106310fca';
   schedulingControl,
 }))
 class PageListDrawer extends MultiPageDrawer {
+  columnOperateWidth = 146;
+
   reloadWhenShow = true;
 
   componentAuthority = accessWayCollection.workflowLine.pageList.permission;
@@ -49,9 +53,10 @@ class PageListDrawer extends MultiPageDrawer {
 
     this.state = {
       ...this.state,
+      tableScrollX: 1480,
       pageTitle: '流程线条列表',
       loadApiPath: modelTypeCollection.workflowLineTypeCollection.pageList,
-      tableScrollX: 1480,
+      currentRecord: null,
     };
   }
 
@@ -77,11 +82,53 @@ class PageListDrawer extends MultiPageDrawer {
     return d;
   };
 
+  handleMenuClick = ({ key, handleData }) => {
+    switch (key) {
+      case 'showUpdateDescriptiveInfoDrawer': {
+        this.showUpdateDescriptiveInfoDrawer(handleData);
+        break;
+      }
+
+      default: {
+        showSimpleErrorMessage(`can not find matched key "${key}"`);
+        break;
+      }
+    }
+  };
+
   refreshCache = (r) => {
     refreshCacheAction({
       target: this,
       handleData: r,
     });
+  };
+
+  showUpdateDescriptiveInfoDrawer = (r) => {
+    this.setState(
+      {
+        currentRecord: r,
+      },
+      () => {
+        UpdateDescriptiveInfoDrawer.open();
+      },
+    );
+  };
+
+  afterUpdateDescriptiveInfoDrawerOk = ({
+    // eslint-disable-next-line no-unused-vars
+    singleData,
+    // eslint-disable-next-line no-unused-vars
+    listData,
+    // eslint-disable-next-line no-unused-vars
+    extraData,
+    // eslint-disable-next-line no-unused-vars
+    responseOriginalData,
+    // eslint-disable-next-line no-unused-vars
+    submitData,
+    // eslint-disable-next-line no-unused-vars
+    subjoinData,
+  }) => {
+    this.refreshDataWithReloadAnimalPrompt({});
   };
 
   renderPresetTitleIcon = () => null;
@@ -108,6 +155,8 @@ class PageListDrawer extends MultiPageDrawer {
       size: 'small',
       text: '刷新缓存',
       icon: iconBuilder.reload(),
+      confirm: true,
+      title: '即将刷新缓存，确定吗？',
       disabled: !checkHasAuthority(
         accessWayCollection.workflowLine.refreshCache.permission,
       ),
@@ -115,8 +164,19 @@ class PageListDrawer extends MultiPageDrawer {
         this.refreshCache(handleData);
       },
       handleData: record,
-      confirm: true,
-      title: '即将刷新缓存，确定吗？',
+      handleMenuClick: ({ key, handleData }) => {
+        this.handleMenuClick({ key, handleData });
+      },
+      items: [
+        {
+          key: 'showUpdateDescriptiveInfoDrawer',
+          icon: iconBuilder.edit(),
+          text: '编辑描述性信息',
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowLine.updateDescriptiveInfo.permission,
+          ),
+        },
+      ],
     };
   };
 
@@ -221,6 +281,19 @@ class PageListDrawer extends MultiPageDrawer {
       facadeMode: columnFacadeMode.datetime,
     },
   ];
+
+  renderPresetOther = () => {
+    const { currentRecord } = this.state;
+
+    return (
+      <>
+        <UpdateDescriptiveInfoDrawer
+          externalData={currentRecord}
+          afterOK={this.afterUpdateDescriptiveInfoDrawerOk}
+        />
+      </>
+    );
+  };
 }
 
 export { PageListDrawer };

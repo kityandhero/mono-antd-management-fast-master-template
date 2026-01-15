@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -17,13 +18,13 @@ import {
 } from '../../services/executeLog';
 
 export const executeLogTypeCollection = {
-  pageList: 'executeLog/pageList',
-  get: 'executeLog/get',
-  remove: 'executeLog/remove',
-  removeMulti: 'executeLog/removeMulti',
-  removeAll: 'executeLog/removeAll',
-  createTestLog: 'executeLog/createTestLog',
-};
+  pageList: "executeLog/pageList",
+  get: "executeLog/get",
+  remove: "executeLog/remove",
+  removeMulti: "executeLog/removeMulti",
+  removeAll: "executeLog/removeAll",
+  createTestLog: "executeLog/createTestLog",
+}
 
 export function buildModel() {
   return {

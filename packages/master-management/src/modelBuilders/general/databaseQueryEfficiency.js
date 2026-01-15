@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -13,9 +14,9 @@ import {
 } from '../../services/databaseQueryEfficiency';
 
 export const databaseQueryEfficiencyTypeCollection = {
-  singleList: 'databaseQueryEfficiency/singleList',
-  getCommand: 'databaseQueryEfficiency/getCommand',
-};
+  singleList: "databaseQueryEfficiency/singleList",
+  getCommand: "databaseQueryEfficiency/getCommand",
+}
 
 export function buildModel() {
   return {
