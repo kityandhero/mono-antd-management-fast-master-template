@@ -7,7 +7,11 @@ import {
   toNumber,
 } from 'easy-soft-utility';
 
-import { columnFacadeMode, listViewConfig } from 'antd-management-fast-common';
+import {
+  columnFacadeMode,
+  listViewConfig,
+  searchCardConfig,
+} from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
@@ -119,6 +123,30 @@ class Index extends MultiPage {
 
   showSwitchDrawer = () => {
     PageListDrawer.open();
+  };
+
+  establishSearchCardConfig = () => {
+    const { dateRangeFieldName } = this.state;
+
+    return {
+      list: [
+        {
+          lg: 8,
+          type: searchCardConfig.contentItemType.input,
+          fieldData: fieldData.keyword,
+        },
+        {
+          lg: 8,
+          type: searchCardConfig.contentItemType.component,
+          component: this.buildSearchCardRangePickerCore(dateRangeFieldName),
+        },
+        {
+          lg: 4,
+          type: searchCardConfig.contentItemType.component,
+          component: this.buildSearchCardButtonCore(),
+        },
+      ],
+    };
   };
 
   establishDataContainerExtraActionCollectionConfig = () => {

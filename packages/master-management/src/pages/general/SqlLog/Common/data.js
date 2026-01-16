@@ -1,6 +1,11 @@
 import { formNameCollection } from '../../../../customConfig';
 
 const extra = {
+  keyword: {
+    label: '命令关键词',
+    name: 'keyword',
+    helper: '',
+  },
   collectModeNote: {
     label: '收集模式',
     name: 'collectModeNote',
