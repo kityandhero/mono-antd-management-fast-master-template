@@ -158,7 +158,7 @@ class Index extends TabPageBase {
                   </Paragraph>
 
                   <div style={{ paddingLeft: '54px' }}>
-                    <Space direction="vertical">
+                    <Space orientation="vertical">
                       {listItem.map((o, index) => {
                         if (type === typeCollection.singleSelect) {
                           return (
@@ -226,7 +226,7 @@ class Index extends TabPageBase {
 
                       <Alert
                         showIcon
-                        message="提示: 当前不存在正确的选项, 请检查选项设置."
+                        title="提示: 当前不存在正确的选项, 请检查选项设置."
                         type="warning"
                       />
                     </>

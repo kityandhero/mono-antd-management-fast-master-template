@@ -323,7 +323,7 @@ export function buildInputItem({
       hidden,
       innerProps: {
         addonAfter: (
-          <Space split={<Divider type="vertical" />}>
+          <Space separator={<Divider orientation="vertical" />}>
             {buildButton({
               style: {
                 border: '0px solid #d9d9d9',
@@ -373,7 +373,7 @@ export function buildInputItem({
         }),
       hidden,
       actionBar: (
-        <Space split={<Divider type="vertical" />}>
+        <Space separator={<Divider orientation="vertical" />}>
           {buildButton({
             style: {
               border: '0px solid #d9d9d9',
@@ -414,7 +414,7 @@ export function buildInputItem({
     hidden,
     innerProps: {
       addonAfter: (
-        <Space split={<Divider type="vertical" />}>
+        <Space separator={<Divider orientation="vertical" />}>
           {buildButton({
             style: {
               border: '0px solid #d9d9d9',

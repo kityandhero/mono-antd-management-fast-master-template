@@ -38,6 +38,10 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
 
   nextWorkflowNodeApproverUserRealName = '';
 
+  nextNextWorkflowNodeApproverUserId = '';
+
+  nextNextWorkflowNodeApproverUserRealName = '';
+
   nextNodeApproverUserName = '17158fea9dbc42d4abbe967cdc099ba1';
 
   generalDiscourseName = '991d90f0881b4e14909c7e8f270e593f';
@@ -110,6 +114,16 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
 
   reloadNextNodeApproverList = () => {
     this.loadNextNodeApproverList();
+  };
+
+  loadNextNextNodeApproverList = () => {
+    throw new Error(
+      'loadNextNextNodeApproverList need overrode to implement, need return boolean',
+    );
+  };
+
+  reloadNextNextNodeApproverList = () => {
+    this.loadNextNextNodeApproverList();
   };
 
   onGeneralDiscourseChange = (v, option) => {

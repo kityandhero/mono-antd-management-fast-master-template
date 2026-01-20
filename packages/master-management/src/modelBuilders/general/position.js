@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -21,15 +20,15 @@ import {
 } from '../../services/position';
 
 export const positionTypeCollection = {
-  pageList: "position/pageList",
-  singleList: "position/singleList",
-  get: "position/get",
-  addBasicInfo: "position/addBasicInfo",
-  updateBasicInfo: "position/updateBasicInfo",
-  updateSort: "position/updateSort",
-  refreshCache: "position/refreshCache",
-  pageListOperateLog: "position/pageListOperateLog",
-}
+  pageList: 'position/pageList',
+  singleList: 'position/singleList',
+  get: 'position/get',
+  addBasicInfo: 'position/addBasicInfo',
+  updateBasicInfo: 'position/updateBasicInfo',
+  updateSort: 'position/updateSort',
+  refreshCache: 'position/refreshCache',
+  pageListOperateLog: 'position/pageListOperateLog',
+};
 
 export function buildModel() {
   return {

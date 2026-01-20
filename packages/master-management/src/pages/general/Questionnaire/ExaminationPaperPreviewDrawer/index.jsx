@@ -46,7 +46,7 @@ function buildJudgmentQuestion(o, index) {
       </Paragraph>
 
       <Radio.Group name={questionId}>
-        <Space direction="vertical">
+        <Space orientation="vertical">
           <Radio
             key={`${questionId}_item_whether_${whetherString.yes}}`}
             value={whetherString.yes}
@@ -95,7 +95,7 @@ function buildSingleSelectQuestion(o, index) {
       </Paragraph>
 
       <Radio.Group name={questionId}>
-        <Space direction="vertical">
+        <Space orientation="vertical">
           {listItem.map((o, index) => {
             return (
               <Radio
@@ -147,7 +147,7 @@ function buildMultiSelectQuestion(o, index) {
       </Paragraph>
 
       <Checkbox.Group name={questionId}>
-        <Space direction="vertical">
+        <Space orientation="vertical">
           {listItem.map((o, index) => {
             return (
               <Checkbox
@@ -265,13 +265,13 @@ class ExaminationPaperPreviewDrawer extends BaseVerticalFlexDrawer {
             paddingRight: '14px',
           }}
         >
-          <Space direction="vertical" style={{ width: '100%' }}>
+          <Space orientation="vertical" style={{ width: '100%' }}>
             {hasQuestionSingleSelect ? (
               <Card title="单选题" size="small">
                 <Space
-                  direction="vertical"
+                  orientation="vertical"
                   style={{ width: '100%' }}
-                  split={
+                  separator={
                     <Divider
                       style={{
                         marginTop: '6px',
@@ -294,9 +294,9 @@ class ExaminationPaperPreviewDrawer extends BaseVerticalFlexDrawer {
             {hasQuestionMultiSelect ? (
               <Card title="多选题" size="small">
                 <Space
-                  direction="vertical"
+                  orientation="vertical"
                   style={{ width: '100%' }}
-                  split={
+                  separator={
                     <Divider
                       style={{
                         marginTop: '6px',
@@ -319,9 +319,9 @@ class ExaminationPaperPreviewDrawer extends BaseVerticalFlexDrawer {
             {hasQuestionJudgment ? (
               <Card title="判断题" size="small">
                 <Space
-                  direction="vertical"
+                  orientation="vertical"
                   style={{ width: '100%' }}
-                  split={
+                  separator={
                     <Divider
                       style={{
                         marginTop: '6px',

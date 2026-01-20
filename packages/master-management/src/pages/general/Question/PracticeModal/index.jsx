@@ -201,7 +201,7 @@ class PracticeModal extends BaseUpdateModal {
 
     const judgmentComponent = (
       <Radio.Group name={questionId} onChange={this.onSingleSelectChange}>
-        <Space direction="vertical">
+        <Space orientation="vertical">
           <Radio
             key={`${questionId}_item_whether_${whetherString.yes}}`}
             value={whetherString.yes}
@@ -225,7 +225,7 @@ class PracticeModal extends BaseUpdateModal {
 
     const singleSelectComponent = (
       <Radio.Group name={questionId} onChange={this.onSingleSelectChange}>
-        <Space direction="vertical">
+        <Space orientation="vertical">
           {listItem.map((o, index) => {
             return (
               <Radio
@@ -265,7 +265,7 @@ class PracticeModal extends BaseUpdateModal {
 
     const multoSelectComponent = (
       <Checkbox.Group name={questionId} onChange={this.onMultiSelectChange}>
-        <Space direction="vertical">
+        <Space orientation="vertical">
           {listItem.map((o, index) => {
             return (
               <Checkbox

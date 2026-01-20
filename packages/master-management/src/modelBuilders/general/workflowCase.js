@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -32,6 +31,7 @@ import {
   setAttentionUserData,
   setSubsidiaryIdData,
   setTitleFromCaseNameTemplateData,
+  singleListNextNextNodeApproverData,
   singleListNextNodeApproverData,
   toggleEmergencyData,
   updateBasicInfoData,
@@ -39,33 +39,34 @@ import {
 } from '../../services/workflowCase';
 
 export const workflowCaseTypeCollection = {
-  pageList: "workflowCase/pageList",
-  pageListUnderway: "workflowCase/pageListUnderway",
-  singleListNextNodeApprover: "workflowCase/singleListNextNodeApprover",
-  get: "workflowCase/get",
-  verifyCode: "workflowCase/verifyCode",
-  getChain: "workflowCase/getChain",
-  updateBasicInfo: "workflowCase/updateBasicInfo",
-  toggleEmergency: "workflowCase/toggleEmergency",
-  setTitleFromCaseNameTemplate: "workflowCase/setTitleFromCaseNameTemplate",
-  setSubsidiaryId: "workflowCase/setSubsidiaryId",
-  setApplicantStatement: "workflowCase/setApplicantStatement",
-  setAttentionUser: "workflowCase/setAttentionUser",
-  setAttentionStatement: "workflowCase/setAttentionStatement",
-  hide: "workflowCase/hide",
-  openCancelApproveSwitch: "workflowCase/openCancelApproveSwitch",
-  closeCancelApproveSwitch: "workflowCase/closeCancelApproveSwitch",
-  openResetAllApproveSwitch: "workflowCase/openResetAllApproveSwitch",
-  closeResetAllApproveSwitch: "workflowCase/closeResetAllApproveSwitch",
-  forceEnd: "workflowCase/forceEnd",
-  disuse: "workflowCase/disuse",
-  archive: "workflowCase/archive",
-  cancelArchive: "workflowCase/cancelArchive",
-  refreshCache: "workflowCase/refreshCache",
-  refreshAllEntityCache: "workflowCase/refreshAllEntityCache",
-  repairSubsidiary: "workflowCase/repairSubsidiary",
-  pageListOperateLog: "workflowCase/pageListOperateLog",
-}
+  pageList: 'workflowCase/pageList',
+  pageListUnderway: 'workflowCase/pageListUnderway',
+  singleListNextNodeApprover: 'workflowCase/singleListNextNodeApprover',
+  singleListNextNextNodeApprover: 'workflowCase/singleListNextNextNodeApprover',
+  get: 'workflowCase/get',
+  verifyCode: 'workflowCase/verifyCode',
+  getChain: 'workflowCase/getChain',
+  updateBasicInfo: 'workflowCase/updateBasicInfo',
+  toggleEmergency: 'workflowCase/toggleEmergency',
+  setTitleFromCaseNameTemplate: 'workflowCase/setTitleFromCaseNameTemplate',
+  setSubsidiaryId: 'workflowCase/setSubsidiaryId',
+  setApplicantStatement: 'workflowCase/setApplicantStatement',
+  setAttentionUser: 'workflowCase/setAttentionUser',
+  setAttentionStatement: 'workflowCase/setAttentionStatement',
+  hide: 'workflowCase/hide',
+  openCancelApproveSwitch: 'workflowCase/openCancelApproveSwitch',
+  closeCancelApproveSwitch: 'workflowCase/closeCancelApproveSwitch',
+  openResetAllApproveSwitch: 'workflowCase/openResetAllApproveSwitch',
+  closeResetAllApproveSwitch: 'workflowCase/closeResetAllApproveSwitch',
+  forceEnd: 'workflowCase/forceEnd',
+  disuse: 'workflowCase/disuse',
+  archive: 'workflowCase/archive',
+  cancelArchive: 'workflowCase/cancelArchive',
+  refreshCache: 'workflowCase/refreshCache',
+  refreshAllEntityCache: 'workflowCase/refreshAllEntityCache',
+  repairSubsidiary: 'workflowCase/repairSubsidiary',
+  pageListOperateLog: 'workflowCase/pageListOperateLog',
+};
 
 export function buildModel() {
   return {
@@ -138,6 +139,35 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(singleListNextNodeApproverData, payload);
+
+        const dataAdjust = pretreatmentRemoteListData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *singleListNextNextNodeApprover(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(
+          singleListNextNextNodeApproverData,
+          payload,
+        );
 
         const dataAdjust = pretreatmentRemoteListData({
           source: response,

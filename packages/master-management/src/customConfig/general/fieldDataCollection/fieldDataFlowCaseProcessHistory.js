@@ -6,9 +6,19 @@ const fieldExtraData = {
     name: 'flowCaseTitle',
     helper: '',
   },
-  approveActionReuse: {
-    label: '复用审批',
-    name: 'approveActionReuse',
+  approveWorkflowNodeTypeNote: {
+    label: '审批流程节点类型',
+    name: 'approveWorkflowNodeTypeNote',
+    helper: '',
+  },
+  approveActionNote: {
+    label: '审批动作',
+    name: 'approveActionNote',
+    helper: '',
+  },
+  approveActionModeNote: {
+    label: '审批动作模式',
+    name: 'approveActionModeNote',
     helper: '',
   },
   approveActionReuseNote: {
@@ -55,11 +65,6 @@ export const fieldDataFlowCaseProcessHistory = {
     name: 'approveWorkflowNodeType',
     helper: '',
   },
-  approveWorkflowNodeTypeNote: {
-    label: '审批流程节点类型',
-    name: 'approveWorkflowNodeTypeNote',
-    helper: '',
-  },
   note: {
     label: '审批意见',
     name: 'note',
@@ -80,19 +85,19 @@ export const fieldDataFlowCaseProcessHistory = {
     name: 'approveAction',
     helper: '',
   },
-  approveActionNote: {
-    label: '审批动作',
-    name: 'approveActionNote',
-    helper: '',
-  },
   approveActionMode: {
     label: '审批动作模式',
     name: 'approveActionMode',
     helper: '',
   },
-  approveActionModeNote: {
-    label: '审批动作模式',
-    name: 'approveActionModeNote',
+  approveActionReuse: {
+    label: '复用审批',
+    name: 'approveActionReuse',
+    helper: '',
+  },
+  whetherSkip: {
+    label: '是否跳过',
+    name: 'whetherSkip',
     helper: '',
   },
   inWorkflowLineId: {
@@ -103,36 +108,6 @@ export const fieldDataFlowCaseProcessHistory = {
   approveBatchNumber: {
     label: '审批批次号',
     name: 'approveBatchNumber',
-    helper: '',
-  },
-  status: {
-    label: '状态',
-    name: 'status',
-    helper: '用户状态',
-  },
-  statusNote: {
-    label: '状态',
-    name: 'statusNote',
-    helper: '用户状态',
-  },
-  createOperatorId: {
-    label: '创建人标识',
-    name: 'createOperatorId',
-    helper: '',
-  },
-  createTime: {
-    label: '创建时间',
-    name: 'createTime',
-    helper: '',
-  },
-  updateOperatorId: {
-    label: '更新人标识',
-    name: 'updateOperatorId',
-    helper: '',
-  },
-  updateTime: {
-    label: '更新时间',
-    name: 'updateTime',
     helper: '',
   },
   ...fieldExtraData,

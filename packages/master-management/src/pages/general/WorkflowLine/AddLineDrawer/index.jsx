@@ -30,6 +30,7 @@ import { ToNodeSelectModalField } from '../../WorkflowNode/ToNodeSelectModalFiel
 import { fieldData } from '../Common/data';
 
 const { BaseAddDrawer } = DataDrawer;
+
 const visibleFlag = '6807d8021f2c4ef9bbcf2acfd350e0f2';
 
 @connect(({ workflowLine, schedulingControl }) => ({
@@ -37,6 +38,9 @@ const visibleFlag = '6807d8021f2c4ef9bbcf2acfd350e0f2';
   schedulingControl,
 }))
 class AddLineDrawer extends BaseAddDrawer {
+  // 在控制台显示组建内调用序列, 仅为进行开发辅助
+  // showCallProcess = true;
+
   fromNodeSelectRef = React.createRef();
 
   toNodeSelectRef = React.createRef();

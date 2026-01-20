@@ -142,7 +142,7 @@ class UpdateAnswerDrawer extends BaseUpdateDrawer {
                   </Paragraph>
 
                   <div style={{ paddingLeft: '54px' }}>
-                    <Space direction="vertical">
+                    <Space orientation="vertical">
                       {listItem.map((o, index) => {
                         if (type === typeCollection.singleSelect) {
                           return (

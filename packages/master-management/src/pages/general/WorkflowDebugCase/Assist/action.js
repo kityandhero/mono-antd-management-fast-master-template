@@ -29,6 +29,30 @@ export async function singleListNextNodeApproverAction({
   });
 }
 
+export async function singleListNextNextNodeApproverAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.workflowDebugCaseTypeCollection
+      .singleListNextNextNodeApprover,
+    params: {
+      workflowDebugCaseId: getValueByKey({
+        data: handleData,
+        key: fieldData.workflowDebugCaseId.name,
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+    showProcessing: false,
+    showSuccessMessage: false,
+  });
+}
+
 export async function getChainByWorkflowAction({
   target,
   handleData,

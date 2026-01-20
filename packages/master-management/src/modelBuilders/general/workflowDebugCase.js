@@ -32,6 +32,7 @@ import {
   setAttentionUserData,
   setSubsidiaryIdData,
   setTitleFromCaseNameTemplateData,
+  singleListNextNextNodeApproverData,
   singleListNextNodeApproverData,
   submitApprovalData,
   submitFormData,
@@ -46,6 +47,8 @@ export const workflowDebugCaseTypeCollection = {
   pageListLatestApprove: 'workflowDebugCase/pageListLatestApprove',
   pageListWaitApprove: 'workflowDebugCase/pageListWaitApprove',
   singleListNextNodeApprover: 'workflowDebugCase/singleListNextNodeApprover',
+  singleListNextNextNodeApprover:
+    'workflowDebugCase/singleListNextNextNodeApprover',
   get: 'workflowDebugCase/get',
   verifyCode: 'workflowDebugCase/verifyCode',
   getByWorkflow: 'workflowDebugCase/getByWorkflow',
@@ -196,6 +199,35 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(singleListNextNodeApproverData, payload);
+
+        const dataAdjust = pretreatmentRemoteListData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *singleListNextNextNodeApprover(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(
+          singleListNextNextNodeApproverData,
+          payload,
+        );
 
         const dataAdjust = pretreatmentRemoteListData({
           source: response,

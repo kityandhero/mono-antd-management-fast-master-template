@@ -1090,11 +1090,19 @@ export function NodeFooter({ data }) {
   }
 
   let configDescription = '';
+  let whetherOneSignatureAllowSkip = whetherNumber.no;
 
   if (approveMode === flowNodeApproveModeCollection.oneSignature) {
     const whetherOneSignatureDesignateNextApprover = getValueByKey({
       data: data,
       key: fieldDataFlowNode.whetherOneSignatureDesignateNextApprover.name,
+      convert: convertCollection.number,
+      defaultValue: '',
+    });
+
+    whetherOneSignatureAllowSkip = getValueByKey({
+      data: data,
+      key: fieldDataFlowNode.whetherOneSignatureAllowSkip.name,
       convert: convertCollection.number,
       defaultValue: '',
     });
@@ -1118,6 +1126,8 @@ export function NodeFooter({ data }) {
         ? '依照顺序分别签署'
         : '无需依照顺序签署';
   }
+
+  configDescription = `${configDescription}${whetherOneSignatureAllowSkip === whetherNumber.yes ? ', 允许跳过节点审批' : ', 禁止跳过节点审批'}`;
 
   return (
     <div>

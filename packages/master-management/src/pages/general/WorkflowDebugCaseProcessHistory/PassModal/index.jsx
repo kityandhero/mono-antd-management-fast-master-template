@@ -24,7 +24,10 @@ import {
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { BaseFlowCaseProcessHistoryPassModal } from '../../../../pageBases';
 import { fieldData as fieldDataUser } from '../../User/Common/data';
-import { singleListNextNodeApproverAction } from '../../WorkflowDebugCase/Assist/action';
+import {
+  singleListNextNextNodeApproverAction,
+  singleListNextNodeApproverAction,
+} from '../../WorkflowDebugCase/Assist/action';
 import { fieldData as fieldDataWorkflowDebugCase } from '../../WorkflowDebugCase/Common/data';
 import { singleListApproverUserWithNodeAndFlowCaseAction } from '../../WorkflowNodeApprover/Assist/action';
 
@@ -74,6 +77,7 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
         modelTypeCollection.workflowDebugCaseProcessHistoryTypeCollection.pass,
       approverList: [],
       nextNodeApproverUserList: [],
+      nextNextNodeApproverUserList: [],
     };
   }
 
@@ -81,6 +85,7 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
     this.loadGeneralDiscourseList();
     this.loadApproverUserWithNodeAndFlowCaseList();
     this.reloadNextNodeApproverList();
+    this.reloadNextNextNodeApproverList();
   };
 
   getFlowCaseId = (o) => {
@@ -162,6 +167,71 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
 
         target.setState({
           nextNodeApproverUserList: [...remoteListData],
+        });
+      },
+    });
+  };
+
+  loadNextNextNodeApproverList = () => {
+    const { externalData } = this.props;
+
+    const debugApproverMode = getValueByKey({
+      data: externalData,
+      key: fieldDataFlowCase.debugApproverMode.name,
+      convert: convertCollection.number,
+    });
+
+    if (debugApproverMode === flowDebugApproverModeCollection.globalDebugUser) {
+      this.nextWorkflowNodeApproverUserId = getValueByKey({
+        data: externalData,
+        key: fieldDataFlowCase.flowDebugUserId.name,
+        convert: convertCollection.string,
+      });
+
+      this.nextWorkflowNodeApproverUserRealName = getValueByKey({
+        data: externalData,
+        key: fieldDataFlowCase.flowDebugUserRealName.name,
+        convert: convertCollection.string,
+      });
+    }
+
+    const d = {};
+
+    d[this.getFlowCaseIdName()] = this.getFlowCaseId(externalData);
+
+    singleListNextNextNodeApproverAction({
+      target: this,
+      handleData: {
+        ...d,
+      },
+      successCallback: ({ target, remoteListData }) => {
+        if (
+          debugApproverMode ===
+            flowDebugApproverModeCollection.flowConfiguration &&
+          isArray(remoteListData) &&
+          !isEmptyArray(remoteListData) &&
+          remoteListData.length === 1
+        ) {
+          const firstData = remoteListData[0];
+
+          const userId = getValueByKey({
+            data: firstData,
+            key: fieldDataUser.userId.name,
+            convert: convertCollection.string,
+          });
+
+          const friendlyName = getValueByKey({
+            data: firstData,
+            key: fieldDataUser.friendlyName.name,
+            convert: convertCollection.string,
+          });
+
+          target.nextNextWorkflowNodeApproverUserId = userId;
+          target.nextNextWorkflowNodeApproverUserRealName = friendlyName;
+        }
+
+        target.setState({
+          nextNextNodeApproverUserList: [...remoteListData],
         });
       },
     });

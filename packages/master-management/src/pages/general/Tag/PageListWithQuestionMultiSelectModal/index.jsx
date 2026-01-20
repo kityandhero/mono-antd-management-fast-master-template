@@ -109,7 +109,7 @@ class PageListWithQuestionMultiSelectModal extends MultiPageSelectModal {
             </>
           }
           description={
-            <Space split={<Divider type="vertical" />}>
+            <Space separator={<Divider orientation="vertical" />}>
               <ColorText
                 textPrefix={fieldData.tagId.label}
                 separator=": "

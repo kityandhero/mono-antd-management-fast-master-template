@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -17,12 +16,12 @@ import {
 } from '../../services/workflowCaseUserMonitorConfiguration';
 
 export const workflowCaseUserMonitorConfigurationTypeCollection = {
-  pageList: "workflowCaseUserMonitorConfiguration/pageList",
-  get: "workflowCaseUserMonitorConfiguration/get",
-  addBasicInfo: "workflowCaseUserMonitorConfiguration/addBasicInfo",
-  remove: "workflowCaseUserMonitorConfiguration/remove",
-  refreshCache: "workflowCaseUserMonitorConfiguration/refreshCache",
-}
+  pageList: 'workflowCaseUserMonitorConfiguration/pageList',
+  get: 'workflowCaseUserMonitorConfiguration/get',
+  addBasicInfo: 'workflowCaseUserMonitorConfiguration/addBasicInfo',
+  remove: 'workflowCaseUserMonitorConfiguration/remove',
+  refreshCache: 'workflowCaseUserMonitorConfiguration/refreshCache',
+};
 
 export function buildModel() {
   return {
