@@ -3825,8 +3825,8 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'fc64a15191155bda835a4c02dea6eb50',
       permission: '51b766a5d9564a1fabef4f3ca49e61a1',
     },
-    singleListNextNextNodeApprover: {
-      title: '当前即将审批节点的下一节点审批人列表',
+    getNextNextNodeApproverAndWorkflowNode: {
+      title: '获取即将审批节点的下下一节点审批人列表以及审批节点',
       paramsKey: '9f37bd07e1b554099f86be0b5bb970e4',
       permission: '6e3e05030dee4aaaadc9c344fdb91f9d',
     },
@@ -4151,8 +4151,8 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '3ea983b829f7a734069c86f45ecb9ebf',
       permission: '3609765c48814c3fb0325f9213e3e6fc',
     },
-    singleListNextNextNodeApprover: {
-      title: '当前即将审批节点的下下一节点审批人列表',
+    getNextNextNodeApproverAndWorkflowNode: {
+      title: '获取即将审批节点的下下一节点审批人列表以及审批节点',
       paramsKey: 'cfb098caf5b677fc87638b76cb130baa',
       permission: '89232236741841bea278411f76d60204',
     },

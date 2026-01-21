@@ -17,6 +17,7 @@ import {
   forceEndData,
   getChainData,
   getData,
+  getNextNextNodeApproverAndWorkflowNodeData,
   hideData,
   openCancelApproveSwitchData,
   openResetAllApproveSwitchData,
@@ -31,7 +32,6 @@ import {
   setAttentionUserData,
   setSubsidiaryIdData,
   setTitleFromCaseNameTemplateData,
-  singleListNextNextNodeApproverData,
   singleListNextNodeApproverData,
   toggleEmergencyData,
   updateBasicInfoData,
@@ -42,7 +42,8 @@ export const workflowCaseTypeCollection = {
   pageList: 'workflowCase/pageList',
   pageListUnderway: 'workflowCase/pageListUnderway',
   singleListNextNodeApprover: 'workflowCase/singleListNextNodeApprover',
-  singleListNextNextNodeApprover: 'workflowCase/singleListNextNextNodeApprover',
+  getNextNextNodeApproverAndWorkflowNode:
+    'workflowCase/getNextNextNodeApproverAndWorkflowNode',
   get: 'workflowCase/get',
   verifyCode: 'workflowCase/verifyCode',
   getChain: 'workflowCase/getChain',
@@ -155,7 +156,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *singleListNextNextNodeApprover(
+      *getNextNextNodeApproverAndWorkflowNode(
         {
           payload,
           alias,
@@ -165,11 +166,11 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(
-          singleListNextNextNodeApproverData,
+          getNextNextNodeApproverAndWorkflowNodeData,
           payload,
         );
 
-        const dataAdjust = pretreatmentRemoteListData({
+        const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
           successCallback: pretreatmentSuccessCallback || null,
           failCallback: pretreatmentFailCallback || null,

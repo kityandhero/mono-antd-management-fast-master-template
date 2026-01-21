@@ -1,3 +1,5 @@
+import { Checkbox } from 'antd';
+
 import { connect } from 'easy-soft-dva';
 import {
   checkHasAuthority,
@@ -20,12 +22,13 @@ import {
   fieldDataFlowNode,
   flowDebugApproverModeCollection,
   flowNodeApproveModeCollection,
+  flowNodeTypeCollection,
 } from '../../../../customConfig';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { BaseFlowCaseProcessHistoryPassModal } from '../../../../pageBases';
 import { fieldData as fieldDataUser } from '../../User/Common/data';
 import {
-  singleListNextNextNodeApproverAction,
+  getNextNextNodeApproverAndWorkflowNodeAction,
   singleListNextNodeApproverAction,
 } from '../../WorkflowDebugCase/Assist/action';
 import { fieldData as fieldDataWorkflowDebugCase } from '../../WorkflowDebugCase/Common/data';
@@ -77,7 +80,9 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
         modelTypeCollection.workflowDebugCaseProcessHistoryTypeCollection.pass,
       approverList: [],
       nextNodeApproverUserList: [],
-      nextNextNodeApproverUserList: [],
+      nextNodeSkip: whetherNumber.no,
+      nextNextNextApproveWorkflowNode: null,
+      nextNextNextNodeApproverUserList: [],
     };
   }
 
@@ -85,7 +90,6 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
     this.loadGeneralDiscourseList();
     this.loadApproverUserWithNodeAndFlowCaseList();
     this.reloadNextNodeApproverList();
-    this.reloadNextNextNodeApproverList();
   };
 
   getFlowCaseId = (o) => {
@@ -104,6 +108,13 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
     return checkHasAuthority(
       accessWayCollection.workflowDebugCase.singleListNextNodeApprover
         .permission,
+    );
+  };
+
+  checkHasGetNextNextNodeApproverAndWorkflowNodeAuthority = () => {
+    return checkHasAuthority(
+      accessWayCollection.workflowDebugCase
+        .getNextNextNodeApproverAndWorkflowNode.permission,
     );
   };
 
@@ -172,7 +183,7 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
     });
   };
 
-  loadNextNextNodeApproverList = () => {
+  loadNextNextNodeApproverAndWorkflowNode = () => {
     const { externalData } = this.props;
 
     const debugApproverMode = getValueByKey({
@@ -199,20 +210,22 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
 
     d[this.getFlowCaseIdName()] = this.getFlowCaseId(externalData);
 
-    singleListNextNextNodeApproverAction({
+    getNextNextNodeApproverAndWorkflowNodeAction({
       target: this,
       handleData: {
         ...d,
       },
-      successCallback: ({ target, remoteListData }) => {
+      successCallback: ({ target, remoteData }) => {
+        const { listUser, workflowNode } = remoteData;
+
         if (
           debugApproverMode ===
             flowDebugApproverModeCollection.flowConfiguration &&
-          isArray(remoteListData) &&
-          !isEmptyArray(remoteListData) &&
-          remoteListData.length === 1
+          isArray(listUser) &&
+          !isEmptyArray(listUser) &&
+          listUser.length === 1
         ) {
-          const firstData = remoteListData[0];
+          const firstData = listUser[0];
 
           const userId = getValueByKey({
             data: firstData,
@@ -231,7 +244,8 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
         }
 
         target.setState({
-          nextNextNodeApproverUserList: [...remoteListData],
+          nextNextNextNodeApproverUserList: [...listUser],
+          nextNextNextApproveWorkflowNode: workflowNode,
         });
       },
     });
@@ -313,6 +327,7 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
 
   supplementSubmitRequestParams = (o) => {
     const d = { ...o };
+    const { nextNodeSkip } = this.state;
     const { externalData } = this.props;
 
     d[fieldDataFlowCaseProcessHistory.flowCaseId.name] =
@@ -321,16 +336,33 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
     d[fieldDataFlowCaseProcessHistory.approveUserId.name] =
       this.approveUserId ?? '';
 
-    const nextWorkflowNodeApproverUserIdCollection =
-      checkStringIsNullOrWhiteSpace(this.nextWorkflowNodeApproverUserId ?? '')
+    let nextWorkflowNodeApproverUserIdCollection = [];
+
+    if (nextNodeSkip === whetherNumber.yes) {
+      nextWorkflowNodeApproverUserIdCollection = checkStringIsNullOrWhiteSpace(
+        this.nextNextWorkflowNodeApproverUserId ?? '',
+      )
+        ? []
+        : [this.nextNextWorkflowNodeApproverUserId];
+    } else {
+      nextWorkflowNodeApproverUserIdCollection = checkStringIsNullOrWhiteSpace(
+        this.nextWorkflowNodeApproverUserId ?? '',
+      )
         ? []
         : [this.nextWorkflowNodeApproverUserId];
+    }
 
     d.nextWorkflowNodeApproverUserIdCollection =
       nextWorkflowNodeApproverUserIdCollection.join(',');
 
     delete d[this.approveUserName];
+
     delete d[this.nextNodeApproverUserName];
+
+    if (nextNodeSkip === whetherNumber.yes) {
+      delete d[this.nextNextNodeApproverUserName];
+    }
+
     delete d[this.generalDiscourseName];
 
     return d;
@@ -341,8 +373,19 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
     this.approveUserId = v;
   };
 
+  onSkipNextChange = ({ target }) => {
+    const { checked } = target;
+
+    console.log(target);
+
+    this.setState({
+      nextNodeSkip: checked ? whetherNumber.yes : whetherNumber.no,
+    });
+  };
+
   establishNextNodeApproverUserViewConfig = () => {
-    const { approverList, nextNodeApproverUserList, metaData } = this.state;
+    const { approverList, nextNodeApproverUserList, nextNodeSkip, metaData } =
+      this.state;
 
     const debugApproverMode = getValueByKey({
       data: metaData,
@@ -425,6 +468,13 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
         convert: convertCollection.number,
       });
 
+    const nextNextApproveWorkflowNodeWhetherOneSignatureAllowSkip =
+      getValueByKey({
+        data: nextNextApproveWorkflowNode,
+        key: fieldDataFlowNode.whetherOneSignatureAllowSkip.name,
+        convert: convertCollection.number,
+      });
+
     if (
       nextNextApproveWorkflowNodeApproveMode ===
       flowNodeApproveModeCollection.oneSignature
@@ -449,10 +499,18 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
               (debugApproverMode ===
                 flowDebugApproverModeCollection.flowConfiguration &&
                 nextNodeApproverUserList.length !== 1) ||
-              !checkHasAuthority(
-                accessWayCollection.workflowNodeApprover.singleList.permission,
-              ),
+              !this.checkHasSingleListNextNodeApproverAuthority(),
             require: true,
+            addonAfter:
+              nextNextApproveWorkflowNodeWhetherOneSignatureAllowSkip ===
+              whetherNumber.yes ? (
+                <Checkbox
+                  defaultChecked={nextNodeSkip === whetherNumber.yes}
+                  onChange={this.onSkipNextChange}
+                >
+                  跳过审批
+                </Checkbox>
+              ) : null,
           },
           {
             lg: 24,
@@ -479,6 +537,111 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
                 flowDebugApproverModeCollection.flowConfiguration &&
                 nextNodeApproverUserList.length <= 1) ||
               !this.checkHasSingleListNextNodeApproverAuthority(),
+            require: true,
+          },
+        ];
+      }
+    } else {
+      // ignore
+    }
+
+    return list;
+  };
+
+  establishNextNextNodeApproverUserViewConfig = () => {
+    const {
+      nextNextNextNodeApproverUserList,
+      nextNextNextApproveWorkflowNode,
+      nextNodeSkip,
+      metaData,
+    } = this.state;
+
+    const debugApproverMode = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.debugApproverMode.name,
+      convert: convertCollection.number,
+    });
+
+    let list = [];
+
+    if (!nextNodeSkip) {
+      return list;
+    }
+
+    const nextApproveWorkflowNodeWhetherFinalApprovalNode =
+      getValueByKey({
+        data: nextNextNextApproveWorkflowNode,
+        key: fieldDataFlowNode.type.name,
+        convert: convertCollection.number,
+      }) === flowNodeTypeCollection.endNode
+        ? whetherNumber.yes
+        : whetherNumber.no;
+
+    const nextNextNextApproveWorkflowNodeApproveMode = getValueByKey({
+      data: nextNextNextApproveWorkflowNode,
+      key: fieldDataFlowNode.approveMode.name,
+      convert: convertCollection.number,
+    });
+
+    const nextNextNextApproveWorkflowNodeWhetherOneSignatureDesignateNextApprover =
+      getValueByKey({
+        data: nextNextNextApproveWorkflowNode,
+        key: fieldDataFlowNode.whetherOneSignatureDesignateNextApprover.name,
+        convert: convertCollection.number,
+      });
+
+    if (
+      nextNextNextApproveWorkflowNodeApproveMode ===
+      flowNodeApproveModeCollection.oneSignature
+    ) {
+      if (
+        nextApproveWorkflowNodeWhetherFinalApprovalNode === whetherNumber.no &&
+        nextNextNextApproveWorkflowNodeWhetherOneSignatureDesignateNextApprover ===
+          whetherNumber.yes
+      ) {
+        list = [
+          ...list,
+          {
+            lg: 24,
+            type: cardConfig.contentItemType.onlyShowInput,
+            fieldData: {
+              label: '下下步审批人',
+              name: this.nextNextNodeApproverUserName,
+              helper: '',
+            },
+            value: this.nextNextWorkflowNodeApproverUserRealName,
+            hidden:
+              (debugApproverMode ===
+                flowDebugApproverModeCollection.flowConfiguration &&
+                nextNextNextNodeApproverUserList.length !== 1) ||
+              !this.checkHasGetNextNextNodeApproverAndWorkflowNodeAuthority(),
+            require: true,
+          },
+          {
+            lg: 24,
+            type: cardConfig.contentItemType.select,
+            fieldData: {
+              label: '下下步审批人',
+              name: this.nextNextNodeApproverUserName,
+              helper: '',
+            },
+            listData: nextNextNextNodeApproverUserList,
+            dataConvert: dataFormFieldApproverConvert,
+            onChange: this.onNextNodeApproverChange,
+            addonAfter: buildButton({
+              text: '',
+              icon: iconBuilder.reload(),
+              handleClick: () => {
+                this.reloadNextNextNodeApproverAndWorkflowNode();
+              },
+            }),
+            hidden:
+              debugApproverMode ===
+                flowDebugApproverModeCollection.globalDebugUser ||
+              (debugApproverMode ===
+                flowDebugApproverModeCollection.flowConfiguration &&
+                nextNextNextNodeApproverUserList.length <= 1) ||
+              !this.checkHasGetNextNextNodeApproverAndWorkflowNodeAuthority(),
             require: true,
           },
         ];

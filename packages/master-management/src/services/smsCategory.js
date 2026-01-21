@@ -1,3 +1,4 @@
+
 import { request } from 'easy-soft-utility';
 
 export const pageListDataApiAddress = '/smsCategory/pageList';
@@ -81,8 +82,7 @@ export async function removeData(parameters) {
   });
 }
 
-export const removeSingleTreeListCacheDataApiAddress =
-  '/smsCategory/removeSingleTreeListCache';
+export const removeSingleTreeListCacheDataApiAddress = '/smsCategory/removeSingleTreeListCache';
 
 export async function removeSingleTreeListCacheData(parameters) {
   return request({
@@ -99,3 +99,4 @@ export async function refreshCacheData(parameters) {
     params: parameters,
   });
 }
+

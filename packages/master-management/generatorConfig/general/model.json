@@ -6170,11 +6170,11 @@
           "type": "singleList"
         },
         {
-          "title": "当前即将审批节点的下一节点审批人列表",
-          "api": "/workflowCase/singleListNextNextNodeApprover",
-          "effect": "singleListNextNextNodeApprover",
-          "service": "singleListNextNextNodeApproverData",
-          "type": "singleList"
+          "title": "获取即将审批节点的下下一节点审批人列表以及审批节点",
+          "api": "/workflowCase/getNextNextNodeApproverAndWorkflowNode",
+          "effect": "getNextNextNodeApproverAndWorkflowNode",
+          "service": "getNextNextNodeApproverAndWorkflowNodeData",
+          "type": "singleData"
         },
         {
           "title": "获取详情",
@@ -6674,11 +6674,11 @@
           "type": "singleList"
         },
         {
-          "title": "当前即将审批节点的下下一节点审批人列表",
-          "api": "/workflowDebugCase/singleListNextNextNodeApprover",
-          "effect": "singleListNextNextNodeApprover",
-          "service": "singleListNextNextNodeApproverData",
-          "type": "singleList"
+          "title": "获取即将审批节点的下下一节点审批人列表以及审批节点",
+          "api": "/workflowDebugCase/getNextNextNodeApproverAndWorkflowNode",
+          "effect": "getNextNextNodeApproverAndWorkflowNode",
+          "service": "getNextNextNodeApproverAndWorkflowNodeData",
+          "type": "singleData"
         },
         {
           "title": "获取详情",

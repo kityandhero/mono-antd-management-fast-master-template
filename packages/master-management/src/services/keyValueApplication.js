@@ -1,3 +1,4 @@
+
 import { request } from 'easy-soft-utility';
 
 export const pageListDataApiAddress = '/keyValueApplication/pageList';
@@ -36,8 +37,7 @@ export async function refreshCacheData(parameters) {
   });
 }
 
-export const refreshAllCacheDataApiAddress =
-  '/keyValueApplication/refreshAllCache';
+export const refreshAllCacheDataApiAddress = '/keyValueApplication/refreshAllCache';
 
 export async function refreshAllCacheData(parameters) {
   return request({
@@ -45,3 +45,4 @@ export async function refreshAllCacheData(parameters) {
     params: parameters,
   });
 }
+

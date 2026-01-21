@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -21,16 +22,16 @@ import {
 } from '../../services/workflowBranchCondition';
 
 export const workflowBranchConditionTypeCollection = {
-  pageList: 'workflowBranchCondition/pageList',
-  singleList: 'workflowBranchCondition/singleList',
-  get: 'workflowBranchCondition/get',
-  addBasicInfo: 'workflowBranchCondition/addBasicInfo',
-  updateBasicInfo: 'workflowBranchCondition/updateBasicInfo',
-  refreshCache: 'workflowBranchCondition/refreshCache',
-  refreshAllEntityCache: 'workflowBranchCondition/refreshAllEntityCache',
-  remove: 'workflowBranchCondition/remove',
-  pageListOperateLog: 'workflowBranchCondition/pageListOperateLog',
-};
+  pageList: "workflowBranchCondition/pageList",
+  singleList: "workflowBranchCondition/singleList",
+  get: "workflowBranchCondition/get",
+  addBasicInfo: "workflowBranchCondition/addBasicInfo",
+  updateBasicInfo: "workflowBranchCondition/updateBasicInfo",
+  refreshCache: "workflowBranchCondition/refreshCache",
+  refreshAllEntityCache: "workflowBranchCondition/refreshAllEntityCache",
+  remove: "workflowBranchCondition/remove",
+  pageListOperateLog: "workflowBranchCondition/pageListOperateLog",
+}
 
 export function buildModel() {
   return {

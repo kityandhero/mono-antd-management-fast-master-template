@@ -28,12 +28,12 @@ export async function singleListNextNodeApproverData(parameters) {
   });
 }
 
-export const singleListNextNextNodeApproverDataApiAddress =
-  '/workflowCase/singleListNextNextNodeApprover';
+export const getNextNextNodeApproverAndWorkflowNodeDataApiAddress =
+  '/workflowCase/getNextNextNodeApproverAndWorkflowNode';
 
-export async function singleListNextNextNodeApproverData(parameters) {
+export async function getNextNextNodeApproverAndWorkflowNodeData(parameters) {
   return request({
-    api: singleListNextNextNodeApproverDataApiAddress,
+    api: getNextNextNodeApproverAndWorkflowNodeDataApiAddress,
     params: parameters,
   });
 }

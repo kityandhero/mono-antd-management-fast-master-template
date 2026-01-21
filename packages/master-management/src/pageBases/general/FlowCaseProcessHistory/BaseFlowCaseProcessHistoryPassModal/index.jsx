@@ -3,6 +3,7 @@ import {
   checkStringIsNullOrWhiteSpace,
   convertCollection,
   getValueByKey,
+  whetherNumber,
 } from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
@@ -44,6 +45,8 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
 
   nextNodeApproverUserName = '17158fea9dbc42d4abbe967cdc099ba1';
 
+  nextNextNodeApproverUserName = '1c5b6676095646ce83443bf545b7d4f2';
+
   generalDiscourseName = '991d90f0881b4e14909c7e8f270e593f';
 
   constructor(properties, visibleFlag) {
@@ -76,6 +79,12 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
   checkHasSingleListNextNodeApproverAuthority = () => {
     throw new Error(
       'checkHasSingleListNextNodeApproverAuthority need overrode to implement, need return boolean',
+    );
+  };
+
+  checkHasGetNextNextNodeApproverAndWorkflowNodeAuthority = () => {
+    throw new Error(
+      'checkHasGetNextNextNodeApproverAndWorkflowNodeAuthority need overrode to implement, need return boolean',
     );
   };
 
@@ -116,14 +125,38 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
     this.loadNextNodeApproverList();
   };
 
-  loadNextNextNodeApproverList = () => {
+  loadNextNextNodeApproverAndWorkflowNode = () => {
     throw new Error(
-      'loadNextNextNodeApproverList need overrode to implement, need return boolean',
+      'loadNextNextNodeApproverAndWorkflowNode need overrode to implement, need return boolean',
     );
   };
 
-  reloadNextNextNodeApproverList = () => {
-    this.loadNextNextNodeApproverList();
+  reloadNextNextNodeApproverAndWorkflowNode = () => {
+    this.loadNextNextNodeApproverAndWorkflowNode();
+  };
+
+  doOtherAfterLoadSuccess = ({
+    metaData = null,
+    // eslint-disable-next-line no-unused-vars
+    metaListData = [],
+    // eslint-disable-next-line no-unused-vars
+    metaExtra = null,
+    // eslint-disable-next-line no-unused-vars
+    metaOriginalData = null,
+  }) => {
+    const nextNextApproveWorkflowNode = getValueByKey({
+      data: metaData,
+      key: fieldDataFlowCase.nextNextApproveWorkflowNode.name,
+    });
+
+    const whetherOneSignatureAllowSkip = getValueByKey({
+      data: nextNextApproveWorkflowNode,
+      key: fieldDataFlowNode.whetherOneSignatureAllowSkip.name,
+    });
+
+    if (whetherOneSignatureAllowSkip === whetherNumber.yes) {
+      this.reloadNextNextNodeApproverAndWorkflowNode();
+    }
   };
 
   onGeneralDiscourseChange = (v, option) => {
@@ -180,6 +213,10 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
   };
 
   establishNextNodeApproverUserViewConfig = () => {
+    return [];
+  };
+
+  establishNextNextNodeApproverUserViewConfig = () => {
     return [];
   };
 
@@ -245,6 +282,7 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
               value: `${approveMode}${nextApproveWorkflowNodeName}`,
             },
             ...this.establishNextNodeApproverUserViewConfig(),
+            ...this.establishNextNextNodeApproverUserViewConfig(),
             {
               lg: 24,
               type: cardConfig.contentItemType.select,

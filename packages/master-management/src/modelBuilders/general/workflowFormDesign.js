@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -21,17 +22,17 @@ import {
 } from '../../services/workflowFormDesign';
 
 export const workflowFormDesignTypeCollection = {
-  pageList: 'workflowFormDesign/pageList',
-  get: 'workflowFormDesign/get',
-  getByWorkflow: 'workflowFormDesign/getByWorkflow',
-  addBasicInfo: 'workflowFormDesign/addBasicInfo',
-  updateBasicInfo: 'workflowFormDesign/updateBasicInfo',
-  updateDocumentSchema: 'workflowFormDesign/updateDocumentSchema',
-  updateRemarkSchema: 'workflowFormDesign/updateRemarkSchema',
-  refreshCache: 'workflowFormDesign/refreshCache',
-  refreshAllEntityCache: 'workflowFormDesign/refreshAllEntityCache',
-  pageListOperateLog: 'workflowFormDesign/pageListOperateLog',
-};
+  pageList: "workflowFormDesign/pageList",
+  get: "workflowFormDesign/get",
+  getByWorkflow: "workflowFormDesign/getByWorkflow",
+  addBasicInfo: "workflowFormDesign/addBasicInfo",
+  updateBasicInfo: "workflowFormDesign/updateBasicInfo",
+  updateDocumentSchema: "workflowFormDesign/updateDocumentSchema",
+  updateRemarkSchema: "workflowFormDesign/updateRemarkSchema",
+  refreshCache: "workflowFormDesign/refreshCache",
+  refreshAllEntityCache: "workflowFormDesign/refreshAllEntityCache",
+  pageListOperateLog: "workflowFormDesign/pageListOperateLog",
+}
 
 export function buildModel() {
   return {
