@@ -3,6 +3,7 @@ import {
   getValueByKey,
   showSimpleErrorMessage,
   toNumber,
+  whetherNumber,
 } from 'easy-soft-utility';
 
 import {
@@ -33,7 +34,7 @@ class BaseFlowCaseProcessHistoryPageList extends MultiPage {
       ...this.state,
       pageTitle: '',
       loadApiPath: '',
-      tableScrollX: 1820,
+      tableScrollX: 1900,
       currentRecord: null,
     };
   }
@@ -201,6 +202,22 @@ class BaseFlowCaseProcessHistoryPageList extends MultiPage {
           data: record,
           key: fieldDataFlowCaseProcessHistory.approveActionReuseNote.name,
         });
+      },
+    },
+    {
+      dataTarget: fieldDataFlowCaseProcessHistory.whetherSkip,
+      width: 80,
+      showRichFacade: true,
+      emptyValue: '--',
+      facadeConfigBuilder: (value) => {
+        return {
+          color: buildRandomHexColor({
+            seed: value * 3 + 22,
+          }),
+        };
+      },
+      formatValue: (value) => {
+        return value === whetherNumber.yes ? '是' : '否';
       },
     },
     {

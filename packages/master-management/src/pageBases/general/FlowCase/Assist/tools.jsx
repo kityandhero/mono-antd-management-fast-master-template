@@ -355,6 +355,14 @@ export function buildColumnsCaseLatestApprove({
       ellipsis: true,
       width: '120px',
     },
+    {
+      title: fieldDataFlowCaseLatestApprove.whetherSkipNote.label,
+      dataIndex: fieldDataFlowCaseLatestApprove.whetherSkipNote.name,
+      key: fieldDataFlowCaseLatestApprove.whetherSkipNote.name,
+      align: 'center',
+      ellipsis: true,
+      width: '100px',
+    },
     // {
     //   title: fieldDataFlowCaseLatestApprove.channel.label,
     //   dataIndex: fieldDataFlowCaseLatestApprove.channel.name,

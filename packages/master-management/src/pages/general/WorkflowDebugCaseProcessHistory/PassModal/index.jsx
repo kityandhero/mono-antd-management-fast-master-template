@@ -92,6 +92,16 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
     this.reloadNextNodeApproverList();
   };
 
+  executeAfterDoOtherWhenChangeVisibleToHide = () => {
+    this.setState({
+      approverList: [],
+      nextNodeApproverUserList: [],
+      nextNodeSkip: whetherNumber.no,
+      nextNextNextApproveWorkflowNode: null,
+      nextNextNextNodeApproverUserList: [],
+    });
+  };
+
   getFlowCaseId = (o) => {
     return getValueByKey({
       data: o,
@@ -355,8 +365,9 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
     d.nextWorkflowNodeApproverUserIdCollection =
       nextWorkflowNodeApproverUserIdCollection.join(',');
 
-    delete d[this.approveUserName];
+    d.whetherSkipNextProcess = nextNodeSkip;
 
+    delete d[this.approveUserName];
     delete d[this.nextNodeApproverUserName];
 
     if (nextNodeSkip === whetherNumber.yes) {

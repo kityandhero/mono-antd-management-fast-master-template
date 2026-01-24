@@ -11,6 +11,16 @@ const fieldExtraData = {
     name: 'approveActionReuseNote',
     helper: '',
   },
+  whetherSkip: {
+    label: '是否跳过',
+    name: 'whetherSkip',
+    helper: '',
+  },
+  whetherSkipNote: {
+    label: '是否跳过',
+    name: 'whetherSkipNote',
+    helper: '',
+  },
 };
 
 export const fieldDataFlowCaseLatestApprove = {
