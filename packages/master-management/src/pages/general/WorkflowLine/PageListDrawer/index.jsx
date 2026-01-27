@@ -33,6 +33,7 @@ const { MultiPageDrawer } = DataMultiPageView;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = 'e91c738150c248aa9512778106310fca';
+
 @connect(({ workflowLine, schedulingControl }) => ({
   workflowLine,
   schedulingControl,

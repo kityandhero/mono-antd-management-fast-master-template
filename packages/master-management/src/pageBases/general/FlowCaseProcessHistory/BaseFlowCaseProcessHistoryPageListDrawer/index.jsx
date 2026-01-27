@@ -3,6 +3,7 @@ import {
   convertCollection,
   getValueByKey,
   toNumber,
+  whetherNumber,
 } from 'easy-soft-utility';
 
 import {
@@ -32,10 +33,10 @@ class BaseFlowCaseProcessHistoryPageListDrawer extends MultiPageDrawer {
 
     this.state = {
       ...this.state,
-      listViewMode: listViewConfig.viewMode.list,
+      listViewMode: listViewConfig.viewMode.table,
       pageTitle: '',
       loadApiPath: '',
-      tableScrollX: 1300,
+      tableScrollX: 1400,
     };
   }
 
@@ -294,6 +295,22 @@ class BaseFlowCaseProcessHistoryPageListDrawer extends MultiPageDrawer {
           data: record,
           key: fieldDataFlowCaseProcessHistory.approveActionReuseNote.name,
         });
+      },
+    },
+    {
+      dataTarget: fieldDataFlowCaseProcessHistory.whetherSkip,
+      width: 80,
+      showRichFacade: true,
+      emptyValue: '--',
+      facadeConfigBuilder: (value) => {
+        return {
+          color: buildRandomHexColor({
+            seed: value * 3 + 22,
+          }),
+        };
+      },
+      formatValue: (value) => {
+        return value === whetherNumber.yes ? '是' : '否';
       },
     },
     {
