@@ -36,6 +36,8 @@ const visibleFlag = 'be4cee5e3bbb433c82bc1beef9523289';
   schedulingControl,
 }))
 class PageListDrawer extends MultiPageDrawer {
+  columnOperateWidth = 146;
+
   reloadWhenShow = true;
 
   componentAuthority =
@@ -50,10 +52,10 @@ class PageListDrawer extends MultiPageDrawer {
 
     this.state = {
       ...this.state,
+      tableScrollX: 1680,
       pageTitle: '流程节点审批人列表',
       loadApiPath:
         modelTypeCollection.workflowNodeApproverTypeCollection.pageList,
-      tableScrollX: 1240,
     };
   }
 
@@ -125,19 +127,18 @@ class PageListDrawer extends MultiPageDrawer {
   getColumnWrapper = () => [
     {
       dataTarget: fieldData.userRealName,
-      width: 140,
+      width: 180,
       showRichFacade: true,
       emptyValue: '--',
     },
     {
       dataTarget: fieldData.workflowNodeName,
-      width: 140,
+      width: 180,
       showRichFacade: true,
       emptyValue: '--',
     },
     {
       dataTarget: fieldData.workflowName,
-      width: 140,
       showRichFacade: true,
       emptyValue: '--',
     },

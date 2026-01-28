@@ -54,7 +54,7 @@ class PageListDrawer extends MultiPageDrawer {
 
     this.state = {
       ...this.state,
-      tableScrollX: 1480,
+      tableScrollX: 1680,
       pageTitle: '流程线条列表',
       loadApiPath: modelTypeCollection.workflowLineTypeCollection.pageList,
       currentRecord: null,
