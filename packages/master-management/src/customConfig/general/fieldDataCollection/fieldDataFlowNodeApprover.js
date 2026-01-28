@@ -1,6 +1,11 @@
 import { formNameCollection } from './fieldDataCommon';
 
-const formExtraData = {
+const fieldExtraData = {
+  whetherCurrentChannel: {
+    label: '是否当前通道',
+    name: 'whetherCurrentChannel',
+    helper: '',
+  },
   avatar: {
     label: '头像',
     name: 'avatar',
@@ -80,5 +85,5 @@ export const fieldDataFlowNodeApprover = {
     name: 'sort',
     helper: '',
   },
-  ...formExtraData,
+  ...fieldExtraData,
 };
