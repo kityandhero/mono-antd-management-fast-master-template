@@ -18,6 +18,7 @@ import { fieldData as fieldDataWorkflowNode } from '../../WorkflowNode/Common/da
 import { fieldData } from '../Common/data';
 
 const { BaseAddDrawer } = DataDrawer;
+
 const visibleFlag = 'e4b322f1e27e49c3bea3822de4a14ccb';
 
 @connect(({ workflowNodeApprover, schedulingControl }) => ({

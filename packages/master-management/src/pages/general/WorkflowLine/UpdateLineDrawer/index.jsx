@@ -23,10 +23,11 @@ import { ToNodeSelectModalField } from '../../WorkflowNode/ToNodeSelectModalFiel
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
+
 const visibleFlag = '114db37a1cfd4a059bf045cadfb4cb9a';
 
-@connect(({ workflowNode, schedulingControl }) => ({
-  workflowNode,
+@connect(({ workflowLine, schedulingControl }) => ({
+  workflowLine,
   schedulingControl,
 }))
 class UpdateLineDrawer extends BaseUpdateDrawer {
