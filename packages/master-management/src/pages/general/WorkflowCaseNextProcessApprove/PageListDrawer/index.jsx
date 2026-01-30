@@ -3,7 +3,6 @@ import {
   checkHasAuthority,
   convertCollection,
   getValueByKey,
-  logConsole,
   showSimpleErrorMessage,
 } from 'easy-soft-utility';
 
@@ -85,8 +84,6 @@ class WorkflowCaseNextProcessApprovePageListDrawer extends BaseFlowCaseNextProce
 
   reassign = (o) => {
     const { currentRecord } = this.state;
-
-    logConsole({ currentRecord });
 
     reassignAction({
       target: this,
