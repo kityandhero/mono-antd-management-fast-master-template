@@ -189,7 +189,7 @@ class BaseFlowCaseProcessHistoryPassModal extends BaseUpdateModal {
   establishFormAdditionalConfig = () => {
     return {
       labelCol: {
-        flex: '100px',
+        flex: '110px',
       },
       wrapperCol: {
         flex: 'auto',

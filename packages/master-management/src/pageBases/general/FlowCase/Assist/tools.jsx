@@ -335,6 +335,9 @@ export function buildColumnsCaseLatestApprove({
       ellipsis: true,
       align: 'center',
       width: '140px',
+      render: (text) => {
+        return text || '--';
+      },
     },
     {
       title: fieldDataFlowCaseLatestApprove.approveActionNote.label,
@@ -354,6 +357,9 @@ export function buildColumnsCaseLatestApprove({
       align: 'center',
       ellipsis: true,
       width: '120px',
+      render: (text) => {
+        return text || '--';
+      },
     },
     {
       title: fieldDataFlowCaseLatestApprove.whetherSkipNote.label,
@@ -362,6 +368,9 @@ export function buildColumnsCaseLatestApprove({
       align: 'center',
       ellipsis: true,
       width: '100px',
+      render: (text) => {
+        return text || '--';
+      },
     },
     // {
     //   title: fieldDataFlowCaseLatestApprove.channel.label,
