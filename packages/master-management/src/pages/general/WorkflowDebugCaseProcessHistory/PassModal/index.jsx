@@ -1,4 +1,4 @@
-import { Checkbox, Divider } from 'antd';
+import { Checkbox } from 'antd';
 
 import { connect } from 'easy-soft-dva';
 import {
@@ -553,14 +553,15 @@ class PassModal extends BaseFlowCaseProcessHistoryPassModal {
                   },
                 })}
 
-                <Divider orientation="vertical" />
-
-                <Checkbox
-                  defaultChecked={nextNodeSkip === whetherNumber.yes}
-                  onChange={this.onSkipNextChange}
-                >
-                  跳过审批
-                </Checkbox>
+                {nextNextApproveWorkflowNodeWhetherOneSignatureAllowSkip ===
+                whetherNumber.yes ? (
+                  <Checkbox
+                    defaultChecked={nextNodeSkip === whetherNumber.yes}
+                    onChange={this.onSkipNextChange}
+                  >
+                    跳过审批
+                  </Checkbox>
+                ) : null}
               </>
             ),
             hidden:
