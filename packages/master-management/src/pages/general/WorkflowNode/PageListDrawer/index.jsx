@@ -5,12 +5,14 @@ import {
   checkInCollection,
   convertCollection,
   getValueByKey,
+  handleItem,
   showSimpleErrorMessage,
   toNumber,
 } from 'easy-soft-utility';
 
 import {
   columnFacadeMode,
+  dropdownExpandItemType,
   searchCardConfig,
 } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
@@ -30,7 +32,7 @@ import {
   getFlowNodeTypeName,
 } from '../../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../../modelBuilders';
-import { refreshCacheAction } from '../Assist/action';
+import { maintainChannelAction, refreshCacheAction } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
 import { UpdateDescriptiveInfoDrawer } from '../UpdateDescriptiveInfoDrawer';
@@ -96,11 +98,57 @@ class PageListDrawer extends MultiPageDrawer {
         break;
       }
 
+      case 'maintainChannel': {
+        this.maintainChannel(handleData);
+        break;
+      }
+
       default: {
         showSimpleErrorMessage(`can not find matched key "${key}"`);
         break;
       }
     }
+  };
+
+  maintainChannel = (r) => {
+    maintainChannelAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target, remoteData }) => {
+        const id = getValueByKey({
+          data: remoteData,
+          key: fieldData.workflowNodeId.name,
+        });
+
+        handleItem({
+          target,
+          value: id,
+          compareValueHandler: (o) => {
+            const v = getValueByKey({
+              data: o,
+              key: fieldData.workflowNodeId.name,
+            });
+
+            return v;
+          },
+          handler: (d) => {
+            const o = d;
+
+            o[fieldData.channel.name] = getValueByKey({
+              data: remoteData,
+              key: fieldData.channel.name,
+            });
+
+            o[fieldData.channelNote.name] = getValueByKey({
+              data: remoteData,
+              key: fieldData.channelNote.name,
+            });
+
+            return d;
+          },
+        });
+      },
+    });
   };
 
   refreshCache = (r) => {
@@ -194,6 +242,17 @@ class PageListDrawer extends MultiPageDrawer {
               flowNodeTypeCollection.carbonCopyPoint,
             ],
             itemStatus,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'maintainChannel',
+          icon: iconBuilder.edit(),
+          text: '维护通道值',
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowNode.maintainChannel.permission,
           ),
         },
       ],

@@ -11,6 +11,7 @@ import {
   addFormFieldBasicInfoData,
   addRemoteCallBasicInfoData,
   getData,
+  maintainChannelData,
   pageListData,
   pageListOperateLogData,
   refreshAllEntityCacheData,
@@ -19,6 +20,7 @@ import {
   setRemoteCallParametersData,
   setRemoteCallUrlData,
   updateBasicInfoData,
+  updateDescriptiveInfoData,
 } from '../../services/workflowBranchConditionItem';
 
 export const workflowBranchConditionItemTypeCollection = {
@@ -27,9 +29,11 @@ export const workflowBranchConditionItemTypeCollection = {
   addFormFieldBasicInfo: 'workflowBranchConditionItem/addFormFieldBasicInfo',
   addRemoteCallBasicInfo: 'workflowBranchConditionItem/addRemoteCallBasicInfo',
   updateBasicInfo: 'workflowBranchConditionItem/updateBasicInfo',
+  updateDescriptiveInfo: 'workflowBranchConditionItem/updateDescriptiveInfo',
   setRemoteCallUrl: 'workflowBranchConditionItem/setRemoteCallUrl',
   setRemoteCallParameters:
     'workflowBranchConditionItem/setRemoteCallParameters',
+  maintainChannel: 'workflowBranchConditionItem/maintainChannel',
   refreshCache: 'workflowBranchConditionItem/refreshCache',
   refreshAllEntityCache: 'workflowBranchConditionItem/refreshAllEntityCache',
   remove: 'workflowBranchConditionItem/remove',
@@ -175,6 +179,32 @@ export function buildModel() {
 
         return dataAdjust;
       },
+      *updateDescriptiveInfo(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(updateDescriptiveInfoData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
       *setRemoteCallUrl(
         {
           payload,
@@ -211,6 +241,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(setRemoteCallParametersData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *maintainChannel(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(maintainChannelData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

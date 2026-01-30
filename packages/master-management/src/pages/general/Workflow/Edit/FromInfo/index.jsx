@@ -9,6 +9,7 @@ import {
   getJsonFromLocalStorage,
   getValueByKey,
   saveJsonToLocalStorage,
+  showSimpleErrorMessage,
   showSimpleInfoMessage,
 } from 'easy-soft-utility';
 
@@ -30,7 +31,10 @@ import {
 
 import { accessWayCollection } from '../../../../../customConfig';
 import { modelTypeCollection } from '../../../../../modelBuilders';
-import { FlowCaseFormDocumentDesignDrawer } from '../../../../../pageBases';
+import {
+  FlowCaseFormDocumentDesignDrawer,
+  maintainChannelAction,
+} from '../../../../../pageBases';
 import { fieldData as fieldDataWorkflowFormDesign } from '../../../WorkflowFormDesign/Common/data';
 import { DesignDrawer } from '../../../WorkflowFormDesign/DesignDrawer';
 import { RemarkEditDrawer } from '../../../WorkflowFormDesign/RemarkEditDrawer';
@@ -85,6 +89,16 @@ class BasicInfo extends TabPageBase {
     });
 
     setSchemaWithExternalData(designJson);
+  };
+
+  maintainChannel = (r) => {
+    maintainChannelAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target }) => {
+        target.reloadData({});
+      },
+    });
   };
 
   buildTemporaryFormDataKey = () => {
@@ -243,6 +257,40 @@ class BasicInfo extends TabPageBase {
               },
               {
                 buildType: cardConfig.extraBuildType.refresh,
+              },
+              {
+                buildType: cardConfig.extraBuildType.dropdownEllipsis,
+                hidden: !checkHasAuthority(
+                  accessWayCollection.workflowFormDesign.maintainChannel
+                    .permission,
+                ),
+                handleMenuClick: ({ key, handleData }) => {
+                  switch (key) {
+                    case 'maintainChannel': {
+                      this.maintainChannel(handleData);
+                      break;
+                    }
+
+                    default: {
+                      showSimpleErrorMessage(
+                        `can not find matched key "${key}"`,
+                      );
+                      break;
+                    }
+                  }
+                },
+                handleData: metaData,
+                items: [
+                  {
+                    key: 'maintainChannel',
+                    icon: iconBuilder.edit(),
+                    text: '维护通道值',
+                    hidden: !checkHasAuthority(
+                      accessWayCollection.workflowFormDesign.maintainChannel
+                        .permission,
+                    ),
+                  },
+                ],
               },
             ],
           },
