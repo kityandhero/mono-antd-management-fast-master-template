@@ -140,29 +140,38 @@ export async function updateBasicInfoData(parameters) {
   });
 }
 
-export const updateColorDataApiAddress = '/tag/updateColor';
+export const setImageDataApiAddress = '/tag/setImage';
 
-export async function updateColorData(parameters) {
+export async function setImageData(parameters) {
   return request({
-    api: updateColorDataApiAddress,
+    api: setImageDataApiAddress,
     params: parameters,
   });
 }
 
-export const updateTypeDataApiAddress = '/tag/updateType';
+export const setColorDataApiAddress = '/tag/setColor';
 
-export async function updateTypeData(parameters) {
+export async function setColorData(parameters) {
   return request({
-    api: updateTypeDataApiAddress,
+    api: setColorDataApiAddress,
     params: parameters,
   });
 }
 
-export const updateSortDataApiAddress = '/tag/updateSort';
+export const setTypeDataApiAddress = '/tag/setType';
 
-export async function updateSortData(parameters) {
+export async function setTypeData(parameters) {
   return request({
-    api: updateSortDataApiAddress,
+    api: setTypeDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const setSortDataApiAddress = '/tag/setSort';
+
+export async function setSortData(parameters) {
+  return request({
+    api: setSortDataApiAddress,
     params: parameters,
   });
 }

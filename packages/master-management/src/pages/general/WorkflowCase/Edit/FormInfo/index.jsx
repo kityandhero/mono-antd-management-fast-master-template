@@ -39,7 +39,6 @@ import { FlowProcessHistory } from 'antd-management-fast-flow';
 
 import {
   accessWayCollection,
-  emptySignet,
   fieldDataFlowCaseFormAttachment,
   fieldDataFlowFormDesign,
   flowCaseStatusCollection,
@@ -59,6 +58,7 @@ import {
   convertProcessHistoryItemData,
   convertProcessHistoryNextData,
 } from '../../../../../pageBases';
+import { getEmptySignet } from '../../../../../utils';
 import { fieldData as fieldDataWorkflowCaseCarbonCopyNotification } from '../../../WorkflowCaseCarbonCopyNotification/Common/data';
 import { AttachmentPreviewDrawer as WorkflowCaseFormAttachmentPreviewDrawer } from '../../../WorkflowCaseFormAttachment/AttachmentPreviewDrawer';
 import { fieldData as fieldDataWorkflowCaseFormAttachment } from '../../../WorkflowCaseFormAttachment/Common/data';
@@ -266,7 +266,7 @@ class FormInfo extends TabPageBase {
         note: applicantStatementContent,
         ...(checkStringIsNullOrWhiteSpace(applicantUserSignet)
           ? {
-              signet: emptySignet,
+              signet: getEmptySignet(),
             }
           : {
               signet: applicantUserSignet,
@@ -319,7 +319,7 @@ class FormInfo extends TabPageBase {
         note: attentionStatementContent,
         ...(checkStringIsNullOrWhiteSpace(attentionUserSignet)
           ? {
-              signet: emptySignet,
+              signet: getEmptySignet(),
             }
           : {
               signet: attentionUserSignet,

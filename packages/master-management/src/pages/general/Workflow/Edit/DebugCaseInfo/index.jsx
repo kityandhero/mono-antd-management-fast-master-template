@@ -32,7 +32,6 @@ import { Flow, FlowProcessHistory } from 'antd-management-fast-flow';
 import { FilePreviewDrawer } from '../../../../../components';
 import {
   accessWayCollection,
-  emptySignet,
   fieldDataFlowCase,
   flowCaseStatusCollection,
   flowDebugApproverModeCollection,
@@ -49,6 +48,7 @@ import {
   convertProcessHistoryItemData,
   convertProcessHistoryNextData,
 } from '../../../../../pageBases';
+import { getEmptySignet } from '../../../../../utils';
 import { PageListSubsidiarySelectActionDrawer } from '../../../Subsidiary/PageListSelectActionDrawer';
 import {
   archiveAction,
@@ -391,7 +391,7 @@ class DebugCaseInfo extends TabPageBase {
         note: applicantStatementContent,
         ...(checkStringIsNullOrWhiteSpace(applicantUserSignet)
           ? {
-              signet: emptySignet,
+              signet: getEmptySignet(),
             }
           : {
               signet: applicantUserSignet,
@@ -444,7 +444,7 @@ class DebugCaseInfo extends TabPageBase {
         note: attentionStatementContent,
         ...(checkStringIsNullOrWhiteSpace(attentionUserSignet)
           ? {
-              signet: emptySignet,
+              signet: getEmptySignet(),
             }
           : {
               signet: attentionUserSignet,

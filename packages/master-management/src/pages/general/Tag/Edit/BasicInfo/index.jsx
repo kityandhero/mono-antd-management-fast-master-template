@@ -25,7 +25,7 @@ import {
   renderFormTagTypeSelect,
 } from '../../../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../../../modelBuilders';
-import { updateColorAction } from '../../Assist/action';
+import { setColorAction } from '../../Assist/action';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
 import { TabPageBase } from '../../TabPageBase';
@@ -95,17 +95,17 @@ class BasicInfo extends TabPageBase {
     this.setState({ image, color });
   };
 
-  updateColor = throttle(() => {
+  setColor = throttle(() => {
     const { tagId, color } = this.state;
 
-    updateColorAction({
+    setColorAction({
       handleData: { tagId, color },
     });
   }, 800);
 
   changeColor = (color) => {
     this.setState({ color }, () => {
-      this.updateColor();
+      this.setColor();
     });
   };
 

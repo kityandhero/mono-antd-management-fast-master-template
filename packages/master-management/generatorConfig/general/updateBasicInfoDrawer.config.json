@@ -17,6 +17,15 @@
       "visibleFlag": "a20ecf73fd81438bb51be3197b997b0e",
       "fileName": "index.jsx",
       "coverFile": false
+    },
+    {
+      "folder": "general/Tag/UpdateBasicInfoDrawer",
+      "name": "Tag",
+      "model": "tag",
+      "key": "tagId",
+      "visibleFlag": "fffd1aec924744bfbf0be11ee4fd1cc3",
+      "fileName": "index.jsx",
+      "coverFile": false
     }
   ]
 }

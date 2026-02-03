@@ -15,12 +15,9 @@ import {
 import { CenterBox, iconBuilder } from 'antd-management-fast-component';
 import { CellApply } from 'antd-management-fast-design-playground';
 
-import {
-  accessWayCollection,
-  emptySignet,
-  signetStyle,
-} from '../../../../../customConfig';
+import { accessWayCollection, signetStyle } from '../../../../../customConfig';
 import { modelTypeCollection } from '../../../../../modelBuilders';
+import { getEmptySignet } from '../../../../../utils';
 import { toggleSignetPasswordSwitchAction } from '../../Assist/action';
 import { parseUrlParametersForSetState } from '../../Assist/config';
 import { fieldData } from '../../Common/data';
@@ -191,7 +188,7 @@ class SignetInfo extends TabPageBase {
                           signetStyle={signetStyle}
                           content={{
                             note: '拟同意, 请领导审批',
-                            signet: signet || emptySignet,
+                            signet: signet || getEmptySignet(),
                             time: formatDatetime({
                               data: getNow(),
                               format:

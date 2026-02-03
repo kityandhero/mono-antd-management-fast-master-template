@@ -34,7 +34,6 @@ import { DataDrawer } from 'antd-management-fast-framework';
 
 import {
   accessWayCollection,
-  emptySignet,
   fieldDataFlowCase,
   fieldDataFlowCaseFormAttachment,
   fieldDataFlowCaseProcessHistory,

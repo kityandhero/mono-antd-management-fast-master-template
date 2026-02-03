@@ -19,8 +19,9 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
-import { emptySignet, signetStyle } from '../../../../customConfig';
+import { signetStyle } from '../../../../customConfig';
 import { modelTypeCollection } from '../../../../modelBuilders';
+import { getEmptySignet } from '../../../../utils';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
@@ -140,7 +141,7 @@ class SetDefaultAttentionStatementDrawer extends BaseUpdateDrawer {
         note: defaultAttentionStatementContent,
         ...(checkStringIsNullOrWhiteSpace(defaultAttentionUserSignet)
           ? {
-              signet: emptySignet,
+              signet: getEmptySignet(),
             }
           : {
               signet: defaultAttentionUserSignet,

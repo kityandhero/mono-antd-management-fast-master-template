@@ -18,8 +18,9 @@ import {
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
-import { emptySignet, signetStyle } from '../../../../customConfig';
+import { signetStyle } from '../../../../customConfig';
 import { modelTypeCollection } from '../../../../modelBuilders';
+import { getEmptySignet } from '../../../../utils';
 import { fieldData } from '../Common/data';
 
 const { BaseUpdateDrawer } = DataDrawer;
@@ -131,7 +132,7 @@ class SetDefaultApplicantStatementDrawer extends BaseUpdateDrawer {
         ...nodeApply,
         title: defaultApplicantStatementTitle,
         note: defaultApplicantStatementContent,
-        signet: emptySignet,
+        signet: getEmptySignet(),
         time: formatDatetime({
           data: getNow(),
           format: datetimeFormat.yearMonthDay,

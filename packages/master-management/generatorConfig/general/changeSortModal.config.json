@@ -118,6 +118,15 @@
       "coverFile": false
     },
     {
+      "folder": "general/Tag/ChangeSortModal",
+      "name": "Tag",
+      "model": "tag",
+      "key": "tagId",
+      "visibleFlag": "eeb528eb720f4efa99ffeaf1cd331975",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/UserQuestionnaire/ChangeSortModal",
       "name": "UserQuestionnaire",
       "model": "userQuestionnaire",

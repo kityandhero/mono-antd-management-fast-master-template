@@ -17,6 +17,15 @@
       "visibleFlag": "d9d83637872e4e55a207de885af2ed2b",
       "fileName": "index.jsx",
       "coverFile": false
+    },
+    {
+      "folder": "general/Tag/ChangeImageModal",
+      "name": "Tag",
+      "model": "tag",
+      "key": "tagId",
+      "visibleFlag": "c1bf1b689d464af3941441ed791d0062",
+      "fileName": "index.jsx",
+      "coverFile": false
     }
   ]
 }

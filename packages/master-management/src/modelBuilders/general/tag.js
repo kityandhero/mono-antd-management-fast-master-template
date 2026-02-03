@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -19,8 +18,12 @@ import {
   pageListWithWorkflowData,
   refreshCacheData,
   removeData,
+  setColorData,
   setDisableData,
   setEnableData,
+  setImageData,
+  setSortData,
+  setTypeData,
   singleListData,
   singleListWithNoticeData,
   singleListWithQuestionData,
@@ -31,39 +34,37 @@ import {
   singleTreeListWithWorkflowData,
   toggleRecommendData,
   updateBasicInfoData,
-  updateColorData,
-  updateSortData,
-  updateTypeData,
   uploadImageData,
 } from '../../services/tag';
 
 export const tagTypeCollection = {
-  pageList: "tag/pageList",
-  pageListWithQuestion: "tag/pageListWithQuestion",
-  pageListWithNotice: "tag/pageListWithNotice",
-  pageListWithWorkflow: "tag/pageListWithWorkflow",
-  singleList: "tag/singleList",
-  singleListWithQuestion: "tag/singleListWithQuestion",
-  singleListWithNotice: "tag/singleListWithNotice",
-  singleListWithWorkflow: "tag/singleListWithWorkflow",
-  singleTreeList: "tag/singleTreeList",
-  singleTreeListWithQuestion: "tag/singleTreeListWithQuestion",
-  singleTreeListWithNotice: "tag/singleTreeListWithNotice",
-  singleTreeListWithWorkflow: "tag/singleTreeListWithWorkflow",
-  get: "tag/get",
-  addBasicInfo: "tag/addBasicInfo",
-  updateBasicInfo: "tag/updateBasicInfo",
-  updateColor: "tag/updateColor",
-  updateType: "tag/updateType",
-  updateSort: "tag/updateSort",
-  toggleRecommend: "tag/toggleRecommend",
-  setEnable: "tag/setEnable",
-  setDisable: "tag/setDisable",
-  remove: "tag/remove",
-  refreshCache: "tag/refreshCache",
-  uploadImage: "tag/uploadImage",
-  pageListOperateLog: "tag/pageListOperateLog",
-}
+  pageList: 'tag/pageList',
+  pageListWithQuestion: 'tag/pageListWithQuestion',
+  pageListWithNotice: 'tag/pageListWithNotice',
+  pageListWithWorkflow: 'tag/pageListWithWorkflow',
+  singleList: 'tag/singleList',
+  singleListWithQuestion: 'tag/singleListWithQuestion',
+  singleListWithNotice: 'tag/singleListWithNotice',
+  singleListWithWorkflow: 'tag/singleListWithWorkflow',
+  singleTreeList: 'tag/singleTreeList',
+  singleTreeListWithQuestion: 'tag/singleTreeListWithQuestion',
+  singleTreeListWithNotice: 'tag/singleTreeListWithNotice',
+  singleTreeListWithWorkflow: 'tag/singleTreeListWithWorkflow',
+  get: 'tag/get',
+  addBasicInfo: 'tag/addBasicInfo',
+  updateBasicInfo: 'tag/updateBasicInfo',
+  setImage: 'tag/setImage',
+  setColor: 'tag/setColor',
+  setType: 'tag/setType',
+  setSort: 'tag/setSort',
+  toggleRecommend: 'tag/toggleRecommend',
+  setEnable: 'tag/setEnable',
+  setDisable: 'tag/setDisable',
+  remove: 'tag/remove',
+  refreshCache: 'tag/refreshCache',
+  uploadImage: 'tag/uploadImage',
+  pageListOperateLog: 'tag/pageListOperateLog',
+};
 
 export function buildModel() {
   return {
@@ -464,7 +465,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateColor(
+      *setImage(
         {
           payload,
           alias,
@@ -473,7 +474,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateColorData, payload);
+        const response = yield call(setImageData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -490,7 +491,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateType(
+      *setColor(
         {
           payload,
           alias,
@@ -499,7 +500,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateTypeData, payload);
+        const response = yield call(setColorData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -516,7 +517,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateSort(
+      *setType(
         {
           payload,
           alias,
@@ -525,7 +526,33 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateSortData, payload);
+        const response = yield call(setTypeData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setSort(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setSortData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

@@ -55,8 +55,16 @@ class UpdateLineDrawer extends BaseUpdateDrawer {
   }
 
   executeAfterDoOtherWhenChangeVisibleToHide = () => {
-    this.fromNodeSelectRef.current.clearSelect();
-    this.toNodeSelectRef.current.clearSelect();
+    if (
+      this.fromNodeSelectRef != null &&
+      this.fromNodeSelectRef.current != null
+    ) {
+      this.fromNodeSelectRef.current.clearSelect();
+    }
+
+    if (this.toNodeSelectRef != null && this.toNodeSelectRef.current != null) {
+      this.toNodeSelectRef.current.clearSelect();
+    }
 
     this.setState({
       fromId: '',

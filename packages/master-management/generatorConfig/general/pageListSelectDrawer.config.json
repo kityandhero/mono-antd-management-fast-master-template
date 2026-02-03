@@ -1,1 +1,13 @@
-{ "list": [] }
+{
+  "list": [
+    {
+      "folder": "general/Tag/PageListSelectDrawer",
+      "name": "Tag",
+      "model": "tag",
+      "key": "tagId",
+      "visibleFlag": "f27fc30d2cb94041b5c0bb01c0f9d4f4",
+      "fileName": "index.jsx",
+      "coverFile": false
+    }
+  ]
+}

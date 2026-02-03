@@ -1,1 +1,12 @@
-{ "list": [] }
+{
+  "list": [
+    {
+      "folder": "general/Tag/SelectModalField",
+      "name": "Tag",
+      "model": "tag",
+      "key": "tagId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    }
+  ]
+}

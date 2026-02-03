@@ -3102,18 +3102,23 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'b95fa32049a132797f16cce438239d6f',
       permission: '98192b7742ec4ff1a0831f9443bf3ce5',
     },
-    updateColor: {
-      title: '更新色值',
+    setImage: {
+      title: '设置图片',
+      paramsKey: '2146c3660d0a22bd660b53531d20b4e1',
+      permission: '4011b59962c04686876a4d056f0aab31',
+    },
+    setColor: {
+      title: '设置色值',
       paramsKey: 'c846963573e8c324971d0a2dc8ba44f5',
       permission: '2bff378a9cc940c5b0cfcc438bb45f42',
     },
-    updateType: {
-      title: '更新适用类别',
+    setType: {
+      title: '设置适用类别',
       paramsKey: '0e07278b2d49dc3ee3baa41d34973771',
       permission: '067cb7729f694cdca29dbd6c71e70917',
     },
-    updateSort: {
-      title: '更新排序值',
+    setSort: {
+      title: '设置排序值',
       paramsKey: '0d12d21cd77554a5f28554e76d43425d',
       permission: 'e77b0de0892449f6a9cd6ec7c21a234a',
     },
@@ -4145,6 +4150,58 @@ export const accessWayInfrastructureCollection = {
       permission: 'fa88d861eb694f2596b2dea6ceca9a7c',
     },
   },
+  workflowCategory: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '07c7e01fd61b6d8b7375672ec1aab6b6',
+      permission: '9c24ca440d584c37a5eeb9eeb9d2f412',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: 'f5fb396d9cc09b508b45bb6422dd9d1a',
+      permission: '3ddf5de01ce54f998bc98739714ed488',
+    },
+    addBasicInfo: {
+      title: '新增基础信息',
+      paramsKey: '9ea62efd471dcbbcb5ae47b01fd341dd',
+      permission: 'fa863f2aad9d479e9a1fd8a4537c1629',
+    },
+    updateBasicInfo: {
+      title: '更新基础信息',
+      paramsKey: 'f584b944109a2b9111eb232aceabc10d',
+      permission: 'e4f1248e5ff04475b4247fc2164ed0eb',
+    },
+    setImage: {
+      title: '设置图片',
+      paramsKey: '6b60de27379f7efd4692126930bf2f42',
+      permission: '54558459a66747df8df1584f77605464',
+    },
+    setSort: {
+      title: '设置排序值',
+      paramsKey: '2e280e0cf2c2bbffc4c7cd5e4c40b4b5',
+      permission: '9d53228a663647cc872d4f5d3f0a06e4',
+    },
+    setEnable: {
+      title: '设为启用',
+      paramsKey: 'a797c486f04f9145ae52ff39d23366fe',
+      permission: 'f15f9bb766794cb59e6a61005cc03d77',
+    },
+    setDisable: {
+      title: '设为禁用',
+      paramsKey: '7b14ba0c5a4badcab8341ba7bcbca4d0',
+      permission: 'f0f49c1a0939457a89a2a48a8bb9fac8',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: 'e597210f6401c53d22d9008cad6eb355',
+      permission: '8a84efac27e04bc287963275db561144',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: '75112f800e0358f68b3d6e773d21b20c',
+      permission: '5ad57f0e041e4f9ab94f2659549e7290',
+    },
+  },
   workflowDebugCase: {
     pageList: {
       title: '分页列表',
@@ -4834,6 +4891,43 @@ export const accessWayInfrastructureCollection = {
       title: '操作日志列表',
       paramsKey: '9b9899eeb07068ee0b8a4d3a488cb60a',
       permission: 'b61489f303404e699cb761627db82c10',
+    },
+  },
+  workflowTagRelation: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: '2617a4b6becaef272a6aeb5279fa999e',
+      permission: '04c45e582a554e01933c4a89515081e4',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '7ffc3311efdcfc56751237d67fe22e4c',
+      permission: 'c24900a5d8c4465782952fc8ba776e00',
+    },
+    add: {
+      title: '新增',
+      paramsKey: '9ec724d31e6947243f976e3f97bf9408',
+      permission: '601559870e0b457ebcdcc42d39ce51a8',
+    },
+    addBatch: {
+      title: '批量新增',
+      paramsKey: '92c5a54c87b59fd14f813ffa05ed9023',
+      permission: '7bd3aeb57d674efa835df8d351814876',
+    },
+    remove: {
+      title: '移除',
+      paramsKey: 'a2e1f7dcfb9eaf78243d0d71d03f1bfb',
+      permission: '9c5d2c3e6f4949da82bda94b3be2a007',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: 'ac19fc76613c9d4b589aaff812d8af73',
+      permission: '1005141b45304f61afb907ef2f3b9303',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: '8ee74af24a5665939b15c5035fe072ef',
+      permission: '0677c9cd88cd44b1839261874de679e6',
     },
   },
 };

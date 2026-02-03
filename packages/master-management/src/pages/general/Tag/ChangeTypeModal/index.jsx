@@ -30,7 +30,7 @@ class ChangeTypeModal extends BaseUpdateModal {
       ...this.state,
       pageTitle: '适用类别设置',
       loadApiPath: modelTypeCollection.tagTypeCollection.get,
-      submitApiPath: modelTypeCollection.tagTypeCollection.updateType,
+      submitApiPath: modelTypeCollection.tagTypeCollection.setType,
     };
   }
 

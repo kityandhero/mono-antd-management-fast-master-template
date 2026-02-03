@@ -1,1 +1,13 @@
-{ "list": [] }
+{
+  "list": [
+    {
+      "folder": "general/Tag/PageListSelectModal",
+      "name": "Tag",
+      "model": "tag",
+      "key": "tagId",
+      "visibleFlag": "7765e3e0078744d79101ce349367c08c",
+      "fileName": "index.jsx",
+      "coverFile": false
+    }
+  ]
+}

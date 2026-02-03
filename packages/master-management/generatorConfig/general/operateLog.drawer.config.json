@@ -163,6 +163,15 @@
       "coverFile": true
     },
     {
+      "folder": "general/Tag/OperateLogDrawer",
+      "name": "Tag",
+      "model": "tag",
+      "key": "tagId",
+      "visibleFlag": "72a76c9045334d39b5bf45d99e00f267",
+      "fileName": "index.jsx",
+      "coverFile": true
+    },
+    {
       "folder": "general/UserWorkflowConfigure/OperateLogDrawer",
       "name": "UserWorkflowConfigure",
       "model": "userWorkflowConfigure",

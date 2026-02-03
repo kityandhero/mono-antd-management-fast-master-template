@@ -2,7 +2,7 @@ import { getValueByKey, request } from 'easy-soft-utility';
 
 import { actionCore } from 'antd-management-fast-common';
 
-import { updateColorDataApiAddress } from '../../../../services/tag';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 export function singleTreeListAction({
@@ -12,7 +12,7 @@ export function singleTreeListAction({
   successMessage,
 }) {
   actionCore({
-    api: 'tag/singleTreeList',
+    api: modelTypeCollection.tagTypeCollection.singleTreeList,
     params: {
       ...handleData,
     },
@@ -30,7 +30,7 @@ export function singleTreeListWithWorkflowAction({
   successMessage,
 }) {
   actionCore({
-    api: 'tag/singleTreeListWithWorkflow',
+    api: modelTypeCollection.tagTypeCollection.singleTreeListWithWorkflow,
     params: {
       ...handleData,
     },
@@ -48,7 +48,7 @@ export function singleTreeListWithQuestionAction({
   successMessage,
 }) {
   actionCore({
-    api: 'tag/singleTreeListWithQuestion',
+    api: modelTypeCollection.tagTypeCollection.singleTreeListWithQuestion,
     params: {
       ...handleData,
     },
@@ -66,7 +66,7 @@ export function singleTreeListWithNoticeAction({
   successMessage,
 }) {
   actionCore({
-    api: 'tag/singleTreeListWithNotice',
+    api: modelTypeCollection.tagTypeCollection.singleTreeListWithNotice,
     params: {
       ...handleData,
     },
@@ -77,9 +77,9 @@ export function singleTreeListWithNoticeAction({
   });
 }
 
-export function updateColorAction({ handleData }) {
+export function setColorAction({ handleData }) {
   request({
-    api: updateColorDataApiAddress,
+    api: modelTypeCollection.tagTypeCollection.setColor,
     params: {
       tagId: getValueByKey({
         data: handleData,
@@ -95,14 +95,14 @@ export function updateColorAction({ handleData }) {
   });
 }
 
-export async function updateSortAction({
+export async function setSortAction({
   target,
   handleData,
   successCallback,
   successMessage,
 }) {
   actionCore({
-    api: 'tag/updateSort',
+    api: modelTypeCollection.tagTypeCollection.setSort,
     params: {
       tagId: getValueByKey({
         data: handleData,
@@ -124,7 +124,7 @@ export async function toggleRecommendAction({
   successMessage,
 }) {
   actionCore({
-    api: 'tag/toggleRecommend',
+    api: modelTypeCollection.tagTypeCollection.toggleRecommend,
     params: {
       tagId: getValueByKey({
         data: handleData,
@@ -145,7 +145,7 @@ export async function setEnableAction({
   successMessage,
 }) {
   actionCore({
-    api: 'tag/setEnable',
+    api: modelTypeCollection.tagTypeCollection.setEnable,
     params: {
       tagId: getValueByKey({
         data: handleData,
@@ -166,7 +166,7 @@ export async function setDisableAction({
   successMessage,
 }) {
   actionCore({
-    api: 'tag/setDisable',
+    api: modelTypeCollection.tagTypeCollection.setDisable,
     params: {
       tagId: getValueByKey({
         data: handleData,
@@ -187,7 +187,7 @@ export async function removeAction({
   successMessage,
 }) {
   actionCore({
-    api: 'tag/remove',
+    api: modelTypeCollection.tagTypeCollection.remove,
     params: {
       tagId: getValueByKey({
         data: handleData,
@@ -208,7 +208,7 @@ export async function refreshCacheAction({
   successMessage,
 }) {
   actionCore({
-    api: 'tag/refreshCache',
+    api: modelTypeCollection.tagTypeCollection.refreshCache,
     params: {
       tagId: getValueByKey({
         data: handleData,

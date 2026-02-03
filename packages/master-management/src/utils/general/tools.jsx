@@ -25,7 +25,7 @@ import {
 import { cardConfig } from 'antd-management-fast-common';
 import { buildButton, iconBuilder } from 'antd-management-fast-component';
 
-import { keyValueEditModeCollection } from '../../customConfig';
+import { emptySignet, keyValueEditModeCollection } from '../../customConfig';
 
 export function getSexName(value) {
   let result = '未知';
@@ -89,6 +89,10 @@ export function getTitle() {
   }
 
   return shortName;
+}
+
+export function getEmptySignet() {
+  return emptySignet.replaceAll(/%0A|\s/g, '');
 }
 
 export function buildKeyTag(key) {

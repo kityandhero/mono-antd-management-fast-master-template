@@ -5057,24 +5057,31 @@
           "type": "singleData"
         },
         {
-          "title": "更新色值",
-          "api": "/tag/updateColor",
-          "effect": "updateColor",
-          "service": "updateColorData",
+          "title": "设置图片",
+          "api": "/tag/setImage",
+          "effect": "setImage",
+          "service": "setImageData",
           "type": "singleData"
         },
         {
-          "title": "更新适用类别",
-          "api": "/tag/updateType",
-          "effect": "updateType",
-          "service": "updateTypeData",
+          "title": "设置色值",
+          "api": "/tag/setColor",
+          "effect": "setColor",
+          "service": "setColorData",
           "type": "singleData"
         },
         {
-          "title": "更新排序值",
-          "api": "/tag/updateSort",
-          "effect": "updateSort",
-          "service": "updateSortData",
+          "title": "设置适用类别",
+          "api": "/tag/setType",
+          "effect": "setType",
+          "service": "setTypeData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置排序值",
+          "api": "/tag/setSort",
+          "effect": "setSort",
+          "service": "setSortData",
           "type": "singleData"
         },
         {
@@ -6668,6 +6675,83 @@
       "apis": [
         {
           "title": "分页列表",
+          "api": "/workflowCategory/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/workflowCategory/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新增基础信息",
+          "api": "/workflowCategory/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新基础信息",
+          "api": "/workflowCategory/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置图片",
+          "api": "/workflowCategory/setImage",
+          "effect": "setImage",
+          "service": "setImageData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置排序值",
+          "api": "/workflowCategory/setSort",
+          "effect": "setSort",
+          "service": "setSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为启用",
+          "api": "/workflowCategory/setEnable",
+          "effect": "setEnable",
+          "service": "setEnableData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为禁用",
+          "api": "/workflowCategory/setDisable",
+          "effect": "setDisable",
+          "service": "setDisableData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/workflowCategory/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/workflowCategory/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "流程类别管理",
+      "name": "workflowCategory"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
           "api": "/workflowDebugCase/pageList",
           "effect": "pageList",
           "service": "pageListData",
@@ -7699,6 +7783,62 @@
       "cover": true,
       "title": "工作流公司范围生效关系管理",
       "name": "workflowRangeEffectiveSubsidiaryRelation"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/workflowTagRelation/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/workflowTagRelation/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新增",
+          "api": "/workflowTagRelation/add",
+          "effect": "add",
+          "service": "addData",
+          "type": "singleData"
+        },
+        {
+          "title": "批量新增",
+          "api": "/workflowTagRelation/addBatch",
+          "effect": "addBatch",
+          "service": "addBatchData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/workflowTagRelation/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/workflowTagRelation/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/workflowTagRelation/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        }
+      ],
+      "cover": true,
+      "title": "流程标签管理",
+      "name": "workflowTagRelation"
     }
   ]
 }

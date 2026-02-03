@@ -28,6 +28,7 @@ import {
   getBusinessModeName,
   getTagStatusName,
   getTagTypeName,
+  renderSearchTagTypeSelect,
 } from '../../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import AddBasicInfoDrawer from '../AddBasicInfoDrawer';
@@ -44,6 +45,7 @@ import {
   handleItemType,
   handleItemWhetherRecommend,
 } from '../Assist/tools';
+import { ChangeImageModal } from '../ChangeImageModal';
 import { ChangeSortModal } from '../ChangeSortModal';
 import { ChangeTypeModal } from '../ChangeTypeModal';
 import { fieldData, statusCollection } from '../Common/data';
@@ -76,6 +78,11 @@ class PageList extends MultiPage {
     switch (key) {
       case 'toggleRecommend': {
         this.toggleRecommend(handleData);
+        break;
+      }
+
+      case 'setImage': {
+        this.showChangeImageModal(handleData);
         break;
       }
 
@@ -186,6 +193,29 @@ class PageList extends MultiPage {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
+  showChangeImageModal = (r) => {
+    this.setState({ currentRecord: r }, () => {
+      ChangeImageModal.open();
+    });
+  };
+
+  afterChangeImageModalOk = ({
+    // eslint-disable-next-line no-unused-vars
+    singleData,
+    // eslint-disable-next-line no-unused-vars
+    listData,
+    // eslint-disable-next-line no-unused-vars
+    extraData,
+    // eslint-disable-next-line no-unused-vars
+    responseOriginalData,
+    // eslint-disable-next-line no-unused-vars
+    submitData,
+    // eslint-disable-next-line no-unused-vars
+    subjoinData,
+  }) => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
   showChangeSortModal = (r) => {
     this.setState({ currentRecord: r }, () => {
       ChangeSortModal.open();
@@ -252,6 +282,7 @@ class PageList extends MultiPage {
   fillSearchCardInitialValues = () => {
     const values = {};
 
+    values[fieldData.type.name] = unlimitedWithStringFlag.flag;
     values[fieldData.whetherRecommend.name] = unlimitedWithStringFlag.flag;
 
     return values;
@@ -263,17 +294,17 @@ class PageList extends MultiPage {
         {
           lg: 5,
           type: searchCardConfig.contentItemType.input,
-          fieldData: fieldData.tagId,
-        },
-        {
-          lg: 5,
-          type: searchCardConfig.contentItemType.input,
           fieldData: fieldData.name,
         },
         {
           lg: 5,
           type: searchCardConfig.contentItemType.input,
           fieldData: fieldData.displayName,
+        },
+        {
+          lg: 5,
+          type: searchCardConfig.contentItemType.component,
+          component: renderSearchTagTypeSelect({}),
         },
         {
           lg: 5,
@@ -322,6 +353,17 @@ class PageList extends MultiPage {
         this.handleMenuClick({ key, handleData });
       },
       items: [
+        {
+          key: 'setImage',
+          icon: iconBuilder.picture(),
+          text: `设置图片`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.tag.setImage.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
         {
           key: 'updateSort',
           icon: iconBuilder.edit(),
@@ -422,9 +464,7 @@ class PageList extends MultiPage {
       width: 120,
       showRichFacade: true,
       emptyValue: '--',
-      hidden: !checkHasAuthority(
-        accessWayCollection.tag.updateColor.permission,
-      ),
+      hidden: !checkHasAuthority(accessWayCollection.tag.setColor.permission),
       render: (value) => {
         return (
           <div>
@@ -567,6 +607,11 @@ class PageList extends MultiPage {
     return (
       <>
         <AddBasicInfoDrawer afterOK={this.afterAddBasicInfoDrawerOk} />
+
+        <ChangeImageModal
+          externalData={currentRecord}
+          afterOK={this.afterChangeImageModalOk}
+        />
 
         <ChangeSortModal
           externalData={currentRecord}

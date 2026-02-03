@@ -66,7 +66,9 @@ class AddWorkflowNodeApproverDrawer extends BaseAddDrawer {
   };
 
   executeAfterDoOtherWhenChangeVisibleToHide = () => {
-    this.userSelectRef.current.clearSelect();
+    if (this.userSelectRef != null && this.userSelectRef.current != null) {
+      this.userSelectRef.current.clearSelect();
+    }
 
     this.setState({
       userId: '',

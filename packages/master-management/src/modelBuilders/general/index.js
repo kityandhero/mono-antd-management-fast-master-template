@@ -365,6 +365,10 @@ import {
   workflowCaseUserMonitorConfigurationTypeCollection,
 } from './workflowCaseUserMonitorConfiguration';
 import {
+  buildModel as buildWorkflowCategoryModel,
+  workflowCategoryTypeCollection,
+} from './workflowCategory';
+import {
   buildModel as buildWorkflowDebugCaseModel,
   workflowDebugCaseTypeCollection,
 } from './workflowDebugCase';
@@ -416,6 +420,10 @@ import {
   buildModel as buildWorkflowRangeEffectiveSubsidiaryRelationModel,
   workflowRangeEffectiveSubsidiaryRelationTypeCollection,
 } from './workflowRangeEffectiveSubsidiaryRelation';
+import {
+  buildModel as buildWorkflowTagRelationModel,
+  workflowTagRelationTypeCollection,
+} from './workflowTagRelation';
 
 export const modelTypeCollection = {
   accessWayTypeCollection,
@@ -514,6 +522,7 @@ export const modelTypeCollection = {
   workflowCaseNextProcessProgressTypeCollection,
   workflowCaseProcessHistoryTypeCollection,
   workflowCaseUserMonitorConfigurationTypeCollection,
+  workflowCategoryTypeCollection,
   workflowDebugCaseTypeCollection,
   workflowDebugCaseFormAttachmentTypeCollection,
   workflowDebugCaseFormStorageTypeCollection,
@@ -527,6 +536,7 @@ export const modelTypeCollection = {
   workflowNodeApproverTypeCollection,
   workflowRangeEffectiveExternalDepartmentRelationTypeCollection,
   workflowRangeEffectiveSubsidiaryRelationTypeCollection,
+  workflowTagRelationTypeCollection,
 };
 
 export function listModelBuilder() {
@@ -629,6 +639,7 @@ export function listModelBuilder() {
     buildWorkflowCaseNextProcessProgressModel,
     buildWorkflowCaseProcessHistoryModel,
     buildWorkflowCaseUserMonitorConfigurationModel,
+    buildWorkflowCategoryModel,
     buildWorkflowDebugCaseModel,
     buildWorkflowDebugCaseFormAttachmentModel,
     buildWorkflowDebugCaseFormStorageModel,
@@ -642,6 +653,7 @@ export function listModelBuilder() {
     buildWorkflowNodeApproverModel,
     buildWorkflowRangeEffectiveExternalDepartmentRelationModel,
     buildWorkflowRangeEffectiveSubsidiaryRelationModel,
+    buildWorkflowTagRelationModel,
   );
 
   return list;

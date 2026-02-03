@@ -28,7 +28,6 @@ import {
 import { DataDrawer } from 'antd-management-fast-framework';
 
 import {
-  emptySignet,
   fieldDataFlowCase,
   fieldDataFlowCaseFormAttachment,
   fieldDataFlowCaseFormStorage,
@@ -41,6 +40,7 @@ import {
   buildFlowCaseFormInitialValues,
   SealImage,
 } from '../../../../flowAssist';
+import { getEmptySignet } from '../../../../utils';
 
 const { BaseVerticalFlexDrawer } = DataDrawer;
 
@@ -204,7 +204,7 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
         title: approveWorkflowNodeName,
         note: note || '未填写',
         name: approveUserName,
-        signet: approveUserSignet || emptySignet,
+        signet: approveUserSignet || getEmptySignet(),
         time: createTime,
       };
     });
@@ -280,7 +280,7 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
         note: applicantStatementContent,
         ...(checkStringIsNullOrWhiteSpace(applicantUserSignet)
           ? {
-              signet: emptySignet,
+              signet: getEmptySignet(),
             }
           : {
               signet: applicantUserSignet,
@@ -333,7 +333,7 @@ class BaseFlowCaseStorageFormDrawer extends BaseVerticalFlexDrawer {
         note: attentionStatementContent,
         ...(checkStringIsNullOrWhiteSpace(attentionUserSignet)
           ? {
-              signet: emptySignet,
+              signet: getEmptySignet(),
             }
           : {
               signet: attentionUserSignet,

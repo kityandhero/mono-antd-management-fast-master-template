@@ -27,7 +27,6 @@ import {
 import { adjustEdge, adjustNode } from 'antd-management-fast-flow';
 
 import {
-  emptySignet,
   fieldDataFlow,
   fieldDataFlowCase,
   fieldDataFlowFormDesign,
@@ -39,6 +38,7 @@ import {
   flowNodeTypeCollection,
 } from '../customConfig';
 import { getFlowNodeApproveModeName } from '../customSpecialComponents';
+import { getEmptySignet } from '../utils';
 
 export function getSimpleApplicantConfig(o) {
   const applicantSignSwitch = getValueByKey({
@@ -72,7 +72,7 @@ export function getSimpleApplicantConfig(o) {
       note: applicantStatementContent,
       ...(checkStringIsNullOrWhiteSpace(globalDebugUserSignet)
         ? {
-            signet: emptySignet,
+            signet: getEmptySignet(),
           }
         : {
             signet: globalDebugUserSignet,
@@ -122,7 +122,7 @@ export function getSimpleAttentionConfig(o) {
       note: attentionStatementContent,
       ...(checkStringIsNullOrWhiteSpace(attentionUserSignet)
         ? {
-            signet: emptySignet,
+            signet: getEmptySignet(),
           }
         : {
             signet: attentionUserSignet,
@@ -324,7 +324,7 @@ function adjustFlowCaseDataItem({
       title: approveWorkflowNodeName,
       note: note || '未填写',
       name: approveUserName,
-      signet: approveUserSignet || emptySignet,
+      signet: approveUserSignet || getEmptySignet(),
       time: approveTime,
     };
   });
@@ -705,7 +705,7 @@ export function getDocumentPrintDesignerConfig({
       note: applicantStatementContent,
       ...(checkStringIsNullOrWhiteSpace(applicantUserSignet)
         ? {
-            signet: emptySignet,
+            signet: getEmptySignet(),
           }
         : {
             signet: applicantUserSignet,
@@ -749,7 +749,7 @@ export function getDocumentPrintDesignerConfig({
       note: attentionStatementContent,
       ...(checkStringIsNullOrWhiteSpace(attentionUserSignet)
         ? {
-            signet: emptySignet,
+            signet: getEmptySignet(),
           }
         : {
             signet: attentionUserSignet,
@@ -886,7 +886,7 @@ function adjustFlowCaseDataItemToState({
       title: approveWorkflowNodeName,
       note: note || '未填写',
       name: approveUserName,
-      signet: approveUserSignet || emptySignet,
+      signet: approveUserSignet || getEmptySignet(),
       time: approveTime,
     };
   });
