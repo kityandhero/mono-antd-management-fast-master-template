@@ -1,5 +1,6 @@
 import {
   getTacitlyState,
+  pretreatmentRemoteListData,
   pretreatmentRemotePageListData,
   pretreatmentRemoteSingleData,
   reducerCollection,
@@ -17,11 +18,15 @@ import {
   setEnableData,
   setImageData,
   setSortData,
+  singleListData,
+  singleTreeListData,
   updateBasicInfoData,
 } from '../../services/workflowCategory';
 
 export const workflowCategoryTypeCollection = {
   pageList: 'workflowCategory/pageList',
+  singleList: 'workflowCategory/singleList',
+  singleTreeList: 'workflowCategory/singleTreeList',
   get: 'workflowCategory/get',
   addBasicInfo: 'workflowCategory/addBasicInfo',
   updateBasicInfo: 'workflowCategory/updateBasicInfo',
@@ -54,6 +59,58 @@ export function buildModel() {
         const response = yield call(pageListData, payload);
 
         const dataAdjust = pretreatmentRemotePageListData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *singleList(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(singleListData, payload);
+
+        const dataAdjust = pretreatmentRemoteListData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *singleTreeList(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(singleTreeListData, payload);
+
+        const dataAdjust = pretreatmentRemoteListData({
           source: response,
           successCallback: pretreatmentSuccessCallback || null,
           failCallback: pretreatmentFailCallback || null,

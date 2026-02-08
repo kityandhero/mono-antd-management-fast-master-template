@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -28,22 +27,22 @@ import {
 } from '../../services/workflowNode';
 
 export const workflowNodeTypeCollection = {
-  pageList: "workflowNode/pageList",
-  singleList: "workflowNode/singleList",
-  get: "workflowNode/get",
-  addStartPoint: "workflowNode/addStartPoint",
-  addIntermediatePoint: "workflowNode/addIntermediatePoint",
-  addCarbonCopyPoint: "workflowNode/addCarbonCopyPoint",
-  addEndPoint: "workflowNode/addEndPoint",
-  updateBasicInfo: "workflowNode/updateBasicInfo",
-  updateDescriptiveInfo: "workflowNode/updateDescriptiveInfo",
-  updateViewConfig: "workflowNode/updateViewConfig",
-  maintainChannel: "workflowNode/maintainChannel",
-  remove: "workflowNode/remove",
-  refreshCache: "workflowNode/refreshCache",
-  refreshAllEntityCache: "workflowNode/refreshAllEntityCache",
-  pageListOperateLog: "workflowNode/pageListOperateLog",
-}
+  pageList: 'workflowNode/pageList',
+  singleList: 'workflowNode/singleList',
+  get: 'workflowNode/get',
+  addStartPoint: 'workflowNode/addStartPoint',
+  addIntermediatePoint: 'workflowNode/addIntermediatePoint',
+  addCarbonCopyPoint: 'workflowNode/addCarbonCopyPoint',
+  addEndPoint: 'workflowNode/addEndPoint',
+  updateBasicInfo: 'workflowNode/updateBasicInfo',
+  updateDescriptiveInfo: 'workflowNode/updateDescriptiveInfo',
+  updateViewConfig: 'workflowNode/updateViewConfig',
+  maintainChannel: 'workflowNode/maintainChannel',
+  remove: 'workflowNode/remove',
+  refreshCache: 'workflowNode/refreshCache',
+  refreshAllEntityCache: 'workflowNode/refreshAllEntityCache',
+  pageListOperateLog: 'workflowNode/pageListOperateLog',
+};
 
 export function buildModel() {
   return {

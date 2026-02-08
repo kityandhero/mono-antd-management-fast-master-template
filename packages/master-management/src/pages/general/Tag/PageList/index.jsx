@@ -16,8 +16,6 @@ import {
   unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
 import {
-  CenterBox,
-  FlexBox,
   iconBuilder,
   iconModeCollection,
 } from 'antd-management-fast-component';
@@ -463,38 +461,8 @@ class PageList extends MultiPage {
       dataTarget: fieldData.color,
       width: 120,
       showRichFacade: true,
-      emptyValue: '--',
+      facadeMode: columnFacadeMode.color,
       hidden: !checkHasAuthority(accessWayCollection.tag.setColor.permission),
-      render: (value) => {
-        return (
-          <div>
-            <FlexBox
-              flexAuto="right"
-              style={{
-                border: '1px solid #ccc',
-                borderRadius: '4px',
-                overflow: 'hidden',
-                padding: '2px',
-              }}
-              left={
-                <CenterBox>
-                  <div
-                    style={{
-                      backgroundColor: value,
-                      border: '1px solid #ccc',
-                      borderRadius: '4px',
-                      width: '20px',
-                      height: '20px',
-                      overflow: 'hidden',
-                    }}
-                  />
-                </CenterBox>
-              }
-              right={<CenterBox>{value || '无色值'}</CenterBox>}
-            />
-          </div>
-        );
-      },
     },
     {
       dataTarget: fieldData.sort,

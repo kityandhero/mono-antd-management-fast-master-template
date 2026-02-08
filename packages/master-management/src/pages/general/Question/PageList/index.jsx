@@ -11,7 +11,6 @@ import {
 } from 'easy-soft-utility';
 
 import {
-  cardConfig,
   columnFacadeMode,
   dropdownExpandItemType,
   listViewConfig,
@@ -309,7 +308,7 @@ class PageList extends MultiPage {
         },
         {
           lg: 12,
-          type: cardConfig.contentItemType.treeSelect,
+          type: searchCardConfig.contentItemType.treeSelect,
           fieldData: fieldData.tagIdCollection,
           value: tagIdCollection,
           require: true,

@@ -26,6 +26,15 @@
       "visibleFlag": "fffd1aec924744bfbf0be11ee4fd1cc3",
       "fileName": "index.jsx",
       "coverFile": false
+    },
+    {
+      "folder": "general/WorkflowCategory/UpdateBasicInfoDrawer",
+      "name": "WorkflowCategory",
+      "model": "workflowCategory",
+      "key": "workflowCategoryId",
+      "visibleFlag": "285acd9c83b84fd3b94016c63d276d8a",
+      "fileName": "index.jsx",
+      "coverFile": false
     }
   ]
 }

@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -16,11 +15,11 @@ import {
 } from '../../services/emailSenderAgentStatistic';
 
 export const emailSenderAgentStatisticTypeCollection = {
-  pageList: "emailSenderAgentStatistic/pageList",
-  get: "emailSenderAgentStatistic/get",
-  refreshCache: "emailSenderAgentStatistic/refreshCache",
-  pageListOperateLog: "emailSenderAgentStatistic/pageListOperateLog",
-}
+  pageList: 'emailSenderAgentStatistic/pageList',
+  get: 'emailSenderAgentStatistic/get',
+  refreshCache: 'emailSenderAgentStatistic/refreshCache',
+  pageListOperateLog: 'emailSenderAgentStatistic/pageListOperateLog',
+};
 
 export function buildModel() {
   return {

@@ -8,6 +8,15 @@
       "visibleFlag": "f27fc30d2cb94041b5c0bb01c0f9d4f4",
       "fileName": "index.jsx",
       "coverFile": false
+    },
+    {
+      "folder": "general/WorkflowCategory/PageListSelectDrawer",
+      "name": "WorkflowCategory",
+      "model": "workflowCategory",
+      "key": "workflowCategoryId",
+      "visibleFlag": "b93af03c725e4b748667e21a65b80ac5",
+      "fileName": "index.jsx",
+      "coverFile": false
     }
   ]
 }

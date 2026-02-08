@@ -4,7 +4,6 @@ import { connect } from 'easy-soft-dva';
 import { showSimpleErrorMessage, whetherNumber } from 'easy-soft-utility';
 
 import {
-  cardConfig,
   columnFacadeMode,
   getDerivedStateFromPropertiesForUrlParameters,
   searchCardConfig,
@@ -139,7 +138,7 @@ class PageList extends MultiPage {
       list: [
         {
           lg: 6,
-          type: cardConfig.contentItemType.treeSelect,
+          type: searchCardConfig.contentItemType.treeSelect,
           fieldData: fieldData.smsCategoryId,
           value: smsCategoryId,
           require: false,

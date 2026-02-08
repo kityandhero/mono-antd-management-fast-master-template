@@ -15,6 +15,7 @@ import {
 import {
   FlexBox,
   iconBuilder,
+  IconInfo,
   VerticalBox,
 } from 'antd-management-fast-component';
 
@@ -170,7 +171,17 @@ class BasicInfo extends TabPageBase {
                 component: (
                   <FlexBox
                     flexAuto="right"
-                    left={<VerticalBox>色值：</VerticalBox>}
+                    // left={<VerticalBox>色值[自动保存]：</VerticalBox>}
+                    left={
+                      <VerticalBox>
+                        <IconInfo
+                          text="色值"
+                          tooltip
+                          tooltipTitle="色值更改后将自动保存"
+                        />
+                        ：
+                      </VerticalBox>
+                    }
                     right={
                       <div
                         style={{
@@ -219,8 +230,8 @@ class BasicInfo extends TabPageBase {
                                 ],
                               },
                             ]}
-                            onChange={(_, hex) => {
-                              this.changeColor(hex);
+                            onChangeComplete={(o) => {
+                              this.changeColor(o.toHexString());
                             }}
                           />
                         </VerticalBox>

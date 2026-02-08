@@ -26,6 +26,15 @@
       "visibleFlag": "c1bf1b689d464af3941441ed791d0062",
       "fileName": "index.jsx",
       "coverFile": false
+    },
+    {
+      "folder": "general/WorkflowCategory/ChangeImageModal",
+      "name": "WorkflowCategory",
+      "model": "workflowCategory",
+      "key": "workflowCategoryId",
+      "visibleFlag": "cab3c2c3e0274c9eb959824b4eeb88fb",
+      "fileName": "index.jsx",
+      "coverFile": false
     }
   ]
 }

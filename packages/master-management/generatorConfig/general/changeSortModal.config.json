@@ -134,6 +134,15 @@
       "visibleFlag": "2abc18d1d62d4b40b0b777de208583f2",
       "fileName": "index.jsx",
       "coverFile": false
+    },
+    {
+      "folder": "general/WorkflowCategory/ChangeSortModal",
+      "name": "WorkflowCategory",
+      "model": "workflowCategory",
+      "key": "workflowCategoryId",
+      "visibleFlag": "c2698146e23842bba4295e58ee08b117",
+      "fileName": "index.jsx",
+      "coverFile": false
     }
   ]
 }

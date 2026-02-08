@@ -30,11 +30,12 @@ import {
   setDisableData,
   setEnableData,
   setSmsTemplateData,
+  setSortData,
+  setWorkflowCategoryIdData,
   toggleApplicantSignSwitchData,
   toggleAttentionSignSwitchData,
   toggleAvailableOnMobileSwitchData,
   updateBasicInfoData,
-  updateSortData,
 } from '../../services/workflow';
 
 export const workflowTypeCollection = {
@@ -44,7 +45,8 @@ export const workflowTypeCollection = {
   addOfficeAutomationProcessApproval:
     'workflow/addOfficeAutomationProcessApproval',
   updateBasicInfo: 'workflow/updateBasicInfo',
-  updateSort: 'workflow/updateSort',
+  setWorkflowCategoryId: 'workflow/setWorkflowCategoryId',
+  setSort: 'workflow/setSort',
   setCaseNameTemplate: 'workflow/setCaseNameTemplate',
   setSmsTemplate: 'workflow/setSmsTemplate',
   toggleApplicantSignSwitch: 'workflow/toggleApplicantSignSwitch',
@@ -213,7 +215,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateSort(
+      *setWorkflowCategoryId(
         {
           payload,
           alias,
@@ -222,7 +224,33 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateSortData, payload);
+        const response = yield call(setWorkflowCategoryIdData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setSort(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setSortData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

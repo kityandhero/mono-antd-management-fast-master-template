@@ -3599,7 +3599,12 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'db250df0792063ebd82fe994c7f5b642',
       permission: '8a63ab515e30408db57a45d465af14b6',
     },
-    updateSort: {
+    setWorkflowCategoryId: {
+      title: '设置类别',
+      paramsKey: 'c140dba2f02f9b7dcf47b5be92d1472e',
+      permission: '3be9b27f91f94955a1b03b6f4056e3e5',
+    },
+    setSort: {
       title: '更新排序值',
       paramsKey: 'dd2c536a9403fb47e0a6aa886e323477',
       permission: 'dcb58d92ae4a43f7bfc0856d8b25319e',

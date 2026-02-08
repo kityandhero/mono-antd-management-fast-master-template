@@ -7,6 +7,14 @@
       "key": "tagId",
       "fileName": "index.jsx",
       "coverFile": false
+    },
+    {
+      "folder": "general/WorkflowCategory/SelectModalField",
+      "name": "WorkflowCategory",
+      "model": "workflowCategory",
+      "key": "workflowCategoryId",
+      "fileName": "index.jsx",
+      "coverFile": false
     }
   ]
 }

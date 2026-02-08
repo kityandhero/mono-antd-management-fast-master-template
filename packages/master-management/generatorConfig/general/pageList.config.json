@@ -465,6 +465,14 @@
       "coverFile": false
     },
     {
+      "folder": "general/WorkflowCategory/PageList",
+      "name": "WorkflowCategory",
+      "model": "workflowCategory",
+      "key": "workflowCategoryId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/UserWorkflowConfigure/PageList",
       "name": "UserWorkflowConfigure",
       "model": "userWorkflowConfigure",

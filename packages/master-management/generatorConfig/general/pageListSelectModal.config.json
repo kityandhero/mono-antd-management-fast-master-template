@@ -8,6 +8,15 @@
       "visibleFlag": "7765e3e0078744d79101ce349367c08c",
       "fileName": "index.jsx",
       "coverFile": false
+    },
+    {
+      "folder": "general/WorkflowCategory/PageListSelectModal",
+      "name": "WorkflowCategory",
+      "model": "workflowCategory",
+      "key": "workflowCategoryId",
+      "visibleFlag": "7420064e51b344c6a00e32131fda7206",
+      "fileName": "index.jsx",
+      "coverFile": false
     }
   ]
 }

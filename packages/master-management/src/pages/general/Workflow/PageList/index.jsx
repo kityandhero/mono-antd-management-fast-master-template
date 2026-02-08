@@ -20,7 +20,7 @@ import {
   searchCardConfig,
   unlimitedWithStringFlag,
 } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
+import { buildButton, iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import {
@@ -41,9 +41,11 @@ import {
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { fieldData as fieldDataSubsidiary } from '../../Subsidiary/Common/data';
 import { SubsidiarySelectDrawerField } from '../../Subsidiary/SelectDrawerField';
+import { singleTreeListWithWorkflowAction } from '../../Tag/Assist/action';
 import { refreshAllEntityCacheAction as refreshAllWorkflowBranchConditionEntityCacheAction } from '../../WorkflowBranchCondition/Assist/action';
 import { refreshAllEntityCacheAction as refreshAllWorkflowBranchConditionItemEntityCacheAction } from '../../WorkflowBranchConditionItem/Assist/action';
 import { refreshAllEntityCacheAction as refreshAllWorkflowCaseEntityCacheAction } from '../../WorkflowCase/Assist/action';
+import { singleTreeListAction } from '../../WorkflowCategory/Assist/action';
 import { refreshAllEntityCacheAction as refreshAllWorkflowDebugCaseEntityCacheAction } from '../../WorkflowDebugCase/Assist/action';
 import { refreshAllEntityCacheAction as refreshAllWorkflowFormDesignEntityCacheAction } from '../../WorkflowFormDesign/Assist/action';
 import { FlowCaseFormExampleDocumentDisplayDrawer } from '../../WorkflowFormDesign/FlowCaseFormExampleDocumentDisplayDrawer';
@@ -93,22 +95,71 @@ class PageList extends MultiPage {
       currentRecordListAttention: [],
       subsidiaryId: '',
       subsidiaryShortName: '',
+      workflowCategoryId: '',
+      workflowCategoryName: '',
+      workflowCategoryTreeData: [],
+      tagIdCollection: [],
+      tagName: '',
+      tagTreeData: [],
     };
   }
 
   supplementLoadRequestParams = (o) => {
     const d = { ...o };
-    const { subsidiaryId } = this.state;
+    const { subsidiaryId, workflowCategoryId, tagIdCollection } = this.state;
 
     d[fieldData.subsidiaryId.name] = subsidiaryId ?? '';
+    d[fieldData.workflowCategoryId.name] = workflowCategoryId;
+    d[fieldData.tagIdCollection.name] = tagIdCollection.join(',');
 
     return d;
+  };
+
+  doOtherRemoteRequest = () => {
+    this.loadWorkflowCategoryTreeList({ refresh: whetherNumber.no });
+    this.loadTagTreeList();
+  };
+
+  loadWorkflowCategoryTreeList = ({ refresh = whetherNumber.no }) => {
+    singleTreeListAction({
+      target: this,
+      handleData: { refresh },
+      successCallback: ({ target, remoteListData }) => {
+        target.setState({
+          workflowCategoryTreeData: remoteListData,
+        });
+      },
+    });
+  };
+
+  reloadWorkflowCategoryTreeList = () => {
+    this.loadWorkflowCategoryTreeList({ refresh: whetherNumber.yes });
+  };
+
+  loadTagTreeList = () => {
+    singleTreeListWithWorkflowAction({
+      target: this,
+      handleData: {},
+      successCallback: ({ target, remoteListData }) => {
+        target.setState({
+          tagTreeData: remoteListData,
+        });
+      },
+    });
+  };
+
+  reloadTagTreeList = () => {
+    this.loadTagTreeList();
   };
 
   handleSearchResetState = () => {
     return {
       subsidiaryId: '',
       subsidiaryShortName: '',
+      tagIdCollection: [],
+      tagName: '',
+      workflowCategoryId: '',
+      workflowCategoryName: '',
     };
   };
 
@@ -682,39 +733,80 @@ class PageList extends MultiPage {
   };
 
   establishSearchCardConfig = () => {
-    const { subsidiaryShortName } = this.state;
+    const {
+      tagTreeData,
+      tagIdCollection,
+      workflowCategoryTreeData,
+      workflowCategoryId,
+      subsidiaryShortName,
+    } = this.state;
 
     return {
       list: [
         {
-          lg: 9,
+          lg: 10,
           type: searchCardConfig.contentItemType.input,
           fieldData: fieldData.name,
         },
         {
-          lg: 5,
-          type: searchCardConfig.contentItemType.customSelect,
-          component: renderSearchBusinessModeSelect({}),
+          lg: 8,
+          type: searchCardConfig.contentItemType.treeSelect,
+          fieldData: fieldData.workflowCategoryId,
+          value: workflowCategoryId,
+          require: false,
+          listData: workflowCategoryTreeData,
+          addonAfter: buildButton({
+            text: '',
+            icon: iconBuilder.reload(),
+            handleClick: () => {
+              this.reloadWorkflowCategoryTreeList();
+            },
+          }),
+          dataConvert: (o) => {
+            const { name: title, code: value } = o;
+
+            return {
+              title,
+              value,
+            };
+          },
+          onChange: ({ value }) => {
+            this.setState({
+              workflowCategoryId: value,
+            });
+          },
         },
         {
-          lg: 5,
-          type: searchCardConfig.contentItemType.whetherSelect,
-          fieldData: fieldData.availableOnMobileSwitch,
-        },
-        {
-          lg: 5,
-          type: searchCardConfig.contentItemType.customSelect,
-          component: renderSearchFlowStatusSelect({}),
-        },
-        {
-          lg: 5,
-          type: searchCardConfig.contentItemType.customSelect,
-          component: renderSearchFlowScopeSelect({}),
-        },
-        {
-          lg: 4,
-          type: searchCardConfig.contentItemType.customSelect,
-          component: renderSearchFlowEffectiveRangeSelect({}),
+          lg: 6,
+          type: searchCardConfig.contentItemType.treeSelect,
+          fieldData: fieldData.tagIdCollection,
+          value: tagIdCollection,
+          require: true,
+          innerProps: {
+            treeCheckable: true,
+          },
+          listData: tagTreeData,
+          addonAfter: buildButton({
+            title: '点击刷新标签列表',
+            text: '',
+            icon: iconBuilder.reload(),
+            handleClick: () => {
+              this.reloadTagTreeList();
+            },
+          }),
+          dataConvert: (o) => {
+            const { name: title, code: value } = o;
+
+            return {
+              title,
+              value,
+            };
+          },
+          onChange: ({ value }) => {
+            this.setState({
+              tagIdCollection: value,
+            });
+          },
         },
         {
           lg: 10,
@@ -732,6 +824,31 @@ class PageList extends MultiPage {
               }}
             />
           ),
+        },
+        {
+          lg: 4,
+          type: searchCardConfig.contentItemType.customSelect,
+          component: renderSearchBusinessModeSelect({}),
+        },
+        {
+          lg: 4,
+          type: searchCardConfig.contentItemType.whetherSelect,
+          fieldData: fieldData.availableOnMobileSwitch,
+        },
+        {
+          lg: 6,
+          type: searchCardConfig.contentItemType.customSelect,
+          component: renderSearchFlowStatusSelect({}),
+        },
+        {
+          lg: 5,
+          type: searchCardConfig.contentItemType.customSelect,
+          component: renderSearchFlowEffectiveRangeSelect({}),
+        },
+        {
+          lg: 5,
+          type: searchCardConfig.contentItemType.customSelect,
+          component: renderSearchFlowScopeSelect({}),
         },
         {
           lg: 4,

@@ -7,6 +7,14 @@
       "key": "tagId",
       "fileName": "index.jsx",
       "coverFile": false
+    },
+    {
+      "folder": "general/WorkflowCategory/SelectDrawerField",
+      "name": "WorkflowCategory",
+      "model": "workflowCategory",
+      "key": "workflowCategoryId",
+      "fileName": "index.jsx",
+      "coverFile": false
     }
   ]
 }

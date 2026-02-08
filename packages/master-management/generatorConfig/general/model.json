@@ -5841,10 +5841,17 @@
           "type": "singleData"
         },
         {
+          "title": "设置类别",
+          "api": "/workflow/setWorkflowCategoryId",
+          "effect": "setWorkflowCategoryId",
+          "service": "setWorkflowCategoryIdData",
+          "type": "singleData"
+        },
+        {
           "title": "更新排序值",
-          "api": "/workflow/updateSort",
-          "effect": "updateSort",
-          "service": "updateSortData",
+          "api": "/workflow/setSort",
+          "effect": "setSort",
+          "service": "setSortData",
           "type": "singleData"
         },
         {
@@ -6679,6 +6686,20 @@
           "effect": "pageList",
           "service": "pageListData",
           "type": "pageList"
+        },
+        {
+          "title": "单页列表",
+          "api": "/workflowCategory/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "singleList"
+        },
+        {
+          "title": "单页树型列表",
+          "api": "/workflowCategory/singleTreeList",
+          "effect": "singleTreeList",
+          "service": "singleTreeListData",
+          "type": "singleList"
         },
         {
           "title": "获取详情",

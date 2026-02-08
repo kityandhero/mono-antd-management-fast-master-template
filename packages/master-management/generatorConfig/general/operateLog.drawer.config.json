@@ -172,6 +172,15 @@
       "coverFile": true
     },
     {
+      "folder": "general/WorkflowCategory/OperateLogDrawer",
+      "name": "WorkflowCategory",
+      "model": "workflowCategory",
+      "key": "workflowCategoryId",
+      "visibleFlag": "53fa1e632d7542729506533c982d7d13",
+      "fileName": "index.jsx",
+      "coverFile": true
+    },
+    {
       "folder": "general/UserWorkflowConfigure/OperateLogDrawer",
       "name": "UserWorkflowConfigure",
       "model": "userWorkflowConfigure",

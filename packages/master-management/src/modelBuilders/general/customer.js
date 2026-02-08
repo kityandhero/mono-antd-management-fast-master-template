@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -20,15 +19,15 @@ import {
 } from '../../services/customer';
 
 export const customerTypeCollection = {
-  pageList: "customer/pageList",
-  get: "customer/get",
-  setEnable: "customer/setEnable",
-  togglePhoneVerify: "customer/togglePhoneVerify",
-  setDisable: "customer/setDisable",
-  refreshCache: "customer/refreshCache",
-  pageListOperateLog: "customer/pageListOperateLog",
-  uploadImage: "customer/uploadImage",
-}
+  pageList: 'customer/pageList',
+  get: 'customer/get',
+  setEnable: 'customer/setEnable',
+  togglePhoneVerify: 'customer/togglePhoneVerify',
+  setDisable: 'customer/setDisable',
+  refreshCache: 'customer/refreshCache',
+  pageListOperateLog: 'customer/pageListOperateLog',
+  uploadImage: 'customer/uploadImage',
+};
 
 export function buildModel() {
   return {

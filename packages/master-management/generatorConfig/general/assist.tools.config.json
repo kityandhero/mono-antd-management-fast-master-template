@@ -625,6 +625,14 @@
       "coverFile": false
     },
     {
+      "folder": "general/WorkflowCategory/Assist",
+      "name": "WorkflowCategory",
+      "model": "workflowCategory",
+      "key": "workflowCategoryId",
+      "fileName": "tools.js",
+      "coverFile": false
+    },
+    {
       "folder": "general/WorkflowDebugCase/Assist",
       "name": "WorkflowDebugCase",
       "model": "workflowDebugCase",
@@ -733,6 +741,14 @@
       "name": "WorkflowRangeEffectiveSubsidiaryRelation",
       "model": "workflowRangeEffectiveSubsidiaryRelation",
       "key": "workflowRangeEffectiveSubsidiaryRelationId",
+      "fileName": "tools.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/WorkflowTagRelation/Assist",
+      "name": "WorkflowTagRelation",
+      "model": "workflowTagRelation",
+      "key": "workflowTagRelationId",
       "fileName": "tools.js",
       "coverFile": false
     },

@@ -5,7 +5,6 @@ import {
   listViewConfig,
   searchCardConfig,
 } from 'antd-management-fast-common';
-import { CenterBox, FlexBox } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { fieldData } from '../Common/data';
@@ -97,37 +96,7 @@ class BasePageListSelectDrawer extends MultiPageSelectDrawer {
       dataTarget: fieldData.color,
       width: 120,
       showRichFacade: true,
-      emptyValue: '--',
-      render: (value) => {
-        return (
-          <div>
-            <FlexBox
-              flexAuto="right"
-              style={{
-                border: '1px solid #ccc',
-                borderRadius: '4px',
-                overflow: 'hidden',
-                padding: '2px',
-              }}
-              left={
-                <CenterBox>
-                  <div
-                    style={{
-                      backgroundColor: value,
-                      border: '1px solid #ccc',
-                      borderRadius: '4px',
-                      width: '20px',
-                      height: '20px',
-                      overflow: 'hidden',
-                    }}
-                  />
-                </CenterBox>
-              }
-              right={<CenterBox>{value || '无色值'}</CenterBox>}
-            />
-          </div>
-        );
-      },
+      facadeMode: columnFacadeMode.color,
     },
     {
       dataTarget: fieldData.tagId,
