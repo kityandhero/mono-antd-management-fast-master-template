@@ -78,6 +78,8 @@ const { MultiPage } = DataMultiPageView;
 class PageList extends MultiPage {
   componentAuthority = accessWayCollection.workflow.pageList.permission;
 
+  subsidiarySelectRef = React.createRef();
+
   constructor(properties) {
     super(properties);
 
@@ -150,6 +152,15 @@ class PageList extends MultiPage {
 
   reloadTagTreeList = () => {
     this.loadTagTreeList();
+  };
+
+  handleAdditionalSearchReset = () => {
+    if (
+      this.subsidiarySelectRef != null &&
+      this.subsidiarySelectRef.current != null
+    ) {
+      this.subsidiarySelectRef.current.clearSelect();
+    }
   };
 
   handleSearchResetState = () => {
@@ -813,6 +824,7 @@ class PageList extends MultiPage {
           type: searchCardConfig.contentItemType.component,
           component: (
             <SubsidiarySelectDrawerField
+              ref={this.subsidiarySelectRef}
               label={fieldData.subsidiaryId.label}
               helper={fieldData.subsidiaryId.helper}
               defaultValue={subsidiaryShortName || null}
