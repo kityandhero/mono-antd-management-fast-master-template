@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -18,13 +17,13 @@ import {
 } from '../../services/hostServiceLog';
 
 export const hostServiceLogTypeCollection = {
-  pageList: "hostServiceLog/pageList",
-  get: "hostServiceLog/get",
-  remove: "hostServiceLog/remove",
-  removeMulti: "hostServiceLog/removeMulti",
-  removeAll: "hostServiceLog/removeAll",
-  createTestLog: "hostServiceLog/createTestLog",
-}
+  pageList: 'hostServiceLog/pageList',
+  get: 'hostServiceLog/get',
+  remove: 'hostServiceLog/remove',
+  removeMulti: 'hostServiceLog/removeMulti',
+  removeAll: 'hostServiceLog/removeAll',
+  createTestLog: 'hostServiceLog/createTestLog',
+};
 
 export function buildModel() {
   return {

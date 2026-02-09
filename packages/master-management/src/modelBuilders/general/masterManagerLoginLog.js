@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -19,13 +18,13 @@ import {
 } from '../../services/masterManagerLoginLog';
 
 export const masterManagerLoginLogTypeCollection = {
-  pageList: "masterManagerLoginLog/pageList",
-  singleList: "masterManagerLoginLog/singleList",
-  get: "masterManagerLoginLog/get",
-  remove: "masterManagerLoginLog/remove",
-  refreshCache: "masterManagerLoginLog/refreshCache",
-  pageListOperateLog: "masterManagerLoginLog/pageListOperateLog",
-}
+  pageList: 'masterManagerLoginLog/pageList',
+  singleList: 'masterManagerLoginLog/singleList',
+  get: 'masterManagerLoginLog/get',
+  remove: 'masterManagerLoginLog/remove',
+  refreshCache: 'masterManagerLoginLog/refreshCache',
+  pageListOperateLog: 'masterManagerLoginLog/pageListOperateLog',
+};
 
 export function buildModel() {
   return {

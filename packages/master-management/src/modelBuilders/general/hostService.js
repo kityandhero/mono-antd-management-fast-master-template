@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -16,11 +15,11 @@ import {
 } from '../../services/hostService';
 
 export const hostServiceTypeCollection = {
-  pageList: "hostService/pageList",
-  get: "hostService/get",
-  change: "hostService/change",
-  refreshAllStatus: "hostService/refreshAllStatus",
-}
+  pageList: 'hostService/pageList',
+  get: 'hostService/get',
+  change: 'hostService/change',
+  refreshAllStatus: 'hostService/refreshAllStatus',
+};
 
 export function buildModel() {
   return {

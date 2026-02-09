@@ -1,4 +1,3 @@
-
 import { request } from 'easy-soft-utility';
 
 export const pageListDataApiAddress = '/errorLog/pageList';
@@ -46,7 +45,8 @@ export async function removeAllData(parameters) {
   });
 }
 
-export const createTestExceptionDataApiAddress = '/errorLog/createTestException';
+export const createTestExceptionDataApiAddress =
+  '/errorLog/createTestException';
 
 export async function createTestExceptionData(parameters) {
   return request({
@@ -54,4 +54,3 @@ export async function createTestExceptionData(parameters) {
     params: parameters,
   });
 }
-

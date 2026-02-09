@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -24,19 +23,19 @@ import {
 } from '../../services/gallery';
 
 export const galleryTypeCollection = {
-  pageList: "gallery/pageList",
-  get: "gallery/get",
-  addBasicInfo: "gallery/addBasicInfo",
-  updateBasicInfo: "gallery/updateBasicInfo",
-  updateImage: "gallery/updateImage",
-  updateSort: "gallery/updateSort",
-  setOnline: "gallery/setOnline",
-  setOffline: "gallery/setOffline",
-  remove: "gallery/remove",
-  refreshCache: "gallery/refreshCache",
-  pageListOperateLog: "gallery/pageListOperateLog",
-  uploadImage: "gallery/uploadImage",
-}
+  pageList: 'gallery/pageList',
+  get: 'gallery/get',
+  addBasicInfo: 'gallery/addBasicInfo',
+  updateBasicInfo: 'gallery/updateBasicInfo',
+  updateImage: 'gallery/updateImage',
+  updateSort: 'gallery/updateSort',
+  setOnline: 'gallery/setOnline',
+  setOffline: 'gallery/setOffline',
+  remove: 'gallery/remove',
+  refreshCache: 'gallery/refreshCache',
+  pageListOperateLog: 'gallery/pageListOperateLog',
+  uploadImage: 'gallery/uploadImage',
+};
 
 export function buildModel() {
   return {

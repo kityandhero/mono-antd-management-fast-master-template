@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -19,14 +18,14 @@ import {
 } from '../../services/workflowTagRelation';
 
 export const workflowTagRelationTypeCollection = {
-  pageList: "workflowTagRelation/pageList",
-  get: "workflowTagRelation/get",
-  add: "workflowTagRelation/add",
-  addBatch: "workflowTagRelation/addBatch",
-  remove: "workflowTagRelation/remove",
-  refreshCache: "workflowTagRelation/refreshCache",
-  pageListOperateLog: "workflowTagRelation/pageListOperateLog",
-}
+  pageList: 'workflowTagRelation/pageList',
+  get: 'workflowTagRelation/get',
+  add: 'workflowTagRelation/add',
+  addBatch: 'workflowTagRelation/addBatch',
+  remove: 'workflowTagRelation/remove',
+  refreshCache: 'workflowTagRelation/refreshCache',
+  pageListOperateLog: 'workflowTagRelation/pageListOperateLog',
+};
 
 export function buildModel() {
   return {
