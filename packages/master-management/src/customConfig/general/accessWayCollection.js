@@ -1036,17 +1036,17 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '65f9021999648b6d8c038602699ff6b4',
       permission: '74c9c572258741dfa35edef0d27ec568',
     },
-    updateParentId: {
+    setParentId: {
       title: '更新上级部门',
       paramsKey: 'df896efd6e316be7bb4777b159f0764f',
       permission: '46d6b271409c40b7a4d9caa9076af819',
     },
-    updateSubsidiaryId: {
+    setSubsidiaryId: {
       title: '更新所属子公司',
       paramsKey: '5e0c498ef415b824f0583f833ee7e81e',
       permission: '034d6a52241e4e21ae000db90e3fb536',
     },
-    updateSort: {
+    setSort: {
       title: '更新排序值',
       paramsKey: '5e712a29e1ba96257889b357a45384d7',
       permission: 'b3c68f74f55b4fa0a08797ee974937b9',
@@ -2685,6 +2685,16 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'f5582508326b6a46ab0b3e14d99dae68',
       permission: '022d3a46101c4cc998237c8b837d8da5',
     },
+    setImage: {
+      title: '设置图片',
+      paramsKey: '01e15c111a9f637328e04c62f2906128',
+      permission: '89f13ba602ae441bbd2f748bd287f2ea',
+    },
+    setSort: {
+      title: '设置排序值',
+      paramsKey: '929d42c05cb46355e06e9c78777e8160',
+      permission: 'a524496cc09842df8279bcd5c7900f29',
+    },
     setEnable: {
       title: '设为启用',
       paramsKey: '6c2ced4a4dc88f2afdfbad0e0cf24f37',
@@ -2709,6 +2719,11 @@ export const accessWayInfrastructureCollection = {
       title: '刷新缓存',
       paramsKey: '0a91bdebcad1032d701b25197b885d31',
       permission: '05dc6111f01c4640a41fa4c570064fd7',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: '29fe0ed5e6c37f7a601971ba71a7cb87',
+      permission: '12ccfc42196640fb855e02aaf92fe703',
     },
   },
   smsCategoryStatistic: {
@@ -4185,6 +4200,11 @@ export const accessWayInfrastructureCollection = {
       title: '设置排序值',
       paramsKey: '2e280e0cf2c2bbffc4c7cd5e4c40b4b5',
       permission: '9d53228a663647cc872d4f5d3f0a06e4',
+    },
+    setParentId: {
+      title: '设置父级标识',
+      paramsKey: 'e5b4aa84a2f8f5edbe7099cc5db06898',
+      permission: '8f63de9ae8b04a168b14327d6d468312',
     },
     setEnable: {
       title: '设为启用',

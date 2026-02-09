@@ -1726,23 +1726,23 @@
         },
         {
           "title": "更新上级部门",
-          "api": "/department/updateParentId",
-          "effect": "updateParentId",
-          "service": "updateParentIdData",
+          "api": "/department/setParentId",
+          "effect": "setParentId",
+          "service": "setParentIdData",
           "type": "singleData"
         },
         {
           "title": "更新所属子公司",
-          "api": "/department/updateSubsidiaryId",
-          "effect": "updateSubsidiaryId",
-          "service": "updateSubsidiaryIdData",
+          "api": "/department/setSubsidiaryId",
+          "effect": "setSubsidiaryId",
+          "service": "setSubsidiaryIdData",
           "type": "singleData"
         },
         {
           "title": "更新排序值",
-          "api": "/department/updateSort",
-          "effect": "updateSort",
-          "service": "updateSortData",
+          "api": "/department/setSort",
+          "effect": "setSort",
+          "service": "setSortData",
           "type": "singleData"
         },
         {
@@ -4371,6 +4371,20 @@
           "type": "singleData"
         },
         {
+          "title": "设置图片",
+          "api": "/smsCategory/setImage",
+          "effect": "setImage",
+          "service": "setImageData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置排序值",
+          "api": "/smsCategory/setSort",
+          "effect": "setSort",
+          "service": "setSortData",
+          "type": "singleData"
+        },
+        {
           "title": "设为启用",
           "api": "/smsCategory/setEnable",
           "effect": "setEnable",
@@ -4404,6 +4418,20 @@
           "effect": "refreshCache",
           "service": "refreshCacheData",
           "type": "singleData"
+        },
+        {
+          "title": "",
+          "api": "/smsCategory/uploadImage",
+          "effect": "uploadImage",
+          "service": "uploadImageData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/smsCategory/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
         }
       ],
       "cover": true,
@@ -6737,6 +6765,13 @@
           "type": "singleData"
         },
         {
+          "title": "设置父级标识",
+          "api": "/workflowCategory/setParentId",
+          "effect": "setParentId",
+          "service": "setParentIdData",
+          "type": "singleData"
+        },
+        {
           "title": "设为启用",
           "api": "/workflowCategory/setEnable",
           "effect": "setEnable",
@@ -6755,6 +6790,13 @@
           "api": "/workflowCategory/refreshCache",
           "effect": "refreshCache",
           "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "",
+          "api": "/workflowCategory/uploadImage",
+          "effect": "uploadImage",
+          "service": "uploadImageData",
           "type": "singleData"
         },
         {

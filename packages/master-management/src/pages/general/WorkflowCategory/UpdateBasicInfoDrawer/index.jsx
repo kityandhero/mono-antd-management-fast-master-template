@@ -1,5 +1,5 @@
 import { connect } from 'easy-soft-dva';
-import { getValueByKey } from 'easy-soft-utility';
+import { convertCollection, getValueByKey } from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
@@ -30,12 +30,18 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
 
     this.state = {
       ...this.state,
-      pageTitle: '编辑信息',
       loadApiPath: modelTypeCollection.workflowCategoryTypeCollection.get,
       submitApiPath:
         modelTypeCollection.workflowCategoryTypeCollection.updateBasicInfo,
+      image: '',
     };
   }
+
+  executeAfterDoOtherWhenChangeVisibleToHide = () => {
+    this.setState({
+      image: '',
+    });
+  };
 
   supplementLoadRequestParams = (o) => {
     const d = o;
@@ -51,14 +57,44 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
 
   supplementSubmitRequestParams = (o) => {
     const d = o;
-    const { externalData } = this.state;
+    const { image, externalData } = this.state;
 
     d[fieldData.workflowCategoryId.name] = getValueByKey({
       data: externalData,
       key: fieldData.workflowCategoryId.name,
     });
+    d[fieldData.image.name] = image;
 
     return d;
+  };
+
+  doOtherAfterLoadSuccess = ({
+    // eslint-disable-next-line no-unused-vars
+    metaData = null,
+    // eslint-disable-next-line no-unused-vars
+    metaListData = [],
+    // eslint-disable-next-line no-unused-vars
+    metaExtra = null,
+    // eslint-disable-next-line no-unused-vars
+    metaOriginalData = null,
+  }) => {
+    const image = getValueByKey({
+      data: metaData,
+      key: fieldData.image.name,
+      convert: convertCollection.string,
+    });
+
+    this.setState({
+      image: image,
+    });
+  };
+
+  afterImageUploadSuccess = (image) => {
+    this.setState({ image: image });
+  };
+
+  getPresetPageTitle = () => {
+    return '编辑类别信息';
   };
 
   fillInitialValuesAfterLoad = ({
@@ -74,14 +110,14 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
     const values = {};
 
     if (metaData != null) {
-      values[fieldData.title.name] = getValueByKey({
+      values[fieldData.name.name] = getValueByKey({
         data: metaData,
-        key: fieldData.title.name,
+        key: fieldData.name.name,
       });
 
-      values[fieldData.sort.name] = getValueByKey({
+      values[fieldData.description.name] = getValueByKey({
         data: metaData,
-        key: fieldData.sort.name,
+        key: fieldData.description.name,
       });
     }
 
@@ -89,7 +125,7 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
   };
 
   establishCardCollectionConfig = () => {
-    const { metaData } = this.state;
+    const { metaData, image } = this.state;
 
     return {
       list: [
@@ -102,13 +138,28 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
             {
               lg: 24,
               type: cardConfig.contentItemType.input,
-              fieldData: fieldData.title,
+              fieldData: fieldData.name,
             },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.picture(),
+            text: '配图上传',
+            subText: '[上传后需点击保存按钮保存!]',
+          },
+          items: [
             {
-              lg: 24,
-              type: cardConfig.contentItemType.inputNumber,
-              fieldData: fieldData.sort,
-              require: false,
+              lg: 6,
+              type: cardConfig.contentItemType.imageUpload,
+              icon: iconBuilder.upload(),
+              title: fieldData.image.label,
+              helper: fieldData.image.helper,
+              image,
+              action: `/workflowCategory/uploadImage`,
+              afterUploadSuccess: (imageData) => {
+                this.afterImageUploadSuccess(imageData);
+              },
             },
           ],
         },

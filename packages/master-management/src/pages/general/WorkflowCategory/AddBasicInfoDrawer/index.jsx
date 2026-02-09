@@ -40,10 +40,37 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
       pageTitle: '新增信息',
       submitApiPath:
         modelTypeCollection.workflowCategoryTypeCollection.addBasicInfo,
+      image: '',
     };
   }
 
+  executeAfterDoOtherWhenChangeVisibleToHide = () => {
+    this.setState({
+      image: '',
+    });
+  };
+
+  supplementSubmitRequestParams = (o) => {
+    const d = { ...o };
+
+    const { image } = this.state;
+
+    d[fieldData.image.name] = image;
+
+    return d;
+  };
+
+  afterImageUploadSuccess = (image) => {
+    this.setState({ image: image });
+  };
+
+  getPresetPageTitle = () => {
+    return '新增类别信息';
+  };
+
   establishCardCollectionConfig = () => {
+    const { image } = this.state;
+
     return {
       list: [
         {
@@ -57,6 +84,40 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
               type: cardConfig.contentItemType.input,
               fieldData: fieldData.name,
               require: true,
+            },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.picture(),
+            text: '配图上传',
+            subText: '[上传后需点击保存按钮保存!]',
+          },
+          items: [
+            {
+              lg: 6,
+              type: cardConfig.contentItemType.imageUpload,
+              icon: iconBuilder.upload(),
+              title: fieldData.image.label,
+              helper: fieldData.image.helper,
+              image,
+              action: `/workflowCategory/uploadImage`,
+              afterUploadSuccess: (imageData) => {
+                this.afterImageUploadSuccess(imageData);
+              },
+            },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.contacts(),
+            text: '简介 - 描述 - 备注',
+          },
+          items: [
+            {
+              lg: 24,
+              type: cardConfig.contentItemType.textarea,
+              fieldData: fieldData.description,
             },
           ],
         },

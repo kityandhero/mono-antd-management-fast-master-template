@@ -15,6 +15,7 @@ import { fieldData } from '../Common/data';
 const { BaseUpdateDrawer } = DataDrawer;
 
 const visibleFlag = '1e8fcb120580443693b2cf7aa16c0f49';
+
 @connect(({ smsCategory, schedulingControl }) => ({
   smsCategory,
   schedulingControl,
@@ -29,18 +30,24 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
 
     this.state = {
       ...this.state,
-      pageTitle: '编辑类别信息',
       loadApiPath: modelTypeCollection.smsCategoryTypeCollection.get,
       submitApiPath:
         modelTypeCollection.smsCategoryTypeCollection.updateBasicInfo,
+      image: '',
     };
   }
+
+  executeAfterDoOtherWhenChangeVisibleToHide = () => {
+    this.setState({
+      image: '',
+    });
+  };
 
   supplementLoadRequestParams = (o) => {
     const d = o;
     const { externalData } = this.state;
 
-    d.smsCategoryId = getValueByKey({
+    d[fieldData.smsCategoryId.name] = getValueByKey({
       data: externalData,
       key: fieldData.smsCategoryId.name,
     });
@@ -50,14 +57,44 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
 
   supplementSubmitRequestParams = (o) => {
     const d = o;
-    const { externalData } = this.state;
+    const { image, externalData } = this.state;
 
-    d.smsCategoryId = getValueByKey({
+    d[fieldData.smsCategoryId.name] = getValueByKey({
       data: externalData,
       key: fieldData.smsCategoryId.name,
     });
+    d[fieldData.image.name] = image;
 
     return d;
+  };
+
+  doOtherAfterLoadSuccess = ({
+    // eslint-disable-next-line no-unused-vars
+    metaData = null,
+    // eslint-disable-next-line no-unused-vars
+    metaListData = [],
+    // eslint-disable-next-line no-unused-vars
+    metaExtra = null,
+    // eslint-disable-next-line no-unused-vars
+    metaOriginalData = null,
+  }) => {
+    const image = getValueByKey({
+      data: metaData,
+      key: fieldData.image.name,
+      convert: convertCollection.string,
+    });
+
+    this.setState({
+      image: image,
+    });
+  };
+
+  afterImageUploadSuccess = (image) => {
+    this.setState({ image: image });
+  };
+
+  getPresetPageTitle = () => {
+    return '编辑类别信息';
   };
 
   fillInitialValuesAfterLoad = ({
@@ -113,7 +150,7 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
   };
 
   establishCardCollectionConfig = () => {
-    const { metaData } = this.state;
+    const { metaData, image } = this.state;
 
     const flag = getValueByKey({
       data: metaData,
@@ -191,6 +228,27 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
         },
         {
           title: {
+            icon: iconBuilder.picture(),
+            text: '配图上传',
+            subText: '[上传后需点击保存按钮保存!]',
+          },
+          items: [
+            {
+              lg: 6,
+              type: cardConfig.contentItemType.imageUpload,
+              icon: iconBuilder.upload(),
+              title: fieldData.image.label,
+              helper: fieldData.image.helper,
+              image,
+              action: `/smsCategory/uploadImage`,
+              afterUploadSuccess: (imageData) => {
+                this.afterImageUploadSuccess(imageData);
+              },
+            },
+          ],
+        },
+        {
+          title: {
             icon: iconBuilder.contacts(),
             text: '简介信息',
           },
@@ -202,7 +260,7 @@ class UpdateBasicInfoDrawer extends BaseUpdateDrawer {
             },
           ],
         },
-        buildUpdateTimeAndOperatorFieldItem({ data: metaData, line: 1 }),
+        buildUpdateTimeAndOperatorFieldItem({ data: metaData, line: 2 }),
       ],
     };
   };

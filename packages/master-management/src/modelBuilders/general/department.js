@@ -16,12 +16,12 @@ import {
   refreshCacheData,
   setInvalidData,
   setNormalData,
+  setParentIdData,
+  setSortData,
+  setSubsidiaryIdData,
   singleListData,
   singleTreeListData,
   updateBasicInfoData,
-  updateParentIdData,
-  updateSortData,
-  updateSubsidiaryIdData,
 } from '../../services/department';
 
 export const departmentTypeCollection = {
@@ -31,9 +31,9 @@ export const departmentTypeCollection = {
   get: 'department/get',
   addBasicInfo: 'department/addBasicInfo',
   updateBasicInfo: 'department/updateBasicInfo',
-  updateParentId: 'department/updateParentId',
-  updateSubsidiaryId: 'department/updateSubsidiaryId',
-  updateSort: 'department/updateSort',
+  setParentId: 'department/setParentId',
+  setSubsidiaryId: 'department/setSubsidiaryId',
+  setSort: 'department/setSort',
   setNormal: 'department/setNormal',
   setInvalid: 'department/setInvalid',
   refreshCache: 'department/refreshCache',
@@ -205,7 +205,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateParentId(
+      *setParentId(
         {
           payload,
           alias,
@@ -214,7 +214,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateParentIdData, payload);
+        const response = yield call(setParentIdData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -231,7 +231,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateSubsidiaryId(
+      *setSubsidiaryId(
         {
           payload,
           alias,
@@ -240,7 +240,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateSubsidiaryIdData, payload);
+        const response = yield call(setSubsidiaryIdData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -257,7 +257,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateSort(
+      *setSort(
         {
           payload,
           alias,
@@ -266,7 +266,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateSortData, payload);
+        const response = yield call(setSortData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

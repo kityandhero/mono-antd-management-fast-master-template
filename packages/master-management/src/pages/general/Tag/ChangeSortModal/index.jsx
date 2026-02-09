@@ -10,7 +10,7 @@ import { fieldData } from '../Common/data';
 const { BaseUpdateModal } = DataModal;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
-const visibleFlag = '577d07e335c044ecaec1a0dc453de54a';
+const visibleFlag = 'f066bee3ea80493fb1b97da32947c80e';
 
 @connect(({ tag, schedulingControl }) => ({
   tag,

@@ -54,6 +54,24 @@ export async function updateBasicInfoData(parameters) {
   });
 }
 
+export const setImageDataApiAddress = '/smsCategory/setImage';
+
+export async function setImageData(parameters) {
+  return request({
+    api: setImageDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const setSortDataApiAddress = '/smsCategory/setSort';
+
+export async function setSortData(parameters) {
+  return request({
+    api: setSortDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setEnableDataApiAddress = '/smsCategory/setEnable';
 
 export async function setEnableData(parameters) {
@@ -96,6 +114,25 @@ export const refreshCacheDataApiAddress = '/smsCategory/refreshCache';
 export async function refreshCacheData(parameters) {
   return request({
     api: refreshCacheDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const uploadImageDataApiAddress = '/smsCategory/uploadImage';
+
+export async function uploadImageData(parameters) {
+  return request({
+    api: uploadImageDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const pageListOperateLogDataApiAddress =
+  '/smsCategory/pageListOperateLog';
+
+export async function pageListOperateLogData(parameters) {
+  return request({
+    api: pageListOperateLogDataApiAddress,
     params: parameters,
   });
 }

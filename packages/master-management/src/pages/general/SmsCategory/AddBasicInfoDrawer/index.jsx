@@ -14,7 +14,9 @@ import { modelTypeCollection } from '../../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 const { BaseAddDrawer } = DataDrawer;
+
 const visibleFlag = '0d26b8fcba6a48d2b944717c75704180';
+
 @connect(({ smsCategory, schedulingControl }) => ({
   smsCategory,
   schedulingControl,
@@ -30,8 +32,29 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
     this.state = {
       ...this.state,
       submitApiPath: modelTypeCollection.smsCategoryTypeCollection.addBasicInfo,
+      image: '',
     };
   }
+
+  executeAfterDoOtherWhenChangeVisibleToHide = () => {
+    this.setState({
+      image: '',
+    });
+  };
+
+  supplementSubmitRequestParams = (o) => {
+    const d = { ...o };
+
+    const { image } = this.state;
+
+    d[fieldData.image.name] = image;
+
+    return d;
+  };
+
+  afterImageUploadSuccess = (image) => {
+    this.setState({ image: image });
+  };
 
   subjoinDataOnAfterOK = () => {
     return {
@@ -51,10 +74,12 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
   };
 
   getPresetPageTitle = () => {
-    return '新增分类';
+    return '新增类别信息';
   };
 
   establishCardCollectionConfig = () => {
+    const { image } = this.state;
+
     return {
       list: [
         {
@@ -109,6 +134,27 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
                   text: '参数最大长度最大值为100, 当设置为0时, 表示不限制长度.',
                 },
               ],
+            },
+          ],
+        },
+        {
+          title: {
+            icon: iconBuilder.picture(),
+            text: '配图上传',
+            subText: '[上传后需点击保存按钮保存!]',
+          },
+          items: [
+            {
+              lg: 6,
+              type: cardConfig.contentItemType.imageUpload,
+              icon: iconBuilder.upload(),
+              title: fieldData.image.label,
+              helper: fieldData.image.helper,
+              image,
+              action: `/smsCategory/uploadImage`,
+              afterUploadSuccess: (imageData) => {
+                this.afterImageUploadSuccess(imageData);
+              },
             },
           ],
         },

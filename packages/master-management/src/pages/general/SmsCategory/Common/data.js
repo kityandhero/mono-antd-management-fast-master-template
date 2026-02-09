@@ -1,5 +1,7 @@
 import { formNameCollection } from '../../../../customConfig';
 
+const fieldExtraData = {};
+
 export const fieldData = {
   ...formNameCollection,
   smsCategoryId: {
@@ -12,19 +14,24 @@ export const fieldData = {
     name: 'name',
     helper: '输入合适的类别名称',
   },
+  image: {
+    label: '图片',
+    name: 'image',
+    helper: '',
+  },
   description: {
     label: '简介描述 ',
     name: 'description',
     helper: '输入合适的简介描述',
   },
-  status: {
-    label: '状态',
-    name: 'status',
-    helper: '',
-  },
   flag: {
     label: '系统特征值',
     name: 'flag',
+    helper: '',
+  },
+  sort: {
+    label: '排序值',
+    name: 'sort',
     helper: '',
   },
   template: {
@@ -52,31 +59,7 @@ export const fieldData = {
     name: 'fourParamMaxLength',
     helper: '',
   },
-  statusNote: {
-    label: '状态',
-    name: 'statusNote',
-    helper: '',
-  },
-  createTime: {
-    label: '创建时间',
-    name: 'createTime',
-    helper: '',
-  },
-  updateTime: {
-    label: '最后更新时间',
-    name: 'updateTime',
-    helper: '',
-  },
-  createOperatorId: {
-    label: '创建人标识',
-    name: 'createOperatorId',
-    helper: '',
-  },
-  updateOperatorId: {
-    label: '更新人标识',
-    name: 'updateOperatorId',
-    helper: '',
-  },
+  ...fieldExtraData,
 };
 
 /**

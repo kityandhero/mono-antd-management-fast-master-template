@@ -169,6 +169,8 @@ class PageListSubsidiarySelectActionDrawer extends MultiPageDrawer {
           this.onSelect(handleData);
         },
         handleData: item,
+        confirm: true,
+        title: '即将设为此项，确定吗？',
       },
       statusBarWrapperStyle: {
         paddingRight: '10px',

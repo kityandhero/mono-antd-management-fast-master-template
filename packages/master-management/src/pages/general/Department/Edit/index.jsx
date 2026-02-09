@@ -6,7 +6,10 @@ import {
   showSimpleErrorMessage,
 } from 'easy-soft-utility';
 
-import { getDerivedStateFromPropertiesForUrlParameters } from 'antd-management-fast-common';
+import {
+  dropdownExpandItemType,
+  getDerivedStateFromPropertiesForUrlParameters,
+} from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../customConfig';
@@ -16,10 +19,12 @@ import {
   getDepartmentStatusName,
 } from '../../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../../modelBuilders';
+import { PageListSubsidiarySelectActionDrawer } from '../../Subsidiary/PageListSelectActionDrawer';
 import {
   refreshCacheAction,
   setInvalidAction,
   setNormalAction,
+  setSubsidiaryIdAction,
 } from '../Assist/action';
 import {
   checkNeedUpdateAssist,
@@ -157,6 +162,33 @@ class Detail extends DataTabContainerSupplement {
     });
   };
 
+  setSubsidiaryId = (o) => {
+    const { metaData } = this.state;
+
+    setSubsidiaryIdAction({
+      target: this,
+      handleData: {
+        departmentId: getValueByKey({
+          data: metaData,
+          key: fieldData.departmentId.name,
+          convert: convertCollection.string,
+        }),
+        subsidiaryId: getValueByKey({
+          data: o,
+          key: fieldData.subsidiaryId.name,
+          convert: convertCollection.string,
+        }),
+      },
+      successCallback: ({ target }) => {
+        target.reloadData({});
+      },
+    });
+  };
+
+  showPageListSubsidiarySelectActionDrawer = () => {
+    PageListSubsidiarySelectActionDrawer.open();
+  };
+
   establishPageHeaderTitlePrefix = () => {
     return '部门';
   };
@@ -207,7 +239,7 @@ class Detail extends DataTabContainerSupplement {
   };
 
   establishExtraActionEllipsisConfig = () => {
-    const { metaData } = this.state;
+    const { firstLoadSuccess, metaData } = this.state;
 
     if ((metaData || null) == null) {
       return null;
@@ -219,6 +251,11 @@ class Detail extends DataTabContainerSupplement {
       disabled: this.checkInProgress(),
       handleMenuClick: ({ key, handleData }) => {
         switch (key) {
+          case 'showPageListSubsidiarySelectActionDrawer': {
+            that.showPageListSubsidiarySelectActionDrawer(handleData);
+            break;
+          }
+
           case 'refreshCache': {
             that.refreshCache(handleData);
             break;
@@ -232,6 +269,18 @@ class Detail extends DataTabContainerSupplement {
       },
       handleData: metaData,
       items: [
+        {
+          key: 'showPageListSubsidiarySelectActionDrawer',
+          icon: iconBuilder.edit(),
+          text: `设置归属企业`,
+          disabled: !firstLoadSuccess,
+          hidden: !checkHasAuthority(
+            accessWayCollection.department.setSubsidiaryId.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
         {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
@@ -314,6 +363,18 @@ class Detail extends DataTabContainerSupplement {
         }),
       },
     ];
+  };
+
+  renderPresetOther = () => {
+    return (
+      <>
+        <PageListSubsidiarySelectActionDrawer
+          afterSelect={(selectData) => {
+            this.setSubsidiaryId(selectData);
+          }}
+        />
+      </>
+    );
   };
 }
 

@@ -17,10 +17,12 @@ import {
   setDisableData,
   setEnableData,
   setImageData,
+  setParentIdData,
   setSortData,
   singleListData,
   singleTreeListData,
   updateBasicInfoData,
+  uploadImageData,
 } from '../../services/workflowCategory';
 
 export const workflowCategoryTypeCollection = {
@@ -32,9 +34,11 @@ export const workflowCategoryTypeCollection = {
   updateBasicInfo: 'workflowCategory/updateBasicInfo',
   setImage: 'workflowCategory/setImage',
   setSort: 'workflowCategory/setSort',
+  setParentId: 'workflowCategory/setParentId',
   setEnable: 'workflowCategory/setEnable',
   setDisable: 'workflowCategory/setDisable',
   refreshCache: 'workflowCategory/refreshCache',
+  uploadImage: 'workflowCategory/uploadImage',
   pageListOperateLog: 'workflowCategory/pageListOperateLog',
 };
 
@@ -255,6 +259,32 @@ export function buildModel() {
 
         return dataAdjust;
       },
+      *setParentId(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setParentIdData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
       *setEnable(
         {
           payload,
@@ -317,6 +347,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(refreshCacheData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *uploadImage(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(uploadImageData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

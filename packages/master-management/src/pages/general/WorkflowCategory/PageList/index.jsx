@@ -5,6 +5,7 @@ import {
   checkHasAuthority,
   convertCollection,
   getValueByKey,
+  handleItem,
   showSimpleErrorMessage,
 } from 'easy-soft-utility';
 
@@ -19,12 +20,22 @@ import { iconBuilder } from 'antd-management-fast-component';
 import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../../customConfig';
-import { getWorkflowCategoryStatusName } from '../../../../customSpecialComponents';
+import {
+  getWorkflowCategoryStatusName,
+  renderSearchWorkflowCategoryStatusSelect,
+} from '../../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { AddBasicInfoDrawer } from '../AddBasicInfoDrawer';
-import { refreshCacheAction } from '../Assist/action';
+import {
+  refreshCacheAction,
+  setDisableAction,
+  setEnableAction,
+} from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
+import { ChangeImageModal } from '../ChangeImageModal';
+import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData, statusCollection } from '../Common/data';
+import { OperateLogDrawer } from '../OperateLogDrawer';
 import { UpdateBasicInfoDrawer } from '../UpdateBasicInfoDrawer';
 
 const { MultiPage } = DataMultiPageView;
@@ -41,7 +52,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
-      pageTitle: '列表',
+      pageTitle: '流程类别列表',
       paramsKey: accessWayCollection.workflowCategory.pageList.paramsKey,
       loadApiPath: modelTypeCollection.workflowCategoryTypeCollection.pageList,
       currentRecord: null,
@@ -50,6 +61,31 @@ class PageList extends MultiPage {
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
+      case 'setSort': {
+        this.showChangeSortModal(handleData);
+        break;
+      }
+
+      case 'setImage': {
+        this.showChangeImageModal(handleData);
+        break;
+      }
+
+      case 'setEnable': {
+        this.setEnable(handleData);
+        break;
+      }
+
+      case 'setDisable': {
+        this.setDisable(handleData);
+        break;
+      }
+
+      case 'showOperateLog': {
+        this.showOperateLogDrawer(handleData);
+        break;
+      }
+
       case 'refreshCache': {
         this.refreshCache(handleData);
         break;
@@ -60,6 +96,61 @@ class PageList extends MultiPage {
         break;
       }
     }
+  };
+
+  handleItemStatus = ({ target, handleData, remoteData }) => {
+    const id = getValueByKey({
+      data: handleData,
+      key: fieldData.workflowCategoryId.name,
+    });
+
+    handleItem({
+      target,
+      value: id,
+      compareValueHandler: (o) => {
+        const v = getValueByKey({
+          data: o,
+          key: fieldData.workflowCategoryId.name,
+        });
+
+        return v;
+      },
+      handler: (d) => {
+        const o = d;
+
+        o[fieldData.status.name] = getValueByKey({
+          data: remoteData,
+          key: fieldData.status.name,
+        });
+
+        o[fieldData.statusNote.name] = getValueByKey({
+          data: remoteData,
+          key: fieldData.statusNote.name,
+        });
+
+        return d;
+      },
+    });
+  };
+
+  setEnable = (record) => {
+    setEnableAction({
+      target: this,
+      handleData: record,
+      successCallback: ({ target, handleData, remoteData }) => {
+        target.handleItemStatus({ target, handleData, remoteData });
+      },
+    });
+  };
+
+  setDisable = (record) => {
+    setDisableAction({
+      target: this,
+      handleData: record,
+      successCallback: ({ target, handleData, remoteData }) => {
+        target.handleItemStatus({ target, handleData, remoteData });
+      },
+    });
   };
 
   refreshCache = (record) => {
@@ -105,6 +196,73 @@ class PageList extends MultiPage {
     this.refreshDataWithReloadAnimalPrompt({ delay: 500 });
   };
 
+  showChangeSortModal = (r) => {
+    this.setState(
+      {
+        currentRecord: r,
+      },
+      () => {
+        ChangeSortModal.open();
+      },
+    );
+  };
+
+  afterChangeSortModalOk = ({
+    // eslint-disable-next-line no-unused-vars
+    singleData,
+    // eslint-disable-next-line no-unused-vars
+    listData,
+    // eslint-disable-next-line no-unused-vars
+    extraData,
+    // eslint-disable-next-line no-unused-vars
+    responseOriginalData,
+    // eslint-disable-next-line no-unused-vars
+    submitData,
+    // eslint-disable-next-line no-unused-vars
+    subjoinData,
+  }) => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  showChangeImageModal = (r) => {
+    this.setState(
+      {
+        currentRecord: r,
+      },
+      () => {
+        ChangeImageModal.open();
+      },
+    );
+  };
+
+  afterChangeImageModalOk = ({
+    // eslint-disable-next-line no-unused-vars
+    singleData,
+    // eslint-disable-next-line no-unused-vars
+    listData,
+    // eslint-disable-next-line no-unused-vars
+    extraData,
+    // eslint-disable-next-line no-unused-vars
+    responseOriginalData,
+    // eslint-disable-next-line no-unused-vars
+    submitData,
+    // eslint-disable-next-line no-unused-vars
+    subjoinData,
+  }) => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  showOperateLogDrawer = (item) => {
+    this.setState(
+      {
+        currentRecord: item,
+      },
+      () => {
+        OperateLogDrawer.open();
+      },
+    );
+  };
+
   fillSearchCardInitialValues = () => {
     const values = {};
 
@@ -119,7 +277,12 @@ class PageList extends MultiPage {
         {
           lg: 6,
           type: searchCardConfig.contentItemType.input,
-          fieldData: fieldData.title,
+          fieldData: fieldData.name,
+        },
+        {
+          lg: 6,
+          type: searchCardConfig.contentItemType.customSelect,
+          component: renderSearchWorkflowCategoryStatusSelect({}),
         },
         {
           lg: 6,
@@ -166,6 +329,25 @@ class PageList extends MultiPage {
       },
       items: [
         {
+          key: 'setImage',
+          icon: iconBuilder.picture(),
+          text: `设置图片`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.smsCategory.setImage.permission,
+          ),
+        },
+        {
+          key: 'setSort',
+          icon: iconBuilder.sortAscending(),
+          text: '设置排序值',
+          hidden: !checkHasAuthority(
+            accessWayCollection.smsCategory.setSort.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'setEnable',
           icon: iconBuilder.playCircle(),
           text: '设为启用',
@@ -191,6 +373,17 @@ class PageList extends MultiPage {
           type: dropdownExpandItemType.divider,
         },
         {
+          key: 'showOperateLog',
+          icon: iconBuilder.read(),
+          text: '操作日志',
+          hidden: !checkHasAuthority(
+            accessWayCollection.smsCategory.pageListOperateLog.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
           text: '刷新缓存',
@@ -203,8 +396,32 @@ class PageList extends MultiPage {
 
   getColumnWrapper = () => [
     {
-      dataTarget: fieldData.title,
+      dataTarget: fieldData.image,
+      width: 60,
+      showRichFacade: true,
+      facadeMode: columnFacadeMode.image,
+    },
+    {
+      dataTarget: fieldData.name,
+      width: 160,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.description,
       align: 'left',
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.parentName,
+      width: 160,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.sort,
+      width: 80,
       showRichFacade: true,
       emptyValue: '--',
     },
@@ -248,6 +465,18 @@ class PageList extends MultiPage {
           externalData={currentRecord}
           afterOK={this.afterUpdateBasicInfoDrawerOk}
         />
+
+        <ChangeImageModal
+          externalData={currentRecord}
+          afterOK={this.afterChangeImageModalOk}
+        />
+
+        <ChangeSortModal
+          externalData={currentRecord}
+          afterOK={this.afterChangeSortModalOk}
+        />
+
+        <OperateLogDrawer externalData={currentRecord} />
       </>
     );
   };

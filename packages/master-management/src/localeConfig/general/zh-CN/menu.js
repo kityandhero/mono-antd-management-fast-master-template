@@ -301,6 +301,11 @@ export const menuZhCNGeneral = {
   'menu.flow': '流程管理',
   'menu.flow-mini': '流程',
 
+  'menu.flow.workflowCategory': '流程类别',
+  'menu.flow.workflowCategory-mini': '类别',
+  'menu.flow.workflowCategory.pageList': '类别列表',
+  'menu.flow.workflowCategory.pageList-mini': '列表',
+
   'menu.flow.workflow': '流程设计',
   'menu.flow.workflow-mini': '设计',
   'menu.flow.workflow.pageList': '设计列表',

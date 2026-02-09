@@ -28,14 +28,17 @@ import {
   renderSearchDepartmentOwnershipModeSelect,
 } from '../../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../../modelBuilders';
+import { PageListSubsidiarySelectActionDrawer } from '../../Subsidiary/PageListSelectActionDrawer';
 import {
   refreshCacheAction,
   setInvalidAction,
   setNormalAction,
+  setSubsidiaryIdAction,
 } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData, statusCollection } from '../Common/data';
+import { OperateLogDrawer } from '../OperateLogDrawer';
 
 const { MultiPage } = DataMultiPageView;
 
@@ -88,7 +91,12 @@ class PageList extends MultiPage {
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
-      case 'updateSort': {
+      case 'showPageListSubsidiarySelectActionDrawer': {
+        this.showPageListSubsidiarySelectActionDrawer(handleData);
+        break;
+      }
+
+      case 'setSort': {
         this.showChangeSortModal(handleData);
         break;
       }
@@ -100,6 +108,11 @@ class PageList extends MultiPage {
 
       case 'setInvalid': {
         this.setInvalid(handleData);
+        break;
+      }
+
+      case 'showOperateLog': {
+        this.showOperateLogDrawer(handleData);
         break;
       }
 
@@ -141,6 +154,79 @@ class PageList extends MultiPage {
       target: this,
       handleData: r,
     });
+  };
+
+  setSubsidiaryId = (o) => {
+    const { currentRecord } = this.state;
+
+    setSubsidiaryIdAction({
+      target: this,
+      handleData: {
+        departmentId: getValueByKey({
+          data: currentRecord,
+          key: fieldData.departmentId.name,
+          convert: convertCollection.string,
+        }),
+        subsidiaryId: getValueByKey({
+          data: o,
+          key: fieldData.subsidiaryId.name,
+          convert: convertCollection.string,
+        }),
+      },
+      successCallback: ({ target }) => {
+        target.refreshDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
+  showChangeSortModal = (r) => {
+    this.setState(
+      {
+        currentRecord: r,
+      },
+      () => {
+        ChangeSortModal.open();
+      },
+    );
+  };
+
+  afterChangeSortModalOk = ({
+    // eslint-disable-next-line no-unused-vars
+    singleData,
+    // eslint-disable-next-line no-unused-vars
+    listData,
+    // eslint-disable-next-line no-unused-vars
+    extraData,
+    // eslint-disable-next-line no-unused-vars
+    responseOriginalData,
+    // eslint-disable-next-line no-unused-vars
+    submitData,
+    // eslint-disable-next-line no-unused-vars
+    subjoinData,
+  }) => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  showPageListSubsidiarySelectActionDrawer = (r) => {
+    this.setState(
+      {
+        currentRecord: r,
+      },
+      () => {
+        PageListSubsidiarySelectActionDrawer.open();
+      },
+    );
+  };
+
+  showOperateLogDrawer = (item) => {
+    this.setState(
+      {
+        currentRecord: item,
+      },
+      () => {
+        OperateLogDrawer.open();
+      },
+    );
   };
 
   goToAdd = () => {
@@ -226,9 +312,23 @@ class PageList extends MultiPage {
       },
       items: [
         {
-          key: 'updateSort',
+          key: 'setSort',
           icon: iconBuilder.edit(),
           text: '设置排序值',
+          hidden: !checkHasAuthority(
+            accessWayCollection.department.setSort.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'showPageListSubsidiarySelectActionDrawer',
+          icon: iconBuilder.edit(),
+          text: `设置所属公司`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.department.setSubsidiaryId.permission,
+          ),
         },
         {
           type: dropdownExpandItemType.divider,
@@ -238,6 +338,9 @@ class PageList extends MultiPage {
           icon: iconBuilder.playCircle(),
           text: '设为正常',
           disabled: status === statusCollection.normal,
+          hidden: !checkHasAuthority(
+            accessWayCollection.department.setNormal.permission,
+          ),
           confirm: true,
           title: '将要设为启用，确定吗？',
         },
@@ -246,8 +349,22 @@ class PageList extends MultiPage {
           icon: iconBuilder.pauseCircle(),
           text: '设为无效',
           disabled: status === statusCollection.invalid,
+          hidden: !checkHasAuthority(
+            accessWayCollection.department.setInvalid.permission,
+          ),
           confirm: true,
           title: '将要设为禁用，确定吗？',
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'showOperateLog',
+          icon: iconBuilder.read(),
+          text: '操作日志',
+          hidden: !checkHasAuthority(
+            accessWayCollection.department.pageListOperateLog.permission,
+          ),
         },
         {
           type: dropdownExpandItemType.divider,
@@ -258,6 +375,9 @@ class PageList extends MultiPage {
           text: '刷新缓存',
           confirm: true,
           title: '将要刷新缓存，确定吗？',
+          hidden: !checkHasAuthority(
+            accessWayCollection.smsCategory.refreshCache.permission,
+          ),
         },
       ],
     };
@@ -297,6 +417,12 @@ class PageList extends MultiPage {
     {
       dataTarget: fieldData.subsidiaryShortName,
       width: 180,
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.sort,
+      width: 80,
       showRichFacade: true,
       emptyValue: '--',
     },
@@ -352,6 +478,14 @@ class PageList extends MultiPage {
           externalData={currentRecord}
           afterOK={this.afterChangeSortModalOk}
         />
+
+        <PageListSubsidiarySelectActionDrawer
+          afterSelect={(selectData) => {
+            this.setSubsidiaryId(selectData);
+          }}
+        />
+
+        <OperateLogDrawer externalData={currentRecord} />
       </>
     );
   };

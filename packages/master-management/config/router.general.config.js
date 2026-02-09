@@ -1862,6 +1862,7 @@ export const flow = {
   access: 'checkAccess',
   authority: [
     accessWayCollection.super.permission,
+    accessWayCollection.workflowCategory.pageList.permission,
     accessWayCollection.workflow.pageList.permission,
     accessWayCollection.workflowCase.pageList.permission,
     accessWayCollection.workflowCaseProcessHistory.pageList.permission,
@@ -1870,6 +1871,29 @@ export const flow = {
     accessWayCollection.workflowCaseNextProcessApprove.pageList.permission,
   ],
   routes: [
+    {
+      name: 'workflowCategory',
+      icon: 'bars',
+      hideChildrenInMenu: true,
+      path: '/flow/workflowCategory',
+      access: 'checkAccess',
+      authority: [
+        accessWayCollection.super.permission,
+        accessWayCollection.workflowCategory.pageList.permission,
+      ],
+      routes: [
+        {
+          path: '/flow/workflowCategory',
+          redirect: '/flow/workflowCategory/pageList/no',
+        },
+        {
+          path: '/flow/workflowCategory/pageList/:pageKey',
+          name: 'pageList',
+          hideInMenu: true,
+          component: './general/WorkflowCategory/PageList',
+        },
+      ],
+    },
     {
       name: 'workflow',
       icon: 'bars',

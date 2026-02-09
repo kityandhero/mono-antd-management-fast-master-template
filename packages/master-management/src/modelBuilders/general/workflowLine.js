@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -25,20 +26,20 @@ import {
 } from '../../services/workflowLine';
 
 export const workflowLineTypeCollection = {
-  pageList: 'workflowLine/pageList',
-  singleList: 'workflowLine/singleList',
-  get: 'workflowLine/get',
-  createLine: 'workflowLine/createLine',
-  updateLine: 'workflowLine/updateLine',
-  updateDescriptiveInfo: 'workflowLine/updateDescriptiveInfo',
-  setBranchConditionId: 'workflowLine/setBranchConditionId',
-  maintainChannel: 'workflowLine/maintainChannel',
-  remove: 'workflowLine/remove',
-  removeAll: 'workflowLine/removeAll',
-  refreshCache: 'workflowLine/refreshCache',
-  refreshAllEntityCache: 'workflowLine/refreshAllEntityCache',
-  pageListOperateLog: 'workflowLine/pageListOperateLog',
-};
+  pageList: "workflowLine/pageList",
+  singleList: "workflowLine/singleList",
+  get: "workflowLine/get",
+  createLine: "workflowLine/createLine",
+  updateLine: "workflowLine/updateLine",
+  updateDescriptiveInfo: "workflowLine/updateDescriptiveInfo",
+  setBranchConditionId: "workflowLine/setBranchConditionId",
+  maintainChannel: "workflowLine/maintainChannel",
+  remove: "workflowLine/remove",
+  removeAll: "workflowLine/removeAll",
+  refreshCache: "workflowLine/refreshCache",
+  refreshAllEntityCache: "workflowLine/refreshAllEntityCache",
+  pageListOperateLog: "workflowLine/pageListOperateLog",
+}
 
 export function buildModel() {
   return {

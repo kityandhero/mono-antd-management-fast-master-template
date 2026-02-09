@@ -73,6 +73,15 @@ export async function setSortData(parameters) {
   });
 }
 
+export const setParentIdDataApiAddress = '/workflowCategory/setParentId';
+
+export async function setParentIdData(parameters) {
+  return request({
+    api: setParentIdDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setEnableDataApiAddress = '/workflowCategory/setEnable';
 
 export async function setEnableData(parameters) {
@@ -96,6 +105,15 @@ export const refreshCacheDataApiAddress = '/workflowCategory/refreshCache';
 export async function refreshCacheData(parameters) {
   return request({
     api: refreshCacheDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const uploadImageDataApiAddress = '/workflowCategory/uploadImage';
+
+export async function uploadImageData(parameters) {
+  return request({
+    api: uploadImageDataApiAddress,
     params: parameters,
   });
 }

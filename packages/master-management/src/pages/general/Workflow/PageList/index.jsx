@@ -67,6 +67,7 @@ import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData } from '../Common/data';
 import { CreateDuplicateModal } from '../CreateDuplicateModal';
 import { FlowDisplayDrawer } from '../FlowDisplayDrawer';
+import { OperateLogDrawer } from '../OperateLogDrawer';
 import { UpdateChannelModal } from '../UpdateChannelModal';
 
 const { MultiPage } = DataMultiPageView;
@@ -272,6 +273,11 @@ class PageList extends MultiPage {
 
       case 'setDisable': {
         this.setDisable(handleData);
+        break;
+      }
+
+      case 'showOperateLog': {
+        this.showOperateLogDrawer(handleData);
         break;
       }
 
@@ -503,6 +509,17 @@ class PageList extends MultiPage {
       },
       () => {
         FlowCaseFormExampleDocumentDisplayDrawer.open();
+      },
+    );
+  };
+
+  showOperateLogDrawer = (item) => {
+    this.setState(
+      {
+        currentRecord: item,
+      },
+      () => {
+        OperateLogDrawer.open();
       },
     );
   };
@@ -1005,6 +1022,17 @@ class PageList extends MultiPage {
           type: dropdownExpandItemType.divider,
         },
         {
+          key: 'showOperateLog',
+          icon: iconBuilder.read(),
+          text: '操作日志',
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.pageListOperateLog.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
           text: '刷新缓存',
@@ -1223,6 +1251,8 @@ class PageList extends MultiPage {
           serialNumberContent={'1836370789809655808'}
           externalData={currentRecord}
         />
+
+        <OperateLogDrawer externalData={currentRecord} />
       </>
     );
   };

@@ -54,30 +54,29 @@ export async function updateBasicInfoData(parameters) {
   });
 }
 
-export const updateParentIdDataApiAddress = '/department/updateParentId';
+export const setParentIdDataApiAddress = '/department/setParentId';
 
-export async function updateParentIdData(parameters) {
+export async function setParentIdData(parameters) {
   return request({
-    api: updateParentIdDataApiAddress,
+    api: setParentIdDataApiAddress,
     params: parameters,
   });
 }
 
-export const updateSubsidiaryIdDataApiAddress =
-  '/department/updateSubsidiaryId';
+export const setSubsidiaryIdDataApiAddress = '/department/setSubsidiaryId';
 
-export async function updateSubsidiaryIdData(parameters) {
+export async function setSubsidiaryIdData(parameters) {
   return request({
-    api: updateSubsidiaryIdDataApiAddress,
+    api: setSubsidiaryIdDataApiAddress,
     params: parameters,
   });
 }
 
-export const updateSortDataApiAddress = '/department/updateSort';
+export const setSortDataApiAddress = '/department/setSort';
 
-export async function updateSortData(parameters) {
+export async function setSortData(parameters) {
   return request({
-    api: updateSortDataApiAddress,
+    api: setSortDataApiAddress,
     params: parameters,
   });
 }

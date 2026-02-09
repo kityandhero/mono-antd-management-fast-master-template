@@ -91,8 +91,20 @@ class PageListSelectDrawer extends MultiPageSelectDrawer {
 
   getColumnWrapper = () => [
     {
-      dataTarget: fieldData.title,
+      dataTarget: fieldData.image,
+      width: 60,
+      showRichFacade: true,
+      facadeMode: columnFacadeMode.image,
+    },
+    {
+      dataTarget: fieldData.name,
       align: 'left',
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.sort,
+      width: 80,
       showRichFacade: true,
       emptyValue: '--',
     },

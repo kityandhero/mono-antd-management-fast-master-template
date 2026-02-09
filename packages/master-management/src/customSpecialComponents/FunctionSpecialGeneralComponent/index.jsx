@@ -135,3 +135,5 @@ export * from './UserType';
 export * from './UserWorkflowConfigureStatus';
 export * from './WebChannel';
 export * from './WeChatMessageRecordSendStatus';
+export * from './WorkflowCategoryStatus';
+export * from './WorkflowTagRelationStatus';

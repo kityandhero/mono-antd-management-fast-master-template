@@ -12,14 +12,18 @@ import {
   addBasicInfoData,
   getData,
   pageListData,
+  pageListOperateLogData,
   refreshCacheData,
   removeData,
   removeSingleTreeListCacheData,
   setDisableData,
   setEnableData,
+  setImageData,
+  setSortData,
   singleListData,
   singleTreeListData,
   updateBasicInfoData,
+  uploadImageData,
 } from '../../services/smsCategory';
 
 export const smsCategoryTypeCollection = {
@@ -29,11 +33,15 @@ export const smsCategoryTypeCollection = {
   get: 'smsCategory/get',
   addBasicInfo: 'smsCategory/addBasicInfo',
   updateBasicInfo: 'smsCategory/updateBasicInfo',
+  setImage: 'smsCategory/setImage',
+  setSort: 'smsCategory/setSort',
   setEnable: 'smsCategory/setEnable',
   setDisable: 'smsCategory/setDisable',
   remove: 'smsCategory/remove',
   removeSingleTreeListCache: 'smsCategory/removeSingleTreeListCache',
   refreshCache: 'smsCategory/refreshCache',
+  uploadImage: 'smsCategory/uploadImage',
+  pageListOperateLog: 'smsCategory/pageListOperateLog',
 };
 
 export function buildModel() {
@@ -201,6 +209,58 @@ export function buildModel() {
 
         return dataAdjust;
       },
+      *setImage(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setImageData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setSort(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setSortData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
       *setEnable(
         {
           payload,
@@ -317,6 +377,58 @@ export function buildModel() {
         const response = yield call(refreshCacheData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *uploadImage(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(uploadImageData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *pageListOperateLog(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(pageListOperateLogData, payload);
+
+        const dataAdjust = pretreatmentRemotePageListData({
           source: response,
           successCallback: pretreatmentSuccessCallback || null,
           failCallback: pretreatmentFailCallback || null,
