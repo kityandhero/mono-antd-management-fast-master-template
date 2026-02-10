@@ -3634,6 +3634,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'c140dba2f02f9b7dcf47b5be92d1472e',
       permission: '3be9b27f91f94955a1b03b6f4056e3e5',
     },
+    clearWorkflowCategoryId: {
+      title: '清除类别',
+      paramsKey: 'd76856cd6c7e235dbf36d00063323853',
+      permission: 'd697e28b98a1410bb7c8d8aa06f1e01f',
+    },
     setSort: {
       title: '更新排序值',
       paramsKey: 'dd2c536a9403fb47e0a6aa886e323477',

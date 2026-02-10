@@ -5897,6 +5897,13 @@
           "type": "singleData"
         },
         {
+          "title": "清除类别",
+          "api": "/workflow/clearWorkflowCategoryId",
+          "effect": "clearWorkflowCategoryId",
+          "service": "clearWorkflowCategoryIdData",
+          "type": "singleData"
+        },
+        {
           "title": "更新排序值",
           "api": "/workflow/setSort",
           "effect": "setSort",

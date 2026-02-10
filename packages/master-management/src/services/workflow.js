@@ -57,6 +57,16 @@ export async function setWorkflowCategoryIdData(parameters) {
   });
 }
 
+export const clearWorkflowCategoryIdDataApiAddress =
+  '/workflow/clearWorkflowCategoryId';
+
+export async function clearWorkflowCategoryIdData(parameters) {
+  return request({
+    api: clearWorkflowCategoryIdDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setSortDataApiAddress = '/workflow/setSort';
 
 export async function setSortData(parameters) {

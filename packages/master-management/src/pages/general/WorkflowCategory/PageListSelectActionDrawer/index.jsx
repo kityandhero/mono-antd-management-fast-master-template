@@ -5,6 +5,7 @@ import {
   columnFacadeMode,
   searchCardConfig,
 } from 'antd-management-fast-common';
+import { iconBuilder } from 'antd-management-fast-component';
 import {
   DataMultiPageView,
   switchControlAssist,
@@ -100,6 +101,21 @@ class PageListWorkflowCategorySelectActionDrawer extends MultiPageDrawer {
     };
   };
 
+  establishListItemDropdownConfig = (item) => {
+    return {
+      size: 'small',
+      text: '选取',
+      placement: 'topRight',
+      icon: iconBuilder.select(),
+      handleButtonClick: ({ handleData }) => {
+        this.onSelect(handleData);
+      },
+      handleData: item,
+      confirm: true,
+      title: '即将设为此项，确定吗？',
+    };
+  };
+
   getColumnWrapper = () => [
     {
       dataTarget: fieldData.image,
@@ -110,6 +126,12 @@ class PageListWorkflowCategorySelectActionDrawer extends MultiPageDrawer {
     {
       dataTarget: fieldData.name,
       align: 'left',
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.parentName,
+      width: 160,
       showRichFacade: true,
       emptyValue: '--',
     },

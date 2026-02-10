@@ -10,6 +10,7 @@ import {
 import {
   addOfficeAutomationArticleAuditData,
   addOfficeAutomationProcessApprovalData,
+  clearWorkflowCategoryIdData,
   createDuplicateData,
   getData,
   openMultibranchData,
@@ -46,6 +47,7 @@ export const workflowTypeCollection = {
     'workflow/addOfficeAutomationProcessApproval',
   updateBasicInfo: 'workflow/updateBasicInfo',
   setWorkflowCategoryId: 'workflow/setWorkflowCategoryId',
+  clearWorkflowCategoryId: 'workflow/clearWorkflowCategoryId',
   setSort: 'workflow/setSort',
   setCaseNameTemplate: 'workflow/setCaseNameTemplate',
   setSmsTemplate: 'workflow/setSmsTemplate',
@@ -225,6 +227,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(setWorkflowCategoryIdData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *clearWorkflowCategoryId(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(clearWorkflowCategoryIdData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

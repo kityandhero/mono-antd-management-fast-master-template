@@ -949,7 +949,7 @@ class Detail extends DataTabContainerSupplement {
           icon: iconBuilder.edit(),
           text: '设置排序值',
           hidden: !checkHasAuthority(
-            accessWayCollection.workflow.updateSort.permission,
+            accessWayCollection.workflow.setSort.permission,
           ),
         },
         {

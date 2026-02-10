@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -30,25 +31,25 @@ import {
 } from '../../services/subsidiary';
 
 export const subsidiaryTypeCollection = {
-  pageList: 'subsidiary/pageList',
-  singleList: 'subsidiary/singleList',
-  singleTreeList: 'subsidiary/singleTreeList',
-  get: 'subsidiary/get',
-  addBasicInfo: 'subsidiary/addBasicInfo',
-  updateBasicInfo: 'subsidiary/updateBasicInfo',
-  setLogo: 'subsidiary/setLogo',
-  setParentId: 'subsidiary/setParentId',
-  clearParentId: 'subsidiary/clearParentId',
-  setSort: 'subsidiary/setSort',
-  toggleComplaintSwitch: 'subsidiary/toggleComplaintSwitch',
-  toggleReportSwitch: 'subsidiary/toggleReportSwitch',
-  toggleFeedbackSwitch: 'subsidiary/toggleFeedbackSwitch',
-  setEnable: 'subsidiary/setEnable',
-  setDisable: 'subsidiary/setDisable',
-  refreshCache: 'subsidiary/refreshCache',
-  uploadImage: 'subsidiary/uploadImage',
-  pageListOperateLog: 'subsidiary/pageListOperateLog',
-};
+  pageList: "subsidiary/pageList",
+  singleList: "subsidiary/singleList",
+  singleTreeList: "subsidiary/singleTreeList",
+  get: "subsidiary/get",
+  addBasicInfo: "subsidiary/addBasicInfo",
+  updateBasicInfo: "subsidiary/updateBasicInfo",
+  setLogo: "subsidiary/setLogo",
+  setParentId: "subsidiary/setParentId",
+  clearParentId: "subsidiary/clearParentId",
+  setSort: "subsidiary/setSort",
+  toggleComplaintSwitch: "subsidiary/toggleComplaintSwitch",
+  toggleReportSwitch: "subsidiary/toggleReportSwitch",
+  toggleFeedbackSwitch: "subsidiary/toggleFeedbackSwitch",
+  setEnable: "subsidiary/setEnable",
+  setDisable: "subsidiary/setDisable",
+  refreshCache: "subsidiary/refreshCache",
+  uploadImage: "subsidiary/uploadImage",
+  pageListOperateLog: "subsidiary/pageListOperateLog",
+}
 
 export function buildModel() {
   return {

@@ -13,6 +13,7 @@ import {
 import {
   columnFacadeMode,
   dropdownExpandItemType,
+  extraBuildType,
   listViewConfig,
   searchCardConfig,
   unlimitedWithStringFlag,
@@ -40,6 +41,7 @@ import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData, statusCollection } from '../Common/data';
 import { OperateLogDrawer } from '../OperateLogDrawer';
 import { PageListWorkflowCategorySelectActionDrawer } from '../PageListSelectActionDrawer';
+import { TreeDrawer } from '../TreeDrawer';
 import { UpdateBasicInfoDrawer } from '../UpdateBasicInfoDrawer';
 
 const { MultiPage } = DataMultiPageView;
@@ -147,6 +149,29 @@ class PageList extends MultiPage {
     });
   };
 
+  setParentId = (o) => {
+    const { currentRecord } = this.state;
+
+    setParentIdAction({
+      target: this,
+      handleData: {
+        workflowCategoryId: getValueByKey({
+          data: currentRecord,
+          key: fieldData.workflowCategoryId.name,
+          convert: convertCollection.string,
+        }),
+        parentId: getValueByKey({
+          data: o,
+          key: fieldData.workflowCategoryId.name,
+          convert: convertCollection.string,
+        }),
+      },
+      successCallback: ({ target }) => {
+        target.refreshDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
   clearParentId = (r) => {
     clearParentIdAction({
       target: this,
@@ -212,29 +237,6 @@ class PageList extends MultiPage {
     refreshCacheAction({
       target: this,
       handleData: record,
-    });
-  };
-
-  setParentId = (o) => {
-    const { currentRecord } = this.state;
-
-    setParentIdAction({
-      target: this,
-      handleData: {
-        workflowCategoryId: getValueByKey({
-          data: currentRecord,
-          key: fieldData.workflowCategoryId.name,
-          convert: convertCollection.string,
-        }),
-        parentId: getValueByKey({
-          data: o,
-          key: fieldData.workflowCategoryId.name,
-          convert: convertCollection.string,
-        }),
-      },
-      successCallback: ({ target }) => {
-        target.refreshDataWithReloadAnimalPrompt({});
-      },
     });
   };
 
@@ -350,6 +352,27 @@ class PageList extends MultiPage {
         OperateLogDrawer.open();
       },
     );
+  };
+
+  showTreeDrawer = () => {
+    TreeDrawer.open();
+  };
+
+  establishExtraActionConfig = () => {
+    return {
+      list: [
+        {
+          buildType: extraBuildType.generalExtraButton,
+          icon: iconBuilder.read(),
+          text: '可用类树型图',
+          size: 'small',
+          disabled: this.checkInProgress(),
+          handleClick: () => {
+            this.showTreeDrawer();
+          },
+        },
+      ],
+    };
   };
 
   fillSearchCardInitialValues = () => {
@@ -604,6 +627,8 @@ class PageList extends MultiPage {
         />
 
         <OperateLogDrawer externalData={currentRecord} />
+
+        <TreeDrawer maskClosable />
       </>
     );
   };

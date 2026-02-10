@@ -10,6 +10,7 @@ import {
   showSimpleErrorMessage,
   toNumber,
   whetherNumber,
+  zeroString,
 } from 'easy-soft-utility';
 
 import {
@@ -46,6 +47,7 @@ import { refreshAllEntityCacheAction as refreshAllWorkflowBranchConditionEntityC
 import { refreshAllEntityCacheAction as refreshAllWorkflowBranchConditionItemEntityCacheAction } from '../../WorkflowBranchConditionItem/Assist/action';
 import { refreshAllEntityCacheAction as refreshAllWorkflowCaseEntityCacheAction } from '../../WorkflowCase/Assist/action';
 import { singleTreeListAction } from '../../WorkflowCategory/Assist/action';
+import { PageListWorkflowCategorySelectActionDrawer } from '../../WorkflowCategory/PageListSelectActionDrawer';
 import { refreshAllEntityCacheAction as refreshAllWorkflowDebugCaseEntityCacheAction } from '../../WorkflowDebugCase/Assist/action';
 import { refreshAllEntityCacheAction as refreshAllWorkflowFormDesignEntityCacheAction } from '../../WorkflowFormDesign/Assist/action';
 import { FlowCaseFormExampleDocumentDisplayDrawer } from '../../WorkflowFormDesign/FlowCaseFormExampleDocumentDisplayDrawer';
@@ -55,11 +57,13 @@ import { refreshAllEntityCacheAction as refreshAllWorkflowNodeApproverEntityCach
 import { AddOfficeAutomationArticleAuditDrawer } from '../AddOfficeAutomationArticleAuditDrawer';
 import { AddOfficeAutomationProcessApprovalDrawer } from '../AddOfficeAutomationProcessApprovalDrawer';
 import {
+  clearWorkflowCategoryIdAction,
   refreshAllEntityCacheAction as refreshAllWorkflowEntityCacheAction,
   refreshCacheAction,
   removeAction,
   setDisableAction,
   setEnableAction,
+  setWorkflowCategoryIdAction,
   toggleAvailableOnMobileSwitchAction,
 } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
@@ -241,8 +245,18 @@ class PageList extends MultiPage {
         break;
       }
 
-      case 'updateSort': {
+      case 'setSort': {
         this.showChangeSortModal(handleData);
+        break;
+      }
+
+      case 'showPageListWorkflowCategorySelectActionDrawer': {
+        this.showPageListWorkflowCategorySelectActionDrawer(handleData);
+        break;
+      }
+
+      case 'clearWorkflowCategoryId': {
+        this.clearWorkflowCategoryId(handleData);
         break;
       }
 
@@ -312,6 +326,70 @@ class PageList extends MultiPage {
           target,
           handleData,
           remoteData,
+        });
+      },
+    });
+  };
+
+  setWorkflowCategoryId = (o) => {
+    const { currentRecord } = this.state;
+
+    setWorkflowCategoryIdAction({
+      target: this,
+      handleData: {
+        workflowId: getValueByKey({
+          data: currentRecord,
+          key: fieldData.workflowId.name,
+          convert: convertCollection.string,
+        }),
+        workflowCategoryId: getValueByKey({
+          data: o,
+          key: fieldData.workflowCategoryId.name,
+          convert: convertCollection.string,
+        }),
+      },
+      successCallback: ({ target }) => {
+        target.refreshDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
+  clearWorkflowCategoryId = (r) => {
+    clearWorkflowCategoryIdAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target, remoteData }) => {
+        const id = getValueByKey({
+          data: remoteData,
+          key: fieldData.workflowId.name,
+        });
+
+        handleItem({
+          target,
+          value: id,
+          compareValueHandler: (o) => {
+            const v = getValueByKey({
+              data: o,
+              key: fieldData.workflowId.name,
+            });
+
+            return v;
+          },
+          handler: (d) => {
+            const o = d;
+
+            o[fieldData.workflowCategoryId.name] = getValueByKey({
+              data: remoteData,
+              key: fieldData.workflowCategoryId.name,
+            });
+
+            o[fieldData.workflowCategoryName.name] = getValueByKey({
+              data: remoteData,
+              key: fieldData.workflowCategoryName.name,
+            });
+
+            return d;
+          },
         });
       },
     });
@@ -509,6 +587,17 @@ class PageList extends MultiPage {
       },
       () => {
         FlowCaseFormExampleDocumentDisplayDrawer.open();
+      },
+    );
+  };
+
+  showPageListWorkflowCategorySelectActionDrawer = (r) => {
+    this.setState(
+      {
+        currentRecord: r,
+      },
+      () => {
+        PageListWorkflowCategorySelectActionDrawer.open();
       },
     );
   };
@@ -909,15 +998,21 @@ class PageList extends MultiPage {
     ];
   };
 
-  establishListItemDropdownConfig = (record) => {
+  establishListItemDropdownConfig = (item) => {
+    const workflowCategoryId = getValueByKey({
+      data: item,
+      key: fieldData.workflowCategoryId.name,
+      convert: convertCollection.string,
+    });
+
     const status = getValueByKey({
-      data: record,
+      data: item,
       key: fieldData.status.name,
       convert: convertCollection.number,
     });
 
     const availableOnMobileSwitch = getValueByKey({
-      data: record,
+      data: item,
       key: fieldData.availableOnMobileSwitch.name,
       convert: convertCollection.number,
     });
@@ -930,15 +1025,18 @@ class PageList extends MultiPage {
       handleButtonClick: ({ handleData }) => {
         this.goToEdit(handleData);
       },
-      handleData: record,
+      handleData: item,
       handleMenuClick: ({ key, handleData }) => {
         this.handleMenuClick({ key, handleData });
       },
       items: [
         {
-          key: 'updateSort',
+          key: 'setSort',
           icon: iconBuilder.edit(),
           text: '设置排序值',
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.setSort.permission,
+          ),
         },
         {
           type: dropdownExpandItemType.divider,
@@ -947,6 +1045,31 @@ class PageList extends MultiPage {
           key: 'setChannel',
           icon: iconBuilder.edit(),
           text: '设置数据通道',
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.setChannel.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'showPageListWorkflowCategorySelectActionDrawer',
+          icon: iconBuilder.edit(),
+          text: `设置类别`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.setWorkflowCategoryId.permission,
+          ),
+        },
+        {
+          key: 'clearWorkflowCategoryId',
+          icon: iconBuilder.clear(),
+          text: '清除类别',
+          confirm: true,
+          title: '将要设清除类别，确定吗？',
+          disabled: workflowCategoryId === zeroString,
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.clearWorkflowCategoryId.permission,
+          ),
         },
         {
           type: dropdownExpandItemType.divider,
@@ -990,7 +1113,6 @@ class PageList extends MultiPage {
             availableOnMobileSwitch === whetherNumber.yes
               ? iconBuilder.pauseCircle()
               : iconBuilder.enable(),
-
           hidden: !checkHasAuthority(
             accessWayCollection.workflow.toggleAvailableOnMobileSwitch
               .permission,
@@ -1006,17 +1128,23 @@ class PageList extends MultiPage {
           key: 'setEnable',
           icon: iconBuilder.playCircle(),
           text: '设为启用',
-          disabled: status === flowStatusCollection.enable,
           confirm: true,
           title: '将要设为启用，确定吗？',
+          disabled: status === flowStatusCollection.enable,
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.setEnable.permission,
+          ),
         },
         {
           key: 'setDisable',
           icon: iconBuilder.pauseCircle(),
           text: '设为禁用',
-          disabled: status === flowStatusCollection.disable,
           confirm: true,
           title: '将要设为禁用，确定吗？',
+          disabled: status === flowStatusCollection.disable,
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.setDisable.permission,
+          ),
         },
         {
           type: dropdownExpandItemType.divider,
@@ -1038,6 +1166,9 @@ class PageList extends MultiPage {
           text: '刷新缓存',
           confirm: true,
           title: '将要刷新缓存，确定吗？',
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.refreshCache.permission,
+          ),
         },
         {
           type: dropdownExpandItemType.divider,
@@ -1048,6 +1179,9 @@ class PageList extends MultiPage {
           text: '移除流程',
           confirm: true,
           title: '将要移除流程，确定吗？',
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.remove.permission,
+          ),
         },
       ],
     };
@@ -1057,6 +1191,12 @@ class PageList extends MultiPage {
     {
       dataTarget: fieldData.name,
       align: 'left',
+      showRichFacade: true,
+      emptyValue: '--',
+    },
+    {
+      dataTarget: fieldData.workflowCategoryName,
+      width: 140,
       showRichFacade: true,
       emptyValue: '--',
     },
@@ -1253,6 +1393,13 @@ class PageList extends MultiPage {
         />
 
         <OperateLogDrawer externalData={currentRecord} />
+
+        <PageListWorkflowCategorySelectActionDrawer
+          width={1000}
+          afterSelect={(selectData) => {
+            this.setWorkflowCategoryId(selectData);
+          }}
+        />
       </>
     );
   };
