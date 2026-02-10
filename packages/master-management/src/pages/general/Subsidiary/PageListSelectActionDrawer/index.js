@@ -56,6 +56,18 @@ class PageListSubsidiarySelectActionDrawer extends MultiPageDrawer {
     return super.getDerivedStateFromProps(nextProperties, previousState);
   }
 
+  supplementLoadRequestParams = (o) => {
+    return {
+      ...this.supplementRequestParams(o),
+    };
+  };
+
+  supplementRequestParams = (o) => {
+    const { externalData } = this.state;
+
+    return { ...o, ...externalData };
+  };
+
   onSelect = (selectData) => {
     PageListSubsidiarySelectActionDrawer.close();
 

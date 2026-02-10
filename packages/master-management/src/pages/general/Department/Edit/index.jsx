@@ -24,6 +24,7 @@ import {
   refreshCacheAction,
   setInvalidAction,
   setNormalAction,
+  setParentIdAction,
   setSubsidiaryIdAction,
 } from '../Assist/action';
 import {
@@ -31,6 +32,7 @@ import {
   parseUrlParametersForSetState,
 } from '../Assist/config';
 import { fieldData, statusCollection } from '../Common/data';
+import { PageListDepartmentSelectActionDrawer } from '../PageListSelectActionDrawer';
 
 @connect(({ department, schedulingControl }) => ({
   department,
@@ -162,6 +164,29 @@ class Detail extends DataTabContainerSupplement {
     });
   };
 
+  setParentId = (o) => {
+    const { metaData } = this.state;
+
+    setParentIdAction({
+      target: this,
+      handleData: {
+        departmentId: getValueByKey({
+          data: metaData,
+          key: fieldData.departmentId.name,
+          convert: convertCollection.string,
+        }),
+        parentId: getValueByKey({
+          data: o,
+          key: fieldData.departmentId.name,
+          convert: convertCollection.string,
+        }),
+      },
+      successCallback: ({ target }) => {
+        target.refreshDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
   setSubsidiaryId = (o) => {
     const { metaData } = this.state;
 
@@ -183,6 +208,10 @@ class Detail extends DataTabContainerSupplement {
         target.reloadData({});
       },
     });
+  };
+
+  showPageListDepartmentSelectActionDrawer = () => {
+    PageListDepartmentSelectActionDrawer.open();
   };
 
   showPageListSubsidiarySelectActionDrawer = () => {
@@ -251,6 +280,11 @@ class Detail extends DataTabContainerSupplement {
       disabled: this.checkInProgress(),
       handleMenuClick: ({ key, handleData }) => {
         switch (key) {
+          case 'showPageListDepartmentSelectActionDrawer': {
+            this.showPageListDepartmentSelectActionDrawer(handleData);
+            break;
+          }
+
           case 'showPageListSubsidiarySelectActionDrawer': {
             that.showPageListSubsidiarySelectActionDrawer(handleData);
             break;
@@ -269,6 +303,17 @@ class Detail extends DataTabContainerSupplement {
       },
       handleData: metaData,
       items: [
+        {
+          key: 'showPageListDepartmentSelectActionDrawer',
+          icon: iconBuilder.edit(),
+          text: `设置上级类别`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.department.setParentId.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
         {
           key: 'showPageListSubsidiarySelectActionDrawer',
           icon: iconBuilder.edit(),
@@ -366,8 +411,24 @@ class Detail extends DataTabContainerSupplement {
   };
 
   renderPresetOther = () => {
+    const { metaData } = this.state;
+
     return (
       <>
+        <PageListDepartmentSelectActionDrawer
+          width={1000}
+          externalData={{
+            subsidiaryId: getValueByKey({
+              data: metaData,
+              key: fieldData.subsidiaryId.name,
+              defaultValue: '',
+            }),
+          }}
+          afterSelect={(selectData) => {
+            this.setParentId(selectData);
+          }}
+        />
+
         <PageListSubsidiarySelectActionDrawer
           afterSelect={(selectData) => {
             this.setSubsidiaryId(selectData);

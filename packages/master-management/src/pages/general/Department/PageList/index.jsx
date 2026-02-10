@@ -33,12 +33,14 @@ import {
   refreshCacheAction,
   setInvalidAction,
   setNormalAction,
+  setParentIdAction,
   setSubsidiaryIdAction,
 } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData, statusCollection } from '../Common/data';
 import { OperateLogDrawer } from '../OperateLogDrawer';
+import { PageListDepartmentSelectActionDrawer } from '../PageListSelectActionDrawer';
 
 const { MultiPage } = DataMultiPageView;
 
@@ -91,6 +93,11 @@ class PageList extends MultiPage {
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
+      case 'showPageListDepartmentSelectActionDrawer': {
+        this.showPageListDepartmentSelectActionDrawer(handleData);
+        break;
+      }
+
       case 'showPageListSubsidiarySelectActionDrawer': {
         this.showPageListSubsidiarySelectActionDrawer(handleData);
         break;
@@ -156,6 +163,29 @@ class PageList extends MultiPage {
     });
   };
 
+  setParentId = (o) => {
+    const { currentRecord } = this.state;
+
+    setParentIdAction({
+      target: this,
+      handleData: {
+        departmentId: getValueByKey({
+          data: currentRecord,
+          key: fieldData.departmentId.name,
+          convert: convertCollection.string,
+        }),
+        parentId: getValueByKey({
+          data: o,
+          key: fieldData.departmentId.name,
+          convert: convertCollection.string,
+        }),
+      },
+      successCallback: ({ target }) => {
+        target.refreshDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
   setSubsidiaryId = (o) => {
     const { currentRecord } = this.state;
 
@@ -205,6 +235,17 @@ class PageList extends MultiPage {
     subjoinData,
   }) => {
     this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  showPageListDepartmentSelectActionDrawer = (r) => {
+    this.setState(
+      {
+        currentRecord: r,
+      },
+      () => {
+        PageListDepartmentSelectActionDrawer.open();
+      },
+    );
   };
 
   showPageListSubsidiarySelectActionDrawer = (r) => {
@@ -317,6 +358,17 @@ class PageList extends MultiPage {
           text: '设置排序值',
           hidden: !checkHasAuthority(
             accessWayCollection.department.setSort.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'showPageListDepartmentSelectActionDrawer',
+          icon: iconBuilder.edit(),
+          text: `设置上级类别`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.department.setParentId.permission,
           ),
         },
         {
@@ -482,6 +534,20 @@ class PageList extends MultiPage {
         <PageListSubsidiarySelectActionDrawer
           afterSelect={(selectData) => {
             this.setSubsidiaryId(selectData);
+          }}
+        />
+
+        <PageListDepartmentSelectActionDrawer
+          width={1000}
+          externalData={{
+            subsidiaryId: getValueByKey({
+              data: currentRecord,
+              key: fieldData.subsidiaryId.name,
+              defaultValue: '',
+            }),
+          }}
+          afterSelect={(selectData) => {
+            this.setParentId(selectData);
           }}
         />
 
