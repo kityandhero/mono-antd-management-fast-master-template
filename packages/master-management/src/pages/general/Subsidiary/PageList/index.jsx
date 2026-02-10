@@ -33,13 +33,16 @@ import {
   refreshCacheAction,
   setDisableAction,
   setEnableAction,
+  setParentIdAction,
 } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
+import { ChangeLogoModal } from '../ChangeLogoModal';
 import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData, statusCollection } from '../Common/data';
 import { PageListOpenComplaintDrawer } from '../PageListOpenComplaintDrawer';
 import { PageListOpenFeedbackDrawer } from '../PageListOpenFeedbackDrawer';
 import { PageListOpenReportDrawer } from '../PageListOpenReportDrawer';
+import { PageListSubsidiarySelectActionDrawer } from '../PageListSelectActionDrawer';
 
 const { MultiPage } = DataMultiPageView;
 
@@ -93,12 +96,22 @@ class PageList extends MultiPage {
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
+      case 'showPageListSubsidiarySelectActionDrawer': {
+        this.showPageListSubsidiarySelectActionDrawer(handleData);
+        break;
+      }
+
       case 'showGraphical': {
         this.openGraphicalSingleSubsidiaryDepartmentTreeDrawer(handleData);
         break;
       }
 
-      case 'updateSort': {
+      case 'setLogo': {
+        this.showChangeLogoModal(handleData);
+        break;
+      }
+
+      case 'setSort': {
         this.showChangeSortModal(handleData);
         break;
       }
@@ -153,6 +166,29 @@ class PageList extends MultiPage {
     });
   };
 
+  setParentId = (o) => {
+    const { currentRecord } = this.state;
+
+    setParentIdAction({
+      target: this,
+      handleData: {
+        subsidiaryId: getValueByKey({
+          data: currentRecord,
+          key: fieldData.subsidiaryId.name,
+          convert: convertCollection.string,
+        }),
+        parentId: getValueByKey({
+          data: o,
+          key: fieldData.subsidiaryId.name,
+          convert: convertCollection.string,
+        }),
+      },
+      successCallback: ({ target }) => {
+        target.refreshDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
   openGraphicalSingleSubsidiaryDepartmentTreeDrawer = (item) => {
     this.setState({ currentRecord: item }, () => {
       GraphicalSingleSubsidiaryDepartmentTreeDrawer.open();
@@ -182,6 +218,34 @@ class PageList extends MultiPage {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
+  showChangeLogoModal = (r) => {
+    this.setState(
+      {
+        currentRecord: r,
+      },
+      () => {
+        ChangeLogoModal.open();
+      },
+    );
+  };
+
+  afterChangeLogoModalOk = ({
+    // eslint-disable-next-line no-unused-vars
+    singleData,
+    // eslint-disable-next-line no-unused-vars
+    listData,
+    // eslint-disable-next-line no-unused-vars
+    extraData,
+    // eslint-disable-next-line no-unused-vars
+    responseOriginalData,
+    // eslint-disable-next-line no-unused-vars
+    submitData,
+    // eslint-disable-next-line no-unused-vars
+    subjoinData,
+  }) => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
   showPageListOpenComplaintDrawer = () => {
     PageListOpenComplaintDrawer.open();
   };
@@ -192,6 +256,17 @@ class PageList extends MultiPage {
 
   showPageListOpenFeedbackDrawer = () => {
     PageListOpenFeedbackDrawer.open();
+  };
+
+  showPageListSubsidiarySelectActionDrawer = (r) => {
+    this.setState(
+      {
+        currentRecord: r,
+      },
+      () => {
+        PageListSubsidiarySelectActionDrawer.open();
+      },
+    );
   };
 
   goToAdd = () => {
@@ -395,9 +470,28 @@ class PageList extends MultiPage {
             type: dropdownExpandItemType.divider,
           },
           {
-            key: 'updateSort',
+            key: 'setLogo',
+            icon: iconBuilder.picture(),
+            text: `设置图片`,
+            hidden: !checkHasAuthority(
+              accessWayCollection.subsidiary.setLogo.permission,
+            ),
+          },
+          {
+            key: 'setSort',
             icon: iconBuilder.edit(),
             text: '设置排序值',
+          },
+          {
+            type: dropdownExpandItemType.divider,
+          },
+          {
+            key: 'showPageListSubsidiarySelectActionDrawer',
+            icon: iconBuilder.edit(),
+            text: `设置上级公司`,
+            hidden: !checkHasAuthority(
+              accessWayCollection.subsidiary.setParentId.permission,
+            ),
           },
           {
             type: dropdownExpandItemType.divider,
@@ -568,6 +662,11 @@ class PageList extends MultiPage {
 
     return (
       <>
+        <ChangeLogoModal
+          externalData={currentRecord}
+          afterOK={this.afterChangeLogoModalOk}
+        />
+
         <ChangeSortModal
           externalData={currentRecord}
           afterOK={this.afterChangeSortModalOk}
@@ -581,6 +680,13 @@ class PageList extends MultiPage {
         <PageListOpenComplaintDrawer />
 
         <PageListOpenReportDrawer />
+
+        <PageListSubsidiarySelectActionDrawer
+          width={1000}
+          afterSelect={(selectData) => {
+            this.setParentId(selectData);
+          }}
+        />
 
         <PageListOpenFeedbackDrawer />
       </>

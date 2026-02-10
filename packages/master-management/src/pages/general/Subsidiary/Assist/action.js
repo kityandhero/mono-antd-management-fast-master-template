@@ -68,6 +68,31 @@ export function toggleFeedbackSwitchAction({
   });
 }
 
+export async function setParentIdAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.subsidiaryTypeCollection.setParentId,
+    params: {
+      subsidiaryId: getValueByKey({
+        data: handleData,
+        key: fieldData.subsidiaryId.name,
+      }),
+      parentId: getValueByKey({
+        data: handleData,
+        key: fieldData.parentId.name,
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function setEnableAction({
   target,
   handleData,

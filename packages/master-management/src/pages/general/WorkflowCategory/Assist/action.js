@@ -24,6 +24,31 @@ export function singleTreeListAction({
   });
 }
 
+export async function setParentIdAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.workflowCategoryTypeCollection.setParentId,
+    params: {
+      workflowCategoryId: getValueByKey({
+        data: handleData,
+        key: fieldData.workflowCategoryId.name,
+      }),
+      parentId: getValueByKey({
+        data: handleData,
+        key: fieldData.parentId.name,
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function setEnableAction({
   target,
   handleData,

@@ -54,20 +54,29 @@ export async function updateBasicInfoData(parameters) {
   });
 }
 
-export const updateParentIdDataApiAddress = '/subsidiary/updateParentId';
+export const setLogoDataApiAddress = '/subsidiary/setLogo';
 
-export async function updateParentIdData(parameters) {
+export async function setLogoData(parameters) {
   return request({
-    api: updateParentIdDataApiAddress,
+    api: setLogoDataApiAddress,
     params: parameters,
   });
 }
 
-export const updateSortDataApiAddress = '/subsidiary/updateSort';
+export const setParentIdDataApiAddress = '/subsidiary/setParentId';
 
-export async function updateSortData(parameters) {
+export async function setParentIdData(parameters) {
   return request({
-    api: updateSortDataApiAddress,
+    api: setParentIdDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const setSortDataApiAddress = '/subsidiary/setSort';
+
+export async function setSortData(parameters) {
+  return request({
+    api: setSortDataApiAddress,
     params: parameters,
   });
 }

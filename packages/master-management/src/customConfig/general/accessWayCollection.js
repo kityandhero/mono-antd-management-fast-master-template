@@ -2842,12 +2842,17 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '6fc9b67a55e5a704e7969e12a309a02f',
       permission: '694e04af241049748c4288c97e7124fa',
     },
-    updateParentId: {
-      title: '更新上级公司',
+    setLogo: {
+      title: '设置weibiao',
+      paramsKey: 'a21e6a036537c4ea44ded26b1e1eaa5c',
+      permission: 'd29fbdd85e444b579c42f36a7578e53e',
+    },
+    setParentId: {
+      title: '设置上级公司',
       paramsKey: 'a8a013eb46bc11338a4f07b2f6eb0f49',
       permission: '11c164de20764b0895494e715c395805',
     },
-    updateSort: {
+    setSort: {
       title: '更新排序值',
       paramsKey: 'adf708e81b6bd4366f716ec0b99b8b62',
       permission: '8a8249fde2f5420489cefaa69e442970',

@@ -90,12 +90,7 @@ class PageListSubsidiarySelectActionDrawer extends MultiPageDrawer {
     return {
       list: [
         {
-          lg: 8,
-          type: searchCardConfig.contentItemType.input,
-          fieldData: fieldData.subsidiaryId,
-        },
-        {
-          lg: 8,
+          lg: 16,
           type: searchCardConfig.contentItemType.input,
           fieldData: fieldData.shortName,
         },

@@ -16,14 +16,15 @@ import {
   refreshCacheData,
   setDisableData,
   setEnableData,
+  setLogoData,
+  setParentIdData,
+  setSortData,
   singleListData,
   singleTreeListData,
   toggleComplaintSwitchData,
   toggleFeedbackSwitchData,
   toggleReportSwitchData,
   updateBasicInfoData,
-  updateParentIdData,
-  updateSortData,
   uploadImageData,
 } from '../../services/subsidiary';
 
@@ -34,8 +35,9 @@ export const subsidiaryTypeCollection = {
   get: 'subsidiary/get',
   addBasicInfo: 'subsidiary/addBasicInfo',
   updateBasicInfo: 'subsidiary/updateBasicInfo',
-  updateParentId: 'subsidiary/updateParentId',
-  updateSort: 'subsidiary/updateSort',
+  setLogo: 'subsidiary/setLogo',
+  setParentId: 'subsidiary/setParentId',
+  setSort: 'subsidiary/setSort',
   toggleComplaintSwitch: 'subsidiary/toggleComplaintSwitch',
   toggleReportSwitch: 'subsidiary/toggleReportSwitch',
   toggleFeedbackSwitch: 'subsidiary/toggleFeedbackSwitch',
@@ -211,7 +213,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateParentId(
+      *setLogo(
         {
           payload,
           alias,
@@ -220,7 +222,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateParentIdData, payload);
+        const response = yield call(setLogoData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -237,7 +239,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateSort(
+      *setParentId(
         {
           payload,
           alias,
@@ -246,7 +248,33 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateSortData, payload);
+        const response = yield call(setParentIdData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setSort(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setSortData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

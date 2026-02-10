@@ -30,12 +30,14 @@ import {
   refreshCacheAction,
   setDisableAction,
   setEnableAction,
+  setParentIdAction,
 } from '../Assist/action';
 import { getStatusBadge } from '../Assist/tools';
 import { ChangeImageModal } from '../ChangeImageModal';
 import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData, statusCollection } from '../Common/data';
 import { OperateLogDrawer } from '../OperateLogDrawer';
+import { PageListWorkflowCategorySelectActionDrawer } from '../PageListSelectActionDrawer';
 import { UpdateBasicInfoDrawer } from '../UpdateBasicInfoDrawer';
 
 const { MultiPage } = DataMultiPageView;
@@ -61,6 +63,11 @@ class PageList extends MultiPage {
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
+      case 'showPageListWorkflowCategorySelectActionDrawer': {
+        this.showPageListWorkflowCategorySelectActionDrawer(handleData);
+        break;
+      }
+
       case 'setSort': {
         this.showChangeSortModal(handleData);
         break;
@@ -160,6 +167,29 @@ class PageList extends MultiPage {
     });
   };
 
+  setParentId = (o) => {
+    const { currentRecord } = this.state;
+
+    setParentIdAction({
+      target: this,
+      handleData: {
+        workflowCategoryId: getValueByKey({
+          data: currentRecord,
+          key: fieldData.workflowCategoryId.name,
+          convert: convertCollection.string,
+        }),
+        parentId: getValueByKey({
+          data: o,
+          key: fieldData.workflowCategoryId.name,
+          convert: convertCollection.string,
+        }),
+      },
+      successCallback: ({ target }) => {
+        target.refreshDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
   showAddBasicInfoDrawer = () => {
     AddBasicInfoDrawer.open();
   };
@@ -252,6 +282,17 @@ class PageList extends MultiPage {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
+  showPageListWorkflowCategorySelectActionDrawer = (r) => {
+    this.setState(
+      {
+        currentRecord: r,
+      },
+      () => {
+        PageListWorkflowCategorySelectActionDrawer.open();
+      },
+    );
+  };
+
   showOperateLogDrawer = (item) => {
     this.setState(
       {
@@ -342,6 +383,17 @@ class PageList extends MultiPage {
           text: '设置排序值',
           hidden: !checkHasAuthority(
             accessWayCollection.smsCategory.setSort.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'showPageListWorkflowCategorySelectActionDrawer',
+          icon: iconBuilder.edit(),
+          text: `设置上级类别`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowCategory.setParentId.permission,
           ),
         },
         {
@@ -474,6 +526,13 @@ class PageList extends MultiPage {
         <ChangeSortModal
           externalData={currentRecord}
           afterOK={this.afterChangeSortModalOk}
+        />
+
+        <PageListWorkflowCategorySelectActionDrawer
+          width={1000}
+          afterSelect={(selectData) => {
+            this.setParentId(selectData);
+          }}
         />
 
         <OperateLogDrawer externalData={currentRecord} />

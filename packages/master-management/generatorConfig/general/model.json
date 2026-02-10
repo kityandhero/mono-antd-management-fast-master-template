@@ -4637,17 +4637,24 @@
           "type": "singleData"
         },
         {
-          "title": "更新上级公司",
-          "api": "/subsidiary/updateParentId",
-          "effect": "updateParentId",
-          "service": "updateParentIdData",
+          "title": "设置weibiao",
+          "api": "/subsidiary/setLogo",
+          "effect": "setLogo",
+          "service": "setLogoData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置上级公司",
+          "api": "/subsidiary/setParentId",
+          "effect": "setParentId",
+          "service": "setParentIdData",
           "type": "singleData"
         },
         {
           "title": "更新排序值",
-          "api": "/subsidiary/updateSort",
-          "effect": "updateSort",
-          "service": "updateSortData",
+          "api": "/subsidiary/setSort",
+          "effect": "setSort",
+          "service": "setSortData",
           "type": "singleData"
         },
         {

@@ -1,21 +1,17 @@
 import { connect } from 'easy-soft-dva';
-import { buildRandomHexColor, isFunction, toNumber } from 'easy-soft-utility';
+import { isFunction } from 'easy-soft-utility';
 
 import {
   columnFacadeMode,
   searchCardConfig,
 } from 'antd-management-fast-common';
-import { iconBuilder } from 'antd-management-fast-component';
 import {
   DataMultiPageView,
   switchControlAssist,
 } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../../customConfig';
-import {
-  getDepartmentOwnershipModeName,
-  getDepartmentStatusName,
-} from '../../../../customSpecialComponents';
+import { getWorkflowCategoryStatusName } from '../../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { getStatusBadge } from '../Assist/tools';
 import { fieldData } from '../Common/data';
@@ -23,16 +19,19 @@ import { fieldData } from '../Common/data';
 const { MultiPageDrawer } = DataMultiPageView;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
-const visibleFlag = '805a8dbaf7df45ea869a805871ccd990';
+const visibleFlag = '1782e1cf521e4b6fac5f11c52ddf8742';
 
-@connect(({ department, schedulingControl }) => ({
-  department,
+@connect(({ workflowCategory, schedulingControl }) => ({
+  workflowCategory,
   schedulingControl,
 }))
-class PageListDepartmentSelectActionDrawer extends MultiPageDrawer {
+class PageListWorkflowCategorySelectActionDrawer extends MultiPageDrawer {
+  // 在控制台显示组建内调用序列, 仅为进行开发辅助
+  // showCallProcess = true;
+
   reloadWhenShow = true;
 
-  componentAuthority = accessWayCollection.department.pageList.permission;
+  componentAuthority = accessWayCollection.workflowCategory.pageList.permission;
 
   static open() {
     switchControlAssist.open(visibleFlag);
@@ -47,8 +46,8 @@ class PageListDepartmentSelectActionDrawer extends MultiPageDrawer {
 
     this.state = {
       ...this.state,
-      pageTitle: '请选择部门操作',
-      loadApiPath: modelTypeCollection.departmentTypeCollection.pageList,
+      tableScrollX: 920,
+      loadApiPath: modelTypeCollection.workflowCategoryTypeCollection.pageList,
     };
   }
 
@@ -69,7 +68,7 @@ class PageListDepartmentSelectActionDrawer extends MultiPageDrawer {
   };
 
   onSelect = (selectData) => {
-    PageListDepartmentSelectActionDrawer.close();
+    PageListWorkflowCategorySelectActionDrawer.close();
 
     const { afterSelect } = this.props;
 
@@ -81,6 +80,8 @@ class PageListDepartmentSelectActionDrawer extends MultiPageDrawer {
   getPresetPageTitle = () => {
     return '请选择';
   };
+
+  renderPresetTitleIcon = () => null;
 
   establishSearchCardConfig = () => {
     return {
@@ -99,22 +100,13 @@ class PageListDepartmentSelectActionDrawer extends MultiPageDrawer {
     };
   };
 
-  establishListItemDropdownConfig = (item) => {
-    return {
-      size: 'small',
-      text: '选取',
-      placement: 'topRight',
-      icon: iconBuilder.select(),
-      handleButtonClick: ({ handleData }) => {
-        this.onSelect(handleData);
-      },
-      handleData: item,
-      confirm: true,
-      title: '即将设为此项，确定吗？',
-    };
-  };
-
   getColumnWrapper = () => [
+    {
+      dataTarget: fieldData.image,
+      width: 60,
+      showRichFacade: true,
+      facadeMode: columnFacadeMode.image,
+    },
     {
       dataTarget: fieldData.name,
       align: 'left',
@@ -122,32 +114,8 @@ class PageListDepartmentSelectActionDrawer extends MultiPageDrawer {
       emptyValue: '--',
     },
     {
-      dataTarget: fieldData.ownershipMode,
-      width: 120,
-      showRichFacade: true,
-      emptyValue: '--',
-      facadeConfigBuilder: (value) => {
-        return {
-          color: buildRandomHexColor({
-            seed: toNumber(value) + 29,
-          }),
-        };
-      },
-      formatValue: (value) => {
-        return getDepartmentOwnershipModeName({
-          value: value,
-        });
-      },
-    },
-    {
-      dataTarget: fieldData.parentName,
-      width: 180,
-      showRichFacade: true,
-      emptyValue: '--',
-    },
-    {
-      dataTarget: fieldData.subsidiaryShortName,
-      width: 180,
+      dataTarget: fieldData.sort,
+      width: 80,
       showRichFacade: true,
       emptyValue: '--',
     },
@@ -160,28 +128,14 @@ class PageListDepartmentSelectActionDrawer extends MultiPageDrawer {
       facadeConfigBuilder: (value) => {
         return {
           status: getStatusBadge(value),
-          text: getDepartmentStatusName({
+          text: getWorkflowCategoryStatusName({
             value: value,
           }),
         };
       },
     },
     {
-      dataTarget: fieldData.parentId,
-      width: 120,
-      showRichFacade: true,
-      canCopy: true,
-      emptyValue: '--',
-    },
-    {
-      dataTarget: fieldData.subsidiaryId,
-      width: 120,
-      showRichFacade: true,
-      canCopy: true,
-      emptyValue: '--',
-    },
-    {
-      dataTarget: fieldData.departmentId,
+      dataTarget: fieldData.workflowCategoryId,
       width: 120,
       showRichFacade: true,
       canCopy: true,
@@ -195,4 +149,4 @@ class PageListDepartmentSelectActionDrawer extends MultiPageDrawer {
   ];
 }
 
-export { PageListDepartmentSelectActionDrawer };
+export { PageListWorkflowCategorySelectActionDrawer };
