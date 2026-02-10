@@ -82,6 +82,15 @@ export async function setParentIdData(parameters) {
   });
 }
 
+export const clearParentIdDataApiAddress = '/workflowCategory/clearParentId';
+
+export async function clearParentIdData(parameters) {
+  return request({
+    api: clearParentIdDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setEnableDataApiAddress = '/workflowCategory/setEnable';
 
 export async function setEnableData(parameters) {

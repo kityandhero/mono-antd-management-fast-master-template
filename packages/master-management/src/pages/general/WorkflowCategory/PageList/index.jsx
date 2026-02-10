@@ -7,6 +7,7 @@ import {
   getValueByKey,
   handleItem,
   showSimpleErrorMessage,
+  zeroString,
 } from 'easy-soft-utility';
 
 import {
@@ -27,6 +28,7 @@ import {
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { AddBasicInfoDrawer } from '../AddBasicInfoDrawer';
 import {
+  clearParentIdAction,
   refreshCacheAction,
   setDisableAction,
   setEnableAction,
@@ -75,6 +77,11 @@ class PageList extends MultiPage {
 
       case 'setImage': {
         this.showChangeImageModal(handleData);
+        break;
+      }
+
+      case 'clearParentId': {
+        this.clearParentId(handleData);
         break;
       }
 
@@ -136,6 +143,47 @@ class PageList extends MultiPage {
         });
 
         return d;
+      },
+    });
+  };
+
+  clearParentId = (r) => {
+    clearParentIdAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target, remoteData }) => {
+        const id = getValueByKey({
+          data: remoteData,
+          key: fieldData.workflowCategoryId.name,
+        });
+
+        handleItem({
+          target,
+          value: id,
+          compareValueHandler: (o) => {
+            const v = getValueByKey({
+              data: o,
+              key: fieldData.workflowCategoryId.name,
+            });
+
+            return v;
+          },
+          handler: (d) => {
+            const o = d;
+
+            o[fieldData.parentId.name] = getValueByKey({
+              data: remoteData,
+              key: fieldData.parentId.name,
+            });
+
+            o[fieldData.parentName.name] = getValueByKey({
+              data: remoteData,
+              key: fieldData.parentName.name,
+            });
+
+            return d;
+          },
+        });
       },
     });
   };
@@ -347,9 +395,15 @@ class PageList extends MultiPage {
     ];
   };
 
-  establishListItemDropdownConfig = (record) => {
+  establishListItemDropdownConfig = (item) => {
+    const parentId = getValueByKey({
+      data: item,
+      key: fieldData.parentId.name,
+      convert: convertCollection.string,
+    });
+
     const status = getValueByKey({
-      data: record,
+      data: item,
       key: fieldData.status.name,
       convert: convertCollection.number,
     });
@@ -364,7 +418,7 @@ class PageList extends MultiPage {
       handleButtonClick: ({ handleData }) => {
         this.showUpdateBasicInfoDrawer(handleData);
       },
-      handleData: record,
+      handleData: item,
       handleMenuClick: ({ key, handleData }) => {
         this.handleMenuClick({ key, handleData });
       },
@@ -394,6 +448,17 @@ class PageList extends MultiPage {
           text: `设置上级类别`,
           hidden: !checkHasAuthority(
             accessWayCollection.workflowCategory.setParentId.permission,
+          ),
+        },
+        {
+          key: 'clearParentId',
+          icon: iconBuilder.clear(),
+          text: '清除上级类别',
+          confirm: true,
+          title: '将要设清除上级类别，确定吗？',
+          disabled: parentId === zeroString,
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflowCategory.clearParentId.permission,
           ),
         },
         {
@@ -441,6 +506,9 @@ class PageList extends MultiPage {
           text: '刷新缓存',
           confirm: true,
           title: '即将刷新缓存，确定吗？',
+          hidden: !checkHasAuthority(
+            accessWayCollection.smsCategory.refreshCache.permission,
+          ),
         },
       ],
     };

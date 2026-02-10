@@ -93,6 +93,27 @@ export async function setParentIdAction({
   });
 }
 
+export async function clearParentIdAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.subsidiaryTypeCollection.clearParentId,
+    params: {
+      subsidiaryId: getValueByKey({
+        data: handleData,
+        key: fieldData.subsidiaryId.name,
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function setEnableAction({
   target,
   handleData,

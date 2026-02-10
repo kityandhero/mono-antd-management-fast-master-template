@@ -1037,9 +1037,14 @@ export const accessWayInfrastructureCollection = {
       permission: '74c9c572258741dfa35edef0d27ec568',
     },
     setParentId: {
-      title: '更新上级部门',
+      title: '设置上级部门',
       paramsKey: 'df896efd6e316be7bb4777b159f0764f',
       permission: '46d6b271409c40b7a4d9caa9076af819',
+    },
+    clearParentId: {
+      title: '清除父级标识',
+      paramsKey: '5bdfca075139d7a8b9e8b9db1bbcc599',
+      permission: 'f87ef5667d11401d9c5d82e199f22975',
     },
     setSubsidiaryId: {
       title: '更新所属子公司',
@@ -2852,6 +2857,11 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'a8a013eb46bc11338a4f07b2f6eb0f49',
       permission: '11c164de20764b0895494e715c395805',
     },
+    clearParentId: {
+      title: '清除上级标识',
+      paramsKey: '6ea07e6e8781033e3d381b7e7a4d74de',
+      permission: 'fad61126467c415b8d4d44374d68d669',
+    },
     setSort: {
       title: '更新排序值',
       paramsKey: 'adf708e81b6bd4366f716ec0b99b8b62',
@@ -4210,6 +4220,11 @@ export const accessWayInfrastructureCollection = {
       title: '设置父级标识',
       paramsKey: 'e5b4aa84a2f8f5edbe7099cc5db06898',
       permission: '8f63de9ae8b04a168b14327d6d468312',
+    },
+    clearParentId: {
+      title: '清除父级标识',
+      paramsKey: '3e03e91501af5d0811cea39a09d73044',
+      permission: 'd023e2aee413496e8e9d01ae7dff67c2',
     },
     setEnable: {
       title: '设为启用',

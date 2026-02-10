@@ -72,6 +72,15 @@ export async function setParentIdData(parameters) {
   });
 }
 
+export const clearParentIdDataApiAddress = '/subsidiary/clearParentId';
+
+export async function clearParentIdData(parameters) {
+  return request({
+    api: clearParentIdDataApiAddress,
+    params: parameters,
+  });
+}
+
 export const setSortDataApiAddress = '/subsidiary/setSort';
 
 export async function setSortData(parameters) {

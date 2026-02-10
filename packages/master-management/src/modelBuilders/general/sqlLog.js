@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -17,13 +18,13 @@ import {
 } from '../../services/sqlLog';
 
 export const sqlLogTypeCollection = {
-  pageList: 'sqlLog/pageList',
-  get: 'sqlLog/get',
-  remove: 'sqlLog/remove',
-  removeMulti: 'sqlLog/removeMulti',
-  removeAll: 'sqlLog/removeAll',
-  createTestLog: 'sqlLog/createTestLog',
-};
+  pageList: "sqlLog/pageList",
+  get: "sqlLog/get",
+  remove: "sqlLog/remove",
+  removeMulti: "sqlLog/removeMulti",
+  removeAll: "sqlLog/removeAll",
+  createTestLog: "sqlLog/createTestLog",
+}
 
 export function buildModel() {
   return {

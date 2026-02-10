@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -23,19 +24,19 @@ import {
 } from '../../services/masterManager';
 
 export const masterManagerTypeCollection = {
-  pageList: 'masterManager/pageList',
-  get: 'masterManager/get',
-  addBasicInfo: 'masterManager/addBasicInfo',
-  updateBasicInfo: 'masterManager/updateBasicInfo',
-  resetPassword: 'masterManager/resetPassword',
-  setEnable: 'masterManager/setEnable',
-  setDisable: 'masterManager/setDisable',
-  changePermission: 'masterManager/changePermission',
-  remove: 'masterManager/remove',
-  refreshCache: 'masterManager/refreshCache',
-  pageListOperateLog: 'masterManager/pageListOperateLog',
-  uploadImage: 'masterManager/uploadImage',
-};
+  pageList: "masterManager/pageList",
+  get: "masterManager/get",
+  addBasicInfo: "masterManager/addBasicInfo",
+  updateBasicInfo: "masterManager/updateBasicInfo",
+  resetPassword: "masterManager/resetPassword",
+  setEnable: "masterManager/setEnable",
+  setDisable: "masterManager/setDisable",
+  changePermission: "masterManager/changePermission",
+  remove: "masterManager/remove",
+  refreshCache: "masterManager/refreshCache",
+  pageListOperateLog: "masterManager/pageListOperateLog",
+  uploadImage: "masterManager/uploadImage",
+}
 
 export function buildModel() {
   return {

@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -16,12 +17,12 @@ import {
 } from '../../services/mongoSlowQueryInfo';
 
 export const mongoSlowQueryInfoTypeCollection = {
-  singleList: 'mongoSlowQueryInfo/singleList',
-  getCurrentOperations: 'mongoSlowQueryInfo/getCurrentOperations',
-  getProfilingStatus: 'mongoSlowQueryInfo/getProfilingStatus',
-  openSlowQueryRecord: 'mongoSlowQueryInfo/openSlowQueryRecord',
-  closeSlowQueryRecord: 'mongoSlowQueryInfo/closeSlowQueryRecord',
-};
+  singleList: "mongoSlowQueryInfo/singleList",
+  getCurrentOperations: "mongoSlowQueryInfo/getCurrentOperations",
+  getProfilingStatus: "mongoSlowQueryInfo/getProfilingStatus",
+  openSlowQueryRecord: "mongoSlowQueryInfo/openSlowQueryRecord",
+  closeSlowQueryRecord: "mongoSlowQueryInfo/closeSlowQueryRecord",
+}
 
 export function buildModel() {
   return {

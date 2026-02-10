@@ -9,6 +9,7 @@ import {
   handleItem,
   showSimpleErrorMessage,
   toNumber,
+  zeroString,
 } from 'easy-soft-utility';
 
 import {
@@ -30,6 +31,7 @@ import { getSubsidiaryStatusName } from '../../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { GraphicalSingleSubsidiaryDepartmentTreeDrawer } from '../../Organization/GraphicalSingleSubsidiaryDepartmentTreeDrawer';
 import {
+  clearParentIdAction,
   refreshCacheAction,
   setDisableAction,
   setEnableAction,
@@ -116,6 +118,11 @@ class PageList extends MultiPage {
         break;
       }
 
+      case 'clearParentId': {
+        this.clearParentId(handleData);
+        break;
+      }
+
       case 'setEnable': {
         this.setEnable(handleData);
         break;
@@ -137,6 +144,47 @@ class PageList extends MultiPage {
         break;
       }
     }
+  };
+
+  clearParentId = (r) => {
+    clearParentIdAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target, remoteData }) => {
+        const id = getValueByKey({
+          data: remoteData,
+          key: fieldData.subsidiaryId.name,
+        });
+
+        handleItem({
+          target,
+          value: id,
+          compareValueHandler: (o) => {
+            const v = getValueByKey({
+              data: o,
+              key: fieldData.subsidiaryId.name,
+            });
+
+            return v;
+          },
+          handler: (d) => {
+            const o = d;
+
+            o[fieldData.parentId.name] = getValueByKey({
+              data: remoteData,
+              key: fieldData.parentId.name,
+            });
+
+            o[fieldData.parentShortName.name] = getValueByKey({
+              data: remoteData,
+              key: fieldData.parentShortName.name,
+            });
+
+            return d;
+          },
+        });
+      },
+    });
   };
 
   setEnable = (r) => {
@@ -362,6 +410,12 @@ class PageList extends MultiPage {
 
   // eslint-disable-next-line no-unused-vars
   establishPresetListViewItemInnerConfig = (item, index) => {
+    const parentId = getValueByKey({
+      data: item,
+      key: fieldData.parentId.name,
+      convert: convertCollection.string,
+    });
+
     const status = getValueByKey({
       data: item,
       key: fieldData.status.name,
@@ -481,6 +535,9 @@ class PageList extends MultiPage {
             key: 'setSort',
             icon: iconBuilder.edit(),
             text: '设置排序值',
+            hidden: !checkHasAuthority(
+              accessWayCollection.subsidiary.setSort.permission,
+            ),
           },
           {
             type: dropdownExpandItemType.divider,
@@ -494,6 +551,17 @@ class PageList extends MultiPage {
             ),
           },
           {
+            key: 'clearParentId',
+            icon: iconBuilder.clear(),
+            text: '清除上级公司',
+            confirm: true,
+            title: '将要设清除上级公司，确定吗？',
+            disabled: parentId === zeroString,
+            hidden: !checkHasAuthority(
+              accessWayCollection.subsidiary.clearParentId.permission,
+            ),
+          },
+          {
             type: dropdownExpandItemType.divider,
           },
           {
@@ -503,6 +571,9 @@ class PageList extends MultiPage {
             disabled: status === statusCollection.enable,
             confirm: true,
             title: '将要设为启用，确定吗？',
+            hidden: !checkHasAuthority(
+              accessWayCollection.subsidiary.setEnable.permission,
+            ),
           },
           {
             key: 'setDisable',
@@ -511,6 +582,9 @@ class PageList extends MultiPage {
             disabled: status === statusCollection.disable,
             confirm: true,
             title: '将要设为禁用，确定吗？',
+            hidden: !checkHasAuthority(
+              accessWayCollection.subsidiary.setDisable.permission,
+            ),
           },
           {
             type: dropdownExpandItemType.divider,
@@ -521,6 +595,9 @@ class PageList extends MultiPage {
             text: '刷新缓存',
             confirm: true,
             title: '将要刷新缓存，确定吗？',
+            hidden: !checkHasAuthority(
+              accessWayCollection.subsidiary.refreshCache.permission,
+            ),
           },
         ],
       },

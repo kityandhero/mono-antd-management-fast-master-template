@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -13,9 +14,9 @@ import {
 } from '../../services/databaseIndexSuggestion';
 
 export const databaseIndexSuggestionTypeCollection = {
-  singleList: 'databaseIndexSuggestion/singleList',
-  getCommand: 'databaseIndexSuggestion/getCommand',
-};
+  singleList: "databaseIndexSuggestion/singleList",
+  getCommand: "databaseIndexSuggestion/getCommand",
+}
 
 export function buildModel() {
   return {

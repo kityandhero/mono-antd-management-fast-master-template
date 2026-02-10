@@ -49,6 +49,27 @@ export async function setParentIdAction({
   });
 }
 
+export async function clearParentIdAction({
+  target,
+  handleData,
+  successCallback,
+  successMessage,
+}) {
+  actionCore({
+    api: modelTypeCollection.workflowCategoryTypeCollection.clearParentId,
+    params: {
+      workflowCategoryId: getValueByKey({
+        data: handleData,
+        key: fieldData.workflowCategoryId.name,
+      }),
+    },
+    target,
+    handleData,
+    successCallback,
+    successMessage,
+  });
+}
+
 export async function setEnableAction({
   target,
   handleData,

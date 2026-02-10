@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -16,12 +17,12 @@ import {
 } from '../../services/weChatMessageRecord';
 
 export const weChatMessageRecordTypeCollection = {
-  pageList: 'weChatMessageRecord/pageList',
-  get: 'weChatMessageRecord/get',
-  remove: 'weChatMessageRecord/remove',
-  removeMulti: 'weChatMessageRecord/removeMulti',
-  removeAll: 'weChatMessageRecord/removeAll',
-};
+  pageList: "weChatMessageRecord/pageList",
+  get: "weChatMessageRecord/get",
+  remove: "weChatMessageRecord/remove",
+  removeMulti: "weChatMessageRecord/removeMulti",
+  removeAll: "weChatMessageRecord/removeAll",
+}
 
 export function buildModel() {
   return {

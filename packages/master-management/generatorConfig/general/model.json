@@ -1725,10 +1725,17 @@
           "type": "singleData"
         },
         {
-          "title": "更新上级部门",
+          "title": "设置上级部门",
           "api": "/department/setParentId",
           "effect": "setParentId",
           "service": "setParentIdData",
+          "type": "singleData"
+        },
+        {
+          "title": "清除父级标识",
+          "api": "/department/clearParentId",
+          "effect": "clearParentId",
+          "service": "clearParentIdData",
           "type": "singleData"
         },
         {
@@ -4651,6 +4658,13 @@
           "type": "singleData"
         },
         {
+          "title": "清除上级标识",
+          "api": "/subsidiary/clearParentId",
+          "effect": "clearParentId",
+          "service": "clearParentIdData",
+          "type": "singleData"
+        },
+        {
           "title": "更新排序值",
           "api": "/subsidiary/setSort",
           "effect": "setSort",
@@ -6776,6 +6790,13 @@
           "api": "/workflowCategory/setParentId",
           "effect": "setParentId",
           "service": "setParentIdData",
+          "type": "singleData"
+        },
+        {
+          "title": "清除父级标识",
+          "api": "/workflowCategory/clearParentId",
+          "effect": "clearParentId",
+          "service": "clearParentIdData",
           "type": "singleData"
         },
         {

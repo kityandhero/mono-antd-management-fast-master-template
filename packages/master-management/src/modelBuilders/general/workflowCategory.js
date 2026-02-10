@@ -10,6 +10,7 @@ import {
 
 import {
   addBasicInfoData,
+  clearParentIdData,
   getData,
   pageListData,
   pageListOperateLogData,
@@ -35,6 +36,7 @@ export const workflowCategoryTypeCollection = {
   setImage: 'workflowCategory/setImage',
   setSort: 'workflowCategory/setSort',
   setParentId: 'workflowCategory/setParentId',
+  clearParentId: 'workflowCategory/clearParentId',
   setEnable: 'workflowCategory/setEnable',
   setDisable: 'workflowCategory/setDisable',
   refreshCache: 'workflowCategory/refreshCache',
@@ -269,6 +271,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(setParentIdData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *clearParentId(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(clearParentIdData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

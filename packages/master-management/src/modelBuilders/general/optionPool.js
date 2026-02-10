@@ -1,3 +1,4 @@
+
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -20,16 +21,16 @@ import {
 } from '../../services/optionPool';
 
 export const optionPoolTypeCollection = {
-  pageList: 'optionPool/pageList',
-  get: 'optionPool/get',
-  addBasicInfo: 'optionPool/addBasicInfo',
-  updateBasicInfo: 'optionPool/updateBasicInfo',
-  updateSort: 'optionPool/updateSort',
-  setEnable: 'optionPool/setEnable',
-  setDisable: 'optionPool/setDisable',
-  refreshCache: 'optionPool/refreshCache',
-  pageListOperateLog: 'optionPool/pageListOperateLog',
-};
+  pageList: "optionPool/pageList",
+  get: "optionPool/get",
+  addBasicInfo: "optionPool/addBasicInfo",
+  updateBasicInfo: "optionPool/updateBasicInfo",
+  updateSort: "optionPool/updateSort",
+  setEnable: "optionPool/setEnable",
+  setDisable: "optionPool/setDisable",
+  refreshCache: "optionPool/refreshCache",
+  pageListOperateLog: "optionPool/pageListOperateLog",
+}
 
 export function buildModel() {
   return {

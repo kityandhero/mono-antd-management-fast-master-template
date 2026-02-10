@@ -10,6 +10,7 @@ import {
 
 import {
   addBasicInfoData,
+  clearParentIdData,
   getData,
   pageListData,
   pageListOperateLogData,
@@ -32,6 +33,7 @@ export const departmentTypeCollection = {
   addBasicInfo: 'department/addBasicInfo',
   updateBasicInfo: 'department/updateBasicInfo',
   setParentId: 'department/setParentId',
+  clearParentId: 'department/clearParentId',
   setSubsidiaryId: 'department/setSubsidiaryId',
   setSort: 'department/setSort',
   setNormal: 'department/setNormal',
@@ -215,6 +217,32 @@ export function buildModel() {
         { call, put },
       ) {
         const response = yield call(setParentIdData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *clearParentId(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(clearParentIdData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
