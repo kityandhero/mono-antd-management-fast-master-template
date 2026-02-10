@@ -137,7 +137,7 @@ class ChangeLogoModal extends BaseUpdateModal {
           items: [
             {
               lg: 24,
-              type: cardConfig.contentItemType.logoUpload,
+              type: cardConfig.contentItemType.imageUpload,
               fieldData: fieldData.logo,
               image: logo,
               uploadProps: {

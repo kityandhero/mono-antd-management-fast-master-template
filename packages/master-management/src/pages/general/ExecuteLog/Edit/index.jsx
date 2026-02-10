@@ -106,6 +106,7 @@ class Index extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.executeLogId.name,
+          defaultValue: '未设置',
         }),
         canCopy: true,
       },
@@ -114,6 +115,7 @@ class Index extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.channelNote.name,
+          defaultValue: '未设置',
         }),
       },
     ];

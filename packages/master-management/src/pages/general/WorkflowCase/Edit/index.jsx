@@ -709,6 +709,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.workflowCaseId.name,
+          defaultValue: '未设置',
         }),
         canCopy: true,
       },
@@ -717,6 +718,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.workflowName.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -724,6 +726,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.whetherEmergencyNote.name,
+          defaultValue: '未设置',
         }),
       },
       {

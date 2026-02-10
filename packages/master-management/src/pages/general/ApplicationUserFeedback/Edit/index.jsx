@@ -170,6 +170,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.applicationUserFeedbackId.name,
+          defaultValue: '未设置',
         }),
         canCopy: true,
       },
@@ -178,6 +179,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.userFriendlyName.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -185,6 +187,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.userPhone.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -192,7 +195,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.applicationName.name,
-          defaultValue: '暂无',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -203,6 +206,7 @@ class Edit extends DataTabContainerSupplement {
             key: fieldData.channel.name,
             convert: convertCollection.string,
           }),
+          defaultValue: '未设置',
         }),
       },
     ];

@@ -191,6 +191,7 @@ class Index extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.errorLogId.name,
+          defaultValue: '未设置',
         }),
         canCopy: true,
       },
@@ -199,6 +200,7 @@ class Index extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.typeNote.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -206,6 +208,7 @@ class Index extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.channelNote.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -213,6 +216,7 @@ class Index extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.degreeNote.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -220,6 +224,7 @@ class Index extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.sendNotification.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -227,6 +232,7 @@ class Index extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.sendTime.name,
+          defaultValue: '未设置',
         }),
       },
     ];

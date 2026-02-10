@@ -304,6 +304,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.tagId.name,
+          defaultValue: '未设置',
         }),
         canCopy: true,
       },
@@ -312,6 +313,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.displayName.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -322,6 +324,7 @@ class Detail extends DataTabContainerSupplement {
             key: fieldData.type.name,
             convert: convertCollection.number,
           }),
+          defaultValue: '未设置',
         }),
       },
       {
@@ -329,6 +332,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.sort.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -339,6 +343,7 @@ class Detail extends DataTabContainerSupplement {
             key: fieldData.displayName.name,
             convert: convertCollection.number,
           }),
+          defaultValue: '未设置',
         }),
       },
       {
@@ -349,6 +354,7 @@ class Detail extends DataTabContainerSupplement {
             key: fieldData.businessMode.name,
             convert: convertCollection.number,
           }),
+          defaultValue: '未设置',
         }),
       },
     ];

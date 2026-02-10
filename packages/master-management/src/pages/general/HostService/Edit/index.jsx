@@ -217,6 +217,7 @@ class Index extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.hostServiceId.name,
+          defaultValue: '未设置',
         }),
         canCopy: true,
       },
@@ -225,6 +226,7 @@ class Index extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.name.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -232,6 +234,7 @@ class Index extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.ip.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -240,6 +243,7 @@ class Index extends DataTabContainerSupplement {
           data: metaData,
           key: fieldData.createTime.name,
           format: formatCollection.datetime,
+          defaultValue: '未设置',
         }),
       },
     ];

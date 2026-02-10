@@ -146,6 +146,29 @@ class PageList extends MultiPage {
     }
   };
 
+  setParentId = (o) => {
+    const { currentRecord } = this.state;
+
+    setParentIdAction({
+      target: this,
+      handleData: {
+        subsidiaryId: getValueByKey({
+          data: currentRecord,
+          key: fieldData.subsidiaryId.name,
+          convert: convertCollection.string,
+        }),
+        parentId: getValueByKey({
+          data: o,
+          key: fieldData.subsidiaryId.name,
+          convert: convertCollection.string,
+        }),
+      },
+      successCallback: ({ target }) => {
+        target.refreshDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
   clearParentId = (r) => {
     clearParentIdAction({
       target: this,
@@ -211,29 +234,6 @@ class PageList extends MultiPage {
     refreshCacheAction({
       target: this,
       handleData: r,
-    });
-  };
-
-  setParentId = (o) => {
-    const { currentRecord } = this.state;
-
-    setParentIdAction({
-      target: this,
-      handleData: {
-        subsidiaryId: getValueByKey({
-          data: currentRecord,
-          key: fieldData.subsidiaryId.name,
-          convert: convertCollection.string,
-        }),
-        parentId: getValueByKey({
-          data: o,
-          key: fieldData.subsidiaryId.name,
-          convert: convertCollection.string,
-        }),
-      },
-      successCallback: ({ target }) => {
-        target.refreshDataWithReloadAnimalPrompt({});
-      },
     });
   };
 

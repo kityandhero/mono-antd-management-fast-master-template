@@ -264,6 +264,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.subsidiaryComplaintCategoryId.name,
+          defaultValue: '未设置',
         }),
         canCopy: true,
       },
@@ -275,6 +276,7 @@ class Edit extends DataTabContainerSupplement {
             key: fieldData.channel.name,
             convert: convertCollection.string,
           }),
+          defaultValue: '未设置',
         }),
       },
     ];

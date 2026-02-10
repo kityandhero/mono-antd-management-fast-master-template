@@ -4,6 +4,7 @@ import {
   convertCollection,
   getValueByKey,
   showSimpleErrorMessage,
+  zeroString,
 } from 'easy-soft-utility';
 
 import {
@@ -21,6 +22,7 @@ import {
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { PageListSubsidiarySelectActionDrawer } from '../../Subsidiary/PageListSelectActionDrawer';
 import {
+  clearParentIdAction,
   refreshCacheAction,
   setInvalidAction,
   setNormalAction,
@@ -121,6 +123,39 @@ class Detail extends DataTabContainerSupplement {
     }
   };
 
+  setParentId = (o) => {
+    const { metaData } = this.state;
+
+    setParentIdAction({
+      target: this,
+      handleData: {
+        departmentId: getValueByKey({
+          data: metaData,
+          key: fieldData.departmentId.name,
+          convert: convertCollection.string,
+        }),
+        parentId: getValueByKey({
+          data: o,
+          key: fieldData.departmentId.name,
+          convert: convertCollection.string,
+        }),
+      },
+      successCallback: ({ target }) => {
+        target.refreshDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
+  clearParentId = (r) => {
+    clearParentIdAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target }) => {
+        target.refreshDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
   setNormal = (r) => {
     setNormalAction({
       target: this,
@@ -161,29 +196,6 @@ class Detail extends DataTabContainerSupplement {
     refreshCacheAction({
       target: this,
       handleData: r,
-    });
-  };
-
-  setParentId = (o) => {
-    const { metaData } = this.state;
-
-    setParentIdAction({
-      target: this,
-      handleData: {
-        departmentId: getValueByKey({
-          data: metaData,
-          key: fieldData.departmentId.name,
-          convert: convertCollection.string,
-        }),
-        parentId: getValueByKey({
-          data: o,
-          key: fieldData.departmentId.name,
-          convert: convertCollection.string,
-        }),
-      },
-      successCallback: ({ target }) => {
-        target.refreshDataWithReloadAnimalPrompt({});
-      },
     });
   };
 
@@ -246,10 +258,13 @@ class Detail extends DataTabContainerSupplement {
           handleButtonClick: ({ handleData }) => {
             that.setNormal(handleData);
           },
-          disabled: status === statusCollection.normal,
           confirm: true,
           title: '即将设为正常，确定吗？',
           handleData: metaData,
+          disabled: status === statusCollection.normal,
+          hidden: !checkHasAuthority(
+            accessWayCollection.department.setNormal.permission,
+          ),
         },
         {
           key: 'setInvalid',
@@ -258,10 +273,13 @@ class Detail extends DataTabContainerSupplement {
           handleButtonClick: ({ handleData }) => {
             that.setInvalid(handleData);
           },
-          disabled: status === statusCollection.invalid,
           confirm: true,
           title: '即将设为无效，确定吗？',
           handleData: metaData,
+          disabled: status === statusCollection.invalid,
+          hidden: !checkHasAuthority(
+            accessWayCollection.department.setInvalid.permission,
+          ),
         },
       ],
     };
@@ -276,17 +294,28 @@ class Detail extends DataTabContainerSupplement {
 
     const that = this;
 
+    const parentId = getValueByKey({
+      data: metaData,
+      key: fieldData.parentId.name,
+      convert: convertCollection.string,
+    });
+
     return {
       disabled: this.checkInProgress(),
       handleMenuClick: ({ key, handleData }) => {
         switch (key) {
+          case 'showPageListSubsidiarySelectActionDrawer': {
+            that.showPageListSubsidiarySelectActionDrawer(handleData);
+            break;
+          }
+
           case 'showPageListDepartmentSelectActionDrawer': {
             this.showPageListDepartmentSelectActionDrawer(handleData);
             break;
           }
 
-          case 'showPageListSubsidiarySelectActionDrawer': {
-            that.showPageListSubsidiarySelectActionDrawer(handleData);
+          case 'clearParentId': {
+            this.clearParentId(handleData);
             break;
           }
 
@@ -309,6 +338,17 @@ class Detail extends DataTabContainerSupplement {
           text: `设置上级类别`,
           hidden: !checkHasAuthority(
             accessWayCollection.department.setParentId.permission,
+          ),
+        },
+        {
+          key: 'clearParentId',
+          icon: iconBuilder.clear(),
+          text: '清除上级类别',
+          confirm: true,
+          title: '将要设清除上级类别，确定吗？',
+          disabled: parentId === zeroString,
+          hidden: !checkHasAuthority(
+            accessWayCollection.department.clearParentId.permission,
           ),
         },
         {
@@ -370,6 +410,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.departmentId.name,
+          defaultValue: '未设置',
         }),
         canCopy: true,
       },
@@ -378,6 +419,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.name.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -388,7 +430,7 @@ class Detail extends DataTabContainerSupplement {
             key: fieldData.ownershipMode.name,
             convert: convertCollection.number,
           }),
-          defaultValue: '暂未设置',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -396,7 +438,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.parentName.name,
-          defaultValue: '无',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -404,7 +446,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.subsidiaryShortName.name,
-          defaultValue: '无',
+          defaultValue: '未设置',
         }),
       },
     ];

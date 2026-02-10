@@ -333,6 +333,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.userId.name,
+          defaultValue: '未设置',
         }),
         canCopy: true,
       },
@@ -341,7 +342,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.realName.name,
-          defaultValue: '暂无',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -350,8 +351,9 @@ class Detail extends DataTabContainerSupplement {
           value: getValueByKey({
             data: metaData,
             key: fieldData.gender.name,
-            defaultValue: '暂未设置',
+            convert: convertCollection.string,
           }),
+          defaultValue: '未设置',
         }),
       },
       {
@@ -361,6 +363,7 @@ class Detail extends DataTabContainerSupplement {
             data: metaData,
             key: fieldData.type.name,
           }),
+          defaultValue: '未设置',
         }),
       },
       {
@@ -368,7 +371,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.phone.name,
-          defaultValue: '暂无',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -376,7 +379,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.noId.name,
-          defaultValue: '暂无',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -384,7 +387,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.email.name,
-          defaultValue: '暂无',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -392,7 +395,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.address.name,
-          defaultValue: '暂无',
+          defaultValue: '未设置',
         }),
       },
     ];

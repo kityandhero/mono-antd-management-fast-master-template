@@ -573,6 +573,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.sectionId.name,
+          defaultValue: '未设置',
         }),
         canCopy: true,
       },
@@ -581,7 +582,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.sort.name,
-          defaultValue: '0',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -589,6 +590,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.renderTypeNote.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -596,7 +598,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.parentName.name,
-          defaultValue: '无',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -604,7 +606,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.businessModeNote.name,
-          defaultValue: '无',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -623,7 +625,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.obtainScoreWhenRead.name,
-          defaultValue: '0',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -631,7 +633,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.obtainScoreWhenReadSection.name,
-          defaultValue: '0',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -639,7 +641,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.obtainFromReadDailyLimit.name,
-          defaultValue: '0',
+          defaultValue: '未设置',
         }),
       },
     ];

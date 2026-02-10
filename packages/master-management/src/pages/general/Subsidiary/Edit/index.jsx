@@ -5,9 +5,11 @@ import {
   convertCollection,
   getValueByKey,
   showSimpleErrorMessage,
+  zeroString,
 } from 'easy-soft-utility';
 
 import {
+  dropdownExpandItemType,
   getDerivedStateFromPropertiesForUrlParameters,
   tabBarCollection,
 } from 'antd-management-fast-common';
@@ -21,15 +23,20 @@ import {
 import { modelTypeCollection } from '../../../../modelBuilders';
 import { GraphicalSingleSubsidiaryDepartmentTreeDrawer } from '../../Organization/GraphicalSingleSubsidiaryDepartmentTreeDrawer';
 import {
+  clearParentIdAction,
   refreshCacheAction,
   setDisableAction,
   setEnableAction,
+  setParentIdAction,
 } from '../Assist/action';
 import {
   checkNeedUpdateAssist,
   parseUrlParametersForSetState,
 } from '../Assist/config';
+import { ChangeLogoModal } from '../ChangeLogoModal';
+import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData, statusCollection } from '../Common/data';
+import { PageListSubsidiarySelectActionDrawer } from '../PageListSelectActionDrawer';
 
 @connect(({ subsidiary, schedulingControl }) => ({
   subsidiary,
@@ -118,6 +125,39 @@ class Detail extends DataTabContainerSupplement {
     }
   };
 
+  setParentId = (o) => {
+    const { metaData } = this.state;
+
+    setParentIdAction({
+      target: this,
+      handleData: {
+        subsidiaryId: getValueByKey({
+          data: metaData,
+          key: fieldData.subsidiaryId.name,
+          convert: convertCollection.string,
+        }),
+        parentId: getValueByKey({
+          data: o,
+          key: fieldData.subsidiaryId.name,
+          convert: convertCollection.string,
+        }),
+      },
+      successCallback: ({ target }) => {
+        target.refreshDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
+  clearParentId = (r) => {
+    clearParentIdAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target }) => {
+        target.refreshDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
   setEnable = (r) => {
     setEnableAction({
       target: this,
@@ -161,8 +201,54 @@ class Detail extends DataTabContainerSupplement {
     });
   };
 
+  showChangeSortModal = () => {
+    ChangeSortModal.open();
+  };
+
+  afterChangeSortModalOk = ({
+    // eslint-disable-next-line no-unused-vars
+    singleData,
+    // eslint-disable-next-line no-unused-vars
+    listData,
+    // eslint-disable-next-line no-unused-vars
+    extraData,
+    // eslint-disable-next-line no-unused-vars
+    responseOriginalData,
+    // eslint-disable-next-line no-unused-vars
+    submitData,
+    // eslint-disable-next-line no-unused-vars
+    subjoinData,
+  }) => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  showChangeLogoModal = () => {
+    ChangeLogoModal.open();
+  };
+
+  afterChangeLogoModalOk = ({
+    // eslint-disable-next-line no-unused-vars
+    singleData,
+    // eslint-disable-next-line no-unused-vars
+    listData,
+    // eslint-disable-next-line no-unused-vars
+    extraData,
+    // eslint-disable-next-line no-unused-vars
+    responseOriginalData,
+    // eslint-disable-next-line no-unused-vars
+    submitData,
+    // eslint-disable-next-line no-unused-vars
+    subjoinData,
+  }) => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
   openGraphicalSingleSubsidiaryDepartmentTreeDrawer = () => {
     GraphicalSingleSubsidiaryDepartmentTreeDrawer.open();
+  };
+
+  showPageListSubsidiarySelectActionDrawer = () => {
+    PageListSubsidiarySelectActionDrawer.open();
   };
 
   establishPageHeaderTitlePrefix = () => {
@@ -208,10 +294,13 @@ class Detail extends DataTabContainerSupplement {
           handleButtonClick: ({ handleData }) => {
             that.setEnable(handleData);
           },
-          disabled: status === statusCollection.enable,
           confirm: true,
           title: '即将启用公司，确定吗？',
           handleData: metaData,
+          disabled: status === statusCollection.enable,
+          hidden: !checkHasAuthority(
+            accessWayCollection.subsidiary.setEnable.permission,
+          ),
         },
         {
           key: 'setDisable',
@@ -220,10 +309,13 @@ class Detail extends DataTabContainerSupplement {
           handleButtonClick: ({ handleData }) => {
             that.setDisable(handleData);
           },
-          disabled: status === statusCollection.disable,
           confirm: true,
           title: '即将禁用公司，确定吗？',
           handleData: metaData,
+          disabled: status === statusCollection.disable,
+          hidden: !checkHasAuthority(
+            accessWayCollection.subsidiary.setDisable.permission,
+          ),
         },
       ],
     };
@@ -238,10 +330,36 @@ class Detail extends DataTabContainerSupplement {
 
     const that = this;
 
+    const parentId = getValueByKey({
+      data: metaData,
+      key: fieldData.parentId.name,
+      convert: convertCollection.string,
+    });
+
     return {
       disabled: this.checkInProgress(),
       handleMenuClick: ({ key, handleData }) => {
         switch (key) {
+          case 'setLogo': {
+            this.showChangeLogoModal(handleData);
+            break;
+          }
+
+          case 'setSort': {
+            this.showChangeSortModal(handleData);
+            break;
+          }
+
+          case 'showPageListSubsidiarySelectActionDrawer': {
+            that.showPageListSubsidiarySelectActionDrawer(handleData);
+            break;
+          }
+
+          case 'clearParentId': {
+            this.clearParentId(handleData);
+            break;
+          }
+
           case 'refreshCache': {
             that.refreshCache(handleData);
             break;
@@ -255,6 +373,47 @@ class Detail extends DataTabContainerSupplement {
       },
       handleData: metaData,
       items: [
+        {
+          key: 'setLogo',
+          icon: iconBuilder.picture(),
+          text: `设置图片`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.subsidiary.setLogo.permission,
+          ),
+        },
+        {
+          key: 'setSort',
+          icon: iconBuilder.edit(),
+          text: '设置排序值',
+          hidden: !checkHasAuthority(
+            accessWayCollection.subsidiary.setSort.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
+          key: 'showPageListSubsidiarySelectActionDrawer',
+          icon: iconBuilder.edit(),
+          text: `设置上级公司`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.subsidiary.setParentId.permission,
+          ),
+        },
+        {
+          key: 'clearParentId',
+          icon: iconBuilder.clear(),
+          text: '清除上级公司',
+          confirm: true,
+          title: '将要设清除上级公司，确定吗？',
+          disabled: parentId === zeroString,
+          hidden: !checkHasAuthority(
+            accessWayCollection.subsidiary.clearParentId.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
         {
           key: 'refreshCache',
           icon: iconBuilder.reload(),
@@ -313,6 +472,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.subsidiaryId.name,
+          defaultValue: '未设置',
         }),
         canCopy: true,
       },
@@ -321,6 +481,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.shortName.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -328,6 +489,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.fullName.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -335,6 +497,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.sort.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -342,6 +505,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.parentId.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -349,6 +513,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.parentShortName.name,
+          defaultValue: '未设置',
         }),
       },
     ];
@@ -359,9 +524,25 @@ class Detail extends DataTabContainerSupplement {
 
     return (
       <>
+        <ChangeLogoModal
+          externalData={metaData}
+          afterOK={this.afterChangeLogoModalOk}
+        />
+
+        <ChangeSortModal
+          externalData={metaData}
+          afterOK={this.afterChangeSortModalOk}
+        />
+
         <GraphicalSingleSubsidiaryDepartmentTreeDrawer
           maskClosable
           externalData={metaData}
+        />
+
+        <PageListSubsidiarySelectActionDrawer
+          afterSelect={(selectData) => {
+            this.setParentId(selectData);
+          }}
         />
       </>
     );

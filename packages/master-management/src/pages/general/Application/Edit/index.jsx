@@ -484,6 +484,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.applicationId.name,
+          defaultValue: '未设置',
         }),
         canCopy: true,
       },
@@ -492,6 +493,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.shortName.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -499,6 +501,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.applicationSourceName.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -519,6 +522,7 @@ class Edit extends DataTabContainerSupplement {
             data: metaData,
             key: fieldData.type.name,
           }),
+          defaultValue: '未设置',
         }),
       },
     ];

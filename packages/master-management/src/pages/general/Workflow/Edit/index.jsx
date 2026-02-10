@@ -1010,6 +1010,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.workflowId.name,
+          defaultValue: '未设置',
         }),
         canCopy: true,
       },
@@ -1018,6 +1019,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.name.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -1028,7 +1030,7 @@ class Detail extends DataTabContainerSupplement {
             key: fieldData.scope.name,
             convert: convertCollection.number,
           }),
-          defaultValue: '暂未设置',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -1039,7 +1041,7 @@ class Detail extends DataTabContainerSupplement {
             key: fieldData.businessMode.name,
             convert: convertCollection.number,
           }),
-          defaultValue: '暂未设置',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -1050,7 +1052,7 @@ class Detail extends DataTabContainerSupplement {
             key: fieldData.effectiveRange.name,
             convert: convertCollection.number,
           }),
-          defaultValue: '暂未设置',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -1061,7 +1063,7 @@ class Detail extends DataTabContainerSupplement {
             key: fieldData.channel.name,
             convert: convertCollection.string,
           }),
-          defaultValue: '暂未设置',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -1069,6 +1071,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.whetherAllowMultibranchNote.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -1076,6 +1079,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.whetherAllowMultiEndNote.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -1083,6 +1087,8 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.sort.name,
+          convert: convertCollection.string,
+          defaultValue: '未设置',
         }),
       },
     ];

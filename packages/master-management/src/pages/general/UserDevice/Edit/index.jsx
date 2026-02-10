@@ -217,6 +217,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.userDeviceId.name,
+          defaultValue: '未设置',
         }),
         canCopy: true,
       },
@@ -225,7 +226,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.loginName.name,
-          defaultValue: '暂无',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -233,7 +234,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.nickname.name,
-          defaultValue: '暂无',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -241,7 +242,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.phone.name,
-          defaultValue: '暂无',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -249,7 +250,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.deviceCode.name,
-          defaultValue: '暂无',
+          defaultValue: '未设置',
         }),
       },
       {
@@ -260,6 +261,7 @@ class Detail extends DataTabContainerSupplement {
             key: fieldData.deviceType.name,
             convert: convertCollection.string,
           }),
+          defaultValue: '未设置',
         }),
       },
     ];

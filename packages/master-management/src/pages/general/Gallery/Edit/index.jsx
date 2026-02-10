@@ -272,6 +272,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.galleryId.name,
+          defaultValue: '未设置',
         }),
         canCopy: true,
       },
@@ -281,6 +282,7 @@ class Edit extends DataTabContainerSupplement {
           data: metaData,
           key: fieldData.categoryName.name,
           convert: convertCollection.string,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -289,6 +291,7 @@ class Edit extends DataTabContainerSupplement {
           data: metaData,
           key: fieldData.typeNote.name,
           convert: convertCollection.string,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -296,6 +299,7 @@ class Edit extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.sort.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -306,6 +310,7 @@ class Edit extends DataTabContainerSupplement {
             key: fieldData.channel.name,
             convert: convertCollection.string,
           }),
+          defaultValue: '未设置',
         }),
       },
     ];

@@ -325,6 +325,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.masterManagerId.name,
+          defaultValue: '未设置',
         }),
         canCopy: true,
       },
@@ -333,6 +334,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.name.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -340,6 +342,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.phone.name,
+          defaultValue: '未设置',
         }),
       },
       {
@@ -347,6 +350,7 @@ class Detail extends DataTabContainerSupplement {
         value: getValueByKey({
           data: metaData,
           key: fieldData.email.name,
+          defaultValue: '未设置',
         }),
       },
     ];
