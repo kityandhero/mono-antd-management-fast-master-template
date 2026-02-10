@@ -26,7 +26,7 @@ export const fieldData = {
     helper: '',
   },
   questionId: {
-    label: '通告标识',
+    label: '问题标识',
     name: 'questionId',
     helper: '',
   },

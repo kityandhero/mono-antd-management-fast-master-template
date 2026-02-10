@@ -1,4 +1,5 @@
 import { connect } from 'easy-soft-dva';
+import { zeroInt } from 'easy-soft-utility';
 
 import { cardConfig } from 'antd-management-fast-common';
 import { iconBuilder } from 'antd-management-fast-component';
@@ -51,6 +52,14 @@ class AddBasicInfoDrawer extends BaseAddDrawer {
 
   afterImageUploadSuccess = (image) => {
     this.setState({ image: image });
+  };
+
+  fillDefaultInitialValues = () => {
+    const initialValues = {};
+
+    initialValues[fieldData.sort.name] = zeroInt;
+
+    return initialValues;
   };
 
   establishCardCollectionConfig = () => {

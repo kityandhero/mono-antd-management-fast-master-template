@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -16,11 +15,11 @@ import {
 } from '../../services/sqlEntity';
 
 export const sqlEntityTypeCollection = {
-  pageListInfrastructure: "sqlEntity/pageListInfrastructure",
-  pageListBusiness: "sqlEntity/pageListBusiness",
-  getInfrastructure: "sqlEntity/getInfrastructure",
-  getBusiness: "sqlEntity/getBusiness",
-}
+  pageListInfrastructure: 'sqlEntity/pageListInfrastructure',
+  pageListBusiness: 'sqlEntity/pageListBusiness',
+  getInfrastructure: 'sqlEntity/getInfrastructure',
+  getBusiness: 'sqlEntity/getBusiness',
+};
 
 export function buildModel() {
   return {

@@ -323,6 +323,8 @@ export const menuZhCNGeneral = {
   'menu.flow.workflow.edit.fromInfo': '表单设计',
   'menu.flow.workflow.edit.designInfo': '设计配置',
   'menu.flow.workflow.edit.debugCaseInfo': '流程测试',
+  'menu.flow.workflow.edit.tagInfo': '标签设置',
+  'menu.flow.workflow.edit.tagInfo.pageList': '标签列表',
   'menu.flow.workflow.edit.operateLog': '操作日志',
   'menu.flow.workflow.edit.operateLog.pageList': '日志列表',
 

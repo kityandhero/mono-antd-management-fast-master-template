@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -18,13 +17,13 @@ import {
 } from '../../services/applicationCustomerFeedback';
 
 export const applicationCustomerFeedbackTypeCollection = {
-  pageList: "applicationCustomerFeedback/pageList",
-  get: "applicationCustomerFeedback/get",
-  repay: "applicationCustomerFeedback/repay",
-  remove: "applicationCustomerFeedback/remove",
-  refreshCache: "applicationCustomerFeedback/refreshCache",
-  pageListOperateLog: "applicationCustomerFeedback/pageListOperateLog",
-}
+  pageList: 'applicationCustomerFeedback/pageList',
+  get: 'applicationCustomerFeedback/get',
+  repay: 'applicationCustomerFeedback/repay',
+  remove: 'applicationCustomerFeedback/remove',
+  refreshCache: 'applicationCustomerFeedback/refreshCache',
+  pageListOperateLog: 'applicationCustomerFeedback/pageListOperateLog',
+};
 
 export function buildModel() {
   return {

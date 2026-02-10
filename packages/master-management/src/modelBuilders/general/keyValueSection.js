@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -17,12 +16,12 @@ import {
 } from '../../services/keyValueSection';
 
 export const keyValueSectionTypeCollection = {
-  pageList: "keyValueSection/pageList",
-  get: "keyValueSection/get",
-  remove: "keyValueSection/remove",
-  refreshCache: "keyValueSection/refreshCache",
-  refreshAllCache: "keyValueSection/refreshAllCache",
-}
+  pageList: 'keyValueSection/pageList',
+  get: 'keyValueSection/get',
+  remove: 'keyValueSection/remove',
+  refreshCache: 'keyValueSection/refreshCache',
+  refreshAllCache: 'keyValueSection/refreshAllCache',
+};
 
 export function buildModel() {
   return {

@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemotePageListData,
@@ -21,16 +20,16 @@ import {
 } from '../../services/callCenter';
 
 export const callCenterTypeCollection = {
-  pageList: "callCenter/pageList",
-  get: "callCenter/get",
-  addBasicInfo: "callCenter/addBasicInfo",
-  updateBasicInfo: "callCenter/updateBasicInfo",
-  updateSort: "callCenter/updateSort",
-  setOnline: "callCenter/setOnline",
-  setOffline: "callCenter/setOffline",
-  remove: "callCenter/remove",
-  refreshCache: "callCenter/refreshCache",
-}
+  pageList: 'callCenter/pageList',
+  get: 'callCenter/get',
+  addBasicInfo: 'callCenter/addBasicInfo',
+  updateBasicInfo: 'callCenter/updateBasicInfo',
+  updateSort: 'callCenter/updateSort',
+  setOnline: 'callCenter/setOnline',
+  setOffline: 'callCenter/setOffline',
+  remove: 'callCenter/remove',
+  refreshCache: 'callCenter/refreshCache',
+};
 
 export function buildModel() {
   return {

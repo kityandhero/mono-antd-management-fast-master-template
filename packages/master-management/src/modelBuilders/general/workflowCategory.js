@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -28,22 +27,22 @@ import {
 } from '../../services/workflowCategory';
 
 export const workflowCategoryTypeCollection = {
-  pageList: "workflowCategory/pageList",
-  singleList: "workflowCategory/singleList",
-  singleTreeList: "workflowCategory/singleTreeList",
-  get: "workflowCategory/get",
-  addBasicInfo: "workflowCategory/addBasicInfo",
-  updateBasicInfo: "workflowCategory/updateBasicInfo",
-  setImage: "workflowCategory/setImage",
-  setSort: "workflowCategory/setSort",
-  setParentId: "workflowCategory/setParentId",
-  clearParentId: "workflowCategory/clearParentId",
-  setEnable: "workflowCategory/setEnable",
-  setDisable: "workflowCategory/setDisable",
-  refreshCache: "workflowCategory/refreshCache",
-  uploadImage: "workflowCategory/uploadImage",
-  pageListOperateLog: "workflowCategory/pageListOperateLog",
-}
+  pageList: 'workflowCategory/pageList',
+  singleList: 'workflowCategory/singleList',
+  singleTreeList: 'workflowCategory/singleTreeList',
+  get: 'workflowCategory/get',
+  addBasicInfo: 'workflowCategory/addBasicInfo',
+  updateBasicInfo: 'workflowCategory/updateBasicInfo',
+  setImage: 'workflowCategory/setImage',
+  setSort: 'workflowCategory/setSort',
+  setParentId: 'workflowCategory/setParentId',
+  clearParentId: 'workflowCategory/clearParentId',
+  setEnable: 'workflowCategory/setEnable',
+  setDisable: 'workflowCategory/setDisable',
+  refreshCache: 'workflowCategory/refreshCache',
+  uploadImage: 'workflowCategory/uploadImage',
+  pageListOperateLog: 'workflowCategory/pageListOperateLog',
+};
 
 export function buildModel() {
   return {

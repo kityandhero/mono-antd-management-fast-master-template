@@ -1,4 +1,3 @@
-
 import {
   getTacitlyState,
   pretreatmentRemoteListData,
@@ -24,18 +23,18 @@ import {
 } from '../../services/emailSenderAgent';
 
 export const emailSenderAgentTypeCollection = {
-  pageList: "emailSenderAgent/pageList",
-  singleList: "emailSenderAgent/singleList",
-  get: "emailSenderAgent/get",
-  addBasicInfo: "emailSenderAgent/addBasicInfo",
-  updateBasicInfo: "emailSenderAgent/updateBasicInfo",
-  updateSort: "emailSenderAgent/updateSort",
-  setEnable: "emailSenderAgent/setEnable",
-  setDisable: "emailSenderAgent/setDisable",
-  remove: "emailSenderAgent/remove",
-  refreshCache: "emailSenderAgent/refreshCache",
-  pageListOperateLog: "emailSenderAgent/pageListOperateLog",
-}
+  pageList: 'emailSenderAgent/pageList',
+  singleList: 'emailSenderAgent/singleList',
+  get: 'emailSenderAgent/get',
+  addBasicInfo: 'emailSenderAgent/addBasicInfo',
+  updateBasicInfo: 'emailSenderAgent/updateBasicInfo',
+  updateSort: 'emailSenderAgent/updateSort',
+  setEnable: 'emailSenderAgent/setEnable',
+  setDisable: 'emailSenderAgent/setDisable',
+  remove: 'emailSenderAgent/remove',
+  refreshCache: 'emailSenderAgent/refreshCache',
+  pageListOperateLog: 'emailSenderAgent/pageListOperateLog',
+};
 
 export function buildModel() {
   return {

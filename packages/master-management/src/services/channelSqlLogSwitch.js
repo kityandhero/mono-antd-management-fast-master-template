@@ -1,4 +1,3 @@
-
 import { request } from 'easy-soft-utility';
 
 export const pageListDataApiAddress = '/channelSqlLogSwitch/pageList';
@@ -28,7 +27,8 @@ export async function getData(parameters) {
   });
 }
 
-export const updateKeyValueInfoDataApiAddress = '/channelSqlLogSwitch/updateKeyValueInfo';
+export const updateKeyValueInfoDataApiAddress =
+  '/channelSqlLogSwitch/updateKeyValueInfo';
 
 export async function updateKeyValueInfoData(parameters) {
   return request({
@@ -45,4 +45,3 @@ export async function refreshCacheData(parameters) {
     params: parameters,
   });
 }
-

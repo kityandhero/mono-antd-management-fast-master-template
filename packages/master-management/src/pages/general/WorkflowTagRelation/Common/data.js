@@ -1,6 +1,22 @@
 import { formNameCollection } from '../../../../customConfig';
 
-const fieldExtraData = {};
+const fieldExtraData = {
+  tagName: {
+    label: '标签名称',
+    name: 'tagName',
+    helper: '',
+  },
+  tagDisplayName: {
+    label: '标签显示名',
+    name: 'tagDisplayName',
+    helper: '',
+  },
+  color: {
+    label: '色值 ',
+    name: 'color',
+    helper: '',
+  },
+};
 
 export const fieldData = {
   ...formNameCollection,
@@ -9,22 +25,15 @@ export const fieldData = {
     name: 'workflowTagRelationId',
     helper: '',
   },
+  workflowId: {
+    label: '流程标识',
+    name: 'workflowId',
+    helper: '',
+  },
+  tagId: {
+    label: '用户标识',
+    name: 'tagId',
+    helper: '',
+  },
   ...fieldExtraData,
-};
-
-/**
- * 状态值集合
- */
-export const statusCollection = {
-  /**
-   * 已禁用
-   * value : 0
-   */
-  disable: 0,
-
-  /**
-   * 已启用
-   * value : 100
-   */
-  enable: 100,
 };

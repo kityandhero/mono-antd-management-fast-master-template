@@ -107,12 +107,12 @@ class PageListWorkflowCategorySelectActionDrawer extends MultiPageDrawer {
       text: '选取',
       placement: 'topRight',
       icon: iconBuilder.select(),
-      handleButtonClick: ({ handleData }) => {
-        this.onSelect(handleData);
-      },
       handleData: item,
       confirm: true,
       title: '即将设为此项，确定吗？',
+      handleButtonClick: ({ handleData }) => {
+        this.onSelect(handleData);
+      },
     };
   };
 

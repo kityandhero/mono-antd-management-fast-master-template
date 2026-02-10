@@ -12,7 +12,7 @@ export async function addAction({
   successMessage = null,
 }) {
   actionCore({
-    api: modelTypeCollection.questionTagRelationTypeCollection.add,
+    api: modelTypeCollection.workflowTagRelationTypeCollection.add,
     params: handleData,
     target,
     handleData,
@@ -28,11 +28,11 @@ export async function addBatchAction({
   successMessage = null,
 }) {
   actionCore({
-    api: modelTypeCollection.questionTagRelationTypeCollection.addBatch,
+    api: modelTypeCollection.workflowTagRelationTypeCollection.addBatch,
     params: {
-      questionId: getValueByKey({
+      workflowId: getValueByKey({
         data: handleData,
-        key: fieldData.questionId.name,
+        key: fieldData.workflowId.name,
         defaultValue: '',
       }),
       tagIdCollection: getValueByKey({
@@ -55,11 +55,11 @@ export async function removeAction({
   successMessage,
 }) {
   actionCore({
-    api: modelTypeCollection.questionTagRelationTypeCollection.remove,
+    api: modelTypeCollection.workflowTagRelationTypeCollection.remove,
     params: {
-      questionId: getValueByKey({
+      workflowId: getValueByKey({
         data: handleData,
-        key: fieldData.questionId.name,
+        key: fieldData.workflowId.name,
         defaultValue: '',
       }),
       tagId: getValueByKey({

@@ -1979,6 +1979,21 @@ export const flow = {
               component: './general/Workflow/Edit/DebugCaseInfo',
             },
             {
+              path: '/flow/workflow/edit/:op/:id/:pageKey/tagInfo',
+              name: 'tagInfo',
+              routes: [
+                {
+                  path: '/flow/workflow/edit/:op/:id/:pageKey/tagInfo',
+                  redirect:
+                    '/flow/workflow/edit/:op/:id/:pageKey/tagInfo/pageList',
+                },
+                {
+                  path: '/flow/workflow/edit/:op/:id/:pageKey/tagInfo/pageList',
+                  component: './general/Workflow/Edit/TagInfo/PageList',
+                },
+              ],
+            },
+            {
               path: '/flow/workflow/edit/:op/:id/:pageKey/operateLog',
               name: 'operateLog',
               routes: [

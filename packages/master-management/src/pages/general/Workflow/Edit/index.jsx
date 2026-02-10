@@ -109,6 +109,13 @@ class Detail extends DataTabContainerSupplement {
       tab: '适用的外部部门',
     },
     {
+      key: 'tagInfo/pageList',
+      hidden: !checkHasAuthority(
+        accessWayCollection.workflowTagRelation.pageList.permission,
+      ),
+      tab: '标签设置',
+    },
+    {
       key: 'operateLog/pageList',
       hidden: !checkHasAuthority(
         accessWayCollection.workflow.pageListOperateLog.permission,
@@ -508,6 +515,16 @@ class Detail extends DataTabContainerSupplement {
       convert: convertCollection.number,
     });
 
+    const status = getValueByKey({
+      data: metaData,
+      key: fieldData.status.name,
+      convert: convertCollection.number,
+    });
+
+    const statusNote = getFlowStatusName({
+      value: status,
+    });
+
     return [
       {
         color: 'blue',
@@ -523,6 +540,16 @@ class Detail extends DataTabContainerSupplement {
         color: 'orange',
         text: '移动端',
         hidden: availableOnMobileSwitch !== whetherNumber.yes,
+      },
+      {
+        color: 'red',
+        text: statusNote,
+        hidden: status !== flowStatusCollection.disable,
+      },
+      {
+        color: 'green',
+        text: statusNote,
+        hidden: status !== flowStatusCollection.enable,
       },
     ];
   };

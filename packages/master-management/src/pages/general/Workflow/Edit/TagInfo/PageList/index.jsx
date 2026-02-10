@@ -20,25 +20,25 @@ import { DataMultiPageView } from 'antd-management-fast-framework';
 
 import { accessWayCollection } from '../../../../../../customConfig';
 import { modelTypeCollection } from '../../../../../../modelBuilders';
+import { fieldData as fieldDataTag } from '../../../../Tag/Common/data';
+import { SelectWithWorkflowDrawerButton as TagSelectWithWorkflowDrawerButton } from '../../../../Tag/SelectWithWorkflowDrawerButton';
 import {
   addBatchAction,
   refreshCacheAction,
   removeAction,
-} from '../../../../QuestionTagRelation/Assist/action';
-import { fieldData } from '../../../../QuestionTagRelation/Common/data';
-import { fieldData as fieldDataTag } from '../../../../Tag/Common/data';
-import { SelectWithQuestionDrawerButton as TagSelectWithQuestionDrawerButton } from '../../../../Tag/SelectWithQuestionDrawerButton';
+} from '../../../../WorkflowTagRelation/Assist/action';
+import { fieldData } from '../../../../WorkflowTagRelation/Common/data';
 import { parseUrlParametersForSetState } from '../../../Assist/config';
 
 const { InnerMultiPage } = DataMultiPageView;
 
-@connect(({ questionTagRelation, schedulingControl }) => ({
-  questionTagRelation,
+@connect(({ workflowTagRelation, schedulingControl }) => ({
+  workflowTagRelation,
   schedulingControl,
 }))
 class PageList extends InnerMultiPage {
   componentAuthority =
-    accessWayCollection.questionTagRelation.pageList.permission;
+    accessWayCollection.workflowTagRelation.pageList.permission;
 
   constructor(properties) {
     super(properties);
@@ -47,8 +47,8 @@ class PageList extends InnerMultiPage {
       ...this.state,
       showOverlay: false,
       loadApiPath:
-        modelTypeCollection.questionTagRelationTypeCollection.pageList,
-      questionId: null,
+        modelTypeCollection.workflowTagRelationTypeCollection.pageList,
+      workflowId: null,
       currentRecord: null,
     };
   }
@@ -64,9 +64,9 @@ class PageList extends InnerMultiPage {
 
   supplementLoadRequestParams = (o) => {
     const d = o;
-    const { questionId } = this.state;
+    const { workflowId } = this.state;
 
-    d.questionId = questionId;
+    d.workflowId = workflowId;
 
     return d;
   };
@@ -90,7 +90,7 @@ class PageList extends InnerMultiPage {
   };
 
   addBatch = (listTag) => {
-    const { questionId } = this.state;
+    const { workflowId } = this.state;
 
     if (!isArray(listTag)) {
       showSimpleErrorMessage('用户标识集合无效');
@@ -117,7 +117,7 @@ class PageList extends InnerMultiPage {
     addBatchAction({
       target: that,
       handleData: {
-        questionId,
+        workflowId,
         tagIdCollection,
       },
       successCallback: ({ target }) => {
@@ -132,9 +132,9 @@ class PageList extends InnerMultiPage {
   };
 
   remove = (record) => {
-    const questionId = getValueByKey({
+    const workflowId = getValueByKey({
       data: record,
-      key: fieldData.questionId.name,
+      key: fieldData.workflowId.name,
       defaultValue: '',
     });
 
@@ -147,7 +147,7 @@ class PageList extends InnerMultiPage {
     removeAction({
       target: this,
       handleData: {
-        questionId,
+        workflowId,
         tagId,
       },
       successCallback: ({ target }) => {
@@ -185,9 +185,9 @@ class PageList extends InnerMultiPage {
       {
         buildType: listViewConfig.dataContainerExtraActionBuildType.component,
         component: (
-          <TagSelectWithQuestionDrawerButton
-            label="增加问题标签"
-            text="增加问题标签"
+          <TagSelectWithWorkflowDrawerButton
+            label="增加流程标签"
+            text="增加流程标签"
             icon={iconBuilder.select()}
             afterSelectSuccess={(o) => {
               this.addBatch(o);
@@ -206,7 +206,7 @@ class PageList extends InnerMultiPage {
       confirm: true,
       title: '即将移除此项，确定吗？',
       disabled: !checkHasAuthority(
-        accessWayCollection.questionTagRelation.remove.permission,
+        accessWayCollection.workflowTagRelation.remove.permission,
       ),
       handleButtonClick: ({ handleData }) => {
         this.remove(handleData);
@@ -221,7 +221,7 @@ class PageList extends InnerMultiPage {
           icon: iconBuilder.reload(),
           text: '刷新缓存',
           hidden: !checkHasAuthority(
-            accessWayCollection.questionTagRelation.refreshCache.permission,
+            accessWayCollection.workflowTagRelation.refreshCache.permission,
           ),
           confirm: {
             title: '即将刷新缓存，确定吗？',
@@ -233,7 +233,7 @@ class PageList extends InnerMultiPage {
 
   getColumnWrapper = () => [
     {
-      dataTarget: fieldData.questionTagRelationId,
+      dataTarget: fieldData.workflowTagRelationId,
       width: 120,
       showRichFacade: true,
       canCopy: true,
