@@ -66,6 +66,11 @@ const formExtraData = {
     name: 'tagIdCollection',
     helper: '',
   },
+  tagName: {
+    label: '标签',
+    name: 'tagName',
+    helper: '',
+  },
 };
 
 export const fieldDataFlow = {

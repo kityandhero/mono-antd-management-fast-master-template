@@ -6,6 +6,7 @@ import {
   getValueByKey,
   showSimpleErrorMessage,
   whetherNumber,
+  zeroString,
 } from 'easy-soft-utility';
 
 import {
@@ -33,14 +34,17 @@ import { modelTypeCollection } from '../../../../modelBuilders';
 import { PageListDrawer as WorkflowBranchConditionPageListDrawer } from '../../WorkflowBranchCondition/PageListDrawer';
 import { PageListDrawer as WorkflowBranchConditionItemPageListDrawer } from '../../WorkflowBranchConditionItem/PageListDrawer';
 import { WorkflowCasePageListUnderwayDrawer } from '../../WorkflowCase/PageListUnderwayDrawer';
+import { PageListWorkflowCategorySelectActionDrawer } from '../../WorkflowCategory/PageListSelectActionDrawer';
 import { WorkflowDebugCasePageListUnderwayDrawer } from '../../WorkflowDebugCase/PageListUnderwayDrawer';
 import { PageListDrawer as WorkflowLinePageListDrawer } from '../../WorkflowLine/PageListDrawer';
 import { PageListDrawer as WorkflowNodePageListDrawer } from '../../WorkflowNode/PageListDrawer';
 import { PageListDrawer as WorkflowNodeApproverPageListDrawer } from '../../WorkflowNodeApprover/PageListDrawer';
 import {
+  clearWorkflowCategoryIdAction,
   refreshCacheAction,
   setDisableAction,
   setEnableAction,
+  setWorkflowCategoryIdAction,
   toggleApplicantSignSwitchAction,
   toggleAttentionSignSwitchAction,
   toggleAvailableOnMobileSwitchAction,
@@ -300,6 +304,39 @@ class Detail extends DataTabContainerSupplement {
     });
   };
 
+  setWorkflowCategoryId = (o) => {
+    const { metaData } = this.state;
+
+    setWorkflowCategoryIdAction({
+      target: this,
+      handleData: {
+        workflowId: getValueByKey({
+          data: metaData,
+          key: fieldData.workflowId.name,
+          convert: convertCollection.string,
+        }),
+        workflowCategoryId: getValueByKey({
+          data: o,
+          key: fieldData.workflowCategoryId.name,
+          convert: convertCollection.string,
+        }),
+      },
+      successCallback: ({ target }) => {
+        target.refreshDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
+  clearWorkflowCategoryId = (r) => {
+    clearWorkflowCategoryIdAction({
+      target: this,
+      handleData: r,
+      successCallback: ({ target }) => {
+        target.refreshDataWithReloadAnimalPrompt({});
+      },
+    });
+  };
+
   setEnable = (r) => {
     setEnableAction({
       target: this,
@@ -462,6 +499,10 @@ class Detail extends DataTabContainerSupplement {
 
   showCreateDuplicateModal = () => {
     CreateDuplicateModal.open();
+  };
+
+  showPageListWorkflowCategorySelectActionDrawer = () => {
+    PageListWorkflowCategorySelectActionDrawer.open();
   };
 
   afterCreateDuplicateModalOk = ({
@@ -747,6 +788,12 @@ class Detail extends DataTabContainerSupplement {
       convert: convertCollection.number,
     });
 
+    const workflowCategoryId = getValueByKey({
+      data: metaData,
+      key: fieldData.workflowCategoryId.name,
+      convert: convertCollection.string,
+    });
+
     return {
       disabled: this.checkInProgress(),
       handleMenuClick: ({ key, handleData }) => {
@@ -808,6 +855,16 @@ class Detail extends DataTabContainerSupplement {
 
           case 'showChangeSortModal': {
             that.showChangeSortModal(handleData);
+            break;
+          }
+
+          case 'showPageListWorkflowCategorySelectActionDrawer': {
+            this.showPageListWorkflowCategorySelectActionDrawer(handleData);
+            break;
+          }
+
+          case 'clearWorkflowCategoryId': {
+            this.clearWorkflowCategoryId(handleData);
             break;
           }
 
@@ -983,6 +1040,28 @@ class Detail extends DataTabContainerSupplement {
           type: dropdownExpandItemType.divider,
         },
         {
+          key: 'showPageListWorkflowCategorySelectActionDrawer',
+          icon: iconBuilder.edit(),
+          text: `设置类别`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.setWorkflowCategoryId.permission,
+          ),
+        },
+        {
+          key: 'clearWorkflowCategoryId',
+          icon: iconBuilder.clear(),
+          text: '清除类别',
+          confirm: true,
+          title: '将要设清除类别，确定吗？',
+          disabled: workflowCategoryId === zeroString,
+          hidden: !checkHasAuthority(
+            accessWayCollection.workflow.clearWorkflowCategoryId.permission,
+          ),
+        },
+        {
+          type: dropdownExpandItemType.divider,
+        },
+        {
           key: 'showCreateDuplicateModal',
           icon: iconBuilder.copy(),
           text: '复制流程',
@@ -1118,6 +1197,24 @@ class Detail extends DataTabContainerSupplement {
           defaultValue: '未设置',
         }),
       },
+      {
+        label: fieldData.workflowCategoryName.label,
+        value: getValueByKey({
+          data: metaData,
+          key: fieldData.workflowCategoryName.name,
+          convert: convertCollection.string,
+          defaultValue: '未设置',
+        }),
+      },
+      {
+        label: fieldData.tagName.label,
+        value: getValueByKey({
+          data: metaData,
+          key: fieldData.tagName.name,
+          convert: convertCollection.string,
+          defaultValue: '未设置',
+        }),
+      },
     ];
   };
 
@@ -1234,6 +1331,13 @@ class Detail extends DataTabContainerSupplement {
           hidden={!firstLoadSuccess}
           afterOK={(o) => {
             this.afterCreateDuplicateModalOk(o);
+          }}
+        />
+
+        <PageListWorkflowCategorySelectActionDrawer
+          width={1000}
+          afterSelect={(selectData) => {
+            this.setWorkflowCategoryId(selectData);
           }}
         />
       </>
