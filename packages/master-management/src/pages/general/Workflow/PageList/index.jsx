@@ -7,6 +7,7 @@ import {
   convertCollection,
   getValueByKey,
   handleItem,
+  showInfoMessage,
   showSimpleErrorMessage,
   toNumber,
   whetherNumber,
@@ -664,6 +665,69 @@ class PageList extends MultiPage {
           handleClick: () => {
             this.refreshAllWorkflowEntityCache();
           },
+        },
+      ],
+    };
+  };
+
+  establishToolBarConfig = () => {
+    return {
+      stick: false,
+      title: '工具栏',
+      tools: [
+        {
+          title: '按钮提示1',
+          component: buildButton({
+            text: '按钮1',
+            handleClick: () => {
+              showInfoMessage({
+                text: 'click button 4',
+              });
+            },
+            disabled: false,
+          }),
+        },
+        {
+          title: '按钮提示2',
+          hidden: false,
+          component: buildButton({
+            text: '按钮2',
+            handleClick: () => {
+              showInfoMessage({
+                text: 'click button 4',
+              });
+            },
+          }),
+        },
+        {
+          title: '按钮提示2',
+          hidden: false,
+          component: buildButton({
+            text: '按钮2',
+            handleClick: () => {
+              showInfoMessage({
+                text: 'click button 4',
+              });
+            },
+            processing: true,
+          }),
+        },
+        {
+          title: '按钮提示4',
+          hidden: false,
+          component: buildButton({
+            text: '按钮4',
+            handleClick: () => {
+              showInfoMessage({
+                text: 'click button 4',
+              });
+            },
+            confirm: true,
+            placement: 'topRight',
+            title: '将要进行操作，确定吗？',
+            okText: '确定',
+            cancelText: '取消',
+          }),
         },
       ],
     };
