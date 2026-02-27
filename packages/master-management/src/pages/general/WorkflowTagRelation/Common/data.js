@@ -37,3 +37,14 @@ export const fieldData = {
   },
   ...fieldExtraData,
 };
+
+/**
+ * 状态值集合
+ */
+export const statusCollection = {
+  /**
+   * 正常
+   * value : 100
+   */
+  normal: 100,
+};
