@@ -189,7 +189,7 @@ class Index extends InnerMultiPage {
     return {
       list: [
         {
-          lg: 6,
+          lg: 12,
           type: searchCardConfig.contentItemType.input,
           fieldData: fieldData.name,
         },

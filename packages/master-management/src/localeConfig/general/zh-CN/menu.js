@@ -439,6 +439,24 @@ export const menuZhCNGeneral = {
   'menu.news.section.edit.operateLog': '操作日志',
   'menu.news.section.edit.operateLog.pageList': '日志列表',
 
+  'menu.news.article': '文章管理',
+  'menu.news.article-mini': '文章',
+  'menu.news.article.pageList': '文章列表',
+  'menu.news.article.pageList-mini': '列表',
+  'menu.news.article.edit': '文章详情',
+  'menu.news.article.edit.basicInfo': '基本信息',
+  'menu.news.article.edit.contentInfo': 'H5信息',
+  'menu.news.article.edit.mediaInfo': '媒体信息',
+  'menu.news.article.edit.articleSectionRelation': '栏目绑定',
+  'menu.news.article.edit.articleSectionRelation.pageList': '绑定列表',
+  'menu.news.article.edit.operateLog': '操作日志',
+  'menu.news.article.edit.operateLog.pageList': '日志列表',
+
+  'menu.news.articleComment': '评论管理',
+  'menu.news.articleComment-mini': '评论',
+  'menu.news.articleComment.pageList': '评论列表',
+  'menu.news.articleComment.pageList-mini': '列表',
+
   'menu.survey': '问卷相关',
   'menu.survey-mini': '问卷',
 

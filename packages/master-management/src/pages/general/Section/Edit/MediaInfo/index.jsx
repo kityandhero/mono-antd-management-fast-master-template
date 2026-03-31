@@ -464,7 +464,7 @@ class MediaInfo extends TabPageBase {
                   icon: iconBuilder.arrowUp(),
                   text: '向上移动',
                   hidden: !checkHasAuthority(
-                    accessWayCollection.section.updateSort.permission,
+                    accessWayCollection.section.setSort.permission,
                   ),
                   disabled: sort === 1,
                 },
@@ -473,7 +473,7 @@ class MediaInfo extends TabPageBase {
                   icon: iconBuilder.arrowDown(),
                   text: '向下移动',
                   hidden: !checkHasAuthority(
-                    accessWayCollection.section.updateSort.permission,
+                    accessWayCollection.section.setSort.permission,
                   ),
                   disabled: sort === (mediaItemList || []).length,
                 },

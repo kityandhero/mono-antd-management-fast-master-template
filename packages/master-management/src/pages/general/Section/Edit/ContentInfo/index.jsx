@@ -33,8 +33,7 @@ class ContentInfo extends TabPageBase {
     this.state = {
       ...this.state,
       loadApiPath: modelTypeCollection.sectionTypeCollection.get,
-      submitApiPath:
-        modelTypeCollection.sectionTypeCollection.updateContentInfo,
+      submitApiPath: modelTypeCollection.sectionTypeCollection.setContentInfo,
       sectionId: null,
       initContent: '',
       contentPreview: '',
@@ -147,7 +146,7 @@ class ContentInfo extends TabPageBase {
               {
                 buildType: cardConfig.extraBuildType.save,
                 hidden: !checkHasAuthority(
-                  accessWayCollection.section.updateContentInfo.permission,
+                  accessWayCollection.section.setContentInfo.permission,
                 ),
               },
             ],

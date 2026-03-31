@@ -41,6 +41,14 @@
       "coverFile": false
     },
     {
+      "folder": "general/article/Edit/BasicInfo",
+      "name": "article",
+      "model": "article",
+      "key": "articleId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/CallCenter/Edit/BasicInfo",
       "name": "CallCenter",
       "model": "callCenter",

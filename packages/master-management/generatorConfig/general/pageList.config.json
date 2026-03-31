@@ -49,6 +49,30 @@
       "coverFile": false
     },
     {
+      "folder": "general/article/PageList",
+      "name": "article",
+      "model": "article",
+      "key": "articleId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/articleComment/PageList",
+      "name": "articleComment",
+      "model": "articleComment",
+      "key": "articleCommentId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/articleSectionRelation/PageList",
+      "name": "articleSectionRelation",
+      "model": "articleSectionRelation",
+      "key": "articleSectionRelationId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/BusinessSet/PageList",
       "name": "BusinessSet",
       "model": "businessSet",

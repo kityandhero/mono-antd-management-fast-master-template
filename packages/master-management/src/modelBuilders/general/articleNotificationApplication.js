@@ -12,14 +12,14 @@ import {
   getData,
   pageListData,
   refreshCacheData,
-  updateBasicInfoData,
+  setApplicationIdData,
 } from '../../services/articleNotificationApplication';
 
 export const articleNotificationApplicationTypeCollection = {
   pageList: 'articleNotificationApplication/pageList',
   get: 'articleNotificationApplication/get',
   addBasicInfo: 'articleNotificationApplication/addBasicInfo',
-  updateBasicInfo: 'articleNotificationApplication/updateBasicInfo',
+  setApplicationId: 'articleNotificationApplication/setApplicationId',
   refreshCache: 'articleNotificationApplication/refreshCache',
 };
 
@@ -110,7 +110,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateBasicInfo(
+      *setApplicationId(
         {
           payload,
           alias,
@@ -119,7 +119,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateBasicInfoData, payload);
+        const response = yield call(setApplicationIdData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

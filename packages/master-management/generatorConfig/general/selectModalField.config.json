@@ -1,6 +1,22 @@
 {
   "list": [
     {
+      "folder": "general/article/SelectModalField",
+      "name": "article",
+      "model": "article",
+      "key": "articleId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SmsCategory/SelectModalField",
+      "name": "SmsCategory",
+      "model": "smsCategory",
+      "key": "smsCategoryId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/Tag/SelectModalField",
       "name": "Tag",
       "model": "tag",

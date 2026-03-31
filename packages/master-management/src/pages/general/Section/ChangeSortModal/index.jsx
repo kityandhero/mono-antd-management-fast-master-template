@@ -11,6 +11,7 @@ const { BaseUpdateModal } = DataModal;
 
 // 显隐控制标记, 必须设置, 标记需要全局唯一
 const visibleFlag = 'fc6181f352254316b6dffa8c64e157d8';
+
 @connect(({ section, schedulingControl }) => ({
   section,
   schedulingControl,
@@ -27,7 +28,7 @@ class ChangeSortModal extends BaseUpdateModal {
       ...this.state,
       pageTitle: '排序值设置',
       loadApiPath: modelTypeCollection.sectionTypeCollection.get,
-      submitApiPath: modelTypeCollection.sectionTypeCollection.updateSort,
+      submitApiPath: modelTypeCollection.sectionTypeCollection.setSort,
     };
   }
 

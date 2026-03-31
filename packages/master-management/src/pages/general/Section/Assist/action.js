@@ -3,6 +3,7 @@ import { ellipsis, getValueByKey } from 'easy-soft-utility';
 import { actionCore, confirmActionCore } from 'antd-management-fast-common';
 
 import { keyValueItemData } from '../../../../customConfig';
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 export function singleTreeListAction({
@@ -30,7 +31,7 @@ export function toggleRecommendAction({
   successMessage,
 }) {
   actionCore({
-    api: 'section/toggleRecommend',
+    api: modelTypeCollection.sectionTypeCollection.toggleRecommend,
     params: {
       sectionId: getValueByKey({
         data: handleData,
@@ -51,7 +52,7 @@ export function toggleTopAction({
   successMessage,
 }) {
   actionCore({
-    api: 'section/toggleTop',
+    api: modelTypeCollection.sectionTypeCollection.toggleTop,
     params: {
       sectionId: getValueByKey({
         data: handleData,
@@ -72,7 +73,7 @@ export function toggleVisibleAction({
   successMessage,
 }) {
   actionCore({
-    api: 'section/toggleVisible',
+    api: modelTypeCollection.sectionTypeCollection.toggleVisible,
     params: {
       sectionId: getValueByKey({
         data: handleData,
@@ -93,7 +94,7 @@ export function setOnlineAction({
   successMessage,
 }) {
   actionCore({
-    api: 'section/setOnline',
+    api: modelTypeCollection.sectionTypeCollection.setOnline,
     params: {
       sectionId: getValueByKey({
         data: handleData,
@@ -114,7 +115,7 @@ export function setOfflineAction({
   successMessage,
 }) {
   actionCore({
-    api: 'section/setOffline',
+    api: modelTypeCollection.sectionTypeCollection.setOffline,
     params: {
       sectionId: getValueByKey({
         data: handleData,
@@ -135,7 +136,7 @@ export async function refreshCacheAction({
   successMessage,
 }) {
   actionCore({
-    api: 'section/refreshCache',
+    api: modelTypeCollection.sectionTypeCollection.refreshCache,
     params: {
       sectionId: getValueByKey({
         data: handleData,

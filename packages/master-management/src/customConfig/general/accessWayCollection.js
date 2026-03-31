@@ -510,6 +510,165 @@ export const accessWayInfrastructureCollection = {
       permission: '4071c77a526b4b98a32eed0e1cf76544',
     },
   },
+  article: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: 'caf527705a0da436bb1d4fb45f63d503',
+      permission: '027468c6dd154032b4d8409b83f0cab8',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: 'caf527705a0da436bb1d4fb45f63d503',
+      permission: '027468c6dd154032b4d8409b83f0cab8',
+    },
+    addBasicInfo: {
+      title: '新增基础信息',
+      paramsKey: 'fa554c605e485fb5faa73b929eff6fef',
+      permission: '546b66dca044498c9d9cc33a49f1757a',
+    },
+    updateBasicInfo: {
+      title: '更新基础信息',
+      paramsKey: '50caee48bb17249900600719afba7883',
+      permission: 'b7898762a7214cb09d11c0746a27581f',
+    },
+    setImage: {
+      title: '设置图片',
+      paramsKey: 'a31f9192ed70a48129dd4a884744f302',
+      permission: '3fd0310a8902490ebbe610db504eecfe',
+    },
+    setRectangleImage: {
+      title: '设置长方形配图',
+      paramsKey: '30a45febb9fc50ac27c23e742cc4c254',
+      permission: '823d1df13d184b32902502e009596138',
+    },
+    setContentInfo: {
+      title: '设置图文H5',
+      paramsKey: '7fce75b155f335e265c466a1f66ee238',
+      permission: '95181fde28714e10b6e36e4e222fcf8a',
+    },
+    setRenderType: {
+      title: '设置渲染模式',
+      paramsKey: '722801e4187546bb00e9712027574bb8',
+      permission: '0b7a117a345e4e3383f017ff47c66621',
+    },
+    setSort: {
+      title: '设置排序值',
+      paramsKey: '5cac506653f388bfbb0d477ea875ed5d',
+      permission: '15ec14295f1948e4aaea4fd0c2650de6',
+    },
+    toggleRecommend: {
+      title: '切换推荐',
+      paramsKey: 'e58b5fd431257eaf8a81d69920dcd301',
+      permission: '92191587deac43ba890478268fdb9a77',
+    },
+    toggleTop: {
+      title: '切换置顶',
+      paramsKey: '0ebf269de60a65ba61c20484312eaee4',
+      permission: '65ee574f564e4bfb8bee277b1b7a3b3d',
+    },
+    toggleVisible: {
+      title: '切换可见性',
+      paramsKey: '739cd0e9800240c49614989dc7b856e8',
+      permission: 'de15b9e2b1c94fdba7b89a805d83f364',
+    },
+    setOnline: {
+      title: '设为上线',
+      paramsKey: '545a92f4bb9fbe9556c3fb4f6754ec19',
+      permission: '994ac43232484b788336171b02f3c949',
+    },
+    setOffline: {
+      title: '设为下线',
+      paramsKey: 'af376410dc3beb38cf52140336bba6f3',
+      permission: '527496db23894d5b9437e83959b90033',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '27f0bbf9c48487959ef8aa11ca2ae3e0',
+      permission: 'bb0a3ba7fbb84f16b5fac836893c0a85',
+    },
+    remove: {
+      title: '移除',
+      paramsKey: 'e14c75d4476f8b5c2111239b5a2c6237',
+      permission: '23327618221a419f9e13e4c5861b8625',
+    },
+    getMediaItem: {
+      title: '获取媒体条目',
+      paramsKey: '59e0a4f620dac10ccac8fd74ba21f8ea',
+      permission: '11d9587a285842a6b9c3afc1e7d69262',
+    },
+    addMediaItem: {
+      title: '增加媒体条目',
+      paramsKey: 'd20bf8c4bd4b87b161001818d2bfb0ba',
+      permission: 'fc4e23d2092e4300bfca565db4f5d974',
+    },
+    updateMediaItem: {
+      title: '更新媒体条目',
+      paramsKey: '4d22ab6b91286f3ee224429fdf52b87f',
+      permission: 'b48b1ea7633845ab96a8d016f59a5d38',
+    },
+    setMediaCollectionSort: {
+      title: '设置媒体条目顺序',
+      paramsKey: 'ada31dbcf66420a4516d39c8cfe6acef',
+      permission: '01daf49db072453686884691fb17bb5a',
+    },
+    removeMediaItem: {
+      title: '移除媒体条目',
+      paramsKey: '2c281926a3aa5b81d7b8ed4e6350c6d3',
+      permission: '758176ac9ec142c28c1f573e47bb67fd',
+    },
+    pageListOperateLog: {
+      title: '操作日志列表',
+      paramsKey: 'b7da49e0fdf52edb7780088295841d22',
+      permission: '8a4b7640295d4acdad020c09026fcff0',
+    },
+    uploadImage: {
+      title: '上传图片文件',
+      paramsKey: '7118ffd79a6e9106c1725aa5153d20cd',
+      permission: '87a1424e00a3445ea01231fb9aa19c5f',
+    },
+    uploadVideo: {
+      title: '上传视频文件',
+      paramsKey: '7b5d31955eafde974e0633bbf14971fd',
+      permission: 'ce245f7abc0541cb98ccb2418a91bddb',
+    },
+    uploadAudio: {
+      title: '上传音频文件',
+      paramsKey: '4472edafa551e22778c2423672a3ab13',
+      permission: 'fec36c5606974d7ba60b72f30658182f',
+    },
+    uploadFile: {
+      title: '上传附件文件',
+      paramsKey: '928cbd06005dfd7e43d5e1a61d9842f7',
+      permission: 'a66a3487106b45f7a7c253400197e4dc',
+    },
+    uploadFileBase64: {
+      title: '上传附件文件[转换为Base64]',
+      paramsKey: 'a2844a574158cbcddb5b0ffa6266ea14',
+      permission: '50093f01f7634811af8cfeeaa878bb39',
+    },
+  },
+  articleComment: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: 'b3d450971377c6473f45be6f0063b5ce',
+      permission: '4341efcb112a45df957fc6ca12aae1a7',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '78caa348e2a76123c4f8952c5d62a5f4',
+      permission: '77e30c1463db4cb98830a75594c47201',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '6e5c7e45effccf80c1c50fb032c6b25c',
+      permission: 'aa9c45cffdd24a098ebe4291403e3cbd',
+    },
+    remove: {
+      title: '移除',
+      paramsKey: '3b152e65ed321145227a5f76655c353c',
+      permission: '3aa2ef0c9b134f22a8fb76fd86057c5f',
+    },
+  },
   articleNotificationApplication: {
     pageList: {
       title: '分页列表',
@@ -526,8 +685,8 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'ba5ae44c1cffbaf29ae2840803cd60ed',
       permission: '2bf1169e293c4fb0ac41961b2e1197d9',
     },
-    updateBasicInfo: {
-      title: '更新信息',
+    setApplicationId: {
+      title: '设置应用标识',
       paramsKey: '1c3a147f418c646d6da349a3715cb72d',
       permission: '5116fbfe4e2443288047e1c86b38601f',
     },
@@ -535,6 +694,38 @@ export const accessWayInfrastructureCollection = {
       title: '刷新缓存',
       paramsKey: '8aaff1fd9e2de337ebee7f8f87e775fc',
       permission: 'aa8d3178388d44f2a2bd2eac0c5e5155',
+    },
+  },
+  articleSectionRelation: {
+    pageList: {
+      title: '分页列表',
+      paramsKey: 'd39389162d24d7c5ac6d5450397c0c5a',
+      permission: '19e7614ef7cf4050a8fba5ca4f4cdc0a',
+    },
+    singleList: {
+      title: '分页列表',
+      paramsKey: '641b6d2eadb478a16b00f92357f454df',
+      permission: 'b7e9a957950d49ae85fb9e1ce3333f4a',
+    },
+    get: {
+      title: '获取详情',
+      paramsKey: '8fdb6c0f1e6ede5130f2fcc832744f38',
+      permission: 'a51257f2208e44aeaa9d165c9072f8cb',
+    },
+    add: {
+      title: '绑定栏目',
+      paramsKey: 'ca45be34306b81c7060b04e2a702d76c',
+      permission: 'eb6322a6c85c497da77449fd366df040',
+    },
+    refreshCache: {
+      title: '刷新缓存',
+      paramsKey: '4783bc463a912d5290cf698c650c289e',
+      permission: 'd093da241b8c4349bc1671f283d32fe6',
+    },
+    remove: {
+      title: '移除信息',
+      paramsKey: '6fe4b56937d6b104f2745d51b0d997ac',
+      permission: '1262cdb480ea41279cc599e099070247',
     },
   },
   businessSet: {
@@ -2491,27 +2682,37 @@ export const accessWayInfrastructureCollection = {
       paramsKey: '00aa8f4516fc634820072a0c3376eb4d',
       permission: 'a5c4e274e3094e97a8b64db98eb1e590',
     },
-    updateContentInfo: {
-      title: '更新图文H5',
+    setImage: {
+      title: '设置图片',
+      paramsKey: 'fc29f81e73465947b4a887689215f958',
+      permission: 'e6267edc0da14b26a34ac574ac54fa73',
+    },
+    setRectangleImage: {
+      title: '设置长方形配图',
+      paramsKey: '13a7b216782e5fa9b165fc2d93255617',
+      permission: '03c149f5646d4645920fc5511099bab7',
+    },
+    setContentInfo: {
+      title: '设置图文H5',
       paramsKey: 'fd7f94f3ce73eddcef1638ffd9cc97b5',
       permission: '639b4c00b6534c54953f4b9e4e63cc17',
     },
-    updateBusinessMode: {
+    setBusinessMode: {
       title: '设置适用业务',
       paramsKey: 'bd78dd1720e198c8f78fec098dec800a',
       permission: 'bbcb4fb6204e4dff981abaffc5dc4e5c',
     },
-    updateRenderType: {
+    setRenderType: {
       title: '设置渲染模式',
       paramsKey: 'e3c2b9cb8a5f5afeec10ebf6c1bf2482',
       permission: '3d2720d5715f4755915f80e64e80f570',
     },
-    updateSort: {
+    setSort: {
       title: '设定排序值',
       paramsKey: 'dd574958b4d3b3c06e18043a0c833c5d',
       permission: '09fe131c3edf49e88b0b3ef7984fca5b',
     },
-    updateParentId: {
+    setParentId: {
       title: '设定上级栏目',
       paramsKey: '7da22e8c80c2d4e0a7b00210147d23dd',
       permission: 'c390cf65199b4041a39f15ff96b76109',
@@ -2546,7 +2747,7 @@ export const accessWayInfrastructureCollection = {
       paramsKey: 'c097631af2252ac7ca0bead7328348e3',
       permission: '7f7a30cafee643e694f48014483fabd4',
     },
-    updateKeyValueInfo: {
+    setKeyValueInfo: {
       title: '设置键值配置',
       paramsKey: '75d39cd31c45d107248ce93b23014483',
       permission: '2ac621a53a81440194dbb3c18675e6fc',

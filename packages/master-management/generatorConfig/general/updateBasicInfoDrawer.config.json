@@ -1,6 +1,15 @@
 {
   "list": [
     {
+      "folder": "general/article/UpdateBasicInfoDrawer",
+      "name": "article",
+      "model": "article",
+      "key": "articleId",
+      "visibleFlag": "4b83484d60054b05b816eac0453f92a4",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/Position/UpdateBasicInfoDrawer",
       "name": "Position",
       "model": "position",
@@ -15,6 +24,15 @@
       "model": "positionGrade",
       "key": "positionGradeId",
       "visibleFlag": "a20ecf73fd81438bb51be3197b997b0e",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SmsCategory/UpdateBasicInfoDrawer",
+      "name": "SmsCategory",
+      "model": "smsCategory",
+      "key": "smsCategoryId",
+      "visibleFlag": "aa0016e00ff840188e95dd575cc67686",
       "fileName": "index.jsx",
       "coverFile": false
     },

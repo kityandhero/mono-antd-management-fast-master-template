@@ -19,6 +19,33 @@
       "coverFile": true
     },
     {
+      "folder": "general/article/OperateLogDrawer",
+      "name": "article",
+      "model": "article",
+      "key": "articleId",
+      "visibleFlag": "68b1e1ae4d414c3b8f814e63b59c8180",
+      "fileName": "index.jsx",
+      "coverFile": true
+    },
+    {
+      "folder": "general/articleComment/OperateLogDrawer",
+      "name": "articleComment",
+      "model": "articleComment",
+      "key": "articleCommentId",
+      "visibleFlag": "db473f81966e49e1a93819be7413530c",
+      "fileName": "index.jsx",
+      "coverFile": true
+    },
+    {
+      "folder": "general/articleSectionRelation/OperateLogDrawer",
+      "name": "articleSectionRelation",
+      "model": "articleSectionRelation",
+      "key": "articleSectionRelationId",
+      "visibleFlag": "2b69c24be98a47fea965480187e07a8e",
+      "fileName": "index.jsx",
+      "coverFile": true
+    },
+    {
       "folder": "general/BusinessSet/OperateLogDrawer",
       "name": "BusinessSet",
       "model": "businessSet",
@@ -123,6 +150,15 @@
       "model": "questionnaireQuestionRelation",
       "key": "questionnaireQuestionRelationId",
       "visibleFlag": "8fcf8189dd8b4d93abedf304cb965adb",
+      "fileName": "index.jsx",
+      "coverFile": true
+    },
+    {
+      "folder": "general/SmsCategory/OperateLogDrawer",
+      "name": "SmsCategory",
+      "model": "smsCategory",
+      "key": "smsCategoryId",
+      "visibleFlag": "f5f1f7dcb58246568ad125310bad4145",
       "fileName": "index.jsx",
       "coverFile": true
     },

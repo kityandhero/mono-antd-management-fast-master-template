@@ -15,7 +15,7 @@ import {
 
 const { MobilePreviewDrawer } = MobileContainor;
 
-const visibleFlag = '478f6a59fd964ddf9b0e137364bae64c';
+const visibleFlag = 'e6625de1d9294b8cbc3b857a655fda5c';
 
 class MediaItemPreviewDrawer extends MobilePreviewDrawer {
   resetDataAfterLoad = false;
@@ -28,15 +28,16 @@ class MediaItemPreviewDrawer extends MobilePreviewDrawer {
     super(properties, visibleFlag);
 
     this.state = {
+      title: '12324',
       ...this.state,
     };
   }
 
   renderPresetTitleIcon = () => {
-    return iconBuilder.picture();
+    return iconBuilder.read();
   };
 
-  renderPresetTitle = () => {
+  getPresetPageTitle = () => {
     return '媒体图文预览';
   };
 
@@ -71,25 +72,50 @@ class MediaItemPreviewDrawer extends MobilePreviewDrawer {
       return null;
     }
 
+    const { image, text, multiText, video, audio } = {
+      image: '',
+      text: '',
+      multiText: '',
+      link: '',
+      video: '',
+      audio: '',
+      attachment: '',
+      ...record,
+    };
+
     return (
       <>
-        {checkStringIsNullOrWhiteSpace(record.image) ? null : (
+        {checkStringIsNullOrWhiteSpace(image) ? null : (
           <img width="100%" src={record.image} />
         )}
 
-        {checkStringIsNullOrWhiteSpace(record.description) ? null : (
+        {checkStringIsNullOrWhiteSpace(text) ? null : (
           <p
             style={{
               textIndent: '28px',
             }}
           >
-            {record.description}
+            {text}
           </p>
         )}
 
-        {checkStringIsNullOrWhiteSpace(record.video)
+        {checkStringIsNullOrWhiteSpace(multiText) ? null : (
+          <p
+            style={{
+              textIndent: '28px',
+            }}
+          >
+            {multiText}
+          </p>
+        )}
+
+        {checkStringIsNullOrWhiteSpace(video)
           ? null
-          : buildPlayer({ url: record.video })}
+          : buildPlayer({ url: video })}
+
+        {checkStringIsNullOrWhiteSpace(audio)
+          ? null
+          : buildPlayer({ url: audio })}
       </>
     );
   };

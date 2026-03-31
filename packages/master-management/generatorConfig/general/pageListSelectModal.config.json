@@ -1,6 +1,24 @@
 {
   "list": [
     {
+      "folder": "general/article/PageListSelectModal",
+      "name": "article",
+      "model": "article",
+      "key": "articleId",
+      "visibleFlag": "bc401130ee9648c38e8d6e03d734cc22",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SmsCategory/PageListSelectModal",
+      "name": "SmsCategory",
+      "model": "smsCategory",
+      "key": "smsCategoryId",
+      "visibleFlag": "27b2a91cc65a41d2a0b203553de796ee",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/Tag/PageListSelectModal",
       "name": "Tag",
       "model": "tag",

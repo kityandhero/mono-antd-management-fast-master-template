@@ -2,6 +2,31 @@ import { formNameCollection } from '../../../../customConfig';
 import { fieldData as fieldDataManagement } from '../../CurrentManagementInfrastructure/Common/data';
 
 export const fieldExtraData = {
+  businessModeNote: {
+    label: '适用业务',
+    name: 'businessModeNote',
+    helper: '栏目的适用业务',
+  },
+  renderTypeNote: {
+    label: '渲染模式',
+    name: 'renderTypeNote',
+    helper: '栏目的渲染模式',
+  },
+  whetherRecommendNote: {
+    label: '推荐',
+    name: 'whetherRecommendNote',
+    helper: '',
+  },
+  whetherTopNote: {
+    label: '置顶',
+    name: 'whetherTopNote',
+    helper: '',
+  },
+  whetherVisibleNote: {
+    label: '可见性',
+    name: 'whetherVisibleNote',
+    helper: '',
+  },
   scoreAlias: fieldDataManagement.scoreAlias,
   obtainScoreByReadSwitch: fieldDataManagement.obtainScoreByReadSwitch,
   obtainScoreWhenRead: fieldDataManagement.obtainScoreWhenRead,
@@ -75,19 +100,9 @@ export const fieldData = {
     name: 'renderType',
     helper: '栏目的渲染模式',
   },
-  renderTypeNote: {
-    label: '渲染模式',
-    name: 'renderTypeNote',
-    helper: '栏目的渲染模式',
-  },
   businessMode: {
     label: '适用业务',
     name: 'businessMode',
-    helper: '栏目的适用业务',
-  },
-  businessModeNote: {
-    label: '适用业务',
-    name: 'businessModeNote',
     helper: '栏目的适用业务',
   },
   description: {
@@ -98,11 +113,6 @@ export const fieldData = {
   keyword: {
     label: '关键词',
     name: 'keyword',
-    helper: '',
-  },
-  status: {
-    label: '状态',
-    name: 'status',
     helper: '',
   },
   whetherRecommend: {
@@ -120,39 +130,9 @@ export const fieldData = {
     name: 'whetherVisible',
     helper: '',
   },
-  statusNote: {
-    label: '状态',
-    name: 'statusNote',
-    helper: '',
-  },
-  createTime: {
-    label: '创建时间',
-    name: 'createTime',
-    helper: '信息创建时间',
-  },
-  updateTime: {
-    label: '上次更新时间',
-    name: 'updateTime',
-    helper: '信息上次更新时间',
-  },
   parentName: {
     label: '上级栏目',
     name: 'parentName',
-    helper: '',
-  },
-  whetherRecommendNote: {
-    label: '推荐',
-    name: 'whetherRecommendNote',
-    helper: '',
-  },
-  whetherTopNote: {
-    label: '置顶',
-    name: 'whetherTopNote',
-    helper: '',
-  },
-  whetherVisibleNote: {
-    label: '可见性',
-    name: 'whetherVisibleNote',
     helper: '',
   },
   ...fieldExtraData,

@@ -1,6 +1,21 @@
 {
   "list": [
     {
+      "functionSegment": "ArticleStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "ArticleCommentStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
+      "functionSegment": "ArticleSectionRelationStatus",
+      "label": "状态",
+      "name": "status"
+    },
+    {
       "functionSegment": "CacheMode",
       "label": "缓存模式",
       "name": "cacheMode"

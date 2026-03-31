@@ -1,6 +1,15 @@
 {
   "list": [
     {
+      "folder": "general/article/ChangeSortModal",
+      "name": "article",
+      "model": "article",
+      "key": "articleId",
+      "visibleFlag": "ce81396da54142e3b051146281511a29",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/BusinessSet/ChangeSortModal",
       "name": "BusinessSet",
       "model": "businessSet",
@@ -105,6 +114,15 @@
       "model": "questionnaireQuestionRelation",
       "key": "questionnaireQuestionRelationId",
       "visibleFlag": "c3f361740f784951901a25595a1f3c6c",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SmsCategory/ChangeSortModal",
+      "name": "SmsCategory",
+      "model": "smsCategory",
+      "key": "smsCategoryId",
+      "visibleFlag": "261791283b0946928dd29e05e28420f9",
       "fileName": "index.jsx",
       "coverFile": false
     },

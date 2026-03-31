@@ -1,6 +1,24 @@
 {
   "list": [
     {
+      "folder": "general/article/PageListSelectDrawer",
+      "name": "article",
+      "model": "article",
+      "key": "articleId",
+      "visibleFlag": "2c8a763e781243cdb517378343c229c4",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SmsCategory/PageListSelectDrawer",
+      "name": "SmsCategory",
+      "model": "smsCategory",
+      "key": "smsCategoryId",
+      "visibleFlag": "c6ee0d96440245488aa924d2a47afab8",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/Tag/PageListSelectDrawer",
       "name": "Tag",
       "model": "tag",

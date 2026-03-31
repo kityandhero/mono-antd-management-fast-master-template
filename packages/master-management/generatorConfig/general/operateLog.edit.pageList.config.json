@@ -41,6 +41,14 @@
       "coverFile": true
     },
     {
+      "folder": "general/article/Edit/OperateLog/PageList",
+      "name": "article",
+      "model": "article",
+      "key": "articleId",
+      "fileName": "index.jsx",
+      "coverFile": true
+    },
+    {
       "folder": "general/CallCenter/Edit/OperateLog/PageList",
       "name": "CallCenter",
       "model": "callCenter",

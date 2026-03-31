@@ -31,9 +31,21 @@ import {
   buildModel as buildApplicationVersionModel,
 } from './applicationVersion';
 import {
+  articleTypeCollection,
+  buildModel as buildArticleModel,
+} from './article';
+import {
+  articleCommentTypeCollection,
+  buildModel as buildArticleCommentModel,
+} from './articleComment';
+import {
   articleNotificationApplicationTypeCollection,
   buildModel as buildArticleNotificationApplicationModel,
 } from './articleNotificationApplication';
+import {
+  articleSectionRelationTypeCollection,
+  buildModel as buildArticleSectionRelationModel,
+} from './articleSectionRelation';
 import {
   buildModel as buildBusinessSetModel,
   businessSetTypeCollection,
@@ -434,7 +446,10 @@ export const modelTypeCollection = {
   applicationSourceTypeCollection,
   applicationUserFeedbackTypeCollection,
   applicationVersionTypeCollection,
+  articleTypeCollection,
+  articleCommentTypeCollection,
   articleNotificationApplicationTypeCollection,
+  articleSectionRelationTypeCollection,
   businessSetTypeCollection,
   callCenterTypeCollection,
   callCenterCategoryTypeCollection,
@@ -551,7 +566,10 @@ export function listModelBuilder() {
     buildApplicationSourceModel,
     buildApplicationUserFeedbackModel,
     buildApplicationVersionModel,
+    buildArticleModel,
+    buildArticleCommentModel,
     buildArticleNotificationApplicationModel,
+    buildArticleSectionRelationModel,
     buildBusinessSetModel,
     buildCallCenterModel,
     buildCallCenterCategoryModel,

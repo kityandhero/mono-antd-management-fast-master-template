@@ -1085,6 +1085,128 @@ export const section = {
   ],
 };
 
+export const article = {
+  name: 'article',
+  icon: 'article',
+
+  hideChildrenInMenu: true,
+  path: '/news/article',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.article.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/news/article',
+      redirect: '/news/article/pageList',
+    },
+    {
+      path: '/news/article/pageList',
+      redirect: '/news/article/pageList/no',
+    },
+    {
+      path: '/news/article/pageList/:pageKey',
+      component: './general/Article/PageList',
+    },
+    {
+      path: '/news/article/edit/:op/:id/:pageKey',
+      name: 'edit',
+      hideInMenu: true,
+      component: './general/Article/Edit',
+      routes: [
+        {
+          path: '/news/article/edit/:op/:id/:pageKey/basicInfo',
+          name: 'basicInfo',
+          component: './general/Article/Edit/BasicInfo',
+        },
+        {
+          path: '/news/article/edit/:op/:id/:pageKey/contentInfo',
+          name: 'contentInfo',
+          component: './general/Article/Edit/ContentInfo',
+        },
+        {
+          path: '/news/article/edit/:op/:id/:pageKey/mediaInfo',
+          name: 'mediaInfo',
+          component: './general/Article/Edit/MediaInfo',
+        },
+        {
+          path: '/news/article/edit/:op/:id/:pageKey/articleSectionRelation',
+          name: 'articleSectionRelation',
+          routes: [
+            {
+              path: '/news/article/edit/:op/:id/:pageKey/articleSectionRelation',
+              redirect:
+                '/news/article/edit/:op/:id/:pageKey/articleSectionRelation/pageList',
+            },
+            {
+              path: '/news/article/edit/:op/:id/:pageKey/articleSectionRelation/pageList',
+              component:
+                './general/Article/Edit/ArticleSectionRelation/PageList',
+            },
+          ],
+        },
+        {
+          path: '/news/article/edit/:op/:id/:pageKey/comment',
+          name: 'comment',
+          routes: [
+            {
+              path: '/news/article/edit/:op/:id/:pageKey/comment',
+              redirect: '/news/article/edit/:op/:id/:pageKey/comment/pageList',
+            },
+            {
+              path: '/news/article/edit/:op/:id/:pageKey/comment/pageList',
+              component: './general/Article/Edit/ArticleComment/PageList',
+            },
+          ],
+        },
+        {
+          path: '/news/article/edit/:op/:id/:pageKey/operateLog',
+          name: 'operateLog',
+          routes: [
+            {
+              path: '/news/article/edit/:op/:id/:pageKey/operateLog',
+              redirect:
+                '/news/article/edit/:op/:id/:pageKey/operateLog/pageList',
+            },
+            {
+              path: '/news/article/edit/:op/:id/:pageKey/operateLog/pageList',
+              component: './general/Article/Edit/OperateLog/PageList',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+export const articleComment = {
+  name: 'articleComment',
+  icon: 'articleComment',
+
+  hideChildrenInMenu: true,
+  path: '/news/articleComment',
+  access: 'checkAccess',
+  authority: [
+    accessWayCollection.super.permission,
+    accessWayCollection.articleComment.pageList.permission,
+  ],
+  routes: [
+    {
+      path: '/news/articleComment',
+      redirect: '/news/articleComment/pageList',
+    },
+    {
+      path: '/news/articleComment/pageList',
+      redirect: '/news/articleComment/pageList/no',
+    },
+    {
+      path: '/news/articleComment/pageList/:pageKey',
+      component: './general/ArticleComment/PageList',
+    },
+  ],
+};
+
 export const businessSet = {
   name: 'businessSet',
   icon: 'optionPools',

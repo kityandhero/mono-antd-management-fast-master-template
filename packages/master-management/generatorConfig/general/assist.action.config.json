@@ -65,6 +65,30 @@
       "coverFile": false
     },
     {
+      "folder": "general/article/Assist",
+      "name": "article",
+      "model": "article",
+      "key": "articleId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/articleComment/Assist",
+      "name": "articleComment",
+      "model": "articleComment",
+      "key": "articleCommentId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
+      "folder": "general/articleSectionRelation/Assist",
+      "name": "articleSectionRelation",
+      "model": "articleSectionRelation",
+      "key": "articleSectionRelationId",
+      "fileName": "action.js",
+      "coverFile": false
+    },
+    {
       "folder": "general/BusinessSet/Assist",
       "name": "BusinessSet",
       "model": "businessSet",

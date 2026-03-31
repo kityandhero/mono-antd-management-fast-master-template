@@ -2,6 +2,7 @@ import { getValueByKey } from 'easy-soft-utility';
 
 import { actionCore } from 'antd-management-fast-common';
 
+import { modelTypeCollection } from '../../../../modelBuilders';
 import { fieldData } from '../Common/data';
 
 export function setOnlineAction({
@@ -11,7 +12,7 @@ export function setOnlineAction({
   successMessage,
 }) {
   actionCore({
-    api: 'callCenter/setOnline',
+    api: modelTypeCollection.callCenterTypeCollection.setOnline,
     params: {
       callCenterId: getValueByKey({
         data: handleData,
@@ -32,7 +33,7 @@ export function setOfflineAction({
   successMessage,
 }) {
   actionCore({
-    api: 'callCenter/setOffline',
+    api: modelTypeCollection.callCenterTypeCollection.setOffline,
     params: {
       callCenterId: getValueByKey({
         data: handleData,
@@ -53,7 +54,7 @@ export function removeAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'callCenter/remove',
+    api: modelTypeCollection.callCenterTypeCollection.remove,
     params: {
       callCenterId: getValueByKey({
         data: handleData,
@@ -74,7 +75,7 @@ export async function refreshCacheAction({
   successMessage = null,
 }) {
   actionCore({
-    api: 'callCenter/refreshCache',
+    api: modelTypeCollection.callCenterTypeCollection.refreshCache,
     params: {
       callCenterId: getValueByKey({
         data: handleData,

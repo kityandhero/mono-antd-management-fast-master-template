@@ -1,6 +1,22 @@
 {
   "list": [
     {
+      "folder": "general/article/SelectDrawerField",
+      "name": "article",
+      "model": "article",
+      "key": "articleId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SmsCategory/SelectDrawerField",
+      "name": "SmsCategory",
+      "model": "smsCategory",
+      "key": "smsCategoryId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/Tag/SelectDrawerField",
       "name": "Tag",
       "model": "tag",

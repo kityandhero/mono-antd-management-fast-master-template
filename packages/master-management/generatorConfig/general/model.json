@@ -816,6 +816,237 @@
       "apis": [
         {
           "title": "分页列表",
+          "api": "/article/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/article/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "新增基础信息",
+          "api": "/article/addBasicInfo",
+          "effect": "addBasicInfo",
+          "service": "addBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新基础信息",
+          "api": "/article/updateBasicInfo",
+          "effect": "updateBasicInfo",
+          "service": "updateBasicInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置图片",
+          "api": "/article/setImage",
+          "effect": "setImage",
+          "service": "setImageData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置长方形配图",
+          "api": "/article/setRectangleImage",
+          "effect": "setRectangleImage",
+          "service": "setRectangleImageData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置图文H5",
+          "api": "/article/setContentInfo",
+          "effect": "setContentInfo",
+          "service": "setContentInfoData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置渲染模式",
+          "api": "/article/setRenderType",
+          "effect": "setRenderType",
+          "service": "setRenderTypeData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置排序值",
+          "api": "/article/setSort",
+          "effect": "setSort",
+          "service": "setSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "切换推荐",
+          "api": "/article/toggleRecommend",
+          "effect": "toggleRecommend",
+          "service": "toggleRecommendData",
+          "type": "singleData"
+        },
+        {
+          "title": "切换置顶",
+          "api": "/article/toggleTop",
+          "effect": "toggleTop",
+          "service": "toggleTopData",
+          "type": "singleData"
+        },
+        {
+          "title": "切换可见性",
+          "api": "/article/toggleVisible",
+          "effect": "toggleVisible",
+          "service": "toggleVisibleData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为上线",
+          "api": "/article/setOnline",
+          "effect": "setOnline",
+          "service": "setOnlineData",
+          "type": "singleData"
+        },
+        {
+          "title": "设为下线",
+          "api": "/article/setOffline",
+          "effect": "setOffline",
+          "service": "setOfflineData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/article/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/article/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        },
+        {
+          "title": "获取媒体条目",
+          "api": "/article/getMediaItem",
+          "effect": "getMediaItem",
+          "service": "getMediaItemData",
+          "type": "singleData"
+        },
+        {
+          "title": "增加媒体条目",
+          "api": "/article/addMediaItem",
+          "effect": "addMediaItem",
+          "service": "addMediaItemData",
+          "type": "singleData"
+        },
+        {
+          "title": "更新媒体条目",
+          "api": "/article/updateMediaItem",
+          "effect": "updateMediaItem",
+          "service": "updateMediaItemData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置媒体条目顺序",
+          "api": "/article/setMediaCollectionSort",
+          "effect": "setMediaCollectionSort",
+          "service": "setMediaCollectionSortData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除媒体条目",
+          "api": "/article/removeMediaItem",
+          "effect": "removeMediaItem",
+          "service": "removeMediaItemData",
+          "type": "singleData"
+        },
+        {
+          "title": "操作日志列表",
+          "api": "/article/pageListOperateLog",
+          "effect": "pageListOperateLog",
+          "service": "pageListOperateLogData",
+          "type": "pageList"
+        },
+        {
+          "title": "上传图片文件",
+          "api": "/article/uploadImage",
+          "effect": "uploadImage",
+          "service": "uploadImageData",
+          "type": "singleData"
+        },
+        {
+          "title": "上传视频文件",
+          "api": "/article/uploadVideo",
+          "effect": "uploadVideo",
+          "service": "uploadVideoData",
+          "type": "singleData"
+        },
+        {
+          "title": "上传音频文件",
+          "api": "/article/uploadAudio",
+          "effect": "uploadAudio",
+          "service": "uploadAudioData",
+          "type": "singleData"
+        },
+        {
+          "title": "上传附件文件",
+          "api": "/article/uploadFile",
+          "effect": "uploadFile",
+          "service": "uploadFileData",
+          "type": "singleData"
+        },
+        {
+          "title": "上传附件文件[转换为Base64]",
+          "api": "/article/uploadFileBase64",
+          "effect": "uploadFileBase64",
+          "service": "uploadFileBase64Data",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "文章管理",
+      "name": "article"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/articleComment/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/articleComment/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/articleComment/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除",
+          "api": "/articleComment/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "文章评论管理",
+      "name": "articleComment"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
           "api": "/articleNotificationApplication/pageList",
           "effect": "pageList",
           "service": "pageListData",
@@ -836,10 +1067,10 @@
           "type": "singleData"
         },
         {
-          "title": "更新信息",
-          "api": "/articleNotificationApplication/updateBasicInfo",
-          "effect": "updateBasicInfo",
-          "service": "updateBasicInfoData",
+          "title": "设置应用标识",
+          "api": "/articleNotificationApplication/setApplicationId",
+          "effect": "setApplicationId",
+          "service": "setApplicationIdData",
           "type": "singleData"
         },
         {
@@ -853,6 +1084,55 @@
       "cover": true,
       "title": "文章推送应用设置",
       "name": "articleNotificationApplication"
+    },
+    {
+      "apis": [
+        {
+          "title": "分页列表",
+          "api": "/articleSectionRelation/pageList",
+          "effect": "pageList",
+          "service": "pageListData",
+          "type": "pageList"
+        },
+        {
+          "title": "分页列表",
+          "api": "/articleSectionRelation/singleList",
+          "effect": "singleList",
+          "service": "singleListData",
+          "type": "pageList"
+        },
+        {
+          "title": "获取详情",
+          "api": "/articleSectionRelation/get",
+          "effect": "get",
+          "service": "getData",
+          "type": "singleData"
+        },
+        {
+          "title": "绑定栏目",
+          "api": "/articleSectionRelation/add",
+          "effect": "add",
+          "service": "addData",
+          "type": "singleData"
+        },
+        {
+          "title": "刷新缓存",
+          "api": "/articleSectionRelation/refreshCache",
+          "effect": "refreshCache",
+          "service": "refreshCacheData",
+          "type": "singleData"
+        },
+        {
+          "title": "移除信息",
+          "api": "/articleSectionRelation/remove",
+          "effect": "remove",
+          "service": "removeData",
+          "type": "singleData"
+        }
+      ],
+      "cover": true,
+      "title": "文章栏目归属关系管理",
+      "name": "articleSectionRelation"
     },
     {
       "apis": [
@@ -4077,38 +4357,52 @@
           "type": "singleData"
         },
         {
-          "title": "更新图文H5",
-          "api": "/section/updateContentInfo",
-          "effect": "updateContentInfo",
-          "service": "updateContentInfoData",
+          "title": "设置图片",
+          "api": "/section/setImage",
+          "effect": "setImage",
+          "service": "setImageData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置长方形配图",
+          "api": "/section/setRectangleImage",
+          "effect": "setRectangleImage",
+          "service": "setRectangleImageData",
+          "type": "singleData"
+        },
+        {
+          "title": "设置图文H5",
+          "api": "/section/setContentInfo",
+          "effect": "setContentInfo",
+          "service": "setContentInfoData",
           "type": "singleData"
         },
         {
           "title": "设置适用业务",
-          "api": "/section/updateBusinessMode",
-          "effect": "updateBusinessMode",
-          "service": "updateBusinessModeData",
+          "api": "/section/setBusinessMode",
+          "effect": "setBusinessMode",
+          "service": "setBusinessModeData",
           "type": "singleData"
         },
         {
           "title": "设置渲染模式",
-          "api": "/section/updateRenderType",
-          "effect": "updateRenderType",
-          "service": "updateRenderTypeData",
+          "api": "/section/setRenderType",
+          "effect": "setRenderType",
+          "service": "setRenderTypeData",
           "type": "singleData"
         },
         {
           "title": "设定排序值",
-          "api": "/section/updateSort",
-          "effect": "updateSort",
-          "service": "updateSortData",
+          "api": "/section/setSort",
+          "effect": "setSort",
+          "service": "setSortData",
           "type": "singleData"
         },
         {
           "title": "设定上级栏目",
-          "api": "/section/updateParentId",
-          "effect": "updateParentId",
-          "service": "updateParentIdData",
+          "api": "/section/setParentId",
+          "effect": "setParentId",
+          "service": "setParentIdData",
           "type": "singleData"
         },
         {
@@ -4155,9 +4449,9 @@
         },
         {
           "title": "设置键值配置",
-          "api": "/section/updateKeyValueInfo",
-          "effect": "updateKeyValueInfo",
-          "service": "updateKeyValueInfoData",
+          "api": "/section/setKeyValueInfo",
+          "effect": "setKeyValueInfo",
+          "service": "setKeyValueInfoData",
           "type": "singleData"
         },
         {

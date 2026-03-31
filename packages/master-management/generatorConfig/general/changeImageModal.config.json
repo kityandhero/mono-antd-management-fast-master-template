@@ -1,6 +1,15 @@
 {
   "list": [
     {
+      "folder": "general/article/ChangeImageModal",
+      "name": "article",
+      "model": "article",
+      "key": "articleId",
+      "visibleFlag": "797b8e754fbc4fbf9ac6df354f2f03ea",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/Gallery/ChangeImageModal",
       "name": "Gallery",
       "model": "gallery",

@@ -72,26 +72,6 @@ export const fieldData = {
     name: 'whetherRecommend',
     helper: '',
   },
-  status: {
-    label: '状态',
-    name: 'status',
-    helper: '用户状态',
-  },
-  statusNote: {
-    label: '状态',
-    name: 'statusNote',
-    helper: '用户状态',
-  },
-  createTime: {
-    label: '创建时间',
-    name: 'createTime',
-    helper: '',
-  },
-  updateTime: {
-    label: '更新时间',
-    name: 'updateTime',
-    helper: '',
-  },
 };
 
 /**

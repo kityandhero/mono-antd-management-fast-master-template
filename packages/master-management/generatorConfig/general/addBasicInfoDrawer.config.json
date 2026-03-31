@@ -1,6 +1,15 @@
 {
   "list": [
     {
+      "folder": "general/article/AddBasicInfoDrawer",
+      "name": "article",
+      "model": "article",
+      "key": "articleId",
+      "visibleFlag": "171403bb22d94100a3fdb36d4c80c27d",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/Position/AddBasicInfoDrawer",
       "name": "Position",
       "model": "position",
@@ -24,6 +33,15 @@
       "model": "question",
       "key": "questionId",
       "visibleFlag": "847a69bd7fb647c49808c7ea52321b24",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/SmsCategory/AddBasicInfoDrawer",
+      "name": "SmsCategory",
+      "model": "smsCategory",
+      "key": "smsCategoryId",
+      "visibleFlag": "e22d6cd682ed4a2880abc221190d534a",
       "fileName": "index.jsx",
       "coverFile": false
     },

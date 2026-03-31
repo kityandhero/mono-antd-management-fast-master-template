@@ -11,7 +11,7 @@ const { BaseView } = DataOperation;
   section,
   schedulingControl,
 }))
-class Index extends BaseView {
+class TreeCard extends BaseView {
   constructor(properties) {
     super(properties);
 
@@ -51,6 +51,7 @@ class Index extends BaseView {
               showLine: true,
               switcherIcon: iconBuilder.down(),
               listData: metaListData,
+              defaultExpandAll: true,
               dataConvert: (o) => {
                 const {
                   title,
@@ -70,7 +71,7 @@ class Index extends BaseView {
                 };
               },
               innerProps: {
-                defaultExpandAll: true,
+                autoExpandParent: true,
               },
             },
           ],
@@ -84,4 +85,4 @@ class Index extends BaseView {
   }
 }
 
-export default Index;
+export { TreeCard };

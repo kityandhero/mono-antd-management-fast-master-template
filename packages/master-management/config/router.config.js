@@ -7,6 +7,8 @@ import {
   administrativeDivision,
   applicationFeedback,
   apps,
+  article,
+  articleComment,
   assistTools,
   businessSet,
   cloudStorage,
@@ -106,6 +108,8 @@ export default [
     authority: [
       accessWayCollection.super.permission,
       accessWayCollection.section.pageList.permission,
+      accessWayCollection.article.pageList.permission,
+      accessWayCollection.articleComment.pageList.permission,
     ],
     routes: [
       {
@@ -113,6 +117,8 @@ export default [
         redirect: '/news/section',
       },
       section,
+      article,
+      articleComment,
     ],
   },
   survey,

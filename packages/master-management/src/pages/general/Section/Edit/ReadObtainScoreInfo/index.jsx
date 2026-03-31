@@ -122,7 +122,7 @@ class ReadObtainScoreInfo extends TabPageBase {
               {
                 buildType: cardConfig.extraBuildType.iconInfo,
                 icon: iconBuilder.infoCircle(),
-                text: '全局信息仅为显示!',
+                text: '此仅为全局配置显示，更改请进入全局配置!',
               },
               {
                 buildType: cardConfig.extraBuildType.divider,

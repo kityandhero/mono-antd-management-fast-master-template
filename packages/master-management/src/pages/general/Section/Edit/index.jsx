@@ -45,33 +45,40 @@ class Edit extends DataTabContainerSupplement {
     {
       key: 'basicInfo',
       tab: '基本信息',
+      hidden: !checkHasAuthority(accessWayCollection.section.get.permission),
     },
     {
       key: 'sectionApplicationConfig/pageList',
       tab: '应用页面配置',
+      hidden: !checkHasAuthority(
+        accessWayCollection.sectionApplicationConfig.pageList.permission,
+      ),
     },
     {
       key: 'contentInfo',
-      hidden: !checkHasAuthority(accessWayCollection.section.get.permission),
       tab: '图文H5信息',
+      hidden: !checkHasAuthority(accessWayCollection.section.get.permission),
     },
     {
       key: 'mediaInfo',
+      tab: '媒体信息',
       hidden: !checkHasAuthority(
         accessWayCollection.section.getMediaItem.permission,
       ),
-      tab: '媒体信息',
     },
     {
       key: 'scoreInfo',
+      tab: '积分设置',
       hidden: !checkHasAuthority(
         accessWayCollection.section.setReadSectionObtainScore.permission,
       ),
-      tab: '积分设置',
     },
     {
       key: 'operateLog/pageList',
       tab: '操作日志',
+      hidden: !checkHasAuthority(
+        accessWayCollection.section.pageListOperateLog.permission,
+      ),
     },
   ];
 
@@ -139,6 +146,11 @@ class Edit extends DataTabContainerSupplement {
           key: fieldData.whetherRecommend.name,
         });
 
+        metaData[fieldData.whetherRecommendNote.name] = getValueByKey({
+          data: remoteData,
+          key: fieldData.whetherRecommendNote.name,
+        });
+
         target.setState({ metaData });
       },
     });
@@ -154,6 +166,11 @@ class Edit extends DataTabContainerSupplement {
         metaData[fieldData.whetherTop.name] = getValueByKey({
           data: remoteData,
           key: fieldData.whetherTop.name,
+        });
+
+        metaData[fieldData.whetherTopNote.name] = getValueByKey({
+          data: remoteData,
+          key: fieldData.whetherTopNote.name,
         });
 
         target.setState({ metaData });
@@ -173,6 +190,11 @@ class Edit extends DataTabContainerSupplement {
           key: fieldData.whetherVisible.name,
         });
 
+        metaData[fieldData.whetherVisibleNote.name] = getValueByKey({
+          data: remoteData,
+          key: fieldData.whetherVisibleNote.name,
+        });
+
         target.setState({ metaData });
       },
     });
@@ -190,6 +212,11 @@ class Edit extends DataTabContainerSupplement {
           key: fieldData.status.name,
         });
 
+        metaData[fieldData.statusNote.name] = getValueByKey({
+          data: remoteData,
+          key: fieldData.statusNote.name,
+        });
+
         target.setState({ metaData });
       },
     });
@@ -205,6 +232,11 @@ class Edit extends DataTabContainerSupplement {
         metaData[fieldData.status.name] = getValueByKey({
           data: remoteData,
           key: fieldData.status.name,
+        });
+
+        metaData[fieldData.statusNote.name] = getValueByKey({
+          data: remoteData,
+          key: fieldData.statusNote.name,
         });
 
         target.setState({ metaData });
@@ -240,7 +272,7 @@ class Edit extends DataTabContainerSupplement {
   };
 
   establishExtraActionGroupConfig = () => {
-    const { metaData, dataLoading, processing } = this.state;
+    const { metaData } = this.state;
 
     if (metaData == null) {
       return null;
@@ -282,7 +314,7 @@ class Edit extends DataTabContainerSupplement {
             that.showChangeRenderTypeModal(handleData);
           },
           hidden: !checkHasAuthority(
-            accessWayCollection.section.updateRenderType.permission,
+            accessWayCollection.section.setRenderType.permission,
           ),
           disabled: this.checkInProgress(),
           handleData: metaData,
@@ -381,8 +413,7 @@ class Edit extends DataTabContainerSupplement {
           hidden: !checkHasAuthority(
             accessWayCollection.section.setOnline.permission,
           ),
-          disabled:
-            dataLoading || processing || status === statusCollection.online,
+          disabled: status === statusCollection.online,
           confirm: {
             title: '设置为上线，确定吗？',
           },
@@ -398,8 +429,7 @@ class Edit extends DataTabContainerSupplement {
           hidden: !checkHasAuthority(
             accessWayCollection.section.setOffline.permission,
           ),
-          disabled:
-            dataLoading || processing || status === statusCollection.offline,
+          disabled: status === statusCollection.offline,
           confirm: {
             title: '设置为下线，确定吗？',
           },
@@ -422,7 +452,7 @@ class Edit extends DataTabContainerSupplement {
       disabled: this.checkInProgress(),
       handleMenuClick: ({ key, handleData }) => {
         switch (key) {
-          case 'updateBusinessMode': {
+          case 'setBusinessMode': {
             that.showChangeBusinessModeModal(handleData);
             break;
           }
@@ -441,11 +471,11 @@ class Edit extends DataTabContainerSupplement {
       handleData: metaData,
       items: [
         {
-          key: 'updateBusinessMode',
+          key: 'setBusinessMode',
           icon: iconBuilder.edit(),
           text: '设置适用业务',
           hidden: !checkHasAuthority(
-            accessWayCollection.section.updateBusinessMode.permission,
+            accessWayCollection.section.setBusinessMode.permission,
           ),
         },
         {
@@ -467,13 +497,13 @@ class Edit extends DataTabContainerSupplement {
     const { metaData } = this.state;
 
     if (metaData != null) {
-      const imageUrl = getValueByKey({
+      const image = getValueByKey({
         data: metaData,
         key: fieldData.image.name,
       });
 
-      if (!checkStringIsNullOrWhiteSpace(imageUrl)) {
-        return { src: imageUrl };
+      if (!checkStringIsNullOrWhiteSpace(image)) {
+        return { src: image };
       }
     }
 
@@ -481,7 +511,7 @@ class Edit extends DataTabContainerSupplement {
   };
 
   establishPageHeaderTitlePrefix = () => {
-    return '品类名称';
+    return '栏目名称';
   };
 
   establishPageHeaderTagCollectionConfig = () => {

@@ -29,8 +29,7 @@ class ChangeBusinessModeModal extends BaseUpdateModal {
       ...this.state,
       pageTitle: '适用业务设置',
       loadApiPath: modelTypeCollection.sectionTypeCollection.get,
-      submitApiPath:
-        modelTypeCollection.sectionTypeCollection.updateBusinessMode,
+      submitApiPath: modelTypeCollection.sectionTypeCollection.setBusinessMode,
     };
   }
 

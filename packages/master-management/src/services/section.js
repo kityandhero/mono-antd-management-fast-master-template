@@ -63,47 +63,65 @@ export async function updateBasicInfoData(parameters) {
   });
 }
 
-export const updateContentInfoDataApiAddress = '/section/updateContentInfo';
+export const setImageDataApiAddress = '/section/setImage';
 
-export async function updateContentInfoData(parameters) {
+export async function setImageData(parameters) {
   return request({
-    api: updateContentInfoDataApiAddress,
+    api: setImageDataApiAddress,
     params: parameters,
   });
 }
 
-export const updateBusinessModeDataApiAddress = '/section/updateBusinessMode';
+export const setRectangleImageDataApiAddress = '/section/setRectangleImage';
 
-export async function updateBusinessModeData(parameters) {
+export async function setRectangleImageData(parameters) {
   return request({
-    api: updateBusinessModeDataApiAddress,
+    api: setRectangleImageDataApiAddress,
     params: parameters,
   });
 }
 
-export const updateRenderTypeDataApiAddress = '/section/updateRenderType';
+export const setContentInfoDataApiAddress = '/section/setContentInfo';
 
-export async function updateRenderTypeData(parameters) {
+export async function setContentInfoData(parameters) {
   return request({
-    api: updateRenderTypeDataApiAddress,
+    api: setContentInfoDataApiAddress,
     params: parameters,
   });
 }
 
-export const updateSortDataApiAddress = '/section/updateSort';
+export const setBusinessModeDataApiAddress = '/section/setBusinessMode';
 
-export async function updateSortData(parameters) {
+export async function setBusinessModeData(parameters) {
   return request({
-    api: updateSortDataApiAddress,
+    api: setBusinessModeDataApiAddress,
     params: parameters,
   });
 }
 
-export const updateParentIdDataApiAddress = '/section/updateParentId';
+export const setRenderTypeDataApiAddress = '/section/setRenderType';
 
-export async function updateParentIdData(parameters) {
+export async function setRenderTypeData(parameters) {
   return request({
-    api: updateParentIdDataApiAddress,
+    api: setRenderTypeDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const setSortDataApiAddress = '/section/setSort';
+
+export async function setSortData(parameters) {
+  return request({
+    api: setSortDataApiAddress,
+    params: parameters,
+  });
+}
+
+export const setParentIdDataApiAddress = '/section/setParentId';
+
+export async function setParentIdData(parameters) {
+  return request({
+    api: setParentIdDataApiAddress,
     params: parameters,
   });
 }
@@ -163,11 +181,11 @@ export async function setOfflineData(parameters) {
   });
 }
 
-export const updateKeyValueInfoDataApiAddress = '/section/updateKeyValueInfo';
+export const setKeyValueInfoDataApiAddress = '/section/setKeyValueInfo';
 
-export async function updateKeyValueInfoData(parameters) {
+export async function setKeyValueInfoData(parameters) {
   return request({
-    api: updateKeyValueInfoDataApiAddress,
+    api: setKeyValueInfoDataApiAddress,
     params: parameters,
   });
 }

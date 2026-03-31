@@ -18,23 +18,25 @@ import {
   pageListOperateLogData,
   refreshCacheData,
   removeMediaItemData,
+  setBusinessModeData,
+  setContentInfoData,
+  setImageData,
+  setKeyValueInfoData,
   setMediaCollectionSortData,
   setOfflineData,
   setOnlineData,
+  setParentIdData,
   setReadSectionObtainScoreData,
+  setRectangleImageData,
+  setRenderTypeData,
+  setSortData,
   singleListData,
   singleTreeListData,
   toggleRecommendData,
   toggleTopData,
   toggleVisibleData,
   updateBasicInfoData,
-  updateBusinessModeData,
-  updateContentInfoData,
-  updateKeyValueInfoData,
   updateMediaItemData,
-  updateParentIdData,
-  updateRenderTypeData,
-  updateSortData,
   uploadAudioData,
   uploadFileBase64Data,
   uploadFileData,
@@ -50,18 +52,20 @@ export const sectionTypeCollection = {
   getConfigure: 'section/getConfigure',
   addBasicInfo: 'section/addBasicInfo',
   updateBasicInfo: 'section/updateBasicInfo',
-  updateContentInfo: 'section/updateContentInfo',
-  updateBusinessMode: 'section/updateBusinessMode',
-  updateRenderType: 'section/updateRenderType',
-  updateSort: 'section/updateSort',
-  updateParentId: 'section/updateParentId',
+  setImage: 'section/setImage',
+  setRectangleImage: 'section/setRectangleImage',
+  setContentInfo: 'section/setContentInfo',
+  setBusinessMode: 'section/setBusinessMode',
+  setRenderType: 'section/setRenderType',
+  setSort: 'section/setSort',
+  setParentId: 'section/setParentId',
   toggleRecommend: 'section/toggleRecommend',
   toggleTop: 'section/toggleTop',
   toggleVisible: 'section/toggleVisible',
   setReadSectionObtainScore: 'section/setReadSectionObtainScore',
   setOnline: 'section/setOnline',
   setOffline: 'section/setOffline',
-  updateKeyValueInfo: 'section/updateKeyValueInfo',
+  setKeyValueInfo: 'section/setKeyValueInfo',
   refreshCache: 'section/refreshCache',
   getMediaItem: 'section/getMediaItem',
   addMediaItem: 'section/addMediaItem',
@@ -267,7 +271,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateContentInfo(
+      *setImage(
         {
           payload,
           alias,
@@ -276,7 +280,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateContentInfoData, payload);
+        const response = yield call(setImageData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -293,7 +297,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateBusinessMode(
+      *setRectangleImage(
         {
           payload,
           alias,
@@ -302,7 +306,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateBusinessModeData, payload);
+        const response = yield call(setRectangleImageData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -319,7 +323,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateRenderType(
+      *setContentInfo(
         {
           payload,
           alias,
@@ -328,7 +332,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateRenderTypeData, payload);
+        const response = yield call(setContentInfoData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -345,7 +349,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateSort(
+      *setBusinessMode(
         {
           payload,
           alias,
@@ -354,7 +358,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateSortData, payload);
+        const response = yield call(setBusinessModeData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -371,7 +375,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateParentId(
+      *setRenderType(
         {
           payload,
           alias,
@@ -380,7 +384,59 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateParentIdData, payload);
+        const response = yield call(setRenderTypeData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setSort(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setSortData, payload);
+
+        const dataAdjust = pretreatmentRemoteSingleData({
+          source: response,
+          successCallback: pretreatmentSuccessCallback || null,
+          failCallback: pretreatmentFailCallback || null,
+        });
+
+        yield put({
+          type: reducerNameCollection.reducerRemoteData,
+          payload: dataAdjust,
+          alias,
+          ...reducerDefaultParameters,
+        });
+
+        return dataAdjust;
+      },
+      *setParentId(
+        {
+          payload,
+          alias,
+          pretreatmentSuccessCallback,
+          pretreatmentFailCallback,
+        },
+        { call, put },
+      ) {
+        const response = yield call(setParentIdData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,
@@ -553,7 +609,7 @@ export function buildModel() {
 
         return dataAdjust;
       },
-      *updateKeyValueInfo(
+      *setKeyValueInfo(
         {
           payload,
           alias,
@@ -562,7 +618,7 @@ export function buildModel() {
         },
         { call, put },
       ) {
-        const response = yield call(updateKeyValueInfoData, payload);
+        const response = yield call(setKeyValueInfoData, payload);
 
         const dataAdjust = pretreatmentRemoteSingleData({
           source: response,

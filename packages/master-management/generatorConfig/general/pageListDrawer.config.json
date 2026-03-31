@@ -1,1 +1,31 @@
-{ "list": [] }
+{
+  "list": [
+    {
+      "folder": "general/article/PageListDrawer",
+      "name": "article",
+      "model": "article",
+      "key": "articleId",
+      "visibleFlag": "cd0c81d9416d4877a6647007369365d8",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/articleComment/PageListDrawer",
+      "name": "articleComment",
+      "model": "articleComment",
+      "key": "articleCommentId",
+      "visibleFlag": "1690528e2e7a439eaf2aba877c9dc6d4",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
+      "folder": "general/articleSectionRelation/PageListDrawer",
+      "name": "articleSectionRelation",
+      "model": "articleSectionRelation",
+      "key": "articleSectionRelationId",
+      "visibleFlag": "31905c914f0a49b394e04e0661d3d89d",
+      "fileName": "index.jsx",
+      "coverFile": false
+    }
+  ]
+}

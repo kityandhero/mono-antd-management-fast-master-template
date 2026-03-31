@@ -42,10 +42,14 @@ import {
 import { parseUrlParametersForSetState } from '../Assist/config';
 import { getStatusBadge } from '../Assist/tools';
 import { ChangeBusinessModeModal } from '../ChangeBusinessModeModal';
+import { ChangeImageModal } from '../ChangeImageModal';
+import { ChangeRectangleImageModal } from '../ChangeRectangleImageModal';
+import { ChangeRenderTypeModal } from '../ChangeRenderTypeModal';
 import { ChangeSortModal } from '../ChangeSortModal';
 import { fieldData, statusCollection } from '../Common/data';
 
 const { MultiPage } = DataMultiPageView;
+
 @connect(({ section, schedulingControl }) => ({
   section,
   schedulingControl,
@@ -60,6 +64,7 @@ class PageList extends MultiPage {
 
     this.state = {
       ...this.state,
+      tableScrollX: 2006,
       pageTitle: '栏目列表',
       paramsKey: accessWayCollection.section.pageList.paramsKey,
       loadApiPath: modelTypeCollection.sectionTypeCollection.pageList,
@@ -77,12 +82,27 @@ class PageList extends MultiPage {
 
   handleMenuClick = ({ key, handleData }) => {
     switch (key) {
+      case 'setImage': {
+        this.showChangeImageModal(handleData);
+        break;
+      }
+
+      case 'setRectangleImage': {
+        this.showChangeRectangleImageModal(handleData);
+        break;
+      }
+
       case 'setSort': {
         this.showChangeSortModal(handleData);
         break;
       }
 
-      case 'updateBusinessMode': {
+      case 'setRenderType': {
+        this.showChangeRenderTypeModal(handleData);
+        break;
+      }
+
+      case 'setBusinessMode': {
         this.showChangeBusinessModeModal(handleData);
         break;
       }
@@ -297,6 +317,52 @@ class PageList extends MultiPage {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
+  showChangeImageModal = (r) => {
+    this.setState({ currentRecord: r }, () => {
+      ChangeImageModal.open();
+    });
+  };
+
+  afterChangeImageModalOk = ({
+    // eslint-disable-next-line no-unused-vars
+    singleData,
+    // eslint-disable-next-line no-unused-vars
+    listData,
+    // eslint-disable-next-line no-unused-vars
+    extraData,
+    // eslint-disable-next-line no-unused-vars
+    responseOriginalData,
+    // eslint-disable-next-line no-unused-vars
+    submitData,
+    // eslint-disable-next-line no-unused-vars
+    subjoinData,
+  }) => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  showChangeRectangleImageModal = (r) => {
+    this.setState({ currentRecord: r }, () => {
+      ChangeRectangleImageModal.open();
+    });
+  };
+
+  afterChangeRectangleImageModalOk = ({
+    // eslint-disable-next-line no-unused-vars
+    singleData,
+    // eslint-disable-next-line no-unused-vars
+    listData,
+    // eslint-disable-next-line no-unused-vars
+    extraData,
+    // eslint-disable-next-line no-unused-vars
+    responseOriginalData,
+    // eslint-disable-next-line no-unused-vars
+    submitData,
+    // eslint-disable-next-line no-unused-vars
+    subjoinData,
+  }) => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
   showChangeSortModal = (item) => {
     this.setState({ currentRecord: item }, () => {
       ChangeSortModal.open();
@@ -314,6 +380,16 @@ class PageList extends MultiPage {
   };
 
   afterChangeBusinessModeModalOk = () => {
+    this.refreshDataWithReloadAnimalPrompt({});
+  };
+
+  showChangeRenderTypeModal = (item) => {
+    this.setState({ currentRecord: item }, () => {
+      ChangeRenderTypeModal.open();
+    });
+  };
+
+  afterChangeRenderTypeModalOk = () => {
     this.refreshDataWithReloadAnimalPrompt({});
   };
 
@@ -436,19 +512,43 @@ class PageList extends MultiPage {
       },
       items: [
         {
+          key: 'setImage',
+          icon: iconBuilder.picture(),
+          text: `设置图片`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.section.setImage.permission,
+          ),
+        },
+        {
+          key: 'setRectangleImage',
+          icon: iconBuilder.picture(),
+          text: `设置长方形配图`,
+          hidden: !checkHasAuthority(
+            accessWayCollection.section.setRectangleImage.permission,
+          ),
+        },
+        {
           key: 'setSort',
           icon: iconBuilder.edit(),
           text: '设置排序值',
           hidden: !checkHasAuthority(
-            accessWayCollection.section.updateSort.permission,
+            accessWayCollection.section.setSort.permission,
           ),
         },
         {
-          key: 'updateBusinessMode',
+          key: 'setRenderType',
+          icon: iconBuilder.edit(),
+          text: '设置渲染模式',
+          hidden: !checkHasAuthority(
+            accessWayCollection.section.setRenderType.permission,
+          ),
+        },
+        {
+          key: 'setBusinessMode',
           icon: iconBuilder.edit(),
           text: '设置适用业务',
           hidden: !checkHasAuthority(
-            accessWayCollection.section.updateBusinessMode.permission,
+            accessWayCollection.section.setBusinessMode.permission,
           ),
         },
         {
@@ -541,6 +641,25 @@ class PageList extends MultiPage {
       width: 80,
       showRichFacade: true,
       facadeMode: columnFacadeMode.image,
+    },
+    {
+      dataTarget: fieldData.renderType,
+      width: 100,
+      showRichFacade: true,
+      emptyValue: '--',
+      facadeConfigBuilder: (value) => {
+        return {
+          color: buildRandomHexColor({
+            seed: toNumber(value) * 8 + 18,
+          }),
+        };
+      },
+      formatValue: (value, record) => {
+        return getValueByKey({
+          data: record,
+          key: fieldData.renderTypeNote.name,
+        });
+      },
     },
     {
       dataTarget: fieldData.sort,
@@ -670,6 +789,21 @@ class PageList extends MultiPage {
           afterOK={() => {
             this.afterAddBasicInfoDrawerOk();
           }}
+        />
+
+        <ChangeImageModal
+          externalData={currentRecord}
+          afterOK={this.afterChangeImageModalOk}
+        />
+
+        <ChangeRectangleImageModal
+          externalData={currentRecord}
+          afterOK={this.afterChangeRectangleImageModalOk}
+        />
+
+        <ChangeRenderTypeModal
+          externalData={currentRecord}
+          afterOK={this.afterChangeRenderTypeModalOk}
         />
 
         <ChangeSortModal

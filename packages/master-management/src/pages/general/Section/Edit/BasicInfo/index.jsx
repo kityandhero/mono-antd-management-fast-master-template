@@ -2,7 +2,6 @@ import { connect } from 'easy-soft-dva';
 import {
   checkHasAuthority,
   convertCollection,
-  formatCollection,
   getValueByKey,
   toString,
   whetherNumber,
@@ -15,6 +14,7 @@ import {
 import { buildButton, iconBuilder } from 'antd-management-fast-component';
 
 import { accessWayCollection } from '../../../../../customConfig';
+import { buildUpdateTimeAndOperatorFieldItem } from '../../../../../customSpecialComponents';
 import { modelTypeCollection } from '../../../../../modelBuilders';
 import { singleTreeListAction } from '../../Assist/action';
 import { parseUrlParametersForSetState } from '../../Assist/config';
@@ -374,32 +374,7 @@ class Index extends TabPageBase {
             },
           ],
         },
-        {
-          title: {
-            icon: iconBuilder.contacts(),
-            text: '其他信息',
-          },
-          items: [
-            {
-              type: cardConfig.contentItemType.onlyShowInput,
-              fieldData: fieldData.createTime,
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.createTime.name,
-                format: formatCollection.datetime,
-              }),
-            },
-            {
-              type: cardConfig.contentItemType.onlyShowInput,
-              fieldData: fieldData.updateTime,
-              value: getValueByKey({
-                data: metaData,
-                key: fieldData.updateTime.name,
-                format: formatCollection.datetime,
-              }),
-            },
-          ],
-        },
+        buildUpdateTimeAndOperatorFieldItem({ data: metaData, line: 1 }),
       ],
     };
   };

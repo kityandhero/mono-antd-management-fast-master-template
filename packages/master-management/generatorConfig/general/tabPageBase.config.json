@@ -41,6 +41,14 @@
       "coverFile": false
     },
     {
+      "folder": "general/article/TabPageBase",
+      "name": "article",
+      "model": "article",
+      "key": "articleId",
+      "fileName": "index.jsx",
+      "coverFile": false
+    },
+    {
       "folder": "general/CallCenter/TabPageBase",
       "name": "CallCenter",
       "model": "callCenter",

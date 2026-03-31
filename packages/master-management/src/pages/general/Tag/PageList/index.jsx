@@ -84,12 +84,12 @@ class PageList extends MultiPage {
         break;
       }
 
-      case 'updateSort': {
+      case 'setSort': {
         this.showChangeSortModal(handleData);
         break;
       }
 
-      case 'updateType': {
+      case 'setType': {
         this.showChangeTypeModal(handleData);
         break;
       }
@@ -360,17 +360,20 @@ class PageList extends MultiPage {
           ),
         },
         {
-          type: dropdownExpandItemType.divider,
-        },
-        {
-          key: 'updateSort',
+          key: 'setSort',
           icon: iconBuilder.edit(),
           text: '设置排序值',
+          hidden: !checkHasAuthority(
+            accessWayCollection.tag.setSort.permission,
+          ),
         },
         {
-          key: 'updateType',
+          key: 'setType',
           icon: iconBuilder.edit(),
           text: '设置适用对象',
+          hidden: !checkHasAuthority(
+            accessWayCollection.tag.setType.permission,
+          ),
         },
         {
           type: dropdownExpandItemType.divider,

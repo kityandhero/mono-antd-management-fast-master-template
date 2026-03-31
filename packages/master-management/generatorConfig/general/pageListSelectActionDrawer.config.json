@@ -1,1 +1,13 @@
-{ "list": [] }
+{
+  "list": [
+    {
+      "folder": "general/article/PageListSelectActionDrawer",
+      "name": "article",
+      "model": "article",
+      "key": "articleId",
+      "visibleFlag": "65821a439ecf4dd698b3eb4e9753f958",
+      "fileName": "index.jsx",
+      "coverFile": false
+    }
+  ]
+}

@@ -29,12 +29,12 @@ export async function addBasicInfoData(parameters) {
   });
 }
 
-export const updateBasicInfoDataApiAddress =
-  '/articleNotificationApplication/updateBasicInfo';
+export const setApplicationIdDataApiAddress =
+  '/articleNotificationApplication/setApplicationId';
 
-export async function updateBasicInfoData(parameters) {
+export async function setApplicationIdData(parameters) {
   return request({
-    api: updateBasicInfoDataApiAddress,
+    api: setApplicationIdDataApiAddress,
     params: parameters,
   });
 }
